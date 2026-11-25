@@ -5,8 +5,9 @@
 This file describes the approved concept precisely enough to rebuild without seeing the canvas. Values are desktop at a 1440 viewport, with mobile at 390 in brackets **[m: …]**. Between 750 and 1440, scale fluidly.
 
 Canvas page **"B · Archive: black, gold & green"**:
-- `Archive-Home`, `Archive-Collection`, `Archive-Product`, `Archive-Home-Mobile`, `Archive-Foundations`.
-- The collection and product mobile layouts follow Direction A's mobile artboards (`Collection-Mobile`, `Product-Mobile`) restyled with these tokens.
+- Desktop: `Archive-Home`, `Archive-Collection`, `Archive-Product`.
+- Mobile: `Archive-Home-Mobile`, `Archive-Collection-Mobile` (with the filter drawer and no-results states), `Archive-Product-Mobile` (with the sticky add-to-bag and cart drawer states).
+- `Archive-Foundations`.
 
 Concept: **a heritage label's archive.** Dark and quiet, with gold used the way an engraved plate or a hallmark would use it. Richness comes from colour, the frame and the type, **never from gradients, shadows, foil textures or animation.**
 
