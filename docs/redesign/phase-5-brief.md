@@ -18,6 +18,7 @@
 | Timing | Owner | A low-traffic window, at least 2 hours free, no promotions or emails scheduled |
 | Change freeze | Owner | No other Admin or app changes during the window |
 | Access | Owner + agent | Admin access for each step; the CLI only if publishing that way |
+| **Customer accounts** | `owner-inputs.md` E-13 | Dawn 16 has **no legacy customer account templates** (see `release-notes.md`). The store must use **new customer accounts** before publishing. If it was on legacy accounts, the upgrade is done and approved (E-13), and sign-in plus order history were checked on the new theme in Phase 4. |
 
 If any gate fails: **no-go**. Record why in `owner-inputs.md` and reschedule.
 
@@ -32,8 +33,10 @@ Record each step in `docs/redesign/launch-log.md` (time, who, result, evidence) 
 2. Export the products CSV (all products) and the redirects CSV. Store them under `docs/redesign/backup/launch-YYYY-MM-DD/`.
 3. Screenshot the menus (`main-menu`, `footer`), the Search & Discovery filters, Preferences (title, description, social image) and every channel's product availability.
 4. Copy all four policies' current text into the backup folder.
-5. Customer or consent exports, if taken, stay **outside the repo**, kept by the owner. They contain personal data.
-6. Owner signs **F-03**.
+5. **Articles:** for every article that step 6 hides or step 7 changes, save its body HTML, title, SEO title, meta description, handle and visibility to `backup/launch-YYYY-MM-DD/articles/`.
+6. **Product, collection and page state:** record the current status and channel availability of every jewelry product, collection and page you'll change in step 3. All should be Draft or hidden, so the record is short.
+7. Customer or consent exports, if taken, stay **outside the repo**, kept by the owner. They contain personal data.
+8. Owner signs **F-03**.
 
 **Checkpoint A.** Nothing customer-facing has changed yet. Safe to stop.
 
@@ -52,7 +55,7 @@ Record each step in `docs/redesign/launch-log.md` (time, who, result, evidence) 
 ### Step 3 · Make the jewelry visible (E-05, E-02, E-03)
 1. Set the launch products to **Active** and publish them to **Online Store** (other channels in step 8).
 2. Make `jewelry`, `bracelets` and `necklaces` (and `rings` only if approved) available on Online Store.
-3. Set the four content pages to **visible**.
+3. Leave the four content pages **hidden** for now. Their templates can only be assigned once the new theme is published (step 5).
 4. Check in the new theme's preview that home, collection and product pages now show real products.
 
 From here the jewelry URLs are public. The old Craft theme is still live, so the window between here and step 5 should be minutes.
@@ -63,20 +66,21 @@ Apply Availability + Price only, per the Phase 3 proposal.
 ### Step 5 · Publish the new theme (F-04)
 1. The owner signs **F-04** in `owner-inputs.md`.
 2. Publish the new theme in Admin (Online Store → Themes → Publish), or with `shopify theme publish --theme <id>` if the owner prefers the CLI.
-3. Hard-refresh the storefront on a phone and a desktop.
+3. **Assign the page templates.** Admin now lists the new theme's templates. Set `our-story` → `page.our-story`, `why-brass` → `page.why-brass`, `jewelry-care` → `page.jewelry-care`, `size-guide` → `page.size-guide`. Then make the four pages **visible**, and open each one to check its layout.
+4. Hard-refresh the storefront on a phone and a desktop.
 
 **Checkpoint C.** The new theme is live. Rollback from here is the full table in §3.
 
 ### Step 6 · Retire legacy visibility (E-08), then redirects (E-09)
 1. Unpublish the legacy products listed in the approved `changes/E-08-unpublish.csv` from each listed channel. **Don't delete them.**
 2. Apply the approved legacy article and collection actions from `url-inventory.csv` (hide or keep as unlinked archive).
-3. **Then** import `changes/E-09-redirects.csv` (Admin → Navigation → URL redirects → Import). Shopify redirects only take effect when nothing else exists at the old path, which is why unpublishing comes first.
+3. **Then** import `changes/E-09-redirects.csv` (Admin → Navigation → URL redirects → Import). Record every redirect created in `launch-log.md` (from/to). Shopify redirects only take effect when nothing else exists at the old path, which is why unpublishing comes first.
 4. Test five redirects from the file and two retired URLs that should 404.
 
 ### Step 7 · Policies, SEO, article consolidation (E-10, E-11, E-07)
 1. Paste the approved policy text for shipping, refund/exchange, privacy and terms.
 2. Set the homepage title, meta description and social image (live versions from 04 §5).
-3. Apply the approved jewelry-article consolidations: merged content in the kept article, and in-cluster redirects (if not in step 6's file).
+3. Apply the approved jewelry-article consolidations: merged content in the kept article, and in-cluster redirects (if not in step 6's file). **Record each article changed and each redirect created** in `launch-log.md`. The step 1 article backup is what rollback restores from.
 
 ### Step 8 · Channels and feeds (E-12)
 Only if the owner confirmed the Merchant Center / ads account status beforehand:
@@ -87,7 +91,8 @@ Only if the owner confirmed the Merchant Center / ads account status beforehand:
 
 ### Step 9 · Smoke test (within 15 minutes of step 5)
 On a phone and a desktop, logged out, in a private window:
-- [ ] Home, `/collections/jewelry`, one product page, Our Story and one article load with no console errors.
+- [ ] Home, `/collections/jewelry`, one product page, the four content pages (each on its own template) and one article load with no console errors.
+- [ ] Customer sign-in works and shows order history (new customer accounts, E-13).
 - [ ] Nav, footer links and search work. Search for "pipe" shows no jewelry-page pollution, and legacy items behave as decided.
 - [ ] Add to bag, edit the cart, reach the checkout page. **Don't complete an order** unless the owner approved a test-order plan (e.g. a 100% discount code, then cancel and refund).
 - [ ] Newsletter signup succeeds.
@@ -117,12 +122,13 @@ Run **every row that applies**. A theme rollback alone doesn't undo store data.
 | Order | What | How | Time |
 | --- | --- | --- | --- |
 | 1 | Theme | Publish `Backup pre-jewelry …` | ~1 min |
-| 2 | Redirects | Delete the redirects imported in step 6 (they're listed in `E-09-redirects.csv`) | ~5 min |
+| 2 | Redirects | Delete **every** redirect created at launch, from both step 6 and step 7, using the list in `launch-log.md` | ~5 min |
 | 3 | Legacy products | Re-publish per channel from `E-08-unpublish.csv` | ~10 min |
 | 4 | Legacy articles and collections | Reverse the step 6.2 actions from the inventory | ~10 min |
+| 4b | Jewelry articles changed in step 7 | Restore the body HTML, title, SEO fields and visibility from the step 1 article backup | ~10 min |
 | 5 | Policies | Paste back the backed-up text | ~5 min |
 | 6 | Preferences | Restore the title, description and image from the step 1 screenshots | ~2 min |
-| 7 | Jewelry products, collections, pages | Set them back to Draft or hidden (or leave them; the old theme doesn't link to them) | ~5 min |
+| 7 | Jewelry products, collections, pages | **Restore the step 1 state:** products back to **Draft** and off every channel; collections off Online Store; pages **hidden**. Then, logged out, check that a product URL, `/collections/all` and site search show no jewelry. Leaving them active would keep them purchasable through direct links, search and `/collections/all`, even under Craft. | ~5 min |
 | 8 | Search filters, channels | Restore from the screenshots | ~5 min |
 | 9 | Menus | Nothing to do. `main-menu` and `footer` were never edited, and the backup theme uses them. | n/a |
 

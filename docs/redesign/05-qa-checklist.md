@@ -34,6 +34,9 @@ Record each result as **Pass / Fail / Not tested**, with evidence (screenshot pa
 - [ ] Category tiles hide collections with 0 products; the section disappears if all are empty.
 - [ ] Collection: category buttons, availability filter, price filter, sort, pagination, empty state and reset all work.
 - [ ] PDP: gallery thumbnails, swipe, zoom/lightbox, finish and size selection update price, availability, URL `?variant=` and images. The sold-out variant shows its state. The Size guide popup opens, traps focus and closes.
+- [ ] Cart: edit two different lines within ~100 ms. Both quantities are saved (regression for D-25).
+- [ ] Predictive search: type `C++`, then keep typing. No console error, and the suggestions and "Search for…" text keep updating (regression for D-25).
+- [ ] Customer accounts: sign in, order history and sign out work on new customer accounts (E-13).
 - [ ] Add to bag → the cart drawer opens with the correct variant. Quantity +/−, remove and empty cart all work. Errors (e.g. exceeding inventory) are announced.
 - [ ] Checkout button hands off to native Shopify checkout. Don't complete an order without a test-order plan.
 - [ ] Country/region selector changes currency, and prices localise on cards, PDP and cart.

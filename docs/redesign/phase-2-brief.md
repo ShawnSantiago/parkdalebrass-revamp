@@ -95,7 +95,7 @@ The product page carries the most risk. Do the edits one at a time and retest af
 
 ### 2.6 · Content pages
 - `pb-page` (03 §4.9). Then templates `page.our-story.json`, `page.why-brass.json`, `page.jewelry-care.json`, `page.size-guide.json`, composed per `01-implementation-plan.md` §2B.
-- **These pages don't exist in the store yet** (creating them is store change E-03). Build the templates only. Test by temporarily assigning a template to an existing page **in the dev theme preview only**, or wait for approval. Never create pages yourself.
+- **These pages don't exist in the store yet** (creating them is store change E-03). Build the templates only. Test in the **theme editor of the unpublished theme**: open each `page.*` template there and preview it against an existing page. Don't assign templates to real pages. Shopify Admin only lists templates from the *published* theme, and assigning one is a store change. Never create pages yourself.
 - Contact (`page.contact.json`): restyle, and add the previous-orders note. The `[date]` stays bracketed until the owner gives it.
 - Blog and article: restyle via CSS; check one legacy and one jewelry article.
 - **Done when:** each template renders with the centred diamond head, caps H1 and correct widths, and the size-guide tables are styled.
@@ -111,6 +111,18 @@ The product page carries the most risk. Do the edits one at a time and retest af
   - list any Craft custom code, each item recreated or dropped with a reason.
 - Don't copy Craft files into this repo.
 - Without A-01, skip this step and report it as blocked.
+
+### 2.10 · Required fixes to two Dawn 16 bugs (D-25)
+Both bugs are in Shopify's stock code, and both were reproduced in review at `beee2c0`. Customers would hit them on this store. Make each fix a small, marked Dawn edit (`PB:` markers, CHANGELOG row) with a regression test.
+
+1. **Cart drops a quantity change** (`assets/cart.js`, `CartItems` constructor). One 300 ms debounce is shared by every row, so editing two different rows within 300 ms sends only the second change to Shopify.
+   - **Fix:** debounce per line (keyed by the line's `data-index`/key), and send updates one at a time in order, so both reach `/cart/change`. Alternatively, batch the pending lines into one `/cart/update.js` call. Keep Dawn's error, status-announcement and drawer behaviour.
+   - **Test:** change line 1, then line 2 within 100 ms. Both final quantities are correct in the cart and in `/cart.js`.
+2. **Predictive search stops updating after punctuation** (`assets/predictive-search.js`, `updateSearchForTerm`). It builds `new RegExp(previousTerm, 'g')` from the user's text, so a term like `C++` throws and stops the "Search for…" text from updating.
+   - **Fix:** compare the previous term as literal text: count with `split(previousTerm).length - 1`, or escape it with `replace(/[.*+?^${}()|[\]\\]/g, '\\$&')`.
+   - **Test:** type `C++`, wait for suggestions, then keep typing. There are no console errors, the "Search for…" text tracks the input, and new requests are sent.
+
+Mention both fixes in the Phase 2 report. They're also worth reporting upstream to Shopify/dawn (owner's call).
 
 ### 2.9 · Prelaunch fixtures (only if a dev store exists, A-04)
 - Create `[FIXTURE]` draft products with Finish and Size variants (including one sold-out size) **on the development store only**, to test the product page and collection fully (01 §2C).

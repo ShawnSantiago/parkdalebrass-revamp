@@ -51,7 +51,7 @@ Read this whole brief before you change a file. It takes about five minutes and 
 - Done when: both weights load (Network tab, once previewing), and no Google Fonts CDN request is made.
 
 ### 1.3 · Global settings (`config/settings_data.json`)
-- Apply the "Other settings" block in `03-theme-mapping.md` §1 key by key: page width 1440, button/input/pill radius 2, card styling, badge settings, no shadows, `animations_reveal_on_scroll: false`, `animations_hover_elements: "none"`, `cart_type: "drawer"`, predictive search on with prices, currency code on.
+- Apply the "Other settings" block in `03-theme-mapping.md` §1 key by key: `page_width: 1400` (the slider steps in 100s; `pb-theme.css` sets the exact 1440), `animations_hover_elements: "default"` (there's no `none` option), button/input/pill radius 2, card styling, badge settings, no shadows, `animations_reveal_on_scroll: false`, `animations_hover_elements: "none"`, `cart_type: "drawer"`, predictive search on with prices, currency code on.
 - Social links: leave blank. Only verified links are added, by the owner.
 - Done when: the diff for `settings_data.json` touches only the keys listed in 03 §1 (a 05 §8 check).
 
