@@ -153,4 +153,4 @@ The product page carries the most risk. Do the edits one at a time and retest af
 3. QA results: what was tested, how, pass or fail, and what's untested (with the reason).
 4. Screenshot sets (desktop and mobile) for each template and state.
 5. Updated `CHANGELOG.md`, any new `owner-inputs.md` items, and the Craft carry-over results (or "blocked: no A-01").
-6. Next step: Phase 3 (catalog and content). Every item there needs owner approval, so the owner leads it.
+6. Next step: Phase 3 (catalog and content). Follow [`phase-3-brief.md`](phase-3-brief.md). The owner leads it, and every store change is approved one at a time.

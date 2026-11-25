@@ -108,6 +108,8 @@ Every section must have: a `{% schema %}` with presets, translated labels, `colo
 
 ## Phase 3 · Catalog and content (owner approval needed for each item)
 
+Step-by-step handover: **[`phase-3-brief.md`](phase-3-brief.md)**. Additive changes are made **hidden** in Phase 3 (draft products, collections off the Online Store, hidden pages, menus unused by the live theme). Visibility changes, unpublishing, redirects and policy replacement wait for the Phase 5 runbook.
+
 | Change | Type | Reversible by |
 | --- | --- | --- |
 | Create metafield definitions `custom.*` (04 §2) | Additive | Delete the definitions (values are lost) |
