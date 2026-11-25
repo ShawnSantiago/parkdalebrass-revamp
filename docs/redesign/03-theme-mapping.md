@@ -40,6 +40,7 @@ How each part of `02-design-spec.md` is built in this repo. File paths are relat
 | Cart drawer | Dawn `cart-drawer` + CSS | Matches with CSS |
 | Content pages (Our Story, Why Brass, Care, Size Guide) | **`pb-page`** (+ `pb-split`, Dawn `collapsible-content`) | Centred diamond head with caps H1 and dateline |
 | Blog / article | Dawn + CSS | Matches with CSS. Verify in QA. |
+| Cart quantity edits; predictive search | **Dawn edits** to `assets/cart.js` and `assets/predictive-search.js` | Fix two Dawn 16 bugs customers would hit (D-25; `phase-2-brief.md` §2.10) |
 
 ## 1 · `config/settings_data.json`: global settings (merge into `current`)
 
@@ -69,12 +70,12 @@ Set `background_gradient` to `""` and `shadow` to `#000000` for every scheme (sh
 "heading_scale": 100,
 "type_body_font": "inter_n4",
 "body_scale": 100,
-"page_width": 1440,
+"page_width": 1400,
 "spacing_sections": 0,
 "spacing_grid_horizontal": 24,
 "spacing_grid_vertical": 40,
 "animations_reveal_on_scroll": false,
-"animations_hover_elements": "none",
+"animations_hover_elements": "default",
 "buttons_border_thickness": 1, "buttons_radius": 2, "buttons_shadow_opacity": 0,
 "variant_pills_radius": 2, "variant_pills_border_opacity": 100,
 "inputs_radius": 2, "inputs_border_opacity": 100,
@@ -88,6 +89,11 @@ Set `background_gradient` to `""` and `shadow` to `#000000` for every scheme (sh
 "currency_code_enabled": true,
 "cart_type": "drawer", "show_vendor": false, "cart_color_scheme": "scheme-1"
 ```
+
+Two values here are constrained by Dawn's schema, so check them against `config/settings_schema.json` rather than guessing:
+- **`page_width`** is a slider from 1000 to 1600 in steps of 100, so 1440 can't be set. Use **1400**. `pb-theme.css` overrides `--page-width` to exactly `144rem` (§3); the setting just has to be valid.
+- **`animations_hover_elements`** accepts `default`, `vertical-lift` and `3d-lift`. **`default`** is the no-lift option. The gold-hover behaviour comes from `pb-theme.css`.
+
 
 Social links: fill only with accounts the owner verifies. Leave the rest blank.
 
@@ -127,6 +133,8 @@ Starting contents:
   --pb-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --font-heading-family: var(--pb-serif);
   --font-heading-weight: 500;
+  /* Exact 1440px max width (02 §1.3). Dawn's slider can't be set to 1440 (steps of 100), so the setting is 1400 and this overrides it. */
+  --page-width: 144rem;
 }
 
 /* Page width: 56px gutters desktop, 20px mobile */

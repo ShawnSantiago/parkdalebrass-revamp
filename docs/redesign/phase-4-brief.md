@@ -78,6 +78,7 @@ Run each flow by hand **and** with a Playwright script where it's practical:
 - **Localization:** currency changes via the country selector.
 - **Newsletter:** success and error paths. In Admin, the customer is created with the `newsletter` tag and the correct consent state.
 - **Contact form.**
+- **Customer accounts:** sign in, view order history and sign out on the new theme, using new customer accounts (E-13). Dawn 16 has no legacy account pages.
 
 ### 3.5 · Accessibility (05 §4)
 - Run `@axe-core/playwright` on home, collection, product (with the cart drawer open) and Our Story. The target is 0 serious or critical issues.

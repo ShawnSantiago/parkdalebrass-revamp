@@ -46,6 +46,8 @@ Records every change to this theme, and especially every edit to a **stock Dawn 
   | `snippets/product-media-gallery.liquid` | Left thumbnail column; main image in the double frame | D-23 |
   | `sections/footer.liquid` | Mobile accordion link groups | D-22 |
   | `sections/main-collection-product-grid.liquid` | In-grid "New to brass?" promo tile on the last page | D-22 |
+  | `assets/cart.js` | Per-line debounce, with updates sent one at a time, so no quantity change is dropped | D-25 |
+  | `assets/predictive-search.js` | Compare the previous search term as literal text, not a RegExp | D-25 |
 
 ### Changed: settings/templates
 - _None yet._

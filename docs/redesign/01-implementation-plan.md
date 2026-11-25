@@ -50,7 +50,7 @@ Step-by-step handover: **[`phase-1-brief.md`](phase-1-brief.md)**.
 | --- | --- | --- | --- |
 | 1.1 | Colour schemes | `config/settings_data.json` | Replace schemes 1–5 with the five Archive schemes (03 §1): onyx, onyx deep, royal green, onyx raised, gold. Merge; don't replace the file. |
 | 1.2 | Typography | `config/settings_data.json`, `assets/pb-theme.css` | Heading font **Cormorant Garamond 500 + 600** (CSS picks the weight per element), body **Inter 400**. Self-host the WOFF2 files by default; switch to font-library handles if the owner confirms they exist (03 §2). |
-| 1.3 | Global settings | `config/settings_data.json` | Page width 1440, radii 2, no shadows, reveal-on-scroll off, card portrait styling (03 §1). |
+| 1.3 | Global settings | `config/settings_data.json` | Page width setting 1400 (CSS makes it exactly 1440; see 03 §1), hover `default`, radii 2, no shadows, reveal-on-scroll off, card portrait styling (03 §1). |
 | 1.4 | Token stylesheet | `assets/pb-theme.css` (new), `layout/theme.liquid` (1 line) | Tokens, eyebrow, link, focus, placeholder and header-wordmark styles. Loaded after `base.css` (03 §3). |
 | 1.5 | Header | `sections/header-group.json` | Logo left, dropdown menu → `jewelry-main-menu`, sticky on scroll-up, announcement bar shown only when a message is set. |
 | 1.6 | Footer | `sections/footer-group.json`, `sections/footer.liquid` | Brand block + 3 link-list blocks (Shop / Learn / Help), country selector on, newsletter off (the homepage has its own), policies on. Dawn edit: mobile accordions (03 §7). |
