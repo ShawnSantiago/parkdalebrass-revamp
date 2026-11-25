@@ -28,6 +28,7 @@ Build Phases 0–2 now. Don't wait on SKUs or photography for them. Phase 5 wait
 
 1. `shopify theme list --store <store>.myshopify.com` and note the live theme name, ID and role.
 2. `shopify theme pull --theme <live-id>` into a fresh directory. Diff it against this repo (stock Dawn 16.0.0):
+   - **Resolved 2026-11-25:** the live theme is Craft 14.0.0, and the build stays on Dawn 16 (D-24). Pull Craft into a separate reference folder (don't commit it over this repo) and use it to complete the carry-over checklist in `audit.md` §5. The original rules follow.
    - If the live theme **is Dawn (any version)**: commit it to the branch as `chore: import live theme`, then upgrade to 16.0.0 only if the gap is small. Otherwise apply these docs to the live version.
    - If it is **another theme**: stop and report. The owner decides between re-mapping these docs to that theme and moving to Dawn.
 3. Record in `docs/redesign/audit.md`:

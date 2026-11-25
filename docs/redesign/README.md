@@ -32,7 +32,7 @@ Agents also get these rules automatically from `AGENTS.md` / `CLAUDE.md` at the 
 | **Confirmed (public site)** | The live store sells legacy smoking accessories. It has blog articles `/blogs/news/what-is-brass-jewelry-metal` and `/blogs/news/gold-plated-brass-jewelry`, and localization is enabled. |
 | **Confirmed (public site audit)** | The live theme is **Craft 14.0.0** (not Dawn). The store is `parkdale-brass.myshopify.com`. Apps seen: Judge.me, Klaviyo, Microsoft Clarity, Spline, plus a `config-security.com` script. 12 products (no jewelry yet), 14 collections, 133 blog articles (30 jewelry). Details in `audit.md`. |
 | **Unknown** | Live theme custom code and app embeds, Admin data (drafts, metafields, redirects, markets), analytics. Needs owner access (A-01 to A-03). |
-| **Open decision** | Base theme: Dawn 16 or Craft 14 (B-08). Decide before Phase 1. |
+| **Decided** | Base theme: **Dawn 16** (this repo), not the live Craft 14 (D-24). Carry over app embeds and settings from Craft per the `audit.md` §5 checklist. |
 | **Proposal** | Everything in `02-design-spec.md`: palette, type, layout and copy. |
 | **Owner decision** | Products, materials, prices, finishes, sizes, shipping, returns, logo, imagery, consent wording, legacy retirement. |
 

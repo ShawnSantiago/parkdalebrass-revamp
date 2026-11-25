@@ -33,6 +33,6 @@ Visual reference (private, ask the owner for access): https://claude.ai/artifact
 
 ## Current status
 
-- Phase 0 (audit): the repo and the public storefront are audited (`docs/redesign/audit.md`, `docs/redesign/url-inventory.csv`). **The live theme is Craft 14.0.0, not Dawn**, so the base-theme decision (owner-inputs B-08) must be made before Phase 1. The live theme files, Admin and SEO data still need owner access (A-01 to A-03).
-- **Phase 1 has not started.** The owner has reserved it for another agent. If that's you, start with `owner-inputs.md` (B-08 and A-01), then `01-implementation-plan.md` Phase 1.
+- Phase 0 (audit): the repo and the public storefront are audited (`docs/redesign/audit.md`, `docs/redesign/url-inventory.csv`). **The live theme is Craft 14.0.0, not Dawn.** The owner chose to build on **Dawn 16 (this repo)** (D-24), carrying over app embeds and settings from Craft per the checklist in `audit.md` §5. The live theme files, Admin and SEO data still need owner access (A-01 to A-03).
+- **Phase 1 has not started.** The owner has reserved it for another agent. If that's you, start with `owner-inputs.md` A-01 (theme access, to complete the carry-over list), then `01-implementation-plan.md` Phase 1. Note Phase 0 step 2 there: since the build stays on Dawn 16, import the pulled Craft theme into a **separate folder for reference only**. Don't commit it over this repo.
 - Visual direction approved: **B "Archive"** (2026-11-25). Docs updated to match.

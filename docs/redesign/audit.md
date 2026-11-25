@@ -109,16 +109,29 @@ No jewelry products are published. Product types are inconsistent (often blank),
 
 ---
 
-## 5 · Decision needed: base theme (D-02 re-check)
+## 5 · Base theme decision (D-02 re-check): **decided, option A, Dawn 16 (D-24)**
 
-D-02 ("build on Dawn 16") was approved on the condition that it's re-checked if the live theme isn't Dawn. It isn't, so D-02 is **reopened**. The owner chooses (`owner-inputs.md` B-08):
+D-02 ("build on Dawn 16") was approved on the condition that it's re-checked if the live theme isn't Dawn. It isn't, so D-02 was reopened. **On 2026-11-25 the owner chose option A (D-24).** The options considered:
 
 | Option | What it means | For | Against |
 | --- | --- | --- | --- |
 | **A. Build the redesign on Dawn 16 (this repo)** *(recommended)* | A new unpublished theme from Dawn 16. Carry over only what's still needed from Craft (app embeds, a few settings, policy/contact wiring) after the theme pull. | The current, supported codebase. The docs are written against it. The redesign replaces nearly all of Craft's visible content anyway. Craft's sections share Dawn's names, so little is lost. | App embeds and any Craft edits must be re-enabled by hand. The pull and diff are still needed to know what those are. |
 | **B. Pull Craft 14 and redesign on top of it** | Use the live theme as the base and apply these docs to Craft 14. | Keeps every existing setting and app embed in place. | Two majors behind Dawn 16. Line references in `03-theme-mapping.md` won't match. Restyling Craft's defaults adds work. Upgrading later is harder. |
 
-Either way, the **theme pull (A-01) is still required** to see Craft's custom code and app embeds before launch.
+The **theme pull (A-01) is still required**, to list what to carry over from Craft.
+
+### Carry-over checklist (Craft 14 → new Dawn 16 theme)
+
+Complete it after the pull. Each item is re-created in the Dawn theme, never copied as Craft code.
+
+- [ ] App embeds: Klaviyo (on), Judge.me (on, but no widgets on jewelry templates), Microsoft Clarity and `config-security.com` (only if the owner keeps them, behind consent)
+- [ ] Consent / cookie banner and privacy settings
+- [ ] Logo, favicon and social image (if kept; see B-04)
+- [ ] Contact form wiring and the contact page (`/pages/contact-us`)
+- [ ] Footer policy links, plus the CCPA opt-out page (`/pages/ccpa-opt-out`)
+- [ ] Localization (country selector, CAD)
+- [ ] Any custom Liquid, scripts or tracking found in Craft's `layout/theme.liquid`, `snippets/` or `settings_data.json`, each either recreated or dropped with a reason
+- [ ] Legacy-only items not carried over: the Spline viewer, homepage pipe sections, Judge.me homepage carousel
 
 ---
 
@@ -149,7 +162,7 @@ Either way, the **theme pull (A-01) is still required** to see Craft's custom co
 
 | Risk | Severity | Mitigation |
 | --- | --- | --- |
-| Live theme is Craft 14, repo is Dawn 16. Custom code and app embeds would be lost if the Dawn build is published without carrying them over. | **High** | B-08 decision; theme pull (A-01); carry-over checklist before launch |
+| Live theme is Craft 14, the build is Dawn 16 (D-24). Custom code and app embeds would be lost if the Dawn build is published without carrying them over. | **High** | Theme pull (A-01); carry-over checklist in §5 completed before launch |
 | Judge.me pipe reviews could appear on jewelry pages through app embeds or blocks | **High** | Remove the Judge.me blocks and embeds from jewelry templates; QA §2 |
 | Health claims in legacy cannabis articles, and two contradictory hypoallergenic claims in jewelry articles | **High** | Fix the two jewelry articles (E-07); review or retire the flagged legacy articles (url-inventory) |
 | 30 overlapping jewelry articles cannibalise each other and have weak title tags | Medium | Consolidate by cluster after the Search Console data; 301 within each cluster only |
