@@ -2,6 +2,8 @@
 
 **Chosen direction (2026-11-25): B, "Archive".** Black ground, gold accents, royal green feature panels. It's drawn from the Bellwoods "Archive Edition" lockup. Direction A (ivory and charcoal) stays on the canvas for reference only. Don't build it.
 
+**This spec is the target. The theme bends to it, not the other way round (D-21).** If Dawn can't produce something here exactly, build it (03 §0). Don't simplify it. Any visible deviation needs owner approval and a decision entry.
+
 This file describes the approved concept precisely enough to rebuild without seeing the canvas. Values are desktop at a 1440 viewport, with mobile at 390 in brackets **[m: …]**. Between 750 and 1440, scale fluidly.
 
 Canvas page **"B · Archive: black, gold & green"**:
@@ -191,14 +193,14 @@ Image placeholders in previews: onyx-raised (green-deep inside green panels) wit
 ### 4.2 Shop by category (`pb-category-tiles`)
 A centred head with the eyebrow "THE COLLECTION" between rules and the H2 "Shop by category". Tiles per §2.3, 3-up desktop, rows on mobile. Collections without products are hidden, and so is the section if none remain.
 
-### 4.3 Featured: prelaunch `pb-concept-grid` / live `featured-collection`
+### 4.3 Featured (`pb-featured`: concepts mode before launch, collection mode after)
 - Centred head: the eyebrow ("COMING SOON" prelaunch, "EVERYDAY ESSENTIALS" live) between rules, and the H2 "The first collection".
 - Prelaunch: under the H2, a centred note (15, muted): "Concepts in development. Designs, finishes and prices may change before release."
 - Cards per §2.2, 4-up [2-up].
 - **Prelaunch:** Concept badge, no price, no product link.
 - **Live:** real products, gold prices, and a centred secondary button "View all jewelry" (margin-top 48).
 
-### 4.4 Material story (`image-with-text`, green)
+### 4.4 Material story (`pb-split`, green)
 - A full-bleed **green** section with 1px gold-line top and bottom borders.
 - Image left (green-deep background, macro finish). Text right (padding 104/88, max 660):
   - 18px diamond;
@@ -211,7 +213,7 @@ A centred head with the eyebrow "THE COLLECTION" between rules and the H2 "Shop 
 - A **double-framed** 21:9 image at content width [m: 8px frame, 440px tall portrait crop].
 - Below (margin-top 36), a row: the H2 "Considered forms. Everyday character." (46, max 640) on the left, and a gold text CTA on the right. The CTA reads "Be first to know" → `#signup` in prelaunch, and "Shop bracelets" when live.
 
-### 4.6 Ornament divider + Our story (`image-with-text`, image right)
+### 4.6 Ornament divider + Our story (`pb-split`, image right, framed)
 - The §1.5 ornament divider (padding-top 112 [64]), then the split at 6fr/5fr with an 88px gap.
 - Text: eyebrow "OUR STORY", H2 "Rooted in Parkdale.", two paragraphs (`--pb-body`), secondary button "Our story". The image is **double-framed**, 4:5.
 - **Never imply jewelry has been sold since 2019.**
@@ -315,7 +317,7 @@ Content pages use an editorial width of 720, H1 caps Cormorant 600 54 [40], body
 | Announcement (green) | Launch-list message | Hidden unless there's a verified message |
 | Hero CTA | "Get launch updates" → `#signup` | "Shop jewelry" → `/collections/jewelry` |
 | Category tiles | Collections with products only | Live collections |
-| Featured | `pb-concept-grid` (Concept badge, no price or link) | `featured-collection` + "View all jewelry" |
+| Featured | `pb-featured` concepts mode (Concept badge, no price or link) | `pb-featured` collection mode + "View all jewelry" |
 | Editorial CTA | "Be first to know" | "Shop bracelets" |
 | Newsletter button | "Notify me" | "Subscribe" |
 | PDP | Not public (draft fixtures on a dev store only) | Real product |

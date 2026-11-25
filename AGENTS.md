@@ -19,7 +19,7 @@ Visual reference (private, ask the owner for access): https://claude.ai/artifact
 - **No fake commerce.** No purchasable concept products, fake prices, ratings, reviews, scarcity, discounts or preorders. Never reuse legacy pipe reviews.
 - **Never delete legacy records** (products, reviews, customers, orders, redirects, analytics). Unpublishing needs approval and a CSV export first.
 - **Merge, don't overwrite.** Change `config/settings_data.json`, `*-group.json` and app blocks key by key. Don't overwrite whole files.
-- **Prefer Dawn's native sections and settings.** Custom sections are prefixed `pb-`, and each needs a reason recorded in `decisions.md`.
+- **The design leads; the theme follows (D-21).** `docs/redesign/02-design-spec.md` and canvas page B are the target. Use a Dawn section or setting only if it reproduces the spec exactly. Otherwise make a small Dawn edit wrapped in `PB:` markers, or build a `pb-*` section (see `03-theme-mapping.md` §0). **Never simplify the design to fit Dawn.** Any visible deviation needs owner approval and a decision entry, and until then the work is unfinished.
 - **No new apps, tracking vendors, frameworks, CDNs or build steps** without approval. No secrets in commits.
 
 ## Working conventions

@@ -39,11 +39,13 @@ Records every change to this theme, and especially every edit to a **stock Dawn 
   | File | Planned change | Decision |
   | --- | --- | --- |
   | `layout/theme.liquid` | Load `pb-theme.css` after `base.css`; preload the heading font; Organization JSON-LD on the homepage | D-02, D-15 |
-  | `sections/main-product.liquid` | Hide empty `collapsible_tab` blocks; add an `open` checkbox to that block | D-10 |
-  | `locales/en.default.json` | Add `pb.*` strings; "Add to bag", "Your bag" overrides | D-10 |
-  | `snippets/product-variant-options.liquid` | Optional: inline Size guide link (Phase 2B) | D-10 |
-  | `sections/image-with-text.liquid` | `pb_frame_image` checkbox, wraps the media in the double frame | D-20 |
-  | `sections/main-collection-product-grid.liquid` | In-grid "New to brass?" promo tile on the last page | D-20 |
+  | `sections/main-product.liquid` | Hide empty `collapsible_tab` blocks; `open` checkbox on that block; render `pb-sticky-atc` | D-23 |
+  | `locales/en.default.json` | Add `pb.*` strings; "Add to bag", "Your bag", "Select a size" | D-23 |
+  | `snippets/product-variant-picker.liquid` | Size guide link inline in the Size legend | D-23 |
+  | `snippets/product-variant-options.liquid` | No pre-selected size ("Select a size" start state) | D-23 |
+  | `snippets/product-media-gallery.liquid` | Left thumbnail column; main image in the double frame | D-23 |
+  | `sections/footer.liquid` | Mobile accordion link groups | D-22 |
+  | `sections/main-collection-product-grid.liquid` | In-grid "New to brass?" promo tile on the last page | D-22 |
 
 ### Changed: settings/templates
 - _None yet._

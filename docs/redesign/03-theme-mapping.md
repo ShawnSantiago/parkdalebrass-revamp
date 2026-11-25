@@ -6,6 +6,41 @@ How each part of `02-design-spec.md` is built in this repo. File paths are relat
 
 ---
 
+## 0 · The rule: the design leads, the theme follows (D-21)
+
+`02-design-spec.md` and the canvas page B are the target. Dawn is a set of parts, not a constraint.
+
+1. **Use a Dawn section or setting only if it reproduces the spec exactly**: layout, proportions, type, colour, ornament, states and responsive behaviour, with settings and `pb-theme.css` alone.
+2. If it gets close but not exact, either **make a small, marked Dawn edit** (`PB:` markers, logged in the CHANGELOG) or **build a `pb-*` section**. Prefer the custom section when the Dawn edit would touch more than about 20 lines, or would fight Dawn's JavaScript.
+3. **Never quietly simplify the design** to fit Dawn. Any visible deviation needs owner approval and a decision entry first. Until then, the item is unfinished, not "acceptable".
+4. Platform limits that genuinely can't be met (checkout, Shopify-rendered emails, app widgets) are listed as known deviations in `05-qa-checklist.md` §9.
+
+### How each part of the design is built
+
+| Design element (02) | Built with | Why |
+| --- | --- | --- |
+| Header, nav, wordmark + diamond, announcement | Dawn `header`, `announcement-bar` + `pb-theme.css` | Matches with CSS |
+| Footer desktop | Dawn `footer` + CSS | Matches with CSS |
+| Footer mobile accordions | **Dawn edit** `sections/footer.liquid` (§7) | Dawn stacks the groups instead of collapsing them |
+| Hero | **`pb-hero`** | Framed lockup, two buttons, mobile order |
+| Category tiles / mobile rows | **`pb-category-tiles`** | Hides empty collections; tiles become rows on mobile |
+| Featured (prelaunch concepts and live products) | **`pb-featured`** | Centred ruled head, gold-outline badge, button below, concept mode without prices |
+| Material story, Our story | **`pb-split`** | Exact 1:1 full-bleed green and 6fr/5fr with an 88px gap; double-framed image |
+| Editorial banner + divider | **`pb-editorial-banner`** | Framed image, copy below |
+| Journal | **`pb-journal-picks`** | Hand-picked articles, numerals |
+| Signup | **`pb-newsletter`** | Green double frame, centred |
+| Collection head + category pills | **`pb-collection-header`** | Centred diamond head, live-category line, pills |
+| Collection grid, filters, sort, pagination | Dawn `main-collection-product-grid` + CSS + **Dawn edit** (promo tile) | Filtering logic stays native |
+| Collection help strip | Dawn `multicolumn` + CSS | Matches with CSS (hide the arrow icon, gold caps links) |
+| Product gallery (left thumbnail column, framed main image, mobile counter) | Dawn `main-product` + **Dawn edit** (§5.6) + CSS | Dawn puts thumbnails below the main image |
+| Product info, options, accordions | Dawn `main-product` blocks + **Dawn edits** (§5) | Keeps Dawn's variant and cart JavaScript |
+| "Select a size" start state, inline size-guide link | **Dawn edits** (§5.3, §5.5) | Required by the design |
+| Mobile sticky add-to-bag | **`snippets/pb-sticky-atc.liquid` + `assets/pb-sticky-atc.js`** (§4.10) | Not in Dawn |
+| Recommendations | Dawn `related-products` + CSS (centred head, diamond) | Matches with CSS |
+| Cart drawer | Dawn `cart-drawer` + CSS | Matches with CSS |
+| Content pages (Our Story, Why Brass, Care, Size Guide) | **`pb-page`** (+ `pb-split`, Dawn `collapsible-content`) | Centred diamond head with caps H1 and dateline |
+| Blog / article | Dawn + CSS | Matches with CSS. Verify in QA. |
+
 ## 1 · `config/settings_data.json`: global settings (merge into `current`)
 
 Edit through the theme editor where possible, then pull. If editing the JSON by hand, change **only** these keys.
@@ -323,11 +358,24 @@ CSS:
 
 `products_count` counts products published to the Online Store. Confirm on the store that draft fixtures don't count.
 
-### 4.3 `sections/pb-concept-grid.liquid` (prelaunch only)
+### 4.3 `sections/pb-featured.liquid` (prelaunch concepts **and** live products)
 
-- Settings: `eyebrow` ("COMING SOON"), `heading` ("The first collection"), `note` (text: "Concepts in development. Designs, finishes and prices may change before release."), `badge_label` ("Concept"), color_scheme, padding.
+One section serves both states, so switching at launch is a single setting.
+
+- Settings:
+  - `mode` (select: `concepts` | `collection`, default `concepts`);
+  - `collection` (collection picker, used in `collection` mode);
+  - `products_to_show` (2–8, default 4);
+  - `eyebrow` ("COMING SOON" / "EVERYDAY ESSENTIALS");
+  - `heading` ("The first collection");
+  - `note` (text: "Concepts in development. Designs, finishes and prices may change before release."; shown only in `concepts` mode);
+  - `badge_label` ("Concept");
+  - `view_all_label` ("View all jewelry"; `collection` mode only);
+  - color_scheme, padding.
 - Blocks `concept` (max 6): `image` (image_picker), `name` (text), `descriptor` (text), `link` (url, optional; defaults to none. Use `#signup`, **never** a product URL).
-- Markup: a centred head (`.pb-eyebrow--ruled`, H2, note), then a `<ul>` 4-up [2-up] of `<li><article>`. Inside: the image in a 4:5 box (onyx-raised, 1px rule border) with a `<span class="badge">` reading "Concept" (gold outline, 02 §2.2), then an `<h3 class="pb-product-name">` and a `<p>` descriptor. **No price element, no `product` JSON-LD, no add-to-cart.** With no image, render `.pb-placeholder` plus `placeholder_svg_tag`.
+- Markup, both modes: a centred head (`.pb-eyebrow--ruled`, H2, note), then a `<ul>` 4-up [2-up].
+- **`concepts` mode:** `<li><article>` with the image in a 4:5 box (onyx-raised, 1px rule border) and a `<span class="badge">` "Concept" (gold outline, 02 §2.2), then an `<h3 class="pb-product-name">` and a `<p>` descriptor. **No price element, no `product` JSON-LD, no add-to-cart.** With no image, render `.pb-placeholder` plus `placeholder_svg_tag`.
+- **`collection` mode:** loop `collection.products limit: products_to_show` and `render 'card-product'` (portrait ratio, `show_secondary_image: true`, no vendor, no rating, no quick add). Then a centred secondary button with `view_all_label` → `collection.url`. If the collection is empty, render nothing.
 
 ### 4.4 `sections/pb-editorial-banner.liquid`
 
@@ -351,24 +399,70 @@ Reuse Dawn's form exactly: `{% form 'customer', id: 'PbNewsletter-{{ section.id 
 - Layout: a green `.pb-frame` inside `.page-width` (the frame background is the scheme background). The inner frame has padding 7.2rem 4rem [4rem 1.8rem] and centred content: diamond, ruled eyebrow, H2, text. Then a form, max 56rem, left-aligned inside: a visible `<label>`, the input (5.2rem, green-deep background, 1px gold border) and the gold primary button in a wrapping row.
 - Success: `<p role="status">{{ 'newsletter.success' | t }}</p>`. Error: `<p role="alert" id="…-error">`, with `aria-describedby` on the input.
 
-### 4.7 `sections/pb-collection-nav.liquid`
+### 4.7 `sections/pb-collection-header.liquid`
 
-- Settings: `menu` (link_list, default `shop-categories`), show_count (checkbox).
-- For each `link` in the menu, render `<a class="pb-pill" href="{{ link.url }}" {% if link.current %}aria-current="page"{% endif %}>{{ link.title | escape }}</a>`, then hide any link whose `link.object.products_count == 0`.
-- Wrap the links in `<nav aria-label="{{ 'pb.collection.categories' | t }}">`. On mobile it scrolls horizontally (`overflow-x:auto; scroll-snap-type:x proximity`).
+Replaces Dawn's `main-collection-banner` on collection templates.
+
+- Settings:
+  - `menu` (link_list, default `shop-categories`);
+  - `show_description` (checkbox, on);
+  - `category_line` (text, optional override; otherwise built from the menu's links that have products, joined with " · ", upper case);
+  - color_scheme, padding.
+- Markup:
+  - the breadcrumb (`snippets/pb-breadcrumbs.liquid`);
+  - a centred head: 18px `.pb-diamond`, `<h1>` `{{ collection.title | escape }}` (caps by CSS), `.pb-eyebrow--ruled` category line, and the description;
+  - then `<nav aria-label="{{ 'pb.collection.categories' | t }}">` with one pill per menu link whose `link.object.products_count > 0`. A pill is `<a class="pb-pill" href="{{ link.url }}" {% if link.current %}aria-current="page"{% endif %}>{{ link.title | escape }}</a>`.
+- Mobile: the pills scroll horizontally (`overflow-x:auto; scroll-snap-type:x proximity`).
 - Pill CSS: height 4rem, padding 0 1.8rem, 1px `var(--pb-rule-strong)`, radius 2px, Inter 600 1.2rem, 0.18em, uppercase, ivory. Hover: gold border. `[aria-current]`: gold fill, onyx text.
+
+### 4.8 `sections/pb-split.liquid`
+
+For the material story, our story, and content-page splits.
+
+- Settings:
+  - `layout` (`image_first` | `text_first`);
+  - `ratio` (`1-1` | `6-5`);
+  - `full_bleed` (checkbox: the background spans the viewport, the content stays at max 1440);
+  - `frame_image` (checkbox: wraps the image in `.pb-frame`);
+  - `show_diamond` (checkbox);
+  - `eyebrow`, `heading`, `text` (richtext), `button_label`, `button_link`;
+  - `image`, `image_mobile`;
+  - color_scheme, padding.
+- Desktop grid: `1-1` = `repeat(2,minmax(0,1fr))` with no gap; the text side has padding 10.4rem 8.8rem and max-width 66rem. `6-5` = `minmax(0,6fr) minmax(0,5fr)` with gap 8.8rem.
+- Mobile: image then text (or as set), single column.
+- Material: `scheme-3`, `1-1`, `full_bleed`, gold-line top and bottom borders, `show_diamond`.
+- Story: `scheme-1`, `6-5`, `text_first`, `frame_image`.
+
+### 4.9 `sections/pb-page.liquid`
+
+Replaces `main-page` on the four content-page templates.
+
+- Settings: `show_diamond` (on), `dateline` (text, optional, e.g. "EST. 2019 · TORONTO" on Our Story), `width` (`narrow` 72rem | `normal`), color_scheme, padding.
+- Markup: a centred head (diamond, `<h1>{{ page.title | escape }}</h1>` in caps by CSS, dateline), then `<div class="rte">{{ page.content }}</div>` at the chosen width.
+
+### 4.10 `snippets/pb-sticky-atc.liquid` + `assets/pb-sticky-atc.js` (required)
+
+Rendered by `main-product` (Dawn edit §5.7), below 750px only. Behaviour per 02 §6.4.
+
+- **Show** when (a) the main product form has a valid, available variant selected, and (b) the main submit button is out of view (IntersectionObserver on `.product-form__submit`).
+- **Hide** when the cart drawer is open (`cart-drawer` has `active`), or when a form error is visible.
+- The button submits the main product form (`form.requestSubmit()`), so Dawn's cart logic, errors and the drawer stay the single source of truth.
+- Listen for Dawn's `variant:change` pub/sub event (`PUB_SUB_EVENTS.variantChange` in `assets/constants.js`) to update the name, options and price. Use no other new JavaScript.
+- The bar is `role="region"` with `aria-label`, keyboard reachable, and doesn't trap focus. `prefers-reduced-motion` means no slide animation.
 
 ## 5 · `templates/product.json` composition
 
-`main-product` blocks in order. Settings: `media_position: left`, `media_size: large` (≈ 7/5), `gallery_layout: thumbnail`, `mobile_thumbnails: hide` (slider + counter), `image_zoom: lightbox`, `enable_sticky_info: true`, `hide_variants: true`, `media_fit: cover`.
+`main-product` blocks in order. Settings: `media_position: left`, `media_size: large` (≈ 7/5), `gallery_layout: thumbnail` (re-laid out by Dawn edit 6 below), `mobile_thumbnails: hide` (slider + counter), `image_zoom: lightbox`, `enable_sticky_info: true`, `hide_variants: true`, `media_fit: cover`.
 
 | # | Block type | Settings / source |
 | --- | --- | --- |
-| 1 | `title` | n/a |
-| 2 | `price` | n/a |
+| 0 | `text` | Eyebrow: `{{ product.type }}`, text style uppercase; styled `.pb-eyebrow` |
+| 1 | `title` | n/a (caps by CSS) |
+| 2 | `price` | n/a (gold by CSS) |
 | 3 | `text` | `text`: dynamic source `product.metafields.custom.short_description` |
+| 3b | `custom_liquid` | `<div class="pb-divider pb-divider--flex" aria-hidden="true"><span class="pb-diamond pb-diamond--sm"></span></div>` |
 | 4 | `variant_picker` | `picker_type: button`, `swatch_shape: circle` (Finish swatches come from Shopify's category-metafield colour swatches, or plain buttons) |
-| 5 | `popup` | `text: "Size guide"`, `page: size-guide` |
+| 5 | `popup` | `text: "Size guide"`, `page: size-guide`. Moved into the Size legend by Dawn edit 3. |
 | 6 | `text` | Fit note: `product.metafields.custom.fit_notes` |
 | 7 | `buy_buttons` | `show_dynamic_checkout: false`, `show_gift_card_recipient: false` |
 | 8 | `text` | Shipping summary (owner-approved text; leave blank until then) |
@@ -382,13 +476,20 @@ Remove the `vendor`, `quantity_selector` and `share` blocks and the `description
 
 Connect the metafields through the theme editor's **dynamic source** picker; don't hand-write them in JSON.
 
-**Required Dawn edits in `sections/main-product.liquid`** (small; record each in the changelog):
+**Required Dawn edits** (record each in the CHANGELOG with `PB:` markers). All are required; none are optional:
 
 1. **Hide empty accordions.** Wrap the `when 'collapsible_tab'` markup (line ~213) in `{%- if block.settings.content != blank or block.settings.page != blank -%} … {%- endif -%}`.
 2. **Open by default.** Add a checkbox `open` to the `collapsible_tab` schema and render `<details … {% if block.settings.open %}open{% endif %}>`.
-3. **Size guide placement:** the popup block renders as its own line under the picker. That's acceptable. For it to sit inline in the "Size" legend, add a snippet override in `snippets/product-variant-options.liquid` that renders a size-guide link when `option.name` is "Size" (optional, Phase 2B).
+3. **Size guide inline in the Size legend.** In `snippets/product-variant-picker.liquid`, when `option.name` is "Size" (handle `size`), render the legend as a flex row: "SIZE: {selected}" on the left and a `<button>` that opens the existing popup modal (`#PopupModal-{{ popup_block.id }}`, using the same `modal-opener` markup as the popup block) on the right. Hide the standalone popup line with CSS when the inline link is present.
 4. **Add to bag label.** Override the string in `locales/en.default.json`: `products.product.add_to_cart` → "Add to bag". Keep `products.product.unavailable` ("Unavailable") and `sold_out` as they are; they describe real states.
-5. **"Select a size" start state (optional, Phase 2B).** Dawn pre-selects the first available variant, so the design's disabled "Select a size" button doesn't happen natively. Ship Dawn's behaviour first. Build the no-preselection state only if the owner wants it, by rendering the Size radios unchecked when there's no `?variant=` in the URL and disabling the submit button until `variant:change`. Test it hard against Dawn's `product-info.js`.
+5. **"Select a size" start state.** Dawn pre-selects the first available variant; the design starts with **no size selected**.
+   - When the URL has no `?variant=` and the product has a Size option with more than one value, render the Size radios unchecked (`snippets/product-variant-options.liquid`).
+   - Set the submit button to "Select a size" with `aria-disabled="true"`, and make the hidden variant input empty so the form can't submit.
+   - On the first size pick, Dawn's `variant:change` flow takes over unchanged.
+   - Products with one size, or with no Size option, keep Dawn's behaviour.
+   - Test with keyboard, back/forward navigation and shared `?variant=` links, against `assets/product-info.js`.
+6. **Gallery: thumbnail column on the left, framed main image.** In `snippets/product-media-gallery.liquid`, at ≥ 990px with `gallery_layout: thumbnail`, lay out `.product__media-wrapper` as a grid `8.4rem minmax(0,1fr)` with gap 1.6rem. The thumbnail list goes in column 1 as a vertical list (4:5 thumbs, 1px rule-strong border, gold when `aria-current`). The main slider goes in column 2, wrapped in `.pb-frame > .pb-frame__inner`, with the zoom button inside the frame top-right. Mobile keeps Dawn's slider, with the "1 / 4" counter and gold indicator styling.
+7. **Sticky add-to-bag.** Render `{% render 'pb-sticky-atc', product: product, section_id: section.id %}` at the end of `main-product`, and load `pb-sticky-atc.js` with `defer` (§4.10).
 
 ## 6 · Locales (`locales/en.default.json` + `en.default.schema.json`)
 
@@ -400,7 +501,8 @@ Add:
   "collection": { "categories": "Categories", "empty_heading": "Nothing matches those filters.", "empty_text": "Try removing a filter, or browse all jewelry.", "reset": "Reset filters" },
   "journal": { "view_all": "All articles" },
   "newsletter": { "success": "Thanks. You're on the list." },
-  "sticky_atc": { "label": "Add to bag" }
+  "product": { "select_size": "Select a size" },
+  "sticky_atc": { "label": "Add to bag", "region": "Quick add to bag" }
 }
 ```
 
@@ -420,40 +522,37 @@ Override: `products.product.add_to_cart` = "Add to bag", `general.cart.title` = 
   3. `link_list` "Learn" → `footer-learn`;
   4. `link_list` "Help" → `footer-help`.
 
+**Dawn edit for mobile footer accordions (required, 02 §2.8):** in `sections/footer.liquid`, below 750px wrap each `link_list` block in `<details class="pb-footer-acc"><summary>{{ heading }}</summary>…</details>`. Summaries are 52px rows with a gold heading and "+"/"−". At ≥ 750px, render the same block open and non-collapsible: the CSS hides the summary marker, and a small inline script sets `open` on desktop on `matchMedia` change. Headings stay real `<h2>` text inside the summary so the outline is preserved.
+
 ## 8 · Collection template
 
 `templates/collection.json`:
 
-1. `main-collection-banner`: `show_collection_description: true`, `show_collection_image: false`.
-2. `pb-collection-nav`: menu `shop-categories`.
-3. `main-collection-product-grid`: `products_per_page: 24`, `columns_desktop: 3`, `columns_mobile: "2"`, `image_ratio: portrait`, `show_secondary_image: true`, `show_vendor: false`, `show_rating: false`, `enable_filtering: true`, `filter_type: horizontal`, `enable_sorting: true`, `quick_add: none`.
-4. `multicolumn`: 3 columns, no images, title + text + link (Size guide / Jewelry care / Shipping & returns), `color_scheme: scheme-1`. Give it a 1px gold-line top border via `pb-theme.css`.
+1. `pb-collection-header`: menu `shop-categories`, description on. (It replaces `main-collection-banner`; remove that section from the template.)
+2. `main-collection-product-grid`: `products_per_page: 24`, `columns_desktop: 3`, `columns_mobile: "2"`, `image_ratio: portrait`, `show_secondary_image: true`, `show_vendor: false`, `show_rating: false`, `enable_filtering: true`, `filter_type: horizontal`, `enable_sorting: true`, `quick_add: none`.
+3. `multicolumn`: 3 columns, no images, title + text + link (Size guide / Jewelry care / Shipping & returns), `color_scheme: scheme-1`. In `pb-theme.css`: a 1px gold-line top border, titles in Cormorant 600 2.8rem, links in gold Inter 600 1.2rem 0.18em caps, and the arrow icon hidden.
 
-**Dawn edit for the in-grid promo tile (02 §5.5):** add settings `pb_promo_enable`, `pb_promo_eyebrow`, `pb_promo_text`, `pb_promo_link_label` and `pb_promo_link` to `sections/main-collection-product-grid.liquid`. On the **last page** of results only, render one extra `<li class="grid__item">` after the products: a green `.pb-frame` tile at 4:5. It must not be counted in the product count or the pagination, and it hides when filters return zero products. Log it in the CHANGELOG.
+**Dawn edit for the in-grid promo tile (02 §5.5, required):** add settings `pb_promo_enable`, `pb_promo_eyebrow`, `pb_promo_text`, `pb_promo_link_label` and `pb_promo_link` to `sections/main-collection-product-grid.liquid`. On the **last page** of results only, render one extra `<li class="grid__item">` after the products: a green `.pb-frame` tile at 4:5. It must not be counted in the product count or the pagination, and it hides when filters return zero products. Log it in the CHANGELOG.
 
 In Admin → Search & Discovery, filters should be **Availability** and **Price** only (owner approval; it's store-level).
 
 ## 9 · `templates/index.json` (prelaunch)
 
 ```text
-order: pb_hero, pb_categories, pb_concepts, material, editorial, story, journal, signup
+order: pb_hero, pb_categories, pb_featured, material, editorial, story, journal, signup
 pb_hero          → PB · Hero (button "Get launch updates" → #signup, link "Discover our story" → /pages/our-story)
 pb_categories    → PB · Category tiles (blocks: bracelets, necklaces, rings)
-pb_concepts      → PB · Concept grid (4 concept blocks; replaced by featured-collection at launch)
-material         → image-with-text, color_scheme scheme-3 (royal green, full width), image left, caption "THE MATERIAL", heading, 2 text blocks, secondary button "Why brass?"
+pb_featured      → PB · Featured (mode: concepts, 4 concept blocks; at launch switch mode to collection → jewelry)
+material         → PB · Split (scheme-3 royal green, ratio 1-1, full_bleed, image_first, show_diamond; eyebrow "THE MATERIAL", heading, text, button "Why brass?")
 editorial        → PB · Editorial banner (double frame, link "Be first to know" → #signup, divider after)
-story            → image-with-text (image right, `pb_frame_image: true`, caption "OUR STORY", heading "Rooted in Parkdale.", text, secondary button "Our story")
+story            → PB · Split (scheme-1, ratio 6-5, text_first, frame_image; eyebrow "OUR STORY", heading "Rooted in Parkdale.", text, button "Our story")
 journal          → PB · Journal picks ("THE JOURNAL" / "Notes on brass", numerals; what-is-brass-jewelry-metal, gold-plated-brass-jewelry, care article once published)
 signup           → PB · Newsletter (anchor "signup", scheme-3 royal green, double frame)
 ```
 
-`image-with-text` settings for both editorial splits: `height: adapt`, `desktop_image_width: medium`, `layout: image_first` (material) or `text_first` (story), `desktop_content_position: middle`, `content_layout: no-overlap`. Material uses `color_scheme: scheme-3` (royal green), story uses `scheme-1`. Set the headings to size `h1`, and make the button blocks `button_style_secondary: true`.
-
-**Dawn edit for the story frame:** add a checkbox `pb_frame_image` ("Frame image (Archive double frame)") to `sections/image-with-text.liquid`. When it's on, wrap the media in `<div class="pb-frame"><div class="pb-frame__inner">…</div></div>`. Turn it on for the story section only. Log it in the CHANGELOG with `PB:` markers.
-
 ## 10 · SEO plumbing (theme side)
 
 - `snippets/meta-tags.liquid` already outputs OG and Twitter tags. Set the homepage title and description in Admin → Preferences (store-level; owner approval). Suggested copy is in 04 §5.
-- Product JSON-LD: Dawn outputs `{{ product | structured_data }}` in `main-product`. That's correct for real products only. `pb-concept-grid` must not emit any.
+- Product JSON-LD: Dawn outputs `{{ product | structured_data }}` in `main-product`. That's correct for real products only. `pb-featured` in `concepts` mode must not emit any.
 - Add an `Organization` JSON-LD in `layout/theme.liquid` on the homepage only, with the name, URL, logo and verified `sameAs` social URLs.
 - Breadcrumbs: add `BreadcrumbList` JSON-LD in a `snippets/pb-breadcrumbs.liquid` rendered on collection and product pages, along with the visible breadcrumb (`<nav aria-label="Breadcrumb"><ol>`).

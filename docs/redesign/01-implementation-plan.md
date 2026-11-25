@@ -2,7 +2,7 @@
 
 Goal: ship the Parkdale Brass jewelry storefront as an **unpublished Dawn-based theme** that supports a *prelaunch* state now and a *live* state once real products are approved, without touching live store data until the owner signs off.
 
-Strategy in one line: **restyle Dawn with settings and one token stylesheet, add seven small `pb-*` sections where Dawn falls short, and compose new JSON templates.** No new frameworks, apps or build step.
+Strategy in one line: **the design leads and the theme follows (D-21).** Use Dawn's settings and one token stylesheet wherever they match the spec exactly, build `pb-*` sections or marked Dawn edits wherever they don't, and compose new JSON templates. No new frameworks, apps or build step. No quiet simplifications.
 
 ---
 
@@ -59,19 +59,21 @@ Build Phases 0–2 now. Don't wait on SKUs or photography for them. Phase 5 wait
 
 ## Phase 2 · Templates and sections
 
-### 2A · Custom sections to build (only where Dawn falls short)
+### 2A · Custom sections and Dawn edits (wherever Dawn can't match the spec exactly; full map in 03 §0)
 
 | Section | Why Dawn isn't enough | Spec |
 | --- | --- | --- |
 | `pb-hero.liquid` | Dawn `image-with-text` allows one button. The design needs an eyebrow, H1, text, primary button, secondary link, separate mobile image and mobile copy-first order. | 02 §4.1, 03 §4.1 |
-| `pb-category-tiles.liquid` | Must hide collections with zero published products and use 4:5 tiles with label + arrow. | 02 §4.2, 03 §4.2 |
-| `pb-concept-grid.liquid` | Prelaunch only: editorial concept cards with a "Concept" badge, **no price, no product link, no Product schema**. | 02 §4.3, 03 §4.3 |
+| `pb-category-tiles.liquid` | Must hide collections with zero published products; 4:5 tiles on desktop become full-width rows on mobile. | 02 §4.2, 03 §4.2 |
+| `pb-featured.liquid` | One section for both states: concept cards (no price, link or schema) before launch, real products after; centred ruled head and a button below. | 02 §4.3, 03 §4.3 |
 | `pb-editorial-banner.liquid` | Wide image (21:9 desktop / 4:5 mobile) with heading and link **below** the image, never over it. | 02 §4.5, 03 §4.4 |
 | `pb-journal-picks.liquid` | Dawn `featured-blog` shows the latest posts, which may be legacy smoking posts. This section picks specific articles. | 02 §4.7, 03 §4.5 |
 | `pb-newsletter.liquid` | Split dark panel with consent copy, using Dawn's customer form behaviour. | 02 §4.8, 03 §4.6 |
-| `pb-collection-nav.liquid` | Category buttons for the collection page, driven by a link list. | 02 §5, 03 §4.7 |
-
-Optional, Phase 2B: `snippets/pb-sticky-atc.liquid` + `assets/pb-sticky-atc.js` for the mobile sticky add-to-bag (02 §6.4).
+| `pb-collection-header.liquid` | Centred diamond head, caps H1, live-category line and category pills. Replaces `main-collection-banner`. | 02 §5, 03 §4.7 |
+| `pb-split.liquid` | Exact 1:1 full-bleed green split and 6fr/5fr split with a double-framed image. Replaces `image-with-text`. | 02 §4.4, §4.6, 03 §4.8 |
+| `pb-page.liquid` | Centred diamond head with caps H1 and dateline for content pages. Replaces `main-page` there. | 02 §7, 03 §4.9 |
+| `pb-sticky-atc` (snippet + JS) | Mobile sticky add-to-bag | 02 §6.4, 03 §4.10 |
+| Dawn edits | Product: hide empty tabs, open-by-default tab, inline size guide, "Select a size" start state, left thumbnail column + framed image, sticky bar hook. Collection grid: promo tile. Footer: mobile accordions. | 03 §5, §7, §8 |
 
 Every section must have: a `{% schema %}` with presets, translated labels, `color_scheme` and padding settings, `t:` strings, escaped merchant text (`| escape` for plain text, richtext rendered as-is), images via `image_url` + `image_tag` with `widths`/`sizes`, `loading: 'lazy'` except the hero.
 
@@ -79,14 +81,14 @@ Every section must have: a `{% schema %}` with presets, translated labels, `colo
 
 | Template | File | Composition |
 | --- | --- | --- |
-| Home, prelaunch | `templates/index.json` | announcement (launch-list message) → `pb-hero` (CTA "Get launch updates" → `#signup`) → `pb-category-tiles` → `pb-concept-grid` → `image-with-text` (material) → `pb-editorial-banner` → `image-with-text` (story) → `pb-journal-picks` → `pb-newsletter` (`id="signup"`) |
-| Home, live | same file, edited in the theme editor at launch | Swap `pb-concept-grid` for Dawn `featured-collection` (collection `jewelry`), set hero CTA to "Shop jewelry" → `/collections/jewelry`, clear the announcement. Keep a copy as `templates/index.live.json.txt` for reference (Shopify ignores `.txt`). |
-| Collection | `templates/collection.json` | `main-collection-banner` (no image, description on) → `pb-collection-nav` → `main-collection-product-grid` (portrait, 3/2 cols, horizontal filters, sort on) → `multicolumn` (Size guide / Care / Shipping) |
+| Home, prelaunch | `templates/index.json` | announcement (launch-list message) → `pb-hero` (CTA "Get launch updates" → `#signup`) → `pb-category-tiles` → `pb-featured` (concepts mode) → `pb-split` (material) → `pb-editorial-banner` → `pb-split` (story) → `pb-journal-picks` → `pb-newsletter` (`id="signup"`) |
+| Home, live | same file, edited in the theme editor at launch | Set `pb-featured` mode to `collection` (`jewelry`), set the hero CTA to "Shop jewelry" → `/collections/jewelry`, switch the editorial CTA, clear the announcement. Keep a copy as `templates/index.live.json.txt` for reference (Shopify ignores `.txt`). |
+| Collection | `templates/collection.json` | `pb-collection-header` → `main-collection-product-grid` (portrait, 3/2 cols, horizontal filters, sort on) → `multicolumn` (Size guide / Care / Shipping) |
 | Product | `templates/product.json` | `main-product` with the block order in 03 §5 → `related-products` ("Wear it with", portrait, 4/2). Remove the vendor block, share block and dynamic checkout. |
-| Page: Our Story | `templates/page.our-story.json` | `main-page` → `image-with-text` → `rich-text` |
-| Page: Why Brass? | `templates/page.why-brass.json` | `main-page` → `image-with-text` ×2 → `pb-journal-picks` → `featured-collection` (live) |
-| Page: Jewelry Care | `templates/page.jewelry-care.json` | `main-page` → `collapsible-content` (one row per finish) |
-| Page: Size Guide | `templates/page.size-guide.json` | `main-page`. Tables are written in the page body and styled by `pb-theme.css` (`.rte table`). |
+| Page: Our Story | `templates/page.our-story.json` | `pb-page` (dateline on) → `pb-split` (framed image) |
+| Page: Why Brass? | `templates/page.why-brass.json` | `pb-page` → `pb-split` ×2 (one green) → `pb-journal-picks` → `pb-featured` (collection mode, live only) |
+| Page: Jewelry Care | `templates/page.jewelry-care.json` | `pb-page` → `collapsible-content` (one row per finish, styled per 02 §2.6) |
+| Page: Size Guide | `templates/page.size-guide.json` | `pb-page`. Tables are written in the page body and styled by `pb-theme.css` (`.rte table`). |
 | Blog / article | existing `blog.json`, `article.json` | Restyle only, via schemes and type. |
 | Contact | existing `page.contact.json` | Add a `rich-text` block: "Questions about an order placed before [date]? Include your order number." |
 
@@ -95,7 +97,7 @@ Every section must have: a `{% schema %}` with presets, translated labels, `colo
 - On a **development store or the unpublished theme only**, create draft products that are never published to any channel, so the PDP and collection grid can be tested. Title them `[FIXTURE] The Junction` and so on, set **status: Draft**, and give them no sales channels.
 - If a dev store isn't available, test the PDP with Shopify's theme-editor preview of an existing product. **Never** publish fixtures to the live store.
 
-**Exit:** the unpublished theme preview matches `02-design-spec.md` at 320, 375, 390, 768, 1280 and 1440 wide, in both prelaunch and live homepage configurations, with no fake purchasable inventory.
+**Exit:** the unpublished theme preview matches `02-design-spec.md` and canvas page B **side by side** (05 §9) at 320, 375, 390, 768, 1280 and 1440 wide, with zero unapproved deviations, in both prelaunch and live homepage configurations, with no fake purchasable inventory.
 
 ---
 

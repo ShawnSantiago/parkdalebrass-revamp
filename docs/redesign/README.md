@@ -41,6 +41,6 @@ Agents also get these rules automatically from `AGENTS.md` / `CLAUDE.md` at the 
 3. **Never invent facts.** Missing material, size, price, shipping or care data stays as a visible `[bracketed placeholder]` in previews, and as a hidden block in the live theme.
 4. **No fake commerce.** No purchasable concept SKUs, fake prices, ratings, reviews, scarcity, discounts or preorders.
 5. **Don't blindly overwrite** `config/settings_data.json`, app blocks or checkout-related code. Merge settings key by key.
-6. **Prefer Dawn's native sections and settings.** Add a custom `pb-*` section only where Dawn can't meet the spec. Each case is listed in `03-theme-mapping.md`.
+6. **The design leads; the theme follows.** Use Dawn parts only where they match the spec exactly; otherwise edit Dawn (marked) or build a `pb-*` section. Never simplify the design to fit the theme. Deviations need owner approval (D-21, `03-theme-mapping.md` §0).
 7. **Work on the development branch.** For this session that's `claude/loving-mccarthy-7dq7ak`; the brief suggests `feature/jewelry-redesign`. Test on an unpublished theme (`shopify theme push --unpublished`) or `shopify theme dev`.
 8. **Report honestly.** Say what you tested, how, what passed, what failed and what is untested.
