@@ -42,6 +42,8 @@ Records every change to this theme, and especially every edit to a **stock Dawn 
   | `sections/main-product.liquid` | Hide empty `collapsible_tab` blocks; add an `open` checkbox to that block | D-10 |
   | `locales/en.default.json` | Add `pb.*` strings; "Add to bag", "Your bag" overrides | D-10 |
   | `snippets/product-variant-options.liquid` | Optional: inline Size guide link (Phase 2B) | D-10 |
+  | `sections/image-with-text.liquid` | `pb_frame_image` checkbox, wraps the media in the double frame | D-20 |
+  | `sections/main-collection-product-grid.liquid` | In-grid "New to brass?" promo tile on the last page | D-20 |
 
 ### Changed: settings/templates
 - _None yet._

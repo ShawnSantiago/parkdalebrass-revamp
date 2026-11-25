@@ -9,7 +9,7 @@ This repo is the Shopify theme for **Parkdale Brass** (parkdalebrass.com). The b
 3. `docs/redesign/owner-inputs.md`: what is waiting on the owner. Don't build past a blocker by guessing.
 4. Then, as your task needs them: `01-implementation-plan.md` (phases and tasks), `02-design-spec.md` (the design), `03-theme-mapping.md` (Dawn mapping and code), `04-content-and-data.md` (copy, data, SEO), `05-qa-checklist.md` (tests).
 
-Visual reference (private, ask the owner for access): https://claude.ai/artifact/935Z6v9LJkWXDWSmdgNbQc. If it conflicts with `02-design-spec.md`, the spec wins.
+Visual reference (private, ask the owner for access): https://claude.ai/artifact/935Z6v9LJkWXDWSmdgNbQc. Build **page B, "Archive"** (black, gold, royal green; decision D-19). Page A is superseded. If the canvas conflicts with `02-design-spec.md`, the spec wins.
 
 ## Hard rules
 
@@ -34,4 +34,4 @@ Visual reference (private, ask the owner for access): https://claude.ai/artifact
 ## Current status
 
 - Phase 0 (audit) is **partial**: the repo is audited (stock Dawn 16.0.0, no customisations). The live theme, Admin and SEO audits need owner access. See `docs/redesign/audit.md`.
-- Design concepts are done and in review.
+- Visual direction approved: **B "Archive"** (2026-11-25). Docs updated to match.

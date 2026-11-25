@@ -1,8 +1,14 @@
-# 02 · Design specification
+# 02 · Design specification: Direction B "Archive"
 
-A complete description of the approved design concepts, precise enough to rebuild without seeing the canvas. Pixel values are desktop at a 1440 viewport, with mobile at a 390 viewport in brackets **[m: …]**. Between 750 and 1440, scale fluidly.
+**Chosen direction (2026-11-25): B, "Archive".** Black ground, gold accents, royal green feature panels. It's drawn from the Bellwoods "Archive Edition" lockup. Direction A (ivory and charcoal) stays on the canvas for reference only. Don't build it.
 
-Concept name: **Modern industrial heritage.** An independent menswear shop crossed with a small jewelry studio. Editorial but functional. Photography, hairlines and type carry it: **no gradients, drop shadows, foil effects, pill shapes, heavy textures or entrance animations.**
+This file describes the approved concept precisely enough to rebuild without seeing the canvas. Values are desktop at a 1440 viewport, with mobile at 390 in brackets **[m: …]**. Between 750 and 1440, scale fluidly.
+
+Canvas page **"B · Archive: black, gold & green"**:
+- `Archive-Home`, `Archive-Collection`, `Archive-Product`, `Archive-Home-Mobile`, `Archive-Foundations`.
+- The collection and product mobile layouts follow Direction A's mobile artboards (`Collection-Mobile`, `Product-Mobile`) restyled with these tokens.
+
+Concept: **a heritage label's archive.** Dark and quiet, with gold used the way an engraved plate or a hallmark would use it. Richness comes from colour, the frame and the type, **never from gradients, shadows, foil textures or animation.**
 
 ---
 
@@ -10,61 +16,74 @@ Concept name: **Modern industrial heritage.** An independent menswear shop cross
 
 ### 1.1 Colour
 
-| Token | Hex | Contrast on ivory | Use | Never |
+| Token | Hex | Contrast on onyx | Use | Never |
 | --- | --- | --- | --- | --- |
-| `--pb-ivory` | `#F5F1E8` | n/a (ground) | Page background, light button label | n/a |
-| `--pb-ivory-deep` | `#EFE9DD` | n/a | Footer background | n/a |
-| `--pb-charcoal` | `#242420` | 13.8 : 1 | Primary text, primary buttons, dark panels | n/a |
-| `--pb-ink-soft` | `#3F3B35` | ≈ 10 : 1 | Long-form body copy | n/a |
-| `--pb-stone` | `#655F56` | 5.6 : 1 | Supporting text, meta, breadcrumbs | Text under 12px |
-| `--pb-bronze` | `#75552C` | 6.0 : 1 | Eyebrows, link hover, **focus ring**, line art | n/a |
-| `--pb-leather` | `#584032` | 8.5 : 1 | Occasional editorial panel | Large areas next to charcoal |
-| `--pb-brass` | `#B39255` | 2.6 : 1 | Decorative swatches and rules **only** | **Any text or icon that carries meaning** |
-| `--pb-line` | `#D9D0C1` | 1.4 : 1 | Hairline borders and dividers | Input borders (use `--pb-line-strong`) |
-| `--pb-line-strong` | `#A39A8B` | ≈ 2.7 : 1 | Input borders, dashed unavailable state | n/a |
-| `--pb-placeholder` | `#E4DACA` | n/a | Image placeholder ground (hero, tiles, story) | n/a |
-| `--pb-placeholder-2` | `#EAE3D6` | n/a | Product image ground | n/a |
-| `--pb-placeholder-3` | `#D9CDB8` | n/a | Material story image ground | n/a |
-| `--pb-disabled` | `#CFC6B6` | n/a | Disabled button ground (text `--pb-ink-soft`) | n/a |
-| `--pb-on-dark-muted` | `#D9D0C1` / `#BDB3A3` | ≥ 7 : 1 on charcoal | Secondary text on charcoal | n/a |
-| `--pb-on-dark-accent` | `#D9C59A` | ≥ 9 : 1 on charcoal | Eyebrows on charcoal | n/a |
+| `--pb-onyx` | `#121211` | ground | Page background | n/a |
+| `--pb-onyx-raised` | `#1B1A18` | surface | Image grounds, cards, inputs, selects | n/a |
+| `--pb-onyx-deep` | `#0D0D0C` | surface | Footer | n/a |
+| `--pb-rule` | `#2E2A24` | n/a | Hairlines between UI rows; card borders | Text |
+| `--pb-rule-strong` | `#4A4234` | n/a | Input and pill borders, thumbnail borders | Text |
+| `--pb-ivory` | `#F2EBDD` | 15.8 : 1 | Headings, primary text, nav | n/a |
+| `--pb-body` | `#D8D0C0` | ≈ 12 : 1 | Long-form body text on onyx (less glare than pure ivory) | n/a |
+| `--pb-muted` | `#B5AB98` | 8.3 : 1 | Secondary text, meta, breadcrumbs | n/a |
+| `--pb-gold` | `#C2A266` | 7.7 : 1 | Eyebrows, prices, links, primary buttons, outer frame, diamonds, selected states | Large text blocks |
+| `--pb-gold-hover` | `#D4B67C` | n/a | Primary button hover | n/a |
+| `--pb-gold-pale` | `#E6CF9C` | ≈ 12 : 1 | **Focus ring**; text on the green announcement bar | n/a |
+| `--pb-gold-line` | `#7D6840` | 3.5 : 1 | Inner frame, section borders, dividers | **Any text** |
+| `--pb-green` | `#173F31` | panel | Royal green feature panels: announcement, material story, signup, promo tile | Text, thin lines |
+| `--pb-green-deep` | `#12342A` | panel | Image grounds and inputs **inside** green panels | n/a |
+| `--pb-on-green` | `#E3DCCB` | 8.6 : 1 on green | Body text on green | n/a |
 
-On a charcoal panel, ivory text is 13.8 : 1.
+On green: ivory is 9.9 : 1 and gold 4.8 : 1, which passes AA for normal text. Keep gold text on green at ≥ 12px with weight ≥ 500.
 
 ### 1.2 Typography
 
 | Role | Family | Weight | Size desktop [m] | Line-height | Tracking | Case |
 | --- | --- | --- | --- | --- | --- | --- |
-| Display / H1 (hero) | Cormorant Garamond | 500 | 76 [44] | 0.98–1.0 | −0.01em | Sentence |
-| H1 (collection / PDP) | Cormorant Garamond | 500 | 64 / 56 [40] | 1.0 | 0 | Sentence |
-| H2 (section) | Cormorant Garamond | 500 | 44–48 [32–34] | 1.08–1.1 | 0 | Sentence |
-| H2 (signup) | Cormorant Garamond | 500 | 52 [36] | 1.05 | 0 | Sentence |
+| Hero H1 | Cormorant Garamond | 600 | 64 [40] | 1.02 | 0.03em | **UPPER** |
+| Page H1 (collection, product) | Cormorant Garamond | 600 | 54–60 [40] | 1.0 | 0.04–0.06em | **UPPER** |
+| H2 (section) | Cormorant Garamond | 500 | 46–54 [32–38] | 1.05–1.1 | 0 | Sentence |
+| Wordmark (text fallback) | Cormorant Garamond | 600 | 23 [17] | 1 | **0.32em** [0.28em] | UPPER |
+| Lockup line ("PARKDALE BRASS" in hero) | Cormorant Garamond | 600 | 20 [15] | 1 | 0.32em | UPPER, gold |
+| Category label | Cormorant Garamond | 600 | 22 | 1.2 | 0.22em | UPPER |
 | Product name (card) | Cormorant Garamond | 600 | 24–26 [20] | 1.2 | 0 | Title |
-| Article title (card) | Cormorant Garamond | 600 | 28 [23] | 1.2 | 0 | Sentence |
-| Eyebrow | Inter | 600 | 12 [11] | 1.4 | 0.22em | UPPER, `--pb-bronze` |
-| Nav / button label | Inter | 500 | 13–14 | 1 | 0.08–0.14em | UPPER |
-| Body large | Inter | 400 | 17–18 [16] | 1.6 | 0 | n/a |
-| Body | Inter | 400 | 15–16 | 1.6 | 0 | n/a |
+| Article title | Cormorant Garamond | 600 | 28 [22] | 1.2 | 0 | Sentence |
+| Roman numeral (journal) | Cormorant Garamond | 500 | 34 [28] | 1 | 0 | I, II, III, gold |
+| Eyebrow | Inter | 500 | 12 [11] | 1.4 | 0.32em | UPPER, gold |
+| Dateline ("EST. 2019 · TORONTO") | Inter | 500 | 13 [11] | 1.4 | 0.42em | UPPER, gold |
+| Nav | Inter | 500 | 12 | 1 | 0.24em | UPPER |
+| Button label | Inter | 600 | 13 | 1 | 0.18em | UPPER |
+| Accordion header, legends | Inter | 600 | 12–13 | 1.3 | 0.16–0.2em | UPPER |
+| Body large / body | Inter | 400 | 17 / 15–16 [16] | 1.6 | 0 | n/a |
 | Meta / caption | Inter | 400 | 13 [12] | 1.5 | 0 | n/a |
-| Wordmark (text fallback) | Cormorant Garamond | 600 | 25 [19] | 1 | 0.2em [0.18em] | UPPER |
 
-Use at most two families. Cormorant ships 500 and 600 only, Inter 400, 500 and 600. Preload one weight each (Cormorant 500, Inter 400).
+Use two families only. Load Cormorant 500 and 600, and Inter 400, 500 and 600. Preload Cormorant 600 (the hero) and Inter 400.
 
 ### 1.3 Layout and spacing
 
-- Max content width **1440**. Outer gutter **56** desktop, **20** mobile (`.page-width` override). Editorial text max-width **620–640**.
-- Base unit 4/8. Section spacing **104–112** desktop, **56–64** mobile. Section heading to content: **36** [20].
-- Grids: featured 4-up (gap 24), collection 3-up (column gap 28, row gap 56), category 3-up (gap 24), journal 3-up (gap 32). Mobile: 2-up (gap 12, row gap 28–32), editorial single column.
-- Split sections: hero **5fr / 7fr** (text / image), story **6fr / 5fr** (gap 80), material **1fr / 1fr** (image left, no gap, text padding 96/80). All stack at < 960px (Dawn's 750 breakpoint is fine).
-- Breakpoints to verify: 320, 375, 390, 768, 1280, 1440. No horizontal overflow at any of them.
+- Max content width **1440**. Outer gutter **56** desktop, **20** mobile (16 for framed mobile panels). Editorial text max-width 620–660.
+- Base unit 4/8. Section spacing **112–128** desktop, **64–72** mobile. Section head to content: **40–48** [24].
+- **Section heads are centred** (eyebrow with rules, then the H2) for Category, Featured, Collection header, Recommendations and Signup. **Left-aligned heads** are used inside split sections (Material, Story) and on Journal.
+- Grids: featured 4-up (gap 28), collection 3-up (column 28 / row 56), category 3-up (gap 28), journal 3-up (gap 40). Mobile: products 2-up (gap 12 / row 28); categories become **full-width rows** (§2.3).
+- Splits: hero **1fr / 1fr**, material **1fr / 1fr** (full-bleed green), story **6fr / 5fr** (gap 88). All stack below 960.
 
 ### 1.4 Shape, lines, motion
 
-- Corner radius **2px** for buttons, inputs, pills, badges, dark panels and the cart drawer. Images are square-cornered.
-- Borders are 1px `--pb-line`. Selected option: 2px charcoal (finish) or a charcoal fill (size).
-- Shadows: none, anywhere.
-- Motion: none on entry. Hover is an underline (offset 4–6px) or a colour change to bronze. Button hover is `#3B3B35`. `prefers-reduced-motion` disables Dawn's transitions.
-- Focus: **2px solid `--pb-bronze`, offset 3px**, on every interactive element (`:focus-visible`).
+- Radius: **2px** on buttons, inputs, pills; **4px** on the outer frame; 0 on images. Badges are square.
+- Lines: 1px. Use `--pb-rule` between UI rows, `--pb-gold-line` for section edges and inner frames, and `--pb-gold` for the outer frame and top rules on journal cards and accordions.
+- Selected states: a gold border (2px on a finish) or a gold fill with onyx text (size, current category pill).
+- **No shadows, gradients or entrance animation.** Hover is a gold colour change, a gold border on a card image, or an underline in gold. Primary button hover is `--pb-gold-hover`.
+- Focus: **2px solid `--pb-gold-pale`, offset 3px**, on every interactive element.
+
+### 1.5 Ornament kit (new in B)
+
+| Ornament | Spec | Where | Limit |
+| --- | --- | --- | --- |
+| **Double frame** | Outer: 1px `--pb-gold`, radius 4, padding 10 [8]. Inner: 1px `--pb-gold-line`, content padding as needed. | Hero lockup, editorial image, story image, signup panel, main product image, collection promo tile | **At most one fully in view at a time.** Never on product cards. |
+| **Diamond** | Square rotated 45°, 1.5px `--pb-gold` outline, no fill. Sizes: 10 (wordmark, footer), 14 (dividers, recs head), 18 (section marks), 26 (hero top/bottom). | Wordmark prefix, hero top and bottom, section starts, dividers | Never as list bullets. Always `aria-hidden="true"`. |
+| **Rule-flanked eyebrow** | Eyebrow text between two 40px [28px] × 1px gold rules, gap 16. | Centred section heads, hero lockup line | Only when centred. Left-aligned eyebrows have no rules. |
+| **Ornament divider** | 120px gold-line rule · 14px diamond · 120px rule, centred. [m: 80px rules, 12px diamond] | Between the Editorial and Story sections on the homepage | One per page. |
+| **Roman numerals** | Cormorant 500 34, gold, above the article title | Journal cards | Journal only. |
 
 ---
 
@@ -74,141 +93,148 @@ Use at most two families. Cormorant ships 500 and 600 only, Inter 400, 500 and 6
 
 | Variant | Height | Padding | Background / text | Border | Label |
 | --- | --- | --- | --- | --- | --- |
-| Primary | 52 (56 on PDP) | 0 32 | charcoal / ivory | none | Inter 500, 14, 0.08em, UPPER |
-| Secondary | 46 | 0 24 | transparent / charcoal | 1px charcoal | Inter 500, 13, 0.08em, UPPER |
-| On dark | 52 | 0 28 | ivory / charcoal | none | same |
-| Text link CTA | ≥ 44 hit area | 12 0 | n/a | n/a | Inter 500, 14, 0.08em, UPPER, underline offset 6 |
-| Disabled | same | same | `#CFC6B6` / `#3F3B35` | none | `aria-disabled="true"`; label says why ("Select a size") |
+| Primary | 52 (56 on PDP) | 0 30 | gold / onyx | none | Inter 600, 13, 0.18em, UPPER |
+| Secondary | 50–52 | 0 26 | transparent / gold | 1px gold | same. Hover: gold fill, onyx text |
+| Text CTA | ≥ 44 hit area | 12 0 | n/a / gold | n/a | Inter 600, 12–13, 0.18em, UPPER, underline offset 6 |
+| Disabled | same | same | `--pb-rule` / `--pb-muted` | none | `aria-disabled="true"`. The label says why ("Select a size"). |
 
 Mobile primary and secondary buttons are full width.
 
 ### 2.2 Product card
 
-- Image **4:5**, ground `--pb-placeholder-2`, product centred, no text inside the image. On hover, show the second image if one exists. Touch users see the first image only.
-- Below the image, with a 14 gap: a row with the **name** (Cormorant 600, 24–26) on the left and the **price** (Inter 500, 15) on the right; then a **descriptor** (Inter 14, stone, −8 top margin) from the finish or short-description metafield.
-- Badge, prelaunch concept only: top-left 12/12, ivory ground, `#4F4A43` text, Inter 600 11, 0.14em, UPPER, padding 5×9, radius 2. Text: "Concept". In the live theme, use only Dawn's genuine "Sold out" badge, restyled to the same shape.
-- The whole card is one link. On hover the name underlines. No quick add for sized products.
+- Image **4:5** on `--pb-onyx-raised` with a 1px `--pb-rule` border. On hover the border turns gold and the second image shows if one exists.
+- Below the image (gap 14): a row with the name (Cormorant 600 24–26, ivory) and the price (Inter 500 15, **gold**). Then the descriptor (Inter 14, muted, −8 top margin).
+- **Concept badge** (prelaunch only): top-left 12/12, transparent background, 1px gold border, gold text, Inter 600 10, 0.24em, padding 4×8, text "CONCEPT".
+- Live sold-out badge: same shape, using muted text and border.
+- The whole card is one link. Hover underlines the name in gold.
 
 ### 2.3 Category tile
 
-A 4:5 image, then a label row: Inter 500 15, 0.12em, UPPER, with the name on the left and `→` on the right (`aria-hidden`). Hover underlines the label. Render only if the collection has at least one published product.
+- **Desktop:** a 4:5 image (onyx-raised, 1px rule border, gold border on hover), then a centred label below it (Cormorant 600 22, 0.22em, UPPER, ivory, gold on hover).
+- **Mobile:** a full-width row, 92px tall, onyx-raised with a 1px rule border, the label on the left (same type) and a small product image or line mark on the right.
+- Render a tile only if its collection has ≥ 1 published product.
 
 ### 2.4 Inputs and forms
 
-- Height 48–52, padding 0 14–16, 1px `--pb-line-strong`, radius 2, Inter 16 (avoids iOS zoom).
-- Labels are always visible above the field. Never use a placeholder as the only label.
-- On dark: transparent ground, ivory text, `#A39A8B` border.
-- Errors: text in charcoal with an error icon, linked by `aria-describedby`, announced through `role="alert"`.
+- Height 48–52, padding 0 14–16, radius 2, Inter 16.
+- On onyx: `--pb-onyx-raised` background, 1px gold border, ivory text. On green: `--pb-green-deep` background, 1px gold border.
+- Visible labels always: Inter 500 11–12, 0.16em, UPPER.
+- Errors: ivory text with an icon, linked by `aria-describedby`, announced through `role="alert"`.
 
 ### 2.5 Variant options (PDP)
 
-- **Finish:** buttons 48 tall, padding 0 20, 18px circular swatch plus label. Selected: 2px charcoal border. The legend reads "FINISH: Brushed".
-- **Size:** a grid of three equal columns, min-height 56, with the name (15/500) over a note (12, e.g. "In stock" or "Sold out"). Selected: charcoal fill, ivory text. Unavailable: 1px dashed `--pb-line-strong`, struck-through name, stone text, `aria-disabled="true"`. It stays focusable and announces "sold out".
-- **Size guide** link: right-aligned in the size legend row (Inter 14, underlined). It opens Dawn's popup modal with the Size Guide page.
-- A fit note sits under the sizes (13, stone).
+- **Finish:** 48px buttons on onyx with a 1px rule-strong border; selected gets a 2px gold border. An 18px swatch (1px gold-line border) sits next to the label. Legend: "FINISH: Brushed", with the value in gold.
+- **Size:** a 3-column grid, min-height 56, the name (15/500) over a note (12). Selected: gold fill, onyx text. Unavailable: 1px dashed `#5C5446`, struck-through name, `#8E8576` text, `aria-disabled="true"`, still focusable.
+- **Size guide** link in gold, right-aligned in the Size legend row. It opens a modal with the Size Guide page.
+- Fit note below the sizes (13, muted).
 
 ### 2.6 Accordion (PDP details)
 
-The group has a 1px charcoal top border and each row a 1px `--pb-line` bottom border. Each header is a 56px-tall `<button aria-expanded>` (Inter 500 15) with "+" or "−" on the right. The panel body is 15/1.6 `--pb-ink-soft` with 20 bottom padding. Description is open by default.
+The group has a 1px **gold** top border and each row a 1px `--pb-rule` bottom border. Each header is a 56px `<button aria-expanded>` in Inter 600 13, 0.16em UPPER ivory, with "+" or "−" in gold. The body is 15/1.6 `--pb-body`. Description is open by default.
 
 ### 2.7 Header
 
-- **Desktop**: height 80, 1px bottom border.
-  - Left: the wordmark (logo image if approved, otherwise the text fallback from §1.2).
-  - Centre-right: the nav in Inter 500 13, 0.14em UPPER, gap 40. Items are **Shop ▾** (a dropdown: All Jewelry, plus Bracelets, Necklaces and Rings as they go live), **Our Story** and **Journal**.
-  - Right: 44×44 icon buttons for Search, Account (only if customer accounts are on) and Bag, with a count bubble.
-- **Mobile**: height 60. Hamburger on the left (opens Dawn's drawer), wordmark centred, Search and Bag on the right.
-- Sticky: Dawn "on scroll up".
-- Announcement bar (charcoal, ivory 13px, centred): shown only with a real message. Prelaunch: "The first Parkdale Brass jewelry collection is in development. **Join the launch list**", linking to `#signup`.
+- **Announcement bar** (only with a real message): green background, gold-pale text, Inter 500 12, 0.18em UPPER, centred, with the link in ivory.
+- **Desktop:** height 84, onyx, 1px `--pb-rule` bottom border.
+  - Left: a 10px diamond and the wordmark (§1.2). An approved logo image replaces both.
+  - Right: the nav in Inter 500 12, 0.24em UPPER, gap 44: **Shop ▾** (gold caret), **Our Story**, **Journal**. The current item is gold with a 1px gold underline.
+  - Far right: 44×44 Search, Account and Bag icons (1.4 stroke, ivory). The bag count is a gold dot with onyx text.
+- **Mobile:** height 64, with the hamburger, the centred wordmark (17, 0.28em) and Search and Bag.
+- Sticky: on scroll up.
 
 ### 2.8 Footer
 
-Ground `--pb-ivory-deep`, 1px top border. Padding 72/56/40.
-
-- **Desktop**: a grid of `1.4fr 1fr 1fr 1fr`.
-  - Brand column: the wordmark, then "Brass jewelry with character. Est. 2019, Toronto."
-  - **Shop**: All Jewelry, Bracelets, Necklaces, Rings (only when live).
-  - **Learn**: Our Story, Why Brass?, Jewelry Care, Size Guide, Journal.
-  - **Help**: Shipping & Returns, Contact, Support for previous orders.
-  - Bottom bar after a hairline: © year, then the policy links, then the Country/region selector.
-- **Mobile**: the link groups collapse into accordions (Dawn's footer stacks them, which is acceptable). Social icons appear only for verified accounts.
+- `--pb-onyx-deep` background with a 1px `--pb-gold-line` top border.
+- **Desktop:** a `1.4fr 1fr 1fr 1fr` grid.
+  - The brand column has a diamond, the wordmark (21, 0.32em) and the line "Brass jewelry with character. Est. 2019, Toronto." in muted.
+  - Column heads are Inter 600 11, 0.28em, in gold. Links are ivory 14 and turn gold on hover.
+  - Bottom bar after a `--pb-rule` hairline: © year, the policy links (muted), and the Country/region select (onyx-raised, rule-strong border).
+- **Mobile:** the link groups become accordions (52px rows, gold heads, `aria-expanded`). Social icons appear only for verified accounts.
 
 ---
 
 ## 3 · Imagery
 
-Every placeholder in the concepts must be replaced by real photography before launch. **No AI-generated images presented as real products.**
+Photography must sit on a dark page. **Shoot on dark grounds: charcoal linen, slate, walnut or black card, with a single warm directional light.** Colour accuracy still beats mood. Full brief: `photography-brief.md`.
 
 | Slot | Ratio | Brief |
 | --- | --- | --- |
-| Hero | ~7:6 desktop, 1:1.08 mobile (separate crop) | Launch pieces together on linen, directional daylight |
-| Category tile | 4:5 | One representative piece per category, matched ground |
-| Product 1 | 4:5 | Front / ¾ view, neutral ground, true colour |
-| Product 2 | 4:5 | Reverse, opening or closure |
-| Product 3 | 4:5 | Macro of the finish, edge and any patina |
-| Product 4 | 4:5 | On body (wrist, neck or hand), true scale |
-| Material story | 1:1 to 4:3 | Macro of the real finish texture |
-| Editorial banner | 21:9 desktop, 4:5 mobile | On-body styling with denim, wool, workwear; varied adult models |
-| Story | 4:5 | Approved Parkdale / Toronto image or founder portrait |
+| Hero | 1:1 desktop half (≈ 720×760), separate 4:5 mobile crop | Launch pieces on dark linen or slate, single warm light |
+| Category tile | 4:5 desktop; small square for the mobile row | One piece per category on a matched dark ground |
+| Product P1–P4 | 4:5 | Front/¾, reverse/opening, macro finish, on body. Consistent dark ground. |
+| Material story | ≈ 1:1 | Macro of real brass texture, raking warm light |
+| Editorial | 21:9 desktop (inside the frame), 4:5 mobile | On-body with dark wool, denim, workwear |
+| Story | 4:5 (inside the frame) | Approved Parkdale image or founder portrait |
 
-Alt text describes the piece and finish ("The Junction open cuff in brushed brass, worn on wrist"). Decorative textures use `alt=""`.
+Image placeholders in previews: onyx-raised (green-deep inside green panels) with a gold line drawing and a caption chip (onyx background, muted text).
 
 ---
 
 ## 4 · Homepage (`/`)
 
-Section order is fixed. Each section below gives its content and its behaviour.
-
 ### 4.1 Hero (`pb-hero`)
-- Desktop: two columns, 5fr text and 7fr image, min-height 720, bottom hairline. Text padding 96/64/96/56, vertically centred, gap 28.
-- Content:
-  - eyebrow "PARKDALE BRASS · EST. 2019";
-  - H1 "Made to wear.<br>Made to age.";
-  - text (18, stone, max 420) "Brass jewelry with character. Inspired by industrial design and rooted in Toronto.";
-  - a row with gap 28: the primary button plus the text-link CTA "Discover our story" → `/pages/our-story`.
-- Primary CTA by state: **prelaunch** "Get launch updates" → `#signup`; **live** "Shop jewelry" → `/collections/jewelry`.
-- Mobile: copy first (padding 40/20/32), full-width primary button, centred secondary link, then the image at full bleed, ~420 tall, using the mobile crop.
-- The image is the LCP element: `loading="eager"`, `fetchpriority="high"`, with `sizes` set.
+- Desktop: two equal columns, min-height 760.
+- **Left** (padding 64/48/64/56): a **double-framed lockup** (max-width 600) centred in the column. Inside the inner frame (padding 56 40), centred, gap 22:
+  1. 26px diamond;
+  2. lockup line "PARKDALE BRASS" between rules;
+  3. H1 "MADE TO WEAR.<br>MADE TO AGE." (caps, §1.2);
+  4. dateline "EST. 2019 · TORONTO";
+  5. text (17, muted, max 400) "Brass jewelry with character, inspired by industrial design and rooted in Parkdale.";
+  6. a centred button row (gap 16): primary + secondary "Our story" → `/pages/our-story`;
+  7. 26px diamond.
+- **Right:** the image on onyx-raised with a 1px `--pb-rule` left border.
+- Primary CTA: **prelaunch** "Get launch updates" → `#signup`; **live** "Shop jewelry" → `/collections/jewelry`.
+- Mobile: the framed lockup first (frame padding 8, inner 36 20, full-width primary, text-link secondary), then the image at full width, 400 tall, with rule borders top and bottom.
+- The image is the LCP: eager, `fetchpriority="high"`.
 
 ### 4.2 Shop by category (`pb-category-tiles`)
-- H2 "Shop by category". In the live state, an "All jewelry" link sits right-aligned on the heading row.
-- Tiles for Bracelets, Necklaces and Rings, 3-up [m: 2-up]. The column count equals the number of visible tiles.
-- A collection with zero published products is **not rendered**. If all are hidden, the section renders nothing.
+A centred head with the eyebrow "THE COLLECTION" between rules and the H2 "Shop by category". Tiles per §2.3, 3-up desktop, rows on mobile. Collections without products are hidden, and so is the section if none remain.
 
-### 4.3 Featured: prelaunch (`pb-concept-grid`) or live (`featured-collection`)
-- Eyebrow "COMING SOON" (prelaunch) or "EVERYDAY ESSENTIALS" (live), with the H2 "The first collection".
-- **Prelaunch:** a right-aligned note "Concepts in development. Designs, finishes and prices may change before release." Four concept cards with a "Concept" badge, name and descriptor; **no price, no link to a product**. An optional block-level link goes to `#signup`.
-- **Live:** Dawn featured collection, collection `jewelry`, 4 products, portrait cards, a "View all" secondary button. Prices, availability and images come from Shopify.
+### 4.3 Featured: prelaunch `pb-concept-grid` / live `featured-collection`
+- Centred head: the eyebrow ("COMING SOON" prelaunch, "EVERYDAY ESSENTIALS" live) between rules, and the H2 "The first collection".
+- Prelaunch: under the H2, a centred note (15, muted): "Concepts in development. Designs, finishes and prices may change before release."
+- Cards per §2.2, 4-up [2-up].
+- **Prelaunch:** Concept badge, no price, no product link.
+- **Live:** real products, gold prices, and a centred secondary button "View all jewelry" (margin-top 48).
 
-### 4.4 Material story (Dawn `image-with-text`)
-- Image left (macro finish), text right. 1px hairlines top and bottom, full width, no gap.
-- Text:
-  - caption "THE MATERIAL";
+### 4.4 Material story (`image-with-text`, green)
+- A full-bleed **green** section with 1px gold-line top and bottom borders.
+- Image left (green-deep background, macro finish). Text right (padding 104/88, max 660):
+  - 18px diamond;
+  - eyebrow "THE MATERIAL";
   - H2 "A material with character.";
-  - text "Brass is an alloy of copper and zinc, prized for its warm tone and the way it takes a finish. Uncoated brass darkens and softens with wear. Coated and plated finishes behave differently." and "Every piece lists its actual finish and how to care for it, so you know how it will change.";
-  - secondary button "Why brass?" → `/pages/why-brass`.
+  - two paragraphs in `--pb-on-green`;
+  - secondary button "Why brass?".
 
 ### 4.5 Editorial banner (`pb-editorial-banner`)
-- A full-content-width image (21:9) [m: full-bleed 4:5]. Below it, with a 32 gap, a row: H2 "Considered forms. Everyday character." (max 620) on the left and a text-link CTA on the right.
-- The CTA reads **prelaunch** "Be first to know" → `#signup`, or **live** "Shop bracelets" → the relevant collection.
+- A **double-framed** 21:9 image at content width [m: 8px frame, 440px tall portrait crop].
+- Below (margin-top 36), a row: the H2 "Considered forms. Everyday character." (46, max 640) on the left, and a gold text CTA on the right. The CTA reads "Be first to know" → `#signup` in prelaunch, and "Shop bracelets" when live.
 
-### 4.6 Our story (Dawn `image-with-text`, image right)
-- Caption "OUR STORY"; H2 "Rooted in Parkdale.";
-- Text "Parkdale Brass began in 2019 in Toronto's Parkdale neighbourhood, with an appreciation for brass and the industrial design of everyday objects." and "Our next chapter takes that same interest in form, function and character into jewelry: warm tones, considered shapes and a style that doesn't need to shout.";
-- Secondary button "Our story". Image 4:5.
+### 4.6 Ornament divider + Our story (`image-with-text`, image right)
+- The §1.5 ornament divider (padding-top 112 [64]), then the split at 6fr/5fr with an 88px gap.
+- Text: eyebrow "OUR STORY", H2 "Rooted in Parkdale.", two paragraphs (`--pb-body`), secondary button "Our story". The image is **double-framed**, 4:5.
 - **Never imply jewelry has been sold since 2019.**
 
 ### 4.7 Journal (`pb-journal-picks`)
-- H2 "From the journal" with a right-aligned "All articles" link → `/blogs/news`.
-- Three hand-picked articles, 3-up [m: stacked]. Each card: 1px charcoal top rule, padding-top 20, then the tag (eyebrow style, from the first article tag or a block setting), the title (Cormorant 600 28, link), and the excerpt (15, stone). There's no image by default; an image setting is optional.
-- **Only jewelry, material or care articles.** No legacy smoking posts.
+- A left-aligned head (eyebrow "THE JOURNAL", H2 "Notes on brass"), with a right-aligned gold text CTA "All articles".
+- Three hand-picked articles, 3-up [stacked]. Each card has:
+  - a 1px **gold** top rule, padding-top 22;
+  - a roman numeral;
+  - the tag (Inter 600 11, 0.28em, muted);
+  - the title (Cormorant 600 28, link);
+  - the excerpt (15, muted).
+- Mobile: the numeral sits in a 40px left column beside the title.
+- Jewelry, material and care articles only.
 
-### 4.8 Newsletter (`pb-newsletter`, anchor `id="signup"`)
-- A charcoal panel inside the content width: padding 72, radius 2, two columns.
-  - Left: H2 "The next chapter." and "Get collection news and new release updates." (17, `#D9D0C1`).
-  - Right: the label "Email address", then the email input and an on-dark button in a row that wraps. The button reads "Notify me" (prelaunch) or "Subscribe" (live). Consent text (13, `#BDB3A3`) is set in the theme editor and must be approved by the owner.
-- Mobile: full bleed, single column, full-width button.
-- Success: "Thanks. You're on the list." in `role="status"`. Error: Dawn's form errors, in `role="alert"`.
+### 4.8 Newsletter (`pb-newsletter`, `id="signup"`)
+- A **green, double-framed** panel at content width [m: 16px side margin]. The inner frame has padding 72 40 [40 18] and is centred:
+  - 22px diamond;
+  - eyebrow "LAUNCH LIST" between rules;
+  - H2 "The next chapter." (54 [38]);
+  - text "Get collection news and new release updates." (`--pb-on-green`);
+  - a form (max 560, left-aligned inside) with a label, the email input (§2.4 on-green style) and the primary button "Notify me" / "Subscribe" in a wrapping row;
+  - consent text (13, `#CFC6B4`), owner-approved.
+- Success: `role="status"`. Error: `role="alert"`.
 
 ### 4.9 Footer
 As §2.8.
@@ -217,53 +243,53 @@ As §2.8.
 
 ## 5 · Collection page (`/collections/{handle}`)
 
-1. A breadcrumb (13, stone): Home / {Collection}.
-2. H1, the collection title (64 [40]), and its description (17 stone, max 640). No banner image by default.
-3. A toolbar row between two hairlines, padding 16 0:
-   - **left**, the category buttons (`pb-collection-nav`, from the link list `shop-categories`): height 40, padding 0 18, radius 2, Inter 500 13. The current collection is charcoal-filled with `aria-current="page"`; the others have a 1px line border.
-   - **right**, the product count (stone), an "In stock only" availability filter (Dawn facet) and a Sort select.
-   - [m] The buttons scroll horizontally. A 2-column bar below them holds the "Filter" button (opens Dawn's drawer) and Sort.
-4. The grid: 3-up [m: 2-up], gap 56/28 [m: 32/12], portrait cards (§2.2).
-5. Optional promo tile, deferred: Dawn has no in-grid promo, so put the "New to brass?" tile in Dawn `multicolumn` below the grid.
-6. Pagination: Dawn's paginated links (crawlable), 24 per page.
-7. A help strip (Dawn `multicolumn`, 3 columns, hairline top): Size guide · Jewelry care · Shipping & returns, each with a title, one line and a link.
-8. Empty state, when no products match: "Nothing matches those filters." / "Try removing a filter, or browse all jewelry." with a [Reset filters] secondary button. Dawn's string is overridden in `locales`.
+1. Breadcrumb (13, muted).
+2. **A centred collection head** (padding 56 0 48): 18px diamond, then the H1 collection title (60 caps, 0.06em), then an eyebrow line between rules listing the **live** categories (e.g. "CUFFS · CHAINS · PENDANTS", built from the `shop-categories` menu or a collection metafield; it never names a category that isn't live), then the description (16, muted, max 560).
+3. Toolbar (padding 16 0, 1px gold-line top border, `--pb-rule` bottom border):
+   - **left:** category pills (§1.4 selected state; inactive pills are transparent with a rule-strong border, Inter 600 12, 0.18em UPPER);
+   - **right:** product count (muted), "In stock only" (gold checkbox accent), Sort select.
+   - [m] Pills scroll horizontally; Filter and Sort sit in a 2-column bar below them.
+4. Grid: 3-up [2-up], gap 56/28, cards per §2.2.
+5. **"New to brass?" promo tile in the grid** (last slot): a **green double-framed** 4:5 tile, centred: diamond, eyebrow, Cormorant 34 line "How brass wears, and how to care for it.", gold text CTA "Why brass?".
+6. Pagination: crawlable links, 24 per page.
+7. A help strip (padding 104 0 112, 1px gold-line top border): Size guide · Jewelry care · Shipping & returns. Titles in Cormorant 600 28, one line of muted text, gold text CTA.
+8. Empty state: "Nothing matches those filters." / "Try removing a filter, or browse all jewelry." with a [Reset filters] secondary button.
 
-Filters: show only availability and price at launch. Add finish or size filters only once real variants exist.
-
----
+Filters at launch: availability and price only.
 
 ## 6 · Product page (`/products/{handle}`)
 
 ### 6.1 Layout
-- Desktop: gallery **7fr** with info **5fr**, gap 72. The info column is sticky (Dawn `enable_sticky_info`).
-- Gallery: an 84px thumbnail column (4:5 thumbs, 1px border, 2px charcoal when selected) and the main 4:5 image. A zoom button top-right (44×44, ivory, 1px line) opens Dawn's lightbox. Mobile: a swipe slider with a counter ("1 / 4") and 4 indicator buttons (44×32 hit area).
-- A breadcrumb above: Home / {Collection} / {Product}.
+- Gallery 7fr with info 5fr, gap 72. The info column is sticky.
+- Gallery: an 84px thumbnail column (4:5, onyx-raised, 1px rule-strong border, gold when selected) and the main image **inside a double frame**. A zoom button (44×44, onyx background, rule-strong border, gold icon) sits top-right inside the frame.
+- Mobile: a swipe slider with a "1 / 4" counter and indicator buttons (44×32 hit area, gold for the active one).
 
 ### 6.2 Purchase column (in this order)
-1. Title, H1 Cormorant 500 56 [40].
-2. Price (Inter 500 20 [18]) from Shopify, with Dawn's unit price and tax note if enabled.
-3. Short description, from the `custom.short_description` metafield (16, `--pb-ink-soft`, max 480). Hidden if empty.
-4. The Finish picker (§2.5), from the real product option "Finish". Hidden if the product has one finish.
-5. The Size picker with a **Size guide** link (§2.5), from the real option "Size". Under it, the fit note from `custom.fit_notes`.
-6. The **Add to bag** primary button (56). It reads "Select a size" while disabled and "Sold out" for an unavailable variant. No quantity selector for jewelry by default. Dynamic checkout buttons **off**.
-7. A `role="status"` line that confirms the add ("The Junction, Brushed, M / L added to your bag").
-8. Service lines (14, `--pb-ink-soft`, bronze line icons) after a hairline: shipping summary and returns summary. They're text blocks the owner sets in the theme editor once policies are confirmed, and hidden until then.
-9. Accordions (§2.6): **Description** (product description, open), **Materials & finish** (`custom.material`, `custom.finish`, `custom.patina_notes`), **Dimensions & fit** (`custom.dimensions`, `custom.fit_notes`), **Care** (`custom.care_instructions`), **Shipping & returns** (page reference or a short policy summary). A row with no data is hidden.
+1. Eyebrow: the product type ("BRACELETS"). A collection number such as "No. 01" appears only if the owner adopts numbering.
+2. H1 product title, caps (54 [40], 0.04em).
+3. Price in gold (Inter 500 20 [18]).
+4. Short description (16, `--pb-body`, max 480), from `custom.short_description`. Hidden if empty.
+5. A small ornament divider (rules either side of a 10px diamond, flexible width).
+6. The Finish picker (§2.5), only with more than one real finish.
+7. The Size picker with the Size guide link, and the fit note from `custom.fit_notes`.
+8. **Add to bag**, primary, 56 tall. "Select a size" while disabled, "Sold out" when unavailable.
+9. A `role="status"` confirmation line.
+10. Service lines (14, `--pb-body`, gold line icons) after a `--pb-rule` hairline. These are owner-approved shipping and returns summaries, hidden until approved.
+11. Accordions (§2.6): Description, Materials & finish, Dimensions & fit, Care, Shipping & returns. Empty rows are hidden.
 
 ### 6.3 Below the fold
-- "Wear it with": Dawn `related-products` (Shopify recommendations), 4-up [m: 2-up], portrait. Hidden when empty.
-- Reviews: **none** until genuine SKU-specific reviews exist. Then they come from an approved app block.
+- "Wear it with": a centred head (14px diamond, H2 44), then 4-up [2-up] recommendations. Hidden when there are none.
+- No reviews until genuine SKU-specific reviews exist.
 
-### 6.4 Mobile sticky add-to-bag (Phase 2B)
-- Appears only when (a) a purchasable variant is selected **and** (b) the main button is out of view (IntersectionObserver).
-- An ivory bar with a top hairline and padding 12/20. Left: the product name (14/500) over "Finish · Size · Price" (12 stone). Right: the primary button (48).
-- It never covers error messages, and it hides while the cart drawer is open.
+### 6.4 Mobile sticky add-to-bag
+- Shown only when a purchasable variant is selected **and** the main button is out of view.
+- An onyx bar with a 1px gold-line top border and padding 12/20. Left: the name (14/500 ivory) over "Finish · Size · Price" (12 muted). Right: the gold primary button (48).
+- It never covers errors, and it hides while the cart drawer is open.
 
-### 6.5 Cart drawer (Dawn `cart_type: drawer`)
-- The title "Your bag (n)", a 44px close button and a focus trap (Dawn native).
-- Line items: an 80px 4:5 image, the name (Cormorant 600 20), the price, the options (13 stone), a quantity stepper (44px buttons) and a "Remove" text button.
-- Footer: Subtotal, "Taxes and shipping calculated at checkout.", a full-width Check out button. It always goes to native Shopify checkout.
+### 6.5 Cart drawer
+- Onyx with a 1px gold-line left border, the title "Your bag (n)" in Cormorant 600 24, and a 44px close button.
+- Line items: an 80px 4:5 image (onyx-raised), the name (Cormorant 600 20), the price (gold), the options (13 muted), a quantity stepper (44px buttons, rule-strong border) and a "Remove" text button.
+- Footer: Subtotal, "Taxes and shipping calculated at checkout.", a full-width gold Check out button. It always goes to native Shopify checkout.
 
 ---
 
@@ -271,13 +297,13 @@ Filters: show only availability and price at launch. Add finish or size filters 
 
 | Page | Structure |
 | --- | --- |
-| **Our Story** `/pages/our-story` | H1 "Our story"; intro (the brand story, §4.6, long form); `image-with-text`; a closing line with links to the collection and Why Brass. No invented manufacturing history. |
-| **Why Brass?** `/pages/why-brass` | H1 "Why brass?"; sections on what brass is (copper-zinc alloy); raw vs coated vs plated; patina and skin discolouration (with a note to stop wearing if irritation develops, which doesn't prove the piece is safe); links to the 2 existing articles; then live collections. |
-| **Jewelry Care** `/pages/jewelry-care` | H1; Dawn `collapsible-content`, one row per finish offered (only those confirmed on samples); storage; what to avoid. |
-| **Size Guide** `/pages/size-guide` | H1; "How to measure" steps; ring size table (CA/US, mm diameter, mm circumference); cuff guide (inner circumference, opening, wrist range); chain lengths (cm/in, where it sits). **Tables filled only with validated data.** |
-| **Contact** | The existing form, plus a note for previous-order support. |
+| **Our Story** | Centred head (diamond, H1 caps "OUR STORY", dateline "EST. 2019 · TORONTO"); long-form brand story (`--pb-body`, 17, max 680); a double-framed image; links to the collection and Why Brass |
+| **Why Brass?** | Head as above; sections on what brass is, raw vs coated vs plated, and patina and skin discolouration (with a note to stop wearing if irritation develops); one green panel with the key takeaway; links to the 2 existing articles; live collections |
+| **Jewelry Care** | Head; accordions per finish (§2.6 style); storage; what to avoid |
+| **Size Guide** | Head; "How to measure"; tables with gold header text, `--pb-rule` row lines, onyx-raised header row; validated data only |
+| **Contact** | Existing form restyled (§2.4); previous-order support note |
 
-Content pages use `main-page` at an editorial width of 720 (`.page-width--narrow`), H1 Cormorant 56 [40], body 17.
+Content pages use an editorial width of 720, H1 caps Cormorant 600 54 [40], body 17 `--pb-body`.
 
 ---
 
@@ -285,14 +311,14 @@ Content pages use `main-page` at an editorial width of 720 (`.page-width--narrow
 
 | Component | Prelaunch | Live |
 | --- | --- | --- |
-| Announcement | Launch-list message | Hidden, unless there's a verified message |
+| Announcement (green) | Launch-list message | Hidden unless there's a verified message |
 | Hero CTA | "Get launch updates" → `#signup` | "Shop jewelry" → `/collections/jewelry` |
-| Category tiles | Shown for collections with products, otherwise hidden. Fixtures don't count on the live store. | Shown for live collections |
-| Featured | `pb-concept-grid` (Concept badge, no price/link) | `featured-collection` |
+| Category tiles | Collections with products only | Live collections |
+| Featured | `pb-concept-grid` (Concept badge, no price or link) | `featured-collection` + "View all jewelry" |
 | Editorial CTA | "Be first to know" | "Shop bracelets" |
 | Newsletter button | "Notify me" | "Subscribe" |
-| PDP | Not public (draft fixtures on the dev store only) | Real product |
+| PDP | Not public (draft fixtures on a dev store only) | Real product |
 | Reviews | Hidden | Genuine, SKU-specific only |
-| SEO | Homepage indexable with accurate prelaunch metadata. No concept product pages exist. | All live pages indexable |
+| SEO | Homepage indexable with accurate prelaunch metadata | All live pages indexable |
 
-Switch states in the **theme editor**, by editing section settings and swapping one section. No global flag is needed.
+Switch states in the theme editor (section settings and swapping one section).

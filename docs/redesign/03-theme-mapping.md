@@ -14,19 +14,23 @@ Edit through the theme editor where possible, then pull. If editing the JSON by 
 
 | Scheme | Name (rename in editor) | background | text | button | button_label | secondary_button_label | Used by |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `scheme-1` | Ivory | `#F5F1E8` | `#242420` | `#242420` | `#F5F1E8` | `#242420` | Default for every section, header, drawers |
-| `scheme-2` | Ivory deep | `#EFE9DD` | `#242420` | `#242420` | `#EFE9DD` | `#242420` | Footer |
-| `scheme-3` | Charcoal | `#242420` | `#F5F1E8` | `#F5F1E8` | `#242420` | `#F5F1E8` | Announcement, newsletter panel, promo tile, sold-out badge |
-| `scheme-4` | Leather | `#584032` | `#F5F1E8` | `#F5F1E8` | `#584032` | `#F5F1E8` | Optional editorial panel |
-| `scheme-5` | Stone | `#E4DACA` | `#242420` | `#242420` | `#E4DACA` | `#242420` | Image grounds, sale badge (unused) |
+Direction B "Archive" (decision D-19). Dawn derives button hover, borders and secondary text from these values, and `pb-theme.css` (§3) fine-tunes them.
 
-Set `background_gradient` to `""` and `shadow` to `#242420` for every scheme.
+| Scheme | Name (rename in editor) | background | text | button | button_label | secondary_button_label | Used by |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `scheme-1` | Onyx | `#121211` | `#F2EBDD` | `#C2A266` | `#121211` | `#C2A266` | Default for every section, header, drawers, cards |
+| `scheme-2` | Onyx deep | `#0D0D0C` | `#F2EBDD` | `#C2A266` | `#121211` | `#C2A266` | Footer |
+| `scheme-3` | Royal green | `#173F31` | `#F2EBDD` | `#C2A266` | `#121211` | `#C2A266` | Announcement, material story, newsletter, promo tile |
+| `scheme-4` | Onyx raised | `#1B1A18` | `#F2EBDD` | `#C2A266` | `#121211` | `#C2A266` | Image grounds, help strip (optional) |
+| `scheme-5` | Gold | `#C2A266` | `#121211` | `#121211` | `#C2A266` | `#121211` | Sold-out / sale badge only |
+
+Set `background_gradient` to `""` and `shadow` to `#000000` for every scheme (shadows are disabled anyway).
 
 ### Other settings
 
 ```json
 "logo_width": 180,
-"type_header_font": "<cormorant-garamond handle, weight 500>",
+"type_header_font": "<cormorant-garamond handle, weight 600>",
 "heading_scale": 100,
 "type_body_font": "inter_n4",
 "body_scale": 100,
@@ -44,7 +48,7 @@ Set `background_gradient` to `""` and `shadow` to `#242420` for every scheme.
 "blog_card_style": "standard", "blog_card_color_scheme": "scheme-1", "blog_card_shadow_opacity": 0,
 "media_border_opacity": 0, "media_radius": 0,
 "popup_corner_radius": 2, "drawer_shadow_opacity": 0,
-"badge_corner_radius": 2, "badge_position": "top left", "sold_out_badge_color_scheme": "scheme-3",
+"badge_corner_radius": 0, "badge_position": "top left", "sold_out_badge_color_scheme": "scheme-1", "sale_badge_color_scheme": "scheme-5",
 "predictive_search_enabled": true, "predictive_search_show_price": true,
 "currency_code_enabled": true,
 "cart_type": "drawer", "show_vendor": false, "cart_color_scheme": "scheme-1"
@@ -72,7 +76,7 @@ In `layout/theme.liquid`, directly after `{{ 'base.css' | asset_url | stylesheet
 Starting contents:
 
 ```css
-/* Parkdale Brass design tokens and global overrides on top of Dawn 16 */
+/* Parkdale Brass design tokens and global overrides on top of Dawn 16 (Direction B "Archive") */
 /* Remove the @font-face blocks if Cormorant comes from the Shopify font library */
 @font-face { font-family: 'Cormorant Garamond'; font-weight: 500; font-style: normal; font-display: swap;
   src: url('cormorant-garamond-500.woff2') format('woff2'); }
@@ -80,76 +84,110 @@ Starting contents:
   src: url('cormorant-garamond-600.woff2') format('woff2'); }
 
 :root {
-  --pb-ivory: #F5F1E8; --pb-ivory-deep: #EFE9DD; --pb-charcoal: #242420; --pb-ink-soft: #3F3B35;
-  --pb-stone: #655F56; --pb-bronze: #75552C; --pb-leather: #584032; --pb-brass: #B39255;
-  --pb-line: #D9D0C1; --pb-line-strong: #A39A8B; --pb-placeholder: #E4DACA; --pb-placeholder-2: #EAE3D6;
-  --pb-disabled: #CFC6B6;
+  --pb-onyx: #121211; --pb-onyx-raised: #1B1A18; --pb-onyx-deep: #0D0D0C;
+  --pb-rule: #2E2A24; --pb-rule-strong: #4A4234;
+  --pb-ivory: #F2EBDD; --pb-body: #D8D0C0; --pb-muted: #B5AB98;
+  --pb-gold: #C2A266; --pb-gold-hover: #D4B67C; --pb-gold-pale: #E6CF9C; --pb-gold-line: #7D6840;
+  --pb-green: #173F31; --pb-green-deep: #12342A; --pb-on-green: #E3DCCB;
   --pb-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --font-heading-family: var(--pb-serif);
   --font-heading-weight: 500;
-  --pb-section-y: clamp(56px, 7.5vw, 112px);
 }
 
 /* Page width: 56px gutters desktop, 20px mobile */
 .page-width { padding-left: 2rem; padding-right: 2rem; }
 @media screen and (min-width: 990px) { .page-width { padding-left: 5.6rem; padding-right: 5.6rem; } }
 
+body { color: var(--pb-body); }
+.rte, .rte p { color: var(--pb-body); }
+
 /* Headings */
-h1, h2, .h0, .h1, .h2 { font-family: var(--pb-serif); font-weight: 500; letter-spacing: 0; }
-.h0, .pb-display { font-size: clamp(4.4rem, 5.3vw, 7.6rem); line-height: 0.98; letter-spacing: -0.01em; }
-h2, .h1 { line-height: 1.1; }
-.card__heading, .pb-product-name { font-family: var(--pb-serif); font-weight: 600; font-size: clamp(2rem, 1.8vw, 2.6rem); line-height: 1.2; }
+h1, h2, .h0, .h1, .h2 { font-family: var(--pb-serif); font-weight: 500; letter-spacing: 0; color: var(--pb-ivory); }
+h1, .h0, .pb-display { font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.02; }
+.pb-display { font-size: clamp(4rem, 4.4vw, 6.4rem); letter-spacing: 0.03em; }
+h2, .h1 { line-height: 1.08; }
+.card__heading, .pb-product-name { font-family: var(--pb-serif); font-weight: 600; font-size: clamp(2rem, 1.8vw, 2.6rem); line-height: 1.2; color: var(--pb-ivory); }
 
-/* Eyebrow (Dawn "caption" blocks + pb sections) */
+/* Eyebrows, datelines (Dawn "caption" blocks + pb sections) */
 .caption-with-letter-spacing, .pb-eyebrow {
-  font-family: var(--font-body-family); font-size: 1.2rem; font-weight: 600;
-  letter-spacing: 0.22em; text-transform: uppercase; color: var(--pb-bronze);
+  font-family: var(--font-body-family); font-size: 1.2rem; font-weight: 500;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--pb-gold);
 }
-.color-scheme-3 .pb-eyebrow, .color-scheme-3 .caption-with-letter-spacing { color: #D9C59A; }
+.pb-eyebrow--ruled { display: inline-flex; align-items: center; gap: 1.6rem; }
+.pb-eyebrow--ruled::before, .pb-eyebrow--ruled::after { content: ''; width: 4rem; height: 1px; background: var(--pb-gold); }
+.pb-dateline { font-size: 1.3rem; font-weight: 500; letter-spacing: 0.42em; color: var(--pb-gold); text-transform: uppercase; }
 
-/* Buttons */
-.button, .shopify-payment-button__button--unbranded { font-size: 1.4rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; min-height: 5.2rem; }
-.pb-text-cta { display: inline-block; padding: 1.2rem 0; font-size: 1.4rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-underline-offset: 0.6rem; color: inherit; }
-.pb-text-cta:hover { color: var(--pb-bronze); }
+/* Ornaments (02 §1.5) */
+.pb-frame { border: 1px solid var(--pb-gold); border-radius: 4px; padding: 1rem; }
+.pb-frame > .pb-frame__inner { border: 1px solid var(--pb-gold-line); }
+@media screen and (max-width: 749px) { .pb-frame { padding: 0.8rem; } }
+.pb-diamond { display: inline-block; width: 1.8rem; height: 1.8rem; border: 1.5px solid var(--pb-gold); transform: rotate(45deg); flex: none; }
+.pb-diamond--sm { width: 1rem; height: 1rem; } .pb-diamond--md { width: 1.4rem; height: 1.4rem; } .pb-diamond--lg { width: 2.6rem; height: 2.6rem; }
+.pb-divider { display: flex; align-items: center; justify-content: center; gap: 1.8rem; }
+.pb-divider::before, .pb-divider::after { content: ''; width: 12rem; height: 1px; background: var(--pb-gold-line); }
+@media screen and (max-width: 749px) { .pb-divider::before, .pb-divider::after { width: 8rem; } }
+
+/* Buttons: gold primary, gold outline secondary */
+.button, .shopify-payment-button__button--unbranded { font-size: 1.3rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; min-height: 5.2rem; border-radius: 2px; }
+.button--primary:hover { background-color: var(--pb-gold-hover); }
+.button--secondary:hover { background: var(--pb-gold); color: var(--pb-onyx); }
+.pb-text-cta { display: inline-block; padding: 1.2rem 0; font-size: 1.3rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; text-underline-offset: 0.6rem; color: var(--pb-gold); }
+.pb-text-cta:hover { color: var(--pb-gold-pale); }
 
 /* Links and focus */
-a:hover { color: var(--pb-bronze); }
-*:focus-visible { outline: 2px solid var(--pb-bronze) !important; outline-offset: 3px !important; box-shadow: none !important; }
+a:hover { color: var(--pb-gold); }
+*:focus-visible { outline: 2px solid var(--pb-gold-pale) !important; outline-offset: 3px !important; box-shadow: none !important; }
 
-/* Header: uppercase nav and text wordmark */
-.header__menu-item { font-size: 1.3rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
-.header__heading-link .h2 { font-family: var(--pb-serif); font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; font-size: clamp(1.9rem, 1.8vw, 2.5rem); }
-.header-wrapper { border-bottom: 1px solid var(--pb-line); }
+/* Header: spaced wordmark, uppercase nav */
+.header-wrapper { border-bottom: 1px solid var(--pb-rule); }
+.header__menu-item { font-size: 1.2rem; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--pb-ivory); }
+.header__menu-item:hover, .header__active-menu-item { color: var(--pb-gold); }
+.header__heading-link .h2 { font-family: var(--pb-serif); font-weight: 600; letter-spacing: 0.32em; text-transform: uppercase; font-size: clamp(1.7rem, 1.6vw, 2.3rem); color: var(--pb-ivory); }
+.header__heading-link .h2::before { content: ''; display: inline-block; width: 1rem; height: 1rem; border: 1.5px solid var(--pb-gold); transform: rotate(45deg); margin-right: 1.4rem; vertical-align: 0.15em; }
+.announcement-bar__message { font-size: 1.2rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--pb-gold-pale); }
 
-/* Hairlines */
-.pb-rule-top { border-top: 1px solid var(--pb-line); }
-.pb-rule-y { border-top: 1px solid var(--pb-line); border-bottom: 1px solid var(--pb-line); }
+/* Footer */
+.footer { border-top: 1px solid var(--pb-gold-line); }
+.footer-block__heading { font-family: var(--font-body-family); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--pb-gold); }
 
-/* Cards: portrait ground, name + price row */
-.card__media, .card .media { background: var(--pb-placeholder-2); }
-.card-information > .price { font-weight: 500; }
+/* Cards: dark ground, rule border, gold on hover, gold price */
+.card__media, .card .media { background: var(--pb-onyx-raised); }
+.card-wrapper .card__inner { border: 1px solid var(--pb-rule); }
+.card-wrapper:hover .card__inner { border-color: var(--pb-gold); }
+.card-information .price, .price-item--regular { color: var(--pb-gold); font-weight: 500; }
+.badge { border: 1px solid var(--pb-gold); background: transparent; color: var(--pb-gold); font-size: 1rem; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; border-radius: 0; }
 
-/* Variant pills: square, charcoal selected, dashed unavailable */
-.product-form__input input[type='radio'] + label { border-radius: 2px; min-height: 4.8rem; }
-.product-form__input input[type='radio']:checked + label { background: var(--pb-charcoal); color: var(--pb-ivory); }
-.product-form__input input[type='radio'].disabled + label { border-style: dashed; border-color: var(--pb-line-strong); color: var(--pb-stone); }
+/* Inputs */
+.field__input, .select__select, .customer .field input { background: var(--pb-onyx-raised); color: var(--pb-ivory); border-radius: 2px; }
+.field:after, .select:after { box-shadow: 0 0 0 1px var(--pb-gold); }
+.color-scheme-3 .field__input { background: var(--pb-green-deep); }
+
+/* Variant pills: gold selected, dashed unavailable */
+.product-form__input input[type='radio'] + label { border-radius: 2px; min-height: 4.8rem; background: var(--pb-onyx); color: var(--pb-ivory); border-color: var(--pb-rule-strong); }
+.product-form__input input[type='radio']:checked + label { background: var(--pb-gold); color: var(--pb-onyx); border-color: var(--pb-gold); }
+.product-form__input input[type='radio'].disabled + label { border-style: dashed; border-color: #5C5446; color: #8E8576; }
+.product-form__input .form__label { font-size: 1.2rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; }
 
 /* Accordions */
-.product__accordion { border-color: var(--pb-line); }
-.product__accordion:first-of-type { border-top-color: var(--pb-charcoal); }
-.accordion__title { font-family: var(--font-body-family); font-size: 1.5rem; font-weight: 500; }
+.product__accordion { border-color: var(--pb-rule); }
+.product__accordion:first-of-type { border-top-color: var(--pb-gold); }
+.accordion__title { font-family: var(--font-body-family); font-size: 1.3rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; }
+.accordion summary .icon-caret { color: var(--pb-gold); }
 
 /* Rich text tables (size guide) */
 .rte table { width: 100%; border-collapse: collapse; font-size: 1.5rem; }
-.rte th, .rte td { border-bottom: 1px solid var(--pb-line); padding: 1rem 1.2rem; text-align: left; }
-.rte th { font-weight: 600; }
+.rte th, .rte td { border-bottom: 1px solid var(--pb-rule); padding: 1rem 1.2rem; text-align: left; }
+.rte th { font-weight: 600; color: var(--pb-gold); background: var(--pb-onyx-raised); }
 
 /* Image placeholders (preview only) */
-.pb-placeholder { background: var(--pb-placeholder); display: flex; align-items: center; justify-content: center; position: relative; }
-.pb-placeholder__note { position: absolute; left: 2rem; bottom: 1.8rem; background: var(--pb-ivory); color: #4F4A43; font-size: 1.2rem; padding: 0.6rem 1rem; }
+.pb-placeholder { background: var(--pb-onyx-raised); display: flex; align-items: center; justify-content: center; position: relative; }
+.color-scheme-3 .pb-placeholder { background: var(--pb-green-deep); }
+.pb-placeholder__note { position: absolute; left: 2rem; bottom: 1.8rem; background: var(--pb-onyx); color: var(--pb-muted); font-size: 1.2rem; padding: 0.6rem 1rem; }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
 ```
+
+Class names from Dawn (`.card__inner`, `.field:after`, `.header__heading-link`, etc.) must be checked against the pulled live theme's markup. Adjust the selectors rather than adding `!important`.
 
 Dawn sets `html { font-size: 62.5% }`, so `1rem = 10px`. Check the generated `--font-heading-family` order: Dawn writes it inline in `theme.liquid`, so `pb-theme.css` must load **after** that `<style>` block. If it doesn't, scope the overrides to `:root:root` instead.
 
@@ -159,47 +197,59 @@ Shared conventions: every `pb-*` section uses `color_scheme` (default `scheme-1`
 
 ### 4.1 `sections/pb-hero.liquid`
 
+A framed lockup on the left and the image on the right (02 §4.1). On mobile the lockup comes first.
+
 ```liquid
-{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
 {%- style -%}
-  .pb-hero { display: grid; grid-template-columns: minmax(0,1fr); border-bottom: 1px solid var(--pb-line); }
-  .pb-hero__text { padding: 4rem 2rem 3.2rem; display: flex; flex-direction: column; gap: 1.8rem; }
-  .pb-hero__body { font-size: 1.6rem; color: var(--pb-stone); max-width: 42rem; margin: 0; }
-  .pb-hero__actions { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 0.6rem; }
+  .pb-hero { display: grid; grid-template-columns: minmax(0,1fr); }
+  .pb-hero__lockup-wrap { padding: 2.8rem 1.6rem 0; }
+  .pb-hero__lockup { padding: 3.6rem 2rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.6rem; }
+  .pb-hero__body { font-size: 1.5rem; color: var(--pb-muted); max-width: 40rem; margin: 0; }
+  .pb-hero__actions { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; width: 100%; margin-top: 0.6rem; }
   .pb-hero__actions .button { width: 100%; }
-  .pb-hero__media { position: relative; min-height: 42rem; background: var(--pb-placeholder); }
+  .pb-hero__media { position: relative; min-height: 40rem; margin-top: 2.8rem; background: var(--pb-onyx-raised); border-top: 1px solid var(--pb-rule); border-bottom: 1px solid var(--pb-rule); }
   .pb-hero__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .pb-hero__media .pb-hero__img--desktop { display: none; }
   @media screen and (min-width: 750px) {
-    .pb-hero { grid-template-columns: minmax(0,5fr) minmax(0,7fr); min-height: 72rem; max-width: 144rem; margin: 0 auto; }
-    .pb-hero__text { padding: 9.6rem 6.4rem 9.6rem 5.6rem; justify-content: center; gap: 2.8rem; }
-    .pb-hero__body { font-size: 1.8rem; }
-    .pb-hero__actions { flex-direction: row; align-items: center; gap: 2.8rem; }
+    .pb-hero { grid-template-columns: repeat(2, minmax(0,1fr)); min-height: 76rem; max-width: 144rem; margin: 0 auto; }
+    .pb-hero__lockup-wrap { padding: 6.4rem 4.8rem 6.4rem 5.6rem; display: flex; align-items: center; justify-content: center; }
+    .pb-hero__lockup-wrap .pb-frame { width: 100%; max-width: 60rem; }
+    .pb-hero__lockup { padding: 5.6rem 4rem; gap: 2.2rem; }
+    .pb-hero__body { font-size: 1.7rem; }
+    .pb-hero__actions { flex-direction: row; justify-content: center; gap: 1.6rem; width: auto; }
     .pb-hero__actions .button { width: auto; }
+    .pb-hero__media { margin-top: 0; border-top: 0; border-bottom: 0; border-left: 1px solid var(--pb-rule); }
     .pb-hero__media .pb-hero__img--desktop { display: block; }
     .pb-hero__media .pb-hero__img--mobile { display: none; }
   }
 {%- endstyle -%}
 <section class="color-{{ section.settings.color_scheme }} gradient" aria-labelledby="PbHero-{{ section.id }}">
   <div class="pb-hero">
-    <div class="pb-hero__text">
-      {%- if section.settings.eyebrow != blank -%}<p class="pb-eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
-      <h1 id="PbHero-{{ section.id }}" class="pb-display">{{ section.settings.heading }}</h1>
-      {%- if section.settings.text != blank -%}<p class="pb-hero__body">{{ section.settings.text | escape }}</p>{%- endif -%}
-      <div class="pb-hero__actions">
-        {%- if section.settings.button_label != blank -%}
-          <a class="button button--primary" href="{{ section.settings.button_link | default: '#' }}">{{ section.settings.button_label | escape }}</a>
+    <div class="pb-hero__lockup-wrap">
+      <div class="pb-frame"><div class="pb-frame__inner pb-hero__lockup">
+        <span class="pb-diamond pb-diamond--lg" aria-hidden="true"></span>
+        {%- if section.settings.lockup != blank -%}
+          <p class="pb-eyebrow pb-eyebrow--ruled" style="font-family: var(--pb-serif); font-size: 2rem; font-weight: 600;">{{ section.settings.lockup | escape }}</p>
         {%- endif -%}
-        {%- if section.settings.link_label != blank -%}
-          <a class="pb-text-cta" href="{{ section.settings.link_url }}">{{ section.settings.link_label | escape }}</a>
-        {%- endif -%}
-      </div>
+        <h1 id="PbHero-{{ section.id }}" class="pb-display">{{ section.settings.heading }}</h1>
+        {%- if section.settings.dateline != blank -%}<p class="pb-dateline">{{ section.settings.dateline | escape }}</p>{%- endif -%}
+        {%- if section.settings.text != blank -%}<p class="pb-hero__body">{{ section.settings.text | escape }}</p>{%- endif -%}
+        <div class="pb-hero__actions">
+          {%- if section.settings.button_label != blank -%}
+            <a class="button button--primary" href="{{ section.settings.button_link | default: '#' }}">{{ section.settings.button_label | escape }}</a>
+          {%- endif -%}
+          {%- if section.settings.link_label != blank -%}
+            <a class="button button--secondary" href="{{ section.settings.link_url }}">{{ section.settings.link_label | escape }}</a>
+          {%- endif -%}
+        </div>
+        <span class="pb-diamond pb-diamond--lg" aria-hidden="true"></span>
+      </div></div>
     </div>
     <div class="pb-hero__media">
       {%- assign desktop_img = section.settings.image -%}
       {%- assign mobile_img = section.settings.image_mobile | default: section.settings.image -%}
       {%- if desktop_img != blank -%}
-        {{ desktop_img | image_url: width: 2400 | image_tag: class: 'pb-hero__img--desktop', widths: '750, 1100, 1500, 1800, 2400', sizes: '(min-width: 750px) 58vw, 100vw', loading: 'eager', fetchpriority: 'high', alt: desktop_img.alt }}
+        {{ desktop_img | image_url: width: 1600 | image_tag: class: 'pb-hero__img--desktop', widths: '750, 1000, 1300, 1600', sizes: '(min-width: 750px) 50vw, 100vw', loading: 'eager', fetchpriority: 'high', alt: desktop_img.alt }}
         {{ mobile_img | image_url: width: 1200 | image_tag: class: 'pb-hero__img--mobile', widths: '400, 600, 800, 1200', sizes: '100vw', loading: 'eager', alt: mobile_img.alt }}
       {%- else -%}
         <div class="pb-placeholder" style="position:absolute;inset:0">{{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}</div>
@@ -213,13 +263,14 @@ Shared conventions: every `pb-*` section uses `color_scheme` (default `scheme-1`
   "tag": "div",
   "class": "section",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "PARKDALE BRASS · EST. 2019" },
+    { "type": "text", "id": "lockup", "label": "Lockup line", "default": "PARKDALE BRASS" },
     { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Made to wear.<br>Made to age." },
-    { "type": "text", "id": "text", "label": "Text", "default": "Brass jewelry with character. Inspired by industrial design and rooted in Toronto." },
+    { "type": "text", "id": "dateline", "label": "Dateline", "default": "EST. 2019 · TORONTO" },
+    { "type": "text", "id": "text", "label": "Text", "default": "Brass jewelry with character, inspired by industrial design and rooted in Parkdale." },
     { "type": "text", "id": "button_label", "label": "Button label", "default": "Get launch updates", "info": "Prelaunch: Get launch updates → #signup. Live: Shop jewelry → All Jewelry." },
     { "type": "url", "id": "button_link", "label": "Button link" },
-    { "type": "text", "id": "link_label", "label": "Secondary link label", "default": "Discover our story" },
-    { "type": "url", "id": "link_url", "label": "Secondary link" },
+    { "type": "text", "id": "link_label", "label": "Secondary button label", "default": "Our story" },
+    { "type": "url", "id": "link_url", "label": "Secondary button link" },
     { "type": "image_picker", "id": "image", "label": "Image (desktop)" },
     { "type": "image_picker", "id": "image_mobile", "label": "Image (mobile crop)" },
     { "type": "color_scheme", "id": "color_scheme", "label": "t:sections.all.colors.label", "default": "scheme-1" }
@@ -229,7 +280,7 @@ Shared conventions: every `pb-*` section uses `color_scheme` (default `scheme-1`
 {% endschema %}
 ```
 
-The `heading` setting allows `<br>` through inline_richtext. Use the image's focal point (set in Admin) with `object-position` if a crop needs it.
+The heading is uppercased by CSS (`.pb-display`), so the merchant types it in sentence case and screen readers don't spell out capitals. `inline_richtext` allows the `<br>`.
 
 ### 4.2 `sections/pb-category-tiles.liquid`
 
@@ -263,7 +314,12 @@ The `heading` setting allows `<br>` through inline_richtext. Use the image's foc
 {%- endif -%}
 ```
 
-CSS: `.pb-tiles{display:grid;gap:1.2rem;grid-template-columns:repeat(2,minmax(0,1fr))}`, and at ≥750px `repeat(var(--pb-cols),minmax(0,1fr))` with gap 2.4rem. Media `aspect-ratio:4/5; overflow:hidden; background:var(--pb-placeholder)`, img `object-fit:cover`. Label: Inter 500 1.5rem, 0.12em, uppercase, flex space-between, margin-top 1.6rem. `.pb-tile:hover .pb-tile__label{text-decoration:underline}`.
+CSS:
+- **Mobile (< 750px):** `.pb-tiles{display:flex;flex-direction:column;gap:1.2rem}`. Each tile is a 9.2rem row: `display:flex; justify-content:space-between; align-items:center; padding:0 2rem; background:var(--pb-onyx-raised); border:1px solid var(--pb-rule)`. The label is on the left, and the image is a 7rem square on the right (`object-fit:contain`).
+- **≥ 750px:** `display:grid; grid-template-columns:repeat(var(--pb-cols),minmax(0,1fr)); gap:2.8rem`. Each tile is a column with a centred label. The media box is `aspect-ratio:4/5; background:var(--pb-onyx-raised); border:1px solid var(--pb-rule)`, with `object-fit:cover`.
+- Label: `font-family:var(--pb-serif); font-weight:600; font-size:2.2rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--pb-ivory)`.
+- Hover: the media border and the label turn `var(--pb-gold)`.
+- Section head: centred `.pb-eyebrow--ruled` "THE COLLECTION", then the H2.
 
 `products_count` counts products published to the Online Store. Confirm on the store that draft fixtures don't count.
 
@@ -271,27 +327,28 @@ CSS: `.pb-tiles{display:grid;gap:1.2rem;grid-template-columns:repeat(2,minmax(0,
 
 - Settings: `eyebrow` ("COMING SOON"), `heading` ("The first collection"), `note` (text: "Concepts in development. Designs, finishes and prices may change before release."), `badge_label` ("Concept"), color_scheme, padding.
 - Blocks `concept` (max 6): `image` (image_picker), `name` (text), `descriptor` (text), `link` (url, optional; defaults to none. Use `#signup`, **never** a product URL).
-- Markup: a `<ul>` 4-up [2-up] of `<li><article>`. Inside: the image in a 4:5 box with a `<span class="pb-badge">` badge, then an `<h3 class="pb-product-name">` and a `<p>` descriptor. **No price element, no `product` JSON-LD, no add-to-cart.** With no image, render `.pb-placeholder` plus `placeholder_svg_tag`.
+- Markup: a centred head (`.pb-eyebrow--ruled`, H2, note), then a `<ul>` 4-up [2-up] of `<li><article>`. Inside: the image in a 4:5 box (onyx-raised, 1px rule border) with a `<span class="badge">` reading "Concept" (gold outline, 02 §2.2), then an `<h3 class="pb-product-name">` and a `<p>` descriptor. **No price element, no `product` JSON-LD, no add-to-cart.** With no image, render `.pb-placeholder` plus `placeholder_svg_tag`.
 
 ### 4.4 `sections/pb-editorial-banner.liquid`
 
 - Settings: `image`, `image_mobile`, `heading` ("Considered forms. Everyday character."), `link_label`, `link_url`, color_scheme, padding.
-- Desktop: `<figure>` with a 21:9 `aspect-ratio` and `object-fit:cover`. Below it a flex row (wrap, gap 3.2rem, space-between, align-end): `<h2 class="h1">` max 62rem and `<a class="pb-text-cta">`.
-- Mobile: full bleed (negative margins or outside `.page-width`), 4:5, using the mobile image. Lazy-loaded.
+- Desktop: the image inside a `.pb-frame` > `.pb-frame__inner` (21:9, `object-fit:cover`). Below it (margin-top 3.6rem) a flex row (wrap, gap 3.2rem, space-between, align-end): `<h2>` max 64rem and `<a class="pb-text-cta">`.
+- Mobile: the frame with 8px padding and a 4:5 mobile image (~44rem tall). Lazy-loaded.
+- Setting `show_divider_after` (checkbox, default on) renders the ornament divider `<div class="pb-divider" aria-hidden="true"><span class="pb-diamond pb-diamond--md"></span></div>` below the section (02 §4.6).
 
 ### 4.5 `sections/pb-journal-picks.liquid`
 
-- Settings: `heading` ("From the journal"), `view_all_label` ("All articles"), `blog` (blog picker, for the view-all URL), color_scheme, padding.
+- Settings: `eyebrow` ("THE JOURNAL"), `heading` ("Notes on brass"), `view_all_label` ("All articles"), `blog` (blog picker, for the view-all URL), `show_numerals` (checkbox, default on), color_scheme, padding.
 - Blocks `article` (max 3): `article` (article picker), `tag_label` (text, optional; otherwise the article's first tag), `show_image` (checkbox, default off).
-- Card: `<li class="pb-rule-top" style="padding-top:2rem">`, then the eyebrow, `<h3><a href="{{ a.url }}">{{ a.title | escape }}</a></h3>` (Cormorant 600 2.8rem) and `<p>{{ a.excerpt_or_content | strip_html | truncatewords: 22 }}</p>` (1.5rem stone).
+- Card: `<li>` with `border-top:1px solid var(--pb-gold); padding-top:2.2rem`. Inside: the roman numeral (`{% render 'pb-roman', n: forloop.index %}`, or a simple `case` for 1–3; Cormorant 500 3.4rem gold, `aria-hidden`), the tag (Inter 600 1.1rem, 0.28em, muted), `<h3><a href="{{ a.url }}">{{ a.title | escape }}</a></h3>` (Cormorant 600 2.8rem) and `<p>{{ a.excerpt_or_content | strip_html | truncatewords: 22 }}</p>` (1.5rem muted). Mobile: a grid of a 4rem numeral column and the title.
 - If an article block is empty or the article was deleted, skip it. If no valid articles remain, render nothing.
 
 ### 4.6 `sections/pb-newsletter.liquid`
 
 Reuse Dawn's form exactly: `{% form 'customer', id: 'PbNewsletter-{{ section.id }}' %}` with `<input type="hidden" name="contact[tags]" value="newsletter">`, `name="contact[email]"`, plus the error and success handling copied from `sections/newsletter.liquid` (lines 48–120).
 
-- Settings: `anchor_id` (text, default `signup`, rendered as the wrapper `id`), `heading` ("The next chapter."), `text` ("Get collection news and new release updates."), `button_label` ("Notify me"), `consent` (richtext, **no default legal text**; the owner must enter it), `color_scheme` (default `scheme-3`), padding.
-- Layout: a charcoal panel inside `.page-width`, padding 7.2rem, radius 2px, grid 1fr 1fr at ≥990px, single column below. Visible `<label>`, input height 5.2rem with a transparent ground and a 1px `#A39A8B` border, on-dark button.
+- Settings: `anchor_id` (text, default `signup`, rendered as the wrapper `id`), `eyebrow` ("LAUNCH LIST"), `heading` ("The next chapter."), `text` ("Get collection news and new release updates."), `button_label` ("Notify me"), `consent` (richtext, **no default legal text**; the owner must enter it), `color_scheme` (default `scheme-3`, royal green), padding.
+- Layout: a green `.pb-frame` inside `.page-width` (the frame background is the scheme background). The inner frame has padding 7.2rem 4rem [4rem 1.8rem] and centred content: diamond, ruled eyebrow, H2, text. Then a form, max 56rem, left-aligned inside: a visible `<label>`, the input (5.2rem, green-deep background, 1px gold border) and the gold primary button in a wrapping row.
 - Success: `<p role="status">{{ 'newsletter.success' | t }}</p>`. Error: `<p role="alert" id="…-error">`, with `aria-describedby` on the input.
 
 ### 4.7 `sections/pb-collection-nav.liquid`
@@ -299,7 +356,7 @@ Reuse Dawn's form exactly: `{% form 'customer', id: 'PbNewsletter-{{ section.id 
 - Settings: `menu` (link_list, default `shop-categories`), show_count (checkbox).
 - For each `link` in the menu, render `<a class="pb-pill" href="{{ link.url }}" {% if link.current %}aria-current="page"{% endif %}>{{ link.title | escape }}</a>`, then hide any link whose `link.object.products_count == 0`.
 - Wrap the links in `<nav aria-label="{{ 'pb.collection.categories' | t }}">`. On mobile it scrolls horizontally (`overflow-x:auto; scroll-snap-type:x proximity`).
-- Pill CSS: height 4rem, padding 0 1.8rem, 1px `--pb-line`, radius 2px, 1.3rem/500. `[aria-current]` gets a charcoal fill and ivory text.
+- Pill CSS: height 4rem, padding 0 1.8rem, 1px `var(--pb-rule-strong)`, radius 2px, Inter 600 1.2rem, 0.18em, uppercase, ivory. Hover: gold border. `[aria-current]`: gold fill, onyx text.
 
 ## 5 · `templates/product.json` composition
 
@@ -352,7 +409,7 @@ Override: `products.product.add_to_cart` = "Add to bag", `general.cart.title` = 
 ## 7 · Header and footer groups
 
 `sections/header-group.json`:
-- `announcement-bar`: one block, `color_scheme: scheme-3`, text "The first Parkdale Brass jewelry collection is in development.", link `#signup` (Dawn shows the whole bar as a link). Remove the block entirely at launch if there's no verified message.
+- `announcement-bar`: one block, `color_scheme: scheme-3` (royal green; text styled gold-pale by `pb-theme.css`), text "The first Parkdale Brass jewelry collection is in development.", link `#signup` (Dawn shows the whole bar as a link). Remove the block entirely at launch if there's no verified message.
 - `header`: `menu: jewelry-main-menu`, `menu_type_desktop: dropdown`, `logo_position: middle-left`, `mobile_logo_position: center`, `sticky_header_type: on-scroll-up`, `show_line_separator: true`, `enable_country_selector: false` (the footer has it), `enable_language_selector: false`, padding 16/16.
 
 `sections/footer-group.json` (`footer`):
@@ -370,7 +427,9 @@ Override: `products.product.add_to_cart` = "Add to bag", `general.cart.title` = 
 1. `main-collection-banner`: `show_collection_description: true`, `show_collection_image: false`.
 2. `pb-collection-nav`: menu `shop-categories`.
 3. `main-collection-product-grid`: `products_per_page: 24`, `columns_desktop: 3`, `columns_mobile: "2"`, `image_ratio: portrait`, `show_secondary_image: true`, `show_vendor: false`, `show_rating: false`, `enable_filtering: true`, `filter_type: horizontal`, `enable_sorting: true`, `quick_add: none`.
-4. `multicolumn`: 3 columns, no images, title + text + link (Size guide / Jewelry care / Shipping & returns), `color_scheme: scheme-1`. Add the class `pb-rule-top` with a `custom-liquid` wrapper if needed.
+4. `multicolumn`: 3 columns, no images, title + text + link (Size guide / Jewelry care / Shipping & returns), `color_scheme: scheme-1`. Give it a 1px gold-line top border via `pb-theme.css`.
+
+**Dawn edit for the in-grid promo tile (02 §5.5):** add settings `pb_promo_enable`, `pb_promo_eyebrow`, `pb_promo_text`, `pb_promo_link_label` and `pb_promo_link` to `sections/main-collection-product-grid.liquid`. On the **last page** of results only, render one extra `<li class="grid__item">` after the products: a green `.pb-frame` tile at 4:5. It must not be counted in the product count or the pagination, and it hides when filters return zero products. Log it in the CHANGELOG.
 
 In Admin → Search & Discovery, filters should be **Availability** and **Price** only (owner approval; it's store-level).
 
@@ -381,14 +440,16 @@ order: pb_hero, pb_categories, pb_concepts, material, editorial, story, journal,
 pb_hero          → PB · Hero (button "Get launch updates" → #signup, link "Discover our story" → /pages/our-story)
 pb_categories    → PB · Category tiles (blocks: bracelets, necklaces, rings)
 pb_concepts      → PB · Concept grid (4 concept blocks; replaced by featured-collection at launch)
-material         → image-with-text (image left, caption "THE MATERIAL", heading, 2 text blocks, secondary button "Why brass?"), section class pb-rule-y via color/padding settings
-editorial        → PB · Editorial banner (link "Be first to know" → #signup)
-story            → image-with-text (image right, caption "OUR STORY", heading "Rooted in Parkdale.", text, secondary button "Our story")
-journal          → PB · Journal picks (what-is-brass-jewelry-metal, gold-plated-brass-jewelry, care article once published)
-signup           → PB · Newsletter (anchor "signup", scheme-3)
+material         → image-with-text, color_scheme scheme-3 (royal green, full width), image left, caption "THE MATERIAL", heading, 2 text blocks, secondary button "Why brass?"
+editorial        → PB · Editorial banner (double frame, link "Be first to know" → #signup, divider after)
+story            → image-with-text (image right, `pb_frame_image: true`, caption "OUR STORY", heading "Rooted in Parkdale.", text, secondary button "Our story")
+journal          → PB · Journal picks ("THE JOURNAL" / "Notes on brass", numerals; what-is-brass-jewelry-metal, gold-plated-brass-jewelry, care article once published)
+signup           → PB · Newsletter (anchor "signup", scheme-3 royal green, double frame)
 ```
 
-`image-with-text` settings for both editorial splits: `height: adapt`, `desktop_image_width: medium`, `layout: image_first` (material) or `text_first` (story), `desktop_content_position: middle`, `content_layout: no-overlap`, `color_scheme: scheme-1`. Set the headings to size `h1` (≈ 48px with the scale), and make the button blocks `button_style_secondary: true`.
+`image-with-text` settings for both editorial splits: `height: adapt`, `desktop_image_width: medium`, `layout: image_first` (material) or `text_first` (story), `desktop_content_position: middle`, `content_layout: no-overlap`. Material uses `color_scheme: scheme-3` (royal green), story uses `scheme-1`. Set the headings to size `h1`, and make the button blocks `button_style_secondary: true`.
+
+**Dawn edit for the story frame:** add a checkbox `pb_frame_image` ("Frame image (Archive double frame)") to `sections/image-with-text.liquid`. When it's on, wrap the media in `<div class="pb-frame"><div class="pb-frame__inner">…</div></div>`. Turn it on for the story section only. Log it in the CHANGELOG with `PB:` markers.
 
 ## 10 · SEO plumbing (theme side)
 

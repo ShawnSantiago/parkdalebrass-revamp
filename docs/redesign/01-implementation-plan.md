@@ -45,7 +45,7 @@ Build Phases 0–2 now. Don't wait on SKUs or photography for them. Phase 5 wait
 
 | # | Task | Files | Detail |
 | --- | --- | --- | --- |
-| 1.1 | Colour schemes | `config/settings_data.json` | Replace schemes 1–5 with the five Parkdale schemes (03 §1). Merge; don't replace the file. |
+| 1.1 | Colour schemes | `config/settings_data.json` | Replace schemes 1–5 with the five Archive schemes (03 §1): onyx, onyx deep, royal green, onyx raised, gold. Merge; don't replace the file. |
 | 1.2 | Typography | `config/settings_data.json`, `assets/pb-theme.css` | Heading font **Cormorant Garamond 500**, body **Inter 400**. Use Shopify font library handles if available, else self-host WOFF2 (03 §2). |
 | 1.3 | Global settings | `config/settings_data.json` | Page width 1440, radii 2, no shadows, reveal-on-scroll off, card portrait styling (03 §1). |
 | 1.4 | Token stylesheet | `assets/pb-theme.css` (new), `layout/theme.liquid` (1 line) | Tokens, eyebrow, link, focus, placeholder and header-wordmark styles. Loaded after `base.css` (03 §3). |
@@ -53,7 +53,7 @@ Build Phases 0–2 now. Don't wait on SKUs or photography for them. Phase 5 wait
 | 1.6 | Footer | `sections/footer-group.json` | Brand block + 3 link-list blocks (Shop / Learn / Help), country selector on, newsletter off (the homepage has its own), policies on. |
 | 1.7 | Locale strings | `locales/en.default.json` | Add `pb.*` strings used by the custom sections (03 §6). |
 
-**Exit:** a blank page on the dev theme shows ivory, charcoal type, the Parkdale header and footer, and passes contrast.
+**Exit:** a blank page on the dev theme shows the onyx ground, ivory and gold type, the spaced wordmark with its diamond, the green announcement bar and the Parkdale footer, and passes contrast.
 
 ---
 

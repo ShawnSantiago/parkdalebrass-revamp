@@ -20,13 +20,13 @@ The single list of everything waiting on the Parkdale Brass owner. Agents: **don
 
 | ID | Decision / input | Reference | Blocks | Status | Date / note |
 | --- | --- | --- | --- | --- | --- |
-| B-01 | Approve the overall visual direction (palette, type, layout) | Canvas, `02-design-spec.md` §1–2, D-03 | Phase 1 | Open | n/a |
+| B-01 | Approve the overall visual direction (palette, type, layout) | Canvas page B, `02-design-spec.md` §1–2, D-19 | Phase 1 | Approved | 2026-11-25: Direction B "Archive" (black, gold, royal green) chosen in design review |
 | B-02 | Approve the homepage section order and copy | `02` §4, `04` §1 | Phase 2 | Open | n/a |
 | B-03 | Approve the collection and product page layouts | `02` §5–6 | Phase 2 | Open | n/a |
 | B-04 | Logo: supply the existing logo files and decide whether to keep, refresh, or use the typeset wordmark | D-14 | Phase 1 (temporary wordmark allowed), launch | Open | n/a |
 | B-05 | Approve the brand story copy ("Rooted in Parkdale", Our Story page) | `04` §1 | Launch | Open | n/a |
 | B-06 | Approve the tagline "Made to wear. Made to age." (only valid if the finishes really age) | `04` §1 | Launch | Open | n/a |
-| B-07 | Approve, or adjust, the proposed decisions D-01 to D-17 | `decisions.md` | Phase 1 | Open | n/a |
+| B-07 | Approve, or adjust, the proposed decisions in `decisions.md` (D-19 already approved) | `decisions.md` | Phase 1 | Open | n/a |
 
 ## C · Product truth (blocks a transactional launch)
 

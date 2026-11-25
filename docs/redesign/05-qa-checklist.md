@@ -10,11 +10,13 @@ Record each result as **Pass / Fail / Not tested**, with evidence (screenshot pa
 
 ## 1 · Visual fidelity (vs `02-design-spec.md`)
 
-- [ ] Ivory ground, charcoal text, bronze eyebrows. Brass is never used as text.
+- [ ] Onyx ground, ivory headings, `#D8D0C0` body, gold eyebrows, prices and buttons. Royal green only as panels. Gold-line `#7D6840` never used for text.
+- [ ] Ornaments follow 02 §1.5: at most one double frame fully in view, diamonds only at section starts, one divider per page, all ornaments `aria-hidden`.
 - [ ] Cormorant Garamond headings at 500/600 and Inter body. Only these weights load (check the Network tab).
-- [ ] 2px radii; no shadows, gradients or entrance animations.
+- [ ] 2px radii on controls, 4px on outer frames; no shadows, gradients, foil textures or entrance animations.
 - [ ] Homepage section order matches 02 §4 in both prelaunch and live configurations.
-- [ ] Cards are 4:5, the name/price row is aligned, the descriptor is shown, and the Concept badge appears in prelaunch only.
+- [ ] Cards are 4:5 on onyx-raised with a rule border that turns gold on hover, gold prices, and a gold-outline Concept badge in prelaunch only.
+- [ ] Hero headline and page H1s render in spaced capitals via CSS (the source text stays in sentence case).
 - [ ] Hero: copy before image on mobile, primary CTA visible without scrolling at 375×667.
 - [ ] No horizontal overflow at any width (`document.documentElement.scrollWidth <= innerWidth`).
 
@@ -46,7 +48,7 @@ Record each result as **Pass / Fail / Not tested**, with evidence (screenshot pa
 - [ ] Drawers and modals: focus trap, Esc to close, focus returns to the trigger.
 - [ ] Option groups use `fieldset`/`legend`; selected state is exposed (`checked`/`aria-pressed`); unavailable is announced.
 - [ ] Status messages (add to bag, newsletter) use `role="status"` or `aria-live`.
-- [ ] Contrast: text ≥ 4.5:1, large text and UI ≥ 3:1. Pay attention to stone on ivory-deep and muted text on charcoal.
+- [ ] Contrast: text ≥ 4.5:1, large text and UI ≥ 3:1. Pay attention to gold text on royal green (4.8:1, keep ≥ 12px/500), muted text on the footer, and the gold-pale focus ring on gold buttons.
 - [ ] Touch targets ≥ 44×44 (WCAG 2.5.8 minimum 24×24; the design targets 44).
 - [ ] Alt text is meaningful on product images and empty on decorative ones.
 - [ ] Usable at 200% zoom and 320px width (reflow).

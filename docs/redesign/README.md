@@ -18,7 +18,7 @@ This folder lets any developer or AI agent rebuild the approved Parkdale Brass j
 
 Agents also get these rules automatically from `AGENTS.md` / `CLAUDE.md` at the repo root.
 
-**Visual reference:** the design canvas at https://claude.ai/artifact/935Z6v9LJkWXDWSmdgNbQc. It is private to the owner, so ask for access if you can't open it. `02-design-spec.md` is written so the design can be rebuilt without the canvas. If the two disagree, the spec wins, because it holds the decisions made after review.
+**Visual reference:** the design canvas at https://claude.ai/artifact/935Z6v9LJkWXDWSmdgNbQc, page **"B · Archive: black, gold & green"**. That's the chosen direction (D-19). Page A is kept for reference only; don't build it. The canvas is private to the owner, so ask for access if you can't open it. `02-design-spec.md` is written so the design can be rebuilt without the canvas. If the two disagree, the spec wins, because it holds the decisions made after review.
 
 **Source brief:** *Parkdale Brass — Jewelry Store Redesign & Shopify Implementation Brief* (Nov 25, 2026). That brief sets the strategy. These docs make it concrete for this codebase.
 

@@ -11,12 +11,13 @@ Voice: direct, restrained Canadian English, short sentences, material-specific. 
 | Location | Copy |
 | --- | --- |
 | Announcement (prelaunch) | The first Parkdale Brass jewelry collection is in development. Join the launch list |
-| Hero eyebrow | PARKDALE BRASS · EST. 2019 |
-| Hero H1 | Made to wear. Made to age. |
-| Hero text | Brass jewelry with character. Inspired by industrial design and rooted in Toronto. |
+| Hero lockup line | PARKDALE BRASS |
+| Hero H1 | Made to wear. Made to age. (set in caps by CSS) |
+| Hero dateline | EST. 2019 · TORONTO |
+| Hero text | Brass jewelry with character, inspired by industrial design and rooted in Parkdale. |
 | Hero CTA | Get launch updates (prelaunch) / Shop jewelry (live) |
-| Hero secondary | Discover our story |
-| Categories H2 | Shop by category |
+| Hero secondary button | Our story |
+| Categories eyebrow / H2 | THE COLLECTION / Shop by category |
 | Featured eyebrow | COMING SOON (prelaunch) / EVERYDAY ESSENTIALS (live) |
 | Featured H2 | The first collection |
 | Featured note (prelaunch) | Concepts in development. Designs, finishes and prices may change before release. |
@@ -27,12 +28,14 @@ Voice: direct, restrained Canadian English, short sentences, material-specific. 
 | Editorial CTA | Be first to know (prelaunch) / Shop bracelets (live) |
 | Story eyebrow / H2 | OUR STORY / Rooted in Parkdale. |
 | Story text | Parkdale Brass began in 2019 in Toronto's Parkdale neighbourhood, with an appreciation for brass and the industrial design of everyday objects. ¶ Our next chapter takes that same interest in form, function and character into jewelry: warm tones, considered shapes and a style that doesn't need to shout. |
-| Journal H2 | From the journal |
-| Newsletter H2 / text | The next chapter. / Get collection news and new release updates. |
+| Journal eyebrow / H2 | THE JOURNAL / Notes on brass |
+| Newsletter eyebrow / H2 / text | LAUNCH LIST / The next chapter. / Get collection news and new release updates. |
 | Newsletter button | Notify me (prelaunch) / Subscribe (live) |
 | Newsletter consent | **[Owner/legal to supply. CASL-compliant express consent wording.]** |
 | Footer brand line | Brass jewelry with character. Est. 2019, Toronto. |
-| Collection description (All Jewelry) | Cuffs, chains, pendants and rings in brass. Each piece lists its actual finish, measurements and care. |
+| Collection eyebrow (All Jewelry) | Live categories only, e.g. CUFFS · CHAINS · PENDANTS (add RINGS when live) |
+| Collection description (All Jewelry) | Each piece lists its actual finish, measurements and care. |
+| Collection promo tile | NEW TO BRASS? / How brass wears, and how to care for it. / Why brass? |
 | Collection empty state | Nothing matches those filters. / Try removing a filter, or browse all jewelry. / Reset filters |
 | PDP related heading | Wear it with |
 | Contact note | Questions about an order placed before [launch date]? Include your order number and we'll help. |
