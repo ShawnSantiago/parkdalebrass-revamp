@@ -44,14 +44,16 @@ Build Phases 0–2 now. Don't wait on SKUs or photography for them. Phase 5 wait
 
 ## Phase 1 · Design foundation
 
+Step-by-step handover: **[`phase-1-brief.md`](phase-1-brief.md)**.
+
 | # | Task | Files | Detail |
 | --- | --- | --- | --- |
 | 1.1 | Colour schemes | `config/settings_data.json` | Replace schemes 1–5 with the five Archive schemes (03 §1): onyx, onyx deep, royal green, onyx raised, gold. Merge; don't replace the file. |
-| 1.2 | Typography | `config/settings_data.json`, `assets/pb-theme.css` | Heading font **Cormorant Garamond 500**, body **Inter 400**. Use Shopify font library handles if available, else self-host WOFF2 (03 §2). |
+| 1.2 | Typography | `config/settings_data.json`, `assets/pb-theme.css` | Heading font **Cormorant Garamond 500 + 600** (CSS picks the weight per element), body **Inter 400**. Self-host the WOFF2 files by default; switch to font-library handles if the owner confirms they exist (03 §2). |
 | 1.3 | Global settings | `config/settings_data.json` | Page width 1440, radii 2, no shadows, reveal-on-scroll off, card portrait styling (03 §1). |
 | 1.4 | Token stylesheet | `assets/pb-theme.css` (new), `layout/theme.liquid` (1 line) | Tokens, eyebrow, link, focus, placeholder and header-wordmark styles. Loaded after `base.css` (03 §3). |
 | 1.5 | Header | `sections/header-group.json` | Logo left, dropdown menu → `jewelry-main-menu`, sticky on scroll-up, announcement bar shown only when a message is set. |
-| 1.6 | Footer | `sections/footer-group.json` | Brand block + 3 link-list blocks (Shop / Learn / Help), country selector on, newsletter off (the homepage has its own), policies on. |
+| 1.6 | Footer | `sections/footer-group.json`, `sections/footer.liquid` | Brand block + 3 link-list blocks (Shop / Learn / Help), country selector on, newsletter off (the homepage has its own), policies on. Dawn edit: mobile accordions (03 §7). |
 | 1.7 | Locale strings | `locales/en.default.json` | Add `pb.*` strings used by the custom sections (03 §6). |
 
 **Exit:** a blank page on the dev theme shows the onyx ground, ivory and gold type, the spaced wordmark with its diamond, the green announcement bar and the Parkdale footer, and passes contrast.
