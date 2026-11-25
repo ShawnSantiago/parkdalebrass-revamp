@@ -33,5 +33,6 @@ Visual reference (private, ask the owner for access): https://claude.ai/artifact
 
 ## Current status
 
-- Phase 0 (audit) is **partial**: the repo is audited (stock Dawn 16.0.0, no customisations). The live theme, Admin and SEO audits need owner access. See `docs/redesign/audit.md`.
+- Phase 0 (audit): the repo and the public storefront are audited (`docs/redesign/audit.md`, `docs/redesign/url-inventory.csv`). **The live theme is Craft 14.0.0, not Dawn**, so the base-theme decision (owner-inputs B-08) must be made before Phase 1. The live theme files, Admin and SEO data still need owner access (A-01 to A-03).
+- **Phase 1 has not started.** The owner has reserved it for another agent. If that's you, start with `owner-inputs.md` (B-08 and A-01), then `01-implementation-plan.md` Phase 1.
 - Visual direction approved: **B "Archive"** (2026-11-25). Docs updated to match.

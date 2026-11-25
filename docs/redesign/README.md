@@ -30,7 +30,9 @@ Agents also get these rules automatically from `AGENTS.md` / `CLAUDE.md` at the 
 | --- | --- |
 | **Confirmed (repo)** | The repo is stock **Dawn 16.0.0**: commit `258f00f`, default `config/settings_data.json`, no customisations, no cannabis, age-gate or app code. |
 | **Confirmed (public site)** | The live store sells legacy smoking accessories. It has blog articles `/blogs/news/what-is-brass-jewelry-metal` and `/blogs/news/gold-plated-brass-jewelry`, and localization is enabled. |
-| **Unknown** | Whether the live theme is Dawn, which version, its settings, installed apps, menus, metafields, redirects and analytics. **Phase 0 must answer these.** |
+| **Confirmed (public site audit)** | The live theme is **Craft 14.0.0** (not Dawn). The store is `parkdale-brass.myshopify.com`. Apps seen: Judge.me, Klaviyo, Microsoft Clarity, Spline, plus a `config-security.com` script. 12 products (no jewelry yet), 14 collections, 133 blog articles (30 jewelry). Details in `audit.md`. |
+| **Unknown** | Live theme custom code and app embeds, Admin data (drafts, metafields, redirects, markets), analytics. Needs owner access (A-01 to A-03). |
+| **Open decision** | Base theme: Dawn 16 or Craft 14 (B-08). Decide before Phase 1. |
 | **Proposal** | Everything in `02-design-spec.md`: palette, type, layout and copy. |
 | **Owner decision** | Products, materials, prices, finishes, sizes, shipping, returns, logo, imagery, consent wording, legacy retirement. |
 

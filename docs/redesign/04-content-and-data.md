@@ -133,7 +133,9 @@ The existing `main-menu` and `footer` menus are **not edited**. They stay as the
 - OG image: a 1200×630 crop of the approved hero photo. Never a legacy pipe image.
 - One H1 per page. Headings follow the order in 02.
 
-### URL inventory (start; complete it from Phase 0 exports)
+### URL inventory
+
+The full public inventory (167 URLs, each classified with a proposed first action) is in [`url-inventory.csv`](url-inventory.csv). Fill in its Search Console columns, then the final action, destination and approver per row. The table below covers the key rows.
 
 | URL | Action | Destination / note | Approval |
 | --- | --- | --- | --- |

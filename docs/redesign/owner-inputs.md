@@ -26,6 +26,7 @@ The single list of everything waiting on the Parkdale Brass owner. Agents: **don
 | B-04 | Logo: supply the existing logo files and decide whether to keep, refresh, or use the typeset wordmark | D-14 | Phase 1 (temporary wordmark allowed), launch | Open | n/a |
 | B-05 | Approve the brand story copy ("Rooted in Parkdale", Our Story page) | `04` §1 | Launch | Open | n/a |
 | B-06 | Approve the tagline "Made to wear. Made to age." (only valid if the finishes really age) | `04` §1 | Launch | Open | n/a |
+| B-08 | **Base theme:** build the redesign on Dawn 16 (this repo; recommended) or on the live Craft 14.0.0 theme | `audit.md` §5, D-02 | Phase 1 | Open | n/a |
 | B-07 | Approve, or adjust, the proposed decisions in `decisions.md` | `decisions.md` | Phase 1 | Approved | 2026-11-25: all current decisions approved. D-02 is re-checked after the Phase 0 audit; D-07 covers the decision only, not store change E-04. |
 
 ## C · Product truth (blocks a transactional launch)
@@ -41,6 +42,7 @@ The single list of everything waiting on the Parkdale Brass owner. Agents: **don
 | C-07 | Prices (CAD) and any other market currencies | Phase 3 | Open | n/a |
 | C-08 | Stock levels and fulfilment capacity | Phase 3 | Open | n/a |
 | C-09 | Product photography: P1–P4 per product and finish, per `photography-brief.md` | Phase 3 | Open | n/a |
+| C-11 | Clean up product types (most are blank) before smart collections rely on them; decide brand-merch products (tees, hat, slides, mug): keep outside the jewelry nav, or unpublish | Phase 3 | Open | Found in audit §3 |
 | C-10 | Editorial imagery E1–E6, per `photography-brief.md` | Launch | Open | n/a |
 
 ## D · Policies and legal
