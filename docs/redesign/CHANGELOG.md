@@ -50,5 +50,9 @@ Records every change to this theme, and especially every edit to a **stock Dawn 
 ### Changed: settings/templates
 - _None yet._
 
+### Changed: repository tooling
+- `.github/workflows/ci.yml`: now runs on pull requests and pushes to `main`. Keeps Theme Check, adds the docs check (`.github/scripts/check_docs.py`: relative links and CSV shape). Removed the inherited Lighthouse job, which needed Shopify's private store secrets; Lighthouse is run during Phase 4 QA instead (`phase-4-brief.md` §3.6).
+- Removed `.github/workflows/cla.yml`: Shopify's contributor-agreement bot only works on Shopify's own repos.
+
 ### Removed
 - _None._
