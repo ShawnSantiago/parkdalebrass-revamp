@@ -62,6 +62,8 @@ Step-by-step handover: **[`phase-1-brief.md`](phase-1-brief.md)**.
 
 ## Phase 2 · Templates and sections
 
+Step-by-step handover: **[`phase-2-brief.md`](phase-2-brief.md)**. The footer accordion edit listed below is done in Phase 1.
+
 ### 2A · Custom sections and Dawn edits (wherever Dawn can't match the spec exactly; full map in 03 §0)
 
 | Section | Why Dawn isn't enough | Spec |

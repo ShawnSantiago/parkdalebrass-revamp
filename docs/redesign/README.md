@@ -10,6 +10,7 @@ This folder lets any developer or AI agent rebuild the approved Parkdale Brass j
 | 4 | [04-content-and-data.md](04-content-and-data.md) | Copy deck, metafields, menus, collections, placeholders, SEO and redirects |
 | 5 | [05-qa-checklist.md](05-qa-checklist.md) | Test matrix and acceptance criteria |
 | · | [phase-1-brief.md](phase-1-brief.md) | **Start here for Phase 1:** the handover brief for the next agent |
+| · | [phase-2-brief.md](phase-2-brief.md) | Handover brief for Phase 2 (all templates and sections), after Phase 1 |
 | · | [decisions.md](decisions.md) | Decision log: what has been decided, why, and the approval status |
 | · | [product-data/](product-data/README.md) | Shopify product import template and per-product fact sheet |
 | · | [photography-brief.md](photography-brief.md) | Brief for the photographer: look, shot list, crops, specs, naming |

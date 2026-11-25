@@ -112,4 +112,4 @@ Read this whole brief before you change a file. It takes about five minutes and 
 2. What you tested and how, what passed and failed, and what's untested (with the reason, e.g. "no theme access").
 3. Screenshots if you previewed (desktop and mobile, header and footer).
 4. Updated `CHANGELOG.md`, plus any new items for `owner-inputs.md` or `decisions.md`.
-5. The next step: Phase 2 (`01-implementation-plan.md` §2), starting with `pb-hero` and the homepage template.
+5. The next step: Phase 2. Follow [`phase-2-brief.md`](phase-2-brief.md).
