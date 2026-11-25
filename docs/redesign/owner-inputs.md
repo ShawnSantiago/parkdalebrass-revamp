@@ -72,7 +72,7 @@ The single list of everything waiting on the Parkdale Brass owner. Agents: **don
 | E-10 | Update policies (shipping, refunds, privacy, terms) | Section D | Copy the current policy text | Open | n/a |
 | E-11 | Update homepage title, meta description and social image | `04` §5 | Note the current values | Open | n/a |
 | E-12 | Merchant Center / ads feed changes | `01` Phase 5 | Note the account status | Open | n/a |
-| E-13 | **Customer accounts:** confirm the store's account mode (Settings → Customer accounts). If it's on **legacy** accounts, upgrade to new customer accounts before launch. Dawn 16 removed the legacy account templates. | `phase-5-brief.md` §1, Dawn `release-notes.md` | Note the current mode and settings; check existing customers can still sign in | Open | n/a |
+| E-13 | **Customer accounts:** confirm the store's account mode (Settings → Customer accounts). If it's on **legacy** accounts, upgrade to new customer accounts before launch. Dawn 16 removed the legacy account templates. | `phase-5-brief.md` §1, Dawn `release-notes.md` | Note the current mode and settings; check existing customers can still sign in | N/A, no upgrade needed | 2026-11-25: owner confirmed the store already uses **new** customer accounts. Sign-in and order history are still checked in Phase 4 QA and the launch smoke test. |
 
 ## F · Launch sign-off
 

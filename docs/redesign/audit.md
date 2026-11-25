@@ -147,7 +147,7 @@ Complete it after the pull. Each item is re-created in the Dawn theme, never cop
 - [ ] Markets, shipping zones, apps list (identify `config-security.com`), pixels and Customer Events, consent banner
 - [ ] Sales channels per product (Online Store, Shop, Google, Meta, Etsy?)
 - [ ] Policies: current text copied for backup
-- [ ] **Customer account mode** (legacy or new). Dawn 16 removed the legacy account templates, so legacy stores must upgrade before launch (E-13).
+- [x] **Customer account mode:** **new** customer accounts (owner confirmed 2026-11-25), so no upgrade is needed. Originally checked because Dawn 16 removed the legacy account templates (E-13).
 
 ### SEO and analytics (A-03)
 - [ ] Search Console 16-month query and page export, then fill in `clicks_16m` and `impressions_16m` in `url-inventory.csv` and choose a consolidation target per jewelry cluster
