@@ -10,9 +10,9 @@ Strategy in one line: **the design leads and the theme follows (D-21).** Use Daw
 
 | Phase | Outcome | Depends on | Store-level mutation? |
 | --- | --- | --- | --- |
-| 0 · Audit | Live theme pulled into Git, audit report written | Theme access (Shopify CLI) | No |
+| 0 · Audit | Live theme pulled into a separate reference folder (not this repo), audit report written | Theme access (Shopify CLI) | No |
 | 1 · Foundation | Tokens, colour schemes, type, buttons, header, footer | Phase 0 | No |
-| 2 · Templates | Homepage (prelaunch + live), collection, PDP, content pages | Phase 1 | No (uses fixtures / unpublished theme) |
+| 2 · Templates | Homepage (prelaunch + live), collection, PDP, content pages | Phase 1 | No (unpublished theme; fixtures on a development store only) |
 | 3 · Catalog & content | Real product data, metafields, photos, policies | Owner inputs | **Yes, approval required** |
 | 4 · QA | Accessibility, performance, SEO, analytics, cross-device | Phases 2–3 | No |
 | 5 · Launch | Publish theme, apply approved store changes | Owner sign-off | **Yes, approval required** |
@@ -27,7 +27,7 @@ Build Phases 0–2 now. Don't wait on SKUs or photography for them. Phase 5 wait
 **Tasks**
 
 1. `shopify theme list --store <store>.myshopify.com` and note the live theme name, ID and role.
-2. `shopify theme pull --theme <live-id>` into a fresh directory. Diff it against this repo (stock Dawn 16.0.0):
+2. `shopify theme pull --theme <live-id> --path <folder outside this repo>` (the CLI defaults to the current directory, so always pass `--path`). Diff it against this repo (stock Dawn 16.0.0):
    - **Resolved 2026-11-25:** the live theme is Craft 14.0.0, and the build stays on Dawn 16 (D-24). Pull Craft into a separate reference folder (don't commit it over this repo) and use it to complete the carry-over checklist in `audit.md` §5. The original rules follow.
    - If the live theme **is Dawn (any version)**: commit it to the branch as `chore: import live theme`, then upgrade to 16.0.0 only if the gap is small. Otherwise apply these docs to the live version.
    - If it is **another theme**: stop and report. The owner decides between re-mapping these docs to that theme and moving to Dawn.
@@ -99,8 +99,8 @@ Every section must have: a `{% schema %}` with presets, translated labels, `colo
 
 ### 2C · Prelaunch fixtures (dev only)
 
-- On a **development store or the unpublished theme only**, create draft products that are never published to any channel, so the PDP and collection grid can be tested. Title them `[FIXTURE] The Junction` and so on, set **status: Draft**, and give them no sales channels.
-- If a dev store isn't available, test the PDP with Shopify's theme-editor preview of an existing product. **Never** publish fixtures to the live store.
+- **On a development store only** (owner-inputs A-04), create draft products so the PDP and collection grid can be tested. Title them `[FIXTURE] The Junction` and so on, set **status: Draft**, and give them no sales channels.
+- **Never create fixtures on the production store**, not even as drafts. An unpublished theme doesn't isolate store data, so fixture records would land in the shared live catalog. When previewing the unpublished theme on the production store, test with **existing products only** (matches `phase-2-brief.md` §2.9).
 
 **Exit:** the unpublished theme preview matches `02-design-spec.md` and canvas page B **side by side** (05 §9) at 320, 375, 390, 768, 1280 and 1440 wide, with zero unapproved deviations, in both prelaunch and live homepage configurations, with no fake purchasable inventory.
 

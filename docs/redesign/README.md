@@ -43,7 +43,7 @@ Agents also get these rules automatically from `AGENTS.md` / `CLAUDE.md` at the 
 
 ## Rules for any agent working from these docs
 
-1. **Audit before building.** Pull the live theme into this branch with `shopify theme pull` before Phase 2. If it isn't stock Dawn, re-map with `03-theme-mapping.md` as a guide; don't overwrite it.
+1. **Audit before building.** The build stays on Dawn 16 in this repo (D-24). Pull the live Craft 14 theme with `shopify theme pull --path <folder outside this repo>`: the CLI defaults to the current directory, so always pass `--path`. Use it **for reference only**, to complete the carry-over checklist in `audit.md` §5. Never commit Craft files here, and don't remap the build onto Craft.
 2. **Never publish a theme or change shared store data** (products, collections, menus, metafield definitions, redirects, policies, sales channels, apps) without written owner approval. An unpublished theme doesn't isolate store-level data.
 3. **Never invent facts.** Missing material, size, price, shipping or care data stays as a visible `[bracketed placeholder]` in previews, and as a hidden block in the live theme.
 4. **No fake commerce.** No purchasable concept SKUs, fake prices, ratings, reviews, scarcity, discounts or preorders.
