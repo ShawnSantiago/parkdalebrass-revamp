@@ -147,4 +147,4 @@ Draft in `docs/redesign/content/` as Markdown. The owner approves the text there
 3. The product readiness table: product → data ✔ / evidence ✔ / photos ✔ / owner sign-off ✔.
 4. The completed `url-inventory.csv` plus the prepared unpublish and redirect files.
 5. Anything blocked, and on whom.
-6. Next step: **Phase 4 QA** (`05-qa-checklist.md` in full, now with real products), then the **Phase 5 launch runbook** with the owner present.
+6. Next step: **Phase 4 QA** ([`phase-4-brief.md`](phase-4-brief.md)), then the **Phase 5 launch runbook** ([`phase-5-brief.md`](phase-5-brief.md)) with the owner present.

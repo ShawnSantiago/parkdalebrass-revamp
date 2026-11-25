@@ -126,6 +126,8 @@ Step-by-step handover: **[`phase-3-brief.md`](phase-3-brief.md)**. Additive chan
 
 ## Phase 4 · QA
 
+Step-by-step handover: **[`phase-4-brief.md`](phase-4-brief.md)** (including where to test while products are still hidden, and capturing the baseline).
+
 Run `05-qa-checklist.md` in full. Minimum tooling:
 
 - `shopify theme check` with zero new errors (existing Dawn warnings documented);
@@ -136,6 +138,8 @@ Run `05-qa-checklist.md` in full. Minimum tooling:
 ---
 
 ## Phase 5 · Launch runbook (owner present)
+
+The full, ordered runbook with go/no-go, checkpoints and rollback is **[`phase-5-brief.md`](phase-5-brief.md)**. It supersedes the summary below where they differ (e.g. legacy items are unpublished *before* redirects are imported).
 
 1. **Back up:** duplicate the live theme in Admin (name it `Backup pre-jewelry YYYY-MM-DD`), and export products CSV, redirects CSV, menus (screenshots), policies (copy text) and customer/newsletter consent export.
 2. Apply the approved Phase 3 store changes in this order: metafield definitions → products → collections → pages → menus → redirects → policies.
@@ -166,6 +170,8 @@ A theme rollback alone **doesn't** undo store data. Run every row above.
 ---
 
 ## Phase 6 · Monitor (4 weeks)
+
+Detailed in [`phase-5-brief.md`](phase-5-brief.md) §5.
 
 Each week, report:
 

@@ -78,6 +78,6 @@ The single list of everything waiting on the Parkdale Brass owner. Agents: **don
 | ID | Gate | Status | Signed off by / date |
 | --- | --- | --- | --- |
 | F-01 | QA results reviewed, known failures accepted (`05-qa-checklist.md`) | Open | n/a |
-| F-02 | Launch and rollback runbook reviewed (`01` Phase 5) | Open | n/a |
+| F-02 | Launch and rollback runbook reviewed (`phase-5-brief.md`) | Open | n/a |
 | F-03 | Backups taken (theme duplicate + every export in E) | Open | n/a |
 | F-04 | **Authorize publishing the theme** | Open | n/a |

@@ -12,6 +12,8 @@ This folder lets any developer or AI agent rebuild the approved Parkdale Brass j
 | · | [phase-1-brief.md](phase-1-brief.md) | **Start here for Phase 1:** the handover brief for the next agent |
 | · | [phase-2-brief.md](phase-2-brief.md) | Handover brief for Phase 2 (all templates and sections), after Phase 1 |
 | · | [phase-3-brief.md](phase-3-brief.md) | Handover brief for Phase 3 (catalog, content, store changes). Owner-led, and each change is approved |
+| · | [phase-4-brief.md](phase-4-brief.md) | Handover brief for Phase 4 (QA with evidence, sign-off F-01) |
+| · | [phase-5-brief.md](phase-5-brief.md) | Launch-day runbook (owner present), rollback, and Phase 6 monitoring |
 | · | [decisions.md](decisions.md) | Decision log: what has been decided, why, and the approval status |
 | · | [product-data/](product-data/README.md) | Shopify product import template and per-product fact sheet |
 | · | [photography-brief.md](photography-brief.md) | Brief for the photographer: look, shot list, crops, specs, naming |
