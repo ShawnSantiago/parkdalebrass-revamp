@@ -9,6 +9,10 @@ This folder lets any developer or AI agent rebuild the approved Parkdale Brass j
 | 3 | [03-theme-mapping.md](03-theme-mapping.md) | How each part of the design maps onto Dawn 16: settings, sections, templates, plus code skeletons |
 | 4 | [04-content-and-data.md](04-content-and-data.md) | Copy deck, metafields, menus, collections, placeholders, SEO and redirects |
 | 5 | [05-qa-checklist.md](05-qa-checklist.md) | Test matrix and acceptance criteria |
+| · | [decisions.md](decisions.md) | Decision log: what has been decided, why, and the approval status |
+| · | [owner-inputs.md](owner-inputs.md) | Everything waiting on the owner: access, approvals, product facts, policies, store changes, launch sign-off |
+
+Agents also get these rules automatically from `AGENTS.md` / `CLAUDE.md` at the repo root.
 
 **Visual reference:** the design canvas at https://claude.ai/artifact/935Z6v9LJkWXDWSmdgNbQc. It is private to the owner, so ask for access if you can't open it. `02-design-spec.md` is written so the design can be rebuilt without the canvas. If the two disagree, the spec wins, because it holds the decisions made after review.
 
