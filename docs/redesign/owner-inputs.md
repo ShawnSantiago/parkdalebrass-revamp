@@ -26,7 +26,7 @@ The single list of everything waiting on the Parkdale Brass owner. Agents: **don
 | B-04 | Logo: supply the existing logo files and decide whether to keep, refresh, or use the typeset wordmark | D-14 | Phase 1 (temporary wordmark allowed), launch | Open | n/a |
 | B-05 | Approve the brand story copy ("Rooted in Parkdale", Our Story page) | `04` §1 | Launch | Open | n/a |
 | B-06 | Approve the tagline "Made to wear. Made to age." (only valid if the finishes really age) | `04` §1 | Launch | Open | n/a |
-| B-07 | Approve, or adjust, the proposed decisions in `decisions.md` (D-19 already approved) | `decisions.md` | Phase 1 | Open | n/a |
+| B-07 | Approve, or adjust, the proposed decisions in `decisions.md` (approved so far: D-19, D-21, D-22, D-23) | `decisions.md` | Phase 1 | Open | n/a |
 
 ## C · Product truth (blocks a transactional launch)
 
