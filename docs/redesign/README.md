@@ -10,6 +10,8 @@ This folder lets any developer or AI agent rebuild the approved Parkdale Brass j
 | 4 | [04-content-and-data.md](04-content-and-data.md) | Copy deck, metafields, menus, collections, placeholders, SEO and redirects |
 | 5 | [05-qa-checklist.md](05-qa-checklist.md) | Test matrix and acceptance criteria |
 | · | [decisions.md](decisions.md) | Decision log: what has been decided, why, and the approval status |
+| · | [product-data/](product-data/README.md) | Shopify product import template and per-product fact sheet |
+| · | [photography-brief.md](photography-brief.md) | Brief for the photographer: look, shot list, crops, specs, naming |
 | · | [owner-inputs.md](owner-inputs.md) | Everything waiting on the owner: access, approvals, product facts, policies, store changes, launch sign-off |
 
 Agents also get these rules automatically from `AGENTS.md` / `CLAUDE.md` at the repo root.

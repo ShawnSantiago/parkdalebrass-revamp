@@ -32,7 +32,7 @@ The single list of everything waiting on the Parkdale Brass owner. Agents: **don
 
 | ID | Input | Blocks | Status | Date / note |
 | --- | --- | --- | --- | --- |
-| C-01 | Final launch products: names, designs, categories (start with cuffs and pendants?) | Phase 3 | Open | n/a |
+| C-01 | Final launch products: names, designs, categories (start with cuffs and pendants?). Fill in one fact sheet per product (`product-data/README.md`). | Phase 3 | Open | n/a |
 | C-02 | Material composition per SKU + safety documentation/testing (alloy components, coatings, market requirements) | Phase 3 | Open | n/a |
 | C-03 | Actual finishes and coatings per SKU; whether each finish patinas | Phase 3 | Open | n/a |
 | C-04 | Dimensions, size ranges and tested adjustability (rings, cuffs, chains) | Phase 3 | Open | n/a |
@@ -40,8 +40,8 @@ The single list of everything waiting on the Parkdale Brass owner. Agents: **don
 | C-06 | Country of origin per SKU (if it will be disclosed) | Phase 3 | Open | n/a |
 | C-07 | Prices (CAD) and any other market currencies | Phase 3 | Open | n/a |
 | C-08 | Stock levels and fulfilment capacity | Phase 3 | Open | n/a |
-| C-09 | Product photography: 4 shots per SKU, per the shot list | Phase 3 | Open | n/a |
-| C-10 | Editorial imagery: hero (desktop + mobile crop), category tiles, material macro, lifestyle, Parkdale/story | Launch | Open | n/a |
+| C-09 | Product photography: P1–P4 per product and finish, per `photography-brief.md` | Phase 3 | Open | n/a |
+| C-10 | Editorial imagery E1–E6, per `photography-brief.md` | Launch | Open | n/a |
 
 ## D · Policies and legal
 

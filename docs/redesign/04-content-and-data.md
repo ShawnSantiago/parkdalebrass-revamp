@@ -60,9 +60,9 @@ Long-form brand story (Our Story page, **draft for approval**):
 | `material` | Single-line text | Materials & finish | Yes |
 | `finish` | Single-line text | Materials & finish; card descriptor | Yes |
 | `patina_notes` | Multi-line text | Materials & finish | Yes, and don't fill it for coated or plated finishes that don't patina |
-| `dimensions` | Rich text | Dimensions & fit | Yes |
+| `dimensions` | Multi-line text | Dimensions & fit | Yes |
 | `fit_notes` | Multi-line text | Under the size picker; Dimensions & fit | Yes |
-| `care_instructions` | Rich text | Care | Yes |
+| `care_instructions` | Multi-line text | Care | Yes |
 | `origin` | Single-line text | Materials & finish ("Made in …") | Yes. **Never inferred from the Toronto brand location.** |
 | `size_guide` | Page reference | Overrides the Size guide popup target | Falls back to the global size-guide page |
 

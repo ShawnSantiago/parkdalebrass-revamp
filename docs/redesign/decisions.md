@@ -25,3 +25,4 @@ Owner approval is recorded in the **Approved by** column. Only the owner, or som
 | D-15 | 2026-11-25 | Self-host Cormorant Garamond (OFL) if Shopify's font library doesn't have it. Never load the Google Fonts CDN in the theme. | Privacy, performance and licence clarity. | Proposed | n/a |
 | D-16 | 2026-11-25 | Retired legacy URLs get a 301 only to a genuinely relevant page. Otherwise 404/410. Never a blanket redirect to the homepage. | Brief §10: SEO and user honesty. | Proposed | n/a |
 | D-17 | 2026-11-25 | Design and implementation docs live in the repo under `docs/redesign/`, with `AGENTS.md` / `CLAUDE.md` at the root. | Agents and developers find them alongside the code. | Proposed | n/a |
+| D-18 | 2026-11-25 | `custom.dimensions` and `custom.care_instructions` are **multi-line text**, not rich text. | All product facts can then be imported from one CSV (`product-data/`), and plain line breaks are enough for the content. | Proposed | n/a |
