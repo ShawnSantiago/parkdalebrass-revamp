@@ -25,7 +25,7 @@ Visual reference (private, ask the owner for access): https://claude.ai/artifact
 ## Working conventions
 
 - Branch: work on the branch the session assigns (currently `claude/loving-mccarthy-7dq7ak`). Never commit to `main`.
-- When you edit a stock Dawn file, note the file and the reason in `docs/redesign/CHANGELOG.md` (create it on the first edit), so Dawn upgrades can be merged.
+- When you edit a stock Dawn file, log it in `docs/redesign/CHANGELOG.md` and wrap the edit in `PB:` markers, so Dawn upgrades can be merged.
 - UI strings live in `locales/en.default.json` under `pb.*`. Escape merchant text (`| escape`).
 - Copy is Canadian English and uses "jewelry". The banned phrases and claims are in `04-content-and-data.md` §1.
 - Before you say work is done, run `shopify theme check` and the relevant parts of `05-qa-checklist.md`. Report what passed, what failed and what you didn't test.
@@ -33,5 +33,5 @@ Visual reference (private, ask the owner for access): https://claude.ai/artifact
 
 ## Current status
 
-- Phase 0 (audit) has **not** started. The repo is still stock Dawn; the live theme hasn't been pulled. That step needs the owner's Shopify CLI access.
+- Phase 0 (audit) is **partial**: the repo is audited (stock Dawn 16.0.0, no customisations). The live theme, Admin and SEO audits need owner access. See `docs/redesign/audit.md`.
 - Design concepts are done and in review.

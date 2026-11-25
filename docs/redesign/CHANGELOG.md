@@ -1,0 +1,50 @@
+# Theme changelog
+
+Records every change to this theme, and especially every edit to a **stock Dawn file**, so a future Dawn upgrade can be merged without losing Parkdale Brass work.
+
+**Base:** Dawn 16.0.0 (upstream commit `258f00f`).
+
+## How to log a change
+
+- Add entries under **Unreleased**, newest first. When a version is pushed to a theme for review, move the entries under a dated heading with the theme name and ID.
+- Group entries by type: **Added** (new `pb-*` files), **Changed: Dawn files** (stock files edited), **Changed: settings/templates** (JSON), **Removed**, **Fixed**.
+- For every **Dawn file edit**, record: file and approximate line or section, what changed, why (link the decision ID), and how to re-apply it after a Dawn upgrade. Keep Dawn edits small and wrap them in markers in the code:
+
+  ```liquid
+  {%- comment -%} PB: hide empty accordion tabs (D-10) {%- endcomment -%}
+  …change…
+  {%- comment -%} /PB {%- endcomment -%}
+  ```
+
+  In CSS and JS, use `/* PB: … */ … /* /PB */`. Search for `PB:` to find every customisation.
+- Store-level changes (products, menus, redirects…) are **not** logged here. They go in `owner-inputs.md` section E, with approval.
+
+## Dawn upgrade procedure
+
+1. Branch from the current theme branch.
+2. Pull the new Dawn release into a clean folder and copy it over, **except** `config/settings_data.json`, `templates/*.json`, `sections/*-group.json`, `sections/pb-*`, `snippets/pb-*` and `assets/pb-*`.
+3. Re-apply every entry under "Changed: Dawn files" below, using the `PB:` markers in the old version.
+4. Run `shopify theme check` and the full `05-qa-checklist.md` on an unpublished theme.
+
+---
+
+## Unreleased
+
+### Added
+- Documentation only: `AGENTS.md`, `CLAUDE.md`, `docs/redesign/*` (plan, design spec, Dawn mapping, content and data, QA, decisions, owner inputs, product data template, photography brief, audit, this changelog).
+
+### Changed: Dawn files
+- _None yet._ Planned, per `03-theme-mapping.md`:
+
+  | File | Planned change | Decision |
+  | --- | --- | --- |
+  | `layout/theme.liquid` | Load `pb-theme.css` after `base.css`; preload the heading font; Organization JSON-LD on the homepage | D-02, D-15 |
+  | `sections/main-product.liquid` | Hide empty `collapsible_tab` blocks; add an `open` checkbox to that block | D-10 |
+  | `locales/en.default.json` | Add `pb.*` strings; "Add to bag", "Your bag" overrides | D-10 |
+  | `snippets/product-variant-options.liquid` | Optional: inline Size guide link (Phase 2B) | D-10 |
+
+### Changed: settings/templates
+- _None yet._
+
+### Removed
+- _None._

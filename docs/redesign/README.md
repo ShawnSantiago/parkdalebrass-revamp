@@ -12,6 +12,8 @@ This folder lets any developer or AI agent rebuild the approved Parkdale Brass j
 | · | [decisions.md](decisions.md) | Decision log: what has been decided, why, and the approval status |
 | · | [product-data/](product-data/README.md) | Shopify product import template and per-product fact sheet |
 | · | [photography-brief.md](photography-brief.md) | Brief for the photographer: look, shot list, crops, specs, naming |
+| · | [audit.md](audit.md) | Phase 0 audit: repo verified; live theme, Admin and SEO still to do |
+| · | [CHANGELOG.md](CHANGELOG.md) | Theme changes, Dawn-file edits and the Dawn upgrade procedure |
 | · | [owner-inputs.md](owner-inputs.md) | Everything waiting on the owner: access, approvals, product facts, policies, store changes, launch sign-off |
 
 Agents also get these rules automatically from `AGENTS.md` / `CLAUDE.md` at the repo root.
