@@ -17,8 +17,8 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "The first Parkdale Brass jewelry collection is in development.",
-            "link": ""
+            "text": "The first Parkdale Brass jewelry collection is in development. Join the launch list",
+            "link": "#signup"
           }
         }
       },

@@ -1,0 +1,258 @@
+{%- comment -%}
+  PB · Hero (03 §4.1, 02 §4.1). A double-framed lockup and the hero image, 1fr / 1fr from 960px.
+  Below 960px they stack, lockup first. Under 750px the frame is 8px, the primary button is full width
+  and the secondary becomes a text link (Archive-Home-Mobile).
+  The image is the page's LCP: eager, fetchpriority high. Text settings are escaped; the heading is a
+  textarea so the merchant can break the line, and CSS sets it in caps.
+{%- endcomment -%}
+{%- liquid
+  assign pb_s = section.settings
+
+  assign pb_image = pb_s.image | default: pb_s.image_mobile
+  assign pb_image_mobile = nil
+  if pb_s.image != blank and pb_s.image_mobile != blank
+    assign pb_image_mobile = pb_s.image_mobile
+  endif
+
+  assign pb_show_primary = false
+  if pb_s.button_label != blank
+    if pb_s.button_link != blank or request.design_mode
+      assign pb_show_primary = true
+    endif
+  endif
+
+  assign pb_show_secondary = false
+  if pb_s.link_label != blank
+    if pb_s.link_url != blank or request.design_mode
+      assign pb_show_secondary = true
+    endif
+  endif
+-%}
+
+{{ 'section-pb-hero.css' | asset_url | stylesheet_tag }}
+{% render 'pb-section-padding', section: section %}
+
+<section
+  id="PbHero-{{ section.id }}"
+  class="pb-hero-section color-{{ pb_s.color_scheme }} gradient section-{{ section.id }}-padding"
+  {% if pb_s.heading != blank %}
+    aria-labelledby="PbHero-{{ section.id }}-heading"
+  {% endif %}
+>
+  <div class="pb-hero">
+    <div class="pb-hero__lockup-wrap">
+      <div class="pb-frame pb-hero__frame">
+        <div class="pb-frame__inner pb-hero__lockup">
+          <span class="pb-diamond pb-hero__diamond pb-hero__diamond--top" aria-hidden="true"></span>
+
+          {%- if pb_s.lockup != blank -%}
+            <p class="pb-eyebrow pb-eyebrow--ruled pb-hero__lockup-line">{{ pb_s.lockup | escape }}</p>
+          {%- endif -%}
+
+          {%- if pb_s.heading != blank -%}
+            <h1 id="PbHero-{{ section.id }}-heading" class="pb-display pb-hero__heading">
+              {{- pb_s.heading | escape | newline_to_br -}}
+            </h1>
+          {%- endif -%}
+
+          {%- if pb_s.dateline != blank -%}
+            <p class="pb-dateline pb-hero__dateline">{{ pb_s.dateline | escape }}</p>
+          {%- endif -%}
+
+          {%- if pb_s.text != blank -%}
+            <p class="pb-hero__text">{{ pb_s.text | escape }}</p>
+          {%- endif -%}
+
+          {%- if pb_show_primary or pb_show_secondary -%}
+            <div class="pb-hero__actions">
+              {%- if pb_show_primary -%}
+                <a
+                  class="button button--primary pb-hero__primary"
+                  {% if pb_s.button_link != blank %}
+                    href="{{ pb_s.button_link }}"
+                  {% else %}
+                    role="link" aria-disabled="true"
+                  {% endif %}
+                >
+                  {{- pb_s.button_label | escape -}}
+                </a>
+              {%- endif -%}
+              {%- if pb_show_secondary -%}
+                <a
+                  class="button button--secondary pb-hero__secondary"
+                  {% if pb_s.link_url != blank %}
+                    href="{{ pb_s.link_url }}"
+                  {% else %}
+                    role="link" aria-disabled="true"
+                  {% endif %}
+                >
+                  {{- pb_s.link_label | escape -}}
+                </a>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          <span class="pb-diamond pb-hero__diamond pb-hero__diamond--bottom" aria-hidden="true"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pb-hero__media">
+      {%- if pb_image != blank -%}
+        {%- render 'pb-picture',
+          image: pb_image,
+          image_mobile: pb_image_mobile,
+          mobile_max: 749,
+          sizes: '(min-width: 1440px) 720px, (min-width: 960px) 50vw, 100vw',
+          class: 'pb-hero__img',
+          eager: true
+        -%}
+      {%- else -%}
+        <div class="pb-placeholder pb-hero__placeholder">
+          <span class="pb-hero__placeholder-art" aria-hidden="true">
+            {{- 'image' | placeholder_svg_tag: 'placeholder-svg' -}}
+          </span>
+          {%- if pb_s.placeholder_note != blank -%}
+            <p class="pb-placeholder__note pb-hero__note">{{ pb_s.placeholder_note | escape }}</p>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.pb_hero.name",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:pb.home.settings.content_header.content"
+    },
+    {
+      "type": "text",
+      "id": "lockup",
+      "label": "t:sections.pb_hero.settings.lockup.label",
+      "default": "Parkdale Brass"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "t:pb.home.settings.heading.label",
+      "info": "t:sections.pb_hero.settings.heading.info",
+      "default": "Made to wear.\nMade to age."
+    },
+    {
+      "type": "text",
+      "id": "dateline",
+      "label": "t:sections.pb_hero.settings.dateline.label",
+      "default": "Est. 2019 · Toronto"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "t:pb.home.settings.text.label",
+      "default": "Brass jewelry with character, inspired by industrial design and rooted in Parkdale."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:pb.home.settings.button_label.label",
+      "info": "t:sections.pb_hero.settings.button_label.info",
+      "default": "Get launch updates"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:pb.home.settings.button_link.label",
+      "info": "t:pb.home.settings.button_link.info"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "t:sections.pb_hero.settings.link_label.label",
+      "default": "Our story"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "t:sections.pb_hero.settings.link_url.label",
+      "info": "t:pb.home.settings.button_link.info"
+    },
+    {
+      "type": "header",
+      "content": "t:pb.home.settings.media_header.content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:pb.home.settings.image.label",
+      "info": "t:sections.pb_hero.settings.image.info"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "t:pb.home.settings.image_mobile.label",
+      "info": "t:sections.pb_hero.settings.image_mobile.info"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_note",
+      "label": "t:pb.home.settings.placeholder_note.label",
+      "info": "t:pb.home.settings.placeholder_note.info",
+      "default": "Placeholder · Launch pieces on dark linen or slate, single warm light"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "t:pb.home.settings.padding_top_mobile.label",
+      "info": "t:pb.home.settings.padding_mobile.info"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "t:pb.home.settings.padding_bottom_mobile.label",
+      "info": "t:pb.home.settings.padding_mobile.info"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.pb_hero.presets.name"
+    }
+  ]
+}
+{% endschema %}

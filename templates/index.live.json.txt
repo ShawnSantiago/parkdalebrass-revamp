@@ -1,0 +1,218 @@
+/*
+ * Parkdale Brass homepage, LIVE configuration (02 §8, 03 §9, phase-2-brief §2.3).
+ * Not a template Shopify renders (it's a .txt reference file). At launch, copy everything below this comment into
+ * templates/index.json (the comment can stay; Shopify accepts a leading comment in JSON templates), or make the
+ * same changes in the theme editor. Differences from the prelaunch templates/index.json:
+ *
+ *   pb_hero      button "Shop jewelry" -> /collections/jewelry (was "Get launch updates" -> #signup)
+ *   pb_featured  mode "collection" with the "jewelry" collection, eyebrow "Everyday essentials"; the concept
+ *                blocks are removed. With no published products in "jewelry" the section renders nothing.
+ *   editorial    CTA "Shop bracelets" -> /collections/bracelets (was "Be first to know" -> #signup)
+ *   signup       button "Subscribe" (was "Notify me"). "consent" stays empty here, so nothing unapproved can
+ *                reach the storefront: paste the owner-approved CASL wording (D-03) into it before launch.
+ *                The signup form doesn't go public without it.
+ *   page links   shopify://pages/our-story and shopify://pages/why-brass replace the relative /pages/ paths
+ *                once those pages exist (E-03), so they follow the shopper's locale.
+ *   categories   unchanged: bracelets and necklaces. Add a rings block only when D-12 lifts.
+ *
+ * Also at launch, outside this file:
+ *   sections/header-group.json  remove the announcement block "announcement-bar-0" (02 §8: no announcement
+ *                               unless there is a verified message).
+ */
+{
+  "sections": {
+    "pb_hero": {
+      "type": "pb-hero",
+      "settings": {
+        "lockup": "Parkdale Brass",
+        "heading": "Made to wear.\nMade to age.",
+        "dateline": "Est. 2019 · Toronto",
+        "text": "Brass jewelry with character, inspired by industrial design and rooted in Parkdale.",
+        "button_label": "Shop jewelry",
+        "button_link": "shopify://collections/jewelry",
+        "link_label": "Our story",
+        "link_url": "shopify://pages/our-story",
+        "placeholder_note": "Placeholder · Launch pieces on dark linen or slate, single warm light",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "pb_categories": {
+      "type": "pb-category-tiles",
+      "blocks": {
+        "bracelets": {
+          "type": "collection",
+          "settings": {
+            "collection": "bracelets",
+            "label": "Bracelets"
+          }
+        },
+        "necklaces": {
+          "type": "collection",
+          "settings": {
+            "collection": "necklaces",
+            "label": "Necklaces"
+          }
+        }
+      },
+      "block_order": [
+        "bracelets",
+        "necklaces"
+      ],
+      "settings": {
+        "eyebrow": "The collection",
+        "heading": "Shop by category",
+        "show_view_all": false,
+        "view_all_label": "View all jewelry",
+        "color_scheme": "scheme-1",
+        "padding_top": 112,
+        "padding_bottom": 0,
+        "padding_top_mobile": 64
+      }
+    },
+    "pb_featured": {
+      "type": "pb-featured",
+      "settings": {
+        "mode": "collection",
+        "collection": "jewelry",
+        "products_to_show": 4,
+        "view_all_label": "View all jewelry",
+        "eyebrow": "Everyday essentials",
+        "heading": "The first collection",
+        "note": "Concepts in development. Designs, finishes and prices may change before release.",
+        "badge_label": "Concept",
+        "color_scheme": "scheme-1",
+        "padding_top": 120,
+        "padding_bottom": 0
+      }
+    },
+    "material": {
+      "type": "pb-split",
+      "settings": {
+        "layout": "image_first",
+        "ratio": "1-1",
+        "full_bleed": true,
+        "show_borders": true,
+        "frame_image": false,
+        "show_diamond": true,
+        "color_scheme": "scheme-3",
+        "placeholder_note": "Placeholder · Macro of the real finish, warm raking light",
+        "eyebrow": "The material",
+        "heading": "A material with character.",
+        "text": "<p>Brass is an alloy of copper and zinc, prized for its warm tone and the way it takes a finish. Uncoated brass darkens and softens with wear. Coated and plated finishes behave differently.</p><p>Every piece lists its actual finish and how to care for it, so you know how it will change.</p>",
+        "button_label": "Why brass?",
+        "button_link": "shopify://pages/why-brass",
+        "padding_top": 120,
+        "padding_bottom": 0
+      }
+    },
+    "editorial": {
+      "type": "pb-editorial-banner",
+      "settings": {
+        "placeholder_note": "Placeholder · On-body: cuff + pendant with dark wool, denim, workwear",
+        "heading": "Considered forms. Everyday character.",
+        "link_label": "Shop bracelets",
+        "link_url": "shopify://collections/bracelets",
+        "show_divider_after": true,
+        "color_scheme": "scheme-1",
+        "padding_top": 120,
+        "padding_bottom": 0
+      }
+    },
+    "story": {
+      "type": "pb-split",
+      "settings": {
+        "layout": "text_first",
+        "ratio": "6-5",
+        "full_bleed": false,
+        "show_borders": false,
+        "frame_image": true,
+        "show_diamond": false,
+        "color_scheme": "scheme-1",
+        "placeholder_note": "Placeholder · Approved Parkdale imagery or founder portrait",
+        "eyebrow": "Our story",
+        "heading": "Rooted in Parkdale.",
+        "text": "<p>Parkdale Brass began in 2019 in Toronto’s Parkdale neighbourhood, with an appreciation for brass and the industrial design of everyday objects.</p><p>Our next chapter takes that same interest in form, function and character into jewelry: warm tones, considered shapes and a style that doesn’t need to shout.</p>",
+        "button_label": "Our story",
+        "button_link": "shopify://pages/our-story",
+        "padding_top": 88,
+        "padding_bottom": 0,
+        "padding_top_mobile": 48
+      }
+    },
+    "journal": {
+      "type": "pb-journal-picks",
+      "blocks": {
+        "article_material": {
+          "type": "article",
+          "settings": {
+            "article": "news/what-is-brass-jewelry-metal",
+            "tag_label": "Material",
+            "excerpt": "",
+            "show_image": false
+          }
+        },
+        "article_finishes": {
+          "type": "article",
+          "settings": {
+            "article": "news/gold-plated-brass-jewelry",
+            "tag_label": "Finishes",
+            "excerpt": "",
+            "show_image": false
+          }
+        },
+        "article_care": {
+          "type": "article",
+          "settings": {
+            "article": "",
+            "tag_label": "Care",
+            "excerpt": "",
+            "show_image": false
+          }
+        }
+      },
+      "block_order": [
+        "article_material",
+        "article_finishes",
+        "article_care"
+      ],
+      "settings": {
+        "eyebrow": "The journal",
+        "heading": "Notes on brass",
+        "view_all_label": "All articles",
+        "blog": "news",
+        "show_numerals": true,
+        "color_scheme": "scheme-1",
+        "padding_top": 128,
+        "padding_bottom": 0,
+        "padding_top_mobile": 72
+      }
+    },
+    "signup": {
+      "type": "pb-newsletter",
+      "settings": {
+        "anchor_id": "signup",
+        "eyebrow": "Launch list",
+        "heading": "The next chapter.",
+        "text": "Get collection news and new release updates.",
+        "button_label": "Subscribe",
+        "consent": "",
+        "color_scheme": "scheme-3",
+        "padding_top": 128,
+        "padding_bottom": 120,
+        "padding_top_mobile": 72
+      }
+    }
+  },
+  "order": [
+    "pb_hero",
+    "pb_categories",
+    "pb_featured",
+    "material",
+    "editorial",
+    "story",
+    "journal",
+    "signup"
+  ]
+}
