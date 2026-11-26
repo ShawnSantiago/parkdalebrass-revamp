@@ -1,5 +1,21 @@
 {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
 {{ 'collapsible-content.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  PB: Archive accordion (02 §2.6). Placeholder rule (AGENTS.md): a row whose heading or content has a
+  [bracketed placeholder] renders only in the theme editor; with no rows left, the section renders nothing.
+{%- endcomment -%}
+{{ 'component-pb-accordion.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign pb_rows = 0
+  for block in section.blocks
+    assign pb_row_text = block.settings.heading | append: block.settings.row_content
+    unless pb_row_text contains '[' and request.design_mode == false
+      assign pb_rows = pb_rows | plus: 1
+    endunless
+  endfor
+-%}
+{%- if pb_rows > 0 or request.design_mode -%}
+{%- comment -%} /PB {%- endcomment -%}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -70,9 +86,18 @@
           {% endif %}
           <div class="grid__item">
             {%- for block in section.blocks -%}
+              {%- comment -%} PB: placeholder rows show only in the theme editor {%- endcomment -%}
+              {%- assign pb_row_text = block.settings.heading | append: block.settings.row_content -%}
+              {%- unless pb_row_text contains '[' and request.design_mode == false -%}
+              {%- comment -%} /PB {%- endcomment -%}
               <div
                 class="accordion{% if section.settings.layout == 'row' %} content-container color-{{ section.settings.container_color_scheme }} gradient{% endif %}"
                 {{ block.shopify_attributes }}
+                {%- comment -%} PB {%- endcomment -%}
+                {% if pb_row_text contains '[' %}
+                  data-pb-preview-only
+                {% endif %}
+                {%- comment -%} /PB {%- endcomment -%}
               >
                 <details
                   id="Details-{{ block.id }}-{{ section.id }}"
@@ -98,6 +123,9 @@
                   </div>
                 </details>
               </div>
+              {%- comment -%} PB {%- endcomment -%}
+              {%- endunless -%}
+              {%- comment -%} /PB {%- endcomment -%}
             {%- endfor -%}
           </div>
         </div>
@@ -105,6 +133,9 @@
     </div>
   </div>
 </div>
+{%- comment -%} PB {%- endcomment -%}
+{%- endif -%}
+{%- comment -%} /PB {%- endcomment -%}
 
 {% schema %}
 {

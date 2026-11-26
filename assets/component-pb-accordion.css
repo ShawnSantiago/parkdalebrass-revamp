@@ -1,0 +1,99 @@
+/* PB · Accordion (02 §2.6) for Dawn's sections/collapsible-content.liquid, used on the Jewelry Care page.
+   The group has a 1px gold top border and each row a 1px --pb-rule bottom border. Each header is a 56px
+   summary in Inter 600 13, 0.16em, caps, ivory, with "+" or "−" in gold. The body is 15/1.6 --pb-body.
+   Hover is a gold colour change (02 §1.4). Without an image, the column lines up with pb-page: 720px plus
+   the page gutters. */
+
+.collapsible-content .collapsible-content-wrapper-narrow {
+  max-width: calc(72rem + 2 * var(--pb-gutter));
+  padding-inline: var(--pb-gutter);
+}
+
+.collapsible-content .collapsible-content__heading {
+  /* 32px at 390, 46px at 1440: the H2 range in 02 §1.2 */
+  font-size: clamp(3.2rem, calc(1.3333vw + 2.68rem), 4.6rem);
+  line-height: 1.1;
+}
+
+.collapsible-content .collapsible-content__header .caption-with-letter-spacing {
+  margin: 0 0 1.2rem;
+}
+
+.collapsible-none-layout .accordion,
+.collapsible-content .accordion {
+  margin: 0;
+  border-top: 0;
+  border-bottom: 1px solid var(--pb-rule);
+}
+
+.collapsible-content .grid__item > .accordion:first-child {
+  border-top: 1px solid var(--pb-gold);
+}
+
+.collapsible-content .accordion summary {
+  align-items: center;
+  gap: 1.6rem;
+  min-height: 5.6rem;
+  padding: 1.2rem 0;
+  cursor: pointer;
+}
+
+.collapsible-content summary:hover {
+  background: none;
+}
+
+.collapsible-content .accordion .accordion__title {
+  flex: 1 1 auto;
+  max-width: none;
+  color: var(--pb-ivory);
+}
+
+.collapsible-content summary:hover .accordion__title {
+  text-decoration: none;
+  color: var(--pb-gold);
+}
+
+/* "+" closed, "−" open, in gold. The caret is hidden; the sign is decorative (the summary exposes the state). */
+.collapsible-content .accordion summary > .icon-caret {
+  display: none;
+}
+
+.collapsible-content .accordion summary::after {
+  content: '+';
+  content: '+' / '';
+  flex: none;
+  width: 2rem;
+  font-family: var(--font-body-family);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  color: var(--pb-gold);
+}
+
+.collapsible-content .accordion details[open] > summary::after {
+  content: '\2212';
+  content: '\2212' / '';
+}
+
+.collapsible-content .accordion .accordion__content {
+  margin: 0;
+  padding: 0 0 2.4rem;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: var(--pb-body);
+}
+
+.collapsible-content .accordion__content > :is(p, ul, ol) {
+  margin: 0 0 1.2rem;
+}
+
+.collapsible-content .accordion__content > :last-child {
+  margin-bottom: 0;
+}
+
+/* Theme editor only: rows hidden on the storefront until their [bracketed] placeholders are replaced. */
+.collapsible-content .accordion[data-pb-preview-only] summary {
+  outline: 1px dashed var(--pb-gold-line);
+  outline-offset: -1px;
+}

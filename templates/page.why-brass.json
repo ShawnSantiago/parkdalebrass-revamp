@@ -1,0 +1,79 @@
+{
+  "sections": {
+    "main": {
+      "type": "pb-page",
+      "blocks": {
+        "body_outline": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "heading_style": "heading",
+            "text": "<h2>[What brass is]</h2><p>[Owner-approved copy, written in the page body in Shopify admin.]</p><h2>[Raw, coated and plated]</h2><p>[How each finish wears. Only the finishes actually offered.]</p><h2>[Patina and skin discolouration]</h2><p>[Include a note to stop wearing a piece if irritation develops. Green skin isn't proof of safety, or of harm.]</p>",
+            "anchor": ""
+          }
+        }
+      },
+      "block_order": [
+        "body_outline"
+      ],
+      "settings": {
+        "show_diamond": true,
+        "dateline": "",
+        "width": "narrow",
+        "color_scheme": "scheme-1",
+        "padding_top": 112,
+        "padding_bottom": 0,
+        "padding_top_mobile": 72,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "takeaway": {
+      "type": "pb-split",
+      "settings": {
+        "layout": "image_first",
+        "ratio": "1-1",
+        "full_bleed": true,
+        "show_borders": true,
+        "frame_image": false,
+        "show_diamond": true,
+        "color_scheme": "scheme-3",
+        "placeholder_note": "Placeholder · Macro of the real finish, warm raking light",
+        "eyebrow": "The material",
+        "heading": "A material with character.",
+        "text": "<p>Brass is an alloy of copper and zinc, prized for its warm tone and the way it takes a finish. Uncoated brass darkens and softens with wear. Coated and plated finishes behave differently.</p><p>Every piece lists its actual finish and how to care for it, so you know how it will change.</p>",
+        "button_label": "",
+        "button_link": "",
+        "padding_top": 112,
+        "padding_bottom": 0,
+        "padding_top_mobile": 64
+      }
+    },
+    "care": {
+      "type": "pb-split",
+      "settings": {
+        "layout": "text_first",
+        "ratio": "6-5",
+        "full_bleed": false,
+        "show_borders": false,
+        "frame_image": true,
+        "show_diamond": false,
+        "color_scheme": "scheme-1",
+        "placeholder_note": "Placeholder · Real care steps on real pieces, single warm light",
+        "eyebrow": "New to brass?",
+        "heading": "How brass wears, and how to care for it.",
+        "text": "<p>Each piece lists its actual finish, measurements and care.</p>",
+        "button_label": "Jewelry care",
+        "button_link": "/pages/jewelry-care",
+        "padding_top": 112,
+        "padding_bottom": 112,
+        "padding_top_mobile": 64,
+        "padding_bottom_mobile": 72
+      }
+    }
+  },
+  "order": [
+    "main",
+    "takeaway",
+    "care"
+  ]
+}
