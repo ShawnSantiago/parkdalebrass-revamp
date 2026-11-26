@@ -623,13 +623,13 @@
   height: clamp(1rem, calc(0.87vw + 0.348rem), 1.6rem);
 }
 
-/* Gold text on green stays at 12px and weight 600 or more (02 §1.1). */
+/* Eyebrow 12 / 500 / 0.32em (02 §1.2). Gold text on green stays at 12px or more (02 §1.1). */
 .pb-promo__eyebrow {
   margin: 0;
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.4;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--pb-gold);
 }
@@ -676,7 +676,8 @@
     display: inline;
   }
 
-  /* Archive-Collection-Mobile sets the small tile text in gold-pale. */
+  /* Archive-Collection-Mobile sets the small tile text in gold-pale. 0.24em keeps the 11px eyebrow on one
+     line in the 2-up tile at 390. */
   .pb-promo__eyebrow {
     font-size: 1.1rem;
     letter-spacing: 0.24em;
