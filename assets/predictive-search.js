@@ -108,14 +108,11 @@ class PredictiveSearch extends SearchForm {
   updateSearchForTerm(previousTerm, newTerm) {
     const searchForTextElement = this.querySelector('[data-predictive-search-search-for-text]');
     const currentButtonText = searchForTextElement?.innerText;
-    if (currentButtonText) {
-      if (currentButtonText.match(new RegExp(previousTerm, 'g')).length > 1) {
-        // The new term matches part of the button text and not just the search term, do not replace to avoid mistakes
-        return;
-      }
-      const newButtonText = currentButtonText.replace(previousTerm, newTerm);
-      searchForTextElement.innerText = newButtonText;
-    }
+    /* PB: update the translated label only for a single literal match (D-25). */
+    if (!previousTerm || !currentButtonText) return;
+    const parts = currentButtonText.split(previousTerm);
+    if (parts.length === 2) searchForTextElement.innerText = parts.join(newTerm);
+    /* /PB */
   }
 
   switchOption(direction) {
