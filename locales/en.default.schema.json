@@ -3480,6 +3480,74 @@
         }
       }
     },
+    "pb_collection_header": {
+      "name": "PB · Collection header",
+      "settings": {
+        "show_breadcrumbs": {
+          "label": "Show breadcrumb"
+        },
+        "menu": {
+          "label": "Category menu",
+          "info": "Builds the category line when there's no override: on the menu's first link (All), the menu's other links; on a link with child links, those children. Only collections with products are named. Use the same menu as the product grid's category pills."
+        },
+        "category_line": {
+          "label": "Category line",
+          "info": "Optional. Replaces the line built from the menu on every collection. A collection's custom.category_line metafield, if set, is used first."
+        },
+        "show_description": {
+          "label": "Show collection description"
+        },
+        "padding_top_mobile": {
+          "label": "Top padding on mobile (px)"
+        },
+        "padding_bottom_mobile": {
+          "label": "Bottom padding on mobile (px)"
+        },
+        "padding_mobile": {
+          "info": "Under 750px. Leave blank to use 60% of the desktop value."
+        }
+      },
+      "presets": {
+        "name": "PB · Collection header"
+      },
+      "grid": {
+        "header": {
+          "content": "Archive layout"
+        },
+        "pb_layout": {
+          "label": "Use the Archive toolbar, cards and empty states",
+          "info": "Turn off to use Dawn's standard filters and product cards."
+        },
+        "pb_category_menu": {
+          "label": "Category pills menu",
+          "info": "Pills show this menu's collections that have products. Use the same menu as the collection header's category menu. An empty menu shows no pills."
+        },
+        "promo_header": {
+          "content": "Promo tile",
+          "info": "Shown after the products on the last page only. Hidden when no products match."
+        },
+        "pb_promo_enable": {
+          "label": "Show promo tile"
+        },
+        "pb_promo_eyebrow": {
+          "label": "Eyebrow"
+        },
+        "pb_promo_text": {
+          "label": "Text"
+        },
+        "pb_promo_text_mobile": {
+          "label": "Mobile text",
+          "info": "Shorter line for the two-column mobile grid. Leave blank to use the text."
+        },
+        "pb_promo_link_label": {
+          "label": "Link label"
+        },
+        "pb_promo_link": {
+          "label": "Link",
+          "info": "The link shows only when it's set."
+        }
+      }
+    },
     "pb_split": {
       "name": "PB · Split",
       "settings": {

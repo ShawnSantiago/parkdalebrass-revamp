@@ -1,0 +1,432 @@
+{%- comment -%}
+  PB collection toolbar (02 §5.3, §1.4; Archive-Collection, Archive-Collection-Mobile).
+  Rendered by main-collection-product-grid in place of Dawn's facets snippet when its Archive layout is on.
+
+  Desktop (750px and up): one row between a gold-line top border and a rule bottom border. Category pills on
+  the left; the count, "In stock only" and Sort on the right. Active filters sit below the row as pills.
+  Mobile: the pills scroll sideways, then a two-column bar (Filter | Sort), then the count. The Filter button
+  opens a drawer with every filter as a fieldset, "Clear all" and "Show n pieces".
+  Styles: assets/section-pb-collection.css.
+
+  It keeps the contract of Dawn's assets/facets.js, which is unchanged:
+  - .facets-container (data attributes), #ProductCount (mobile) and #ProductCountDesktop;
+  - form#FacetFiltersForm (desktop) and form#FacetFiltersFormMobile inside menu-drawer (always rendered);
+  - every control that the server must refresh sits in a .js-filter element with a stable id;
+  - .sorting, .mobile-facets__open and .mobile-facets__count are re-rendered after each change;
+  - .active-facets-desktop and .active-facets-mobile are one shared container.
+  Each form carries the full filter state (hidden inputs for filters it doesn't show), so sorting or toggling
+  "In stock only" never drops a price filter set in the drawer.
+  assets/pb-collection.js moves focus into the drawer when it opens (it's a modal dialog) and keeps focus on Sort
+  after facets.js re-renders it.
+
+  Accepts:
+  - results: {Object} The collection
+  - enable_filtering: {Boolean}
+  - enable_sorting: {Boolean}
+  - menu: {Object} Link list for the category pills. Only collections with products get a pill.
+
+  Usage:
+  {% render 'pb-collection-toolbar', results: collection, enable_filtering: true, enable_sorting: true, menu: section.settings.pb_category_menu %}
+{%- endcomment -%}
+{%- liquid
+  assign sort_by = results.sort_by | default: results.default_sort_by
+  assign results_url = results.url
+
+  assign pb_has_filters = false
+  if enable_filtering and results.filters != empty
+    assign pb_has_filters = true
+  endif
+
+  assign pb_instock = null
+  assign pb_availability = results.filters | where: 'param_name', 'filter.v.availability' | first
+  if pb_has_filters and pb_availability
+    assign pb_instock = pb_availability.values | where: 'value', '1' | first
+  endif
+
+  assign pb_total_active = 0
+  for filter in results.filters
+    assign pb_total_active = pb_total_active | plus: filter.active_values.size
+    if filter.type == 'price_range'
+      if filter.min_value.value != null or filter.max_value.value != null
+        assign pb_total_active = pb_total_active | plus: 1
+      endif
+    endif
+  endfor
+
+  if results.products_count == results.all_products_count
+    assign pb_count = 'pb.collection.count' | t: count: results.products_count
+  else
+    assign pb_count = 'pb.collection.count_filtered' | t: product_count: results.products_count, count: results.all_products_count
+  endif
+-%}
+
+{%- capture pb_pills -%}
+  {%- for link in menu.links -%}
+    {%- if link.type == 'collection_link' and link.object.products_count > 0 -%}
+      <li>
+        <a
+          class="pb-pill"
+          href="{{ link.url }}"
+          {% if link.current %}
+            aria-current="page"
+          {% endif %}
+        >
+          {{- link.title | escape -}}
+        </a>
+      </li>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- capture pb_close_icon -%}
+  <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <path d="M6 6l12 12M18 6 6 18"></path>
+  </svg>
+{%- endcapture -%}
+
+<div
+  class="facets-container pb-toolbar"
+  data-collection-id="{{ results.id }}"
+  data-collection-handle="{{ results.handle }}"
+  data-template="{{ template.name }}"
+>
+  {%- if pb_pills != blank -%}
+    <nav class="pb-pills" aria-label="{{ 'pb.collection.categories' | t }}">
+      <ul class="pb-pills__list" role="list">
+        {{- pb_pills -}}
+      </ul>
+    </nav>
+  {%- endif -%}
+
+  {%- liquid
+    # Mobile bar: Filter | Sort in two columns, one column when only one of them is on, none when neither is.
+    assign pb_controls_class = ''
+    unless pb_has_filters and enable_sorting
+      assign pb_controls_class = ' pb-toolbar__controls--single'
+    endunless
+    unless pb_has_filters or enable_sorting
+      assign pb_controls_class = pb_controls_class | append: ' pb-toolbar__controls--empty'
+    endunless
+  -%}
+  <div class="pb-toolbar__controls{{ pb_controls_class }}">
+    <menu-drawer
+      class="mobile-facets__wrapper pb-filter"
+      data-breakpoint="mobile"
+      {% unless pb_has_filters %}
+        hidden
+      {% endunless %}
+    >
+      <details class="mobile-facets__disclosure disclosure-has-popup">
+        <summary class="mobile-facets__open-wrapper pb-filter__open">
+          <span class="mobile-facets__open pb-filter__open-inner">
+            <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 6h16M7 12h10M10 18h4"></path>
+            </svg>
+            <span class="mobile-facets__open-label">{{ 'pb.collection.filter' | t }}</span>
+          </span>
+        </summary>
+        <facet-filters-form class="pb-filter__form-wrap">
+          <form id="FacetFiltersFormMobile" class="mobile-facets pb-filter__form">
+            <div
+              class="mobile-facets__inner pb-filter__panel"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="PbFilterHeading-{{ section.id }}"
+            >
+              <div class="pb-filter__header">
+                <h2 class="pb-filter__heading" id="PbFilterHeading-{{ section.id }}">{{ 'pb.collection.filter' | t }}</h2>
+                <button
+                  type="button"
+                  class="pb-filter__close"
+                  aria-label="{{ 'pb.collection.close_filters' | t }}"
+                  onclick="this.closest('.mobile-facets__wrapper').querySelector('summary').click()"
+                >
+                  {{- pb_close_icon -}}
+                </button>
+              </div>
+
+              <div id="FacetsWrapperMobile" class="pb-filter__main">
+                {%- if pb_has_filters -%}
+                  {%- for filter in results.filters -%}
+                    {%- case filter.type -%}
+                      {%- when 'boolean', 'list' -%}
+                        <fieldset
+                          id="PbFilterMobile-{{ filter.param_name | escape }}-{{ section.id }}"
+                          class="pb-filter__group js-filter"
+                        >
+                          <legend class="pb-filter__legend">{{ filter.label | escape }}</legend>
+                          <ul class="mobile-facets__list pb-filter__list" role="list">
+                            {%- for value in filter.values -%}
+                              {%- liquid
+                                # Availability shows only "In stock" (02 §5.3). An active "Out of stock" stays as a hidden input.
+                                assign pb_show_value = true
+                                if filter.param_name == 'filter.v.availability' and value.value != '1'
+                                  assign pb_show_value = false
+                                endif
+                                assign input_id = 'PbFilterMobile-' | append: filter.param_name | escape | append: '-' | append: forloop.index
+                                assign is_disabled = false
+                                if value.count == 0 and value.active == false
+                                  assign is_disabled = true
+                                endif
+                              -%}
+                              {%- if pb_show_value -%}
+                                <li class="pb-filter__item">
+                                  <label
+                                    class="pb-check{% if is_disabled %} pb-check--disabled{% endif %}"
+                                    for="{{ input_id }}"
+                                  >
+                                    <input
+                                      type="checkbox"
+                                      name="{{ value.param_name }}"
+                                      value="{{ value.value | escape }}"
+                                      id="{{ input_id }}"
+                                      {% if value.active %}
+                                        checked
+                                      {% endif %}
+                                      {% if is_disabled %}
+                                        disabled
+                                      {% endif %}
+                                    >
+                                    <span>{{ value.label | escape }} ({{ value.count }})</span>
+                                  </label>
+                                </li>
+                              {%- elsif value.active -%}
+                                <li hidden>
+                                  <input type="hidden" name="{{ value.param_name }}" value="{{ value.value | escape }}">
+                                </li>
+                              {%- endif -%}
+                            {%- endfor -%}
+                          </ul>
+                        </fieldset>
+                      {%- when 'price_range' -%}
+                        {%- assign pb_max_price = filter.range_max | money_without_currency -%}
+                        <fieldset
+                          id="PbFilterMobile-{{ filter.param_name | escape }}-{{ section.id }}"
+                          class="pb-filter__group js-filter"
+                        >
+                          <legend class="pb-filter__legend">{{ filter.label | escape }}</legend>
+                          <price-range class="facets__price pb-filter__price">
+                            <label class="pb-filter__price-field" for="PbFilterMobile-{{ filter.param_name | escape }}-GTE">
+                              <span class="pb-filter__price-label">{{ 'pb.collection.price_from' | t }}</span>
+                              <input
+                                class="pb-filter__input"
+                                name="{{ filter.min_value.param_name }}"
+                                id="PbFilterMobile-{{ filter.param_name | escape }}-GTE"
+                                {% if filter.min_value.value %}
+                                  value="{{ filter.min_value.value | money_without_currency }}"
+                                {% endif %}
+                                type="text"
+                                inputmode="decimal"
+                                placeholder="{{ 0 | money_without_trailing_zeros | strip_html | escape }}"
+                                data-pattern="\d| |,|\."
+                                data-min="0"
+                                data-max="{{ pb_max_price }}"
+                              >
+                            </label>
+                            <label class="pb-filter__price-field" for="PbFilterMobile-{{ filter.param_name | escape }}-LTE">
+                              <span class="pb-filter__price-label">{{ 'pb.collection.price_to' | t }}</span>
+                              <input
+                                class="pb-filter__input"
+                                name="{{ filter.max_value.param_name }}"
+                                id="PbFilterMobile-{{ filter.param_name | escape }}-LTE"
+                                {% if filter.max_value.value %}
+                                  value="{{ filter.max_value.value | money_without_currency }}"
+                                {% endif %}
+                                type="text"
+                                inputmode="decimal"
+                                placeholder="{{ filter.range_max | money_without_trailing_zeros | strip_html | escape }}"
+                                data-pattern="\d| |,|\."
+                                data-min="0"
+                                data-max="{{ pb_max_price }}"
+                              >
+                            </label>
+                          </price-range>
+                        </fieldset>
+                    {%- endcase -%}
+                  {%- endfor -%}
+                {%- endif -%}
+
+                <div id="PbFilterMobileSort-{{ section.id }}" class="js-filter" hidden>
+                  {%- if enable_sorting -%}
+                    <input type="hidden" name="sort_by" value="{{ sort_by | escape }}">
+                  {%- endif -%}
+                </div>
+              </div>
+
+              <div class="pb-filter__footer">
+                <facet-remove class="pb-filter__clear">
+                  <a href="{{ results_url }}" class="button button--secondary">{{ 'pb.collection.clear_all' | t }}</a>
+                </facet-remove>
+                <button
+                  type="button"
+                  class="button button--primary mobile-facets__count pb-filter__apply"
+                  onclick="this.closest('.mobile-facets__wrapper').querySelector('summary').click()"
+                >
+                  {{- 'pb.collection.show_results' | t: count: results.products_count -}}
+                </button>
+              </div>
+            </div>
+          </form>
+        </facet-filters-form>
+      </details>
+    </menu-drawer>
+
+    <facet-filters-form class="pb-toolbar__form-wrap{% unless enable_sorting %} pb-toolbar__form-wrap--no-sort{% endunless %}">
+      <form id="FacetFiltersForm" class="pb-toolbar__form">
+        <div class="product-count pb-toolbar__count" role="status">
+          <h2 class="product-count__text">
+            <span id="ProductCountDesktop">{{ pb_count }}</span>
+          </h2>
+          {%- render 'loading-spinner' -%}
+        </div>
+
+        <div id="PbInStock-{{ section.id }}" class="pb-toolbar__instock js-filter">
+          {%- if pb_instock -%}
+            {%- liquid
+              assign is_disabled = false
+              if pb_instock.count == 0 and pb_instock.active == false
+                assign is_disabled = true
+              endif
+            -%}
+            <label
+              class="pb-check{% if is_disabled %} pb-check--disabled{% endif %}"
+              for="PbInStock-Input-{{ section.id }}"
+            >
+              <input
+                type="checkbox"
+                name="{{ pb_instock.param_name }}"
+                value="{{ pb_instock.value | escape }}"
+                id="PbInStock-Input-{{ section.id }}"
+                {% if pb_instock.active %}
+                  checked
+                {% endif %}
+                {% if is_disabled %}
+                  disabled
+                {% endif %}
+              >
+              <span>{{ 'pb.collection.in_stock_only' | t }}</span>
+            </label>
+          {%- endif -%}
+        </div>
+
+        <div id="PbFilterState-{{ section.id }}" class="js-filter" hidden>
+          {%- for filter in results.filters -%}
+            {%- if filter.type == 'price_range' -%}
+              {%- if filter.min_value.value != null -%}
+                <input
+                  type="hidden"
+                  name="{{ filter.min_value.param_name }}"
+                  value="{{ filter.min_value.value | money_without_currency }}"
+                >
+              {%- endif -%}
+              {%- if filter.max_value.value != null -%}
+                <input
+                  type="hidden"
+                  name="{{ filter.max_value.param_name }}"
+                  value="{{ filter.max_value.value | money_without_currency }}"
+                >
+              {%- endif -%}
+            {%- else -%}
+              {%- for value in filter.active_values -%}
+                {%- liquid
+                  assign pb_is_instock = false
+                  if pb_instock and value.param_name == pb_instock.param_name and value.value == pb_instock.value
+                    assign pb_is_instock = true
+                  endif
+                -%}
+                {%- unless pb_is_instock -%}
+                  <input type="hidden" name="{{ value.param_name }}" value="{{ value.value | escape }}">
+                {%- endunless -%}
+              {%- endfor -%}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+        {%- if enable_sorting -%}
+          <div class="sorting pb-toolbar__sort">
+            <label class="pb-toolbar__sort-label" for="SortBy">{{ 'pb.collection.sort' | t }}</label>
+            <div class="select pb-toolbar__select">
+              <select
+                name="sort_by"
+                class="select__select"
+                id="SortBy"
+                aria-describedby="a11y-refresh-page-message"
+              >
+                {%- for option in results.sort_options -%}
+                  <option
+                    value="{{ option.value | escape }}"
+                    {% if option.value == sort_by %}
+                      selected="selected"
+                    {% endif %}
+                  >
+                    {{ option.name | escape }}
+                  </option>
+                {%- endfor -%}
+              </select>
+              <span class="svg-wrapper">
+                {{- 'icon-caret.svg' | inline_asset_content -}}
+              </span>
+            </div>
+          </div>
+        {%- endif -%}
+      </form>
+    </facet-filters-form>
+  </div>
+
+  <div class="product-count pb-toolbar__count-mobile" role="status">
+    <h2 class="product-count__text">
+      <span
+        id="ProductCount"
+        data-product-count="{{ results.products_count }}"
+        data-total-count="{{ results.all_products_count | default: results.products_count }}"
+      >
+        {{- pb_count -}}
+      </span>
+    </h2>
+    {%- render 'loading-spinner' -%}
+  </div>
+</div>
+
+<div class="active-facets active-facets-desktop active-facets-mobile pb-active">
+  {%- if pb_total_active > 0 -%}
+    <ul class="pb-active__list" role="list" aria-label="{{ 'pb.collection.active_filters' | t }}">
+      {%- for filter in results.filters -%}
+        {%- for value in filter.active_values -%}
+          <li>
+            <facet-remove>
+              <a href="{{ value.url_to_remove }}" class="pb-pill pb-pill--remove">
+                <span>{{ filter.label | escape }}: {{ value.label | escape }}</span>
+                {{- pb_close_icon -}}
+                <span class="visually-hidden">{{ 'pb.collection.remove_filter' | t }}</span>
+              </a>
+            </facet-remove>
+          </li>
+        {%- endfor -%}
+        {%- if filter.type == 'price_range' -%}
+          {%- if filter.min_value.value != null or filter.max_value.value != null -%}
+            {%- liquid
+              assign pb_min = filter.min_value.value | default: 0 | money
+              assign pb_max = filter.max_value.value | default: filter.range_max | money
+            -%}
+            <li>
+              <facet-remove>
+                <a href="{{ filter.url_to_remove }}" class="pb-pill pb-pill--remove">
+                  <span>
+                    {{- filter.label | escape }}: {{ 'pb.collection.price_range' | t: min: pb_min, max: pb_max -}}
+                  </span>
+                  {{- pb_close_icon -}}
+                  <span class="visually-hidden">{{ 'pb.collection.remove_filter' | t }}</span>
+                </a>
+              </facet-remove>
+            </li>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+      <li>
+        <facet-remove>
+          <a href="{{ results_url }}" class="pb-active__clear">{{ 'pb.collection.clear_all' | t }}</a>
+        </facet-remove>
+      </li>
+    </ul>
+  {%- endif -%}
+</div>

@@ -566,3 +566,335 @@ variant-selects .product-form__input .form__label {
   }
 }
 /* /PB2:home */
+
+/* PB2:collection */
+/* 02 §2.5 and §5.8: the dashed line of unavailable sizes and empty states. */
+:root {
+  --pb-dashed: #5c5446;
+}
+
+/* Product card for real products (snippets/pb-product-card.liquid; 02 §2.2, Archive-Collection and -Mobile).
+   Global so the homepage and product page can render the same card. */
+.pb-card-wrapper {
+  display: block;
+  height: 100%;
+}
+
+.pb-card {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.8rem, calc(0.87vw + 0.148rem), 1.4rem);
+  height: 100%;
+  color: var(--pb-ivory);
+  text-decoration: none;
+}
+
+.pb-card__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--pb-rule);
+  background: var(--pb-onyx-raised);
+}
+
+.pb-card:hover .pb-card__media,
+.pb-card:focus-visible .pb-card__media {
+  border-color: var(--pb-gold);
+}
+
+.pb-card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pb-card__img--second {
+  opacity: 0;
+}
+
+@media (hover: hover) {
+  .pb-card:hover .pb-card__media--swap .pb-card__img--second {
+    opacity: 1;
+  }
+}
+
+.pb-card__placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.pb-card__placeholder svg {
+  width: 60%;
+  height: auto;
+  fill: var(--pb-rule-strong);
+}
+
+.pb-card__badge {
+  position: absolute;
+  top: clamp(0.8rem, calc(0.58vw + 0.365rem), 1.2rem);
+  left: clamp(0.8rem, calc(0.58vw + 0.365rem), 1.2rem);
+  z-index: 1;
+  padding: clamp(0.3rem, calc(0.145vw + 0.191rem), 0.4rem) clamp(0.6rem, calc(0.29vw + 0.383rem), 0.8rem);
+  border: 1px solid var(--pb-gold);
+  background: transparent;
+  color: var(--pb-gold);
+  font-family: var(--font-body-family);
+  font-size: clamp(0.9rem, calc(0.145vw + 0.791rem), 1rem);
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.pb-card__badge--muted {
+  border-color: var(--pb-muted);
+  color: var(--pb-muted);
+}
+
+.pb-card__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+
+.pb-card .pb-card__name {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.pb-card:hover .pb-card__name {
+  text-decoration: underline;
+  text-decoration-color: var(--pb-gold);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.5rem;
+}
+
+.pb-card__price {
+  flex: none;
+}
+
+.pb-card__price .price {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: normal;
+  white-space: nowrap;
+  color: var(--pb-gold);
+}
+
+.pb-card__price .price .price-item {
+  margin: 0;
+}
+
+.pb-card__price .price s.price-item {
+  margin-inline-end: 0.6rem;
+  color: var(--pb-muted);
+}
+
+.pb-card__desc {
+  display: -webkit-box;
+  margin: -0.8rem 0 0;
+  overflow: hidden;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: var(--pb-muted);
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+@media screen and (max-width: 749px) {
+  .pb-card__badge {
+    letter-spacing: 0.22em;
+  }
+
+  /* Archive-Collection-Mobile stacks the name, descriptor and price. */
+  .pb-card__row {
+    display: contents;
+  }
+
+  .pb-card .pb-card__name {
+    order: 1;
+  }
+
+  .pb-card__desc {
+    order: 2;
+    margin-top: -0.6rem;
+    font-size: 1.3rem;
+  }
+
+  .pb-card__price {
+    order: 3;
+    margin-top: -0.4rem;
+  }
+
+  .pb-card__price .price {
+    font-size: 1.4rem;
+  }
+}
+/* Collection help strip: the multicolumn section with the key "pb_help" in templates/collection.json (02 §5.7,
+   03 §8). A stock section can't load its own stylesheet, so its rules live here, as 03 §8 says, and don't depend
+   on the grid's Archive layout switch. Padding 104/112 [56/72], fluid from 750 to 1440. */
+.shopify-section[id$='__pb_help'] .multicolumn .page-width {
+  padding: clamp(5.6rem, calc(6.9565vw + 0.3826rem), 10.4rem) var(--pb-gutter)
+    clamp(7.2rem, calc(5.7971vw + 2.8522rem), 11.2rem);
+}
+
+.shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4rem;
+  width: auto;
+  margin: 0;
+  padding: 4rem 0 0;
+  border-top: 1px solid var(--pb-gold-line);
+}
+
+.shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list__item {
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list .multicolumn-card__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 0;
+}
+
+.shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info > * {
+  margin: 0;
+}
+
+.shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list h3 {
+  font-family: var(--pb-serif);
+  font-size: 2.8rem;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: normal;
+  color: var(--pb-ivory);
+}
+
+.shopify-section[id$='__pb_help'] .multicolumn .rte {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: var(--pb-muted);
+}
+
+.shopify-section[id$='__pb_help'] .multicolumn .rte p {
+  margin: 0;
+}
+
+/* Text CTA (02 §2.1): a 44px hit area, 12px block padding, underline offset 6. */
+.shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info .link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 4.4rem;
+  padding: 1.2rem 0;
+  color: var(--pb-gold);
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 0.6rem;
+}
+
+.shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info .link:hover {
+  color: var(--pb-gold-pale);
+}
+
+.shopify-section[id$='__pb_help'] .multicolumn .link .icon-wrap {
+  display: none;
+}
+
+.shopify-section[id$='__pb_help'] .multicolumn .link .icon-arrow path {
+  transform: none;
+  transition: none;
+}
+
+@media screen and (min-width: 750px) and (max-width: 959px) {
+  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile: each column becomes a 60px row link with a gold arrow (Archive-Collection-Mobile). */
+@media screen and (max-width: 749px) {
+  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list {
+    display: block;
+    padding: 0;
+  }
+
+  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list__item {
+    position: relative;
+    border-bottom: 1px solid var(--pb-rule);
+  }
+
+  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card {
+    position: static;
+  }
+
+  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list .multicolumn-card__info {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.6rem;
+    min-height: 6rem;
+  }
+
+  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list h3 {
+    font-size: 2.2rem;
+  }
+
+  .shopify-section[id$='__pb_help'] .multicolumn .rte {
+    display: none;
+  }
+
+  /* The link covers the whole row. Its label stays in the accessibility tree, and multicolumn's PB edit puts
+     the column title (the row's visible label) first in its name (WCAG 2.5.3). */
+  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info .link {
+    flex: none;
+    padding: 0;
+    font-size: 0;
+    letter-spacing: 0;
+    text-decoration: none;
+  }
+
+  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info .link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info .link:focus-visible {
+    outline: none !important;
+  }
+
+  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info .link:focus-visible::after {
+    outline: 2px solid var(--pb-gold-pale);
+    outline-offset: 3px;
+  }
+
+  .shopify-section[id$='__pb_help'] .multicolumn .link .icon-wrap {
+    display: inline-flex;
+    margin: 0;
+    color: var(--pb-gold);
+  }
+
+  .shopify-section[id$='__pb_help'] .multicolumn .link .icon-arrow {
+    width: 1.4rem;
+    height: 1rem;
+  }
+}
+/* /PB2:collection */

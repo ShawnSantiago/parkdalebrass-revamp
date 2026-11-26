@@ -1,0 +1,73 @@
+/* PB · Collection header (sections/pb-collection-header.liquid; 02 §5.1–5.2, 03 §4.7).
+   Desktop values are from Archive-Collection at 1440, mobile values from Archive-Collection-Mobile at 390.
+   Between 750 and 1440 they scale fluidly (02 preamble). */
+
+.pb-collection-header__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1.2rem, calc(0.58vw + 0.765rem), 1.6rem);
+  padding-block: clamp(3.6rem, calc(2.899vw + 1.426rem), 5.6rem) clamp(2.8rem, calc(2.899vw + 0.626rem), 4.8rem);
+  text-align: center;
+}
+
+.pb-collection-header .pb-collection-header__diamond {
+  width: clamp(1.4rem, calc(0.58vw + 0.965rem), 1.8rem);
+  height: clamp(1.4rem, calc(0.58vw + 0.965rem), 1.8rem);
+}
+
+/* 02 §1.2 page H1: Cormorant 600, 60 [40], line-height 1, 0.06em, caps. The size comes from the global h1. */
+.pb-collection-header__title {
+  margin: clamp(0.4rem, calc(0.29vw + 0.183rem), 0.6rem) 0 0;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  overflow-wrap: anywhere;
+}
+
+/* Eyebrow 12 [11], 0.32em, gold, with 40 [28] px rules (02 §1.2, §1.5; .pb-eyebrow--ruled). */
+.pb-collection-header__line {
+  margin: 0;
+  max-width: 100%;
+}
+
+.pb-collection-header__line::before,
+.pb-collection-header__line::after {
+  flex: none;
+}
+
+.pb-collection-header__line-text {
+  min-width: 0;
+  text-wrap: balance;
+}
+
+/* Archive-Collection-Mobile sets this line smaller than other eyebrows (10px, 0.26em, 20px rules, 10px gap)
+   so four categories fit on one line at 390. Logged as a deviation from the 02 §1.2 [m] eyebrow size. */
+@media screen and (max-width: 749px) {
+  .pb-collection-header .pb-collection-header__line {
+    gap: 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    letter-spacing: 0.26em;
+  }
+
+  .pb-collection-header .pb-collection-header__line::before,
+  .pb-collection-header .pb-collection-header__line::after {
+    width: 2rem;
+  }
+}
+
+.pb-collection-header .pb-collection-header__description {
+  max-width: 56rem;
+  margin: clamp(0.2rem, calc(0.29vw - 0.017rem), 0.4rem) 0 0;
+  font-size: clamp(1.5rem, calc(0.145vw + 1.391rem), 1.6rem);
+  line-height: 1.6;
+  color: var(--pb-muted);
+}
+
+.pb-collection-header__description > * {
+  margin: 0;
+}
+
+.pb-collection-header__description > * + * {
+  margin-top: 0.8rem;
+}

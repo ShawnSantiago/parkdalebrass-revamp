@@ -1,0 +1,802 @@
+/* PB · Archive collection page (02 §5, 03 §8; Archive-Collection, Archive-Collection-Mobile).
+   Loaded by main-collection-product-grid when its Archive layout (pb_layout) is on.
+   Toolbar and drawer: snippets/pb-collection-toolbar.liquid. Grid and empty states: snippets/pb-collection-grid.liquid.
+   Promo tile: snippets/pb-collection-promo.liquid. Product cards and the help strip (a stock multicolumn section,
+   so it can't load this file): the PB2:collection block in pb-theme.css. Desktop values are from the 1440 artboard
+   and mobile values from the 390 artboard; where both exist they scale fluidly from 750 to 1440 (02 preamble). */
+
+/* ---------- Category and filter pills (02 §1.4, §5.3; 03 §4.7) ---------- */
+.pb-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  height: 4rem;
+  padding: 0 1.8rem;
+  border: 1px solid var(--pb-rule-strong);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--pb-ivory);
+  font-family: var(--font-body-family);
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.pb-pill:hover {
+  border-color: var(--pb-gold);
+  color: var(--pb-ivory);
+}
+
+.pb-pill[aria-current='page'] {
+  border-color: var(--pb-gold);
+  background: var(--pb-gold);
+  color: var(--pb-onyx);
+}
+
+/* Forced colours drop the gold fill, so mark the current pill with system highlight colours and an underline. */
+@media (forced-colors: active) {
+  .pb-pill[aria-current='page'] {
+    forced-color-adjust: none;
+    border-color: Highlight;
+    background: Highlight;
+    color: HighlightText;
+    text-decoration: underline;
+    text-underline-offset: 0.4rem;
+  }
+}
+
+.pb-pill svg {
+  flex: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  color: var(--pb-gold);
+}
+
+.pb-pills__list,
+.pb-active__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------- Toolbar row (02 §5.3) ---------- */
+.pb-toolbar.facets-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem;
+  padding: 1.6rem 0;
+  border-top: 1px solid var(--pb-gold-line);
+  border-bottom: 1px solid var(--pb-rule);
+}
+
+.pb-toolbar__controls {
+  display: flex;
+  align-items: center;
+  margin-inline-start: auto;
+}
+
+.pb-toolbar__form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: var(--pb-ivory);
+}
+
+.pb-toolbar .product-count,
+.pb-toolbar__instock {
+  display: flex;
+  align-items: center;
+  text-align: start;
+}
+
+.pb-toolbar .product-count__text {
+  margin: 0;
+  font-family: var(--font-body-family);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--pb-muted);
+}
+
+.pb-toolbar .pb-toolbar__instock:empty,
+.pb-toolbar .pb-filter[hidden] {
+  display: none;
+}
+
+/* Native checkbox with a gold accent, as on the artboards. */
+.pb-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--pb-ivory);
+  cursor: pointer;
+}
+
+.pb-check input[type='checkbox'] {
+  flex: none;
+  width: 1.8rem;
+  height: 1.8rem;
+  margin: 0;
+  accent-color: var(--pb-gold);
+  cursor: pointer;
+}
+
+.pb-check--disabled {
+  color: var(--pb-muted);
+  cursor: not-allowed;
+}
+
+.pb-check--disabled input[type='checkbox'] {
+  cursor: not-allowed;
+}
+
+.pb-toolbar__sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.pb-toolbar__sort-label {
+  color: var(--pb-ivory);
+  cursor: pointer;
+}
+
+.pb-toolbar .pb-toolbar__select {
+  flex: none;
+  width: auto;
+}
+
+.pb-toolbar .pb-toolbar__select .select__select {
+  height: 4rem;
+  min-height: 4rem;
+  margin: 0;
+  padding: 0 2.8rem 0 1.2rem;
+  border-radius: 2px;
+  background-color: var(--pb-onyx-raised);
+  color: var(--pb-ivory);
+  font-size: 1.4rem;
+  line-height: 4rem;
+  letter-spacing: normal;
+}
+
+.pb-toolbar .pb-toolbar__select::before {
+  box-shadow: none;
+}
+
+.pb-toolbar .pb-toolbar__select::after,
+.pb-toolbar .pb-toolbar__select:hover::after {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px var(--pb-rule-strong) inset;
+}
+
+.pb-toolbar .pb-toolbar__select .svg-wrapper {
+  right: 1.4rem;
+  color: var(--pb-gold);
+}
+
+/* ---------- Active filters, below the row ---------- */
+.pb-active.active-facets {
+  display: block;
+  width: auto;
+  margin: 0;
+}
+
+.pb-active.active-facets facet-remove,
+.pb-active.active-facets facet-remove:only-child {
+  display: block;
+}
+
+.pb-active__list {
+  align-items: center;
+  margin-top: 1.6rem;
+}
+
+.pb-active__clear {
+  display: inline-flex;
+  align-items: center;
+  min-height: 4rem;
+  padding: 0 0.8rem;
+  color: var(--pb-gold);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-underline-offset: 0.6rem;
+}
+
+.pb-active__clear:hover {
+  color: var(--pb-gold-pale);
+}
+
+.pb-active .disabled {
+  pointer-events: none;
+}
+
+/* ---------- Mobile toolbar and filter drawer (Archive-Collection-Mobile) ---------- */
+@media screen and (min-width: 750px) {
+  .pb-toolbar .pb-filter,
+  .pb-toolbar .pb-toolbar__count-mobile {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .pb-toolbar.facets-container {
+    display: block;
+    padding: 0;
+    border: 0;
+  }
+
+  /* The pills scroll sideways to the screen edge. A scroller clips at its padding box, so 6px of block padding
+     keeps the 44px tap areas and the 2px focus ring at a 3px offset (02 §1.4) inside it; the negative margin keeps
+     the pills where they're drawn. */
+  .pb-pills {
+    margin: -0.6rem calc(-1 * var(--pb-gutter)) 0;
+    padding: 0.6rem var(--pb-gutter);
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: var(--pb-gutter);
+  }
+
+  .pb-pills__list {
+    flex-wrap: nowrap;
+  }
+
+  .pb-pills__list > li {
+    flex: none;
+    scroll-snap-align: start;
+  }
+
+  .pb-pill {
+    padding: 0 1.6rem;
+    font-size: 1.1rem;
+  }
+
+  .pb-active__clear {
+    min-height: 4.4rem;
+  }
+
+  .pb-pill::after {
+    content: '';
+    position: absolute;
+    top: -0.3rem;
+    right: 0;
+    bottom: -0.3rem;
+    left: 0;
+  }
+
+  .pb-toolbar__controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 0;
+    border-top: 1px solid var(--pb-gold-line);
+    border-bottom: 1px solid var(--pb-rule);
+  }
+
+  /* As drawn: 20px from the pills to the bar (the scroller's 6px bottom padding included). */
+  .pb-pills + .pb-toolbar__controls {
+    margin-top: 1.4rem;
+  }
+
+  .pb-toolbar__controls--single {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Without Sort the desktop form has nothing to show here; without Filter and Sort there's no bar at all. */
+  .pb-toolbar__form-wrap--no-sort,
+  .pb-toolbar__controls--empty {
+    display: none;
+  }
+
+  .pb-filter.mobile-facets__wrapper,
+  .pb-filter .mobile-facets__disclosure {
+    display: flex;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .pb-filter .pb-filter__open {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: center;
+    height: 4.8rem;
+  }
+
+  .pb-toolbar__controls:not(.pb-toolbar__controls--single) .pb-filter__open {
+    border-right: 1px solid var(--pb-rule);
+  }
+
+  .pb-filter .pb-filter__open-inner {
+    display: inline-flex;
+    justify-content: center;
+    gap: 0.8rem;
+    width: auto;
+    padding: 0;
+    color: var(--pb-ivory);
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .pb-filter .pb-filter__open-inner > * + * {
+    margin-left: 0;
+  }
+
+  .pb-filter .pb-filter__open-inner svg {
+    flex: none;
+    color: var(--pb-gold);
+  }
+
+  .pb-filter .pb-filter__open:hover .mobile-facets__open-label {
+    color: var(--pb-gold);
+    text-decoration: none;
+  }
+
+  .pb-toolbar__form {
+    justify-content: center;
+    gap: 0;
+    min-height: 4.8rem;
+  }
+
+  .pb-toolbar .pb-toolbar__count,
+  .pb-toolbar .pb-toolbar__instock {
+    display: none;
+  }
+
+  .pb-toolbar__form-wrap,
+  .pb-toolbar__sort,
+  .pb-toolbar .pb-toolbar__select {
+    min-width: 0;
+  }
+
+  .pb-toolbar__sort {
+    gap: 0.6rem;
+    max-width: 100%;
+  }
+
+  .pb-toolbar .pb-toolbar__select {
+    flex: 0 1 auto;
+  }
+
+  .pb-toolbar__sort-label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .pb-toolbar .pb-toolbar__select .select__select {
+    height: 4.8rem;
+    min-height: 4.8rem;
+    min-width: 0;
+    max-width: 100%;
+    padding: 0 2.2rem 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: transparent;
+    color: var(--pb-gold);
+    font-size: 1.3rem;
+    line-height: 4.8rem;
+  }
+
+  .pb-toolbar .pb-toolbar__select::after,
+  .pb-toolbar .pb-toolbar__select:hover::after {
+    box-shadow: none;
+  }
+
+  .pb-toolbar .pb-toolbar__select .svg-wrapper {
+    right: 0.4rem;
+  }
+
+  .pb-toolbar__count-mobile.product-count {
+    margin-top: 1.2rem;
+  }
+
+  .pb-toolbar__count-mobile .product-count__text {
+    font-size: 1.3rem;
+  }
+
+  .pb-toolbar__count-mobile .loading__spinner {
+    right: auto;
+    left: 0;
+  }
+
+  /* Drawer: Dawn's menu-drawer, details and transitions, with the Archive panel. */
+  .pb-filter .mobile-facets {
+    background-color: color-mix(in srgb, var(--pb-onyx-deep) 80%, transparent);
+  }
+
+  .pb-filter .pb-filter__panel {
+    width: calc(100% - 4rem);
+    max-width: 37.5rem;
+    overflow: hidden;
+    border: 0;
+    border-left: 1px solid var(--pb-gold-line);
+    background-color: var(--pb-onyx);
+    filter: none;
+  }
+
+  .pb-filter__header {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: space-between;
+    height: 6rem;
+    padding: 0 0.8rem 0 2rem;
+    border-bottom: 1px solid var(--pb-rule);
+  }
+
+  .pb-filter .pb-filter__heading {
+    margin: 0;
+    font-family: var(--pb-serif);
+    font-size: 2.4rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-transform: none;
+    color: var(--pb-ivory);
+  }
+
+  .pb-filter__close {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 4.4rem;
+    height: 4.4rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--pb-gold);
+    cursor: pointer;
+  }
+
+  .pb-filter__main {
+    flex: 1 1 auto;
+    overflow-y: auto;
+  }
+
+  .pb-filter__group {
+    min-width: 0;
+    margin: 0;
+    padding: 2rem;
+    border: 0;
+    border-bottom: 1px solid var(--pb-rule);
+  }
+
+  .pb-filter__legend {
+    float: left;
+    width: 100%;
+    margin: 0 0 1.2rem;
+    padding: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--pb-ivory);
+  }
+
+  .pb-filter__list {
+    clear: both;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    list-style: none;
+  }
+
+  .pb-filter__item .pb-check {
+    gap: 1rem;
+    min-height: 4.4rem;
+    font-size: 1.5rem;
+  }
+
+  .pb-filter__item .pb-check input[type='checkbox'] {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .pb-filter .pb-filter__price {
+    clear: both;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+    padding: 0;
+  }
+
+  /* Inputs and their visible labels per 02 §2.4: Inter 500 12 / 0.16em caps labels, 48px inputs, 14px padding. */
+  .pb-filter__price-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    min-width: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--pb-muted);
+  }
+
+  .pb-filter__input {
+    width: 100%;
+    min-width: 0;
+    height: 4.8rem;
+    padding: 0 1.4rem;
+    border: 1px solid var(--pb-gold);
+    border-radius: 2px;
+    background: var(--pb-onyx-raised);
+    color: var(--pb-ivory);
+    font-family: var(--font-body-family);
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-transform: none;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .pb-filter__input::placeholder {
+    color: var(--pb-muted);
+    opacity: 1;
+  }
+
+  .pb-filter__footer {
+    display: grid;
+    flex: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+    padding: 1.6rem 2rem;
+  }
+
+  .pb-filter__clear {
+    display: block;
+  }
+
+  /* Two buttons share 310px here, so they use the artboard's compact drawer label (12px, 0.16em, 48px). */
+  .pb-filter__footer .button {
+    width: 100%;
+    min-width: 0;
+    min-height: 4.8rem;
+    margin: 0;
+    padding-inline: 0.8rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.16em;
+  }
+
+  /* .mobile-facets__count is only a hook for facets.js here; keep the primary button colours. */
+  .pb-filter .pb-filter__apply.mobile-facets__count {
+    flex-grow: 0;
+    color: rgb(var(--color-button-text));
+  }
+}
+
+/* ---------- Grid (02 §1.3, §5.4) ---------- */
+.pb-collection.collection {
+  position: relative;
+}
+
+.pb-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--pb-grid-columns-mobile, 2), minmax(0, 1fr));
+  gap: clamp(2.8rem, calc(4.058vw - 0.244rem), 5.6rem) clamp(1.2rem, calc(2.319vw - 0.539rem), 2.8rem);
+  margin: clamp(1.6rem, calc(4.638vw - 1.878rem), 4.8rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (min-width: 750px) {
+  .pb-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .pb-grid {
+    grid-template-columns: repeat(var(--pb-grid-columns, 3), minmax(0, 1fr));
+  }
+}
+
+.pb-grid__item {
+  min-width: 0;
+}
+
+/* ---------- "New to brass?" promo tile (02 §5.5) ---------- */
+.pb-grid__item--promo {
+  align-self: start;
+}
+
+/* 4:5, but a column so the tile grows rather than letting long copy cross the frame (e.g. at 320px). */
+.pb-promo.pb-frame {
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 4 / 5;
+}
+
+.pb-promo__inner {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.8rem, calc(1.159vw - 0.07rem), 1.6rem);
+  min-width: 0;
+  padding: clamp(1rem, calc(3.188vw - 1.391rem), 3.2rem);
+  text-align: center;
+}
+
+.pb-promo .pb-promo__diamond {
+  width: clamp(1rem, calc(0.87vw + 0.348rem), 1.6rem);
+  height: clamp(1rem, calc(0.87vw + 0.348rem), 1.6rem);
+}
+
+/* Eyebrow 12 / 500 / 0.32em (02 §1.2). Gold text on green stays at 12px or more (02 §1.1). */
+.pb-promo__eyebrow {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--pb-gold);
+}
+
+.pb-promo__text {
+  margin: 0;
+  font-family: var(--pb-serif);
+  font-size: clamp(1.9rem, calc(2.174vw + 0.27rem), 3.4rem);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--pb-ivory);
+  overflow-wrap: anywhere;
+}
+
+.pb-promo__text-mobile {
+  display: none;
+}
+
+.pb-promo__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 4.4rem;
+  padding: 1rem 0;
+  color: var(--pb-gold);
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 0.6rem;
+}
+
+.pb-promo__link:hover {
+  color: var(--pb-gold-pale);
+}
+
+@media screen and (max-width: 749px) {
+  .pb-promo__text-desktop {
+    display: none;
+  }
+
+  .pb-promo__text-mobile {
+    display: inline;
+  }
+
+  /* Archive-Collection-Mobile sets the small tile text in gold-pale. 0.24em keeps the 11px eyebrow on one
+     line in the 2-up tile at 390. */
+  .pb-promo__eyebrow {
+    font-size: 1.1rem;
+    letter-spacing: 0.24em;
+    color: var(--pb-gold-pale);
+  }
+
+  .pb-promo__text {
+    line-height: 1.15;
+  }
+
+  .pb-promo__link,
+  .pb-promo__link:hover {
+    color: var(--pb-gold-pale);
+  }
+}
+
+/* ---------- No results and empty collection (02 §5.8) ---------- */
+.pb-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: clamp(1.6rem, calc(4.638vw - 1.878rem), 4.8rem);
+  padding: clamp(3.2rem, calc(3.478vw + 0.592rem), 5.6rem) 2rem;
+  border: 1px dashed var(--pb-dashed);
+  text-align: center;
+}
+
+.pb-empty .pb-empty__diamond {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.pb-empty .pb-empty__heading {
+  margin: 0.4rem 0 0;
+  font-family: var(--pb-serif);
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--pb-ivory);
+}
+
+.pb-empty__text {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: var(--pb-muted);
+}
+
+.pb-empty__action {
+  display: block;
+  width: 100%;
+}
+
+@media screen and (min-width: 750px) {
+  .pb-empty__action {
+    width: auto;
+  }
+}
+
+/* ---------- Pagination: crawlable links (02 §5.6) ---------- */
+.pb-collection .pagination-wrapper {
+  margin-top: clamp(4rem, calc(2.319vw + 2.261rem), 5.6rem);
+}
+
+.pb-collection .pagination__item {
+  color: var(--pb-ivory);
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.pb-collection a.pagination__item:hover,
+.pb-collection .pagination__item--current,
+.pb-collection .pagination__item-arrow {
+  color: var(--pb-gold);
+}
+
+.pb-collection .pagination__item .icon,
+.pb-collection .pagination__item--next:hover .icon,
+.pb-collection .pagination__item--prev:hover .icon {
+  transition: none;
+}
+
+.pb-collection .pagination__item--next:hover .icon {
+  transform: rotate(90deg);
+}
+
+.pb-collection .pagination__item--prev:hover .icon {
+  transform: rotate(-90deg);
+}

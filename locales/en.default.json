@@ -11,7 +11,32 @@
       "categories": "Categories",
       "empty_heading": "Nothing matches those filters.",
       "empty_text": "Try removing a filter, or browse all jewelry.",
-      "reset": "Reset filters"
+      "reset": "Reset filters",
+      "empty_collection_heading": "Nothing here yet.",
+      "empty_collection_text": "This collection has no pieces right now.",
+      "empty_collection_link": "Back to home",
+      "count": {
+        "one": "{{ count }} piece",
+        "other": "{{ count }} pieces"
+      },
+      "count_filtered": {
+        "one": "{{ product_count }} of {{ count }} piece",
+        "other": "{{ product_count }} of {{ count }} pieces"
+      },
+      "filter": "Filter",
+      "close_filters": "Close filters",
+      "sort": "Sort",
+      "in_stock_only": "In stock only",
+      "price_from": "From",
+      "price_to": "To",
+      "clear_all": "Clear all",
+      "show_results": {
+        "one": "Show {{ count }} piece",
+        "other": "Show {{ count }} pieces"
+      },
+      "active_filters": "Active filters",
+      "remove_filter": "Remove filter",
+      "price_range": "{{ min }} to {{ max }}"
     },
     "home": {
       "newsletter": {
