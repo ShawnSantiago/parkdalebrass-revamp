@@ -34,10 +34,12 @@
       >
         {%- if section.blocks.first.settings.text != blank -%}
           {%- if section.blocks.first.settings.link != blank -%}
+            {%- comment -%}PB: The prelaunch signup section lives on the localized homepage.{%- endcomment -%}
             <a
-              href="{{ section.blocks.first.settings.link }}"
+              href="{% if section.blocks.first.settings.link == '#signup' %}{{ routes.root_url }}{% endif %}{{ section.blocks.first.settings.link | escape }}"
               class="announcement-bar__link link link--text focus-inset animate-arrow"
             >
+            {%- comment -%} /PB {%- endcomment -%}
           {%- endif -%}
           <p class="announcement-bar__message h5">
             <span>{{ section.blocks.first.settings.text | escape }}</span>
@@ -94,10 +96,12 @@
                 >
                   {%- if block.settings.text != blank -%}
                     {%- if block.settings.link != blank -%}
+                      {%- comment -%}PB: Resolve the same signup link in rotating announcements.{%- endcomment -%}
                       <a
-                        href="{{ block.settings.link }}"
+                        href="{% if block.settings.link == '#signup' %}{{ routes.root_url }}{% endif %}{{ block.settings.link | escape }}"
                         class="announcement-bar__link link link--text focus-inset animate-arrow"
                       >
+                      {%- comment -%} /PB {%- endcomment -%}
                     {%- endif -%}
                     <p class="announcement-bar__message h5">
                       <span>{{ block.settings.text | escape }}</span>
