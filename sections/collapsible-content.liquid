@@ -1,5 +1,28 @@
 {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
 {{ 'collapsible-content.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  PB: Archive accordion (02 §2.6). Opt-in placeholder rule (AGENTS.md), set by the schema setting
+  `pb_hide_placeholders` (PB: added after open_first_collapsible_row; off by default, on in page.jewelry-care.json):
+  a row whose heading or content has a [bracketed placeholder] renders only in the theme editor, and with no
+  rows left the section renders nothing. "Open first row" opens the first row that renders.
+{%- endcomment -%}
+{{ 'component-pb-accordion.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign pb_hide_rows = false
+  if section.settings.pb_hide_placeholders and request.design_mode == false
+    assign pb_hide_rows = true
+  endif
+  assign pb_rows = 0
+  for block in section.blocks
+    assign pb_row_text = block.settings.heading | append: block.settings.row_content
+    unless pb_hide_rows and pb_row_text contains '['
+      assign pb_rows = pb_rows | plus: 1
+    endunless
+  endfor
+  assign pb_row_opened = false
+-%}
+{%- if pb_hide_rows == false or pb_rows > 0 -%}
+{%- comment -%} /PB {%- endcomment -%}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -70,15 +93,39 @@
           {% endif %}
           <div class="grid__item">
             {%- for block in section.blocks -%}
+              {%- comment -%} PB: with pb_hide_placeholders on, placeholder rows show only in the theme editor {%- endcomment -%}
+              {%- liquid
+                assign pb_row_text = block.settings.heading | append: block.settings.row_content
+                assign pb_row_preview = false
+                if section.settings.pb_hide_placeholders and pb_row_text contains '['
+                  assign pb_row_preview = true
+                endif
+                assign pb_row_open = false
+                unless pb_hide_rows and pb_row_preview
+                  if section.settings.open_first_collapsible_row and pb_row_opened == false
+                    assign pb_row_open = true
+                    assign pb_row_opened = true
+                  endif
+                endunless
+              -%}
+              {%- unless pb_hide_rows and pb_row_preview -%}
+              {%- comment -%} /PB {%- endcomment -%}
               <div
                 class="accordion{% if section.settings.layout == 'row' %} content-container color-{{ section.settings.container_color_scheme }} gradient{% endif %}"
                 {{ block.shopify_attributes }}
+                {%- comment -%} PB: preview-only flag (theme editor outline) {%- endcomment -%}
+                {% if pb_row_preview %}
+                  data-pb-preview-only
+                {% endif %}
+                {%- comment -%} /PB {%- endcomment -%}
               >
                 <details
                   id="Details-{{ block.id }}-{{ section.id }}"
-                  {% if section.settings.open_first_collapsible_row and forloop.first %}
+                  {%- comment -%} PB: open the first rendered row (Dawn: forloop.first) {%- endcomment -%}
+                  {% if pb_row_open %}
                     open
                   {% endif %}
+                  {%- comment -%} /PB {%- endcomment -%}
                 >
                   <summary id="Summary-{{ block.id }}-{{ section.id }}">
                     {% render 'icon-accordion', icon: block.settings.icon %}
@@ -98,6 +145,9 @@
                   </div>
                 </details>
               </div>
+              {%- comment -%} PB: close placeholder-row unless {%- endcomment -%}
+              {%- endunless -%}
+              {%- comment -%} /PB {%- endcomment -%}
             {%- endfor -%}
           </div>
         </div>
@@ -105,6 +155,9 @@
     </div>
   </div>
 </div>
+{%- comment -%} PB: close rows guard {%- endcomment -%}
+{%- endif -%}
+{%- comment -%} /PB {%- endcomment -%}
 
 {% schema %}
 {
@@ -215,6 +268,13 @@
       "id": "open_first_collapsible_row",
       "default": false,
       "label": "t:sections.collapsible_content.settings.open_first_collapsible_row.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "pb_hide_placeholders",
+      "label": "t:sections.pb_page.collapsible_content.pb_hide_placeholders.label",
+      "info": "t:sections.pb_page.collapsible_content.pb_hide_placeholders.info",
+      "default": false
     },
     {
       "type": "header",

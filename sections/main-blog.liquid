@@ -1,6 +1,9 @@
 {{ 'component-article-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+{%- comment -%} PB: Archive journal head and cards (02 §4.7, §7) {%- endcomment -%}
+{{ 'section-pb-journal.css' | asset_url | stylesheet_tag }}
+{%- comment -%} /PB {%- endcomment -%}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -21,6 +24,9 @@
     <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {{ blog.title | escape }}
     </h1>
+    {%- comment -%} PB: a heading for the card list, so the h3 card titles don't skip a level {%- endcomment -%}
+    <h2 class="visually-hidden">{{ 'pb.blog.articles' | t }}</h2>
+    {%- comment -%} /PB {%- endcomment -%}
 
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
       {%- for article in blog.articles -%}

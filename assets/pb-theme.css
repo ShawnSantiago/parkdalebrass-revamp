@@ -1199,3 +1199,68 @@ cart-drawer .cart-drawer .cart__checkout-button.button {
   min-height: 5.6rem;
 }
 /* /PB2:product */
+
+/* PB2:pages */
+/* Size tables (02 §7): gold header text, an onyx-raised header row and --pb-rule row lines. Shared by the
+   long-form page and article bodies (component-pb-prose.css) and the product page's size-guide popup, which
+   shows the Size Guide page (02 §2.5). Cell padding, row lines and the 15px size are the .rte table rules above;
+   the popup gets them here too, because stock Dawn doesn't wrap the popup's page content in .rte. */
+.product-popup-modal__content-info table:not([class]) {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.5rem;
+  box-shadow: none;
+}
+
+.product-popup-modal__content-info table:not([class]) :is(th, td) {
+  padding: 1rem 1.2rem;
+  border: 0;
+  border-bottom: 1px solid var(--pb-rule);
+  text-align: start;
+}
+
+:is(.pb-prose, .article-template__content, .product-popup-modal__content-info) table {
+  margin: 0 0 var(--pb-prose-gap, 2.4rem);
+  border: 0;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+}
+
+:is(.pb-prose, .article-template__content, .product-popup-modal__content-info) table:last-child {
+  margin-bottom: 0;
+}
+
+:is(.pb-prose, .article-template__content, .product-popup-modal__content-info) :is(th, td) {
+  vertical-align: top;
+}
+
+/* Row headers (a th in the body) are gold text; only the header row gets the onyx-raised band. */
+:is(.pb-prose, .article-template__content, .product-popup-modal__content-info) th {
+  font-weight: 600;
+  color: var(--pb-gold);
+  background-color: transparent;
+}
+
+/* Header row: a thead, a first row of th cells, or (pasted legacy tables without th) bold cells in the first row. */
+:is(.pb-prose, .article-template__content, .product-popup-modal__content-info) :is(
+  thead th,
+  thead td,
+  table:not(:has(thead)) > tbody:first-of-type > tr:first-child > th,
+  table:not(:has(thead, th)) > tbody:first-of-type > tr:first-child > td:has(> :is(strong, b):only-child)
+) {
+  background-color: var(--pb-onyx-raised);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pb-gold);
+  vertical-align: bottom;
+}
+
+:is(.pb-prose, .article-template__content, .product-popup-modal__content-info) caption {
+  padding-bottom: 1rem;
+  font-size: 1.3rem;
+  text-align: start;
+  color: var(--pb-muted);
+}
+/* /PB2:pages */

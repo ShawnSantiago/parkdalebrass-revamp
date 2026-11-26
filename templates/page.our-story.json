@@ -1,0 +1,66 @@
+{
+  "sections": {
+    "main": {
+      "type": "pb-page",
+      "blocks": {
+        "story_outline": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "heading_style": "heading",
+            "text": "<p>[Page body: the owner-approved brand story, written in the page in Shopify admin. Draft for approval from 04 §1, shown here as a preview only:]</p><p>Parkdale Brass began in 2019 in Toronto's Parkdale neighbourhood with an appreciation for brass and the industrial design of everyday objects. Today, we're taking that same interest in form, function and character into jewelry. Our next chapter is about pieces that feel personal, with warm tones, considered shapes and a style that doesn't need to shout.</p><p>[Est. 2019 refers to the brand, not the jewelry line. No invented manufacturing history.]</p>",
+            "anchor": ""
+          }
+        },
+        "shop": {
+          "type": "link",
+          "settings": {
+            "label": "Shop jewelry",
+            "collection": "jewelry",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "story_outline",
+        "shop"
+      ],
+      "settings": {
+        "show_diamond": true,
+        "dateline": "Est. 2019 · Toronto",
+        "width": "story",
+        "color_scheme": "scheme-1",
+        "padding_top": 112,
+        "padding_bottom": 0,
+        "padding_top_mobile": 72,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "material": {
+      "type": "pb-split",
+      "settings": {
+        "layout": "text_first",
+        "ratio": "6-5",
+        "full_bleed": false,
+        "show_borders": false,
+        "frame_image": true,
+        "show_diamond": false,
+        "color_scheme": "scheme-1",
+        "placeholder_note": "Placeholder · Approved Parkdale imagery or founder portrait",
+        "eyebrow": "The material",
+        "heading": "A material with character.",
+        "text": "<p>Brass is an alloy of copper and zinc, prized for its warm tone and the way it takes a finish. Uncoated brass darkens and softens with wear. Coated and plated finishes behave differently.</p><p>Every piece lists its actual finish and how to care for it, so you know how it will change.</p>",
+        "button_label": "Why brass?",
+        "button_link": "/pages/why-brass",
+        "padding_top": 88,
+        "padding_bottom": 112,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 72
+      }
+    }
+  },
+  "order": [
+    "main",
+    "material"
+  ]
+}

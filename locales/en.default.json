@@ -57,6 +57,16 @@
     "newsletter": {
       "success": "Thanks. You're on the list."
     },
+    "blog": {
+      "articles": "Articles"
+    },
+    "page": {
+      "table_label": "Table {{ index }}",
+      "empty_body": "Page body: write it in Shopify admin under Online Store > Pages.",
+      "preview_placeholder": "Preview only: hidden on the storefront until every [bracketed placeholder] is replaced.",
+      "preview_empty_collection": "Preview only: hidden on the storefront until this collection has products.",
+      "preview_no_link": "Preview only: add a link to show this on the storefront."
+    },
     "product": {
       "select_size": "Select a size",
       "added": "[item] added to your bag.",
