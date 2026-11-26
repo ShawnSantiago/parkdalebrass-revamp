@@ -1,0 +1,54 @@
+{%- comment -%}
+  PB "New to brass?" promo tile in the collection grid (02 §5.5, 03 §8; Archive-Collection, -Mobile).
+  A green, double-framed 4:5 tile: diamond, eyebrow, a Cormorant line and a gold text link.
+  main-collection-product-grid renders it as the last grid item on the last page only, never on an empty
+  result, and outside the product count and pagination. Styles: assets/section-pb-collection.css.
+
+  Accepts:
+  - promo: {Object} The grid section's settings (pb_promo_*)
+
+  Usage:
+  {% render 'pb-collection-promo', promo: section.settings %}
+{%- endcomment -%}
+{%- liquid
+  assign pb_text = promo.pb_promo_text | strip
+  assign pb_text_mobile = promo.pb_promo_text_mobile | strip
+  assign pb_show_link = false
+  if promo.pb_promo_link_label != blank
+    if promo.pb_promo_link != blank or request.design_mode
+      assign pb_show_link = true
+    endif
+  endif
+-%}
+<li class="pb-grid__item pb-grid__item--promo">
+  <div class="pb-promo pb-frame color-{{ promo.pb_promo_color_scheme | default: 'scheme-3' }} gradient">
+    <div class="pb-promo__inner pb-frame__inner">
+      <span class="pb-diamond pb-promo__diamond" aria-hidden="true"></span>
+      {%- if promo.pb_promo_eyebrow != blank -%}
+        <p class="pb-promo__eyebrow">{{ promo.pb_promo_eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if pb_text != blank or pb_text_mobile != blank -%}
+        <p class="pb-promo__text">
+          {%- if pb_text_mobile != blank and pb_text_mobile != pb_text -%}
+            <span class="pb-promo__text-desktop">{{ pb_text | default: pb_text_mobile | escape }}</span>
+            <span class="pb-promo__text-mobile">{{ pb_text_mobile | escape }}</span>
+          {%- else -%}
+            {{- pb_text | escape -}}
+          {%- endif -%}
+        </p>
+      {%- endif -%}
+      {%- if pb_show_link -%}
+        <a
+          class="pb-promo__link"
+          {% if promo.pb_promo_link != blank %}
+            href="{{ promo.pb_promo_link }}"
+          {% else %}
+            role="link" aria-disabled="true"
+          {% endif %}
+        >
+          {{- promo.pb_promo_link_label | escape -}}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</li>

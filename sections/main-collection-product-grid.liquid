@@ -1,6 +1,11 @@
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
+{%- comment -%} PB: Archive collection layout styles (02 §5, 03 §8). {%- endcomment -%}
+{%- if section.settings.pb_layout -%}
+  {{ 'section-pb-collection.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+{%- comment -%} /PB {%- endcomment -%}
 
 {% if section.settings.image_shape == 'blob' %}
   {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
@@ -43,7 +48,13 @@
   <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
     {%- paginate collection.products by section.settings.products_per_page -%}
       {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
-      {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
+      {%- comment -%} PB: the Archive toolbar ignores filter_type (02 §5.3). {%- endcomment -%}
+      {%- assign pb_filter_type = section.settings.filter_type -%}
+      {%- if section.settings.pb_layout -%}
+        {%- assign pb_filter_type = 'horizontal' -%}
+      {%- endif -%}
+      {%- comment -%} /PB {%- endcomment -%}
+      {%- if section.settings.enable_sorting and pb_filter_type == 'vertical' -%}
         <facet-filters-form class="facets facets-vertical-sort page-width small-hide">
           <form class="facets-vertical-form" id="FacetSortForm">
             <div class="facet-filters sorting caption">
@@ -101,10 +112,26 @@
         </facet-filters-form>
       {%- endif -%}
 
-      <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}">
+      {%- comment -%} PB: pb_filter_type, set above. {%- endcomment -%}
+      <div class="{% if pb_filter_type == 'vertical' %} facets-vertical page-width{% endif %}">
         {{ 'component-facets.css' | asset_url | stylesheet_tag }}
         <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
-        {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
+        {%- comment -%}
+          PB: Archive toolbar (02 §5.3): category pills, count, "In stock only", Sort and the mobile filter drawer.
+          It keeps the markup contract of Dawn's facets.js, which is unchanged. Dawn's facets render when
+          pb_layout is off.
+        {%- endcomment -%}
+        {%- if section.settings.pb_layout -%}
+          <div class="pb-toolbar-wrapper page-width" id="main-collection-filters" data-id="{{ section.id }}">
+            {% render 'pb-collection-toolbar',
+              results: collection,
+              enable_filtering: section.settings.enable_filtering,
+              enable_sorting: section.settings.enable_sorting,
+              menu: section.settings.pb_category_menu
+            %}
+          </div>
+        {%- elsif section.settings.enable_filtering or section.settings.enable_sorting -%}
+          {%- comment -%} /PB {%- endcomment -%}
           <aside
             aria-labelledby="verticalTitle"
             class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}"
@@ -128,7 +155,72 @@
             data-cascade
           {% endif %}
         >
-          {%- if collection.products.size == 0 -%}
+          {%- comment -%}
+            PB: Archive grid (02 §5.4–5.8): pb-product-card, 3-up [2-up] with 56/28 [28/12] gaps, the "New to
+            brass?" promo tile after the products on the last page only (not counted, not on an empty result),
+            and the Archive no-results and empty-collection states (pb.collection.*).
+          {%- endcomment -%}
+          {%- if section.settings.pb_layout -%}
+            {%- if collection.products.size == 0 -%}
+              <div class="collection collection--empty pb-collection page-width" id="product-grid" data-id="{{ section.id }}">
+                <div class="loading-overlay gradient"></div>
+                <div class="pb-empty">
+                  <span class="pb-diamond pb-empty__diamond" aria-hidden="true"></span>
+                  {%- if collection.all_products_count > 0 -%}
+                    <h2 class="pb-empty__heading">{{ 'pb.collection.empty_heading' | t }}</h2>
+                    <p class="pb-empty__text">{{ 'pb.collection.empty_text' | t }}</p>
+                    <facet-remove class="pb-empty__action">
+                      <a href="{{ collection.url }}" class="button button--secondary">{{ 'pb.collection.reset' | t }}</a>
+                    </facet-remove>
+                  {%- else -%}
+                    <h2 class="pb-empty__heading">{{ 'pb.collection.empty_collection_heading' | t }}</h2>
+                    <p class="pb-empty__text">{{ 'pb.collection.empty_collection_text' | t }}</p>
+                    <div class="pb-empty__action">
+                      <a href="{{ routes.root_url }}" class="button button--secondary">
+                        {{- 'pb.collection.empty_collection_link' | t -}}
+                      </a>
+                    </div>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- else -%}
+              <div class="collection pb-collection page-width">
+                <div class="loading-overlay gradient"></div>
+                <ul
+                  id="product-grid"
+                  data-id="{{ section.id }}"
+                  class="pb-grid"
+                  role="list"
+                  style="--pb-grid-columns: {{ section.settings.columns_desktop }}; --pb-grid-columns-mobile: {{ section.settings.columns_mobile }};"
+                >
+                  {%- for product in collection.products -%}
+                    {%- liquid
+                      assign lazy_load = true
+                      if forloop.index <= section.settings.columns_desktop
+                        assign lazy_load = false
+                      endif
+                    -%}
+                    <li class="pb-grid__item">
+                      {% render 'pb-product-card',
+                        card_product: product,
+                        show_secondary_image: section.settings.show_secondary_image,
+                        lazy_load: lazy_load,
+                        product_view_context: 'collection'
+                      %}
+                    </li>
+                  {%- endfor -%}
+                  {%- if section.settings.pb_promo_enable and paginate.next == nil -%}
+                    {% render 'pb-collection-promo', promo: section.settings %}
+                  {%- endif -%}
+                </ul>
+
+                {%- if paginate.pages > 1 -%}
+                  {% render 'pagination', paginate: paginate, anchor: '' %}
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          {%- elsif collection.products.size == 0 -%}
+            {%- comment -%} /PB {%- endcomment -%}
             <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
               <div class="loading-overlay gradient"></div>
               <div class="title-wrapper center">
@@ -201,6 +293,11 @@
   </div>
 </collection-component>
 
+{%- comment -%}
+  PB: schema settings added after padding_bottom (JSON allows no markers): pb_layout, pb_category_menu,
+  pb_promo_enable, pb_promo_color_scheme, pb_promo_eyebrow, pb_promo_text, pb_promo_text_mobile,
+  pb_promo_link_label, pb_promo_link. Labels: sections.pb_collection_header.grid.* in en.default.schema.json.
+{%- endcomment -%}
 {% schema %}
 {
   "name": "t:sections.main-collection-product-grid.name",
@@ -410,6 +507,71 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "header",
+      "content": "t:sections.pb_collection_header.grid.header.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "pb_layout",
+      "label": "t:sections.pb_collection_header.grid.pb_layout.label",
+      "info": "t:sections.pb_collection_header.grid.pb_layout.info",
+      "default": true
+    },
+    {
+      "type": "link_list",
+      "id": "pb_category_menu",
+      "label": "t:sections.pb_collection_header.grid.pb_category_menu.label",
+      "info": "t:sections.pb_collection_header.grid.pb_category_menu.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.pb_collection_header.grid.promo_header.content",
+      "info": "t:sections.pb_collection_header.grid.promo_header.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "pb_promo_enable",
+      "label": "t:sections.pb_collection_header.grid.pb_promo_enable.label",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "pb_promo_color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-3"
+    },
+    {
+      "type": "text",
+      "id": "pb_promo_eyebrow",
+      "label": "t:sections.pb_collection_header.grid.pb_promo_eyebrow.label",
+      "default": "New to brass?"
+    },
+    {
+      "type": "text",
+      "id": "pb_promo_text",
+      "label": "t:sections.pb_collection_header.grid.pb_promo_text.label",
+      "default": "How brass wears, and how to care for it."
+    },
+    {
+      "type": "text",
+      "id": "pb_promo_text_mobile",
+      "label": "t:sections.pb_collection_header.grid.pb_promo_text_mobile.label",
+      "info": "t:sections.pb_collection_header.grid.pb_promo_text_mobile.info",
+      "default": "How brass wears."
+    },
+    {
+      "type": "text",
+      "id": "pb_promo_link_label",
+      "label": "t:sections.pb_collection_header.grid.pb_promo_link_label.label",
+      "default": "Why brass?"
+    },
+    {
+      "type": "url",
+      "id": "pb_promo_link",
+      "label": "t:sections.pb_collection_header.grid.pb_promo_link.label",
+      "info": "t:sections.pb_collection_header.grid.pb_promo_link.info"
     }
   ]
 }

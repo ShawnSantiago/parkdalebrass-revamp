@@ -1,0 +1,189 @@
+{%- comment -%}
+  PB · Collection header (03 §4.7, 02 §5.1–5.2, Archive-Collection and Archive-Collection-Mobile).
+  Replaces Dawn's main-collection-banner on collection templates: breadcrumb, then a centred head with an
+  18px diamond, the caps H1, a rule-flanked line of live categories and the collection description.
+
+  The category line, in order of priority:
+  1. the collection's custom.category_line metafield (single-line text), if it exists;
+  2. the category_line setting;
+  3. built from the menu: the child links of the current collection's link, or, when the current collection is
+     the menu's first link (the "All" link of shop-categories), the menu's other links. Only collections with
+     at least one product are named, so the line never lists a category that isn't live (02 §5.2).
+
+  The category pills sit in the toolbar row with the count, "In stock only" and Sort (02 §5.3). Dawn's filter
+  JavaScript renders that row from the product grid section, so the pills are rendered there
+  (main-collection-product-grid, setting pb_category_menu) and not in this section.
+{%- endcomment -%}
+{%- liquid
+  assign pb_s = section.settings
+
+  assign pb_pad_top_mobile = pb_s.padding_top | times: 0.6 | round: 0
+  if pb_s.padding_top_mobile != blank
+    assign pb_pad_top_mobile = pb_s.padding_top_mobile | at_least: 0
+  endif
+  assign pb_pad_bottom_mobile = pb_s.padding_bottom | times: 0.6 | round: 0
+  if pb_s.padding_bottom_mobile != blank
+    assign pb_pad_bottom_mobile = pb_s.padding_bottom_mobile | at_least: 0
+  endif
+
+  assign pb_line = collection.metafields.custom.category_line.value | strip
+  if pb_line == blank
+    assign pb_line = pb_s.category_line | strip
+  endif
+
+  if pb_line == blank and pb_s.menu != blank
+    assign pb_line_links = null
+    for pb_link in pb_s.menu.links
+      if pb_link.current
+        if pb_link.links.size > 0
+          assign pb_line_links = pb_link.links
+        elsif forloop.first
+          assign pb_line_links = pb_s.menu.links
+        endif
+        break
+      endif
+    endfor
+
+    assign pb_line_parts = ''
+    for pb_link in pb_line_links
+      if pb_link.current
+        continue
+      endif
+      if pb_link.type == 'collection_link' and pb_link.object.products_count > 0
+        assign pb_title = pb_link.title | strip
+        if pb_line_parts == ''
+          assign pb_line_parts = pb_title
+        else
+          assign pb_line_parts = pb_line_parts | append: ' · ' | append: pb_title
+        endif
+      endif
+    endfor
+    assign pb_line = pb_line_parts
+  endif
+-%}
+
+{%- if collection != blank -%}
+  {{ 'section-pb-collection-header.css' | asset_url | stylesheet_tag }}
+
+  {%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ pb_pad_top_mobile }}px;
+      padding-bottom: {{ pb_pad_bottom_mobile }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ pb_s.padding_top }}px;
+        padding-bottom: {{ pb_s.padding_bottom }}px;
+      }
+    }
+  {%- endstyle -%}
+
+  <div class="pb-collection-header color-{{ pb_s.color_scheme }} gradient">
+    <div class="page-width section-{{ section.id }}-padding">
+      {%- if pb_s.show_breadcrumbs -%}
+        {% render 'pb-breadcrumbs', collection: collection %}
+      {%- endif -%}
+
+      <div class="pb-collection-header__head">
+        <span class="pb-diamond pb-collection-header__diamond" aria-hidden="true"></span>
+        <h1 class="pb-collection-header__title">{{ collection.title | escape }}</h1>
+        {%- if pb_line != blank -%}
+          <p class="pb-eyebrow pb-eyebrow--ruled pb-collection-header__line">
+            <span class="pb-collection-header__line-text">{{ pb_line | escape }}</span>
+          </p>
+        {%- endif -%}
+        {%- if pb_s.show_description and collection.description != blank -%}
+          <div class="pb-collection-header__description rte">{{ collection.description }}</div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.pb_collection_header.name",
+  "class": "section",
+  "enabled_on": {
+    "templates": ["collection"]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumbs",
+      "label": "t:sections.pb_collection_header.settings.show_breadcrumbs.label",
+      "default": true
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "t:sections.pb_collection_header.settings.menu.label",
+      "info": "t:sections.pb_collection_header.settings.menu.info"
+    },
+    {
+      "type": "text",
+      "id": "category_line",
+      "label": "t:sections.pb_collection_header.settings.category_line.label",
+      "info": "t:sections.pb_collection_header.settings.category_line.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "t:sections.pb_collection_header.settings.show_description.label",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "t:sections.pb_collection_header.settings.padding_top_mobile.label",
+      "info": "t:sections.pb_collection_header.settings.padding_mobile.info"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "t:sections.pb_collection_header.settings.padding_bottom_mobile.label",
+      "info": "t:sections.pb_collection_header.settings.padding_mobile.info"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.pb_collection_header.presets.name",
+      "settings": {
+        "padding_top": 32,
+        "padding_top_mobile": 16
+      }
+    }
+  ]
+}
+{% endschema %}

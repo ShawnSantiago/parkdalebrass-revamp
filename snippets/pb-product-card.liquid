@@ -1,0 +1,94 @@
+{%- comment -%}
+  PB product card for real products (02 §2.2; Archive-Collection, Archive-Collection-Mobile).
+  The whole card is one link: a 4:5 image on onyx-raised with a 1px rule border (gold on hover, and the second
+  image on hover when there is one), then the name and gold price on one row, then the descriptor.
+  On mobile the name, descriptor and price stack, as on Archive-Collection-Mobile.
+  Styles: the PB2:collection block at the end of assets/pb-theme.css, so any section can render this card.
+
+  Concept cards (pb-featured, concepts mode) must never use this snippet: it prints a real price and link.
+
+  The descriptor is the product's custom.finish metafield, or custom.short_description when there's no
+  finish (04 §2). It's hidden when both are empty. The sold-out badge uses the card badge shape with muted
+  text (02 §2.2). There's no sale badge and no rating (D-13).
+
+  Accepts:
+  - card_product: {Object} Product (required)
+  - show_secondary_image: {Boolean} Show the second image on hover. Default: false
+  - lazy_load: {Boolean} Lazy-load the image. Default: true
+  - sizes: {String} The image sizes attribute. Default: the 3-up collection grid (2-up below 960px)
+  - heading_tag: {String} Default: 'h3'
+  - product_view_context: {String} Context for Shopify's standard view event (e.g. 'collection')
+
+  Usage:
+  {% render 'pb-product-card', card_product: product, show_secondary_image: true, lazy_load: false %}
+{%- endcomment -%}
+{%- if card_product != blank -%}
+  {%- liquid
+    assign pb_heading_tag = heading_tag | default: 'h3'
+    assign pb_sizes = sizes | default: '(min-width: 1440px) 424px, (min-width: 960px) calc(29.85vw - 6px), (min-width: 750px) calc(44.78vw + 5px), calc(50vw - 26px)'
+    assign pb_loading = 'lazy'
+    if lazy_load == false
+      assign pb_loading = 'eager'
+    endif
+
+    assign pb_media = card_product.featured_media
+    assign pb_second = null
+    if show_secondary_image and card_product.media[1] != null
+      assign pb_second = card_product.media[1]
+    endif
+
+    assign pb_desc = card_product.metafields.custom.finish.value | strip
+    if pb_desc == blank
+      assign pb_desc = card_product.metafields.custom.short_description.value | newline_to_br | replace: '<br />', ' ' | strip
+    endif
+  -%}
+  <product-component
+    class="pb-card-wrapper"
+    view-event-payload="{{ card_product | standard_event_data: 'view', context: product_view_context | escape }}"
+  >
+    <a class="pb-card" href="{{ card_product.url }}">
+      <div class="pb-card__media{% if pb_second %} pb-card__media--swap{% endif %}">
+        {%- if pb_media -%}
+          {{
+            pb_media
+            | image_url: width: 1066
+            | image_tag:
+              class: 'pb-card__img',
+              widths: '165, 360, 533, 720, 940, 1066',
+              sizes: pb_sizes,
+              alt: '',
+              loading: pb_loading
+          }}
+          {%- if pb_second -%}
+            {{
+              pb_second
+              | image_url: width: 1066
+              | image_tag:
+                class: 'pb-card__img pb-card__img--second',
+                widths: '165, 360, 533, 720, 940, 1066',
+                sizes: pb_sizes,
+                alt: '',
+                loading: 'lazy'
+            }}
+          {%- endif -%}
+        {%- else -%}
+          <span class="pb-card__placeholder" aria-hidden="true">
+            {{- 'image' | placeholder_svg_tag: 'pb-card__placeholder-svg' -}}
+          </span>
+        {%- endif -%}
+        {%- if card_product.available == false -%}
+          <span class="pb-card__badge pb-card__badge--muted">{{ 'products.product.sold_out' | t }}</span>
+        {%- endif -%}
+      </div>
+      <div class="pb-card__row">
+        <{{ pb_heading_tag }} class="pb-card__name pb-product-name">{{ card_product.title | escape }}</{{ pb_heading_tag }}>
+        <div class="pb-card__price">
+          {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+        </div>
+      </div>
+      {%- if pb_desc != blank -%}
+        <p class="pb-card__desc">{{ pb_desc | escape }}</p>
+      {%- endif -%}
+    </a>
+  </product-component>
+{%- endif -%}

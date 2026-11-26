@@ -1,22 +1,27 @@
 {
   "sections": {
-    "banner": {
-      "type": "main-collection-banner",
+    "header": {
+      "type": "pb-collection-header",
       "settings": {
-        "show_collection_description": true,
-        "show_collection_image": false,
-        "color_scheme": "scheme-1"
+        "show_breadcrumbs": true,
+        "menu": "shop-categories",
+        "category_line": "",
+        "show_description": true,
+        "color_scheme": "scheme-1",
+        "padding_top": 32,
+        "padding_bottom": 0,
+        "padding_top_mobile": 16
       }
     },
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
-        "products_per_page": 16,
-        "columns_desktop": 4,
+        "products_per_page": 24,
+        "columns_desktop": 3,
         "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
+        "image_ratio": "portrait",
         "image_shape": "default",
-        "show_secondary_image": false,
+        "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "none",
@@ -24,13 +29,75 @@
         "filter_type": "horizontal",
         "enable_sorting": true,
         "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "pb_layout": true,
+        "pb_category_menu": "shop-categories",
+        "pb_promo_enable": true,
+        "pb_promo_color_scheme": "scheme-3",
+        "pb_promo_eyebrow": "New to brass?",
+        "pb_promo_text": "How brass wears, and how to care for it.",
+        "pb_promo_text_mobile": "How brass wears.",
+        "pb_promo_link_label": "Why brass?",
+        "pb_promo_link": "/pages/why-brass"
+      }
+    },
+    "pb_help": {
+      "type": "multicolumn",
+      "blocks": {
+        "size_guide": {
+          "type": "column",
+          "settings": {
+            "title": "Size guide",
+            "text": "<p>Ring sizes, cuff openings and chain lengths, in mm and inches.</p>",
+            "link_label": "Find your size",
+            "link": "/pages/size-guide"
+          }
+        },
+        "jewelry_care": {
+          "type": "column",
+          "settings": {
+            "title": "Jewelry care",
+            "text": "<p>Simple care steps for each finish we offer.</p>",
+            "link_label": "Care by finish",
+            "link": "/pages/jewelry-care"
+          }
+        },
+        "shipping_returns": {
+          "type": "column",
+          "settings": {
+            "title": "Shipping & returns",
+            "text": "<p>[Markets, delivery times and return window, to be confirmed by owner.]</p>",
+            "link_label": "Read the policy",
+            "link": "/policies/shipping-policy"
+          }
+        }
+      },
+      "block_order": [
+        "size_guide",
+        "jewelry_care",
+        "shipping_returns"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     }
   },
   "order": [
-    "banner",
-    "product-grid"
+    "header",
+    "product-grid",
+    "pb_help"
   ]
 }
