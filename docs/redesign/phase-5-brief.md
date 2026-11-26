@@ -41,7 +41,7 @@ Record each step in `docs/redesign/launch-log.md` (time, who, result, evidence) 
 **Checkpoint A.** Nothing customer-facing has changed yet. Safe to stop.
 
 ### Step 2 · Prepare the new theme (still unpublished)
-1. In the new theme's editor, switch the homepage to the live configuration (`templates/index.live.json.txt`):
+1. In the new theme's editor, switch the homepage to the live configuration (`docs/redesign/index.live.json`):
    - `pb-featured` set to collection mode (`jewelry`);
    - hero CTA "Shop jewelry";
    - live editorial CTA;

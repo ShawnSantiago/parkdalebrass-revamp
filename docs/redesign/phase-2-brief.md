@@ -61,7 +61,7 @@ Build it first, because the homepage, Our Story and Why Brass all use it.
 5. `pb-journal-picks` (03 §4.5): pick `what-is-brass-jewelry-metal` and `gold-plated-brass-jewelry`. The care article doesn't exist yet, so leave the third block empty; the section must skip it cleanly. **Don't feature `is-brass-good-for-jewelry` or `does-brass-jewelry-tarnish`.** They contain hypoallergenic claims awaiting correction (audit §1.7).
 6. `pb-newsletter` (03 §4.6): Dawn's customer form, `id="signup"`, green double frame. Once this section is in the homepage template, set the announcement link to `#signup` and test it from a product page. **Leave the consent setting empty**; the owner must supply the wording (owner-inputs D-03). Note that in your report.
 
-Then compose **`templates/index.json`** (03 §9, prelaunch). Also save `templates/index.live.json.txt` with the live configuration: `pb-featured` in collection mode for `jewelry`, the hero CTA "Shop jewelry", the live editorial CTA, and no announcement.
+Then compose **`templates/index.json`** (03 §9, prelaunch). Also save `docs/redesign/index.live.json` with the live configuration (not under `templates/`: a non-template file there breaks Theme Check's reference graph): `pb-featured` in collection mode for `jewelry`, the hero CTA "Shop jewelry", the live editorial CTA, and no announcement.
 - **Done when:** the homepage matches `Archive-Home` and `Archive-Home-Mobile` section by section in prelaunch. Switching to the live configuration in the theme editor produces the live state (02 §8). An empty `jewelry` collection makes `pb-featured` render nothing, not an empty grid.
 
 ### 2.4 · Collection page

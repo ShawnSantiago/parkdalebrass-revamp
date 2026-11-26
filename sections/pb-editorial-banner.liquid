@@ -1,0 +1,196 @@
+{%- comment -%}
+  PB · Editorial banner (03 §4.4, 02 §4.5–4.6). A double-framed 21:9 image at content width, then the H2 and a
+  gold text CTA in one row. Under 750px: 16px side margin, 8px frame, a 440px-tall portrait crop, then the
+  heading and CTA stacked (Archive-Home-Mobile). The ornament divider after it is the page's one divider
+  (02 §1.5, padding-top 112 [64]).
+{%- endcomment -%}
+{%- liquid
+  assign pb_s = section.settings
+  assign pb_image = pb_s.image | default: pb_s.image_mobile
+  assign pb_image_mobile = nil
+  if pb_s.image != blank and pb_s.image_mobile != blank
+    assign pb_image_mobile = pb_s.image_mobile
+  endif
+
+  assign pb_show_link = false
+  if pb_s.link_label != blank
+    if pb_s.link_url != blank or request.design_mode
+      assign pb_show_link = true
+    endif
+  endif
+-%}
+
+{{ 'section-pb-editorial-banner.css' | asset_url | stylesheet_tag }}
+{% render 'pb-section-padding', section: section %}
+
+<section
+  id="PbEditorial-{{ section.id }}"
+  class="pb-editorial color-{{ pb_s.color_scheme }} gradient section-{{ section.id }}-padding"
+  {% if pb_s.heading != blank %}
+    aria-labelledby="PbEditorial-{{ section.id }}-heading"
+  {% endif %}
+>
+  <div class="page-width pb-editorial__inner">
+    <div class="pb-frame pb-editorial__frame">
+      <div class="pb-frame__inner pb-editorial__media">
+        {%- if pb_image != blank -%}
+          {%- render 'pb-picture',
+            image: pb_image,
+            image_mobile: pb_image_mobile,
+            mobile_max: 749,
+            sizes: '(min-width: 1440px) 1306px, (min-width: 750px) calc(100vw - 134px), 100vw',
+            mobile_sizes: 'calc(100vw - 54px)',
+            class: 'pb-editorial__img'
+          -%}
+        {%- else -%}
+          <div class="pb-placeholder pb-editorial__placeholder">
+            <span class="pb-editorial__placeholder-art" aria-hidden="true">
+              {{- 'image' | placeholder_svg_tag: 'placeholder-svg' -}}
+            </span>
+            {%- if pb_s.placeholder_note != blank -%}
+              <p class="pb-placeholder__note pb-editorial__note">{{ pb_s.placeholder_note | escape }}</p>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- if pb_s.heading != blank or pb_show_link -%}
+      <div class="pb-editorial__row">
+        {%- if pb_s.heading != blank -%}
+          <h2 id="PbEditorial-{{ section.id }}-heading" class="pb-editorial__heading">{{ pb_s.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if pb_show_link -%}
+          <a
+            class="pb-text-cta pb-editorial__cta"
+            {% if pb_s.link_url != blank %}
+              href="{{ pb_s.link_url }}"
+            {% else %}
+              role="link" aria-disabled="true"
+            {% endif %}
+          >
+            {{- pb_s.link_label | escape -}}
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- if pb_s.show_divider_after -%}
+    <div class="pb-divider pb-editorial__divider" aria-hidden="true">
+      <span class="pb-diamond pb-diamond--md"></span>
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.pb_editorial_banner.name",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:pb.home.settings.media_header.content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:pb.home.settings.image.label",
+      "info": "t:sections.pb_editorial_banner.settings.image.info"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "t:pb.home.settings.image_mobile.label",
+      "info": "t:sections.pb_editorial_banner.settings.image_mobile.info"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_note",
+      "label": "t:pb.home.settings.placeholder_note.label",
+      "info": "t:pb.home.settings.placeholder_note.info",
+      "default": "Placeholder · On-body: cuff + pendant with dark wool, denim, workwear"
+    },
+    {
+      "type": "header",
+      "content": "t:pb.home.settings.content_header.content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:pb.home.settings.heading.label",
+      "default": "Considered forms. Everyday character."
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "t:sections.pb_editorial_banner.settings.link_label.label",
+      "info": "t:sections.pb_editorial_banner.settings.link_label.info",
+      "default": "Be first to know"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "t:sections.pb_editorial_banner.settings.link_url.label",
+      "info": "t:pb.home.settings.button_link.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider_after",
+      "label": "t:sections.pb_editorial_banner.settings.show_divider_after.label",
+      "info": "t:sections.pb_editorial_banner.settings.show_divider_after.info",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "t:pb.home.settings.padding_top_mobile.label",
+      "info": "t:pb.home.settings.padding_mobile.info"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "t:pb.home.settings.padding_bottom_mobile.label",
+      "info": "t:pb.home.settings.padding_mobile.info"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.pb_editorial_banner.presets.name"
+    }
+  ]
+}
+{% endschema %}

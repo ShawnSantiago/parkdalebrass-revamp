@@ -13,6 +13,19 @@
       "empty_text": "Try removing a filter, or browse all jewelry.",
       "reset": "Reset filters"
     },
+    "home": {
+      "newsletter": {
+        "label": "Email address",
+        "placeholder": "you@example.com",
+        "consent_missing": "[Consent wording to be confirmed by the owner (D-03).]"
+      },
+      "editor": {
+        "categories_hidden": "[Shop by category is hidden on the storefront: none of its collections has a published product yet.]",
+        "featured_concepts_empty": "[Featured is hidden on the storefront: add a concept block with a name or an image.]",
+        "featured_collection_empty": "[Featured is hidden on the storefront: choose a collection that has published products.]",
+        "journal_empty": "[Journal picks are hidden on the storefront: choose at least one article.]"
+      }
+    },
     "journal": {
       "view_all": "All articles"
     },

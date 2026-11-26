@@ -1,0 +1,227 @@
+{%- comment -%}
+  PB · Newsletter (03 §4.6, 02 §2.4, §4.8). The launch-list signup: a royal green, double-framed panel at
+  content width (16px side margin under 750px), centred head, then Dawn's customer form (tagged "newsletter",
+  as sections/newsletter.liquid) with a visible label, the on-green input and the gold primary button.
+  The wrapper id is the anchor setting ("signup"): the hero, the editorial CTA and the announcement bar link to it.
+  Consent: the setting has no default. The owner supplies CASL wording (owner-inputs D-03); until then the
+  storefront shows no consent line and the theme editor shows a bracketed reminder.
+{%- endcomment -%}
+{%- liquid
+  assign pb_s = section.settings
+
+  assign pb_anchor = pb_s.anchor_id | handleize
+  if pb_anchor == blank
+    assign pb_anchor = 'PbNewsletter-' | append: section.id
+  endif
+
+  assign pb_form_id = 'PbNewsletterForm-' | append: section.id
+  assign pb_input_id = 'PbNewsletterEmail-' | append: section.id
+  assign pb_error_id = 'PbNewsletterError-' | append: section.id
+  assign pb_success_id = 'PbNewsletterSuccess-' | append: section.id
+  assign pb_consent_id = 'PbNewsletterConsent-' | append: section.id
+
+  assign pb_button = pb_s.button_label
+  if pb_button == blank
+    assign pb_button = 'newsletter.button_label' | t
+  endif
+-%}
+
+{{ 'section-pb-newsletter.css' | asset_url | stylesheet_tag }}
+{% render 'pb-section-padding', section: section %}
+
+<section
+  id="{{ pb_anchor }}"
+  class="pb-newsletter section-{{ section.id }}-padding"
+  {% if pb_s.heading != blank %}
+    aria-labelledby="PbNewsletter-{{ section.id }}-heading"
+  {% endif %}
+>
+  <div class="page-width pb-newsletter__outer">
+    <div class="pb-frame pb-newsletter__frame color-{{ pb_s.color_scheme }} gradient">
+      <div class="pb-frame__inner pb-newsletter__inner">
+        <span class="pb-diamond pb-newsletter__diamond" aria-hidden="true"></span>
+
+        {%- if pb_s.eyebrow != blank -%}
+          <p class="pb-eyebrow pb-eyebrow--ruled">{{ pb_s.eyebrow | escape }}</p>
+        {%- endif -%}
+
+        {%- if pb_s.heading != blank -%}
+          <h2 id="PbNewsletter-{{ section.id }}-heading" class="pb-newsletter__heading">{{ pb_s.heading | escape }}</h2>
+        {%- endif -%}
+
+        {%- if pb_s.text != blank -%}
+          <p class="pb-newsletter__text">{{ pb_s.text | escape }}</p>
+        {%- endif -%}
+
+        {%- form 'customer', id: pb_form_id, class: 'pb-newsletter__form' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          {%- liquid
+            assign pb_describedby = ''
+            if form.errors
+              assign pb_describedby = pb_error_id
+            elsif form.posted_successfully?
+              assign pb_describedby = pb_success_id
+            endif
+            if pb_s.consent != blank
+              assign pb_describedby = pb_describedby | append: ' ' | append: pb_consent_id | strip
+            endif
+          -%}
+          <label class="pb-newsletter__label" for="{{ pb_input_id }}">{{ 'pb.home.newsletter.label' | t }}</label>
+          <div class="pb-newsletter__row">
+            <input
+              id="{{ pb_input_id }}"
+              class="pb-newsletter__input"
+              type="email"
+              name="contact[email]"
+              value="{{ form.email }}"
+              autocomplete="email"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="false"
+              placeholder="{{ 'pb.home.newsletter.placeholder' | t }}"
+              required
+              aria-required="true"
+              {% if form.errors %}
+                autofocus
+                aria-invalid="true"
+              {% endif %}
+              {% if pb_describedby != blank %}
+                aria-describedby="{{ pb_describedby }}"
+              {% endif %}
+            >
+            <button type="submit" class="button button--primary pb-newsletter__button" name="commit">
+              {{- pb_button | escape -}}
+            </button>
+          </div>
+
+          {%- if form.errors -%}
+            <p id="{{ pb_error_id }}" class="pb-newsletter__message" role="alert">
+              <span class="svg-wrapper">{{- 'icon-error.svg' | inline_asset_content -}}</span>
+              <span>
+                {{- form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email -}}
+              </span>
+            </p>
+          {%- endif -%}
+
+          {%- if form.posted_successfully? -%}
+            <p id="{{ pb_success_id }}" class="pb-newsletter__message" role="status" tabindex="-1" autofocus>
+              <span class="svg-wrapper">{{- 'icon-success.svg' | inline_asset_content -}}</span>
+              <span>{{ 'pb.newsletter.success' | t }}</span>
+            </p>
+          {%- endif -%}
+
+          {%- if pb_s.consent != blank -%}
+            <div id="{{ pb_consent_id }}" class="pb-newsletter__consent">{{ pb_s.consent }}</div>
+          {%- elsif request.design_mode -%}
+            <p class="pb-newsletter__consent pb-newsletter__consent--missing">
+              {{- 'pb.home.newsletter.consent_missing' | t -}}
+            </p>
+          {%- endif -%}
+        {%- endform -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.pb_newsletter.name",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.pb_newsletter.settings.paragraph.content"
+    },
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "t:sections.pb_newsletter.settings.anchor_id.label",
+      "info": "t:sections.pb_newsletter.settings.anchor_id.info",
+      "default": "signup"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:pb.home.settings.eyebrow.label",
+      "default": "Launch list"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:pb.home.settings.heading.label",
+      "default": "The next chapter."
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "t:pb.home.settings.text.label",
+      "default": "Get collection news and new release updates."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:pb.home.settings.button_label.label",
+      "info": "t:sections.pb_newsletter.settings.button_label.info",
+      "default": "Notify me"
+    },
+    {
+      "type": "richtext",
+      "id": "consent",
+      "label": "t:sections.pb_newsletter.settings.consent.label",
+      "info": "t:sections.pb_newsletter.settings.consent.info"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.pb_newsletter.settings.color_scheme.label",
+      "default": "scheme-3"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 128
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 120
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "t:pb.home.settings.padding_top_mobile.label",
+      "info": "t:pb.home.settings.padding_mobile.info",
+      "default": 72
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "t:pb.home.settings.padding_bottom_mobile.label",
+      "info": "t:pb.home.settings.padding_mobile.info"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.pb_newsletter.presets.name"
+    }
+  ]
+}
+{% endschema %}

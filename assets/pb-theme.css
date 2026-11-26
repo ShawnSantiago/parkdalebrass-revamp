@@ -518,3 +518,51 @@ variant-selects .product-form__input .form__label {
   color: var(--pb-onyx);
 }
 /* /PB2:foundation */
+
+/* PB2:home */
+/* Announcement with an inline link (snippets/pb-announcement-message.liquid; 02 §2.7).
+   Archive-Home: the message stays gold-pale and only the CTA is a link, ivory and underlined (offset 3px), no arrow.
+   Archive-Home-Mobile: the short message and label, 11px at 0.14em, on one line. */
+.pb-announcement__link {
+  position: relative;
+  white-space: nowrap;
+  color: var(--pb-ivory);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3rem;
+}
+
+.pb-announcement__link:hover {
+  color: var(--pb-gold-pale);
+}
+
+/* A 44px target that doesn't change the bar's height. */
+.pb-announcement__link::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100% + 1.2rem, 4.4rem);
+  height: 4.4rem;
+  transform: translate(-50%, -50%);
+}
+
+.pb-announcement__version--short {
+  display: none;
+}
+
+@media screen and (max-width: 749px) {
+  .announcement-bar .pb-announcement {
+    font-size: 1.1rem;
+    letter-spacing: 0.14em;
+  }
+
+  .pb-announcement__version--full {
+    display: none;
+  }
+
+  .pb-announcement__version--short {
+    display: inline;
+  }
+}
+/* /PB2:home */

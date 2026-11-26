@@ -18,7 +18,10 @@
           "type": "announcement",
           "settings": {
             "text": "The first Parkdale Brass jewelry collection is in development.",
-            "link": ""
+            "link": "#signup",
+            "pb_link_label": "Join the launch list",
+            "pb_text_mobile": "Collection in development.",
+            "pb_link_label_mobile": "Join the list"
           }
         }
       },
