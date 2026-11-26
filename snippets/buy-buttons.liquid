@@ -6,6 +6,9 @@
   - product_form_id: {String} product form id.
   - section_id: {String} id of section to which this snippet belongs.
   - show_pickup_availability: {Boolean} for the pickup availability. If true the pickup availability is rendered, false - not rendered (optional).
+  PB (optional; main-product passes them in the Archive layout, D-23):
+  - pb_archive: {Boolean} Adds the role="status" add-to-bag confirmation line under the button.
+  - pb_size_start: {Boolean} "Select a size" start state: an empty variant input and an aria-disabled button.
 
   Usage:
   {% render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true %}
@@ -43,10 +46,11 @@
         novalidate: 'novalidate',
         data-type: 'add-to-cart-form'
       -%}
+        {%- comment -%} PB: no variant until a size is chosen (D-23). {%- endcomment -%}
         <input
           type="hidden"
           name="id"
-          value="{{ product.selected_or_first_available_variant.id }}"
+          value="{% unless pb_size_start %}{{ product.selected_or_first_available_variant.id }}{% endunless %}"
           {% if product.selected_or_first_available_variant.available == false
             or quantity_rule_soldout
             or product.selected_or_first_available_variant == null
@@ -55,6 +59,7 @@
           {% endif %}
           class="product-variant-id"
         >
+        {%- comment -%} /PB {%- endcomment -%}
 
         {%- if gift_card_recipient_feature_active -%}
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
@@ -81,9 +86,21 @@
             %}
               disabled
             {% endif %}
+            {% comment %}
+              PB: "Select a size" stays focusable and says why it can't be used (02 §2.1, D-23). data-pb-select-size
+              marks the state for assets/pb-product.js, the sticky bar and the CSS.
+            {% endcomment %}
+            {% if pb_size_start %}
+              aria-disabled="true" data-pb-select-size
+            {% endif %}
+            {% comment %} /PB {% endcomment %}
           >
             <span>
-              {%- if product.selected_or_first_available_variant == null -%}
+              {%- comment -%} PB: the "Select a size" label; Dawn's first condition becomes an elsif (D-23). {%- endcomment -%}
+              {%- if pb_size_start -%}
+                {{ 'pb.product.select_size' | t }}
+              {%- elsif product.selected_or_first_available_variant == null -%}
+                {%- comment -%} /PB {%- endcomment -%}
                 {{ 'products.product.unavailable' | t }}
               {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
                 {{ 'products.product.sold_out' | t }}
@@ -99,6 +116,11 @@
         </div>
       {%- endform -%}
     </product-form>
+    {%- comment -%} PB: add-to-bag confirmation, written by assets/pb-product.js (02 §6.2). {%- endcomment -%}
+    {%- if pb_archive -%}
+      <p id="PbProductStatus-{{ section_id }}" class="pb-product-status" role="status"></p>
+    {%- endif -%}
+    {%- comment -%} /PB {%- endcomment -%}
   {%- else -%}
     <div class="product-form">
       <div class="product-form__buttons form">

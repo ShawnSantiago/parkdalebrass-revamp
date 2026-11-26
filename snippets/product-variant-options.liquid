@@ -6,6 +6,11 @@
   - option: {Object} current product_option object.
   - block: {Object} block object.
   - picker_type: {String} type of picker to dispay
+  PB (optional, from product-variant-picker in the Archive layout, D-23):
+  - pb_archive: {Boolean} Archive button markup (name, optional swatch, size note).
+  - pb_is_size: {Boolean} This option is Size.
+  - pb_size_start: {Boolean} Leave every Size value unchecked ("Select a size").
+  - pb_swatch: {Boolean} Show the value's swatch beside its label.
 
 
   Usage:
@@ -80,6 +85,57 @@
       help_text: help_text,
       additional_props: input_dataset
     %}
+  {%- elsif picker_type == 'button' and pb_archive -%}
+    {%- comment -%}
+      PB: Archive option button (02 §2.5, D-23). With pb_size_start no Size value is checked, so the shopper
+      picks one; a shared ?variant= link turns pb_size_start off upstream and keeps Dawn's selection.
+      Size notes: "In stock" only when Shopify tracks a positive quantity, otherwise "Sold out" or "Unavailable".
+      Unavailable values stay focusable and selectable, as in Dawn, and add aria-disabled.
+    {%- endcomment -%}
+    {%- liquid
+      assign pb_checked = value.selected
+      if pb_is_size and pb_size_start
+        assign pb_checked = false
+      endif
+
+      assign pb_note = ''
+      if pb_is_size
+        if value.variant == blank
+          assign pb_note = 'pb.product.size_unavailable' | t
+        elsif value.available == false
+          assign pb_note = 'products.product.sold_out' | t
+        elsif value.variant.inventory_management == 'shopify' and value.variant.inventory_quantity > 0
+          assign pb_note = 'pb.product.in_stock' | t
+        endif
+      endif
+    -%}
+    <input
+      type="radio"
+      id="{{ input_id }}"
+      name="{{ input_name | escape }}"
+      value="{{ escaped_value }}"
+      form="{{ product_form_id }}"
+      {% if pb_checked %}
+        checked
+      {% endif %}
+      {% if option_disabled %}
+        class="disabled"
+        aria-disabled="true"
+      {% endif %}
+      {{ input_dataset }}
+    >
+    <label for="{{ input_id }}" class="pb-option__label">
+      {%- if pb_swatch and swatch_value -%}
+        <span class="pb-option__swatch" style="--pb-swatch: {{ swatch_value }};" aria-hidden="true"></span>
+      {%- endif -%}
+      <span class="pb-option__name">{{ escaped_value }}</span>
+      {%- if pb_note != blank -%}
+        <span class="pb-option__note">{{ pb_note }}</span>
+      {%- elsif option_disabled -%}
+        {{ label_unavailable }}
+      {%- endif -%}
+    </label>
+    {%- comment -%} /PB {%- endcomment -%}
   {%- elsif picker_type == 'button' -%}
     <input
       type="radio"

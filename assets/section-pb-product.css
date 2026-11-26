@@ -1,0 +1,1077 @@
+/*
+ * Parkdale Brass: Archive product page (02 §2.5, §2.6, §6; Archive-Product and Archive-Product-Mobile).
+ * Loaded by sections/main-product.liquid when "Use the Archive layout" is on. Covers the main product, the
+ * size-guide popup, the mobile sticky add-to-bag bar and the "Wear it with" recommendations below it.
+ * Values are the 1440 artboard, the 390 artboard in the clamp minimum, and fluid in between (02, intro).
+ * Breakpoints: under 750px the mobile artboard; 750 to 959px one column; 960px and up two columns (02 §1.3).
+ */
+
+.pb-product {
+  --pb-pdp-gap: clamp(2.4rem, calc(0.381vw + 2.251rem), 2.8rem);
+  --pb-pdp-head-gap: clamp(0.8rem, calc(0.381vw + 0.651rem), 1.2rem);
+  --pb-pdp-tight-gap: clamp(1rem, calc(0.19vw + 0.926rem), 1.2rem);
+  --pb-pdp-option-gap: clamp(0.8rem, calc(0.19vw + 0.726rem), 1rem);
+  --pb-pdp-legend-gap: clamp(1rem, calc(0.19vw + 0.926rem), 1.2rem);
+}
+
+/* ---------- Layout ---------- */
+
+.pb-product .pb-product__crumbs--wide {
+  margin-bottom: 2.8rem;
+}
+
+@media screen and (max-width: 749px) {
+  .pb-product .pb-product__crumbs--wide {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .pb-product .pb-product__crumbs--narrow {
+    display: none;
+  }
+
+  .pb-product .product__info-container > .pb-product__crumbs--narrow + * {
+    margin-top: 0;
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 959px) {
+  .pb-product .pb-product__crumbs--wide {
+    max-width: 60rem;
+    margin-inline: auto;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  /* 750 to 959px: one column, held to a readable width. */
+  .pb-product .product.grid {
+    display: block;
+  }
+
+  .pb-product .product.grid > .product__media-wrapper,
+  .pb-product .product.grid > .product__info-wrapper {
+    width: 100%;
+    max-width: 60rem;
+    margin-inline: auto;
+    padding: 0;
+  }
+
+  .pb-product .product.grid > .product__info-wrapper {
+    margin-top: 4.8rem;
+  }
+
+  .pb-product .product__column-sticky {
+    position: static;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  /* Gallery 7fr, info 5fr, gap 72 (02 §6.1). */
+  /* Columns stretch to the row so the info column has room to stick. */
+  .pb-product .product.grid {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    column-gap: clamp(4rem, 5vw, 7.2rem);
+  }
+
+  .pb-product .product.grid > .product__media-wrapper,
+  .pb-product .product.grid > .product__info-wrapper {
+    max-width: none;
+    margin: 0;
+  }
+
+  /* The info column is sticky; the gallery scrolls with the page. */
+  .pb-product .product__media-wrapper media-gallery.product__column-sticky {
+    position: static;
+  }
+
+  .pb-product .product__info-container.product__column-sticky {
+    position: sticky;
+    top: 3.2rem;
+  }
+}
+
+/* ---------- Gallery (03 §5.6) ---------- */
+
+.pb-gallery .pb-gallery__frame {
+  position: relative;
+}
+
+.pb-gallery .pb-gallery__inner {
+  position: relative;
+  overflow: hidden;
+  background: var(--pb-onyx-raised);
+}
+
+.pb-gallery .product__media-list {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  column-gap: 0;
+}
+
+.pb-gallery .product__media-list .product__media-item {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+}
+
+/* One full-width slide at a time inside the frame: no peek, no gutter. */
+.pb-gallery .product__media-list.grid--peek .product__media-item.grid__item {
+  box-sizing: border-box;
+  min-width: 0;
+  margin: 0;
+}
+
+/* Product photography is 4:5 (02 §3). Video and 3D keep their own ratio. */
+.pb-gallery .product-media-container.media-type-image {
+  --aspect-ratio: 0.8;
+}
+
+.pb-gallery .product-media-container,
+.pb-gallery .product__media,
+.pb-gallery .product__media-item > * {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.pb-gallery .product__media {
+  background: var(--pb-onyx-raised);
+}
+
+.pb-gallery__placeholder {
+  aspect-ratio: 4 / 5;
+}
+
+/* Caption chip on the framed placeholder (02 §3; Archive-Product: 16px in, 14px up). */
+.pb-gallery .pb-gallery__note {
+  inset-inline-start: 1.6rem;
+  bottom: 1.4rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.pb-gallery__placeholder-svg {
+  width: 62%;
+  height: auto;
+  fill: none;
+  stroke: var(--pb-gold);
+}
+
+.pb-gallery__placeholder-svg :is(path, circle, rect, line, polyline, polygon, ellipse) {
+  fill: none;
+  stroke: var(--pb-gold);
+  stroke-width: 1;
+}
+
+/* Zoom: a 44px button top-right inside the frame. The whole image opens the lightbox; this marks it. */
+.pb-gallery .product__media-icon {
+  top: 1.4rem;
+  right: 1.4rem;
+  left: auto;
+  width: 4.4rem;
+  height: 4.4rem;
+  border: 1px solid var(--pb-rule-strong);
+  border-radius: 2px;
+  background: var(--pb-onyx);
+  color: var(--pb-gold);
+  opacity: 1;
+}
+
+.pb-gallery .product__modal-opener .product__media-icon,
+.pb-gallery .product__modal-opener:hover .product__media-icon {
+  opacity: 1;
+  border-color: var(--pb-rule-strong);
+}
+
+.pb-gallery .product__media-icon .svg-wrapper,
+.pb-gallery .product__media-icon .icon {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.pb-gallery .product__modal-opener:hover .product__media-icon {
+  border-color: var(--pb-gold);
+}
+
+/*
+ * Keyboard focus on the main image (Dawn's lightbox opener). The frame clips Dawn's outer ring and the global
+ * outline lands on a 0x0 button, so the ring is drawn inside the image instead: 2px gold-pale, 3px in from the
+ * edge, on an onyx band (02 §1.4). Forced-colours mode keeps the outline.
+ */
+.pb-gallery .product__media-toggle::after {
+  inset: 0;
+}
+
+.pb-gallery .product__media-toggle:is(:focus-visible, .focused) {
+  outline: none !important;
+}
+
+.pb-gallery .product__media-toggle:is(:focus-visible, .focused)::after {
+  outline: 0.2rem solid var(--pb-gold-pale);
+  outline-offset: -0.5rem;
+  box-shadow: inset 0 0 0 0.3rem var(--pb-onyx);
+  border-radius: 0;
+}
+
+/* Thumbnails: 4:5 on onyx-raised, rule-strong border, gold when current (02 §6.1). */
+.pb-gallery .thumbnail-list__item {
+  aspect-ratio: 4 / 5;
+}
+
+.pb-gallery .thumbnail-list__item::before {
+  content: none;
+}
+
+.pb-gallery .thumbnail.global-media-settings {
+  border: 1px solid var(--pb-rule-strong);
+  border-radius: 2px;
+  box-shadow: none;
+  background: var(--pb-onyx-raised);
+  overflow: hidden;
+}
+
+.pb-gallery .thumbnail:hover {
+  opacity: 1;
+  border-color: var(--pb-gold);
+}
+
+.pb-gallery .thumbnail[aria-current] {
+  border-color: var(--pb-gold);
+  box-shadow: none;
+}
+
+.pb-gallery .thumbnail[aria-current]:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+@media screen and (min-width: 750px) {
+  .pb-gallery .thumbnail-slider {
+    display: block;
+  }
+
+  .pb-gallery .thumbnail-slider .slider-button {
+    display: none;
+  }
+
+  .pb-gallery .thumbnail-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 8.4rem);
+    gap: 1.2rem;
+    margin: 1.6rem 0 0;
+    padding: 0;
+  }
+
+  .pb-gallery .thumbnail-list__item.slider__slide {
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  /* An 84px thumbnail column to the left of the framed image, gap 16. */
+  .pb-gallery--thumbs {
+    display: grid;
+    grid-template-columns: 8.4rem minmax(0, 1fr);
+    column-gap: 1.6rem;
+    align-items: start;
+  }
+
+  .pb-gallery--thumbs > slider-component[id^='GalleryViewer'],
+  .pb-gallery--thumbs > .product__xr-button {
+    grid-column: 2;
+  }
+
+  .pb-gallery--thumbs > slider-component[id^='GalleryViewer'] {
+    grid-row: 1;
+  }
+
+  .pb-gallery--thumbs > .thumbnail-slider {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .pb-gallery .thumbnail-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1.2rem;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  /* The info column starts 12px under the gallery (Archive-Product-Mobile). */
+  .pb-product .product.grid > .product__info-wrapper {
+    padding-top: 1.2rem;
+  }
+
+  /* Tapping the image opens the lightbox; the artboard shows no zoom button on mobile. */
+  .pb-gallery .product__media-icon {
+    display: none;
+  }
+
+  /* The framed slider sits 16px from the screen edges (Archive-Product-Mobile). */
+  .pb-product .pb-gallery > slider-component[id^='GalleryViewer'] {
+    margin-inline: calc(1.6rem - var(--pb-gutter));
+  }
+
+  .pb-product .pb-gallery .product__media-list {
+    margin: 0;
+    width: 100%;
+  }
+
+  .pb-gallery .product__media-list .product__media-item {
+    width: 100%;
+  }
+
+  /* "1 / 4" counter: a gold chip inside the frame, bottom-right. The arrows give way to the indicators. */
+  .pb-gallery .pb-gallery__inner > .slider-buttons {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 1;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .pb-gallery .pb-gallery__inner > .slider-buttons .slider-button {
+    display: none;
+  }
+
+  .pb-gallery .pb-gallery__inner > .slider-buttons .slider-counter {
+    display: flex;
+    align-items: center;
+    column-gap: 0.4rem;
+    min-width: 0;
+    margin: 0;
+    padding: 0.2rem 0.9rem;
+    border-radius: 2px;
+    background: var(--pb-gold);
+    color: var(--pb-onyx);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    letter-spacing: normal;
+  }
+
+  /* Indicator buttons: 44 x 32 targets with a 24 x 2 bar, gold for the current image. */
+  .pb-gallery .thumbnail-slider {
+    display: block;
+    margin: 0;
+    padding-top: 0.6rem;
+  }
+
+  .pb-gallery .thumbnail-slider .slider-button {
+    display: none;
+  }
+
+  .pb-gallery .thumbnail-slider .thumbnail-list.slider {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    scroll-padding-left: 0;
+  }
+
+  .pb-gallery .thumbnail-list__item.slider__slide {
+    width: 4.4rem;
+    height: 3.2rem;
+    margin: 0;
+    aspect-ratio: auto;
+  }
+
+  .pb-gallery .thumbnail.global-media-settings,
+  .pb-gallery .thumbnail[aria-current] {
+    border: 0;
+    background: transparent;
+  }
+
+  .pb-gallery .thumbnail img,
+  .pb-gallery .thumbnail-list__item .thumbnail__badge {
+    display: none;
+  }
+
+  .pb-gallery .thumbnail::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 0;
+    box-shadow: none;
+    border-radius: 0;
+    width: 2.4rem;
+    height: 2px;
+    transform: translate(-50%, -50%);
+    background: var(--pb-rule-strong);
+  }
+
+  .pb-gallery .thumbnail[aria-current]::after {
+    background: var(--pb-gold);
+  }
+}
+
+/* ---------- Purchase column (02 §6.2) ---------- */
+
+.pb-product .product__info-container > * {
+  margin: 0;
+}
+
+.pb-product .product__info-container > * + * {
+  margin-top: var(--pb-pdp-gap);
+}
+
+.pb-product .product__info-container > .accordion + .accordion {
+  margin-top: 0;
+}
+
+/* Head group: eyebrow, title, price, short description (gap 12, 8 on mobile). */
+.pb-product .pb-product__crumbs--narrow + * {
+  margin-top: calc(var(--pb-pdp-head-gap) + 0.4rem);
+}
+
+.pb-product .product__info-container > .product__title {
+  margin-top: var(--pb-pdp-head-gap);
+}
+
+/* The price sits 12px under the title (10px on mobile). */
+.pb-product .product__info-container > [id^='price-'] {
+  margin-top: var(--pb-pdp-legend-gap);
+}
+
+.pb-product .product__info-container > .product__text + .product__title {
+  margin-top: var(--pb-pdp-head-gap);
+}
+
+.pb-product .product__info-container > .product__text:empty {
+  display: none;
+}
+
+.pb-product .product__info-container > .product__text:empty + .product__title {
+  margin-top: 0;
+}
+
+/* Dawn's installment form sits under the price; it takes no space unless Shopify fills it. */
+.pb-product .product__info-container > div:has(> form.installment) {
+  margin-top: 0;
+}
+
+/* The tax and shipping-policy note isn't part of the Archive design; the cart and checkout state both. */
+.pb-product .product__info-container > .product__tax {
+  display: none;
+}
+
+.pb-product .product__title h1 {
+  font-size: clamp(4rem, calc(1.333vw + 3.48rem), 5.4rem);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+.pb-product .price.price--large {
+  font-size: clamp(1.8rem, calc(0.19vw + 1.726rem), 2rem);
+  line-height: 1.3;
+  letter-spacing: normal;
+}
+
+.pb-product .price.price--large .price-item {
+  font-weight: 500;
+  color: var(--pb-gold);
+}
+
+.pb-product .price.price--large .price__sale s.price-item {
+  font-size: 0.8em;
+  font-weight: 400;
+  color: var(--pb-muted);
+}
+
+.pb-product .price .price__container,
+.pb-product .price .badge {
+  margin-bottom: 0;
+}
+
+.pb-product .pb-product__short {
+  max-width: 48rem;
+  margin-top: calc(var(--pb-pdp-head-gap) + clamp(0.2rem, calc(0.19vw + 0.126rem), 0.4rem));
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: var(--pb-body);
+}
+
+/* A small ornament divider: hairlines either side of a 10px diamond, flexible width. */
+.pb-product .pb-divider--flex {
+  gap: clamp(1.2rem, calc(0.19vw + 1.126rem), 1.4rem);
+}
+
+.pb-product .pb-divider--flex::before,
+.pb-product .pb-divider--flex::after {
+  flex: 1;
+  width: auto;
+  background-color: var(--pb-rule-strong);
+}
+
+.pb-product .pb-divider--flex .pb-diamond {
+  width: 1rem;
+  height: 1rem;
+}
+
+.pb-editor-note {
+  color: var(--pb-muted);
+  font-size: 1.3rem;
+}
+
+/* ---------- Options (02 §2.5) ---------- */
+
+.pb-product variant-selects {
+  display: block;
+}
+
+.pb-product .pb-option {
+  position: relative;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.pb-product .pb-option + .pb-option {
+  margin-top: var(--pb-pdp-gap);
+}
+
+.pb-product .pb-option .pb-option__legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  column-gap: 1.2rem;
+  width: 100%;
+  margin: 0 0 var(--pb-pdp-legend-gap);
+  padding: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--pb-ivory);
+}
+
+.pb-option__value {
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--pb-gold);
+}
+
+/* Size guide: gold, right-aligned in the legend row. The 44px target overhangs the row by negative margins,
+   so the row is 22px tall as on Archive-Product (38px on mobile, where the link has 8px padding). */
+.pb-option__guide {
+  display: flex;
+  margin-block: -1.08rem;
+}
+
+@media screen and (max-width: 749px) {
+  .pb-option__guide {
+    margin-block: -0.3rem;
+  }
+}
+
+.pb-product .pb-option__guide-button.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 4.4rem;
+  padding: 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--pb-gold);
+  text-decoration: underline;
+  text-underline-offset: 0.4rem;
+}
+
+.pb-product .pb-option__guide-button.link:hover {
+  color: var(--pb-gold-pale);
+}
+
+.pb-product .pb-option input[type='radio'] + label.pb-option__label {
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid var(--pb-rule-strong);
+  border-radius: 2px;
+  background: var(--pb-onyx);
+  color: var(--pb-ivory);
+  font-family: var(--font-body-family);
+  letter-spacing: normal;
+  text-transform: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color var(--duration-short) ease;
+}
+
+.pb-product .pb-option input[type='radio']:not(:checked) + label.pb-option__label:hover {
+  border-color: var(--pb-gold);
+}
+
+/* Finish and other options: 48px buttons; selected gets a 2px gold border. */
+.pb-product .pb-option--choice {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--pb-pdp-option-gap);
+}
+
+.pb-product .pb-option--choice input[type='radio'] + label.pb-option__label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--pb-pdp-option-gap);
+  height: 4.8rem;
+  min-height: 4.8rem;
+  padding: 0 clamp(1.6rem, calc(0.381vw + 1.451rem), 2rem);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.pb-product .pb-option--choice input[type='radio']:checked + label.pb-option__label {
+  padding-inline: calc(clamp(1.6rem, calc(0.381vw + 1.451rem), 2rem) - 1px);
+  border: 2px solid var(--pb-gold);
+  background: var(--pb-onyx);
+  color: var(--pb-ivory);
+}
+
+.pb-option__swatch {
+  flex: none;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 1px solid var(--pb-gold-line);
+  border-radius: 50%;
+  background: var(--pb-swatch, var(--pb-onyx-raised));
+  background-size: cover;
+  background-position: center;
+}
+
+/* Size: a 3-column grid, min-height 56, the name over a note. Selected is a gold fill with onyx text. */
+.pb-product .pb-option--size {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--pb-pdp-option-gap);
+}
+
+.pb-product .pb-option--size input[type='radio'] + label.pb-option__label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 5.6rem;
+  padding: 0.6rem 0.8rem;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.pb-option__name {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.pb-product .pb-option--choice .pb-option__name {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.pb-option__note {
+  font-size: 1.2rem;
+  opacity: 0.85;
+}
+
+.pb-product .pb-option--size input[type='radio']:checked + label.pb-option__label {
+  border-color: var(--pb-gold);
+  background: var(--pb-gold);
+  color: var(--pb-onyx);
+}
+
+/* Unavailable: dashed, struck-through name, still focusable (aria-disabled on the input). */
+.pb-product .pb-option input[type='radio'].disabled + label.pb-option__label {
+  border: 1px dashed #5c5446;
+  background: var(--pb-onyx);
+  color: #8e8576;
+  text-decoration: none;
+}
+
+.pb-product .pb-option input[type='radio'].disabled + label .pb-option__name {
+  text-decoration: line-through;
+}
+
+.pb-product .pb-option input[type='radio'].disabled:checked + label.pb-option__label {
+  border: 1px dashed var(--pb-gold);
+  background: var(--pb-onyx);
+  color: var(--pb-muted);
+}
+
+/* While a provisional size rides along with another option change, it still looks unselected. */
+.pb-product .pb-option--size input[type='radio'].pb-option__input--provisional:checked + label.pb-option__label {
+  border-color: var(--pb-rule-strong);
+  background: var(--pb-onyx);
+  color: var(--pb-ivory);
+}
+
+.pb-product .pb-product__fit {
+  margin-top: clamp(0.8rem, calc(0.19vw + 0.726rem), 1rem);
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: var(--pb-muted);
+}
+
+/* ---------- Add to bag, status, service lines ---------- */
+
+.pb-product .product__info-container .product-form {
+  margin: 0;
+}
+
+.pb-product .product-form__buttons {
+  max-width: none;
+}
+
+.pb-product .product-form__submit {
+  margin-bottom: 0;
+}
+
+.pb-product .product-form__error-message-wrapper:not([hidden]) {
+  margin-bottom: 1.2rem;
+  font-size: 1.4rem;
+  letter-spacing: normal;
+  color: var(--pb-ivory);
+}
+
+.pb-product .product-form__error-message-wrapper .svg-wrapper {
+  color: var(--pb-gold);
+}
+
+.pb-product .pb-product-status {
+  display: block;
+  min-height: 2.2rem;
+  margin: var(--pb-pdp-tight-gap) 0 0;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: var(--pb-body);
+}
+
+/* Pickup availability belongs to a variant, so it waits until a size is chosen. */
+.pb-product:has([data-pb-select-size]) pickup-availability {
+  display: none;
+}
+
+.pb-product .product__info-container > .icon-with-text {
+  margin-top: var(--pb-pdp-tight-gap);
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--pb-rule);
+  gap: 0.8rem;
+}
+
+.pb-product .product__info-container > .icon-with-text:not(:has(li)) {
+  display: none;
+}
+
+.pb-product .icon-with-text .icon-with-text__item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+}
+
+.pb-product .icon-with-text .icon-with-text__item .h4 {
+  font-family: var(--font-body-family);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--pb-body);
+}
+
+.pb-product .icon-with-text .svg-wrapper {
+  flex: none;
+  width: 1.8rem;
+  height: 1.8rem;
+  margin: 0;
+  fill: var(--pb-gold);
+  color: var(--pb-gold);
+}
+
+/* ---------- Accordions (02 §2.6) ---------- */
+
+.pb-product .product__accordion summary {
+  min-height: 5.6rem;
+  padding: 0;
+}
+
+.pb-product .product__accordion .summary__title .accordion__title {
+  font-size: clamp(1.2rem, calc(0.095vw + 1.163rem), 1.3rem);
+  color: var(--pb-ivory);
+}
+
+.pb-product .product__accordion summary > .icon-caret {
+  display: none;
+}
+
+.pb-product .product__accordion summary::after {
+  content: '+';
+  content: '+' / '';
+  flex: none;
+  margin-inline-start: 1.6rem;
+  font-family: var(--font-body-family);
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--pb-gold);
+}
+
+.pb-product .product__accordion details[open] > summary::after {
+  content: '\2212';
+  content: '\2212' / '';
+}
+
+.pb-product .product__accordion .accordion__content {
+  margin: 0 0 clamp(1.8rem, calc(0.19vw + 1.726rem), 2rem);
+  padding: 0;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: var(--pb-body);
+}
+
+.pb-specs {
+  margin: 0;
+}
+
+.pb-specs__row {
+  margin: 0;
+}
+
+.pb-specs dt,
+.pb-specs dd {
+  display: inline;
+  margin: 0;
+}
+
+.pb-specs dt::after {
+  content: ': ';
+}
+
+/* "Made in Canada" reads as one phrase (04 §2). */
+.pb-specs__row--phrase dt::after {
+  content: ' ';
+}
+
+/* ---------- Size-guide popup ---------- */
+
+.product-popup-modal .product-popup-modal__content {
+  border: 1px solid var(--pb-gold-line);
+  border-radius: 0;
+  box-shadow: none;
+  background: var(--pb-onyx);
+  color: var(--pb-body);
+}
+
+.product-popup-modal .product-popup-modal__toggle {
+  width: 4.4rem;
+  height: 4.4rem;
+  padding: 1.3rem;
+  border: 1px solid var(--pb-rule-strong);
+  border-radius: 2px;
+  background: var(--pb-onyx);
+  color: var(--pb-gold);
+}
+
+.product-popup-modal .product-popup-modal__content-info > h2 {
+  margin: 0 0 2.4rem;
+}
+
+/* ---------- Mobile sticky add-to-bag (02 §6.4) ---------- */
+
+.pb-sticky-atc {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 4;
+  padding-bottom: env(safe-area-inset-bottom);
+  border-top: 1px solid var(--pb-gold-line);
+  background: var(--pb-onyx);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(100%);
+  transition: transform var(--duration-default) ease, opacity var(--duration-default) ease;
+}
+
+.pb-sticky-atc.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+}
+
+@media screen and (min-width: 750px) {
+  .pb-sticky-atc {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pb-sticky-atc {
+    transition: none;
+  }
+}
+
+.pb-sticky-atc__inner {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem 2rem;
+}
+
+.pb-sticky-atc__text {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.pb-sticky-atc__name,
+.pb-sticky-atc__meta {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.pb-sticky-atc__name {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--pb-ivory);
+}
+
+.pb-sticky-atc__meta {
+  font-size: 1.2rem;
+  color: var(--pb-muted);
+}
+
+.pb-sticky-atc__options:not(:empty)::after {
+  content: ' \00B7 ';
+  content: ' \00B7 ' / '';
+}
+
+.pb-sticky-atc__price {
+  color: var(--pb-gold);
+}
+
+.pb-sticky-atc .pb-sticky-atc__button.button {
+  flex: none;
+  width: auto;
+  min-height: 4.8rem;
+  padding-inline: 2rem;
+}
+
+/* The bar's own height plus the home-indicator inset it adds, so it never covers the end of the page. */
+body.pb-sticky-atc-visible {
+  padding-bottom: calc(7.3rem + env(safe-area-inset-bottom));
+}
+
+/* ---------- "Wear it with" (02 §6.3) ---------- */
+
+.related-products {
+  --grid-desktop-horizontal-spacing: 2.8rem;
+  --grid-desktop-vertical-spacing: 2.8rem;
+  --grid-mobile-horizontal-spacing: 1.2rem;
+  --grid-mobile-vertical-spacing: 2.8rem;
+}
+
+/* Dawn caps section padding at 100px; the artboards use 128 above and 112 below (56 and 64 on mobile). */
+product-recommendations.related-products.product-recommendations--loaded {
+  padding-top: clamp(5.6rem, calc(6.857vw + 2.926rem), 12.8rem);
+  padding-bottom: clamp(6.4rem, calc(4.571vw + 4.617rem), 11.2rem);
+}
+
+/* Nothing to recommend: no empty band (02 §6.3). */
+product-recommendations.related-products:not(.product-recommendations--loaded) {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* A centred head: 14px diamond over the H2 (44, 32 on mobile). */
+.related-products .related-products__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0 clamp(2rem, calc(1.905vw + 1.257rem), 4rem);
+  font-family: var(--pb-serif);
+  font-size: clamp(3.2rem, calc(1.143vw + 2.754rem), 4.4rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: center;
+  text-transform: none;
+  color: var(--pb-ivory);
+}
+
+.related-products .related-products__heading::before {
+  content: '';
+  flex: none;
+  width: clamp(1.2rem, calc(0.19vw + 1.126rem), 1.4rem);
+  height: clamp(1.2rem, calc(0.19vw + 1.126rem), 1.4rem);
+  margin-bottom: clamp(1.4rem, calc(0.571vw + 1.177rem), 2rem);
+  border: 1.5px solid var(--pb-gold);
+  transform: rotate(45deg);
+}
+
+.related-products .card > .card__content {
+  padding: 0;
+}
+
+.related-products .card__information {
+  padding: clamp(0.8rem, calc(0.571vw + 0.577rem), 1.4rem) 0 0;
+}
+
+.related-products .card__heading {
+  margin: 0;
+}
+
+.related-products .card-information .price {
+  font-size: clamp(1.4rem, calc(0.095vw + 1.363rem), 1.5rem);
+  letter-spacing: normal;
+}
+
+@media screen and (min-width: 750px) {
+  /* The name and the gold price share a row. */
+  .related-products .card > .card__content .card__information {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    justify-content: space-between;
+    column-gap: 1.2rem;
+  }
+
+  .related-products .card__information > .card__heading {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+  }
+
+  .related-products .card__information > .card-information {
+    flex: none;
+    width: auto;
+  }
+}
+
+/* ---------- No reviews (D-13) ---------- */
+
+/* No review block is in the template. If a review app embed is ever switched on, its injected widgets stay
+   hidden on this page until genuine SKU-specific jewelry reviews exist. */
+.pb-product :is(.jdgm-widget, .jdgm-preview-badge),
+#judgeme_product_reviews {
+  display: none !important;
+}
