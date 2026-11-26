@@ -33,6 +33,11 @@
         {{ section.blocks.first.shopify_attributes }}
       >
         {%- if section.blocks.first.settings.text != blank -%}
+          {%- comment -%} PB: with a link label, only the label is the link (02 §2.7). {%- endcomment -%}
+          {%- if section.blocks.first.settings.pb_link_label != blank -%}
+            {%- render 'pb-announcement-message', block: section.blocks.first -%}
+          {%- else -%}
+          {%- comment -%} /PB {%- endcomment -%}
           {%- if section.blocks.first.settings.link != blank -%}
             {%- comment -%}PB: The prelaunch signup section lives on the localized homepage.{%- endcomment -%}
             <a
@@ -50,6 +55,9 @@
           {%- if section.blocks.first.settings.link != blank -%}
             </a>
           {%- endif -%}
+          {%- comment -%} PB: end of the link-label branch {%- endcomment -%}
+          {%- endif -%}
+          {%- comment -%} /PB {%- endcomment -%}
         {%- endif -%}
       </div>
     {%- elsif section.blocks.size > 1 -%}
@@ -95,6 +103,11 @@
                   aria-label="{{ 'sections.header.announcement' | t }}"
                 >
                   {%- if block.settings.text != blank -%}
+                    {%- comment -%} PB: with a link label, only the label is the link (02 §2.7). {%- endcomment -%}
+                    {%- if block.settings.pb_link_label != blank -%}
+                      {%- render 'pb-announcement-message', block: block -%}
+                    {%- else -%}
+                    {%- comment -%} /PB {%- endcomment -%}
                     {%- if block.settings.link != blank -%}
                       {%- comment -%}PB: Resolve the same signup link in rotating announcements.{%- endcomment -%}
                       <a
@@ -112,6 +125,9 @@
                     {%- if block.settings.link != blank -%}
                       </a>
                     {%- endif -%}
+                    {%- comment -%} PB: end of the link-label branch {%- endcomment -%}
+                    {%- endif -%}
+                    {%- comment -%} /PB {%- endcomment -%}
                   {%- endif -%}
                 </div>
               </div>
@@ -248,6 +264,24 @@
           "type": "url",
           "id": "link",
           "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
+        },
+        {
+          "type": "text",
+          "id": "pb_link_label",
+          "label": "t:pb.home.announcement.link_label.label",
+          "info": "t:pb.home.announcement.link_label.info"
+        },
+        {
+          "type": "text",
+          "id": "pb_text_mobile",
+          "label": "t:pb.home.announcement.text_mobile.label",
+          "info": "t:pb.home.announcement.text_mobile.info"
+        },
+        {
+          "type": "text",
+          "id": "pb_link_label_mobile",
+          "label": "t:pb.home.announcement.link_label_mobile.label",
+          "info": "t:pb.home.announcement.link_label_mobile.info"
         }
       ]
     }

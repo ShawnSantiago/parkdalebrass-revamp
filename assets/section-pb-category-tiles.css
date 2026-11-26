@@ -58,7 +58,7 @@
   font-size: 2.2rem;
   font-weight: 600;
   line-height: 1.2;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--pb-ivory);
 }
@@ -120,7 +120,6 @@
 
   .pb-tile__label {
     order: 0;
-    letter-spacing: 0.22em;
     text-align: center;
   }
 

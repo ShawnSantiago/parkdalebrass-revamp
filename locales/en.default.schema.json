@@ -52,6 +52,20 @@
         "padding_mobile": {
           "info": "Under 750px. Leave blank to use 60% of the desktop value."
         }
+      },
+      "announcement": {
+        "link_label": {
+          "label": "Link label",
+          "info": "When set, the message stays plain text and only this label is the link, shown after it in ivory."
+        },
+        "text_mobile": {
+          "label": "Short text on mobile",
+          "info": "Optional. Replaces the text under 750px so the bar stays on one line. Used only with a link label."
+        },
+        "link_label_mobile": {
+          "label": "Short link label on mobile",
+          "info": "Optional. Replaces the link label under 750px."
+        }
       }
     },
     "journal": {
@@ -3721,7 +3735,7 @@
         },
         "blog": {
           "label": "Blog for the \"All articles\" link",
-          "info": "The link is hidden without a blog."
+          "info": "The link is hidden without a blog. Choose one only once its listing shows jewelry, material and care articles alone (D-11)."
         },
         "show_numerals": {
           "label": "Show roman numerals"

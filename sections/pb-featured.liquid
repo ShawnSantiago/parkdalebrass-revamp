@@ -2,8 +2,13 @@
   PB · Featured (03 §4.3, 02 §2.2, §4.3). One section for both homepage states, so launch is one setting (D-06):
   - concepts: editorial concept cards from blocks. A "Concept" badge, no price element, no product link,
     no Product JSON-LD and no add to cart (D-05). A block link is optional and never a product URL.
-  - collection: real products from a collection through Dawn's card-product, then "View all jewelry".
+  - collection: real products from a collection as 02 §2.2 product cards, then "View all jewelry".
     Renders nothing at all when the collection is unset or has no published products.
+    Each card is one link: the 4:5 image (second image on hover), the name and gold price on one row, then the
+    descriptor from custom.finish, or custom.short_description when there's no finish (04 §2), hidden when both
+    are empty. The sold-out badge uses the concept badge shape in muted. No sale badge and no rating (D-13).
+    Dawn's card-product has no descriptor line, so the card is rendered here with the same data and treatment as
+    the collection track's snippets/pb-product-card.liquid.
   4-up from 960px, 2-up below (02 §1.3).
 {%- endcomment -%}
 {%- liquid
@@ -34,7 +39,6 @@
   {{ 'section-pb-head.css' | asset_url | stylesheet_tag }}
   {{ 'section-pb-featured.css' | asset_url | stylesheet_tag }}
   {%- unless pb_concepts -%}
-    {{ 'component-card.css' | asset_url | stylesheet_tag }}
     {{ 'component-price.css' | asset_url | stylesheet_tag }}
   {%- endunless -%}
   {% render 'pb-section-padding', section: section %}
@@ -116,24 +120,71 @@
             </li>
           {%- endfor -%}
         {%- else -%}
-          {%- assign pb_skip_card_styles = false -%}
           {%- for product in pb_s.collection.products limit: pb_s.products_to_show -%}
+            {%- liquid
+              assign pb_media = product.featured_media
+              assign pb_second = null
+              if product.media[1] != null
+                assign pb_second = product.media[1]
+              endif
+
+              assign pb_desc = product.metafields.custom.finish.value | strip
+              if pb_desc == blank
+                assign pb_desc = product.metafields.custom.short_description.value | newline_to_br | replace: '<br />', ' ' | strip_newlines | strip
+              endif
+            -%}
             <li class="pb-featured__item">
-              {% render 'card-product',
-                card_product: product,
-                media_aspect_ratio: 'portrait',
-                image_shape: 'default',
-                show_secondary_image: true,
-                show_vendor: false,
-                show_rating: false,
-                lazy_load: true,
-                skip_styles: pb_skip_card_styles,
-                section_id: section.id,
-                quick_add: 'none',
-                product_view_context: 'collection'
-              %}
+              <product-component
+                class="pb-pcard-wrapper"
+                view-event-payload="{{ product | standard_event_data: 'view', context: 'collection' | escape }}"
+              >
+                <a class="pb-pcard" href="{{ product.url }}">
+                  <div class="pb-pcard__media{% if pb_second %} pb-pcard__media--swap{% endif %}">
+                    {%- if pb_media -%}
+                      {{
+                        pb_media
+                        | image_url: width: 1066
+                        | image_tag:
+                          class: 'pb-pcard__img',
+                          widths: '165, 360, 533, 720, 940, 1066',
+                          sizes: '(min-width: 1440px) 311px, (min-width: 960px) 22vw, 46vw',
+                          loading: 'lazy',
+                          alt: ''
+                      }}
+                      {%- if pb_second -%}
+                        {{
+                          pb_second
+                          | image_url: width: 1066
+                          | image_tag:
+                            class: 'pb-pcard__img pb-pcard__img--second',
+                            widths: '165, 360, 533, 720, 940, 1066',
+                            sizes: '(min-width: 1440px) 311px, (min-width: 960px) 22vw, 46vw',
+                            loading: 'lazy',
+                            alt: ''
+                        }}
+                      {%- endif -%}
+                    {%- else -%}
+                      <span class="pb-placeholder pb-pcard__placeholder" aria-hidden="true">
+                        {{- 'image' | placeholder_svg_tag: 'placeholder-svg' -}}
+                      </span>
+                    {%- endif -%}
+                  </div>
+                  <div class="pb-pcard__row">
+                    <h3 class="pb-product-name pb-pcard__name">{{ product.title | escape }}</h3>
+                    <div class="pb-pcard__price">
+                      {%- render 'price', product: product, price_class: '', show_compare_at_price: true -%}
+                    </div>
+                  </div>
+                  {%- if pb_desc != blank -%}
+                    <p class="pb-pcard__desc">{{ pb_desc | escape }}</p>
+                  {%- endif -%}
+                  {%- comment -%} After the name and price in the DOM, so it's read last; it sits on the image. {%- endcomment -%}
+                  {%- if product.available == false -%}
+                    <span class="badge pb-pcard__badge pb-pcard__badge--muted">{{ 'products.product.sold_out' | t }}</span>
+                  {%- endif -%}
+                </a>
+              </product-component>
             </li>
-            {%- assign pb_skip_card_styles = true -%}
           {%- endfor -%}
         {%- endif -%}
       </ul>

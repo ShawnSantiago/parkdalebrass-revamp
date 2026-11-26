@@ -87,7 +87,7 @@ Every section must have: a `{% schema %}` with presets, translated labels, `colo
 | Template | File | Composition |
 | --- | --- | --- |
 | Home, prelaunch | `templates/index.json` | announcement (launch-list message) → `pb-hero` (CTA "Get launch updates" → `#signup`) → `pb-category-tiles` → `pb-featured` (concepts mode) → `pb-split` (material) → `pb-editorial-banner` → `pb-split` (story) → `pb-journal-picks` → `pb-newsletter` (`id="signup"`) |
-| Home, live | same file, edited in the theme editor at launch | Set `pb-featured` mode to `collection` (`jewelry`), set the hero CTA to "Shop jewelry" → `/collections/jewelry`, switch the editorial CTA, clear the announcement. Keep a copy as `templates/index.live.json.txt` for reference (Shopify ignores `.txt`). |
+| Home, live | same file, edited in the theme editor at launch | Set `pb-featured` mode to `collection` (`jewelry`), set the hero CTA to "Shop jewelry" → `/collections/jewelry`, switch the editorial CTA, clear the announcement. Keep a copy as `docs/redesign/index.live.json` for reference (outside `templates/`, where any non-template file breaks Theme Check's reference graph). |
 | Collection | `templates/collection.json` | `pb-collection-header` → `main-collection-product-grid` (portrait, 3/2 cols, horizontal filters, sort on) → `multicolumn` (Size guide / Care / Shipping) |
 | Product | `templates/product.json` | `main-product` with the block order in 03 §5 → `related-products` ("Wear it with", portrait, 4/2). Remove the vendor block, share block and dynamic checkout. |
 | Page: Our Story | `templates/page.our-story.json` | `pb-page` (dateline on) → `pb-split` (framed image) |

@@ -1,8 +1,9 @@
 /*
  * Parkdale Brass homepage, LIVE configuration (02 §8, 03 §9, phase-2-brief §2.3).
- * Not a template Shopify renders (it's a .txt reference file). At launch, copy everything below this comment into
- * templates/index.json (the comment can stay; Shopify accepts a leading comment in JSON templates), or make the
- * same changes in the theme editor. Differences from the prelaunch templates/index.json:
+ * A reference copy, kept in docs/ rather than templates/ so Shopify never uploads it and Theme Check's reference
+ * graph stays intact (a non-template file under templates/ adds false OrphanedSnippet warnings). At launch, copy
+ * this file over templates/index.json (the comment can stay; Shopify accepts a leading comment in JSON templates),
+ * or make the same changes in the theme editor. Differences from the prelaunch templates/index.json:
  *
  *   pb_hero      button "Shop jewelry" -> /collections/jewelry (was "Get launch updates" -> #signup)
  *   pb_featured  mode "collection" with the "jewelry" collection, eyebrow "Everyday essentials"; the concept
@@ -14,6 +15,8 @@
  *   page links   shopify://pages/our-story and shopify://pages/why-brass replace the relative /pages/ paths
  *                once those pages exist (E-03), so they follow the shopper's locale.
  *   categories   unchanged: bracelets and necklaces. Add a rings block only when D-12 lifts.
+ *   journal      unchanged: "blog" stays empty, so "All articles" is hidden (as in prelaunch). Set it to "news"
+ *                only once /blogs/news lists jewelry, material and care articles alone (D-11, E-07).
  *
  * Also at launch, outside this file:
  *   sections/header-group.json  remove the announcement block "announcement-bar-0" (02 §8: no announcement
@@ -181,7 +184,7 @@
         "eyebrow": "The journal",
         "heading": "Notes on brass",
         "view_all_label": "All articles",
-        "blog": "news",
+        "blog": "",
         "show_numerals": true,
         "color_scheme": "scheme-1",
         "padding_top": 128,
