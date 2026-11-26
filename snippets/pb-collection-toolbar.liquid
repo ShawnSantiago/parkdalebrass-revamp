@@ -16,6 +16,8 @@
   - .active-facets-desktop and .active-facets-mobile are one shared container.
   Each form carries the full filter state (hidden inputs for filters it doesn't show), so sorting or toggling
   "In stock only" never drops a price filter set in the drawer.
+  assets/pb-collection.js moves focus into the drawer when it opens (it's a modal dialog) and keeps focus on Sort
+  after facets.js re-renders it.
 
   Accepts:
   - results: {Object} The collection
@@ -96,7 +98,17 @@
     </nav>
   {%- endif -%}
 
-  <div class="pb-toolbar__controls{% unless pb_has_filters and enable_sorting %} pb-toolbar__controls--single{% endunless %}">
+  {%- liquid
+    # Mobile bar: Filter | Sort in two columns, one column when only one of them is on, none when neither is.
+    assign pb_controls_class = ''
+    unless pb_has_filters and enable_sorting
+      assign pb_controls_class = ' pb-toolbar__controls--single'
+    endunless
+    unless pb_has_filters or enable_sorting
+      assign pb_controls_class = pb_controls_class | append: ' pb-toolbar__controls--empty'
+    endunless
+  -%}
+  <div class="pb-toolbar__controls{{ pb_controls_class }}">
     <menu-drawer
       class="mobile-facets__wrapper pb-filter"
       data-breakpoint="mobile"
@@ -259,7 +271,7 @@
       </details>
     </menu-drawer>
 
-    <facet-filters-form class="pb-toolbar__form-wrap">
+    <facet-filters-form class="pb-toolbar__form-wrap{% unless enable_sorting %} pb-toolbar__form-wrap--no-sort{% endunless %}">
       <form id="FacetFiltersForm" class="pb-toolbar__form">
         <div class="product-count pb-toolbar__count" role="status">
           <h2 class="product-count__text">

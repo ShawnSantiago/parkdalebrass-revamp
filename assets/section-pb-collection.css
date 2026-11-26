@@ -1,8 +1,9 @@
 /* PB · Archive collection page (02 §5, 03 §8; Archive-Collection, Archive-Collection-Mobile).
    Loaded by main-collection-product-grid when its Archive layout (pb_layout) is on.
-   Toolbar and drawer: snippets/pb-collection-toolbar.liquid. Promo tile: snippets/pb-collection-promo.liquid.
-   Product cards: the PB2:collection block in pb-theme.css. Desktop values are from the 1440 artboard and mobile
-   values from the 390 artboard; where both exist they scale fluidly from 750 to 1440 (02 preamble). */
+   Toolbar and drawer: snippets/pb-collection-toolbar.liquid. Grid and empty states: snippets/pb-collection-grid.liquid.
+   Promo tile: snippets/pb-collection-promo.liquid. Product cards and the help strip (a stock multicolumn section,
+   so it can't load this file): the PB2:collection block in pb-theme.css. Desktop values are from the 1440 artboard
+   and mobile values from the 390 artboard; where both exist they scale fluidly from 750 to 1440 (02 preamble). */
 
 /* ---------- Category and filter pills (02 §1.4, §5.3; 03 §4.7) ---------- */
 .pb-pill {
@@ -35,6 +36,18 @@
   border-color: var(--pb-gold);
   background: var(--pb-gold);
   color: var(--pb-onyx);
+}
+
+/* Forced colours drop the gold fill, so mark the current pill with system highlight colours and an underline. */
+@media (forced-colors: active) {
+  .pb-pill[aria-current='page'] {
+    forced-color-adjust: none;
+    border-color: Highlight;
+    background: Highlight;
+    color: HighlightText;
+    text-decoration: underline;
+    text-underline-offset: 0.4rem;
+  }
 }
 
 .pb-pill svg {
@@ -234,10 +247,12 @@
     border: 0;
   }
 
-  /* The pills scroll sideways to the screen edge. 2px of padding keeps the 44px tap areas inside the scroller. */
+  /* The pills scroll sideways to the screen edge. A scroller clips at its padding box, so 6px of block padding
+     keeps the 44px tap areas and the 2px focus ring at a 3px offset (02 §1.4) inside it; the negative margin keeps
+     the pills where they're drawn. */
   .pb-pills {
-    margin: -0.2rem calc(-1 * var(--pb-gutter)) 0;
-    padding: 0.2rem var(--pb-gutter);
+    margin: -0.6rem calc(-1 * var(--pb-gutter)) 0;
+    padding: 0.6rem var(--pb-gutter);
     overflow-x: auto;
     scroll-snap-type: x proximity;
     scroll-padding-inline: var(--pb-gutter);
@@ -278,13 +293,19 @@
     border-bottom: 1px solid var(--pb-rule);
   }
 
-  /* 16px below the pill row as drawn (its 2px scroller padding included). */
+  /* As drawn: 20px from the pills to the bar (the scroller's 6px bottom padding included). */
   .pb-pills + .pb-toolbar__controls {
-    margin-top: 1.8rem;
+    margin-top: 1.4rem;
   }
 
   .pb-toolbar__controls--single {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Without Sort the desktop form has nothing to show here; without Filter and Sort there's no bar at all. */
+  .pb-toolbar__form-wrap--no-sort,
+  .pb-toolbar__controls--empty {
+    display: none;
   }
 
   .pb-filter.mobile-facets__wrapper,
@@ -405,7 +426,7 @@
 
   /* Drawer: Dawn's menu-drawer, details and transitions, with the Archive panel. */
   .pb-filter .mobile-facets {
-    background-color: rgb(13 13 12 / 0.8);
+    background-color: color-mix(in srgb, var(--pb-onyx-deep) 80%, transparent);
   }
 
   .pb-filter .pb-filter__panel {
@@ -506,27 +527,34 @@
     padding: 0;
   }
 
+  /* Inputs and their visible labels per 02 §2.4: Inter 500 12 / 0.16em caps labels, 48px inputs, 14px padding. */
   .pb-filter__price-field {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.6rem;
     min-width: 0;
     font-size: 1.2rem;
-    line-height: 1.6;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
     color: var(--pb-muted);
   }
 
   .pb-filter__input {
     width: 100%;
     min-width: 0;
-    height: 4.4rem;
-    padding: 0 1.2rem;
+    height: 4.8rem;
+    padding: 0 1.4rem;
     border: 1px solid var(--pb-gold);
     border-radius: 2px;
     background: var(--pb-onyx-raised);
     color: var(--pb-ivory);
     font-family: var(--font-body-family);
     font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-transform: none;
     -webkit-appearance: none;
     appearance: none;
   }
@@ -601,8 +629,10 @@
   align-self: start;
 }
 
+/* 4:5, but a column so the tile grows rather than letting long copy cross the frame (e.g. at 320px). */
 .pb-promo.pb-frame {
   display: flex;
+  flex-direction: column;
   aspect-ratio: 4 / 5;
 }
 
@@ -702,7 +732,7 @@
   gap: 1.2rem;
   margin-top: clamp(1.6rem, calc(4.638vw - 1.878rem), 4.8rem);
   padding: clamp(3.2rem, calc(3.478vw + 0.592rem), 5.6rem) 2rem;
-  border: 1px dashed #5c5446;
+  border: 1px dashed var(--pb-dashed);
   text-align: center;
 }
 
@@ -769,163 +799,4 @@
 
 .pb-collection .pagination__item--prev:hover .icon {
   transform: rotate(-90deg);
-}
-
-/* ---------- Help strip: the multicolumn section with the key "pb_help" in templates/collection.json (03 §8) ---------- */
-.shopify-section[id$='__pb_help'] .multicolumn .page-width {
-  padding: 10.4rem var(--pb-gutter) 11.2rem;
-}
-
-.shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 4rem;
-  width: auto;
-  margin: 0;
-  padding: 4rem 0 0;
-  border-top: 1px solid var(--pb-gold-line);
-}
-
-.shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list__item {
-  width: auto;
-  max-width: none;
-  margin: 0;
-  padding: 0;
-}
-
-.shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list .multicolumn-card__info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.8rem;
-  padding: 0;
-}
-
-.shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info > * {
-  margin: 0;
-}
-
-.shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list h3 {
-  font-family: var(--pb-serif);
-  font-size: 2.8rem;
-  font-weight: 600;
-  line-height: 1.6;
-  letter-spacing: normal;
-  color: var(--pb-ivory);
-}
-
-.shopify-section[id$='__pb_help'] .multicolumn .rte {
-  font-size: 1.5rem;
-  line-height: 1.6;
-  color: var(--pb-muted);
-}
-
-.shopify-section[id$='__pb_help'] .multicolumn .rte p {
-  margin: 0;
-}
-
-.shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info .link {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.8rem 0;
-  color: var(--pb-gold);
-  font-size: 1.2rem;
-  font-weight: 600;
-  line-height: 1.6;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  text-decoration: underline;
-  text-underline-offset: 0.5rem;
-}
-
-.shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info .link:hover {
-  color: var(--pb-gold-pale);
-}
-
-.shopify-section[id$='__pb_help'] .multicolumn .link .icon-wrap {
-  display: none;
-}
-
-.shopify-section[id$='__pb_help'] .multicolumn .link .icon-arrow path {
-  transform: none;
-  transition: none;
-}
-
-@media screen and (min-width: 750px) and (max-width: 959px) {
-  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-/* Mobile: each column becomes a 60px row link with a gold arrow (Archive-Collection-Mobile). */
-@media screen and (max-width: 749px) {
-  .shopify-section[id$='__pb_help'] .multicolumn .page-width {
-    padding-top: 5.6rem;
-    padding-bottom: 7.2rem;
-  }
-
-  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list {
-    display: block;
-    padding: 0;
-  }
-
-  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list__item {
-    position: relative;
-    border-bottom: 1px solid var(--pb-rule);
-  }
-
-  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card {
-    position: static;
-  }
-
-  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list .multicolumn-card__info {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.6rem;
-    min-height: 6rem;
-  }
-
-  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list h3 {
-    font-size: 2.2rem;
-  }
-
-  .shopify-section[id$='__pb_help'] .multicolumn .rte {
-    display: none;
-  }
-
-  /* The link covers the whole row; its label stays in the accessibility tree. */
-  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info .link {
-    flex: none;
-    padding: 0;
-    font-size: 0;
-    letter-spacing: 0;
-    text-decoration: none;
-  }
-
-  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info .link::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-  }
-
-  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info .link:focus-visible {
-    outline: none !important;
-  }
-
-  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info .link:focus-visible::after {
-    outline: 2px solid var(--pb-gold-pale);
-    outline-offset: 3px;
-  }
-
-  .shopify-section[id$='__pb_help'] .multicolumn .link .icon-wrap {
-    display: inline-flex;
-    margin: 0;
-    color: var(--pb-gold);
-  }
-
-  .shopify-section[id$='__pb_help'] .multicolumn .link .icon-arrow {
-    width: 1.4rem;
-    height: 1rem;
-  }
 }

@@ -3429,11 +3429,11 @@
         },
         "menu": {
           "label": "Category menu",
-          "info": "The category line lists this menu's collections that have products."
+          "info": "Builds the category line when there's no override: on the menu's first link (All), the menu's other links; on a link with child links, those children. Only collections with products are named. Use the same menu as the product grid's category pills."
         },
         "category_line": {
           "label": "Category line",
-          "info": "Optional. Replaces the line built from the menu. A collection's custom.category_line metafield is used first."
+          "info": "Optional. Replaces the line built from the menu on every collection. A collection's custom.category_line metafield, if set, is used first."
         },
         "show_description": {
           "label": "Show collection description"
@@ -3461,7 +3461,7 @@
         },
         "pb_category_menu": {
           "label": "Category pills menu",
-          "info": "Pills show this menu's collections that have products. Use the same menu as the collection header. An empty menu shows no pills."
+          "info": "Pills show this menu's collections that have products. Use the same menu as the collection header's category menu. An empty menu shows no pills."
         },
         "promo_header": {
           "content": "Promo tile",

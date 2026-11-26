@@ -9,10 +9,14 @@
   3. built from the menu: the child links of the current collection's link, or, when the current collection is
      the menu's first link (the "All" link of shop-categories), the menu's other links. Only collections with
      at least one product are named, so the line never lists a category that isn't live (02 §5.2).
+     Any other collection (a top-level link without children, or one not in the menu) has no line, rather than
+     a line naming its siblings or the whole menu. This narrows 03 §4.7 ("built from the menu's links that have
+     products"); sub-category copy such as 04 §1's "CUFFS · CHAINS · PENDANTS" comes from the metafield.
 
   The category pills sit in the toolbar row with the count, "In stock only" and Sort (02 §5.3). Dawn's filter
   JavaScript renders that row from the product grid section, so the pills are rendered there
-  (main-collection-product-grid, setting pb_category_menu) and not in this section.
+  (main-collection-product-grid, setting pb_category_menu) and not in this section. Both menu settings should
+  point at the same menu (shop-categories in templates/collection.json).
 {%- endcomment -%}
 {%- liquid
   assign pb_s = section.settings

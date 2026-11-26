@@ -122,12 +122,33 @@
                 {%- if block.settings.title != blank -%}
                   <h3 class="inline-richtext">{{ block.settings.title }}</h3>
                 {%- endif -%}
-                {%- if block.settings.text != blank -%}
+                {%- comment -%}
+                  PB: text with a [bracketed placeholder] shows only in the theme editor (AGENTS.md: the live theme
+                  hides unverified facts). The link's name starts with the column title, which is the visible label
+                  of the mobile help-strip rows (WCAG 2.5.3).
+                {%- endcomment -%}
+                {%- liquid
+                  assign pb_show_text = true
+                  if block.settings.text contains '[' and request.design_mode == false
+                    assign pb_show_text = false
+                  endif
+                  assign pb_link_name = block.settings.title | strip_html | strip
+                  if pb_link_name != blank
+                    assign pb_link_name = pb_link_name | append: ': ' | append: block.settings.link_label
+                  endif
+                -%}
+                {%- if block.settings.text != blank and pb_show_text -%}
+                  {%- comment -%} /PB {%- endcomment -%}
                   <div class="rte">{{ block.settings.text }}</div>
                 {%- endif -%}
                 {%- if block.settings.link_label != blank -%}
                   <a
                     class="link animate-arrow"
+                    {% comment %} PB: see above. {% endcomment %}
+                    {% if pb_link_name != blank %}
+                      aria-label="{{ pb_link_name | escape }}"
+                    {% endif %}
+                    {% comment %} /PB {% endcomment %}
                     {% if block.settings.link == blank %}
                       role="link" aria-disabled="true"
                     {% else %}

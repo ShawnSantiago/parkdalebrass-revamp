@@ -1,9 +1,10 @@
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
-{%- comment -%} PB: Archive collection layout styles (02 §5, 03 §8). {%- endcomment -%}
+{%- comment -%} PB: Archive collection layout styles and toolbar focus handling (02 §5, 03 §8). {%- endcomment -%}
 {%- if section.settings.pb_layout -%}
   {{ 'section-pb-collection.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'pb-collection.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 {%- comment -%} /PB {%- endcomment -%}
 
@@ -156,69 +157,10 @@
           {% endif %}
         >
           {%- comment -%}
-            PB: Archive grid (02 §5.4–5.8): pb-product-card, 3-up [2-up] with 56/28 [28/12] gaps, the "New to
-            brass?" promo tile after the products on the last page only (not counted, not on an empty result),
-            and the Archive no-results and empty-collection states (pb.collection.*).
+            PB: Archive grid, promo tile and empty states (02 §5.4–5.8; snippets/pb-collection-grid.liquid).
           {%- endcomment -%}
           {%- if section.settings.pb_layout -%}
-            {%- if collection.products.size == 0 -%}
-              <div class="collection collection--empty pb-collection page-width" id="product-grid" data-id="{{ section.id }}">
-                <div class="loading-overlay gradient"></div>
-                <div class="pb-empty">
-                  <span class="pb-diamond pb-empty__diamond" aria-hidden="true"></span>
-                  {%- if collection.all_products_count > 0 -%}
-                    <h2 class="pb-empty__heading">{{ 'pb.collection.empty_heading' | t }}</h2>
-                    <p class="pb-empty__text">{{ 'pb.collection.empty_text' | t }}</p>
-                    <facet-remove class="pb-empty__action">
-                      <a href="{{ collection.url }}" class="button button--secondary">{{ 'pb.collection.reset' | t }}</a>
-                    </facet-remove>
-                  {%- else -%}
-                    <h2 class="pb-empty__heading">{{ 'pb.collection.empty_collection_heading' | t }}</h2>
-                    <p class="pb-empty__text">{{ 'pb.collection.empty_collection_text' | t }}</p>
-                    <div class="pb-empty__action">
-                      <a href="{{ routes.root_url }}" class="button button--secondary">
-                        {{- 'pb.collection.empty_collection_link' | t -}}
-                      </a>
-                    </div>
-                  {%- endif -%}
-                </div>
-              </div>
-            {%- else -%}
-              <div class="collection pb-collection page-width">
-                <div class="loading-overlay gradient"></div>
-                <ul
-                  id="product-grid"
-                  data-id="{{ section.id }}"
-                  class="pb-grid"
-                  role="list"
-                  style="--pb-grid-columns: {{ section.settings.columns_desktop }}; --pb-grid-columns-mobile: {{ section.settings.columns_mobile }};"
-                >
-                  {%- for product in collection.products -%}
-                    {%- liquid
-                      assign lazy_load = true
-                      if forloop.index <= section.settings.columns_desktop
-                        assign lazy_load = false
-                      endif
-                    -%}
-                    <li class="pb-grid__item">
-                      {% render 'pb-product-card',
-                        card_product: product,
-                        show_secondary_image: section.settings.show_secondary_image,
-                        lazy_load: lazy_load,
-                        product_view_context: 'collection'
-                      %}
-                    </li>
-                  {%- endfor -%}
-                  {%- if section.settings.pb_promo_enable and paginate.next == nil -%}
-                    {% render 'pb-collection-promo', promo: section.settings %}
-                  {%- endif -%}
-                </ul>
-
-                {%- if paginate.pages > 1 -%}
-                  {% render 'pagination', paginate: paginate, anchor: '' %}
-                {%- endif -%}
-              </div>
-            {%- endif -%}
+            {% render 'pb-collection-grid', results: collection, paginate: paginate, grid_settings: section.settings %}
           {%- elsif collection.products.size == 0 -%}
             {%- comment -%} /PB {%- endcomment -%}
             <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
