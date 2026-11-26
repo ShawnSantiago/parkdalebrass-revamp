@@ -458,6 +458,23 @@
   customElements.define('sticky-header', StickyHeader);
 {% endjavascript %}
 
+{%- comment -%} PB: list only filled-in social profile URLs, and use the shop root as the url (D-29). {%- endcomment -%}
+{%- liquid
+  assign pb_same_as = ''
+  assign pb_social_ids = 'social_twitter_link,social_facebook_link,social_pinterest_link,social_instagram_link,social_tiktok_link,social_tumblr_link,social_snapchat_link,social_youtube_link,social_vimeo_link' | split: ','
+  for pb_social_id in pb_social_ids
+    assign pb_social_url = settings[pb_social_id] | strip
+    assign pb_social_head = pb_social_url | slice: 0, 8 | downcase
+    if pb_social_head == 'https://' or pb_social_head contains 'http://'
+      if pb_same_as != blank
+        assign pb_same_as = pb_same_as | append: ', '
+      endif
+      assign pb_social_json = pb_social_url | json
+      assign pb_same_as = pb_same_as | append: pb_social_json
+    endif
+  endfor
+-%}
+{%- comment -%} /PB {%- endcomment -%}
 <script type="application/ld+json">
   {
     "@context": "http://schema.org",
@@ -466,18 +483,10 @@
     {% if settings.logo %}
       "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
     {% endif %}
-    "sameAs": [
-      {{ settings.social_twitter_link | json }},
-      {{ settings.social_facebook_link | json }},
-      {{ settings.social_pinterest_link | json }},
-      {{ settings.social_instagram_link | json }},
-      {{ settings.social_tiktok_link | json }},
-      {{ settings.social_tumblr_link | json }},
-      {{ settings.social_snapchat_link | json }},
-      {{ settings.social_youtube_link | json }},
-      {{ settings.social_vimeo_link | json }}
-    ],
-    "url": {{ request.origin | append: page.url | json }}
+    {%- comment -%} PB: D-29 {%- endcomment -%}
+    "sameAs": [{{ pb_same_as }}],
+    "url": {{ request.origin | append: routes.root_url | json }}
+    {%- comment -%} /PB {%- endcomment -%}
   }
 </script>
 

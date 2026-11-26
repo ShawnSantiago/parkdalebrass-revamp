@@ -3420,6 +3420,100 @@
           "label": "Open by default"
         }
       }
+    },
+    "pb_split": {
+      "name": "PB · Split",
+      "settings": {
+        "layout_header": {
+          "content": "Layout"
+        },
+        "layout": {
+          "label": "Order",
+          "info": "When the columns stack (under 960px), the button always comes last.",
+          "options__1": {
+            "label": "Image first"
+          },
+          "options__2": {
+            "label": "Text first"
+          }
+        },
+        "ratio": {
+          "label": "Columns",
+          "options__1": {
+            "label": "Equal (1:1), image fills its half"
+          },
+          "options__2": {
+            "label": "Text wider (6:5), 88px gap"
+          }
+        },
+        "full_bleed": {
+          "label": "Full-width background",
+          "info": "The colour spans the screen. Content stays within the page width."
+        },
+        "show_borders": {
+          "label": "Gold-line borders, top and bottom"
+        },
+        "frame_image": {
+          "label": "Double frame around the image",
+          "info": "Shows the image at 4:5. Keep to one fully visible double frame per screen."
+        },
+        "show_diamond": {
+          "label": "Diamond above the eyebrow"
+        },
+        "media_header": {
+          "content": "Image"
+        },
+        "image": {
+          "label": "Image"
+        },
+        "image_mobile": {
+          "label": "Mobile image",
+          "info": "Optional crop for screens under 960px."
+        },
+        "placeholder_note": {
+          "label": "Placeholder caption",
+          "info": "Describes the photo still needed. Shown only while no image is chosen."
+        },
+        "content_header": {
+          "content": "Text"
+        },
+        "eyebrow": {
+          "label": "Eyebrow"
+        },
+        "heading": {
+          "label": "Heading"
+        },
+        "text": {
+          "label": "Text"
+        },
+        "button_label": {
+          "label": "Button label"
+        },
+        "button_link": {
+          "label": "Button link",
+          "info": "The button shows only when it has a link."
+        },
+        "padding_header": {
+          "info": "Space outside the coloured panel."
+        },
+        "padding_top_mobile": {
+          "label": "Top padding on mobile (px)"
+        },
+        "padding_bottom_mobile": {
+          "label": "Bottom padding on mobile (px)"
+        },
+        "padding_mobile": {
+          "info": "Under 750px. Leave blank to use 60% of the desktop value."
+        }
+      },
+      "presets": {
+        "material": {
+          "name": "PB · Split: material"
+        },
+        "story": {
+          "name": "PB · Split: our story"
+        }
+      }
     }
   }
 }

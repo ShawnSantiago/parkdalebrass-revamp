@@ -1,0 +1,22 @@
+{%- comment -%}
+  Prints the roman numeral for 1–10 (journal cards, 02 §1.5). Any other number prints as itself,
+  and a blank value prints nothing. The caller adds the markup and aria-hidden: the numeral is decorative.
+
+  Accepts:
+  - n: {Number} The number to convert, usually forloop.index
+
+  Usage:
+  <span class="pb-numeral" aria-hidden="true">{% render 'pb-roman', n: forloop.index %}</span>
+{%- endcomment -%}
+{%- liquid
+  if n != blank
+    assign pb_roman_n = n | plus: 0
+    if pb_roman_n >= 1 and pb_roman_n <= 10
+      assign pb_roman_numerals = 'I,II,III,IV,V,VI,VII,VIII,IX,X' | split: ','
+      assign pb_roman_index = pb_roman_n | minus: 1
+      echo pb_roman_numerals[pb_roman_index]
+    else
+      echo pb_roman_n
+    endif
+  endif
+-%}

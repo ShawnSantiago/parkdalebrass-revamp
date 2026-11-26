@@ -1,0 +1,222 @@
+/* PB · Split (sections/pb-split.liquid, 03 §4.8). Archive tokens and ornaments come from pb-theme.css.
+   Measured from Archive-Home (1440) and Archive-Home-Mobile (390). Values scale fluidly in between (02 §1.3). */
+
+.pb-split {
+  /* 16px at 390, 24px at 1440 */
+  --pb-split-gap: clamp(1.6rem, calc(0.7619vw + 1.3029rem), 2.4rem);
+}
+
+.pb-split--bordered {
+  border-block: 1px solid var(--pb-gold-line);
+}
+
+.pb-split__grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.pb-split__grid--contained {
+  max-width: var(--page-width);
+  margin-inline: auto;
+}
+
+.pb-split__text,
+.pb-split__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pb-split-gap);
+}
+
+.pb-split__content > * {
+  margin: 0;
+}
+
+.pb-split__diamond {
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-inline-start: 0.3rem;
+}
+
+.pb-split__heading {
+  /* 36px at 390, 52px at 1440 */
+  font-size: clamp(3.6rem, calc(1.5239vw + 3.0057rem), 5.2rem);
+  line-height: 1.06;
+}
+
+.pb-split__body {
+  /* 16px at 390, 17px at 1440 */
+  font-size: clamp(1.6rem, calc(0.0953vw + 1.5629rem), 1.7rem);
+  line-height: 1.6;
+}
+
+.pb-split__body > * {
+  margin-block: 0;
+}
+
+.pb-split__body > * + * {
+  margin-top: var(--pb-split-gap);
+}
+
+.pb-split__actions {
+  margin-top: 0.4rem;
+}
+
+.pb-split .button.pb-split__button {
+  min-height: 5rem;
+}
+
+/* Media: onyx-raised ground, green-deep inside green panels (02 §1.1). */
+.pb-split__image {
+  position: relative;
+  overflow: hidden;
+  background: var(--pb-onyx-raised);
+}
+
+.pb-split.color-scheme-3 .pb-split__image {
+  background: var(--pb-green-deep);
+}
+
+.pb-split__image--portrait {
+  aspect-ratio: 4 / 5;
+}
+
+/* 390 × 280 in Archive-Home-Mobile */
+.pb-split__image--fill {
+  aspect-ratio: 39 / 28;
+}
+
+.pb-split__image .pb-split__img,
+.pb-split__placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.pb-split__image .pb-split__img {
+  object-fit: cover;
+}
+
+.pb-split__placeholder-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.pb-split__placeholder .placeholder-svg {
+  fill: var(--pb-gold);
+}
+
+.pb-split__placeholder .pb-placeholder__note {
+  display: none;
+  margin: 0;
+}
+
+.pb-split.color-scheme-3 .pb-placeholder__note {
+  color: var(--pb-on-green);
+}
+
+@media screen and (min-width: 750px) {
+  .pb-split__diamond {
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-inline-start: 0.4rem;
+  }
+
+  .pb-split__placeholder .pb-placeholder__note {
+    display: block;
+  }
+
+  .pb-split__image--fill .pb-placeholder__note {
+    inset-inline-start: 2.4rem;
+    bottom: 2rem;
+  }
+
+  .pb-split__image--portrait .pb-placeholder__note {
+    inset-inline: 1.6rem;
+    bottom: 1.4rem;
+  }
+}
+
+/* Stacked below 960px (02 §1.3). */
+@media screen and (max-width: 959px) {
+  .pb-split--1-1 .pb-split__text {
+    padding: 4rem var(--pb-gutter) 4.8rem;
+  }
+
+  .pb-split--6-5 .pb-split__grid {
+    gap: calc(var(--pb-split-gap) + 0.8rem);
+  }
+
+  /* Text first: eyebrow, heading and text, then the image, then the button (Archive-Home-Mobile, story). */
+  .pb-split--text-first .pb-split__grid {
+    gap: var(--pb-split-gap);
+  }
+
+  .pb-split--text-first .pb-split__text {
+    display: contents;
+  }
+
+  .pb-split--text-first .pb-split__media {
+    order: 1;
+    margin-top: 0.8rem;
+  }
+
+  .pb-split--text-first .pb-split__actions {
+    order: 2;
+    margin-top: 0;
+  }
+
+  .pb-split--1-1.pb-split--text-first .pb-split__content {
+    padding: 4rem var(--pb-gutter) 0;
+  }
+
+  .pb-split--1-1.pb-split--text-first .pb-split__actions {
+    padding: 0 var(--pb-gutter) 4.8rem;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .pb-split__grid {
+    display: grid;
+  }
+
+  .pb-split--1-1 .pb-split__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pb-split--6-5 .pb-split__grid {
+    align-items: center;
+    /* 88px at 1440 */
+    column-gap: clamp(4.8rem, 6.1112vw, 8.8rem);
+  }
+
+  .pb-split--6-5.pb-split--text-first .pb-split__grid {
+    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  }
+
+  .pb-split--6-5.pb-split--image-first .pb-split__grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  }
+
+  .pb-split__actions {
+    margin-top: 0.8rem;
+  }
+
+  /* 104px / 88px at 1440, max-width 660 including padding */
+  .pb-split--1-1 .pb-split__text {
+    justify-content: center;
+    max-width: 66rem;
+    padding: clamp(6.4rem, 7.2223vw, 10.4rem) clamp(4.8rem, 6.1112vw, 8.8rem);
+  }
+
+  .pb-split--6-5 .pb-split__text {
+    max-width: 62rem;
+  }
+
+  .pb-split__image--fill {
+    aspect-ratio: auto;
+    height: 100%;
+    min-height: 62rem;
+  }
+}

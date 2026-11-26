@@ -3,6 +3,10 @@
     "badge": {
       "concept": "Concept"
     },
+    "breadcrumbs": {
+      "label": "Breadcrumb",
+      "home": "Home"
+    },
     "collection": {
       "categories": "Categories",
       "empty_heading": "Nothing matches those filters.",

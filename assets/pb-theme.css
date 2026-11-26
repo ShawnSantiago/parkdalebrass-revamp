@@ -469,3 +469,52 @@ variant-selects .product-form__input .form__label {
   html { scroll-behavior: auto; }
   .section-header.animate, .header__heading-logo-wrapper, .card .media img { transition-duration: 1ms; }
 }
+
+/* PB2:foundation */
+/* Breadcrumbs (snippets/pb-breadcrumbs.liquid; 02 §5, Archive-Collection and Archive-Product). */
+.pb-breadcrumbs {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: var(--pb-muted);
+}
+
+.pb-breadcrumbs__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* A 44px target that doesn't change the row height. */
+.pb-breadcrumbs__link {
+  position: relative;
+  display: inline-block;
+  color: var(--pb-muted);
+}
+
+.pb-breadcrumbs__link::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100% + 1.2rem, 4.4rem);
+  height: 4.4rem;
+  transform: translate(-50%, -50%);
+}
+
+.pb-breadcrumbs__link:hover { color: var(--pb-gold); }
+
+@media screen and (max-width: 749px) {
+  .pb-breadcrumbs { font-size: 1.2rem; }
+  .pb-breadcrumbs--long :is(.pb-breadcrumbs__item--home, .pb-breadcrumbs__item--home + .pb-breadcrumbs__sep) {
+    display: none;
+  }
+}
+
+/* Secondary buttons on royal green fill gold with onyx text, as on onyx (02 §2.1). */
+.color-scheme-3 .button.button--secondary:not(:disabled, [aria-disabled='true']):hover {
+  color: var(--pb-onyx);
+}
+/* /PB2:foundation */
