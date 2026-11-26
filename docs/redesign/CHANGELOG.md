@@ -54,6 +54,7 @@ Records every change to this theme, and especially every edit to a **stock Dawn 
 
 ### Changed: repository tooling
 - `.github/workflows/ci.yml`: now runs on pull requests and pushes to `main`. Keeps Theme Check, adds the docs check (`.github/scripts/check_docs.py`: relative links and CSV shape). Removed the inherited Lighthouse job, which needed Shopify's private store secrets; Lighthouse is run during Phase 4 QA instead (`phase-4-brief.md` §3.6).
+- `.github/workflows/ci.yml`: Theme Check now runs `npx @shopify/cli@5.1.0 theme check --fail-level error` directly. `shopify/theme-check-action@v2` crashed on the current CLI's output (`TypeError: e.filter is not a function`) on the repo's first CI run (PR #4). Results show in the job log rather than as annotations. Bump the pinned CLI deliberately.
 - Removed `.github/workflows/cla.yml`: Shopify's contributor-agreement bot only works on Shopify's own repos.
 
 ### Removed
