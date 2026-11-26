@@ -9,7 +9,7 @@ const asset = (name) => fs.readFileSync(path.join(__dirname, '../assets', name),
 // B and C share a variant but have different line properties.
 const [a, b, c] = ['101:plain', '102:engraving-b', '102:engraving-c'];
 
-function storefront(t) {
+function storefront(t, { rekey } = {}) {
   t.mock.timers.enable({ apis: ['setTimeout'] });
   const store = new Map([[a, 1], [b, 1], [c, 1]]);
   const calls = [];
@@ -89,6 +89,13 @@ function storefront(t) {
       assert.ok(store.has(id), 'each change identifies a current line by its full key');
       if (quantity === 0) store.delete(id);
       else store.set(id, quantity);
+      // Shopify can return a new line key when a quantity change alters the line's discount.
+      const newKey = quantity !== 0 && rekey?.(id, quantity);
+      if (newKey) {
+        const entries = [...store].map(([key, value]) => [key === id ? newKey : key, value]);
+        store.clear();
+        entries.forEach(([key, value]) => store.set(key, value));
+      }
       const items = [...store].map(([key, quantity]) => ({ key, quantity }));
       const rendered = Object.fromEntries(sections.map((section) => [section, JSON.stringify([...store])]));
       return { text: async () => JSON.stringify({ items, item_count: items.length, sections: rendered }) };
@@ -184,5 +191,50 @@ test('a rejected quantity does not block the next line or a retry', async (t) =>
   await cart.tick(300);
   await cart.respond();
   assert.deepEqual([...cart.store], [[a, 3], [b, 2], [c, 1]]);
+  cart.assertRendered();
+});
+
+// Review feedback on PR #4: a change queued for a line must follow it when Shopify re-keys that line.
+const rekeyA = { rekey: (id, quantity) => (id === a && quantity === 2 ? '101:discounted' : undefined) };
+
+test('a queued edit follows the line when the previous response re-keys it', async (t) => {
+  const cart = storefront(t, rekeyA);
+  cart.edit('cart-items', a, 2);
+  await cart.tick(300);
+  cart.edit('cart-drawer-items', a, 3);
+  await cart.tick(300);
+  await cart.respond();
+  await cart.tick(0);
+  await cart.respond();
+  assert.deepEqual(cart.calls, [{ id: a, quantity: 2 }, { id: '101:discounted', quantity: 3 }]);
+  assert.deepEqual([...cart.store], [['101:discounted', 3], [b, 1], [c, 1]]);
+  cart.assertRendered();
+});
+
+test('a queued removal follows the line when the previous response re-keys it', async (t) => {
+  const cart = storefront(t, rekeyA);
+  cart.edit('cart-items', a, 2);
+  await cart.tick(300);
+  cart.remove('cart-drawer-items', a);
+  await cart.tick(0);
+  await cart.respond();
+  await cart.tick(0);
+  await cart.respond();
+  assert.deepEqual(cart.calls, [{ id: a, quantity: 2 }, { id: '101:discounted', quantity: 0 }]);
+  assert.deepEqual([...cart.store], [[b, 1], [c, 1]]);
+  cart.assertRendered();
+});
+
+test('an edit still inside its debounce window follows the line when it is re-keyed', async (t) => {
+  const cart = storefront(t, rekeyA);
+  cart.edit('cart-items', a, 2);
+  await cart.tick(300);
+  cart.edit('cart-drawer-items', a, 3);
+  await cart.tick(100);
+  await cart.respond();
+  await cart.tick(300);
+  await cart.respond();
+  assert.deepEqual(cart.calls, [{ id: a, quantity: 2 }, { id: '101:discounted', quantity: 3 }]);
+  assert.deepEqual([...cart.store], [['101:discounted', 3], [b, 1], [c, 1]]);
   cart.assertRendered();
 });

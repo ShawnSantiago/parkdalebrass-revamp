@@ -44,7 +44,7 @@ Theme ID `196453663042`. [Preview](https://parkdale-brass.myshopify.com/?preview
 | `sections/announcement-bar.liquid` | Resolve the signup fragment against the localized homepage for single and rotating announcements. Enable the link when the homepage signup section exists. | D-19, D-21 |
 | `snippets/header-drawer.liquid` | Keep the customer-account link in the mobile navigation when accounts are enabled. | D-21 |
 | `sections/footer.liquid` | Reapply the wordmark, responsive grid and bottom bar. Render native mobile disclosures for populated menus and static links on desktop. | D-19, D-22 |
-| `assets/cart.js` | Capture edits by line-item key, coalesce same-line input and serialize cart updates and removals across both cart views. Restore the six cart regression cases on upgrade. | D-25 |
+| `assets/cart.js` | Capture edits by line-item key, coalesce same-line input and serialize cart updates and removals across both cart views. When a response re-keys a line (discount change), move its queued change to the new key (`rekeyPending`). Restore the nine cart regression cases on upgrade. | D-25 |
 | `assets/predictive-search.js` | Replace a single literal occurrence of the previous query in the results label. Keep the punctuation and stale-label tests. | D-25 |
 
 Remaining Phase 2 edits from `03-theme-mapping.md`:

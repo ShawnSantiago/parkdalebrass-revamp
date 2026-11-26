@@ -167,33 +167,45 @@ class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement
     const lineKey = input.dataset.quantityLineKey;
     const key = lineKey || input; // Older cached markup may lack a key.
     const action = event.currentTarget instanceof CartRemoveButton ? 'clear' : 'change';
-    const change = { quantity };
+    // lineKey is updated by rekeyPending() if an earlier response gives this line a new key.
+    const change = { quantity, lineKey };
+    const pendingKey = () => change.lineKey || input;
     clearTimeout(CartItems.pendingQuantities.get(key)?.timer);
     CartItems.pendingQuantities.set(key, change);
 
     const enqueue = () => {
       CartItems.quantityRequest = CartItems.quantityRequest.then(async () => {
-        if (CartItems.pendingQuantities.get(key) !== change) return;
+        if (CartItems.pendingQuantities.get(pendingKey()) !== change) return;
         try {
           // Drawer section replacement installs a new CartDrawerItems instance.
           const cart = this.isConnected ? this : document.querySelector(this.localName);
           if (!cart) return;
-          const current = lineKey
-            ? cart.querySelector(`[data-quantity-line-key="${CSS.escape(lineKey)}"]`)
+          const current = change.lineKey
+            ? cart.querySelector(`[data-quantity-line-key="${CSS.escape(change.lineKey)}"]`)
             : input.isConnected && input;
           if (current) {
             await cart.changeQuantity(current, quantity, action, name, variantId);
-          } else if (quantity !== 0 || !lineKey) {
+          } else if (quantity !== 0 || !change.lineKey) {
             cart.showQuantityError();
           }
         } finally {
-          if (CartItems.pendingQuantities.get(key) === change) CartItems.pendingQuantities.delete(key);
+          if (CartItems.pendingQuantities.get(pendingKey()) === change) CartItems.pendingQuantities.delete(pendingKey());
         }
       }).catch(console.error);
     };
 
     if (action === 'clear') enqueue();
     else change.timer = setTimeout(enqueue, ON_CHANGE_DEBOUNCE_TIMER);
+  }
+
+  // Shopify can give a line a new key when a quantity change alters its discount.
+  // Move any change still queued for that line to the new key so it isn't dropped.
+  static rekeyPending(oldKey, newKey) {
+    const pending = CartItems.pendingQuantities.get(oldKey);
+    if (!pending || oldKey === newKey || CartItems.pendingQuantities.has(newKey)) return;
+    CartItems.pendingQuantities.delete(oldKey);
+    pending.lineKey = newKey;
+    CartItems.pendingQuantities.set(newKey, pending);
   }
 
   showQuantityError() {
@@ -247,6 +259,16 @@ class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement
             if (pending?.quantity === quantity) quantityInput.value = quantityInput.defaultValue;
             this.updateLiveRegions(line, parsedState.errors);
             return;
+          }
+
+          if (lineKey && quantity !== 0 && !parsedState.items.some((item) => item.key === lineKey)) {
+            // A quantity change keeps the line's position, so its new key is at the same index,
+            // provided that key doesn't belong to another line already on the page.
+            const knownKeys = new Set(
+              [...document.querySelectorAll('[data-quantity-line-key]')].map((el) => el.dataset.quantityLineKey)
+            );
+            const newKey = parsedState.items[line - 1]?.key;
+            if (newKey && !knownKeys.has(newKey)) CartItems.rekeyPending(lineKey, newKey);
           }
 
           for (const cart of cartViews) cart.classList.toggle('is-empty', parsedState.item_count === 0);
