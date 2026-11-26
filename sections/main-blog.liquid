@@ -1,6 +1,9 @@
 {{ 'component-article-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+{%- comment -%} PB: Archive journal head and cards (02 §4.7, §7) {%- endcomment -%}
+{{ 'section-pb-journal.css' | asset_url | stylesheet_tag }}
+{%- comment -%} /PB {%- endcomment -%}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

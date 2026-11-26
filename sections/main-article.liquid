@@ -1,4 +1,8 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+{%- comment -%} PB: Archive article head and long-form body (02 §7) {%- endcomment -%}
+{{ 'component-pb-prose.css' | asset_url | stylesheet_tag }}
+{{ 'section-pb-journal.css' | asset_url | stylesheet_tag }}
+{%- comment -%} /PB {%- endcomment -%}
 
 <article class="article-template">
   {%- for block in section.blocks -%}
