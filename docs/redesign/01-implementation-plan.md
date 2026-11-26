@@ -99,7 +99,7 @@ Every section must have: a `{% schema %}` with presets, translated labels, `colo
 
 ### 2C · Prelaunch fixtures (dev only)
 
-- **On a development store only** (owner-inputs A-04), create draft products so the PDP and collection grid can be tested. Title them `[FIXTURE] The Junction` and so on, set **status: Draft**, and give them no sales channels.
+- **On a development store only** (owner-inputs A-04), create clearly marked products such as `[FIXTURE] The Junction` to test the product page, grid and cart. Make them Active on the development store’s Online Store channel. Stock a purchasable variant at an online-fulfilling location and leave one variant sold out.
 - **Never create fixtures on the production store**, not even as drafts. An unpublished theme doesn't isolate store data, so fixture records would land in the shared live catalog. When previewing the unpublished theme on the production store, test with **existing products only** (matches `phase-2-brief.md` §2.9).
 
 **Exit:** the unpublished theme preview matches `02-design-spec.md` and canvas page B **side by side** (05 §9) at 320, 375, 390, 768, 1280 and 1440 wide, with zero unapproved deviations, in both prelaunch and live homepage configurations, with no fake purchasable inventory.

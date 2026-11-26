@@ -11,7 +11,7 @@ The single list of everything waiting on the Parkdale Brass owner. Agents: **don
 
 | ID | Input | Why | Blocks | Status | Date / note |
 | --- | --- | --- | --- | --- | --- |
-| A-01 | Shopify CLI / theme access (staff or collaborator account with theme permissions) | Pull the live theme, create an unpublished dev theme | Phase 0 | Open | n/a |
+| A-01 | Shopify CLI / theme access (staff or collaborator account with theme permissions) | Pull the live theme, create an unpublished dev theme | Phase 0 | Provided | 2026-11-25: Theme Access verified for the Parkdale Brass store. An unpublished Archive preview was created and served. The Craft carry-over audit is still pending. |
 | A-02 | Read-only Admin exports: products CSV, collections, menus (screenshots), metafield definitions, redirects CSV, markets and shipping zones, installed apps list | Audit | Phase 0 | Open | n/a |
 | A-03 | Search Console access or a 16-month export (queries, pages), plus the analytics landing-page report | URL inventory and redirect plan | Phase 0 | Open | n/a |
 | A-04 | Is a development store available for fixtures? (Yes/No) | Testing the PDP and collection without touching live data | Phase 2 | Open | n/a |

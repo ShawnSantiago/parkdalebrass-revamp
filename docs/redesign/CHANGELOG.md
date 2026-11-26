@@ -28,31 +28,43 @@ Records every change to this theme, and especially every edit to a **stock Dawn 
 
 ---
 
-## Unreleased
+## 2026-11-25 · Archive Phase 1 unpublished preview
+
+Theme ID `196453663042`. [Preview](https://parkdale-brass.myshopify.com/?preview_theme_id=196453663042&_fd=0&pb=0) · [QA results](qa-results.md)
 
 ### Added
+- `assets/pb-theme.css` implements the Archive palette, layout, type, controls and responsive header (D-19, D-21).
+- The two Latin Cormorant Garamond assets contain weights 500 and 600 (D-15). The source is [Google Fonts at 6ebe737](https://github.com/google/fonts/tree/6ebe737e44fd64ee736bbc6feed6136a6dbfd222/ofl/cormorantgaramond). The SIL Open Font License is in [licences/cormorant-OFL.txt](licences/cormorant-OFL.txt).
 - Documentation only: `AGENTS.md`, `CLAUDE.md`, `docs/redesign/*` (plan, design spec, Dawn mapping, content and data, QA, decisions, owner inputs, product data template, photography brief, audit, this changelog).
 
 ### Changed: Dawn files
-- _None yet._ Planned, per `03-theme-mapping.md`:
+| File | What to reapply when upgrading Dawn | Decision |
+| --- | --- | --- |
+| `layout/theme.liquid` | Load the two additional Inter weights in the font declarations, preload Cormorant 600, and load the Archive stylesheet after Dawn’s base styles. | D-15, D-19 |
+| `sections/announcement-bar.liquid` | Resolve the signup fragment against the localized homepage for single and rotating announcements. Enable the link when the homepage signup section exists. | D-19, D-21 |
+| `snippets/header-drawer.liquid` | Keep the customer-account link in the mobile navigation when accounts are enabled. | D-21 |
+| `sections/footer.liquid` | Reapply the wordmark, responsive grid and bottom bar. Render native mobile disclosures for populated menus and static links on desktop. | D-19, D-22 |
+| `assets/cart.js` | Capture edits by line-item key, coalesce same-line input and serialize cart updates and removals across both cart views. Restore the six cart regression cases on upgrade. | D-25 |
+| `assets/predictive-search.js` | Replace a single literal occurrence of the previous query in the results label. Keep the punctuation and stale-label tests. | D-25 |
+
+Remaining Phase 2 edits from `03-theme-mapping.md`:
 
   | File | Planned change | Decision |
   | --- | --- | --- |
-  | `layout/theme.liquid` | Load `pb-theme.css` after `base.css`; preload the heading font; Organization JSON-LD on the homepage | D-02, D-15 |
+  | `layout/theme.liquid` | Verify homepage Organization JSON-LD | D-02, D-15 |
   | `sections/main-product.liquid` | Hide empty `collapsible_tab` blocks; `open` checkbox on that block; render `pb-sticky-atc` | D-23 |
-  | `locales/en.default.json` | Add `pb.*` strings; "Add to bag", "Your bag", "Select a size" | D-23 |
   | `snippets/product-variant-picker.liquid` | Size guide link inline in the Size legend | D-23 |
   | `snippets/product-variant-options.liquid` | No pre-selected size ("Select a size" start state) | D-23 |
   | `snippets/product-media-gallery.liquid` | Left thumbnail column; main image in the double frame | D-23 |
-  | `sections/footer.liquid` | Mobile accordion link groups | D-22 |
   | `sections/main-collection-product-grid.liquid` | In-grid "New to brass?" promo tile on the last page | D-22 |
-  | `assets/cart.js` | Per-line debounce, with updates sent one at a time, so no quantity change is dropped | D-25 |
-  | `assets/predictive-search.js` | Compare the previous search term as literal text, not a RegExp | D-25 |
 
 ### Changed: settings/templates
-- _None yet._
+- Merge the five Archive schemes, layout, typography, shopping controls and brand copy into the active preset in `config/settings_data.json` (D-19).
+- Restore the Archive settings and jewelry menu handles in `sections/header-group.json` and `sections/footer-group.json` (D-07, D-19). The assigned handles can remain empty while the owner prepares the menus.
+- Merge the English `pb.*` keys into `locales/en.default.json` and `locales/en.default.schema.json`. Preserve “Add to bag” and “Your bag” in the storefront locale (D-23). The changelog identifies JSON edits so the locale files stay valid JSON.
 
 ### Changed: repository tooling
+- The storefront regression job runs `node --test tests/*.test.cjs` for the cart and predictive search. It uses the built-in Node test runner.
 - `.github/workflows/ci.yml`: now runs on pull requests and pushes to `main`. Keeps Theme Check, adds the docs check (`.github/scripts/check_docs.py`: relative links and CSV shape). Removed the inherited Lighthouse job, which needed Shopify's private store secrets; Lighthouse is run during Phase 4 QA instead (`phase-4-brief.md` §3.6).
 - Removed `.github/workflows/cla.yml`: Shopify's contributor-agreement bot only works on Shopify's own repos.
 
