@@ -1,0 +1,26 @@
+{%- comment -%}
+  Wraps each <table> in merchant HTML in a labelled region that scrolls sideways when the table
+  is wider than the reading column (pb-page body and HTML blocks). The region is focusable, so a
+  keyboard user can scroll it, and each one has its own name ("Table 1", "Table 2", ...).
+
+  Accepts:
+  - html: {String} merchant HTML (page.content or an html setting)
+  - offset: {Number} tables already numbered earlier on the page (default 0)
+
+  Usage:
+  {% render 'pb-table-wrap', html: page.content, offset: 0 %}
+{%- endcomment -%}
+{%- liquid
+  assign pb_offset = offset | default: 0
+  assign pb_parts = html | split: '<table'
+  for pb_part in pb_parts
+    assign pb_part_closed = pb_part | replace: '</table>', '</table></div>'
+    if forloop.first
+      echo pb_part_closed
+    else
+      assign pb_index = pb_offset | plus: forloop.index0
+      assign pb_label = 'pb.page.table_label' | t: index: pb_index | escape
+      echo '<div class="pb-page__table" role="region" tabindex="0" aria-label="' | append: pb_label | append: '"><table' | append: pb_part_closed
+    endif
+  endfor
+-%}

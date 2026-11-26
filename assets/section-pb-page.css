@@ -1,0 +1,146 @@
+/* PB · Page (sections/pb-page.liquid, 03 §4.9, 02 §7). Tokens and ornaments come from pb-theme.css.
+   There is no content-page artboard. The head reuses the centred page head of Archive-Collection (1440)
+   and Archive-Collection-Mobile (390): diamond 18 [14], gap 16 [12], H1 margin-top 6 [4], 48 [28] to the content.
+   02 §7 sets the H1 (Cormorant 600, 54 [40], caps), the body (17, --pb-body) and the widths (720; Our Story 680).
+   Values scale fluidly between 390 and 1440, like the other pb-* sections. */
+
+.pb-page__inner {
+  --pb-page-measure: 72rem;
+  max-width: calc(var(--pb-page-measure) + 2 * var(--pb-gutter));
+  margin-inline: auto;
+  padding-inline: var(--pb-gutter);
+}
+
+.pb-page__inner--story {
+  --pb-page-measure: 68rem;
+}
+
+.pb-page__inner--normal {
+  max-width: var(--page-width);
+}
+
+/* Head: diamond, H1, dateline, centred */
+.pb-page__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* 12px at 390, 16px at 1440 */
+  gap: clamp(1.2rem, calc(0.381vw + 1.0514rem), 1.6rem);
+  /* 28px at 390, 48px at 1440 */
+  padding-bottom: clamp(2.8rem, calc(1.9048vw + 2.0571rem), 4.8rem);
+  text-align: center;
+}
+
+.pb-page__diamond {
+  /* 14px at 390, 18px at 1440 */
+  width: clamp(1.4rem, calc(0.381vw + 1.2514rem), 1.8rem);
+  height: clamp(1.4rem, calc(0.381vw + 1.2514rem), 1.8rem);
+}
+
+.pb-page__title {
+  max-width: 100%;
+  /* 4px at 390, 6px at 1440 */
+  margin: clamp(0.4rem, calc(0.1905vw + 0.3257rem), 0.6rem) 0 0;
+  /* 40px at 390, 54px at 1440 */
+  font-size: clamp(4rem, calc(1.3333vw + 3.48rem), 5.4rem);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  overflow-wrap: break-word;
+}
+
+.pb-page__dateline {
+  margin: 0;
+}
+
+/* Body: 16px at 390, 17px at 1440 (02 §1.2 body large) */
+.pb-page__body {
+  font-size: clamp(1.6rem, calc(0.0953vw + 1.5629rem), 1.7rem);
+}
+
+.pb-page__empty {
+  color: var(--pb-muted);
+}
+
+/* Blocks after the body. Text and HTML blocks take the full row; consecutive links share one. */
+.pb-page__blocks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  column-gap: 3.2rem;
+  /* 28px at 390, 40px at 1440 */
+  row-gap: clamp(2.8rem, calc(1.1429vw + 2.3543rem), 4rem);
+  /* 32px at 390, 48px at 1440 */
+  margin-top: clamp(3.2rem, calc(1.5238vw + 2.6057rem), 4.8rem);
+}
+
+.pb-page__head + .pb-page__blocks {
+  margin-top: 0;
+}
+
+.pb-page__block {
+  flex: 1 0 100%;
+  min-width: 0;
+}
+
+.pb-page__block--link {
+  flex: 0 1 auto;
+  max-width: 100%;
+}
+
+.pb-page__block-heading {
+  margin: 0 0 clamp(1.2rem, calc(0.381vw + 1.0514rem), 1.6rem);
+  /* 32px at 390, 46px at 1440: the H2 range in 02 §1.2 */
+  font-size: clamp(3.2rem, calc(1.3333vw + 2.68rem), 4.6rem);
+  line-height: 1.1;
+}
+
+.pb-page__block-heading.pb-eyebrow {
+  margin-bottom: 1.2rem;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.pb-page__block .pb-prose {
+  font-size: clamp(1.6rem, calc(0.0953vw + 1.5629rem), 1.7rem);
+}
+
+/* A visible anchor target (e.g. #previous-orders) clears the sticky header. */
+.pb-page__block[id] {
+  scroll-margin-top: 10rem;
+}
+
+/* Gold text CTA (02 §2.1): Inter 600 13, 0.18em, caps, underline offset 6, 44px hit area. */
+.pb-page__link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+.pb-page__link[aria-disabled='true'] {
+  color: var(--pb-muted);
+  cursor: not-allowed;
+}
+
+/* Theme editor only: blocks hidden on the storefront until their placeholders are replaced. */
+.pb-page__block--preview {
+  position: relative;
+  z-index: 1;
+  outline: 1px dashed var(--pb-gold-line);
+  outline-offset: 1.2rem;
+}
+
+.pb-page__preview-note {
+  margin: 0 0 1.6rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--pb-muted);
+}
+
+.pb-page__block--link .pb-page__preview-note {
+  margin: 0;
+}
+
+@media screen and (max-width: 749px) {
+  .pb-page__block--preview {
+    outline-offset: 0.6rem;
+  }
+}

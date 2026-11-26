@@ -1,0 +1,346 @@
+{%- comment -%}
+  PB · Page (03 §4.9, 02 §7). Replaces main-page on the content-page templates.
+  - A centred head: diamond, the page title as the one H1 (caps by CSS), optional dateline.
+  - The page body (page.content) at the editorial width, as styled long-form rich text.
+    Tables are wrapped (snippets/pb-table-wrap.liquid) so a wide size table scrolls sideways on small screens.
+  - Optional blocks after the body: text (e.g. the contact page's previous-orders note),
+    HTML (e.g. a table) and links (gold text CTAs; consecutive links share a row).
+  Placeholder rule (AGENTS.md): a text or HTML block containing a [bracketed placeholder]
+  renders only in the theme editor, marked "preview only". The storefront hides it.
+  A link to a collection shows only once that collection has products (02 §2.3, D-12).
+{%- endcomment -%}
+{%- liquid
+  assign pb_s = section.settings
+
+  assign pb_pad_top_mobile = pb_s.padding_top | times: 0.6 | round: 0
+  if pb_s.padding_top_mobile != blank
+    assign pb_pad_top_mobile = pb_s.padding_top_mobile | at_least: 0
+  endif
+  assign pb_pad_bottom_mobile = pb_s.padding_bottom | times: 0.6 | round: 0
+  if pb_s.padding_bottom_mobile != blank
+    assign pb_pad_bottom_mobile = pb_s.padding_bottom_mobile | at_least: 0
+  endif
+
+  assign pb_tables = page.content | split: '<table' | size | minus: 1 | at_least: 0
+-%}
+
+{{ 'section-pb-page.css' | asset_url | stylesheet_tag }}
+{{ 'component-pb-prose.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ pb_pad_top_mobile }}px;
+    padding-bottom: {{ pb_pad_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ pb_s.padding_top }}px;
+      padding-bottom: {{ pb_s.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="pb-page color-{{ pb_s.color_scheme }} gradient">
+  <div class="pb-page__inner pb-page__inner--{{ pb_s.width }}{% if pb_s.width == 'normal' %} page-width{% endif %} section-{{ section.id }}-padding">
+    <header class="pb-page__head">
+      {%- if pb_s.show_diamond -%}
+        <span class="pb-diamond pb-page__diamond" aria-hidden="true"></span>
+      {%- endif -%}
+      <h1 class="pb-page__title">{{ page.title | escape }}</h1>
+      {%- if pb_s.dateline != blank -%}
+        <p class="pb-dateline pb-page__dateline">{{ pb_s.dateline | escape }}</p>
+      {%- endif -%}
+    </header>
+
+    {%- if page.content != blank -%}
+      <div class="pb-page__body rte pb-prose">
+        {%- render 'pb-table-wrap', html: page.content, offset: 0 -%}
+      </div>
+    {%- elsif request.design_mode -%}
+      <div class="pb-page__body rte pb-prose">
+        <p class="pb-page__empty">[{{ 'pb.page.empty_body' | t }}]</p>
+      </div>
+    {%- endif -%}
+
+    {%- capture pb_blocks -%}
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'text', 'html' -%}
+            {%- liquid
+              if block.type == 'text'
+                assign pb_block_text = block.settings.heading | append: block.settings.text
+              else
+                assign pb_block_text = block.settings.html
+              endif
+              assign pb_preview_only = false
+              if pb_block_text contains '['
+                assign pb_preview_only = true
+              endif
+              assign pb_anchor = block.settings.anchor | handleize
+            -%}
+            {%- if pb_block_text != blank -%}
+              {%- unless pb_preview_only and request.design_mode == false -%}
+                <div
+                  class="pb-page__block pb-page__block--{{ block.type }}{% if pb_preview_only %} pb-page__block--preview{% endif %}"
+                  {% if pb_anchor != blank %}
+                    id="{{ pb_anchor }}"
+                  {% endif %}
+                  {{ block.shopify_attributes }}
+                >
+                  {%- if pb_preview_only -%}
+                    <p class="pb-page__preview-note">{{ 'pb.page.preview_placeholder' | t }}</p>
+                  {%- endif -%}
+                  {%- if block.type == 'text' -%}
+                    {%- if block.settings.heading != blank -%}
+                      <h2 class="pb-page__block-heading{% if block.settings.heading_style == 'eyebrow' %} pb-eyebrow{% endif %}">
+                        {{- block.settings.heading | escape -}}
+                      </h2>
+                    {%- endif -%}
+                    {%- if block.settings.text != blank -%}
+                      <div class="rte pb-prose">{{ block.settings.text }}</div>
+                    {%- endif -%}
+                  {%- else -%}
+                    <div class="rte pb-prose">
+                      {%- render 'pb-table-wrap', html: block.settings.html, offset: pb_tables -%}
+                    </div>
+                    {%- assign pb_block_tables = block.settings.html | split: '<table' | size | minus: 1 | at_least: 0 -%}
+                    {%- assign pb_tables = pb_tables | plus: pb_block_tables -%}
+                  {%- endif -%}
+                </div>
+              {%- endunless -%}
+            {%- endif -%}
+
+          {%- when 'link' -%}
+            {%- liquid
+              assign pb_href = block.settings.link
+              assign pb_show_link = true
+              assign pb_link_note = ''
+              if block.settings.collection != blank
+                assign pb_href = block.settings.collection.url
+                if block.settings.collection.products_count < 1
+                  assign pb_href = ''
+                  assign pb_link_note = 'pb.page.preview_empty_collection' | t
+                endif
+              elsif block.settings.link == blank
+                assign pb_link_note = 'pb.page.preview_no_link' | t
+              endif
+              if block.settings.label == blank
+                assign pb_show_link = false
+              elsif pb_href == blank and request.design_mode == false
+                assign pb_show_link = false
+              endif
+            -%}
+            {%- if pb_show_link -%}
+              <div class="pb-page__block pb-page__block--link{% if pb_href == blank %} pb-page__block--preview{% endif %}" {{ block.shopify_attributes }}>
+                <a
+                  class="pb-text-cta pb-page__link"
+                  {% if pb_href != blank %}
+                    href="{{ pb_href }}"
+                  {% else %}
+                    role="link" aria-disabled="true"
+                  {% endif %}
+                >
+                  {{- block.settings.label | escape -}}
+                </a>
+                {%- if pb_href == blank and pb_link_note != blank -%}
+                  <p class="pb-page__preview-note">{{ pb_link_note }}</p>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+        {%- endcase -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+
+    {%- if pb_blocks != blank -%}
+      <div class="pb-page__blocks">{{ pb_blocks }}</div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.pb_page.name",
+  "tag": "section",
+  "class": "section",
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.pb_page.settings.paragraph.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_diamond",
+      "label": "t:sections.pb_page.settings.show_diamond.label",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "dateline",
+      "label": "t:sections.pb_page.settings.dateline.label",
+      "info": "t:sections.pb_page.settings.dateline.info"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "t:sections.pb_page.settings.width.label",
+      "options": [
+        {
+          "value": "narrow",
+          "label": "t:sections.pb_page.settings.width.options__1.label"
+        },
+        {
+          "value": "story",
+          "label": "t:sections.pb_page.settings.width.options__2.label"
+        },
+        {
+          "value": "normal",
+          "label": "t:sections.pb_page.settings.width.options__3.label"
+        }
+      ],
+      "default": "narrow"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 112
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 112
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "t:sections.pb_page.settings.padding_top_mobile.label",
+      "info": "t:sections.pb_page.settings.padding_mobile.info",
+      "default": 72
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "t:sections.pb_page.settings.padding_bottom_mobile.label",
+      "info": "t:sections.pb_page.settings.padding_mobile.info",
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "t:sections.pb_page.blocks.text.name",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "t:sections.pb_page.blocks.text.settings.paragraph.content"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "t:sections.pb_page.blocks.text.settings.heading.label"
+        },
+        {
+          "type": "select",
+          "id": "heading_style",
+          "label": "t:sections.pb_page.blocks.text.settings.heading_style.label",
+          "options": [
+            {
+              "value": "heading",
+              "label": "t:sections.pb_page.blocks.text.settings.heading_style.options__1.label"
+            },
+            {
+              "value": "eyebrow",
+              "label": "t:sections.pb_page.blocks.text.settings.heading_style.options__2.label"
+            }
+          ],
+          "default": "heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.pb_page.blocks.text.settings.text.label"
+        },
+        {
+          "type": "text",
+          "id": "anchor",
+          "label": "t:sections.pb_page.blocks.text.settings.anchor.label",
+          "info": "t:sections.pb_page.blocks.text.settings.anchor.info"
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "name": "t:sections.pb_page.blocks.html.name",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "t:sections.pb_page.blocks.text.settings.paragraph.content"
+        },
+        {
+          "type": "html",
+          "id": "html",
+          "label": "t:sections.pb_page.blocks.html.settings.html.label",
+          "info": "t:sections.pb_page.blocks.html.settings.html.info"
+        },
+        {
+          "type": "text",
+          "id": "anchor",
+          "label": "t:sections.pb_page.blocks.text.settings.anchor.label",
+          "info": "t:sections.pb_page.blocks.text.settings.anchor.info"
+        }
+      ]
+    },
+    {
+      "type": "link",
+      "name": "t:sections.pb_page.blocks.link.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "t:sections.pb_page.blocks.link.settings.label.label"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "t:sections.pb_page.blocks.link.settings.collection.label",
+          "info": "t:sections.pb_page.blocks.link.settings.collection.info"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.pb_page.blocks.link.settings.link.label",
+          "info": "t:sections.pb_page.blocks.link.settings.link.info"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.pb_page.presets.name"
+    }
+  ]
+}
+{% endschema %}

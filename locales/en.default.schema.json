@@ -1926,6 +1926,99 @@
     "main-page": {
       "name": "Page"
     },
+    "pb_page": {
+      "name": "PB · Page",
+      "settings": {
+        "paragraph": {
+          "content": "Centred head and reading-width body. The title and body come from the page in Shopify admin."
+        },
+        "show_diamond": {
+          "label": "Show diamond"
+        },
+        "dateline": {
+          "label": "Dateline",
+          "info": "Optional, under the title, e.g. Est. 2019 · Toronto. Shown in spaced capitals."
+        },
+        "width": {
+          "label": "Reading width",
+          "options__1": {
+            "label": "Editorial (720px)"
+          },
+          "options__2": {
+            "label": "Long-form story (680px)"
+          },
+          "options__3": {
+            "label": "Page width"
+          }
+        },
+        "padding_top_mobile": {
+          "label": "Top padding on mobile (px)"
+        },
+        "padding_bottom_mobile": {
+          "label": "Bottom padding on mobile (px)"
+        },
+        "padding_mobile": {
+          "info": "Under 750px. Leave blank to use 60% of the desktop value."
+        }
+      },
+      "blocks": {
+        "text": {
+          "name": "Text",
+          "settings": {
+            "paragraph": {
+              "content": "Shown after the page body. Text with a [bracketed placeholder] shows only in the theme editor, never on the storefront."
+            },
+            "heading": {
+              "label": "Heading"
+            },
+            "heading_style": {
+              "label": "Heading style",
+              "options__1": {
+                "label": "Heading"
+              },
+              "options__2": {
+                "label": "Eyebrow"
+              }
+            },
+            "text": {
+              "label": "Text"
+            },
+            "anchor": {
+              "label": "Anchor ID",
+              "info": "Optional. Links can jump here with #anchor-id, e.g. previous-orders."
+            }
+          }
+        },
+        "html": {
+          "name": "Table or HTML",
+          "settings": {
+            "html": {
+              "label": "HTML",
+              "info": "For a table, put the header row in thead with th cells. Wide tables scroll sideways on small screens."
+            }
+          }
+        },
+        "link": {
+          "name": "Link",
+          "settings": {
+            "label": {
+              "label": "Label"
+            },
+            "collection": {
+              "label": "Collection",
+              "info": "Optional. Links to this collection, and only shows once it has products."
+            },
+            "link": {
+              "label": "Link",
+              "info": "Used when no collection is chosen."
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "PB · Page"
+      }
+    },
     "main-password-footer": {
       "name": "Password footer"
     },
