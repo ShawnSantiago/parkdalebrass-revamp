@@ -65,8 +65,64 @@
         "button_label": "Jewelry care",
         "button_link": "/pages/jewelry-care",
         "padding_top": 112,
-        "padding_bottom": 112,
+        "padding_bottom": 0,
         "padding_top_mobile": 64,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "journal": {
+      "type": "pb-journal-picks",
+      "blocks": {
+        "article_material": {
+          "type": "article",
+          "settings": {
+            "article": "news/what-is-brass-jewelry-metal",
+            "tag_label": "Material",
+            "excerpt": "",
+            "show_image": false
+          }
+        },
+        "article_finishes": {
+          "type": "article",
+          "settings": {
+            "article": "news/gold-plated-brass-jewelry",
+            "tag_label": "Finishes",
+            "excerpt": "",
+            "show_image": false
+          }
+        }
+      },
+      "block_order": [
+        "article_material",
+        "article_finishes"
+      ],
+      "settings": {
+        "eyebrow": "The journal",
+        "heading": "Notes on brass",
+        "view_all_label": "All articles",
+        "blog": "",
+        "show_numerals": true,
+        "color_scheme": "scheme-1",
+        "padding_top": 128,
+        "padding_bottom": 112,
+        "padding_top_mobile": 72,
+        "padding_bottom_mobile": 72
+      }
+    },
+    "featured": {
+      "type": "pb-featured",
+      "settings": {
+        "mode": "collection",
+        "collection": "jewelry",
+        "products_to_show": 4,
+        "view_all_label": "View all jewelry",
+        "eyebrow": "Everyday essentials",
+        "heading": "The first collection",
+        "note": "",
+        "badge_label": "Concept",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 112,
         "padding_bottom_mobile": 72
       }
     }
@@ -74,6 +130,8 @@
   "order": [
     "main",
     "takeaway",
-    "care"
+    "care",
+    "journal",
+    "featured"
   ]
 }

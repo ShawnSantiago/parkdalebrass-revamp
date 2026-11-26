@@ -1028,44 +1028,9 @@ product-recommendations.related-products:not(.product-recommendations--loaded) {
   transform: rotate(45deg);
 }
 
-.related-products .card > .card__content {
-  padding: 0;
-}
-
-.related-products .card__information {
-  padding: clamp(0.8rem, calc(0.571vw + 0.577rem), 1.4rem) 0 0;
-}
-
-.related-products .card__heading {
-  margin: 0;
-}
-
-.related-products .card-information .price {
-  font-size: clamp(1.4rem, calc(0.095vw + 1.363rem), 1.5rem);
-  letter-spacing: normal;
-}
-
-@media screen and (min-width: 750px) {
-  /* The name and the gold price share a row. */
-  .related-products .card > .card__content .card__information {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: baseline;
-    justify-content: space-between;
-    column-gap: 1.2rem;
-  }
-
-  .related-products .card__information > .card__heading {
-    flex: 1 1 auto;
-    width: auto;
-    min-width: 0;
-  }
-
-  .related-products .card__information > .card-information {
-    flex: none;
-    width: auto;
-  }
-}
+/* The cards are snippets/pb-product-card.liquid (sections/related-products.liquid, PB: edit), styled by the
+   PB2:collection block in pb-theme.css with the 02 §2.2 values: gap 14, name 26 [20], gold price 15 [14],
+   descriptor -8. On mobile the card stacks the name, descriptor and price, as on Archive-Product-Mobile. */
 
 /* ---------- No reviews (D-13) ---------- */
 
