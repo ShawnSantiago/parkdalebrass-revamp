@@ -6,7 +6,8 @@
   Fields:
   - short_description: custom.short_description (multi-line), under the price
   - fit_notes: custom.fit_notes (multi-line), under the size picker
-  - materials: custom.material, custom.finish, custom.patina_notes, custom.origin ("Materials & finish" row)
+  - materials: custom.material, custom.finish, custom.patina_notes, custom.origin ("Materials & finish" row;
+    the origin reads "Made in <origin>")
   - dimensions: custom.dimensions, custom.fit_notes ("Dimensions & fit" row)
   - care: custom.care_instructions ("Care" row)
 
@@ -68,7 +69,7 @@
           </div>
         {%- endif -%}
         {%- if pb_origin != blank -%}
-          <div class="pb-specs__row">
+          <div class="pb-specs__row pb-specs__row--phrase">
             <dt>{{ 'pb.product.spec_origin' | t }}</dt>
             <dd>{{ pb_origin | escape }}</dd>
           </div>

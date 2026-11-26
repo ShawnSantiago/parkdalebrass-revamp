@@ -53,11 +53,12 @@
   endif
 -%}
 
-{%- comment -%} PB: pb-gallery classes for the Archive layout (D-23). {%- endcomment -%}
 <media-gallery
   id="MediaGallery-{{ section.id }}"
   role="region"
+  {% comment %} PB: pb-gallery classes for the Archive layout (D-23). {% endcomment %}
   class="{% if section.settings.enable_sticky_info %}product__column-sticky{% endif %}{% if pb_gallery %} pb-gallery{% if media_count > 1 %} pb-gallery--thumbs{% endif %}{% endif %}"
+  {% comment %} /PB {% endcomment %}
   aria-label="{{ 'products.product.media.gallery_viewer' | t }}"
   data-desktop-layout="{{ section.settings.gallery_layout }}"
 >
@@ -73,6 +74,7 @@
       {%- if media_count == 0 -%}
         <div class="pb-placeholder pb-gallery__placeholder">
           {{- 'product-1' | placeholder_svg_tag: 'pb-gallery__placeholder-svg' -}}
+          <p class="pb-placeholder__note pb-gallery__note">{{ 'pb.product.placeholder_caption' | t }}</p>
         </div>
       {%- endif -%}
     {%- endif -%}

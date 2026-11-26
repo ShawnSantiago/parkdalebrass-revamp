@@ -1,9 +1,11 @@
 {%- comment -%}
   Archive product page state for main-product (D-23). Snippets can't return values, so this prints words that
   main-product captures:
-  - field 'state' (default): "size" when the product has a Size option, then "start" when the page opens in
-    the "Select a size" state. That needs: the variant picker's "Start with no size selected" on, button pickers,
-    more than one size, no ?variant= in the URL (product.selected_variant is blank) and something in stock.
+  - field 'state' (default): "size" when the product has a Size option shown in the Archive button picker (so
+    the Size legend holds the size-guide link), then "start" when the page opens in the "Select a size" state.
+    That needs: the variant picker's "Start with no size selected" on, more than one size, no ?variant= in the
+    URL (product.selected_variant is blank) and something in stock. With a dropdown picker it prints nothing,
+    and the size-guide popup keeps its own link.
   - field 'guide': the ID of the popup block marked "Show in the Size legend", if any.
 
   Accepts:
@@ -29,9 +31,14 @@
         continue
       endif
 
-      echo 'size '
+      # The Size legend (and its size-guide link) only exists in the Archive button picker.
       assign pb_picker = blocks | where: 'type', 'variant_picker' | first
-      if pb_picker.settings.pb_size_start and pb_picker.settings.picker_type == 'button'
+      if pb_picker.settings.picker_type != 'button'
+        break
+      endif
+
+      echo 'size '
+      if pb_picker.settings.pb_size_start
         if pb_option.values.size > 1 and product.selected_variant == blank and product.available
           echo 'start'
         endif

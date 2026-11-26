@@ -30,7 +30,8 @@
       "spec_origin": "Made in",
       "editor_empty_tab": "[No content yet. This row stays hidden on the storefront until it has some.]",
       "editor_short_description": "[Short description: add it to the product's custom.short_description metafield. Hidden on the storefront until then.]",
-      "editor_fit_notes": "[Fit note: add it to the product's custom.fit_notes metafield. Hidden on the storefront until then.]"
+      "editor_fit_notes": "[Fit note: add it to the product's custom.fit_notes metafield. Hidden on the storefront until then.]",
+      "placeholder_caption": "Placeholder · Front / three-quarter view on dark ground"
     },
     "cart": {
       "title_with_count": "Your bag ({{ quantity }})",

@@ -3564,7 +3564,7 @@
         "popup": {
           "pb_size_legend": {
             "label": "Show in the Size legend",
-            "info": "Puts this link on the Size row. A product's custom.size_guide page replaces the page above."
+            "info": "Puts this link on the Size row when the variant picker uses buttons in the Archive layout; otherwise it stays here. A product's custom.size_guide page replaces the page above."
           }
         },
         "variant_picker": {

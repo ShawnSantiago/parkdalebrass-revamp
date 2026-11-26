@@ -145,6 +145,14 @@
   aspect-ratio: 4 / 5;
 }
 
+/* Caption chip on the framed placeholder (02 §3; Archive-Product: 16px in, 14px up). */
+.pb-gallery .pb-gallery__note {
+  inset-inline-start: 1.6rem;
+  bottom: 1.4rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
 .pb-gallery__placeholder-svg {
   width: 62%;
   height: auto;
@@ -186,6 +194,26 @@
 
 .pb-gallery .product__modal-opener:hover .product__media-icon {
   border-color: var(--pb-gold);
+}
+
+/*
+ * Keyboard focus on the main image (Dawn's lightbox opener). The frame clips Dawn's outer ring and the global
+ * outline lands on a 0x0 button, so the ring is drawn inside the image instead: 2px gold-pale, 3px in from the
+ * edge, on an onyx band (02 §1.4). Forced-colours mode keeps the outline.
+ */
+.pb-gallery .product__media-toggle::after {
+  inset: 0;
+}
+
+.pb-gallery .product__media-toggle:is(:focus-visible, .focused) {
+  outline: none !important;
+}
+
+.pb-gallery .product__media-toggle:is(:focus-visible, .focused)::after {
+  outline: 0.2rem solid var(--pb-gold-pale);
+  outline-offset: -0.5rem;
+  box-shadow: inset 0 0 0 0.3rem var(--pb-onyx);
+  border-radius: 0;
 }
 
 /* Thumbnails: 4:5 on onyx-raised, rule-strong border, gold when current (02 §6.1). */
@@ -734,6 +762,11 @@
   color: var(--pb-body);
 }
 
+/* Pickup availability belongs to a variant, so it waits until a size is chosen. */
+.pb-product:has([data-pb-select-size]) pickup-availability {
+  display: none;
+}
+
 .pb-product .product__info-container > .icon-with-text {
   margin-top: var(--pb-pdp-tight-gap);
   padding-top: 1.6rem;
@@ -828,6 +861,11 @@
 
 .pb-specs dt::after {
   content: ': ';
+}
+
+/* "Made in Canada" reads as one phrase (04 §2). */
+.pb-specs__row--phrase dt::after {
+  content: ' ';
 }
 
 /* ---------- Size-guide popup ---------- */
@@ -938,8 +976,9 @@
   padding-inline: 2rem;
 }
 
+/* The bar's own height plus the home-indicator inset it adds, so it never covers the end of the page. */
 body.pb-sticky-atc-visible {
-  padding-bottom: 7.3rem;
+  padding-bottom: calc(7.3rem + env(safe-area-inset-bottom));
 }
 
 /* ---------- "Wear it with" (02 §6.3) ---------- */

@@ -33,6 +33,7 @@
             <div class="cart-drawer__empty-content">
               {%- comment -%} PB: "bag" wording, as in "Your bag" (02 §6.5). {%- endcomment -%}
               <h2 class="cart__empty-text">{{ 'pb.cart.empty' | t }}</h2>
+              {%- comment -%} /PB {%- endcomment -%}
               <button
                 class="drawer__close"
                 type="button"
@@ -65,6 +66,7 @@
       <div class="drawer__header">
         {%- comment -%} PB: "Your bag (n)" (02 §6.5). {%- endcomment -%}
         <h2 class="drawer__heading">{{ 'pb.cart.title_with_count' | t: quantity: cart.item_count }}</h2>
+        {%- comment -%} /PB {%- endcomment -%}
         <button
           class="drawer__close"
           type="button"
@@ -378,6 +380,7 @@
                                   </span>
                                   {%- comment -%} PB: visible "Remove" text button (02 §6.5). {%- endcomment -%}
                                   <span class="pb-cart-remove__label">{{ 'pb.cart.remove' | t }}</span>
+                                  {%- comment -%} /PB {%- endcomment -%}
                                 </button>
                               </cart-remove-button>
                             </div>
@@ -534,6 +537,7 @@
           <div class="totals" role="status">
             {%- comment -%} PB: "Subtotal" (02 §6.5). {%- endcomment -%}
             <h2 class="totals__total">{{ 'pb.cart.subtotal' | t }}</h2>
+            {%- comment -%} /PB {%- endcomment -%}
             <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
           </div>
 

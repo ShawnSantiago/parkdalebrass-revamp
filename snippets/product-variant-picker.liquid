@@ -92,8 +92,8 @@
             pb_swatch: pb_swatch
           %}
         </fieldset>
-      {%- comment -%} /PB {%- endcomment -%}
       {%- elsif picker_type == 'swatch' -%}
+        {%- comment -%} /PB (Dawn's "if picker_type == 'swatch'" became this elsif) {%- endcomment -%}
         <fieldset class="js product-form__input product-form__input--swatch">
           <legend class="form__label">
             {{ option.name }}:
