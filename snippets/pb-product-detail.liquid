@@ -1,0 +1,91 @@
+{%- comment -%}
+  Product facts from the custom.* metafields (04 §2, D-09, D-18). Every field is merchant data and is escaped.
+  An empty field renders nothing, so its block or accordion row hides (02 §6.2). The facts are never inferred:
+  no material, origin or care text appears unless it is in the product's own metafields.
+
+  Fields:
+  - short_description: custom.short_description (multi-line), under the price
+  - fit_notes: custom.fit_notes (multi-line), under the size picker
+  - materials: custom.material, custom.finish, custom.patina_notes, custom.origin ("Materials & finish" row)
+  - dimensions: custom.dimensions, custom.fit_notes ("Dimensions & fit" row)
+  - care: custom.care_instructions ("Care" row)
+
+  In the theme editor an empty short description or fit note shows a bracketed note, so the block can still be
+  found and selected. The storefront never shows it.
+
+  Accepts:
+  - product: {Object} Product (required)
+  - field: {String} One of the fields above (required)
+
+  Usage:
+  {% render 'pb-product-detail', product: product, field: 'fit_notes' %}
+{%- endcomment -%}
+{%- liquid
+  assign pb_mf = product.metafields.custom
+  assign pb_material = pb_mf.material.value | strip
+  assign pb_finish = pb_mf.finish.value | strip
+  assign pb_patina = pb_mf.patina_notes.value | strip
+  assign pb_origin = pb_mf.origin.value | strip
+  assign pb_dimensions = pb_mf.dimensions.value | strip
+  assign pb_fit = pb_mf.fit_notes.value | strip
+  assign pb_care = pb_mf.care_instructions.value | strip
+  assign pb_short = pb_mf.short_description.value | strip
+-%}
+{%- case field -%}
+  {%- when 'short_description' -%}
+    {%- if pb_short != blank -%}
+      <p class="pb-product__short">{{ pb_short | escape | newline_to_br }}</p>
+    {%- elsif request.design_mode -%}
+      <p class="pb-product__short pb-editor-note">{{ 'pb.product.editor_short_description' | t }}</p>
+    {%- endif -%}
+
+  {%- when 'fit_notes' -%}
+    {%- if pb_fit != blank -%}
+      <p class="pb-product__fit">{{ pb_fit | escape | newline_to_br }}</p>
+    {%- elsif request.design_mode -%}
+      <p class="pb-product__fit pb-editor-note">{{ 'pb.product.editor_fit_notes' | t }}</p>
+    {%- endif -%}
+
+  {%- when 'materials' -%}
+    {%- if pb_material != blank or pb_finish != blank or pb_patina != blank or pb_origin != blank -%}
+      <dl class="pb-specs">
+        {%- if pb_material != blank -%}
+          <div class="pb-specs__row">
+            <dt>{{ 'pb.product.spec_material' | t }}</dt>
+            <dd>{{ pb_material | escape }}</dd>
+          </div>
+        {%- endif -%}
+        {%- if pb_finish != blank -%}
+          <div class="pb-specs__row">
+            <dt>{{ 'pb.product.spec_finish' | t }}</dt>
+            <dd>{{ pb_finish | escape }}</dd>
+          </div>
+        {%- endif -%}
+        {%- if pb_patina != blank -%}
+          <div class="pb-specs__row">
+            <dt>{{ 'pb.product.spec_patina' | t }}</dt>
+            <dd>{{ pb_patina | escape | newline_to_br }}</dd>
+          </div>
+        {%- endif -%}
+        {%- if pb_origin != blank -%}
+          <div class="pb-specs__row">
+            <dt>{{ 'pb.product.spec_origin' | t }}</dt>
+            <dd>{{ pb_origin | escape }}</dd>
+          </div>
+        {%- endif -%}
+      </dl>
+    {%- endif -%}
+
+  {%- when 'dimensions' -%}
+    {%- if pb_dimensions != blank -%}
+      <p>{{ pb_dimensions | escape | newline_to_br }}</p>
+    {%- endif -%}
+    {%- if pb_fit != blank -%}
+      <p>{{ pb_fit | escape | newline_to_br }}</p>
+    {%- endif -%}
+
+  {%- when 'care' -%}
+    {%- if pb_care != blank -%}
+      <p>{{ pb_care | escape | newline_to_br }}</p>
+    {%- endif -%}
+{%- endcase -%}

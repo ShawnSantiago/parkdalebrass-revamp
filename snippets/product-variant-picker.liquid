@@ -5,6 +5,11 @@
   - product: {Object} product object.
   - block: {Object} passing the block information.
   - product_form_id: {String} Id of the product form to which the variant picker is associated.
+  PB (all optional; main-product passes them in the Archive layout, D-23):
+  - pb_archive: {Boolean} Archive option buttons: "NAME: value" legends, a swatch beside the label, size notes.
+  - pb_size_start: {Boolean} Render the Size option with nothing selected ("Select a size").
+  - pb_size_guide_block: {Object} The popup block whose modal holds the size guide.
+  - pb_size_guide_page: {Object} The page that modal shows. The inline link only renders when there is one.
   Usage:
   {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 {% endcomment %}
@@ -25,16 +30,70 @@
       {%- liquid
         assign swatch_count = option.values | map: 'swatch' | compact | size
         assign picker_type = block.settings.picker_type
+        # PB: Archive buttons keep their label and show the swatch beside it (02 §2.5, D-23).
+        assign pb_swatch = false
 
         if swatch_count > 0 and block.settings.swatch_shape != 'none'
           if block.settings.picker_type == 'dropdown'
             assign picker_type = 'swatch_dropdown'
+          elsif pb_archive
+            assign pb_swatch = true
           else
             assign picker_type = 'swatch'
           endif
         endif
+
+        assign pb_is_size = false
+        if pb_archive
+          assign pb_option_handle = option.name | handleize
+          if pb_option_handle == 'size'
+            assign pb_is_size = true
+          endif
+        endif
+        # /PB
       -%}
-      {%- if picker_type == 'swatch' -%}
+      {%- comment -%}
+        PB: Archive option group. The legend reads "NAME: value", with the value in gold. On the Size option the
+        size-guide link sits in the legend row, right-aligned (Archive-Product); aria-labelledby keeps the group's
+        name to "Size: …" without the link text (D-23).
+      {%- endcomment -%}
+      {%- if pb_archive and picker_type == 'button' -%}
+        <fieldset
+          class="js product-form__input product-form__input--pill pb-option{% if pb_is_size %} pb-option--size{% else %} pb-option--choice{% endif %}"
+          aria-labelledby="PbOptionName-{{ section.id }}-{{ option.position }}"
+        >
+          <legend class="form__label pb-option__legend">
+            <span class="pb-option__name-line" id="PbOptionName-{{ section.id }}-{{ option.position }}">
+              {{- option.name | escape }}:
+              <span class="pb-option__value" data-selected-value>
+                {%- if pb_is_size and pb_size_start -%}
+                  {{- 'pb.product.select_size' | t -}}
+                {%- else -%}
+                  {{- option.selected_value | escape -}}
+                {%- endif -%}
+              </span>
+            </span>
+            {%- if pb_is_size and pb_size_guide_block != blank and pb_size_guide_page != blank -%}
+              <modal-opener class="pb-option__guide quick-add-hidden" data-modal="#PopupModal-{{ pb_size_guide_block.id }}">
+                <button type="button" class="pb-option__guide-button link" aria-haspopup="dialog">
+                  {{- pb_size_guide_block.settings.text | default: pb_size_guide_page.title | escape -}}
+                </button>
+              </modal-opener>
+            {%- endif -%}
+          </legend>
+          {% render 'product-variant-options',
+            product: product,
+            option: option,
+            block: block,
+            picker_type: picker_type,
+            pb_archive: true,
+            pb_is_size: pb_is_size,
+            pb_size_start: pb_size_start,
+            pb_swatch: pb_swatch
+          %}
+        </fieldset>
+      {%- comment -%} /PB {%- endcomment -%}
+      {%- elsif picker_type == 'swatch' -%}
         <fieldset class="js product-form__input product-form__input--swatch">
           <legend class="form__label">
             {{ option.name }}:

@@ -1,0 +1,51 @@
+{%- comment -%}
+  Product-page breadcrumb: Home > category > product (02 §6, Archive-Product and Archive-Product-Mobile).
+  The category is the collection the URL came through, when the product is in it. Otherwise it's the smallest
+  collection in the category menu that contains the product, so "Bracelets" wins over "All jewelry". With no
+  match the trail is Home > product. Never product.collections.first, which could be a legacy collection.
+  Renders snippets/pb-breadcrumbs.liquid.
+
+  Accepts:
+  - product: {Object} Product (required)
+  - show: {Boolean} Render at all (main-product passes its Archive layout setting)
+  - section_settings: {Object} main-product settings: pb_show_breadcrumbs, and pb_breadcrumb_menu, the link
+    list of category collections (e.g. shop-categories)
+  - schema: {Boolean} Pass false when the trail renders twice, so the JSON-LD appears once
+  - class: {String} Extra classes on the nav
+
+  Usage:
+  {% render 'pb-product-breadcrumbs', product: product, show: true, section_settings: section.settings %}
+{%- endcomment -%}
+{%- liquid
+  if show and section_settings.pb_show_breadcrumbs
+    assign menu = section_settings.pb_breadcrumb_menu
+    assign pb_crumb_collection = null
+
+    if collection != blank
+      for pb_product_collection in product.collections
+        if pb_product_collection.id == collection.id
+          assign pb_crumb_collection = collection
+          break
+        endif
+      endfor
+    endif
+
+    if pb_crumb_collection == null and menu != blank
+      for pb_link in menu.links
+        if pb_link.type != 'collection_link'
+          continue
+        endif
+        for pb_product_collection in product.collections
+          if pb_product_collection.id == pb_link.object.id
+            if pb_crumb_collection == null or pb_link.object.products_count < pb_crumb_collection.products_count
+              assign pb_crumb_collection = pb_link.object
+            endif
+            break
+          endif
+        endfor
+      endfor
+    endif
+
+    render 'pb-breadcrumbs', product: product, collection: pb_crumb_collection, schema: schema, class: class
+  endif
+-%}

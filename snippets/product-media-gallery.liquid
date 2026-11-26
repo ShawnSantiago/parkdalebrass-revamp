@@ -33,6 +33,17 @@
     assign hide_mobile_slider = true
   endif
 
+  # PB: Archive gallery (03 §5.6, D-23): left thumbnail column and a framed main image from 960px; on small
+  # screens the framed slider keeps its "1 / 4" counter and the thumbnails become indicator buttons.
+  assign pb_gallery = false
+  if section.settings.pb_archive and limit == null
+    assign pb_gallery = true
+    if media_count > 1 and single_media_visible_mobile != true
+      assign hide_mobile_slider = false
+    endif
+  endif
+  # /PB
+
   if section.settings.media_size == 'large'
     assign media_width = 0.65
   elsif section.settings.media_size == 'medium'
@@ -42,12 +53,11 @@
   endif
 -%}
 
+{%- comment -%} PB: pb-gallery classes for the Archive layout (D-23). {%- endcomment -%}
 <media-gallery
   id="MediaGallery-{{ section.id }}"
   role="region"
-  {% if section.settings.enable_sticky_info %}
-    class="product__column-sticky"
-  {% endif %}
+  class="{% if section.settings.enable_sticky_info %}product__column-sticky{% endif %}{% if pb_gallery %} pb-gallery{% if media_count > 1 %} pb-gallery--thumbs{% endif %}{% endif %}"
   aria-label="{{ 'products.product.media.gallery_viewer' | t }}"
   data-desktop-layout="{{ section.settings.gallery_layout }}"
 >
@@ -56,6 +66,17 @@
     <a class="skip-to-content-link button visually-hidden quick-add-hidden" href="#ProductInfo-{{ section.id }}">
       {{ 'accessibility.skip_to_product_info' | t }}
     </a>
+    {%- comment -%} PB: double frame around the main image and its counter (02 §1.5, §6.1). {%- endcomment -%}
+    {%- if pb_gallery -%}
+      <div class="pb-frame pb-gallery__frame">
+      <div class="pb-frame__inner pb-gallery__inner">
+      {%- if media_count == 0 -%}
+        <div class="pb-placeholder pb-gallery__placeholder">
+          {{- 'product-1' | placeholder_svg_tag: 'pb-gallery__placeholder-svg' -}}
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+    {%- comment -%} /PB {%- endcomment -%}
     <ul
       id="Slider-Gallery-{{ section.id }}"
       class="product__media-list contains-media grid grid--peek list-unstyled slider slider--mobile"
@@ -153,6 +174,12 @@
         </span>
       </button>
     </div>
+    {%- comment -%} PB: close the frame (D-23). {%- endcomment -%}
+    {%- if pb_gallery -%}
+      </div>
+      </div>
+    {%- endif -%}
+    {%- comment -%} /PB {%- endcomment -%}
   </slider-component>
   {%- if first_3d_model -%}
     <button

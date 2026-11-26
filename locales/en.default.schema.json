@@ -3514,6 +3514,66 @@
           "name": "PB · Split: our story"
         }
       }
+    },
+    "pb_product": {
+      "settings": {
+        "header": {
+          "content": "Archive layout"
+        },
+        "pb_archive": {
+          "label": "Use the Archive layout",
+          "info": "Left thumbnail column and framed main image, breadcrumb, Archive option buttons and the mobile add-to-bag bar."
+        },
+        "pb_show_breadcrumbs": {
+          "label": "Show breadcrumb"
+        },
+        "pb_breadcrumb_menu": {
+          "label": "Breadcrumb categories",
+          "info": "The trail names the smallest collection in this menu that contains the product."
+        },
+        "pb_padding_top_mobile": {
+          "label": "Top padding on mobile (px)",
+          "info": "Under 750px. Leave blank to use 75% of the top padding."
+        }
+      },
+      "blocks": {
+        "collapsible_tab": {
+          "pb_source": {
+            "label": "Content from",
+            "info": "Product fields come from the product's custom metafields. A row with no content is hidden.",
+            "options__1": {
+              "label": "Content and page below"
+            },
+            "options__2": {
+              "label": "Product description"
+            },
+            "options__3": {
+              "label": "Materials & finish (material, finish, patina notes, origin)"
+            },
+            "options__4": {
+              "label": "Dimensions & fit (dimensions, fit notes)"
+            },
+            "options__5": {
+              "label": "Care (care instructions)"
+            }
+          },
+          "pb_open": {
+            "label": "Open by default"
+          }
+        },
+        "popup": {
+          "pb_size_legend": {
+            "label": "Show in the Size legend",
+            "info": "Puts this link on the Size row. A product's custom.size_guide page replaces the page above."
+          }
+        },
+        "variant_picker": {
+          "pb_size_start": {
+            "label": "Start with no size selected",
+            "info": "Archive layout, buttons only. The button reads \"Select a size\" until a size is chosen. Links with ?variant= keep their size."
+          }
+        }
+      }
     }
   }
 }

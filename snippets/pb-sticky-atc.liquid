@@ -1,0 +1,47 @@
+{%- comment -%}
+  Mobile sticky add-to-bag bar (02 §6.4, 03 §4.10, D-22). Rendered by main-product in the Archive layout.
+  assets/pb-sticky-atc.js shows it under 750px only, once a purchasable variant is selected and the main
+  Add to bag button has scrolled out of view. It submits the main product form, so Dawn's cart logic, errors
+  and the cart drawer stay the single source of truth. It hides while the cart drawer is open or an error shows.
+  Styles: assets/section-pb-product.css.
+
+  Accepts:
+  - product: {Object} Product (required)
+  - section_id: {String} The main-product section ID (required)
+
+  Usage:
+  {% render 'pb-sticky-atc', product: product, section_id: section.id %}
+{%- endcomment -%}
+{%- liquid
+  assign pb_variant = product.selected_or_first_available_variant
+  assign pb_options = ''
+  unless product.has_only_default_variant
+    assign pb_options = pb_variant.options | join: ' · '
+  endunless
+  if settings.currency_code_enabled
+    assign pb_price = pb_variant.price | money_with_currency
+  else
+    assign pb_price = pb_variant.price | money
+  endif
+-%}
+<pb-sticky-atc
+  class="pb-sticky-atc"
+  role="region"
+  aria-label="{{ 'pb.sticky_atc.region' | t | escape }}"
+  data-section="{{ section_id }}"
+  aria-hidden="true"
+>
+  <div class="pb-sticky-atc__inner">
+    <p class="pb-sticky-atc__text">
+      <span class="pb-sticky-atc__name">{{ product.title | escape }}</span>
+      <span class="pb-sticky-atc__meta">
+        <span class="pb-sticky-atc__options" data-pb-sticky-options data-default-only="{{ product.has_only_default_variant }}">{{ pb_options | escape }}</span>
+        <span class="pb-sticky-atc__price" data-pb-sticky-price>{{ pb_price }}</span>
+      </span>
+    </p>
+    <button type="button" class="button button--primary pb-sticky-atc__button" tabindex="-1">
+      <span>{{ 'pb.sticky_atc.label' | t }}</span>
+    </button>
+  </div>
+</pb-sticky-atc>
+<script src="{{ 'pb-sticky-atc.js' | asset_url }}" defer="defer"></script>
