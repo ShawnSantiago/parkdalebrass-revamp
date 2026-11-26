@@ -101,16 +101,16 @@ The product page carries the most risk. Do the edits one at a time and retest af
 - **Done when:** each template renders with the centred diamond head, caps H1 and correct widths, and the size-guide tables are styled.
 
 ### 2.7 · SEO plumbing (03 §10)
-- `Organization` JSON-LD on the homepage. `sameAs` stays empty until the owner verifies the social URLs.
+- `Organization` JSON-LD: keep Dawn's in `sections/header.liquid` and make a `PB:` edit (D-29). Output only non-empty `sameAs` URLs (none until the owner verifies them), and set `url` to the shop's root. Don't add a second one in `layout/theme.liquid`.
 - Confirm Product JSON-LD comes only from real products, never from `pb-featured` concepts mode.
 - Don't change store-level titles or descriptions (E-11).
 
-### 2.8 · Craft carry-over (needs A-01)
-- With theme access, pull the live **Craft 14.0.0** theme into a **separate folder outside this repo**. Work through the carry-over checklist in `audit.md` §5:
-  - re-enable the needed app embeds (Klaviyo; Judge.me without jewelry widgets) in the **new** theme's settings;
-  - list any Craft custom code, each item recreated or dropped with a reason.
+### 2.8 · Craft carry-over
+- The live theme was pulled and audited on 2026-11-26: [`craft-audit.md`](craft-audit.md). Work through its carry-over checklist:
+  - Klaviyo is the only app embed to enable in the **new** theme now. Check its popups for pipe copy and discounts first. Judge.me core stays off until G-07 is decided, and no template gets a Judge.me block (D-13).
+  - EZ Preorder (D-26), Triple Whale (D-27), Sezzle, Yoast, Concierge, Inbox and Clarity stay off (`owner-inputs.md` G).
+  - App embed state is per theme. Pull the preview's `config/settings_data.json` and merge it key by key before pushing.
 - Don't copy Craft files into this repo.
-- Without A-01, skip this step and report it as blocked.
 
 ### 2.10 · Required fixes to two Dawn 16 bugs (D-25)
 Both bugs are in Shopify's stock code, and both were reproduced in review at `beee2c0`. Customers would hit them on this store. Make each fix a small, marked Dawn edit (`PB:` markers, CHANGELOG row) with a regression test.

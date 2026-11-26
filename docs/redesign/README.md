@@ -35,15 +35,16 @@ Agents also get these rules automatically from `AGENTS.md` / `CLAUDE.md` at the 
 | --- | --- |
 | **Confirmed (repo)** | The repo is stock **Dawn 16.0.0**: commit `258f00f`, default `config/settings_data.json`, no customisations, no cannabis, age-gate or app code. |
 | **Confirmed (public site)** | The live store sells legacy smoking accessories. It has blog articles `/blogs/news/what-is-brass-jewelry-metal` and `/blogs/news/gold-plated-brass-jewelry`, and localization is enabled. |
-| **Confirmed (public site audit)** | The live theme is **Craft 14.0.0** (not Dawn). The store is `parkdale-brass.myshopify.com`. Apps seen: Judge.me, Klaviyo, Microsoft Clarity, Spline, plus a `config-security.com` script. 12 products (no jewelry yet), 14 collections, 133 blog articles (30 jewelry). Details in `audit.md`. |
-| **Unknown** | Live theme custom code and app embeds, Admin data (drafts, metafields, redirects, markets), analytics. Needs owner access (A-01 to A-03). |
-| **Decided** | Base theme: **Dawn 16** (this repo), not the live Craft 14 (D-24). Carry over app embeds and settings from Craft per the `audit.md` §5 checklist. |
+| **Confirmed (public site audit)** | The live theme is **Craft 14.0.0** (not Dawn). The store is `parkdale-brass.myshopify.com`. Apps seen: Judge.me, Klaviyo, Microsoft Clarity, Spline, plus a `config-security.com` script (Triple Whale, D-27). 12 products (no jewelry yet), 14 collections, 133 blog articles (30 jewelry). Details in `audit.md`. |
+| **Confirmed (theme pull, 2026-11-26)** | Craft is near-stock: one merchant code edit (a hard-coded Microsoft Clarity tag) plus 9 app embeds: Judge.me, Klaviyo, EZ Preorder, Triple Whale, Sezzle (2), Yoast, Concierge, and Inbox (off). Details and the carry-over checklist: [`craft-audit.md`](craft-audit.md). |
+| **Unknown** | Admin data (drafts, metafields, redirects, markets, installed apps), analytics. Needs owner access (A-02, A-03). |
+| **Decided** | Base theme: **Dawn 16** (this repo), not the live Craft 14 (D-24). Carry over app embeds and settings from Craft per the checklist in [`craft-audit.md`](craft-audit.md). |
 | **Proposal** | Everything in `02-design-spec.md`: palette, type, layout and copy. |
 | **Owner decision** | Products, materials, prices, finishes, sizes, shipping, returns, logo, imagery, consent wording, legacy retirement. |
 
 ## Rules for any agent working from these docs
 
-1. **Audit before building.** The build stays on Dawn 16 in this repo (D-24). Pull the live Craft 14 theme with `shopify theme pull --path <folder outside this repo>`: the CLI defaults to the current directory, so always pass `--path`. Use it **for reference only**, to complete the carry-over checklist in `audit.md` §5. Never commit Craft files here, and don't remap the build onto Craft.
+1. **Audit before building.** The build stays on Dawn 16 in this repo (D-24). Pull the live Craft 14 theme with `shopify theme pull --path <folder outside this repo>`: the CLI defaults to the current directory, so always pass `--path`. Use it **for reference only**, to complete the carry-over checklist in `craft-audit.md` (done 2026-11-26). Never commit Craft files here, and don't remap the build onto Craft.
 2. **Never publish a theme or change shared store data** (products, collections, menus, metafield definitions, redirects, policies, sales channels, apps) without written owner approval. An unpublished theme doesn't isolate store-level data.
 3. **Never invent facts.** Missing material, size, price, shipping or care data stays as a visible `[bracketed placeholder]` in previews, and as a hidden block in the live theme.
 4. **No fake commerce.** No purchasable concept SKUs, fake prices, ratings, reviews, scarcity, discounts or preorders.

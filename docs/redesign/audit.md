@@ -1,12 +1,12 @@
 # Phase 0 audit
 
-**Status (2026-11-25): repository and public storefront audited. Live theme files, Shopify Admin and analytics not yet audited** (they need owner access: `owner-inputs.md` A-01 to A-03).
+**Status (2026-11-26): repository, public storefront and live theme files audited. Shopify Admin and analytics not yet audited** (they need owner access: `owner-inputs.md` A-02 and A-03).
 
 | Area | Status | Source |
 | --- | --- | --- |
 | Repository | **Audited** | This repo, commit `258f00f` |
 | Public storefront | **Audited** (read-only, 2026-11-25) | parkdalebrass.com: homepage, `/products.json`, `/collections.json`, sitemaps, robots.txt, blog, contact, legacy product pages, all 30 jewelry articles |
-| Live theme files and settings | **Not audited**. Needs A-01 (`shopify theme pull`). | n/a |
+| Live theme files and settings | **Audited** (read-only, 2026-11-26) | Craft 14.0.0 `168071168322`, pulled with the CLI into `../craft-reference` (outside the repo) and compared with stock Dawn 14. Full report: [`craft-audit.md`](craft-audit.md) |
 | Shopify Admin data | **Not audited**. Needs A-02. | n/a |
 | Search Console / analytics | **Not audited**. Needs A-03. | n/a |
 | Performance baseline | **Not captured**. Lighthouse isn't available here. | n/a |
@@ -19,12 +19,13 @@ Full URL list with a proposed first action for each: [`url-inventory.csv`](url-i
 
 1. **The live theme is not Dawn. It's Shopify's Craft 14.0.0** (`Shopify.theme`: name "Craft 14.0.0 | 24 - 05 - 13", `schema_name: Craft`, `schema_version: 14.0.0`, theme store ID 1368, role main). Craft is a free Shopify theme built on the same codebase as Dawn, with the same section and snippet names, a different default style, and a version two majors behind this repo's Dawn 16.0.0. **This triggers the re-check written into D-02.** See §5.
 2. **The store's admin domain is `parkdale-brass.myshopify.com`.** Currency CAD, locale `en`, country CA.
-3. **Third-party apps and scripts on the live site:**
+3. **Third-party apps and scripts on the live site** (confirmed from the theme files on 2026-11-26, [`craft-audit.md`](craft-audit.md)):
    - **Judge.me** product reviews, on the homepage and every page; 26 reviews shown on the homepage, 24 on the Brockton MK2;
    - **Klaviyo** email;
-   - **Microsoft Clarity** session analytics;
-   - `config-security.com` scripts, which look like an analytics or attribution pixel;
-   - a **Spline** 3D viewer on the Bellwoods product, loaded from unpkg.
+   - **Microsoft Clarity** session analytics, hard-coded in the live `layout/theme.liquid` (not an app embed);
+   - `config-security.com` scripts, loaded by the **Triple Whale** pixel embed (D-27);
+   - **EZ Preorder** (D-26), **Sezzle** instalments, **Yoast SEO** metatags and a **Concierge** shopping-guide chat, all as app embeds;
+   - a **Spline** 3D viewer in a homepage custom-liquid section, loaded from unpkg.
 
    These need carrying over, configuring or retiring deliberately (§4).
 4. **All the homepage copy is cannabis-focused**: "The Brass Standard in Cannabis Luxury.", the Bellwoods and Brockton MK2 feature sections, pipe reviews, and an origin story about "premium smokeware". The meta description is about smoking pipes.
@@ -56,7 +57,7 @@ Full URL list with a proposed first action for each: [`url-inventory.csv`](url-i
 ### Navigation and chrome
 - **Main menu:** Home (`/`), Shop → All (`/collections/all`), Pipes (`/collections/metal-smoking-pipes`), Apparel (`/collections/apparel`), Blog (`/blogs/news`), Contact (`/pages/contact-us`).
 - **Announcement bar:** none.
-- **Footer:** email signup ("Subscribe to our emails"), country/region selector, payment icons, and policy links (privacy, refund, shipping, terms, "Do not sell my personal information" `/pages/ccpa-opt-out`, "Sitemap" `/pages/sitemap`). There's also a "Created By Parkdale Digital" credit link and "Powered by Shopify".
+- **Footer:** payment icons and policy links (privacy, refund, shipping, terms, "Do not sell my personal information" `/pages/ccpa-opt-out`, "Sitemap" `/pages/sitemap`). There's also a "Created By Parkdale Digital" credit link and "Powered by Shopify". *Corrected 2026-11-26:* the email signup seen on the homepage ("Subscribe to our emails") is an `index.json` newsletter section, not the footer, and the live footer has its newsletter and country selector off ([`craft-audit.md`](craft-audit.md), Settings).
 - **SEO:** the title is just "Parkdale Brass". The meta description is pipe-focused. The canonical is correct (`https://parkdalebrass.com/`). JSON-LD: Organization, WebSite, SearchAction. **There's no `og:image` on the homepage.**
 - **robots.txt:** Shopify default; nothing custom.
 - The sitemap index has products, pages, collections, blogs, articles, plus Shopify's `sitemap_agentic_discovery.xml`.
@@ -99,13 +100,21 @@ No jewelry products are published. Product types are inconsistent (often blank),
 
 ## 4 · Apps and integrations to carry over or retire
 
-| App / script | Seen on | Proposed handling (owner decision) |
+Updated 2026-11-26 from the theme files. Evidence and the full table: [`craft-audit.md`](craft-audit.md). Open questions: `owner-inputs.md` section G.
+
+| App / script | How it loads | Handling in the new theme |
 | --- | --- | --- |
-| Judge.me reviews | Homepage carousel, product pages | Keep the app and the records. **Remove its widgets from jewelry pages** until genuine jewelry reviews exist (D-13). Never show the pipe review aggregate. |
-| Klaviyo | Site-wide | Keep. The newsletter form should feed Klaviyo or Shopify customers as the owner prefers. Check consent (D-03/D-04 in `owner-inputs.md`). |
-| Microsoft Clarity | Site-wide | Keep only if the owner still wants it and the consent banner covers it. It's a tracking vendor. |
-| `config-security.com` | Site-wide | **Identify it first** (Admin → Apps / Customer events). Keep or remove deliberately. |
-| Spline 3D viewer (via unpkg) | Bellwoods product | Legacy only. Not carried into the jewelry theme. |
+| Judge.me reviews | Core app embed (on); review blocks on the homepage and Brockton MK2 templates | Keep the app and the records. Add **no** Judge.me block to any template (D-13). Core embed stays off until G-07 is decided. Never show the pipe review aggregate. |
+| Klaviyo | App embed (on) | Carry over (D-24). Check its popups for pipe copy and discounts first. Consent wording is D-03. |
+| Microsoft Clarity | Hard-coded in the live `layout/theme.liquid`, no consent gate | Don't copy. Owner decision G-03. |
+| Triple Whale (`config-security.com`) | App embed (on) | Don't carry (D-27). |
+| EZ Preorder | App embed (on) | Don't carry (D-26). |
+| Sezzle | Two app embeds plus a product-page block | Off until G-04 is decided. |
+| Yoast SEO | Metatags app embed (on) | Off until G-05 is decided. |
+| Concierge Shopping Guide | Chat app embed (on) | Off until G-06 is decided. |
+| Shopify Inbox | App embed (off) | Stays off. |
+| Instant page builder | Generated `instant-*` sections and templates | Don't carry. Its two pages are G-10 and G-12. |
+| Spline 3D viewer (via unpkg) | Homepage custom-liquid | Legacy only. Not carried into the jewelry theme. |
 
 ---
 
@@ -128,30 +137,22 @@ The **theme pull (A-01) is still required**, to list what to carry over from Cra
 
 ### Carry-over checklist (Craft 14 → new Dawn 16 theme)
 
-Complete it after the pull. Each item is re-created in the Dawn theme, never copied as Craft code.
-
-- [ ] App embeds: Klaviyo (on), Judge.me (on, but no widgets on jewelry templates), Microsoft Clarity and `config-security.com` (only if the owner keeps them, behind consent)
-- [ ] Consent / cookie banner and privacy settings
-- [ ] **Bloggle app:** is it still installed, and does it need an app embed or blocks in the new theme? Its dedicated theme (`141930692930`, "NEVER DELETE") stays as it is.
-- [ ] Logo, favicon and social image (if kept; see B-04)
-- [ ] Contact form wiring and the contact page (`/pages/contact-us`)
-- [ ] Footer policy links, plus the CCPA opt-out page (`/pages/ccpa-opt-out`)
-- [ ] Localization (country selector, CAD)
-- [ ] Any custom Liquid, scripts or tracking found in Craft's `layout/theme.liquid`, `snippets/` or `settings_data.json`, each either recreated or dropped with a reason
-- [ ] Legacy-only items not carried over: the Spline viewer, homepage pipe sections, Judge.me homepage carousel
+The checklist is in [`craft-audit.md`](craft-audit.md) ("Carry-over checklist"), built from the theme pull on 2026-11-26. Each item is re-created in the Dawn theme, never copied as Craft code. It covers app embeds, tracking and consent, templates and legacy URLs, settings and branding, footer and localization, structured data, and preview pushes. The Bloggle theme (`141930692930`, "NEVER DELETE") stays as it is: Bloggle has no code in Craft, so only an Admin check is left (A-02).
 
 ---
 
 ## 6 · Still to audit (needs access)
 
-### Live theme (A-01)
-- [ ] `shopify theme pull --store parkdale-brass.myshopify.com --theme <live-id>` into a separate folder; diff against stock Craft 14.0.0
-- [ ] Custom code, app embeds (`settings_data.json` blocks with `shopify://apps/`), app blocks in templates
-- [ ] Logo, favicon, fonts and colours in use; the Spline and Judge.me integrations
+### Live theme (A-01): done 2026-11-26
+- [x] Pulled the live theme (`168071168322`) into `../craft-reference` and compared it with stock Dawn 14 (the Craft base)
+- [x] Custom code, app embeds (`settings_data.json` blocks with `shopify://apps/`), app blocks in templates
+- [x] Logo, favicon, fonts and colours in use; the Spline and Judge.me integrations
+
+Results: [`craft-audit.md`](craft-audit.md).
 
 ### Admin (A-02)
 - [ ] Products CSV (including drafts and unlisted), metafield definitions, menus, URL redirects, the `/pages/sitemap` page
-- [ ] Markets, shipping zones, apps list (identify `config-security.com`), pixels and Customer Events, consent banner
+- [ ] Markets, shipping zones, apps list (Instant, Bloggle, Sezzle, EZ Preorder, Concierge still installed?), pixels and Customer Events, consent banner. `config-security.com` is Triple Whale (D-27).
 - [ ] Sales channels per product (Online Store, Shop, Google, Meta, Etsy?)
 - [ ] Policies: current text copied for backup
 - [x] **Customer account mode:** **new** customer accounts (owner confirmed 2026-11-25), so no upgrade is needed. Originally checked because Dawn 16 removed the legacy account templates (E-13).
@@ -170,7 +171,10 @@ Complete it after the pull. Each item is re-created in the Dawn theme, never cop
 
 | Risk | Severity | Mitigation |
 | --- | --- | --- |
-| Live theme is Craft 14, the build is Dawn 16 (D-24). Custom code and app embeds would be lost if the Dawn build is published without carrying them over. | **High** | Theme pull (A-01); carry-over checklist in §5 completed before launch |
+| Live theme is Craft 14, the build is Dawn 16 (D-24). Custom code and app embeds would be lost if the Dawn build is published without carrying them over. | **High** | Theme pull done (A-01); the carry-over checklist in [`craft-audit.md`](craft-audit.md) is completed before launch |
+| The live store today promises "Shipping in summer 2024" on a purchasable product, and t-shirts can't be ordered by size (variant picker disabled) | **High** (live now) | Owner fixes both in the live theme editor (G-08, G-09) |
+| `/pages/page-2` serves unsourced "Verified 5-star reviews" and hidden AG1 endorsements; `/pages/reviews` shows pipe reviews | **High** (live now) | Unpublish both with a backup (G-10, G-11) |
+| Pages, products or articles assigned a Craft-only template suffix fall back to the new default templates at launch | Medium | List the assignments (A-02); unpublish or accept per URL before launch (E-08) |
 | Judge.me pipe reviews could appear on jewelry pages through app embeds or blocks | **High** | Remove the Judge.me blocks and embeds from jewelry templates; QA §2 |
 | Health claims in legacy cannabis articles, and two contradictory hypoallergenic claims in jewelry articles | **High** | Fix the two jewelry articles (E-07); review or retire the flagged legacy articles (url-inventory) |
 | 30 overlapping jewelry articles cannibalise each other and have weak title tags | Medium | Consolidate by cluster after the Search Console data; 301 within each cluster only |
