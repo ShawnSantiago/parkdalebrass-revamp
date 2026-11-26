@@ -120,12 +120,19 @@ D-02 ("build on Dawn 16") was approved on the condition that it's re-checked if 
 
 The **theme pull (A-01) is still required**, to list what to carry over from Craft.
 
+### Themes on the store (CLI `theme list`, 2026-11-26)
+
+17 themes: **live** Craft 14.0.0 | 24 - 05 - 13 (`168071168322`), the Archive Phase 1 preview (`196453663042`), and 15 older unpublished themes (Prestige 5.2, Origin, several Craft 12 / "STG" copies, a `parkdalebrasstheme/master - Backup`).
+
+**One is named "NEVER DELETE - Theme for Bloggle app" (`141930692930`).** That suggests the Bloggle blog app depends on it. Don't delete or alter it. Before launch, confirm in Admin → Apps whether Bloggle is still installed and what it needs from the new theme (add this to the carry-over list below). Cleaning up the old themes is the owner's call, and it isn't part of this project.
+
 ### Carry-over checklist (Craft 14 → new Dawn 16 theme)
 
 Complete it after the pull. Each item is re-created in the Dawn theme, never copied as Craft code.
 
 - [ ] App embeds: Klaviyo (on), Judge.me (on, but no widgets on jewelry templates), Microsoft Clarity and `config-security.com` (only if the owner keeps them, behind consent)
 - [ ] Consent / cookie banner and privacy settings
+- [ ] **Bloggle app:** is it still installed, and does it need an app embed or blocks in the new theme? Its dedicated theme (`141930692930`, "NEVER DELETE") stays as it is.
 - [ ] Logo, favicon and social image (if kept; see B-04)
 - [ ] Contact form wiring and the contact page (`/pages/contact-us`)
 - [ ] Footer policy links, plus the CCPA opt-out page (`/pages/ccpa-opt-out`)

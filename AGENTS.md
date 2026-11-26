@@ -31,6 +31,20 @@ Visual reference (private, ask the owner for access): https://claude.ai/artifact
 - Before you say work is done, run `shopify theme check` and the relevant parts of `05-qa-checklist.md`. Report what passed, what failed and what you didn't test.
 - When you make a decision that a later agent would need to know, add it to `decisions.md`. When you find something only the owner can answer, add it to `owner-inputs.md`.
 
+## Shopify CLI in the Parkdale Brass cloud environment
+
+The store's Theme Access password is saved as a **network secret** on the "Parkdale Brass" cloud environment, for `theme-kit-access.shopifyapps.com`. The proxy injects it into every request, so no session or file ever holds the real value. Run the CLI like this:
+
+```bash
+NODE_USE_ENV_PROXY=1 SHOPIFY_CLI_NO_ANALYTICS=1 npx --yes @shopify/cli@5.1.0 theme list --store parkdale-brass.myshopify.com --password shptka_proxyinjected
+```
+
+- `NODE_USE_ENV_PROXY=1` is required: without it, Node bypasses the session proxy and fails with `ENOTFOUND`.
+- `--password shptka_proxyinjected` is a placeholder. The `shptka_` prefix routes the CLI through Theme Access, and the proxy swaps in the real password. Never put a real token in a command, file or commit.
+- The CLI also tries `cdn.shopify.com` and `parkdale-brass.myshopify.com`, which this environment doesn't allow. `theme list` works without them. If `pull`, `push` or `dev` fails on one of those hosts, ask the owner to allow it rather than working around it.
+- The Theme Access password covers **themes only**. Menus, pages, products and other store data need Admin access, and approval per `owner-inputs.md` E.
+- Pull the live Craft theme only into a folder **outside** this repo: `--path ../craft-reference`. Never push to the live theme (`168071168322`), and never run `theme publish`.
+
 ## Current status
 
 - Phase 0 (audit): the repo and the public storefront are audited (`docs/redesign/audit.md`, `docs/redesign/url-inventory.csv`). **The live theme is Craft 14.0.0, not Dawn.** The owner chose to build on **Dawn 16 (this repo)** (D-24), carrying over app embeds and settings from Craft per the checklist in `audit.md` §5. Theme Access is verified (A-01). The Craft file comparison and Admin/SEO exports are still pending (A-02, A-03).

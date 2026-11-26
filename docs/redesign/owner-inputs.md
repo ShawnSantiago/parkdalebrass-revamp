@@ -11,7 +11,7 @@ The single list of everything waiting on the Parkdale Brass owner. Agents: **don
 
 | ID | Input | Why | Blocks | Status | Date / note |
 | --- | --- | --- | --- | --- | --- |
-| A-01 | Shopify CLI / theme access (staff or collaborator account with theme permissions) | Pull the live theme, create an unpublished dev theme | Phase 0 | Provided | 2026-11-25: Theme Access verified for the Parkdale Brass store. An unpublished Archive preview was created and served. The Craft carry-over audit is still pending. |
+| A-01 | Shopify CLI / theme access (staff or collaborator account with theme permissions) | Pull the live theme, create an unpublished dev theme | Phase 0 | Provided | 2026-11-25: Theme Access verified for the Parkdale Brass store. An unpublished Archive preview was created and served. 2026-11-26: the Theme Access password is saved as a network secret on the Parkdale Brass cloud environment, and `theme list` was verified (17 themes; live = Craft 14.0.0, ID 168071168322). Usage: `AGENTS.md` → Shopify CLI. The Craft carry-over audit is still pending. |
 | A-02 | Read-only Admin exports: products CSV, collections, menus (screenshots), metafield definitions, redirects CSV, markets and shipping zones, installed apps list | Audit | Phase 0 | Open | n/a |
 | A-03 | Search Console access or a 16-month export (queries, pages), plus the analytics landing-page report | URL inventory and redirect plan | Phase 0 | Open | n/a |
 | A-04 | Is a development store available for fixtures? (Yes/No) | Testing the PDP and collection without touching live data | Phase 2 | Open | n/a |
@@ -63,7 +63,7 @@ The single list of everything waiting on the Parkdale Brass owner. Agents: **don
 | E-01 | Create `custom.*` product metafield definitions | `04` §2 | Export the existing definitions list | Open | n/a |
 | E-02 | Create collections `jewelry`, `bracelets`, `necklaces` (`rings` later) | `04` §3 | n/a (additive) | Open | n/a |
 | E-03 | Create pages `our-story`, `why-brass`, `jewelry-care`, `size-guide` (after a handle-collision check) | `04` §3 | n/a (additive) | Open | n/a |
-| E-04 | Create new menus (old menus untouched) | `04` §3, D-07 | Screenshot the existing menus | Open | n/a |
+| E-04 | Create new menus (old menus untouched) | `04` §3, D-07 | Screenshot the existing menus | **Approved**, not yet applied | Project lead, 2026-11-26. Create `jewelry-main-menu`, `shop-categories`, `footer-shop`, `footer-learn` and `footer-help` exactly as in `04` §3. Leave `main-menu` and `footer` untouched. Rings links are added only once that collection has products. Needs Admin access (the Theme Access password can't create menus), so the owner creates them in Admin → Content → Menus, or provides an Admin token with navigation scope. Screenshot the existing menus first. |
 | E-05 | Add real jewelry products | `04` §2 | n/a (additive) | Open | n/a |
 | E-06 | Set Search & Discovery filters to Availability + Price | `03` §8 | Screenshot the current filters | Open | n/a |
 | E-07 | Update the jewelry blog articles (accuracy, internal links) | `04` §5 | Copy the HTML to `docs/redesign/backup/` | Open | n/a |
