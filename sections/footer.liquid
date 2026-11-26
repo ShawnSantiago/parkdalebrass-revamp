@@ -75,9 +75,11 @@
                   style="--animation-order: {{ forloop.index }};"
                 {% endif %}
               >
-                {%- if block.settings.heading != blank -%}
+                {%- comment -%} PB: link groups render their heading with the menu (D-22). {%- endcomment -%}
+                {%- if block.settings.heading != blank and block.type != 'link_list' -%}
                   <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
                 {%- endif -%}
+                {%- comment -%} /PB {%- endcomment -%}
 
                 {%- case block.type -%}
                   {%- when '@app' -%}
@@ -87,12 +89,14 @@
                       {{ block.settings.subtext }}
                     </div>
                   {%- when 'link_list' -%}
-                    {%- if block.settings.menu != blank -%}
+                    {%- comment -%} PB: native disclosures on mobile and static desktop navigation (D-22). {%- endcomment -%}
+                    {%- assign menu_heading = block.settings.heading | strip_html | default: block.settings.menu.title -%}
+                    {%- capture footer_menu_links -%}
                       <ul class="footer-block__details-content list-unstyled">
                         {%- for link in block.settings.menu.links -%}
                           <li>
                             <a
-                              href="{{ link.url }}"
+                              href="{{ link.url | escape }}"
                               class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
                             >
                               {{ link.title | escape }}
@@ -100,7 +104,23 @@
                           </li>
                         {%- endfor -%}
                       </ul>
+                    {%- endcapture -%}
+                    {%- if block.settings.menu.links.size > 0 -%}
+                      <div class="small-hide">
+                        <h2 class="footer-block__heading">{{ menu_heading | escape }}</h2>
+                        {{ footer_menu_links }}
+                      </div>
+                      <details class="pb-footer-acc medium-hide large-up-hide" id="Details-Footer-{{ block.id }}">
+                        <summary>
+                          <h2 class="footer-block__heading">{{ menu_heading | escape }}</h2>
+                          <span class="pb-footer-acc__marker" aria-hidden="true"></span>
+                        </summary>
+                        {{ footer_menu_links }}
+                      </details>
+                    {%- elsif menu_heading != blank -%}
+                      <h2 class="footer-block__heading">{{ menu_heading | escape }}</h2>
                     {%- endif -%}
+                    {%- comment -%} /PB {%- endcomment -%}
                   {%- when 'brand_information' -%}
                     <div class="footer-block__brand-info">
                       {%- if settings.brand_image != blank -%}
@@ -121,13 +141,24 @@
                               width: settings.brand_image_width
                           }}
                         </div>
+                      {%- else -%}
+                        {%- comment -%} PB: Archive wordmark when no brand image is configured (D-14, D-19). {%- endcomment -%}
+                        <a class="pb-footer-wordmark" href="{{ routes.root_url }}">
+                          <span class="pb-diamond pb-diamond--sm" aria-hidden="true"></span>
+                          {{- shop.name | escape -}}
+                        </a>
+                        {%- comment -%} /PB {%- endcomment -%}
                       {%- endif -%}
-                      {%- if settings.brand_headline != blank -%}
-                        <h2 class="footer-block__heading rte">{{ settings.brand_headline }}</h2>
-                      {%- endif -%}
-                      {%- if settings.brand_description != blank -%}
-                        <div class="rte">{{ settings.brand_description }}</div>
-                      {%- endif -%}
+                      {%- comment -%} PB: present the brand headline and description as one muted line. {%- endcomment -%}
+                      <div class="pb-footer-brand-copy">
+                        {%- if settings.brand_headline != blank -%}
+                          <span>{{ settings.brand_headline }}</span>
+                        {%- endif -%}
+                        {%- if settings.brand_description != blank -%}
+                          <div class="rte">{{ settings.brand_description }}</div>
+                        {%- endif -%}
+                      </div>
+                      {%- comment -%} /PB {%- endcomment -%}
                       {%- if block.settings.show_social and has_social_icons -%}
                         {%- render 'social-icons', class: 'footer__list-social' -%}
                       {%- endif -%}
@@ -256,7 +287,28 @@
       data-cascade
     {% endif %}
   >
+    {%- comment -%} PB: single bottom bar for policies, localisation and payments (D-19). {%- endcomment -%}
     <div class="footer__content-bottom-wrapper page-width">
+      <div class="footer__copyright caption">
+        <small class="copyright__content"
+          >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | escape | link_to: routes.root_url -}}
+        </small>
+        <small class="copyright__content">{{ powered_by_link }}</small>
+        {%- if section.settings.show_policy -%}
+          <ul class="policies list-unstyled">
+            {%- for policy in shop.policies -%}
+              {%- if policy != blank -%}
+                <li>
+                  <small class="copyright__content"
+                    ><a href="{{ policy.url | escape }}">{{ policy.title | escape }}</a></small
+                  >
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+      {%- comment -%} /PB {%- endcomment -%}
       <div class="footer__column footer__localization isolate">
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
           <localization-form>
@@ -297,29 +349,137 @@
         {%- endif -%}
       </div>
     </div>
-    <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
-      <div class="footer__copyright caption">
-        <small class="copyright__content"
-          >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
-        </small>
-        <small class="copyright__content">{{ powered_by_link }}</small>
-        {%- if section.settings.show_policy -%}
-          <ul class="policies list-unstyled">
-            {%- for policy in shop.policies -%}
-              {%- if policy != blank -%}
-                <li>
-                  <small class="copyright__content"
-                    ><a href="{{ policy.url }}">{{ policy.title | escape }}</a></small
-                  >
-                </li>
-              {%- endif -%}
-            {%- endfor -%}
-          </ul>
-        {%- endif -%}
-      </div>
-    </div>
   </div>
 </footer>
+
+{% stylesheet %}
+  /* PB: Archive footer, D-19 and D-22. */
+  footer.footer[class*="color-"] {
+    border-top: 1px solid var(--pb-gold-line);
+  }
+
+  .footer .footer-block__heading {
+    color: var(--pb-gold);
+    font: 600 1.1rem / 1.5 var(--font-body-family);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+
+  .pb-footer-wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.2rem;
+    color: var(--pb-ivory);
+    font: 600 2.1rem / 1.15 var(--pb-serif);
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .pb-footer-brand-copy {
+    margin-top: 1.4rem;
+    color: var(--pb-muted);
+  }
+
+  .pb-footer-brand-copy > span {
+    margin-inline-end: 0.25em;
+  }
+
+  .pb-footer-brand-copy .rte,
+  .pb-footer-brand-copy .rte > p:only-child {
+    display: inline;
+    color: inherit;
+  }
+
+  .footer .footer-block__details-content .list-menu__item--link {
+    color: var(--pb-ivory);
+    font-size: 1.4rem;
+  }
+
+  .footer .footer-block__details-content .list-menu__item--link:hover,
+  .footer .copyright__content a:hover {
+    color: var(--pb-gold);
+  }
+
+  .footer .footer__content-bottom {
+    border-top: 1px solid var(--pb-rule);
+    padding-top: 2rem;
+  }
+
+  .footer .footer__content-bottom-wrapper {
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 1.6rem 3.2rem;
+  }
+
+  .footer .footer__content-bottom-wrapper .footer__copyright {
+    flex: 1 1 24rem;
+    margin: 0;
+    text-align: start;
+    color: var(--pb-muted);
+  }
+
+  .footer .footer__column {
+    width: auto;
+    padding: 0;
+  }
+
+  .footer .localization-form__select {
+    background: var(--pb-onyx-raised);
+    border: 1px solid var(--pb-rule-strong);
+  }
+
+  @media (min-width: 750px) {
+    .footer .footer__blocks-wrapper {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr));
+    }
+
+    .footer .footer__blocks-wrapper > .footer-block {
+      width: auto;
+      max-width: none;
+    }
+  }
+
+  @media (max-width: 749px) {
+    footer.footer .footer__content-top {
+      padding-inline: 2rem;
+    }
+
+    .footer .footer-block.grid__item.footer-block--menu {
+      margin: 0;
+      border-top: 1px solid var(--pb-rule);
+    }
+
+    .pb-footer-acc summary,
+    .footer-block--menu > .footer-block__heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 5.2rem;
+    }
+
+    .pb-footer-acc .footer-block__heading,
+    .footer-block--menu > .footer-block__heading {
+      margin: 0;
+    }
+
+    .pb-footer-acc .footer-block__details-content {
+      margin: 0 0 1.6rem;
+    }
+
+    .pb-footer-acc__marker::before {
+      content: '+';
+      color: var(--pb-gold);
+    }
+
+    .pb-footer-acc[open] .pb-footer-acc__marker::before {
+      content: '−';
+    }
+  }
+  /* /PB */
+{% endstylesheet %}
 
 {% schema %}
 {
