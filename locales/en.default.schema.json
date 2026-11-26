@@ -1994,7 +1994,7 @@
           "settings": {
             "html": {
               "label": "HTML",
-              "info": "For a table, put the header row in thead with th cells. Wide tables scroll sideways on small screens."
+              "info": "For a table, put the header row in thead with th cells, and give it a caption (or a heading just before it): screen readers use it to name the table. Wide tables scroll sideways on small screens."
             }
           }
         },
@@ -2017,6 +2017,12 @@
       },
       "presets": {
         "name": "PB · Page"
+      },
+      "collapsible_content": {
+        "pb_hide_placeholders": {
+          "label": "Hide rows with [bracketed placeholders] on the storefront",
+          "info": "PB. A row whose heading or content contains [ shows only in the theme editor. Turn it off if a real row needs a [ character."
+        }
       }
     },
     "main-password-footer": {

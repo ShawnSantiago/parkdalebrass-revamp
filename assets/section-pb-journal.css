@@ -5,7 +5,8 @@
      diamond 18 [14], the H1 in caps at 54 [40], the date set as a dateline;
    - the journal card (02 §4.7, Archive-Home and -Mobile): a 1px gold top rule, padding-top 22 [16], the tag line
      (Inter 600 11, 0.28em, muted), the title (Cormorant 600 28 [22]) and the excerpt (15, muted); 3-up with a
-     40px gap, stacked with a 28px gap on mobile. Roman numerals stay on the homepage journal only (02 §1.5).
+     40px gap from 960px, stacked below it (28px gap on mobile, 40px from 750px), as pb-journal-picks and the
+     Archive-Home .ar-g3 grid. No roman numerals on the index (pending owner approval; see the track report).
    Article bodies use component-pb-prose.css. Values scale fluidly between 390 and 1440. */
 
 /* ---------- Shared head: diamond, caps H1 ---------- */
@@ -50,13 +51,27 @@
   margin-bottom: clamp(0.4rem, calc(0.1905vw + 0.3257rem), 0.6rem);
 }
 
+/* Dawn's padding setting stops at 100px, and Dawn uses 75% of it under 750px. With blog.json's 100/100, these
+   margins land the head and the end of the section on the content pages' 112 [72] (02 §1.3: 112–128 [64–72]). */
+.main-blog > .title--primary {
+  margin-top: -0.3rem;
+}
+
+#MainContent > .shopify-section:last-child .main-blog {
+  margin-bottom: -0.3rem;
+}
+
 @media screen and (min-width: 750px) {
-  /* Dawn's padding setting stops at 100px; the content pages start their head at 112px. */
   .main-blog > .title--primary {
     margin-top: 1.2rem;
   }
+
+  #MainContent > .shopify-section:last-child .main-blog {
+    margin-bottom: 1.2rem;
+  }
 }
 
+/* Stacked below 960px, 3-up from 960px (02 §1.3; Archive-Home .ar-g3 collapses at 960). */
 .main-blog .blog-articles:not(.blog-articles--collage) {
   grid-template-columns: minmax(0, 1fr);
   row-gap: 2.8rem;
@@ -64,15 +79,16 @@
 
 @media screen and (min-width: 750px) {
   .main-blog .blog-articles:not(.blog-articles--collage) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 4rem;
-    row-gap: 5.6rem;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 4rem;
   }
 }
 
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 960px) {
   .main-blog .blog-articles:not(.blog-articles--collage) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 4rem;
+    row-gap: 5.6rem;
   }
 }
 

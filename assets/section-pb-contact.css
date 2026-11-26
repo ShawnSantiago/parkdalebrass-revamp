@@ -1,59 +1,11 @@
 /* PB · Contact form: Archive restyle of Dawn's sections/contact-form.liquid (02 §2.4, §7). CSS only.
-   - Visible labels above the fields, Inter 500 12, 0.16em, caps, ivory (Archive-Foundations "Email address").
-   - Inputs 48px, padding 0 14, radius 2, Inter 16, onyx-raised with a 1px gold border.
+   - The field and label styles are shared with the article comment form: component-pb-field.css.
    - Errors in ivory with Dawn's icon; Dawn already links them (aria-describedby) and announces them (role="alert").
    - The column lines up with the pb-page head and body above it: 720px plus the page gutters. */
 
 .contact.page-width--narrow {
   max-width: calc(72rem + 2 * var(--pb-gutter));
   padding-inline: var(--pb-gutter);
-}
-
-.contact .field {
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-/* Dawn draws the border on .field::after around the whole field; the label now sits inside .field,
-   so the border moves onto the control itself. */
-.contact .field::before,
-.contact .field::after {
-  content: none;
-}
-
-.contact .field > .field__label,
-.contact .field > .field__input:is(:focus, :not(:placeholder-shown), :-webkit-autofill) ~ .field__label {
-  position: static;
-  order: -1;
-  margin: 0;
-  font-family: var(--font-body-family);
-  font-size: 1.2rem;
-  font-weight: 500;
-  line-height: 1.4;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--pb-ivory);
-  pointer-events: auto;
-}
-
-.contact .field > .field__input,
-.contact .field > .field__input:is(:focus, :not(:placeholder-shown), :-webkit-autofill) {
-  margin: 0;
-  padding: 0 1.4rem;
-  min-height: 4.8rem;
-  border: 1px solid var(--pb-gold);
-  border-radius: 2px;
-  background-color: var(--pb-onyx-raised);
-  color: var(--pb-ivory);
-  font-size: 1.6rem;
-  box-shadow: none;
-}
-
-.contact .field > .text-area,
-.contact .field > .text-area:is(:focus, :not(:placeholder-shown)) {
-  min-height: 16rem;
-  padding: 1.2rem 1.4rem;
-  line-height: 1.5;
 }
 
 .contact .field {
@@ -76,7 +28,6 @@
 
 /* Status and errors (02 §2.4): ivory text with the icon */
 .contact .form-status,
-.contact .form__message,
 .contact .form-status-list a {
   color: var(--pb-ivory);
 }
@@ -92,4 +43,16 @@
 
 .contact .contact__field-error {
   width: 100%;
+}
+
+/* The last section before the footer: Dawn's padding setting stops at 100px and uses 75% of it under 750px.
+   With page.contact.json's 100, this lands the end of the page on 112 [72] (02 §1.3: 112–128 [64–72]). */
+#MainContent > .shopify-section:last-child .contact {
+  margin-bottom: -0.3rem;
+}
+
+@media screen and (min-width: 750px) {
+  #MainContent > .shopify-section:last-child .contact {
+    margin-bottom: 1.2rem;
+  }
 }

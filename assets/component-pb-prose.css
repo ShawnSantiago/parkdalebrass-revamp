@@ -203,17 +203,10 @@
   font-size: 1.4rem;
 }
 
-/* Tables (size guide, 02 §7): gold header text, onyx-raised header row, --pb-rule row lines.
-   Cell padding, row lines and the 15px size come from the Phase 1 .rte table rules in pb-theme.css.
+/* Tables. The size-table look (02 §7: gold header text, onyx-raised header row, --pb-rule row lines) is global,
+   in the PB2:pages block of pb-theme.css, so the product page's size-guide popup matches the Size Guide page.
    pb-page wraps each table in .pb-page__table, which scrolls sideways if a table is wider than the column.
    Article tables have no wrapper, so they keep Dawn's fixed layout and wrap long words instead. */
-:is(.pb-prose, .article-template__content) table {
-  margin: 0 0 var(--pb-prose-gap);
-  border: 0;
-  line-height: 1.5;
-  font-variant-numeric: tabular-nums;
-}
-
 .article-template__content table {
   table-layout: fixed;
   overflow-wrap: anywhere;
@@ -221,40 +214,6 @@
 
 .pb-prose table {
   table-layout: auto;
-}
-
-:is(.pb-prose, .article-template__content) :is(th, td) {
-  vertical-align: top;
-}
-
-/* Row headers (a th in the body) are gold text; only the header row gets the onyx-raised band. */
-:is(.pb-prose, .article-template__content) th {
-  font-weight: 600;
-  color: var(--pb-gold);
-  background-color: transparent;
-}
-
-/* Header row: a thead, a first row of th cells, or (pasted legacy tables without th) bold cells in the first row. */
-:is(.pb-prose, .article-template__content) :is(
-  thead th,
-  thead td,
-  table:not(:has(thead)) > tbody:first-of-type > tr:first-child > th,
-  table:not(:has(thead, th)) > tbody:first-of-type > tr:first-child > td:has(> :is(strong, b):only-child)
-) {
-  background-color: var(--pb-onyx-raised);
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--pb-gold);
-  vertical-align: bottom;
-}
-
-:is(.pb-prose, .article-template__content) caption {
-  padding-bottom: 1rem;
-  font-size: 1.3rem;
-  text-align: start;
-  color: var(--pb-muted);
 }
 
 .pb-page__table {

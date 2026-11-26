@@ -1,0 +1,63 @@
+/* PB · Form fields (02 §2.4, Archive-Foundations "Email address"), for Dawn's .field markup in the contact form
+   (sections/contact-form.liquid) and the article comment form (sections/main-article.liquid). CSS only.
+   - A visible label above the control: Inter 500 12, 0.16em, caps, ivory, 6px above the control.
+   - Controls 48px, padding 0 14, radius 2, Inter 16, onyx-raised with a 1px gold border.
+   Dawn floats its label inside the field and draws the border on .field::after; here the label sits above
+   the control, so the border moves onto the control itself. Dawn already links errors (aria-describedby). */
+
+:is(.contact, .article-template__comment-wrapper) .field {
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+:is(.contact, .article-template__comment-wrapper) .field::before,
+:is(.contact, .article-template__comment-wrapper) .field::after {
+  content: none;
+}
+
+:is(.contact, .article-template__comment-wrapper) .field > .field__label,
+:is(.contact, .article-template__comment-wrapper)
+  .field
+  > .field__input:is(:focus, :not(:placeholder-shown), :-webkit-autofill)
+  ~ .field__label {
+  position: static;
+  order: -1;
+  margin: 0;
+  font-family: var(--font-body-family);
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pb-ivory);
+  pointer-events: auto;
+}
+
+:is(.contact, .article-template__comment-wrapper) .field > .field__input,
+:is(.contact, .article-template__comment-wrapper)
+  .field
+  > .field__input:is(:focus, :not(:placeholder-shown), :-webkit-autofill) {
+  /* Dawn grows the control to fill the field; in a column it would stretch when the field beside it shows an error. */
+  flex: none;
+  margin: 0;
+  padding: 0 1.4rem;
+  min-height: 4.8rem;
+  border: 1px solid var(--pb-gold);
+  border-radius: 2px;
+  background-color: var(--pb-onyx-raised);
+  color: var(--pb-ivory);
+  font-size: 1.6rem;
+  box-shadow: none;
+}
+
+:is(.contact, .article-template__comment-wrapper) .field > .text-area,
+:is(.contact, .article-template__comment-wrapper) .field > .text-area:is(:focus, :not(:placeholder-shown)) {
+  min-height: 16rem;
+  padding: 1.2rem 1.4rem;
+  line-height: 1.5;
+}
+
+/* Field errors: ivory text with Dawn's icon (02 §2.4) */
+:is(.contact, .article-template__comment-wrapper) .form__message {
+  color: var(--pb-ivory);
+}

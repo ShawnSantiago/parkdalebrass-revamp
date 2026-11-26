@@ -19,6 +19,9 @@
     "newsletter": {
       "success": "Thanks. You're on the list."
     },
+    "blog": {
+      "articles": "Articles"
+    },
     "page": {
       "table_label": "Table {{ index }}",
       "empty_body": "Page body: write it in Shopify admin under Online Store > Pages.",

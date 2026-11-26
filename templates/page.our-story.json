@@ -3,6 +3,15 @@
     "main": {
       "type": "pb-page",
       "blocks": {
+        "story_outline": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "heading_style": "heading",
+            "text": "<p>[Page body: the owner-approved brand story, written in the page in Shopify admin. Draft for approval from 04 §1, shown here as a preview only:]</p><p>Parkdale Brass began in 2019 in Toronto's Parkdale neighbourhood with an appreciation for brass and the industrial design of everyday objects. Today, we're taking that same interest in form, function and character into jewelry. Our next chapter is about pieces that feel personal, with warm tones, considered shapes and a style that doesn't need to shout.</p><p>[Est. 2019 refers to the brand, not the jewelry line. No invented manufacturing history.]</p>",
+            "anchor": ""
+          }
+        },
         "shop": {
           "type": "link",
           "settings": {
@@ -13,6 +22,7 @@
         }
       },
       "block_order": [
+        "story_outline",
         "shop"
       ],
       "settings": {

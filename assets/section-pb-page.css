@@ -143,4 +143,13 @@
   .pb-page__block--preview {
     outline-offset: 0.6rem;
   }
+
+  /* Eyebrow 12 [11] (02 §1.2), as .pb-eyebrow in pb-theme.css; on green it stays 12. */
+  .pb-page__block-heading.pb-eyebrow {
+    font-size: 1.1rem;
+  }
+
+  .color-scheme-3 .pb-page__block-heading.pb-eyebrow {
+    font-size: 1.2rem;
+  }
 }
