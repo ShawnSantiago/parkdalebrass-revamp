@@ -15,14 +15,11 @@ customElements.define('cart-remove-button', CartRemoveButton);
 class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement) {
   constructor() {
     super();
-    this.lineItemStatusElement =
-      document.getElementById('shopping-cart-line-item-status') || document.getElementById('CartDrawer-LineItemStatus');
-
-    const debouncedOnChange = debounce((event) => {
-      this.onChange(event);
-    }, ON_CHANGE_DEBOUNCE_TIMER);
-
-    this.addEventListener('change', debouncedOnChange.bind(this));
+    /* PB: capture quantity changes before another line's section render (D-25). */
+    this.addEventListener('change', (event) => {
+      if (event.target.matches('.quantity__input')) this.validateQuantity(event);
+    });
+    /* /PB */
   }
 
   cartUpdateUnsubscriber = undefined;
@@ -64,18 +61,16 @@ class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement
     }
   }
 
-  resetQuantityInput(id) {
-    const input = this.querySelector(`#Quantity-${id}`);
-    input.value = input.getAttribute('value');
-    this.isEnterPressed = false;
-  }
-
-  setValidity(event, index, message) {
+  /* PB: use the originating input for both the page and drawer (D-25). */
+  setValidity(event, message) {
     event.target.setCustomValidity(message);
     event.target.reportValidity();
-    this.resetQuantityInput(index);
+    const pending = CartItems.pendingQuantities.get(event.target.dataset.quantityLineKey);
+    event.target.value = pending?.quantity ?? event.target.defaultValue;
     event.target.select();
   }
+
+  /* /PB */
 
   validateQuantity(event) {
     const inputValue = parseInt(event.target.value);
@@ -91,7 +86,7 @@ class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement
     }
 
     if (message) {
-      this.setValidity(event, index, message);
+      this.setValidity(event, message);
     } else {
       event.target.setCustomValidity('');
       event.target.reportValidity();
@@ -103,10 +98,6 @@ class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement
         event.target.dataset.quantityVariantId
       );
     }
-  }
-
-  onChange(event) {
-    this.validateQuantity(event);
   }
 
   onCartUpdate() {
@@ -160,35 +151,83 @@ class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement
       },
       {
         id: 'main-cart-footer',
-        section: document.getElementById('main-cart-footer').dataset.id,
+        section: document.getElementById('main-cart-footer')?.dataset.id,
         selector: '.js-contents',
       },
     ];
   }
 
-  updateQuantity(line, quantity, event, name, variantId) {
-    const eventTarget = event.currentTarget instanceof CartRemoveButton ? 'clear' : 'change';
-    const cartPerformanceUpdateMarker = CartPerformance.createStartingMarker(`${eventTarget}:user-action`);
+  /* PB: coalesce edits to each line, then serialize cart mutations across the page and drawer (D-25). */
+  static pendingQuantities = new Map();
+  static quantityRequest = Promise.resolve();
 
+  updateQuantity(line, quantity, event, name, variantId) {
+    const input = this.querySelector(`#Quantity-${line}, #Drawer-quantity-${line}`);
+    if (!input) return;
+    const lineKey = input.dataset.quantityLineKey;
+    const key = lineKey || input; // Older cached markup may lack a key.
+    const action = event.currentTarget instanceof CartRemoveButton ? 'clear' : 'change';
+    const change = { quantity };
+    clearTimeout(CartItems.pendingQuantities.get(key)?.timer);
+    CartItems.pendingQuantities.set(key, change);
+
+    const enqueue = () => {
+      CartItems.quantityRequest = CartItems.quantityRequest.then(async () => {
+        if (CartItems.pendingQuantities.get(key) !== change) return;
+        try {
+          // Drawer section replacement installs a new CartDrawerItems instance.
+          const cart = this.isConnected ? this : document.querySelector(this.localName);
+          if (!cart) return;
+          const current = lineKey
+            ? cart.querySelector(`[data-quantity-line-key="${CSS.escape(lineKey)}"]`)
+            : input.isConnected && input;
+          if (current) {
+            await cart.changeQuantity(current, quantity, action, name, variantId);
+          } else if (quantity !== 0 || !lineKey) {
+            cart.showQuantityError();
+          }
+        } finally {
+          if (CartItems.pendingQuantities.get(key) === change) CartItems.pendingQuantities.delete(key);
+        }
+      }).catch(console.error);
+    };
+
+    if (action === 'clear') enqueue();
+    else change.timer = setTimeout(enqueue, ON_CHANGE_DEBOUNCE_TIMER);
+  }
+
+  showQuantityError() {
+    const errors = document.getElementById(this.localName === 'cart-items' ? 'cart-errors' : 'CartDrawer-CartErrors');
+    if (errors) errors.textContent = window.cartStrings.error;
+  }
+
+  changeQuantity(quantityInput, quantity, eventTarget, name, variantId) {
+    const line = quantityInput.dataset.index;
+    const lineKey = quantityInput.dataset.quantityLineKey;
+    const cartPerformanceUpdateMarker = CartPerformance.createStartingMarker(`${eventTarget}:user-action`);
     this.enableLoading(line);
 
     const action = quantity === 0 ? 'remove' : 'update';
-    const quantityInput = this.querySelector(`#Quantity-${line}`) || this.querySelector(`#Drawer-quantity-${line}`);
-    const lineVariantId = variantId || quantityInput?.dataset.quantityVariantId;
-    const lineKey = quantityInput?.dataset.quantityLineKey;
+    const lineVariantId = variantId || quantityInput.dataset.quantityVariantId;
     const linesUpdateDeferred = this.createCartLinesUpdateEvent(action, lineVariantId, quantity, lineKey);
 
-    // Cache sections before the fetch so we read dataset.id while elements still exist in the DOM
-    const sectionsToRender = this.getSectionsToRender();
-
+    // Both views may be mounted on /cart. Their combined, deduplicated list is at most five Shopify sections.
+    const cartViews = document.querySelectorAll('cart-items, cart-drawer-items');
+    const sections = new Map();
+    for (const cart of cartViews) {
+      for (const section of cart.getSectionsToRender()) {
+        if (section.section) sections.set(section.id, section);
+      }
+    }
+    const sectionsToRender = [...sections.values()];
     const body = JSON.stringify({
-      line,
+      ...(lineKey ? { id: lineKey } : { line }),
       quantity,
       sections: sectionsToRender.map((section) => section.section),
       sections_url: window.location.pathname,
     });
 
-    fetch(`${routes.cart_change_url}`, { ...fetchConfig(), ...{ body } })
+    return fetch(`${routes.cart_change_url}`, { ...fetchConfig(), ...{ body } })
       .then((response) => {
         return response.text();
       })
@@ -203,17 +242,14 @@ class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement
         }
 
         CartPerformance.measure(`${eventTarget}:paint-updated-sections`, () => {
-          const quantityElement =
-            document.getElementById(`Quantity-${line}`) || document.getElementById(`Drawer-quantity-${line}`);
-          const items = document.querySelectorAll('.cart-item');
-
           if (parsedState.errors) {
-            quantityElement.value = quantityElement.getAttribute('value');
+            const pending = CartItems.pendingQuantities.get(lineKey || quantityInput);
+            if (pending?.quantity === quantity) quantityInput.value = quantityInput.defaultValue;
             this.updateLiveRegions(line, parsedState.errors);
             return;
           }
 
-          this.classList.toggle('is-empty', parsedState.item_count === 0);
+          for (const cart of cartViews) cart.classList.toggle('is-empty', parsedState.item_count === 0);
           const cartDrawerWrapper = document.querySelector('cart-drawer');
           const cartFooter = document.getElementById('main-cart-footer');
 
@@ -229,36 +265,45 @@ class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement
               section.selector
             );
           });
-          const updatedValue = parsedState.items[line - 1] ? parsedState.items[line - 1].quantity : undefined;
-          let message = '';
-          if (items.length === parsedState.items.length && updatedValue !== parseInt(quantityElement.value)) {
-            if (typeof updatedValue === 'undefined') {
-              message = window.cartStrings.error;
-            } else {
-              message = window.cartStrings.quantityError.replace('[quantity]', updatedValue);
+          // Keep unsent input visible when an earlier response has just replaced its row.
+          for (const input of document.querySelectorAll('[data-quantity-line-key]')) {
+            const pending = CartItems.pendingQuantities.get(input.dataset.quantityLineKey);
+            if (pending && (input.dataset.quantityLineKey !== lineKey || pending.quantity !== quantity)) {
+              input.value = pending.quantity;
             }
+          }
+
+          // Shopify can re-key a line when a quantity change alters its discount.
+          const updatedItem = parsedState.items.find((item) => item.key === lineKey) ?? parsedState.items[line - 1];
+          const updatedValue = updatedItem?.quantity;
+          let message = '';
+          if (quantity !== 0 && updatedValue !== quantity) {
+            message = updatedValue === undefined
+              ? window.cartStrings.error
+              : window.cartStrings.quantityError.replace('[quantity]', updatedValue);
           }
           this.updateLiveRegions(line, message);
 
-          const lineItem =
-            document.getElementById(`CartItem-${line}`) || document.getElementById(`CartDrawer-Item-${line}`);
-          if (lineItem && lineItem.querySelector(`[name="${name}"]`)) {
-            cartDrawerWrapper
-              ? trapFocus(cartDrawerWrapper, lineItem.querySelector(`[name="${name}"]`))
-              : lineItem.querySelector(`[name="${name}"]`).focus();
-          } else if (parsedState.item_count === 0 && cartDrawerWrapper?.querySelector('.drawer__inner-empty')) {
+          const isDrawer = this.localName === 'cart-drawer-items';
+          const lineItem = document.getElementById(`${isDrawer ? 'CartDrawer-Item' : 'CartItem'}-${line}`);
+          const focusTarget = name && lineItem?.querySelector(`[name="${CSS.escape(name)}"]`);
+          if (focusTarget) {
+            if (isDrawer) trapFocus(cartDrawerWrapper, focusTarget);
+            else focusTarget.focus();
+          } else if (isDrawer && parsedState.item_count === 0 && cartDrawerWrapper?.querySelector('.drawer__inner-empty')) {
             trapFocus(cartDrawerWrapper.querySelector('.drawer__inner-empty'), cartDrawerWrapper.querySelector('a'));
-          } else if (document.querySelector('.cart-item') && cartDrawerWrapper) {
-            trapFocus(cartDrawerWrapper, document.querySelector('.cart-item__name'));
+          } else if (isDrawer && cartDrawerWrapper?.querySelector('.cart-item__name')) {
+            trapFocus(cartDrawerWrapper, cartDrawerWrapper.querySelector('.cart-item__name'));
           }
         });
 
-        publish(PUB_SUB_EVENTS.cartUpdate, { source: 'cart-items', cartData: parsedState, variantId: variantId });
+        if (!parsedState.errors) {
+          publish(PUB_SUB_EVENTS.cartUpdate, { source: 'cart-items', cartData: parsedState, variantId });
+        }
       })
       .catch((e) => {
         this.querySelectorAll('.loading__spinner').forEach((overlay) => overlay.classList.add('hidden'));
-        const errors = document.getElementById('cart-errors') || document.getElementById('CartDrawer-CartErrors');
-        if (errors) errors.textContent = window.cartStrings.error;
+        this.showQuantityError();
         this.dispatchCartErrorEvent(window.cartStrings.error, 'SERVICE_UNAVAILABLE');
         linesUpdateDeferred?.reject(e);
       })
@@ -267,6 +312,8 @@ class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement
         CartPerformance.measureFromMarker(`${eventTarget}:user-action`, cartPerformanceUpdateMarker);
       });
   }
+
+  /* /PB */
 
   createCartLinesUpdateEvent(action, variantId, quantity, lineKey) {
     const { CartLinesUpdateEvent } = window.StandardEvents || {};
@@ -302,14 +349,15 @@ class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement
   }
 
   updateLiveRegions(line, message) {
-    const lineItemError =
-      document.getElementById(`Line-item-error-${line}`) || document.getElementById(`CartDrawer-LineItemError-${line}`);
+    /* PB: use the active cart view's live regions after section replacement (D-25). */
+    const isDrawer = this.localName === 'cart-drawer-items';
+    const lineItemError = document.getElementById(`${isDrawer ? 'CartDrawer-LineItemError' : 'Line-item-error'}-${line}`);
     if (lineItemError) lineItemError.querySelector('.cart-item__error-text').textContent = message;
 
     this.lineItemStatusElement.setAttribute('aria-hidden', true);
 
-    const cartStatus =
-      document.getElementById('cart-live-region-text') || document.getElementById('CartDrawer-LiveRegionText');
+    const cartStatus = document.getElementById(isDrawer ? 'CartDrawer-LiveRegionText' : 'cart-live-region-text');
+    /* /PB */
     cartStatus.setAttribute('aria-hidden', false);
 
     setTimeout(() => {
@@ -321,9 +369,17 @@ class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement
     return new DOMParser().parseFromString(html, 'text/html').querySelector(selector).innerHTML;
   }
 
+  /* PB: loading state belongs to the initiating cart view (D-25). */
+  get lineItemStatusElement() {
+    return document.getElementById(this.localName === 'cart-items' ? 'shopping-cart-line-item-status' : 'CartDrawer-LineItemStatus');
+  }
+
+  get itemsContainer() {
+    return document.getElementById(this.localName === 'cart-items' ? 'main-cart-items' : 'CartDrawer-CartItems');
+  }
+
   enableLoading(line) {
-    const mainCartItems = document.getElementById('main-cart-items') || document.getElementById('CartDrawer-CartItems');
-    mainCartItems.classList.add('cart__items--disabled');
+    this.itemsContainer.classList.add('cart__items--disabled');
 
     const cartItemElements = this.querySelectorAll(`#CartItem-${line} .loading__spinner`);
     const cartDrawerItemElements = this.querySelectorAll(`#CartDrawer-Item-${line} .loading__spinner`);
@@ -335,8 +391,7 @@ class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement
   }
 
   disableLoading(line) {
-    const mainCartItems = document.getElementById('main-cart-items') || document.getElementById('CartDrawer-CartItems');
-    mainCartItems.classList.remove('cart__items--disabled');
+    this.itemsContainer.classList.remove('cart__items--disabled');
 
     const cartItemElements = this.querySelectorAll(`#CartItem-${line} .loading__spinner`);
     const cartDrawerItemElements = this.querySelectorAll(`#CartDrawer-Item-${line} .loading__spinner`);
@@ -344,6 +399,7 @@ class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement
     cartItemElements.forEach((overlay) => overlay.classList.add('hidden'));
     cartDrawerItemElements.forEach((overlay) => overlay.classList.add('hidden'));
   }
+  /* /PB */
 }
 
 customElements.define('cart-items', CartItems);
