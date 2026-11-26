@@ -59,7 +59,7 @@ Build it first, because the homepage, Our Story and Why Brass all use it.
 3. `pb-featured` (03 §4.3): **both modes**. In concepts mode: no price element, no product link, no Product JSON-LD.
 4. `pb-editorial-banner` (03 §4.4), with the ornament divider after it.
 5. `pb-journal-picks` (03 §4.5): pick `what-is-brass-jewelry-metal` and `gold-plated-brass-jewelry`. The care article doesn't exist yet, so leave the third block empty; the section must skip it cleanly. **Don't feature `is-brass-good-for-jewelry` or `does-brass-jewelry-tarnish`.** They contain hypoallergenic claims awaiting correction (audit §1.7).
-6. `pb-newsletter` (03 §4.6): Dawn's customer form, `id="signup"`, green double frame. **Leave the consent setting empty**; the owner must supply the wording (owner-inputs D-03). Note that in your report.
+6. `pb-newsletter` (03 §4.6): Dawn's customer form, `id="signup"`, green double frame. Once this section is in the homepage template, set the announcement link to `#signup` and test it from a product page. **Leave the consent setting empty**; the owner must supply the wording (owner-inputs D-03). Note that in your report.
 
 Then compose **`templates/index.json`** (03 §9, prelaunch). Also save `templates/index.live.json.txt` with the live configuration: `pb-featured` in collection mode for `jewelry`, the hero CTA "Shop jewelry", the live editorial CTA, and no announcement.
 - **Done when:** the homepage matches `Archive-Home` and `Archive-Home-Mobile` section by section in prelaunch. Switching to the live configuration in the theme editor produces the live state (02 §8). An empty `jewelry` collection makes `pb-featured` render nothing, not an empty grid.
@@ -116,8 +116,8 @@ The product page carries the most risk. Do the edits one at a time and retest af
 Both bugs are in Shopify's stock code, and both were reproduced in review at `beee2c0`. Customers would hit them on this store. Make each fix a small, marked Dawn edit (`PB:` markers, CHANGELOG row) with a regression test.
 
 1. **Cart drops a quantity change** (`assets/cart.js`, `CartItems` constructor). One 300 ms debounce is shared by every row, so editing two different rows within 300 ms sends only the second change to Shopify.
-   - **Fix:** debounce per line (keyed by the line's `data-index`/key), and send updates one at a time in order, so both reach `/cart/change`. Alternatively, batch the pending lines into one `/cart/update.js` call. Keep Dawn's error, status-announcement and drawer behaviour.
-   - **Test:** change line 1, then line 2 within 100 ms. Both final quantities are correct in the cart and in `/cart.js`.
+   - **Fix:** capture each line-item key before the DOM changes and send its updates and removals in order to `/cart/change`. A row number can identify another product after a removal. Alternatively, batch the pending lines into one `/cart/update.js` call. Keep Dawn's error, status-announcement and drawer behaviour.
+   - **Test:** change line 1, then line 2 within 100 ms. Both final quantities are correct in the cart and in `/cart.js`. Also edit the middle of three rows, immediately remove the first row, and verify the third quantity is preserved in both cart views.
 2. **Predictive search stops updating after punctuation** (`assets/predictive-search.js`, `updateSearchForTerm`). It builds `new RegExp(previousTerm, 'g')` from the user's text, so a term like `C++` throws and stops the "Search for…" text from updating.
    - **Fix:** compare the previous term as literal text: count with `split(previousTerm).length - 1`, or escape it with `replace(/[.*+?^${}()|[\]\\]/g, '\\$&')`.
    - **Test:** type `C++`, wait for suggestions, then keep typing. There are no console errors, the "Search for…" text tracks the input, and new requests are sent.
@@ -125,7 +125,7 @@ Both bugs are in Shopify's stock code, and both were reproduced in review at `be
 Mention both fixes in the Phase 2 report. They're also worth reporting upstream to Shopify/dawn (owner's call).
 
 ### 2.9 · Prelaunch fixtures (only if a dev store exists, A-04)
-- Create `[FIXTURE]` draft products with Finish and Size variants (including one sold-out size) **on the development store only**, to test the product page and collection fully (01 §2C).
+- On the isolated development store, activate `[FIXTURE]` products and make them available on its Online Store channel. Stock at least one variant at a location that fulfills online orders and keep one sold-out size. Test the collection, product page, and cart (01 §2C).
 - **Never create fixtures, collections, menus or pages on the live store.** Even drafts are shared store data.
 
 ---

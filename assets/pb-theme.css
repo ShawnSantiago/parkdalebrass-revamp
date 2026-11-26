@@ -1,0 +1,471 @@
+/* Parkdale Brass — Archive foundations on Dawn 16. */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('cormorant-garamond-500.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('cormorant-garamond-600.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+:root {
+  --pb-onyx: #121211;
+  --pb-onyx-raised: #1b1a18;
+  --pb-onyx-deep: #0d0d0c;
+  --pb-rule: #2e2a24;
+  --pb-rule-strong: #4a4234;
+  --pb-ivory: #f2ebdd;
+  --pb-body: #d8d0c0;
+  --pb-muted: #b5ab98;
+  --pb-gold: #c2a266;
+  --pb-gold-hover: #d4b67c;
+  --pb-gold-pale: #e6cf9c;
+  --pb-gold-line: #7d6840;
+  --pb-green: #173f31;
+  --pb-green-deep: #12342a;
+  --pb-on-green: #e3dccb;
+  --pb-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-heading-family: var(--pb-serif);
+  --font-heading-weight: 500;
+  --page-width: 144rem;
+  --pb-gutter: clamp(2rem, calc(5.22vw - 1.91rem), 5.6rem);
+}
+
+.page-width:not(.page-width--narrow, .page-width-desktop),
+.utility-bar__grid.page-width,
+.header:not(.drawer-menu).page-width {
+  padding-inline: var(--pb-gutter);
+}
+
+@media screen and (min-width: 990px) {
+  .page-width-desktop { padding-inline: var(--pb-gutter); }
+}
+
+body {
+  color: var(--pb-body);
+  font-size: 1.6rem;
+  line-height: 1.6;
+  letter-spacing: normal;
+}
+
+.rte { color: var(--pb-body); }
+.color-scheme-3 .rte { color: var(--pb-on-green); }
+.color-scheme-5 .rte { color: var(--pb-onyx); }
+
+h1, h2, .h0, .h1, .h2 {
+  font-family: var(--pb-serif);
+  font-weight: 500;
+  color: rgb(var(--color-foreground));
+  letter-spacing: normal;
+}
+
+h2, .h1 {
+  font-size: clamp(3.2rem, calc(2.03vw + 2.41rem), 5.4rem);
+  line-height: 1.08;
+}
+
+h1, .h0, .pb-display {
+  font-family: var(--pb-serif);
+  font-size: clamp(4rem, calc(1.91vw + 3.25rem), 6rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pb-display {
+  font-size: clamp(4rem, calc(2.29vw + 3.1rem), 6.4rem);
+  letter-spacing: 0.03em;
+}
+
+.card .card__heading, .pb-product-name {
+  font-family: var(--pb-serif);
+  font-size: clamp(2rem, calc(0.57vw + 1.78rem), 2.6rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: normal;
+  color: var(--pb-ivory);
+}
+
+.caption-with-letter-spacing, .pb-eyebrow, .pb-dateline {
+  font-family: var(--font-body-family);
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--pb-gold);
+}
+
+.pb-dateline { font-size: 1.3rem; letter-spacing: 0.42em; }
+
+.pb-eyebrow--ruled, .pb-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+}
+
+.pb-eyebrow--ruled::before, .pb-eyebrow--ruled::after,
+.pb-divider::before, .pb-divider::after {
+  content: '';
+  width: 4rem;
+  height: 1px;
+  background-color: var(--pb-gold);
+}
+
+.pb-frame {
+  padding: 1rem;
+  border: 1px solid var(--pb-gold);
+  border-radius: 4px;
+}
+
+.pb-frame__inner { border: 1px solid var(--pb-gold-line); }
+
+.pb-diamond, .header__heading-link .h2::before {
+  display: inline-block;
+  width: 1.8rem;
+  height: 1.8rem;
+  flex: none;
+  border: 1.5px solid var(--pb-gold);
+  transform: rotate(45deg);
+}
+
+.pb-diamond--sm, .header__heading-link .h2::before { width: 1rem; height: 1rem; }
+.pb-diamond--md { width: 1.4rem; height: 1.4rem; }
+.pb-diamond--lg { width: 2.6rem; height: 2.6rem; }
+
+.pb-divider::before, .pb-divider::after {
+  width: 12rem;
+  background-color: var(--pb-gold-line);
+}
+
+@media screen and (max-width: 749px) {
+  .pb-frame { padding: 0.8rem; }
+  .caption-with-letter-spacing, .pb-eyebrow, .pb-dateline { font-size: 1.1rem; }
+  .color-scheme-3 :is(.pb-eyebrow, .pb-dateline) { font-size: 1.2rem; }
+  .pb-eyebrow--ruled::before, .pb-eyebrow--ruled::after { width: 2.8rem; }
+  .pb-divider::before, .pb-divider::after { width: 8rem; }
+  .pb-divider .pb-diamond { width: 1.2rem; height: 1.2rem; }
+}
+
+/* Dawn also uses .button alone for primary actions. Keep its small icon and tertiary buttons compact. */
+.button:not(.button--tertiary), button.shopify-payment-button__button--unbranded {
+  min-height: 5.2rem;
+  padding-inline: 3rem;
+  border-radius: 2px;
+  font-family: var(--font-body-family);
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.button:not(.button--tertiary)::after { content: none; }
+
+.button.button--secondary {
+  border: 1px solid rgb(var(--color-secondary-button-text));
+  padding-inline: 2.6rem;
+  background: transparent;
+}
+
+.button:not(.button--secondary, .button--tertiary, :disabled, [aria-disabled='true']):hover,
+button.shopify-payment-button__button--unbranded:enabled:hover {
+  color: var(--pb-onyx);
+  background: var(--pb-gold-hover);
+}
+
+.button.button--secondary:not(:disabled, [aria-disabled='true']):hover {
+  color: rgb(var(--color-background));
+  background: rgb(var(--color-secondary-button-text));
+}
+
+.button:is(:disabled, [aria-disabled='true']):not(.loading) {
+  color: var(--pb-muted);
+  background: var(--pb-rule);
+  border-color: transparent;
+  opacity: 1;
+}
+
+.product-form__buttons .product-form__submit { min-height: 5.6rem; }
+@media screen and (max-width: 749px) {
+  .button:not(.button--tertiary) { width: 100%; }
+}
+
+.pb-text-cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 4.4rem;
+  padding-block: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-underline-offset: 0.6rem;
+  color: var(--pb-gold);
+}
+
+.rte a { color: rgb(var(--color-link)); }
+.pb-text-cta:hover, .rte a:hover { color: var(--pb-gold-pale); }
+.color-scheme-5 .rte a:hover { color: var(--pb-onyx); }
+
+:focus-visible, .focused,
+.product-form__input input[type='radio']:focus-visible + label {
+  outline: 2px solid var(--pb-gold-pale) !important;
+  outline-offset: 3px !important;
+  box-shadow: none !important;
+}
+
+/* The logo image replaces the entire text mark, including the diamond. */
+.header-wrapper--border-bottom { border-bottom-color: var(--pb-rule); }
+
+.header.header--middle-left {
+  min-height: 6.4rem;
+}
+
+.header__heading-link .h2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.4rem;
+  font-family: var(--pb-serif);
+  font-size: 1.7rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--pb-ivory);
+}
+
+.header__heading-link .h2::before { content: ''; }
+
+.header .header__menu-item {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--pb-ivory);
+}
+
+.header .header__menu-item:hover, .header .header__menu-item[aria-current='page'],
+.header .header__active-menu-item, .header .header__menu-item .icon-caret {
+  color: var(--pb-gold);
+}
+
+.header .header__active-menu-item { text-decoration-thickness: 1px; }
+.header .cart-count-bubble { background: var(--pb-gold); color: var(--pb-onyx); }
+.header__icon:hover .icon { transform: none; }
+
+.announcement-bar .announcement-bar__message {
+  font: 500 1.2rem/1.4 var(--font-body-family);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pb-gold-pale);
+}
+
+.announcement-bar__link:hover .announcement-bar__message, .announcement-bar__link .icon-arrow {
+  color: var(--pb-ivory);
+}
+
+@media screen and (min-width: 990px) {
+  .header.header--middle-left { min-height: 8.4rem; }
+  .header--middle-left.header--has-menu:not(.drawer-menu) { grid-template-columns: auto 1fr auto; }
+  .header--middle-left .header__inline-menu { justify-self: end; }
+  .header__inline-menu > .list-menu--inline { column-gap: 4.4rem; }
+  .header__inline-menu > ul > li > a { padding-inline: 0; }
+  .header__inline-menu > ul > li > header-menu > details > summary { padding-inline: 0 1.5rem; }
+  .header__inline-menu > ul > li > header-menu > details > summary .icon-caret { right: 0; }
+  .header__heading-link .h2 { font-size: 2.3rem; letter-spacing: 0.32em; }
+}
+
+/* Dawn switches to its mobile header at 990px. Put search beside the bag in both account modes. */
+@media screen and (max-width: 989px) {
+  .header-wrapper .header--middle-left.header--mobile-center.header--has-account {
+    grid-template-areas: 'left-icons heading icons';
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+
+  .header-wrapper .header.header--middle-left.header--mobile-center > .header__search {
+    display: none;
+  }
+
+  .header-wrapper .header.header--middle-left.header--mobile-center .header__icons > .header__search {
+    display: inline-flex;
+  }
+
+  .header--middle-left.header--mobile-center .header__heading-link { padding-inline: 0; }
+
+  /* With a menu, account access is in the drawer. Without a menu, use the empty left slot. */
+  .header--has-menu.header--mobile-center .header__icons .header__icon--account { display: none; }
+  .header--mobile-center:not(.header--has-menu) .header__icon--account {
+    position: absolute;
+    inset-inline-start: var(--pb-gutter);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+/* On narrow phones the diamond hangs into the space beside the centred text.
+   Reserve two complete icon targets on the right, including while the menu is empty. */
+@media screen and (max-width: 460px) {
+  .header-wrapper .header.header--middle-left.header--mobile-center {
+    grid-template-columns: 8.8rem minmax(0, 1fr) 8.8rem;
+    padding-inline: 0.2rem;
+  }
+  .header--mobile-center header-drawer { margin-inline-start: 0.8rem; }
+  .header--mobile-center .header__icons { padding-inline: 0; }
+  .header--mobile-center .header__icon--cart { margin-inline-end: 0; }
+  .header--mobile-center .header__heading-link { padding-block: 0.5rem; }
+  .header--mobile-center .header__heading-link .h2 { position: relative; display: inline-block; }
+  .header--mobile-center .header__heading-link .h2::before {
+    position: absolute;
+    inset-inline-end: calc(100% + 0.8rem);
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+}
+
+/* Product cards retain Dawn's image swapping and link hit areas. */
+.card-wrapper .card__inner { border: 1px solid var(--pb-rule); }
+.card-wrapper:is(:hover, :focus-within) .card__inner { border-color: var(--pb-gold); }
+.card .card__media, .card .media { background: var(--pb-onyx-raised); }
+.card-wrapper:hover .card .media.media--hover-effect > img { transform: none; }
+.card-wrapper:hover .card__heading a { text-decoration: underline; text-decoration-color: var(--pb-gold); }
+.card-information .price, .price .price-item { font-weight: 500; color: var(--pb-gold); }
+
+.badge {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--pb-gold);
+  border-radius: 0;
+  background: transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--pb-gold);
+}
+
+.card__badge .badge.color-scheme-1, .price__badge-sold-out.badge {
+  color: var(--pb-muted);
+  border-color: var(--pb-muted);
+}
+
+.field .field__input, .select .select__select {
+  background-color: var(--pb-onyx-raised);
+  color: var(--pb-ivory);
+  min-height: 4.8rem;
+  font-size: 1.6rem;
+  border-radius: 2px;
+}
+
+.color-scheme-3 :is(.field__input, .select__select) { background-color: var(--pb-green-deep); }
+.field::after, .select::after, .field:hover.field::after, .select:hover.select::after {
+  box-shadow: 0 0 0 1px var(--pb-gold);
+}
+
+.field .field__label, .product-form__input .form__label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Scope pill colours to actual pills so merchant-supplied swatch images stay visible. */
+variant-selects .product-form__input--pill input[type='radio'] + label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4.8rem;
+  border: 1px solid var(--pb-rule-strong);
+  border-radius: 2px;
+  background: var(--pb-onyx);
+  color: var(--pb-ivory);
+}
+
+variant-selects .product-form__input--pill input[type='radio']:checked + label {
+  border-color: var(--pb-gold);
+  background: var(--pb-gold);
+  color: var(--pb-onyx);
+}
+
+variant-selects .product-form__input--pill input[type='radio']:is(.disabled, :disabled) + label {
+  border: 1px dashed #5c5446;
+  background: var(--pb-onyx);
+  color: #8e8576;
+  text-decoration: line-through;
+}
+
+variant-selects .product-form__input .form__label {
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+.product__accordion.accordion { border-color: var(--pb-rule); border-top-color: var(--pb-gold); }
+.product__accordion summary { min-height: 5.6rem; align-items: center; }
+.accordion .accordion__title {
+  font-family: var(--font-body-family);
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.accordion summary .icon-caret { color: var(--pb-gold); }
+
+.rte table:not([class]) {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.5rem;
+  box-shadow: none;
+}
+
+.rte table:not([class]) :is(th, td) {
+  padding: 1rem 1.2rem;
+  border: 0;
+  border-bottom: 1px solid var(--pb-rule);
+  text-align: start;
+}
+
+.rte th { font-weight: 600; color: var(--pb-gold); background: var(--pb-onyx-raised); }
+
+.pb-placeholder {
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: var(--pb-onyx-raised);
+}
+
+.color-scheme-3 .pb-placeholder { background: var(--pb-green-deep); }
+.pb-placeholder__note {
+  position: absolute;
+  inset-inline-start: 2rem;
+  bottom: 1.8rem;
+  padding: 0.6rem 1rem;
+  background: var(--pb-onyx);
+  color: var(--pb-muted);
+  font-size: 1.2rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Keep transitionend available to the drawer's focus management. */
+  :root {
+    --duration-short: 1ms;
+    --duration-default: 1ms;
+    --duration-announcement-bar: 1ms;
+    --duration-medium: 1ms;
+    --duration-long: 1ms;
+    --duration-extra-long: 1ms;
+    --duration-extra-longer: 1ms;
+    --duration-extended: 1ms;
+  }
+  html { scroll-behavior: auto; }
+  .section-header.animate, .header__heading-logo-wrapper, .card .media img { transition-duration: 1ms; }
+}

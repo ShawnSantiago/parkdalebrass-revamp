@@ -42,9 +42,9 @@ How each part of `02-design-spec.md` is built in this repo. File paths are relat
 | Blog / article | Dawn + CSS | Matches with CSS. Verify in QA. |
 | Cart quantity edits; predictive search | **Dawn edits** to `assets/cart.js` and `assets/predictive-search.js` | Fix two Dawn 16 bugs customers would hit (D-25; `phase-2-brief.md` §2.10) |
 
-## 1 · `config/settings_data.json`: global settings (merge into `current`)
+## 1 · `config/settings_data.json`: global settings (merge into the active preset)
 
-Edit through the theme editor where possible, then pull. If editing the JSON by hand, change **only** these keys.
+In this checkout `current` is the preset name `Dawn`. Merge these keys into `presets.Dawn`. If a later theme-editor export stores the settings directly in a `current` object, merge there.
 
 ### Colour schemes
 
@@ -103,7 +103,7 @@ Social links: fill only with accounts the owner verifies. Leave the rest blank.
 - **Cormorant Garamond**: look in the font picker. If it's listed, use its 500 handle in `type_header_font`. If it isn't, self-host it:
   1. Download the OFL WOFF2 files for **500** and **600** (Latin subset) from the official Google Fonts / Christian Thalmann repo, and add them as `assets/cormorant-garamond-500.woff2` and `assets/cormorant-garamond-600.woff2`. Commit the OFL licence text to `docs/redesign/licences/`.
   2. Declare `@font-face` in `pb-theme.css` (§3) and override `--font-heading-family`.
-  3. Preload the 500 weight in `layout/theme.liquid`: `<link rel="preload" href="{{ 'cormorant-garamond-500.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>`.
+  3. Preload the 600 weight used by the wordmark and hero, following the design spec (§1.2).
 - Don't load the Google Fonts CDN in the theme (privacy and performance).
 
 ## 3 · `assets/pb-theme.css` (new) and `layout/theme.liquid` (one line)
@@ -519,7 +519,7 @@ Override: `products.product.add_to_cart` = "Add to bag", `general.cart.title` = 
 ## 7 · Header and footer groups
 
 `sections/header-group.json`:
-- `announcement-bar`: one block, `color_scheme: scheme-3` (royal green; text styled gold-pale by `pb-theme.css`), text "The first Parkdale Brass jewelry collection is in development.", link `#signup` (Dawn shows the whole bar as a link). Remove the block entirely at launch if there's no verified message.
+- `announcement-bar`: one block, `color_scheme: scheme-3` (royal green; text styled gold-pale by `pb-theme.css`), text "The first Parkdale Brass jewelry collection is in development.", with the link empty until the homepage signup section exists. In Phase 2 set the link to `#signup` to send shoppers to the localized homepage signup from any page. Remove the block entirely at launch if there's no verified message.
 - `header`: `menu: jewelry-main-menu`, `menu_type_desktop: dropdown`, `logo_position: middle-left`, `mobile_logo_position: center`, `sticky_header_type: on-scroll-up`, `show_line_separator: true`, `enable_country_selector: false` (the footer has it), `enable_language_selector: false`, padding 16/16.
 
 `sections/footer-group.json` (`footer`):

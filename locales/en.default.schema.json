@@ -1,4 +1,28 @@
 {
+  "pb": {
+    "badge": {
+      "concept": "Concept"
+    },
+    "collection": {
+      "categories": "Categories",
+      "empty_heading": "Nothing matches those filters.",
+      "empty_text": "Try removing a filter, or browse all jewelry.",
+      "reset": "Reset filters"
+    },
+    "journal": {
+      "view_all": "All articles"
+    },
+    "newsletter": {
+      "success": "Thanks. You're on the list."
+    },
+    "product": {
+      "select_size": "Select a size"
+    },
+    "sticky_atc": {
+      "label": "Add to bag",
+      "region": "Quick add to bag"
+    }
+  },
   "settings_schema": {
     "global": {
       "settings": {

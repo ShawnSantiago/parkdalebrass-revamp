@@ -140,6 +140,13 @@
             </ul>
           </nav>
           <div class="menu-drawer__utility-links">
+            {%- comment -%} PB: Keep customer account access in the mobile menu. {%- endcomment -%}
+            {%- if shop.customer_accounts_enabled -%}
+              <a href="{{ routes.account_url }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset large-up-hide">
+                {{- 'customer.account.title' | t -}}
+              </a>
+            {%- endif -%}
+            {%- comment -%} /PB {%- endcomment -%}
             {%- if show_country_selector or show_language_selector -%}
               <div class="menu-drawer__localization header-localization">
                 {%- if show_country_selector -%}

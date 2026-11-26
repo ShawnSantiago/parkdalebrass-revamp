@@ -37,7 +37,7 @@ Read this whole brief before you change a file. It takes about five minutes and 
 ## 4 · Tasks, in order
 
 ### 1.1 · Colour schemes (`config/settings_data.json`)
-- Under `current.color_schemes`, replace the values of `scheme-1` to `scheme-5` with the five Archive schemes in `03-theme-mapping.md` §1: Onyx, Onyx deep, Royal green, Onyx raised, Gold. Use the exact hexes. Set `background_gradient: ""`.
+- In this checkout, `current` names the `Dawn` preset. Under `presets.Dawn.color_schemes`, replace the values of `scheme-1` to `scheme-5` with the five Archive schemes in `03-theme-mapping.md` §1: Onyx, Onyx deep, Royal green, Onyx raised, Gold. Use the exact hexes. Set `background_gradient: ""`.
 - **Merge, don't replace the file.** Change only these keys.
 - Done when: each scheme matches the table exactly.
 
@@ -51,7 +51,7 @@ Read this whole brief before you change a file. It takes about five minutes and 
 - Done when: both weights load (Network tab, once previewing), and no Google Fonts CDN request is made.
 
 ### 1.3 · Global settings (`config/settings_data.json`)
-- Apply the "Other settings" block in `03-theme-mapping.md` §1 key by key: `page_width: 1400` (the slider steps in 100s; `pb-theme.css` sets the exact 1440), `animations_hover_elements: "default"` (there's no `none` option), button/input/pill radius 2, card styling, badge settings, no shadows, `animations_reveal_on_scroll: false`, `animations_hover_elements: "none"`, `cart_type: "drawer"`, predictive search on with prices, currency code on.
+- Apply the "Other settings" block in `03-theme-mapping.md` §1 key by key: `page_width: 1400` (the slider steps in 100s; `pb-theme.css` sets the exact 1440), `animations_hover_elements: "default"` (there's no `none` option), button/input/pill radius 2, card styling, badge settings, no shadows, `animations_reveal_on_scroll: false`, `cart_type: "drawer"`, predictive search on with prices, currency code on.
 - Social links: leave blank. Only verified links are added, by the owner.
 - Done when: the diff for `settings_data.json` touches only the keys listed in 03 §1 (a 05 §8 check).
 
@@ -63,7 +63,7 @@ Read this whole brief before you change a file. It takes about five minutes and 
 - Done when: the CSS loads after Dawn's, and every selector matches an element in Dawn 16 markup.
 
 ### 1.5 · Header (`sections/header-group.json`)
-- `announcement-bar`: one block, `color_scheme: scheme-3`, text "The first Parkdale Brass jewelry collection is in development.", link `#signup`. Use gold-pale caps via CSS.
+- `announcement-bar`: one block, `color_scheme: scheme-3`, text "The first Parkdale Brass jewelry collection is in development.", with the link empty. Once Phase 2 adds the homepage signup section, set the link to `#signup`. The announcement resolves this anchor against the localized homepage. Use gold-pale caps via CSS.
 - `header`: `menu: "jewelry-main-menu"`, `menu_type_desktop: "dropdown"`, `logo_position: "middle-left"`, `mobile_logo_position: "center"`, `sticky_header_type: "on-scroll-up"`, `show_line_separator: true`, `enable_country_selector: false`, `enable_language_selector: false`, padding 16/16, `color_scheme: scheme-1`.
 - **The `jewelry-main-menu` menu doesn't exist yet.** Creating it is store change E-04, which needs owner approval. **Don't create it.** The desktop nav renders empty until it exists. Note that in your report. Don't point the header at the old `main-menu` either, because it shows pipe links.
 - Wordmark: no logo is uploaded (B-04 is open), so Dawn prints the shop name. `pb-theme.css` styles it (Cormorant 600, 0.32em caps) and adds the 10px gold diamond before it. Check this on desktop (23px) and mobile (17px).
