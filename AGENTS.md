@@ -15,6 +15,10 @@ Visual reference (private, ask the owner for access): https://claude.ai/artifact
 
 - **Never publish a theme**, and never run `shopify theme push` against the live theme. Use `--unpublished` or `shopify theme dev`.
 - **Never change shared store data** without written owner approval logged in `owner-inputs.md`. That covers products, collections, menus, pages, metafield definitions, redirects, policies, markets, sales channels, apps and email. An unpublished theme does *not* isolate store data.
+  - **Standing approval (D-28, 2026-11-26):** the owner approved any change to Parkdale Brass except **billing** and **admin or staff accounts**. This covers theme, repo, store content and configuration, and merging PRs. It replaces per-change approval, but the agent still:
+    - backs up first and logs each store change in `owner-inputs.md` E, per the `phase-3-brief.md` §2 protocol;
+    - keeps the integrity rules below;
+    - **tells the owner before:** publishing the new theme (launch, only once the `phase-5-brief.md` §1 gates pass), emailing customers, deleting anything, and anything that costs money.
 - **Never invent facts.** Materials, finishes, dimensions, prices, shipping, returns, origin and safety claims come only from owner-verified data. Until then, previews show a visible `[bracketed placeholder]` and the live theme hides the block.
 - **No fake commerce.** No purchasable concept products, fake prices, ratings, reviews, scarcity, discounts or preorders. Never reuse legacy pipe reviews.
 - **Never delete legacy records** (products, reviews, customers, orders, redirects, analytics). Unpublishing needs approval and a CSV export first.
