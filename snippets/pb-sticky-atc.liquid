@@ -8,10 +8,12 @@
   Accepts:
   - product: {Object} Product (required)
   - section_id: {String} The main-product section ID (required)
+  - pb_archive: {Boolean} The Archive layout is on. Without it the snippet renders nothing (required)
 
   Usage:
-  {% render 'pb-sticky-atc', product: product, section_id: section.id %}
+  {% render 'pb-sticky-atc', product: product, section_id: section.id, pb_archive: pb_archive %}
 {%- endcomment -%}
+{%- if pb_archive -%}
 {%- liquid
   assign pb_variant = product.selected_or_first_available_variant
   assign pb_options = ''
@@ -45,3 +47,4 @@
   </div>
 </pb-sticky-atc>
 <script src="{{ 'pb-sticky-atc.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}

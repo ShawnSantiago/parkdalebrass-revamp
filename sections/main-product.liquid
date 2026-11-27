@@ -773,17 +773,23 @@
 
       {% assign popups = section.blocks | where: 'type', 'popup' %}
       {%- for block in popups -%}
-        {%- comment -%} PB: open the resolved size-guide page (D-23). {%- endcomment -%}
+        {%- comment -%}
+          PB: open the resolved size-guide page (D-23). No page, no modal (its opener doesn't render either). The
+          title is an h2 that names the dialog, so the product title stays the page's only h1 (D-31).
+        {%- endcomment -%}
         {%- liquid
           assign pb_popup_page = block.settings.page
           if block.settings.pb_size_legend
             assign pb_popup_page = pb_size_guide_page
           endif
+          if pb_popup_page == blank
+            continue
+          endif
         -%}
         <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
           <div
             role="dialog"
-            aria-label="{{ block.settings.text | default: pb_popup_page.title | escape }}"
+            aria-labelledby="PopupModalTitle-{{ block.id }}"
             aria-modal="true"
             class="product-popup-modal__content"
             tabindex="-1"
@@ -797,7 +803,9 @@
               {{- 'icon-close.svg' | inline_asset_content -}}
             </button>
             <div class="product-popup-modal__content-info">
-              <h1 class="h2">{{ pb_popup_page.title | escape }}</h1>
+              <h2 id="PopupModalTitle-{{ block.id }}" class="h2">
+                {{- pb_popup_page.title | escape -}}
+              </h2>
               <div class="rte">{{ pb_popup_page.content }}</div>
             </div>
           </div>
@@ -838,6 +846,7 @@
       data-size-start="{{ pb_size_start }}"
       data-select-size="{{ 'pb.product.select_size' | t | escape }}"
       data-added="{{ 'pb.product.added' | t | escape }}"
+      data-switched="{{ 'pb.product.size_switched' | t | escape_once }}"
       hidden
     ></pb-product-state>
     <script src="{{ 'pb-product.js' | asset_url }}" defer="defer"></script>
@@ -845,10 +854,12 @@
   {%- comment -%} /PB {%- endcomment -%}
 </product-info>
 
-{%- comment -%} PB: mobile sticky add-to-bag bar, outside product-info so quick add never copies it (D-23, 03 §4.10). {%- endcomment -%}
-{%- if pb_archive -%}
-  {%- render 'pb-sticky-atc', product: product, section_id: section.id -%}
-{%- endif -%}
+{%- comment -%}
+  PB: mobile sticky add-to-bag bar, outside product-info so quick add never copies it (D-23, 03 §4.10). The
+  snippet renders only with pb_archive (the check lives there to keep this file under theme check's
+  LiquidComplexity limit).
+{%- endcomment -%}
+{%- render 'pb-sticky-atc', product: product, section_id: section.id, pb_archive: pb_archive -%}
 {%- comment -%} /PB {%- endcomment -%}
 
 {% schema %}

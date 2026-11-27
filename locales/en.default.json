@@ -73,6 +73,9 @@
     "product": {
       "select_size": "Select a size",
       "added": "[item] added to your bag.",
+      "size_switched": "[size] isn't available in [option]. Showing [new].",
+      "media_image": "Image {{ index }} of {{ count }}",
+      "media_open": "Open image {{ index }} of {{ count }}",
       "in_stock": "In stock",
       "size_unavailable": "Unavailable",
       "spec_material": "Material",

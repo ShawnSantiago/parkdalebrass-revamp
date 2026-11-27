@@ -43,6 +43,20 @@
   if media.media_type == 'image'
     assign image_class = 'image-magnify-' | append: section.settings.image_zoom
   endif
+
+  # PB: Archive product page (G-17, PDP-06). The first main image (not lazy) is the page's LCP, so it gets
+  # fetchpriority high; the lightbox opener is labelled "Open image 1 of 6", matching the visible counter.
+  assign pb_fetchpriority = null
+  assign pb_open_label = 'products.product.media.open_media' | t: index: position
+  if section.settings.pb_archive
+    if lazy_load == false
+      assign pb_fetchpriority = 'high'
+    endif
+    if media.media_type == 'image'
+      assign pb_open_label = 'pb.product.media_open' | t: index: position, count: media_count
+    endif
+  endif
+  # /PB
 -%}
 
 {%- capture sizes -%}
@@ -84,9 +98,11 @@
         | image_tag:
           class: image_class,
           loading: lazy,
+          fetchpriority: pb_fetchpriority,
           sizes: sizes,
           widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946'
       }}
+      {%- comment -%} PB: fetchpriority above (G-17). {%- endcomment -%}
     </div>
     <button
       class="product__media-toggle quick-add-hidden product__media-zoom-{{ section.settings.image_zoom }}"
@@ -95,7 +111,8 @@
       data-media-id="{{ media.id }}"
     >
       <span class="visually-hidden">
-        {{ 'products.product.media.open_media' | t: index: position }}
+        {%- comment -%} PB: pb_open_label (PDP-06). {%- endcomment -%}
+        {{ pb_open_label }}
       </span>
     </button>
   </modal-opener>

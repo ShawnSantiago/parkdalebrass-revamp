@@ -3,11 +3,13 @@
   is wider than the reading column (pb-page body and HTML blocks). The region is focusable, so a
   keyboard user can scroll it (there's no JavaScript to tell which tables overflow).
   The region is named after the table's <caption>, or else the last h2–h4 heading before the table,
-  or else "Table 1", "Table 2", ... in page order.
+  or else "Table 1", "Table 2", ... in page order. With a label, that last name reads "Description: Table 1",
+  so tables in different product tabs get different names.
 
   Accepts:
-  - html: {String} merchant HTML (page.content or an html setting)
+  - html: {String} merchant HTML (page.content, an html setting, or a product tab's content)
   - offset: {Number} tables already numbered earlier on the page (default 0)
+  - label: {String} optional prefix for the numbered name, such as the product tab's heading
 
   Usage:
   {% render 'pb-table-wrap', html: page.content, offset: 0 %}
@@ -42,6 +44,9 @@
 
       if pb_name == blank
         assign pb_name = 'pb.page.table_label' | t: index: pb_index
+        if label != blank
+          assign pb_name = label | append: ': ' | append: pb_name
+        endif
       endif
       assign pb_name = pb_name | truncate: 80 | escape_once
 

@@ -1198,6 +1198,14 @@ class ProductRecommendations extends HTMLElement {
   }
 
   connectedCallback() {
+    /* PB: "Wear it with" (related products) fetches as soon as it connects instead of 400px before it scrolls
+       into view, so its cards are in place before the shopper reaches them and never push a visible footer
+       down (G-02, 05 §5 CLS). Complementary products keep Dawn's observer. */
+    if (this.classList.contains('related-products')) {
+      this.loadRecommendations(this.dataset.productId);
+      return;
+    }
+    /* /PB */
     this.initializeRecommendations(this.dataset.productId);
   }
 

@@ -1,4 +1,9 @@
 {%- if icon != 'none' -%}
   {%- assign file = icon | replace: '_', '-' | prepend: 'icon-' | append: '.svg' -%}
+  {%- comment -%} PB: the Archive service-line glyphs for truck and return (D-38, Archive-Product). {%- endcomment -%}
+  {%- if icon == 'truck' or icon == 'return' -%}
+    {%- assign file = 'pb-' | append: file -%}
+  {%- endif -%}
+  {%- comment -%} /PB {%- endcomment -%}
   <span class="svg-wrapper">{{ file | inline_asset_content }}</span>
 {%- endif -%}

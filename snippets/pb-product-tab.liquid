@@ -5,6 +5,8 @@
     metafields via snippets/pb-product-detail.liquid. The block's own content and page follow it.
   - An empty tab is hidden on the storefront. The theme editor shows it with a bracketed note.
   - "Open by default" (pb_open) renders the details element open.
+  - Tables are wrapped by snippets/pb-table-wrap.liquid, as on pb-page, so a wide size table scrolls sideways
+    inside the tab in a named, focusable region (section-pb-product.css).
 
   Accepts:
   - block: {Object} The collapsible_tab block (required)
@@ -38,7 +40,10 @@
         {{- 'icon-caret.svg' | inline_asset_content -}}
       </summary>
       <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section_id }}">
-        {%- if pb_tab_content != blank -%}
+        {%- if pb_tab_content contains '<table' -%}
+          {%- assign pb_tab_heading = block.settings.heading | default: block.settings.page.title | strip_html -%}
+          {%- render 'pb-table-wrap', html: pb_tab_content, offset: 0, label: pb_tab_heading -%}
+        {%- elsif pb_tab_content != blank -%}
           {{ pb_tab_content }}
         {%- else -%}
           <p class="pb-editor-note">{{ 'pb.product.editor_empty_tab' | t }}</p>
