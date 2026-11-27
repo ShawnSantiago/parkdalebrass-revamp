@@ -2,6 +2,10 @@
 
 *2026-11-27. These are recommendations for the owner to decide. They are not facts about either piece and must never be copied into product fields. The research rests on search snippets, because page fetching is blocked in the agent's environment. A second agent fact-checked the claims. Regulatory and sizing points that it confirmed are cited. Where it couldn't re-check something, the text says so, and the price comparables in §6 are in that group.*
 
+> **Owner's answers, 2026-11-27 (D-44):** finishes *Raw brass* and *Chrome* (plated) on both pieces, so the "unplated only" recommendation below is overridden for chrome. Brockton sizes 5–13. Brockton raw brass CAD 150, with chrome priced higher after the quote. Bellwoods on a 20 in chain with a ring at 18 in, and on a chrome-plated chain for the chrome version. First runs of about 60 rings (40 raw, 20 chrome) and about 40 pendants. Canada only. Exchange only, with the first exchange free. No engraving at launch, no mention of the pipes, and no supplier yet ([`supplier-brief.md`](supplier-brief.md)).
+>
+> **Chrome:** decorative chrome is normally plated over nickel, and the chrome can wear through on a ring's contact points. So ask for the plating stack and a nickel-release test (EN 1811), write finish-specific care copy, and never claim hypoallergenic or nickel-free for the chrome versions.
+
 ## 1. Summary
 
 Launch both pieces as plain, unplated brass at an independent maker's price, not a plated fashion price. For The Brockton I suggest **CAD 150**. That sits inside the converted range of US unplated brass signets (about CAD 124–169), just above the old Brockton special edition (CAD 140). For The Bellwoods, no price comparable passed the fact-check, so set its price from landed cost. Use CAD 125 only as a planning figure for supplier quotes. **Decide the finish first** (raw, sealed or plated), then get the alloy and lab reports from the supplier. Those drive cost, care copy, resizing, and which claims and rules apply. Then fix landed cost, then price. Launch in Canada, add the US once lead results meet California's limit, and leave the EU for later.
