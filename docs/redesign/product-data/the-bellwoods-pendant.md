@@ -19,6 +19,8 @@
 
 ## Needed from the owner
 
+The agent's recommendations for each of these (sizes, chain, finish, alloy, price, policy, compliance) are in [`recommendations-2026-11-27.md`](recommendations-2026-11-27.md). They're suggestions to decide on, not facts.
+
 Answer these from the sample or supplier documents (the full question list is in [`README.md`](README.md)):
 
 1. Description, 40–90 words, from the sample. Lead with the neighbourhood and the brass; any reference to the original pipe needs your wording (D-39).
