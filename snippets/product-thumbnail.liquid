@@ -86,7 +86,13 @@
           </span>
         {% else %}
           <span class="svg-wrapper">
-            {{- 'icon-zoom.svg' | inline_asset_content -}}
+            {%- comment -%} PB: the Archive zoom glyph, a stroked outline (Archive-Product, D-45). {%- endcomment -%}
+            {%- if section.settings.pb_archive -%}
+              {{- 'pb-icon-zoom.svg' | inline_asset_content -}}
+            {%- else -%}
+              {{- 'icon-zoom.svg' | inline_asset_content -}}
+            {%- endif -%}
+            {%- comment -%} /PB {%- endcomment -%}
           </span>
       {% endcase %}
     </span>

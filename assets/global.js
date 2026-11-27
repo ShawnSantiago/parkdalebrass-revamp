@@ -466,7 +466,8 @@ class MenuDrawer extends HTMLElement {
       if (isOpen) event.preventDefault();
       isOpen ? this.closeMenuDrawer(event, summaryElement) : this.openMenuDrawer(summaryElement);
 
-      if (window.matchMedia('(max-width: 990px)')) {
+      // PB: the mobile header ends at 959px (assets/pb-theme.css).
+      if (window.matchMedia('(max-width: 959px)')) {
         document.documentElement.style.setProperty('--viewport-height', `${window.innerHeight}px`);
       }
     } else {
@@ -588,6 +589,15 @@ class HeaderDrawer extends MenuDrawer {
   }
 
   onResize = () => {
+    // PB: the drawer is hidden from 960px, where the desktop header starts. Close it there, so the header doesn't
+    // keep menu-open (which stops it hiding on scroll) and the body doesn't stay locked.
+    if (this.dataset.breakpoint === 'tablet' && window.matchMedia('(min-width: 960px)').matches) {
+      const summary = this.mainDetailsToggle.querySelector('summary');
+      this.closeMenuDrawer(new Event('resize'), summary);
+      summary.setAttribute('aria-expanded', false);
+      return;
+    }
+    // /PB
     this.header &&
       document.documentElement.style.setProperty(
         '--header-bottom-position',

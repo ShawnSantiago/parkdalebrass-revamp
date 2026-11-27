@@ -6,7 +6,7 @@
       "type": "announcement-bar",
       "settings": {
         "color_scheme": "scheme-3",
-        "show_line_separator": true,
+        "show_line_separator": false,
         "show_social": false,
         "auto_rotate": false,
         "change_slides_speed": 5,

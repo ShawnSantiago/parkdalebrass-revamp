@@ -3,7 +3,8 @@
  * Loaded by sections/main-product.liquid when "Use the Archive layout" is on. Covers the main product, the
  * size-guide popup, the mobile sticky add-to-bag bar and the "Wear it with" recommendations below it.
  * Values are the 1440 artboard, the 390 artboard in the clamp minimum, and fluid in between (02, intro).
- * Breakpoints: under 750px the mobile artboard; 750 to 959px one column; 960px and up two columns (02 §1.3).
+ * Breakpoints: under 750px the mobile artboard; 750 to 959px the artboard's stacked layout (Archive-Product at 960:
+ * full width, the thumbnail column beside the frame, the purchase column below); 960px and up two columns (02 §1.3).
  */
 
 .pb-product {
@@ -34,17 +35,16 @@
   .pb-product .product__info-container > .pb-product__crumbs--narrow + * {
     margin-top: 0;
   }
-}
 
-@media screen and (min-width: 750px) and (max-width: 959px) {
-  .pb-product .pb-product__crumbs--wide {
-    max-width: 60rem;
-    margin-inline: auto;
+  /* With no product type there's no eyebrow, and the title is the column's first item: level with the frame. */
+  .pb-product .product__info-container > .pb-product__crumbs--narrow + .product__title {
+    margin-top: 0;
   }
 }
 
 @media screen and (min-width: 750px) {
-  /* 750 to 959px: one column, held to a readable width. */
+  /* 750 to 959px: stacked at full content width, as Archive-Product draws it at 960. The gallery keeps its
+     thumbnail column, and the purchase column starts 72px under it (the 7fr / 5fr gap, 02 §6.1). */
   .pb-product .product.grid {
     display: block;
   }
@@ -52,13 +52,13 @@
   .pb-product .product.grid > .product__media-wrapper,
   .pb-product .product.grid > .product__info-wrapper {
     width: 100%;
-    max-width: 60rem;
-    margin-inline: auto;
+    max-width: none;
+    margin-inline: 0;
     padding: 0;
   }
 
   .pb-product .product.grid > .product__info-wrapper {
-    margin-top: 4.8rem;
+    margin-top: 7.2rem;
   }
 
   .pb-product .product__column-sticky {
@@ -77,7 +77,6 @@
 
   .pb-product .product.grid > .product__media-wrapper,
   .pb-product .product.grid > .product__info-wrapper {
-    max-width: none;
     margin: 0;
   }
 
@@ -135,6 +134,11 @@
   border: 0;
   border-radius: 0;
   box-shadow: none;
+}
+
+/* With no border to make room for, the image fills the inner frame (Dawn takes 2px off under 750). */
+.pb-gallery .product-media-container {
+  max-width: 100%;
 }
 
 .pb-gallery .product__media {
@@ -196,10 +200,19 @@
   border-color: var(--pb-gold);
 }
 
+/* The zoom glyph is a stroked outline (assets/pb-icon-zoom.svg); Dawn's forced-colours fill would close the lens. */
+@media (forced-colors: active) {
+  .pb-gallery .product__media-icon .pb-icon-zoom {
+    fill: none !important;
+    stroke: CanvasText;
+  }
+}
+
 /*
- * Keyboard focus on the main image (Dawn's lightbox opener). The frame clips Dawn's outer ring and the global
- * outline lands on a 0x0 button, so the ring is drawn inside the image instead: 2px gold-pale, 3px in from the
- * edge, on an onyx band (02 §1.4). Forced-colours mode keeps the outline.
+ * Keyboard focus on the main image (Dawn's lightbox opener). The inner frame clips anything drawn on the image,
+ * and the global outline would land on a 0x0 button, so the ring goes on the inner frame itself: 2px gold-pale,
+ * 3px outside it, inside the outer frame's 10 [8] px padding (02 §1.4). An outline also shows in forced-colours
+ * mode. Browsers without :has() keep a ring drawn just inside the image.
  */
 .pb-gallery .product__media-toggle::after {
   inset: 0;
@@ -210,10 +223,22 @@
 }
 
 .pb-gallery .product__media-toggle:is(:focus-visible, .focused)::after {
-  outline: 0.2rem solid var(--pb-gold-pale);
-  outline-offset: -0.5rem;
-  box-shadow: inset 0 0 0 0.3rem var(--pb-onyx);
+  outline: 0;
+  box-shadow: none;
   border-radius: 0;
+}
+
+.pb-gallery .pb-gallery__inner:has(.product__media-toggle:is(:focus-visible, .focused)) {
+  outline: 0.2rem solid var(--pb-gold-pale);
+  outline-offset: 0.3rem;
+}
+
+@supports not selector(:has(a)) {
+  .pb-gallery .product__media-toggle:is(:focus-visible, .focused)::after {
+    outline: 0.2rem solid var(--pb-gold-pale);
+    outline-offset: -0.5rem;
+    box-shadow: inset 0 0 0 0.3rem var(--pb-onyx);
+  }
 }
 
 /* Thumbnails: 4:5 on onyx-raised, rule-strong border, gold when current (02 §6.1). */
@@ -256,21 +281,11 @@
     display: none;
   }
 
-  .pb-gallery .thumbnail-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 8.4rem);
-    gap: 1.2rem;
-    margin: 1.6rem 0 0;
-    padding: 0;
-  }
-
   .pb-gallery .thumbnail-list__item.slider__slide {
     width: auto;
   }
-}
 
-@media screen and (min-width: 960px) {
-  /* An 84px thumbnail column to the left of the framed image, gap 16. */
+  /* An 84px thumbnail column to the left of the framed image, gap 16 (02 §6.1; Archive-Product at 960 and 1440). */
   .pb-gallery--thumbs {
     display: grid;
     grid-template-columns: 8.4rem minmax(0, 1fr);
@@ -298,6 +313,7 @@
     flex-wrap: nowrap;
     gap: 1.2rem;
     margin: 0;
+    padding: 0;
   }
 }
 
@@ -476,7 +492,7 @@
 
 .pb-product .price.price--large {
   font-size: clamp(1.8rem, calc(0.19vw + 1.726rem), 2rem);
-  line-height: 1.3;
+  line-height: 1.6;
   letter-spacing: normal;
 }
 
@@ -502,6 +518,13 @@
   font-size: 1.6rem;
   line-height: 1.6;
   color: var(--pb-body);
+}
+
+/* 02 §6.2.4 gives 16 for desktop only; Archive-Product-Mobile sets 15 (D-30). */
+@media screen and (max-width: 749px) {
+  .pb-product .pb-product__short {
+    font-size: 1.5rem;
+  }
 }
 
 /* A small ornament divider: hairlines either side of a 10px diamond, flexible width. */
@@ -649,8 +672,11 @@
   color: var(--pb-ivory);
 }
 
+/* 18 is the inner circle with the 1px gold-line border outside it (content-box), as Archive-Product draws it;
+   Archive-Product-Mobile draws 16 inside (18 outer). */
 .pb-option__swatch {
   flex: none;
+  box-sizing: content-box;
   width: 1.8rem;
   height: 1.8rem;
   border: 1px solid var(--pb-gold-line);
@@ -711,6 +737,11 @@
 
   .pb-option__note {
     font-size: 1.1rem;
+  }
+
+  .pb-option__swatch {
+    width: 1.6rem;
+    height: 1.6rem;
   }
 
   .pb-option__note--in-stock {
@@ -790,6 +821,14 @@
   color: var(--pb-body);
 }
 
+/* Archive-Product-Mobile reserves no line: the empty live region takes no space until it has something to say. */
+@media screen and (max-width: 749px) {
+  .pb-product .pb-product-status:empty {
+    min-height: 0;
+    margin-top: 0;
+  }
+}
+
 /* Pickup availability belongs to a variant, so it waits until a size is chosen. */
 .pb-product:has([data-pb-select-size]) pickup-availability {
   display: none;
@@ -822,10 +861,17 @@
   font-family: var(--font-body-family);
   font-size: 1.4rem;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.6;
   letter-spacing: normal;
   text-transform: none;
   color: var(--pb-body);
+}
+
+/* 02 §6.2.10 gives 14 for desktop only; Archive-Product-Mobile sets 13 (D-30). */
+@media screen and (max-width: 749px) {
+  .pb-product .icon-with-text .icon-with-text__item .h4 {
+    font-size: 1.3rem;
+  }
 }
 
 .pb-product .icon-with-text .svg-wrapper {
@@ -954,9 +1000,20 @@
   content: ' ';
 }
 
-/* ---------- Size-guide popup ---------- */
+/* ---------- Size-guide popup and lightbox ---------- */
+
+/* The size guide follows the cart drawer (02 §6.5, Archive-Product-Mobile cart drawer; PDP-13): the onyx scrim of
+   every Archive overlay, symmetric 20 [30 from 750] padding, a panel fitted to its content up to 80% of the
+   screen, the title (Cormorant 600 24) level with the 44px close, and the 02 §7 table style (pb-theme.css). */
+modal-dialog.product-popup-modal {
+  background-color: rgb(13 13 12 / 0.72);
+}
 
 .product-popup-modal .product-popup-modal__content {
+  --pb-popup-pad: 2rem;
+  height: auto;
+  max-height: 80%;
+  padding: var(--pb-popup-pad);
   border: 1px solid var(--pb-gold-line);
   border-radius: 0;
   box-shadow: none;
@@ -964,18 +1021,66 @@
   color: var(--pb-body);
 }
 
+@media screen and (min-width: 750px) {
+  .product-popup-modal .product-popup-modal__content {
+    --pb-popup-pad: 3rem;
+  }
+}
+
+/* The panel takes focus for screen readers when it opens; it isn't a control, so no ring (as the cart drawer). */
+.product-popup-modal .product-popup-modal__content:is(:focus-visible, .focused) {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* The close stays in the top corner while a long guide scrolls under it. */
 .product-popup-modal .product-popup-modal__toggle {
+  top: var(--pb-popup-pad);
+}
+
+.product-popup-modal .product-popup-modal__content-info {
+  margin-top: -4.4rem;
+  padding: 0;
+}
+
+.product-popup-modal .product-popup-modal__content-info > h2 {
+  display: flex;
+  align-items: center;
+  min-height: 4.4rem;
+  margin: 0 0 2.4rem;
+  padding-right: 5.6rem;
+  font-family: var(--pb-serif);
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--pb-ivory);
+}
+
+/* Both closes: 44px, onyx, a 1px rule-strong border (gold on hover), radius 2 and an 18px gold cross (02 §1.4,
+   §6.5). The lightbox close keeps Dawn's place in the top corner. */
+.product-popup-modal .product-popup-modal__toggle,
+.product-media-modal .product-media-modal__toggle {
   width: 4.4rem;
   height: 4.4rem;
-  padding: 1.3rem;
+  padding: 0;
   border: 1px solid var(--pb-rule-strong);
   border-radius: 2px;
   background: var(--pb-onyx);
   color: var(--pb-gold);
 }
 
-.product-popup-modal .product-popup-modal__content-info > h2 {
-  margin: 0 0 2.4rem;
+.product-popup-modal .product-popup-modal__toggle:hover,
+.product-media-modal .product-media-modal__toggle:hover {
+  border-color: var(--pb-gold);
+  color: var(--pb-gold);
+}
+
+.product-popup-modal .product-popup-modal__toggle .icon,
+.product-media-modal .product-media-modal__toggle .icon {
+  width: 1.8rem;
+  height: 1.8rem;
 }
 
 /* ---------- Mobile sticky add-to-bag (02 §6.4) ---------- */
@@ -1091,12 +1196,12 @@ product-recommendations.related-products:not(.product-recommendations--loaded) {
   padding-bottom: clamp(6.4rem, calc(4.571vw + 4.617rem), 11.2rem);
 }
 
-/* A centred head: 14px diamond over the H2 (44, 32 on mobile). */
+/* A centred head: 14px diamond over the H2 (44, 32 on mobile), then 40 [24] to the cards (02 §1.3). */
 .related-products .related-products__heading {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 0 clamp(2rem, calc(1.905vw + 1.257rem), 4rem);
+  margin: 0 0 clamp(2.4rem, calc(1.524vw + 1.806rem), 4rem);
   font-family: var(--pb-serif);
   font-size: clamp(3.2rem, calc(1.143vw + 2.754rem), 4.4rem);
   font-weight: 500;
@@ -1107,14 +1212,24 @@ product-recommendations.related-products:not(.product-recommendations--loaded) {
   color: var(--pb-ivory);
 }
 
+/* 14 [12] is the inner square, with the 1.5px outline outside it, as the artboards draw it (as .pb-diamond). */
 .related-products .related-products__heading::before {
   content: '';
   flex: none;
+  box-sizing: content-box;
   width: clamp(1.2rem, calc(0.19vw + 1.126rem), 1.4rem);
   height: clamp(1.2rem, calc(0.19vw + 1.126rem), 1.4rem);
   margin-bottom: clamp(1.4rem, calc(0.571vw + 1.177rem), 2rem);
   border: 1.5px solid var(--pb-gold);
   transform: rotate(45deg);
+}
+
+/* 4-up from 960, where the theme's desktop starts (02 §6.3); Dawn's grid only goes 4-up at 990. */
+@media screen and (min-width: 960px) {
+  .related-products .grid--4-col-desktop .grid__item {
+    width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+    max-width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+  }
 }
 
 /* The cards are snippets/pb-product-card.liquid (sections/related-products.liquid, PB: edit), styled by the

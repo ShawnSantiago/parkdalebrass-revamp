@@ -28,13 +28,15 @@
     }
   {%- endif -%}
 
+  {%- comment -%} PB: the desktop header starts at 960px, not 990 (02 §1.3; assets/pb-theme.css). {%- endcomment -%}
   {%- if section.settings.menu_type_desktop != "drawer" -%}
-    @media screen and (min-width: 990px) {
+    @media screen and (min-width: 960px) {
       header-drawer {
         display: none;
       }
     }
   {%- endif -%}
+  {%- comment -%} /PB {%- endcomment -%}
 
   .menu-drawer-container {
     display: flex;
@@ -116,12 +118,14 @@
     }
   }
 
-  @media screen and (min-width: 990px) {
+  {%- comment -%} PB: desktop header padding from 960px. {%- endcomment -%}
+  @media screen and (min-width: 960px) {
     .header {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  {%- comment -%} /PB {%- endcomment -%}
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
@@ -334,7 +338,8 @@
 
     connectedCallback() {
       this.header = document.querySelector('.section-header');
-      this.mobileMediaQuery = window.matchMedia('(max-width: 990px)');
+      // PB: the mobile header ends at 959px (assets/pb-theme.css), so the height is re-read when the layout switches.
+      this.mobileMediaQuery = window.matchMedia('(max-width: 959px)');
       this.headerIsAlwaysSticky =
         this.getAttribute('data-sticky-type') === 'always' ||
         this.getAttribute('data-sticky-type') === 'reduce-logo-size';
