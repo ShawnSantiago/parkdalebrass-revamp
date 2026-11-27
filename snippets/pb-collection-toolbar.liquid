@@ -3,9 +3,10 @@
   Rendered by main-collection-product-grid in place of Dawn's facets snippet when its Archive layout is on.
 
   Desktop (750px and up): one row between a gold-line top border and a rule bottom border. Category pills on
-  the left; the count, "In stock only" and Sort on the right. Active filters sit below the row as pills.
-  Mobile: the pills scroll sideways, then a two-column bar (Filter | Sort), then the count. The Filter button
-  opens a drawer with every filter as a fieldset, "Clear all" and "Show n pieces".
+  the left; the count, Filter (D-34), "In stock only" and Sort on the right. Active filters sit below the row as
+  pills. Sort lists Featured and the two price orders, plus the current sort if it's another one.
+  Mobile: the pills scroll sideways, then a two-column bar (Filter | Sort), then the count. At every width the
+  Filter button opens the same right-hand drawer with every filter as a fieldset, "Clear all" and "Show n pieces".
   Styles: assets/section-pb-collection.css.
 
   It keeps the contract of Dawn's assets/facets.js, which is unchanged:
@@ -109,9 +110,21 @@
     endunless
   -%}
   <div class="pb-toolbar__controls{{ pb_controls_class }}">
+    {%- comment -%} Desktop count, first in the right-hand group (hidden on mobile, which shows #ProductCount). {%- endcomment -%}
+    <div class="product-count pb-toolbar__count" role="status">
+      <h2 class="product-count__text">
+        <span id="ProductCountDesktop">{{ pb_count }}</span>
+      </h2>
+      {%- render 'loading-spinner' -%}
+    </div>
+
+    {%- comment -%}
+      The drawer opens at every width (D-34). Dawn's MenuDrawer adds body.overflow-hidden-{breakpoint} while it's
+      open; Dawn's own "mobile" class unlocks scrolling from 750px, so this uses a PB class that locks at all widths.
+    {%- endcomment -%}
     <menu-drawer
       class="mobile-facets__wrapper pb-filter"
-      data-breakpoint="mobile"
+      data-breakpoint="pb-filter"
       {% unless pb_has_filters %}
         hidden
       {% endunless %}
@@ -131,6 +144,7 @@
               class="mobile-facets__inner pb-filter__panel"
               role="dialog"
               aria-modal="true"
+              tabindex="-1"
               aria-labelledby="PbFilterHeading-{{ section.id }}"
             >
               <div class="pb-filter__header">
@@ -273,13 +287,6 @@
 
     <facet-filters-form class="pb-toolbar__form-wrap{% unless enable_sorting %} pb-toolbar__form-wrap--no-sort{% endunless %}">
       <form id="FacetFiltersForm" class="pb-toolbar__form">
-        <div class="product-count pb-toolbar__count" role="status">
-          <h2 class="product-count__text">
-            <span id="ProductCountDesktop">{{ pb_count }}</span>
-          </h2>
-          {%- render 'loading-spinner' -%}
-        </div>
-
         <div id="PbInStock-{{ section.id }}" class="pb-toolbar__instock js-filter">
           {%- if pb_instock -%}
             {%- liquid
@@ -353,14 +360,29 @@
                 aria-describedby="a11y-refresh-page-message"
               >
                 {%- for option in results.sort_options -%}
-                  <option
-                    value="{{ option.value | escape }}"
-                    {% if option.value == sort_by %}
-                      selected="selected"
-                    {% endif %}
-                  >
-                    {{ option.name | escape }}
-                  </option>
+                  {%- liquid
+                    # As on both artboards: Featured and the two price orders, plus the current sort (a crawled
+                    # sort_by URL or the collection's default) so the select always shows what's applied.
+                    assign pb_show_option = false
+                    if option.value == sort_by
+                      assign pb_show_option = true
+                    else
+                      case option.value
+                        when 'manual', 'price-ascending', 'price-descending'
+                          assign pb_show_option = true
+                      endcase
+                    endif
+                  -%}
+                  {%- if pb_show_option -%}
+                    <option
+                      value="{{ option.value | escape }}"
+                      {% if option.value == sort_by %}
+                        selected="selected"
+                      {% endif %}
+                    >
+                      {{ option.name | escape }}
+                    </option>
+                  {%- endif -%}
                 {%- endfor -%}
               </select>
               <span class="svg-wrapper">
@@ -405,8 +427,10 @@
         {%- if filter.type == 'price_range' -%}
           {%- if filter.min_value.value != null or filter.max_value.value != null -%}
             {%- liquid
-              assign pb_min = filter.min_value.value | default: 0 | money
-              assign pb_max = filter.max_value.value | default: filter.range_max | money
+              # The store money format wraps amounts in <span class=money>, and `t` escapes interpolated values, so
+              # strip the markup here (the key stays plain text, not _html).
+              assign pb_min = filter.min_value.value | default: 0 | money | strip_html
+              assign pb_max = filter.max_value.value | default: filter.range_max | money | strip_html
             -%}
             <li>
               <facet-remove>

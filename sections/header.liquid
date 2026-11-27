@@ -283,7 +283,9 @@
           menu="{{ settings.customer_account_menu | default: 'customer-account-main-menu' }}"
           class="header__icon header__icon--account link focus-inset"
         >
-          <span slot="signed-out-avatar" class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
+          {%- comment -%} PB: Archive outline glyph (02 §2.7, Archive-Home). {%- endcomment -%}
+          <span slot="signed-out-avatar" class="svg-wrapper">{{ 'pb-icon-account.svg' | inline_asset_content }}</span>
+          {%- comment -%} /PB {%- endcomment -%}
           <span slot="signed-out-avatar" class="visually-hidden">{{ 'customer.log_in' | t }}</span>
         </shopify-account>
       {%- endif -%}
@@ -296,11 +298,12 @@
       {%- endfor -%}
 
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
-        {% if cart == empty %}
-          <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
-        {% else %}
-          <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
-        {% endif %}
+        {%- comment -%}
+          PB: one Archive outline bag for the empty and filled cart; the count dot shows the items (02 §2.7).
+          sections/cart-icon-bubble.liquid renders the same markup after cart updates.
+        {%- endcomment -%}
+        <span class="svg-wrapper">{{ 'pb-icon-bag.svg' | inline_asset_content }}</span>
+        {%- comment -%} /PB {%- endcomment -%}
         <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
         {%- if cart != empty -%}
           <div class="cart-count-bubble">

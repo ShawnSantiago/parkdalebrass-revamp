@@ -56,8 +56,8 @@ Record each step in `docs/redesign/launch-log.md` (time, who, result, evidence) 
 
 ### Step 3 · Make the jewelry visible (E-05, E-02, E-03)
 1. Set the launch products to **Active** and publish them to **Online Store** (other channels in step 8).
-2. Make `jewelry`, `bracelets` and `necklaces` (and `rings` only if approved) available on Online Store.
-3. Leave the four content pages **hidden** for now. Their templates can only be assigned once the new theme is published (step 5).
+2. The four collections (`jewelry`, `bracelets`, `necklaces`, `rings`) are already on Online Store, noindexed (NAV-01, D-46). Remove their `seo.hidden` metafield now. Publish them to other channels only as the owner names them (step 8).
+3. The four content pages are already published with a holding line and `seo.hidden` (NAV-01, D-46). Replace each holding line with its **approved** copy (B-05, with no bracketed placeholder left), check `templateSuffix` (D-42), then remove `seo.hidden`.
 4. Check in the new theme's preview that home, collection and product pages now show real products.
 
 From here the jewelry URLs are public. The old Craft theme is still live, so the window between here and step 5 should be minutes.

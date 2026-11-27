@@ -257,4 +257,11 @@
   .pb-featured__grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+
+  /* D-35: 1 to 3 cards keep the 4-up width (311px at 1440) and centre under the head, so the row never looks
+     unfinished. --pb-count is set on the list by the section. */
+  .pb-featured__grid--partial {
+    grid-template-columns: repeat(var(--pb-count), calc((100% - 3 * 2.8rem) / 4));
+    justify-content: center;
+  }
 }

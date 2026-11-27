@@ -15,8 +15,9 @@
  *   page links   shopify://pages/our-story and shopify://pages/why-brass replace the relative /pages/ paths
  *                once those pages exist (E-03), so they follow the shopper's locale.
  *   categories   unchanged: bracelets and necklaces. Add a rings block only when D-12 lifts.
- *   journal      unchanged: "blog" stays empty, so "All articles" is hidden (as in prelaunch). Set it to "news"
- *                only once /blogs/news lists jewelry, material and care articles alone (D-11, E-07).
+ *   journal      unchanged: "blog" "news" with "tag" "journal" (D-36), so "All articles" goes to
+ *                /blogs/news/tagged/journal and stays hidden until an article has that tag (as in prelaunch).
+ *                Clear the tag only once /blogs/news lists jewelry, material and care articles alone (D-11, E-07).
  *
  * Also at launch, outside this file:
  *   sections/header-group.json  remove the announcement block "announcement-bar-0" (02 §8: no announcement
@@ -184,7 +185,8 @@
         "eyebrow": "The journal",
         "heading": "Notes on brass",
         "view_all_label": "All articles",
-        "blog": "",
+        "blog": "news",
+        "tag": "journal",
         "show_numerals": true,
         "color_scheme": "scheme-1",
         "padding_top": 128,

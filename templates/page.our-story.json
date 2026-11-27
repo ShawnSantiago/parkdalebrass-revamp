@@ -12,6 +12,12 @@
             "anchor": ""
           }
         },
+        "story_image": {
+          "type": "image",
+          "settings": {
+            "placeholder_note": "Placeholder · Approved Parkdale imagery or founder portrait"
+          }
+        },
         "shop": {
           "type": "link",
           "settings": {
@@ -19,11 +25,20 @@
             "collection": "jewelry",
             "link": ""
           }
+        },
+        "why_brass": {
+          "type": "link",
+          "settings": {
+            "label": "Why brass?",
+            "link": "/pages/why-brass"
+          }
         }
       },
       "block_order": [
         "story_outline",
-        "shop"
+        "story_image",
+        "shop",
+        "why_brass"
       ],
       "settings": {
         "show_diamond": true,
@@ -31,36 +46,13 @@
         "width": "story",
         "color_scheme": "scheme-1",
         "padding_top": 112,
-        "padding_bottom": 0,
-        "padding_top_mobile": 72,
-        "padding_bottom_mobile": 0
-      }
-    },
-    "material": {
-      "type": "pb-split",
-      "settings": {
-        "layout": "text_first",
-        "ratio": "6-5",
-        "full_bleed": false,
-        "show_borders": false,
-        "frame_image": true,
-        "show_diamond": false,
-        "color_scheme": "scheme-1",
-        "placeholder_note": "Placeholder · Approved Parkdale imagery or founder portrait",
-        "eyebrow": "The material",
-        "heading": "A material with character.",
-        "text": "<p>Brass is an alloy of copper and zinc, prized for its warm tone and the way it takes a finish. Uncoated brass darkens and softens with wear. Coated and plated finishes behave differently.</p><p>Every piece lists its actual finish and how to care for it, so you know how it will change.</p>",
-        "button_label": "Why brass?",
-        "button_link": "/pages/why-brass",
-        "padding_top": 88,
         "padding_bottom": 112,
-        "padding_top_mobile": 48,
+        "padding_top_mobile": 72,
         "padding_bottom_mobile": 72
       }
     }
   },
   "order": [
-    "main",
-    "material"
+    "main"
   ]
 }

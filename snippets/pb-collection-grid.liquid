@@ -5,7 +5,10 @@
   - Results: a 3-up [2-up] grid of pb-product-card, 56/28 [28/12] gaps (assets/section-pb-collection.css).
   - The "New to brass?" promo tile (pb-collection-promo) after the products on the last page only. It isn't a
     product, so it's outside the product count and the pagination, and it never shows on an empty result.
-  - No results (filters match nothing): the Archive empty state with "Reset filters" (pb.collection.empty_*).
+  - No results (an active filter matches nothing): the Archive empty state with "Reset filters"
+    (pb.collection.empty_*). "Active" is the toolbar's test: a value checked, or a price minimum or maximum set.
+  - A page past the end with nothing filtered (e.g. a crawled ?page=N): neutral copy and a link to page 1
+    (pb.collection.page_empty_*).
   - Empty collection (no products at all): its own copy and a link home (pb.collection.empty_collection_*).
 
   Accepts:
@@ -17,16 +20,37 @@
   {% render 'pb-collection-grid', results: collection, paginate: paginate, grid_settings: section.settings %}
 {%- endcomment -%}
 {%- if results.products.size == 0 -%}
+  {%- liquid
+    assign pb_filtered = false
+    for filter in results.filters
+      if filter.active_values.size > 0
+        assign pb_filtered = true
+        break
+      endif
+      if filter.type == 'price_range'
+        if filter.min_value.value != null or filter.max_value.value != null
+          assign pb_filtered = true
+          break
+        endif
+      endif
+    endfor
+  -%}
   <div class="collection collection--empty pb-collection page-width" id="product-grid" data-id="{{ section.id }}">
     <div class="loading-overlay gradient"></div>
     <div class="pb-empty">
       <span class="pb-diamond pb-empty__diamond" aria-hidden="true"></span>
-      {%- if results.all_products_count > 0 -%}
+      {%- if results.all_products_count > 0 and pb_filtered and results.products_count == 0 -%}
         <h2 class="pb-empty__heading">{{ 'pb.collection.empty_heading' | t }}</h2>
         <p class="pb-empty__text">{{ 'pb.collection.empty_text' | t }}</p>
         <facet-remove class="pb-empty__action">
           <a href="{{ results.url }}" class="button button--secondary">{{ 'pb.collection.reset' | t }}</a>
         </facet-remove>
+      {%- elsif results.all_products_count > 0 -%}
+        <h2 class="pb-empty__heading">{{ 'pb.collection.page_empty_heading' | t }}</h2>
+        <p class="pb-empty__text">{{ 'pb.collection.page_empty_text' | t }}</p>
+        <div class="pb-empty__action">
+          <a href="{{ results.url }}" class="button button--secondary">{{ 'pb.collection.page_empty_link' | t }}</a>
+        </div>
       {%- else -%}
         <h2 class="pb-empty__heading">{{ 'pb.collection.empty_collection_heading' | t }}</h2>
         <p class="pb-empty__text">{{ 'pb.collection.empty_collection_text' | t }}</p>

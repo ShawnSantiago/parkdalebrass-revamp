@@ -1,8 +1,6 @@
-{% if cart == empty %}
-  <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
-{% else %}
-  <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
-{% endif %}
+{%- comment -%} PB: one Archive outline bag for the empty and filled cart, as in sections/header.liquid (02 §2.7). {%- endcomment -%}
+<span class="svg-wrapper">{{ 'pb-icon-bag.svg' | inline_asset_content }}</span>
+{%- comment -%} /PB {%- endcomment -%}
 
 <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
 {%- if cart != empty -%}

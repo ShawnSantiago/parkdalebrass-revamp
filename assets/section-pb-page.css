@@ -109,6 +109,54 @@
   scroll-margin-top: 10rem;
 }
 
+/* Framed image (Our Story, 02 §7 and §1.5): outer 1px gold, radius 4, padding 10 [8] (.pb-frame in pb-theme.css);
+   inner 1px gold-line; a 4:5 image on onyx-raised at the reading width. Empty: the 02 §3 placeholder (gold line
+   drawing, caption chip from 750px, as pb-split). */
+.pb-page__image {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--pb-onyx-raised);
+}
+
+.pb-page__img,
+.pb-page__placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.pb-page__img {
+  display: block;
+  object-fit: cover;
+}
+
+.pb-page__placeholder-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.pb-page__placeholder .placeholder-svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--pb-gold);
+}
+
+.pb-page__placeholder .pb-placeholder__note {
+  display: none;
+  margin: 0;
+}
+
+@media screen and (min-width: 750px) {
+  .pb-page__placeholder .pb-placeholder__note {
+    display: block;
+    inset-inline: 1.6rem;
+    bottom: 1.4rem;
+  }
+}
+
 /* Gold text CTA (02 §2.1): Inter 600 13, 0.18em, caps, underline offset 6, 44px hit area. */
 .pb-page__link {
   text-decoration: underline;
@@ -151,5 +199,31 @@
 
   .color-scheme-3 .pb-page__block-heading.pb-eyebrow {
     font-size: 1.2rem;
+  }
+}
+
+/* The page ends 112 [72] above the footer (02 §1.3) when nothing after the pb-page renders: e.g. Jewelry Care while
+   every accordion row still has a [bracketed placeholder] (collapsible-content then prints only its stylesheets). */
+#MainContent > .shopify-section:has(> .pb-page):not(:has(~ .shopify-section > :not(link, style, script))) .pb-page__inner {
+  padding-bottom: 7.2rem;
+}
+
+@media screen and (min-width: 750px) {
+  #MainContent > .shopify-section:has(> .pb-page):not(:has(~ .shopify-section > :not(link, style, script))) .pb-page__inner {
+    padding-bottom: 11.2rem;
+  }
+}
+
+/* 404 (sections/main-404.liquid): the page head, 112 [72] below the header and above the footer. */
+.template-404.pb-404 {
+  margin: 0 auto;
+  padding-top: 7.2rem;
+  padding-bottom: 7.2rem;
+}
+
+@media screen and (min-width: 750px) {
+  .template-404.pb-404 {
+    padding-top: 11.2rem;
+    padding-bottom: 11.2rem;
   }
 }

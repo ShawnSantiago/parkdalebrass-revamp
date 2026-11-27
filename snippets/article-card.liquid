@@ -11,6 +11,7 @@
   - show_author: {String} The setting either show the article author or not. If it's not included it will not show the author by default
   - show_badge: {String} The setting either show the blog badge or not.
   - lazy_load: {Boolean} Image should be lazy loaded. Default: true (optional)
+  - pb_numeral: {Number} PB: a roman numeral above the title (journal index, D-38). Omitted: no numeral (optional)
 
   Usage:
   {% render 'article-card' blog: blog, article: article, show_image: section.settings.show_image %}
@@ -75,9 +76,16 @@
         {%- endif -%}
         <div class="card__content">
           <div class="card__information">
+            {%- comment -%} PB: journal numeral (D-38), only when the caller passes one {%- endcomment -%}
+            {%- if pb_numeral != blank -%}
+              <span class="pb-journal__numeral" aria-hidden="true">{% render 'pb-roman', n: pb_numeral %}</span>
+            {%- endif -%}
+            {%- comment -%} /PB {%- endcomment -%}
             <h3 class="card__heading{% if show_excerpt %} h2{% endif %}">
               <a href="{{ article.url }}" class="full-unstyled-link">
-                {{ article.title | truncate: 50 | escape }}
+                {%- comment -%} PB: full title, no 50-character truncation (D-38) {%- endcomment -%}
+                {{ article.title | escape }}
+                {%- comment -%} /PB {%- endcomment -%}
               </a>
             </h3>
             <div class="article-card__info caption-with-letter-spacing h5">
@@ -114,9 +122,16 @@
       </div>
       <div class="card__content">
         <div class="card__information">
+          {%- comment -%} PB: journal numeral (D-38), only when the caller passes one {%- endcomment -%}
+          {%- if pb_numeral != blank -%}
+            <span class="pb-journal__numeral" aria-hidden="true">{% render 'pb-roman', n: pb_numeral %}</span>
+          {%- endif -%}
+          {%- comment -%} /PB {%- endcomment -%}
           <h3 class="card__heading{% if show_excerpt %} h2{% endif %}">
             <a href="{{ article.url }}" class="full-unstyled-link">
-              {{ article.title | truncate: 50 | escape }}
+              {%- comment -%} PB: full title, no 50-character truncation (D-38) {%- endcomment -%}
+              {{ article.title | escape }}
+              {%- comment -%} /PB {%- endcomment -%}
             </a>
           </h3>
           <div class="article-card__info caption-with-letter-spacing h5">

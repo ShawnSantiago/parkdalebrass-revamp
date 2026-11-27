@@ -19,9 +19,9 @@ How each part of `02-design-spec.md` is built in this repo. File paths are relat
 
 | Design element (02) | Built with | Why |
 | --- | --- | --- |
-| Header, nav, wordmark + diamond, announcement | Dawn `header`, `announcement-bar` + `pb-theme.css` | Matches with CSS |
-| Footer desktop | Dawn `footer` + CSS | Matches with CSS |
-| Footer mobile accordions | **Dawn edit** `sections/footer.liquid` (§7) | Dawn stacks the groups instead of collapsing them |
+| Header, nav, wordmark + diamond, announcement | Dawn `header`, `announcement-bar` + `pb-theme.css` + **Dawn edits**: `header` (no H1 around the wordmark, D-31; Organization JSON-LD, D-29; outline glyphs), `header-search`, `header-drawer` (account link; menu glyph), `cart-icon-bubble` (bag glyph), `announcement-bar` (signup link, inline link label) | Dawn's homepage H1, filled icons and whole-message link don't match. Glyphs: D-45 |
+| Footer desktop | Dawn `footer` + CSS + **Dawn edit** `sections/footer.liquid` (wordmark; bottom bar with a content-width hairline, ©, policies and an inline Country/region select; no "Powered by Shopify") | Dawn's bottom bar is centred and stacked, with its own separators and select ring (D-45) |
+| Footer mobile accordions | **Dawn edit** `sections/footer.liquid` (§7; 36/40 padding under 750px) | Dawn stacks the groups instead of collapsing them |
 | Hero | **`pb-hero`** | Framed lockup, two buttons, mobile order |
 | Category tiles / mobile rows | **`pb-category-tiles`** | Hides empty collections; tiles become rows on mobile |
 | Featured (prelaunch concepts and live products) | **`pb-featured`** | Centred ruled head, gold-outline badge, button below, concept mode without prices |
@@ -30,17 +30,21 @@ How each part of `02-design-spec.md` is built in this repo. File paths are relat
 | Journal | **`pb-journal-picks`** | Hand-picked articles, numerals |
 | Signup | **`pb-newsletter`** | Green double frame, centred |
 | Collection head + category pills | **`pb-collection-header`** | Centred diamond head, live-category line, pills |
-| Collection grid, filters, sort, pagination | Dawn `main-collection-product-grid` + CSS + **Dawn edit** (promo tile) | Filtering logic stays native |
-| Collection help strip | Dawn `multicolumn` + CSS | Matches with CSS (hide the arrow icon, gold caps links) |
-| Product gallery (left thumbnail column, framed main image, mobile counter) | Dawn `main-product` + **Dawn edit** (§5.6) + CSS | Dawn puts thumbnails below the main image |
-| Product info, options, accordions | Dawn `main-product` blocks + **Dawn edits** (§5) | Keeps Dawn's variant and cart JavaScript |
+| Collection grid, filters, sort, pagination | Dawn `main-collection-product-grid` + CSS + **Dawn edit** behind `pb_layout`: toolbar, grid, promo tile, empty states. About 110 lines, accepted over the 20-line guideline (D-33) | Filtering logic and Dawn's facets JavaScript stay native |
+| Collection help strip | Dawn `multicolumn` + CSS (`pb-theme.css`) + **Dawn edit** (bracketed text hidden outside the editor; link named by the column title) | D-33 |
+| Product gallery (left thumbnail column, framed main image, mobile counter) | Dawn `main-product` + **Dawn edits** `product-media-gallery` (§5.6; position labels) and `product-thumbnail` (LCP priority, opener labels) + CSS | Dawn puts thumbnails below the main image (D-23; G-17, PDP-06) |
+| Product info, options, accordions | Dawn `main-product` blocks + **Dawn edits** (§5): `main-product`, `product-variant-picker`, `product-variant-options`, `buy-buttons`, `icon-accordion` (service glyphs, D-38) | Keeps Dawn's variant and cart JavaScript (D-23, D-31) |
 | "Select a size" start state, inline size-guide link | **Dawn edits** (§5.3, §5.5) | Required by the design |
 | Mobile sticky add-to-bag | **`snippets/pb-sticky-atc.liquid` + `assets/pb-sticky-atc.js`** (§4.10) | Not in Dawn |
-| Recommendations | Dawn `related-products` + CSS (centred head, diamond) | Matches with CSS |
-| Cart drawer | Dawn `cart-drawer` + CSS | Matches with CSS |
-| Content pages (Our Story, Why Brass, Care, Size Guide) | **`pb-page`** (+ `pb-split`, Dawn `collapsible-content`) | Centred diamond head with caps H1 and dateline |
-| Blog / article | Dawn + CSS | Matches with CSS. Verify in QA. |
+| Recommendations | Dawn `related-products` + **Dawn edit** (renders `pb-product-card`) + CSS (centred head, diamond); `assets/global.js` **Dawn edit** (loads on connect) | The shared 02 §2.2 card; no late layout shift (D-33; G-02) |
+| Cart drawer | Dawn `cart-drawer` + **Dawn edit** (`pb.cart.*` strings, option rows, continue link) + CSS (`pb-theme.css`) | Dawn's copy and layout differ from 02 §6.5 (D-33) |
+| Content pages | Our Story: one **`pb-page`** (head, body, framed image, links). Why Brass: **`pb-page`** + `pb-split`, `pb-journal-picks`, `pb-featured`. Jewelry Care: **`pb-page`** + Dawn `collapsible-content` (**Dawn edit**: placeholder rows hidden). Size Guide: **`pb-page`**. Contact: `pb-page` + Dawn `contact-form` (**Dawn edit**: loads the PB field styles) | Centred diamond head with caps H1 and dateline (02 §7, D-38) |
+| Blog / article | Dawn `main-blog`, `main-article`, `article-card` + **Dawn edits** (journal H1, stable numerals, no title truncation, journal back link, prose styles) + CSS | D-33, D-36, D-38 |
+| Search, 404, cart page | Dawn `main-search`, `main-404`, `main-cart-items` + **Dawn edits** (pb-page head, `pb-product-card` results, "Continue shopping" target, cart options) + CSS | 02 §7 heads and §2.2 cards (D-45) |
+| Display font | `layout/theme.liquid` **Dawn edit**: Inter 500/600, Cormorant Garamond 500/600 `@font-face` with `asset_url` srcs, Cormorant 600 preload | The preload only counts if the `@font-face` URL matches it exactly (D-15, D-45) |
 | Cart quantity edits; predictive search | **Dawn edits** to `assets/cart.js` and `assets/predictive-search.js` | Fix two Dawn 16 bugs customers would hit (D-25; `phase-2-brief.md` §2.10) |
+
+**Dawn files that carry `PB:` markers** (each has a row in `CHANGELOG.md`; check with `grep -rl "PB:" sections snippets layout assets`): `layout/theme.liquid`; `sections/announcement-bar.liquid`, `cart-icon-bubble.liquid`, `collapsible-content.liquid`, `contact-form.liquid`, `footer.liquid`, `header.liquid`, `main-404.liquid`, `main-article.liquid`, `main-blog.liquid`, `main-cart-items.liquid`, `main-collection-product-grid.liquid`, `main-product.liquid`, `main-search.liquid`, `multicolumn.liquid`, `related-products.liquid`; `snippets/article-card.liquid`, `buy-buttons.liquid`, `cart-drawer.liquid`, `header-drawer.liquid`, `header-search.liquid`, `icon-accordion.liquid`, `product-media-gallery.liquid`, `product-thumbnail.liquid`, `product-variant-options.liquid`, `product-variant-picker.liquid`; `assets/cart.js`, `global.js`, `predictive-search.js`. The grep also finds two theme-owned files that only mention `PB:` in comments, `assets/section-pb-product.css` and `snippets/pb-announcement-message.liquid`. Decisions: D-21, D-22, D-23, D-25, D-29, D-31, D-33 and D-45.
 
 ## 1 · `config/settings_data.json`: global settings (merge into the active preset)
 

@@ -12,6 +12,9 @@
       "empty_heading": "Nothing matches those filters.",
       "empty_text": "Try removing a filter, or browse all jewelry.",
       "reset": "Reset filters",
+      "page_empty_heading": "Nothing on this page.",
+      "page_empty_text": "This page is past the end of the collection.",
+      "page_empty_link": "Go to the first page",
       "empty_collection_heading": "Nothing here yet.",
       "empty_collection_text": "This collection has no pieces right now.",
       "empty_collection_link": "Back to home",
@@ -58,7 +61,9 @@
       "success": "Thanks. You're on the list."
     },
     "blog": {
-      "articles": "Articles"
+      "articles": "Articles",
+      "back_to_journal": "Back to the journal",
+      "journal_title": "Journal"
     },
     "page": {
       "table_label": "Table {{ index }}",
@@ -70,6 +75,9 @@
     "product": {
       "select_size": "Select a size",
       "added": "[item] added to your bag.",
+      "size_switched": "[size] isn't available in [option]. Showing [new].",
+      "media_image": "Image {{ index }} of {{ count }}",
+      "media_open": "Open image {{ index }} of {{ count }}",
       "in_stock": "In stock",
       "size_unavailable": "Unavailable",
       "spec_material": "Material",

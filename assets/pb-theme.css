@@ -1,20 +1,5 @@
-/* Parkdale Brass — Archive foundations on Dawn 16. */
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('cormorant-garamond-500.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('cormorant-garamond-600.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-}
-
+/* Parkdale Brass — Archive foundations on Dawn 16.
+   The Cormorant Garamond @font-face rules live in layout/theme.liquid, so their src matches the versioned preload. */
 :root {
   --pb-onyx: #121211;
   --pb-onyx-raised: #1b1a18;
@@ -214,7 +199,14 @@ button.shopify-payment-button__button--unbranded:enabled:hover {
 }
 
 .rte a { color: rgb(var(--color-link)); }
-.pb-text-cta:hover, .rte a:hover { color: var(--pb-gold-pale); }
+/* Hover keeps the link colour and thickens the underline: gold-pale is only the focus ring and the
+   announcement text (02 §1.1, §1.4). */
+.pb-text-cta:hover {
+  color: var(--pb-gold);
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+}
+.rte a:hover { color: rgb(var(--color-link)); text-decoration-thickness: 2px; }
 .color-scheme-5 .rte a:hover { color: var(--pb-onyx); }
 
 :focus-visible, .focused,
@@ -313,8 +305,14 @@ button.shopify-payment-button__button--unbranded:enabled:hover {
   }
 }
 
-/* On narrow phones the diamond hangs into the space beside the centred text.
-   Reserve two complete icon targets on the right, including while the menu is empty. */
+/* Archive-Home-Mobile draws no diamond before the centred wordmark (the desktop one stays). */
+@media screen and (max-width: 989px) {
+  .header__heading-link .h2::before { display: none; }
+}
+
+/* On phones, reserve two complete icon targets on the right, including while the menu is empty, and keep the
+   wordmark on one line: 17px at 390 (02 §1.2 [m]), scaling to 15px at 360. The negative end margin cancels the
+   trailing letter-spacing so the letters, not the box, are centred. */
 @media screen and (max-width: 460px) {
   .header-wrapper .header.header--middle-left.header--mobile-center {
     grid-template-columns: 8.8rem minmax(0, 1fr) 8.8rem;
@@ -324,13 +322,30 @@ button.shopify-payment-button__button--unbranded:enabled:hover {
   .header--mobile-center .header__icons { padding-inline: 0; }
   .header--mobile-center .header__icon--cart { margin-inline-end: 0; }
   .header--mobile-center .header__heading-link { padding-block: 0.5rem; }
-  .header--mobile-center .header__heading-link .h2 { position: relative; display: inline-block; }
-  .header--mobile-center .header__heading-link .h2::before {
-    position: absolute;
-    inset-inline-end: calc(100% + 0.8rem);
-    top: 50%;
-    transform: translateY(-50%) rotate(45deg);
+  .header--mobile-center .header__heading-link .h2 {
+    font-size: clamp(1.5rem, calc(6.667vw - 0.9rem), 1.7rem);
+    white-space: nowrap;
+    margin-inline-end: -0.28em;
   }
+}
+
+/* Under 360px a centred 15px wordmark can't fit between two 88px columns. The left column only holds the 44px
+   menu button (account access is in the drawer), so it narrows to 44px, the wordmark centres between the
+   controls, and the tracking eases to 0.2em. The short announcement stays on one line at 11px, 0.1em. */
+@media screen and (max-width: 359px) {
+  .header-wrapper .header.header--middle-left.header--mobile-center {
+    grid-template-columns: 4.4rem minmax(0, 1fr) 8.8rem;
+  }
+  .header--mobile-center header-drawer { margin-inline-start: 0; }
+  .header--mobile-center:not(.header--has-menu) .header__icon--account { inset-inline-start: 0.2rem; }
+  .header--mobile-center .header__heading-link .h2 {
+    letter-spacing: 0.2em;
+    margin-inline-end: -0.2em;
+  }
+  .utility-bar .utility-bar__grid.page-width { padding-inline: 1rem; }
+  /* PB2:home's 0.14em rule comes later in this file, hence the extra class. */
+  .utility-bar .announcement-bar .pb-announcement { letter-spacing: 0.1em; }
+  .pb-announcement__version--short { white-space: nowrap; }
 }
 
 /* Product cards retain Dawn's image swapping and link hit areas. */
@@ -468,6 +483,11 @@ variant-selects .product-form__input .form__label {
   }
   html { scroll-behavior: auto; }
   .section-header.animate, .header__heading-logo-wrapper, .card .media img { transition-duration: 1ms; }
+  /* Dawn rules with literal durations: the menu icon swap, media fades and link underlines. 1ms, not none,
+     so transitionend still fires. Spinners keep turning (essential). */
+  .header__icon--menu .icon, .media > img, .underlined-link, .customer a, .inline-richtext a {
+    transition-duration: 1ms !important;
+  }
 }
 
 /* PB2:foundation */
@@ -811,7 +831,8 @@ variant-selects .product-form__input .form__label {
 }
 
 .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info .link:hover {
-  color: var(--pb-gold-pale);
+  color: var(--pb-gold);
+  text-decoration-thickness: 2px;
 }
 
 .shopify-section[id$='__pb_help'] .multicolumn .link .icon-wrap {
@@ -1264,3 +1285,140 @@ cart-drawer .cart-drawer .cart__checkout-button.button {
   color: var(--pb-muted);
 }
 /* /PB2:pages */
+
+/* PB2:global */
+/* Reverse keyboard focus can't land under the sticky header (WCAG 2.2 2.4.11, 05 §4). sections/header.liquid
+   sets --header-height on the root element; anchors (/#signup) also stop below the header. */
+html {
+  scroll-padding-top: calc(var(--header-height, 8.5rem) + 0.8rem);
+}
+
+/* The skip link sits inside the viewport when focused, so its whole ring shows (Dawn's .visually-hidden keeps a
+   -1px margin, and mobile buttons are full width). */
+.skip-to-content-link:focus {
+  width: auto;
+  margin: 0;
+  top: 0.8rem;
+  left: 0.8rem;
+}
+
+/* Its target, main#MainContent (tabindex -1), isn't a control: Dawn's .focus-none keeps it ringless, which the
+   global !important ring above overrode. */
+.focus-none:is(:focus-visible, .focused) {
+  outline: none !important;
+}
+
+/* Header account (<shopify-account>): focus lands on the button in its shadow root, which Shopify exposes as
+   part "signed-out-avatar". Give it the 44x44 target and the Archive ring instead of the browser's (02 §1.4). */
+shopify-account.header__icon::part(signed-out-avatar) {
+  min-width: 4.4rem;
+  min-height: 4.4rem;
+}
+
+shopify-account.header__icon::part(signed-out-avatar):focus {
+  outline: none;
+}
+
+shopify-account.header__icon::part(signed-out-avatar):focus-visible {
+  outline: 2px solid var(--pb-gold-pale);
+  outline-offset: 3px;
+}
+
+/* Header glyphs (02 §2.7, Archive-Home): 20px outline icons, the menu 22px. Dawn sizes its 40-unit cart icon at
+   44px; the Archive bag is a 24-unit glyph like the others. */
+.header__icon--cart .icon.pb-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.header__icon--menu .icon.pb-icon-menu {
+  width: 2.2rem;
+  height: 2.2rem;
+}
+
+/* The cart drawer's container takes focus for screen readers when it opens; it isn't a control, so no ring next
+   to its gold-line border (Tab moves on to Close). */
+cart-drawer :is(.drawer__inner, .drawer__inner-empty):is(:focus-visible, .focused) {
+  outline: none !important;
+}
+
+/* Scrims: the cart drawer's onyx (PB2:product) instead of Dawn's 50% ivory wash behind the search modal, the
+   tablet menu drawer and the mobile country sheet. */
+.header__search details[open] .modal-overlay::after,
+.header .header__icon--menu[aria-expanded='true']::before,
+.disclosure .country-selector__overlay {
+  background-color: rgb(13 13 12 / 0.72);
+}
+
+/* Mobile menu drawer in the Nav role (02 §1.2: Inter 500 12, 0.24em, caps): 52px rows with --pb-rule dividers,
+   ivory, gold on hover and for the current page. Rows sit inside the 20px gutter so the 3px-offset focus ring
+   isn't clipped by the drawer. component-menu-drawer.css loads after this file, hence the longer selectors. */
+.menu-drawer .menu-drawer__navigation {
+  padding: 1.2rem 0 2.4rem;
+}
+
+.js .menu-drawer .menu-drawer__menu > li {
+  margin: 0 2rem;
+  border-bottom: 1px solid var(--pb-rule);
+}
+
+.menu-drawer .menu-drawer__menu-item,
+.menu-drawer .menu-drawer__close-button {
+  min-height: 5.2rem;
+  padding: 0;
+  color: var(--pb-ivory);
+  background-color: transparent;
+  font: 500 1.2rem / 1.3 var(--font-body-family);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.menu-drawer .menu-drawer__menu summary.menu-drawer__menu-item {
+  padding-inline-end: 3.2rem;
+}
+
+.menu-drawer .menu-drawer__menu-item > .svg-wrapper {
+  right: 0;
+  color: var(--pb-gold);
+}
+
+.menu-drawer .menu-drawer__menu-item:is(:hover, :focus, .menu-drawer__menu-item--active),
+.menu-drawer .menu-drawer__close-button:is(:hover, :focus) {
+  background-color: transparent;
+}
+
+.menu-drawer .menu-drawer__menu-item:is(:hover, .menu-drawer__menu-item--active, [aria-current='page']),
+.menu-drawer .menu-drawer__close-button:hover {
+  color: var(--pb-gold);
+}
+
+/* A submenu's back button heads its list, in the same row style. */
+.menu-drawer .menu-drawer__close-button {
+  width: calc(100% - 4rem);
+  margin: 1.2rem 2rem 0;
+  border-bottom: 1px solid var(--pb-rule);
+}
+
+.menu-drawer .menu-drawer__close-button .svg-wrapper {
+  color: var(--pb-gold);
+}
+
+.header .menu-drawer .menu-drawer__utility-links {
+  padding: 0 2rem 2.4rem;
+  background-color: transparent;
+}
+
+.menu-drawer .menu-drawer__utility-links .menu-drawer__menu-item {
+  border-top: 1px solid var(--pb-rule);
+}
+
+/* 02 §1.2 loads Inter 400, 500 and 600 only: merchant bold renders at 600 instead of fetching Inter 700. */
+strong,
+b {
+  font-weight: 600;
+}
+
+.predictive-search .predictive-search__item-query-result *:not(mark) {
+  font-weight: 600;
+}
+/* /PB2:global */

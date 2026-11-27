@@ -21,9 +21,25 @@
 
 {%- paginate blog.articles by 6 -%}
   <div class="main-blog page-width section-{{ section.id }}-padding">
+    {%- comment -%}
+      PB: on the journal tag view (/blogs/news/tagged/journal, D-36) the H1 reads "Journal", not the blog title.
+      Tags are matched by handle, as the tag URL is.
+    {%- endcomment -%}
+    {%- liquid
+      assign pb_journal_tag = 'journal'
+      assign pb_blog_title = blog.title | escape
+      for pb_t in current_tags
+        assign pb_t_handle = pb_t | handleize
+        if pb_t_handle == pb_journal_tag
+          assign pb_blog_title = 'pb.blog.journal_title' | t | escape
+          break
+        endif
+      endfor
+    -%}
     <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      {{ blog.title | escape }}
+      {{ pb_blog_title }}
     </h1>
+    {%- comment -%} /PB {%- endcomment -%}
     {%- comment -%} PB: a heading for the card list, so the h3 card titles don't skip a level {%- endcomment -%}
     <h2 class="visually-hidden">{{ 'pb.blog.articles' | t }}</h2>
     {%- comment -%} /PB {%- endcomment -%}
@@ -37,6 +53,12 @@
             style="--animation-order: {{ forloop.index }};"
           {% endif %}
         >
+          {%- comment -%}
+            PB: roman numerals that continue across pages (D-38): I–VI on page 1, VII–XII on page 2.
+          {%- endcomment -%}
+          {%- liquid
+            assign pb_numeral = paginate.current_page | minus: 1 | times: paginate.page_size | plus: forloop.index
+          -%}
           {%- render 'article-card',
             article: article,
             media_height: section.settings.image_height,
@@ -44,8 +66,10 @@
             show_image: section.settings.show_image,
             show_date: section.settings.show_date,
             show_author: section.settings.show_author,
-            show_excerpt: true
+            show_excerpt: true,
+            pb_numeral: pb_numeral
           -%}
+          {%- comment -%} /PB {%- endcomment -%}
         </div>
       {%- endfor -%}
     </div>

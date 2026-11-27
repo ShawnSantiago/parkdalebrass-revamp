@@ -44,9 +44,19 @@
                   {{- 'icon-close.svg' | inline_asset_content -}}
                 </span>
               </button>
-              <a href="{{ routes.all_products_collection_url }}" class="button">
+              {%- comment -%}
+                PB: to the jewelry collection once it has products, otherwise home (D-08: never /collections/all)
+              {%- endcomment -%}
+              {%- liquid
+                assign pb_shop_url = routes.root_url
+                if collections['jewelry'].products_count > 0
+                  assign pb_shop_url = collections['jewelry'].url
+                endif
+              -%}
+              <a href="{{ pb_shop_url }}" class="button">
                 {{ 'general.continue_shopping' | t }}
               </a>
+              {%- comment -%} /PB {%- endcomment -%}
 
               {%- if shop.customer_accounts_enabled and customer == null -%}
                 <p class="cart__login-title h3">{{ 'sections.cart.login.title' | t }}</p>

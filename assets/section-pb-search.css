@@ -1,0 +1,62 @@
+/* PB · Search (sections/main-search.liquid; 02 §1.2, §1.3, §2.2, §2.4, §7). The head uses section-pb-page.css,
+   the field component-pb-field.css, and the product card the PB2:collection block of pb-theme.css.
+   - The content-page head (diamond 18 [14], caps H1 54 [40]) starts 112 [72] below the header, and the section ends
+     112 [72] above the footer (02 §1.3; Dawn's padding setting stops at 100px).
+   - The field (label above, 48px control) and the result messages sit at the 740px field width, centred.
+   - Products use pb-product-card: 4-up with a 28px gap (02 §1.3, the featured 4-up grid; search.json columns 4),
+     2-up under 960px with a 12px column and 28px row gap (Archive-Collection-Mobile). Values scale fluidly. */
+
+.template-search.pb-search {
+  padding-top: 7.2rem;
+  padding-bottom: 7.2rem;
+}
+
+@media screen and (min-width: 750px) {
+  .template-search.pb-search {
+    padding-top: 11.2rem;
+    padding-bottom: 11.2rem;
+  }
+}
+
+/* The head's own 48 [28] bottom padding is the gap to the field. */
+.pb-search .template-search__search .search {
+  margin-top: 0;
+}
+
+/* Reset and submit keep their 44px targets, now beside the 48px control under the label. */
+.pb-search .pb-field .field > .field__button {
+  top: auto;
+  bottom: 0.2rem;
+}
+
+.pb-search .pb-field .field > .search__input.field__input {
+  padding-inline-end: 9.8rem;
+}
+
+.pb-search .pb-search__status {
+  max-width: 74.1rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Results grid */
+.pb-search .product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* 12px at 390, 28px from 960 */
+  column-gap: clamp(1.2rem, calc(2.807vw + 0.1053rem), 2.8rem);
+  row-gap: 2.8rem;
+}
+
+.pb-search .product-grid > .grid__item {
+  width: auto;
+  max-width: none;
+  min-width: 0;
+}
+
+@media screen and (min-width: 960px) {
+  .pb-search .product-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 2.8rem;
+  }
+}

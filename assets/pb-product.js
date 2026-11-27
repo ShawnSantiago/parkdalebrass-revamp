@@ -1,24 +1,19 @@
 /*
  * Parkdale Brass: product page state for the Archive layout (D-23, 02 §6.2, 03 §5.5).
  *
- * 1. "Select a size" start state. main-product renders the Size radios unchecked, the Add to bag button as
- *    "Select a size" with aria-disabled, and an empty variant input. Dawn's form ignores submits while the
- *    button is aria-disabled. This element keeps that state until the shopper picks a size:
- *    - changing another option first sends Dawn a provisional size, so Dawn's request always names a full
- *      variant, then restores the start state once Dawn has redrawn the picker. If that combination has no
- *      variant, it asks again with the next size, so the price shown belongs to a real variant;
- *    - after a size is picked, Dawn's variant flow takes over unchanged. If a redrawn picker comes back with
- *      no size checked, the chosen size is checked again.
- *    A shared ?variant= link never reaches this state: main-product only renders it without one.
- *    Pickup availability stays hidden while the button is in this state (CSS on [data-pb-select-size]).
- * 2. The role="status" line under the button, written when Dawn's product form adds this product.
+ * 1. "Select a size" start state. main-product renders the Size radios unchecked, the button as "Select a size"
+ *    (aria-disabled, so Dawn's form ignores submits) and an empty variant input. Until a size is picked,
+ *    changing another option sends Dawn a provisional size, so its request names a full variant, then restores
+ *    the start state. A size with no variant, or a sold-out one while the redrawn picker shows another size as
+ *    available, is retried with the next size, so the price belongs to an available variant when one exists.
+ *    Pickup availability stays hidden in this state (CSS on [data-pb-select-size]).
+ * 2. Once a size is picked, Dawn's flow takes over. If a new colour doesn't come in that size, the nearest size
+ *    it has is selected and the status line says so. A ?variant= link starts here.
+ * 3. The role="status" line under the button also confirms an add to bag.
  *
- * Works on the product page and in Dawn's quick add, which copies product-info and rewrites its IDs, so every
- * lookup is scoped to this product-info.
- *
- * Hooks: Dawn's PUB_SUB_EVENTS.optionValueSelectionChange, variantChange and cartUpdate (assets/constants.js),
- * and the DOM that product-info.js and product-form.js already manage. It doesn't replace any of Dawn's
- * product JavaScript.
+ * Quick add copies product-info and rewrites its IDs, so every lookup is scoped to this product-info.
+ * Hooks: Dawn's PUB_SUB_EVENTS optionValueSelectionChange, variantChange and cartUpdate (assets/constants.js).
+ * It replaces none of Dawn's product JavaScript.
  */
 if (!customElements.get('pb-product-state')) {
   customElements.define(
@@ -33,6 +28,7 @@ if (!customElements.get('pb-product-state')) {
         this.optionTargetId = null;
         this.triedSizes = new Set();
         this.expectVariantChange = false;
+        this.note = '';
 
         this.onChangeCapture = this.onChangeCapture.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -44,7 +40,7 @@ if (!customElements.get('pb-product-state')) {
           subscribe(PUB_SUB_EVENTS.cartUpdate, this.onCartUpdate.bind(this)),
         ];
 
-        // Browsers can restore form state on reload, so apply the start state rather than trust the markup.
+        // Browsers can restore form state on reload.
         if (!this.sizeChosen) this.applyStartState();
       }
 
@@ -54,7 +50,6 @@ if (!customElements.get('pb-product-state')) {
         this.unsubscribers?.forEach((unsubscribe) => unsubscribe());
       }
 
-      // Quick add rewrites the section ID in product-info and in every ID inside it, so read it from there.
       byId(prefix) {
         return this.productInfo.querySelector(`[id="${prefix}-${this.productInfo.dataset.section}"]`);
       }
@@ -97,6 +92,7 @@ if (!customElements.get('pb-product-state')) {
           return;
         }
         if (!target?.closest?.('variant-selects')) return;
+        this.showPrice();
 
         if (this.isSizeInput(target)) {
           this.chosenSizeValueId = target.dataset.optionValueId;
@@ -107,45 +103,76 @@ if (!customElements.get('pb-product-state')) {
           return;
         }
 
-        if (this.sizeChosen) return;
         this.optionTargetId = target.id;
         this.triedSizes.clear();
         const inputs = this.sizeInputs;
-        if (inputs.length && !inputs.some((input) => input.checked)) {
-          this.checkProvisional(inputs.find((input) => !input.classList.contains('disabled')) || inputs[0]);
+        const checked = inputs.find((input) => input.checked);
+        if (this.sizeChosen) {
+          this.wantedSize = checked?.value;
+          if (!checked) return;
+          this.chosenSizeValueId = checked.dataset.optionValueId;
+          this.triedSizes.add(this.chosenSizeValueId);
+        } else if (inputs.length && !checked) {
+          this.checkProvisional(this.nextSize());
         }
       }
 
-      // Without a size, Dawn would ask Shopify for a partial set of option values. Give it one to resolve.
+      // The untried size nearest to index `from`, available (in the current picker) first.
+      nextSize(from = 0, availableOnly = false) {
+        const inputs = this.sizeInputs;
+        const distance = (input) => Math.abs(inputs.indexOf(input) - from);
+        const untried = inputs
+          .filter((input) => !this.triedSizes.has(input.dataset.optionValueId))
+          .sort((a, b) => distance(a) - distance(b));
+        return untried.find((input) => !input.classList.contains('disabled')) || (availableOnly ? null : untried[0]);
+      }
+
       checkProvisional(input) {
         input.checked = true;
         input.classList.add('pb-option__input--provisional');
         this.triedSizes.add(input.dataset.optionValueId);
       }
 
-      // Dawn's product-info writes the variant ID here just before it publishes variantChange, or instead of it
-      // when the chosen values have no variant (its "Unavailable" path). This tells the two apart.
+      // Dawn writes the variant ID here before it publishes variantChange, or '' when the values have no variant.
       onVariantInput(value) {
         this.expectVariantChange = value !== '';
         if (value !== '') return;
-        // Let Dawn finish its unavailable path first.
-        queueMicrotask(() => (this.sizeChosen ? this.restoreChosenSize() : this.tryNextSize()));
+        queueMicrotask(() => (this.sizeChosen ? this.switchSize() : this.tryNextSize()));
       }
 
-      // The provisional size has no variant with the new values. Ask again with the next size, available first.
-      tryNextSize() {
-        const inputs = this.sizeInputs;
-        const untried = inputs.filter((input) => !this.triedSizes.has(input.dataset.optionValueId));
-        const next = untried.find((input) => !input.classList.contains('disabled')) || untried[0];
+      tryNextSize(next = this.nextSize()) {
         if (!next) {
           this.applyStartState();
           return;
         }
-
-        inputs.forEach((input) => (input.checked = false));
+        this.sizeInputs.forEach((input) => (input.checked = false));
         this.checkProvisional(next);
         this.showSelectSize();
-        const target = this.productInfo.querySelector(`[id="${this.optionTargetId}"]`) || next;
+        this.requestVariant(next);
+      }
+
+      // The chosen size doesn't exist in the new colour: select the nearest size it has and say so.
+      switchSize() {
+        const inputs = this.sizeInputs;
+        const next = this.nextSize(inputs.findIndex((input) => input.dataset.optionValueId === this.chosenSizeValueId));
+        if (!next || !this.wantedSize) {
+          this.restoreChosenSize();
+          return;
+        }
+        inputs.forEach((input) => (input.checked = false));
+        next.checked = true;
+        this.triedSizes.add((this.chosenSizeValueId = next.dataset.optionValueId));
+        this.setSizeLegend(next.value);
+        const option = this.productInfo.querySelector(`[id="${this.optionTargetId}"]`);
+        this.note = this.dataset.switched
+          .replace('[size]', this.wantedSize)
+          .replace('[option]', option?.value || '')
+          .replace('[new]', next.value);
+        this.requestVariant(next);
+      }
+
+      requestVariant(fallback) {
+        const target = this.productInfo.querySelector(`[id="${this.optionTargetId}"]`) || fallback;
         publish(PUB_SUB_EVENTS.optionValueSelectionChange, {
           data: { event: { target }, target, selectedOptionValues: this.variantSelects.selectedOptionValues },
         });
@@ -162,6 +189,7 @@ if (!customElements.get('pb-product-state')) {
       }
 
       applyStartState() {
+        this.showPrice();
         this.sizeInputs.forEach((input) => {
           input.checked = false;
           input.classList.remove('pb-option__input--provisional');
@@ -170,7 +198,6 @@ if (!customElements.get('pb-product-state')) {
         this.showSelectSize();
         if (this.variantInput) this.variantInput.value = '';
 
-        // Quick add never changes the page URL.
         if (this.productInfo.dataset.updateUrl === 'false') return;
         const url = new URL(window.location.href);
         if (url.searchParams.has('variant')) {
@@ -179,7 +206,6 @@ if (!customElements.get('pb-product-state')) {
         }
       }
 
-      // Dawn's own response handling sets the label and disabled state from here on.
       clearStartState() {
         const button = this.submitButton;
         if (!button?.hasAttribute('data-pb-select-size')) return;
@@ -196,17 +222,31 @@ if (!customElements.get('pb-product-state')) {
         this.setSizeLegend(chosen.value);
       }
 
-      onVariantChange() {
-        // Only the product-info whose variant input just changed (the page and quick add share a section ID).
+      onVariantChange({ data } = {}) {
+        // Only the product-info whose variant input changed (the page and quick add share a section ID).
         if (!this.expectVariantChange) return;
         this.expectVariantChange = false;
-        if (this.status) this.status.textContent = '';
+        if (this.status) this.status.textContent = this.note;
+        this.note = '';
+        this.showPrice();
 
         if (this.sizeChosen) {
           this.restoreChosenSize();
+          return;
+        }
+        // A sold-out provisional size: try one the redrawn picker shows as available, with the sold-out price
+        // hidden meanwhile. If none is available, sold out stands.
+        const next = data?.variant?.available === false && this.nextSize(0, true);
+        if (next) {
+          this.byId('price')?.classList.add('visibility-hidden');
+          this.tryNextSize(next);
         } else {
           this.applyStartState();
         }
+      }
+
+      showPrice() {
+        this.byId('price')?.classList.remove('visibility-hidden');
       }
 
       onSubmit(event) {

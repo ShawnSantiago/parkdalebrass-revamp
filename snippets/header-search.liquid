@@ -16,9 +16,11 @@
       aria-label="{{ 'general.search.search' | t }}"
     >
       <span>
+        {%- comment -%} PB: Archive outline glyph (02 §2.7, Archive-Home). {%- endcomment -%}
         <span class="svg-wrapper">
-          {{- 'icon-search.svg' | inline_asset_content -}}
+          {{- 'pb-icon-search.svg' | inline_asset_content -}}
         </span>
+        {%- comment -%} /PB {%- endcomment -%}
         <span class="svg-wrapper header__icon-close">
           {{- 'icon-close.svg' | inline_asset_content -}}
         </span>

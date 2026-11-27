@@ -1,6 +1,7 @@
 {%- comment -%}
-  Prints the roman numeral for 1–10 (journal cards, 02 §1.5). Any other number prints as itself,
-  and a blank value prints nothing. The caller adds the markup and aria-hidden: the numeral is decorative.
+  Prints the roman numeral for 1–3999 (journal cards, 02 §1.5; the journal index numbers on across pages, D-38).
+  Any other number prints as itself, and a blank value prints nothing. The caller adds the markup and aria-hidden:
+  the numeral is decorative.
 
   Accepts:
   - n: {Number} The number to convert, usually forloop.index
@@ -11,10 +12,23 @@
 {%- liquid
   if n != blank
     assign pb_roman_n = n | plus: 0
-    if pb_roman_n >= 1 and pb_roman_n <= 10
-      assign pb_roman_numerals = 'I,II,III,IV,V,VI,VII,VIII,IX,X' | split: ','
-      assign pb_roman_index = pb_roman_n | minus: 1
-      echo pb_roman_numerals[pb_roman_index]
+    if pb_roman_n >= 1 and pb_roman_n <= 3999
+      assign pb_roman_values = '1000,900,500,400,100,90,50,40,10,9,5,4,1' | split: ','
+      assign pb_roman_symbols = 'M,CM,D,CD,C,XC,L,XL,X,IX,V,IV,I' | split: ','
+      assign pb_roman_rest = pb_roman_n
+      assign pb_roman_out = ''
+      for pb_roman_value in pb_roman_values
+        assign pb_roman_v = pb_roman_value | plus: 0
+        assign pb_roman_symbol = pb_roman_symbols[forloop.index0]
+        assign pb_roman_times = pb_roman_rest | divided_by: pb_roman_v
+        if pb_roman_times > 0
+          for pb_roman_i in (1..pb_roman_times)
+            assign pb_roman_out = pb_roman_out | append: pb_roman_symbol
+          endfor
+          assign pb_roman_rest = pb_roman_rest | modulo: pb_roman_v
+        endif
+      endfor
+      echo pb_roman_out
     else
       echo pb_roman_n
     endif
