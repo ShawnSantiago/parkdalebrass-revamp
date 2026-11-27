@@ -61,6 +61,11 @@
     margin-top: 7.2rem;
   }
 
+  /* The purchase column spans the content width (Dawn holds it to 600). Under 960 it is the full row. */
+  .pb-product .product__info-container {
+    max-width: none;
+  }
+
   .pb-product .product__column-sticky {
     position: static;
   }
@@ -1003,17 +1008,16 @@
 /* ---------- Size-guide popup and lightbox ---------- */
 
 /* The size guide follows the cart drawer (02 §6.5, Archive-Product-Mobile cart drawer; PDP-13): the onyx scrim of
-   every Archive overlay, symmetric 20 [30 from 750] padding, a panel fitted to its content up to 80% of the
-   screen, the title (Cormorant 600 24) level with the 44px close, and the 02 §7 table style (pb-theme.css). */
+   every Archive overlay, symmetric padding (20 under 750, 30 from 750), a panel fitted to its content up to 80%
+   of the screen, the title (Cormorant 600 24) level with the 44px close, and the 02 §7 table style (pb-theme.css). */
 modal-dialog.product-popup-modal {
   background-color: rgb(13 13 12 / 0.72);
 }
 
 .product-popup-modal .product-popup-modal__content {
-  --pb-popup-pad: 2rem;
   height: auto;
   max-height: 80%;
-  padding: var(--pb-popup-pad);
+  padding: 2rem;
   border: 1px solid var(--pb-gold-line);
   border-radius: 0;
   box-shadow: none;
@@ -1023,7 +1027,7 @@ modal-dialog.product-popup-modal {
 
 @media screen and (min-width: 750px) {
   .product-popup-modal .product-popup-modal__content {
-    --pb-popup-pad: 3rem;
+    padding: 3rem;
   }
 }
 
@@ -1033,9 +1037,9 @@ modal-dialog.product-popup-modal {
   box-shadow: none !important;
 }
 
-/* The close stays in the top corner while a long guide scrolls under it. */
+/* The close stays in the top corner (at the padding) while a long guide scrolls under it. */
 .product-popup-modal .product-popup-modal__toggle {
-  top: var(--pb-popup-pad);
+  top: 0;
 }
 
 .product-popup-modal .product-popup-modal__content-info {
