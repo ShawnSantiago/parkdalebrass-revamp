@@ -6,12 +6,13 @@
    and mobile values from the 390 artboard; where both exist they scale fluidly from 750 to 1440 (02 preamble). */
 
 /* ---------- Category and filter pills (02 §1.4, §5.3; 03 §4.7) ---------- */
+/* 42px tall: the artboards draw 40px of content plus the 1px border (content-box), so the toolbar is 76px. */
 .pb-pill {
   position: relative;
   display: inline-flex;
   align-items: center;
   gap: 0.8rem;
-  height: 4rem;
+  height: 4.2rem;
   padding: 0 1.8rem;
   border: 1px solid var(--pb-rule-strong);
   border-radius: 2px;
@@ -58,7 +59,7 @@
 }
 
 /* Active-filter pills hold merchant labels and prices, so they wrap inside the row instead of widening the
-   page: one line at 40px as drawn, more lines when the label is longer than the screen. */
+   page: one line at 40px, more lines when the label is longer than the screen (the artboards don't draw them). */
 .pb-pill.pb-pill--remove {
   max-width: 100%;
   height: auto;
@@ -142,7 +143,8 @@
   display: none;
 }
 
-/* Native checkbox with a gold accent, as on the artboards. */
+/* Native checkbox with a gold accent, as on the artboards. The box keeps the artboards' (Chromium's default)
+   3px 3px 3px 4px margin, so it sits 4px into its label and the text starts gap + 3px after it. */
 .pb-check {
   display: inline-flex;
   align-items: center;
@@ -155,7 +157,7 @@
   flex: none;
   width: 1.8rem;
   height: 1.8rem;
-  margin: 0;
+  margin: 0.3rem 0.3rem 0.3rem 0.4rem;
   accent-color: var(--pb-gold);
   cursor: pointer;
 }
@@ -235,10 +237,11 @@
   margin-top: 1.6rem;
 }
 
+/* A text CTA: a 44px hit area at every width (02 §2.1). */
 .pb-active__clear {
   display: inline-flex;
   align-items: center;
-  min-height: 4rem;
+  min-height: 4.4rem;
   padding: 0 0.8rem;
   color: var(--pb-gold);
   font-size: 1.2rem;
@@ -410,11 +413,12 @@ body.overflow-hidden-pb-filter {
   padding: 0;
 }
 
-/* Inputs and their visible labels per 02 §2.4: Inter 500 12 / 0.16em caps labels, 48px inputs, 14px padding. */
+/* Inputs and their visible labels per 02 §2.4: Inter 500 12 / 0.16em caps labels, 48px inputs, 14px padding.
+   4px from the label to the input, as on Archive-Collection-Mobile. */
 .pb-filter__price-field {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.4rem;
   min-width: 0;
   font-size: 1.2rem;
   font-weight: 500;
@@ -515,10 +519,6 @@ body.overflow-hidden-pb-filter {
     font-size: 1.1rem;
   }
 
-  .pb-active__clear {
-    min-height: 4.4rem;
-  }
-
   .pb-pill::after {
     content: '';
     position: absolute;
@@ -538,9 +538,9 @@ body.overflow-hidden-pb-filter {
     border-bottom: 1px solid var(--pb-rule);
   }
 
-  /* As drawn: 20px from the pills to the bar (the scroller's 6px bottom padding included). */
+  /* As drawn: the bar's top edge 60px below the pill tops (42px pills, the scroller's 6px bottom padding, 12px). */
   .pb-pills + .pb-toolbar__controls {
-    margin-top: 1.4rem;
+    margin-top: 1.2rem;
   }
 
   .pb-toolbar__controls--single {
@@ -613,6 +613,7 @@ body.overflow-hidden-pb-filter {
     background-color: transparent;
     color: var(--pb-gold);
     font-size: 1.3rem;
+    font-weight: 600;
     line-height: 4.8rem;
   }
 
@@ -822,8 +823,11 @@ body.overflow-hidden-pb-filter {
   height: 1.2rem;
 }
 
+/* One line is a 38.4px box as on the artboard's "STATE · NO RESULTS" (its line-height 1.6): 1.2 plus 0.2em above and
+   below puts the glyphs in the same place, and a heading that wraps (under about 365px) keeps 1.2 between its lines. */
 .pb-empty .pb-empty__heading {
   margin: 0.4rem 0 0;
+  padding-block: 0.2em;
   font-family: var(--pb-serif);
   font-size: 2.4rem;
   font-weight: 600;

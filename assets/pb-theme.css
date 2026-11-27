@@ -114,8 +114,12 @@ h1, .h0, .pb-display {
 
 .pb-frame__inner { border: 1px solid var(--pb-gold-line); }
 
+/* 02 §1.5 sizes (10 / 14 / 18 / 26) are the inner square, with the 1.5px outline outside it, as every Archive
+   artboard draws them (content-box). Dawn's inherited border-box would put the outline inside and draw each
+   diamond 2px smaller at DSF 1 (3px at DSF 2). */
 .pb-diamond, .header__heading-link .h2::before {
   display: inline-block;
+  box-sizing: content-box;
   width: 1.8rem;
   height: 1.8rem;
   flex: none;
@@ -135,6 +139,9 @@ h1, .h0, .pb-display {
 @media screen and (max-width: 749px) {
   .pb-frame { padding: 0.8rem; }
   .caption-with-letter-spacing, .pb-eyebrow, .pb-dateline { font-size: 1.1rem; }
+  /* Every Archive-*-Mobile eyebrow tracks at 0.3em (D-30: 02 §1.2 brackets only the size). The dateline and the
+     hero lockup line keep their own mobile tracking. */
+  .caption-with-letter-spacing, .pb-eyebrow { letter-spacing: 0.3em; }
   .color-scheme-3 :is(.pb-eyebrow, .pb-dateline) { font-size: 1.2rem; }
   .pb-eyebrow--ruled::before, .pb-eyebrow--ruled::after { width: 2.8rem; }
   .pb-divider::before, .pb-divider::after { width: 8rem; }
@@ -381,6 +388,9 @@ button.shopify-payment-button__button--unbranded:enabled:hover {
   border-radius: 2px;
 }
 
+/* Typed text is untracked, as the Archive-Foundations field (02 §2.4 sets no tracking; Dawn adds 0.04rem). */
+.field .field__input, .customer .field input { letter-spacing: normal; }
+
 .color-scheme-3 :is(.field__input, .select__select) { background-color: var(--pb-green-deep); }
 .field::after, .select::after, .field:hover.field::after, .select:hover.select::after {
   box-shadow: 0 0 0 1px var(--pb-gold);
@@ -528,6 +538,9 @@ variant-selects .product-form__input .form__label {
 
 @media screen and (max-width: 749px) {
   .pb-breadcrumbs { font-size: 1.2rem; }
+  /* Archive-Collection-Mobile and Archive-Product-Mobile set the trail as inline text: one word space (3.38px at
+     12px) either side of the slash. Desktop keeps the 8px gap. */
+  .pb-breadcrumbs__list { column-gap: 0.28em; }
   .pb-breadcrumbs--long :is(.pb-breadcrumbs__item--home, .pb-breadcrumbs__item--home + .pb-breadcrumbs__sep) {
     display: none;
   }
@@ -907,15 +920,19 @@ variant-selects .product-form__input .form__label {
     outline-offset: 3px;
   }
 
-  .shopify-section[id$='__pb_help'] .multicolumn .link .icon-wrap {
-    display: inline-flex;
-    margin: 0;
-    color: var(--pb-gold);
+  /* The row arrow is Archive-Collection-Mobile's text glyph (Inter 600 16 / 25.6, gold), 16px wide at the row's
+     end and centred in it. It's decorative (empty alt text); the link's name stays its aria-label. Dawn's 20px
+     icon slot is dropped. The font is set here because the link itself is font-size 0. */
+  .shopify-section[id$='__pb_help'] .multicolumn .link .svg-wrapper {
+    display: none;
   }
 
-  .shopify-section[id$='__pb_help'] .multicolumn .link .icon-arrow {
-    width: 1.4rem;
-    height: 1rem;
+  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info .link::before {
+    content: '\2192';
+    content: '\2192' / '';
+    font: 600 1.6rem / 1.6 var(--font-body-family);
+    letter-spacing: 0;
+    color: var(--pb-gold);
   }
 }
 /* /PB2:collection */

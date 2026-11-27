@@ -25,6 +25,8 @@
 .article-template > header.page-width::before {
   content: '';
   flex: none;
+  /* The size is the inner square, with the outline outside it, as .pb-diamond (02 §1.5). */
+  box-sizing: content-box;
   /* 14px at 390, 18px at 1440 */
   width: clamp(1.4rem, calc(0.381vw + 1.2514rem), 1.8rem);
   height: clamp(1.4rem, calc(0.381vw + 1.2514rem), 1.8rem);

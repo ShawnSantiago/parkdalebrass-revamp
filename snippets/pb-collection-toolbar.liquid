@@ -428,15 +428,27 @@
           {%- if filter.min_value.value != null or filter.max_value.value != null -%}
             {%- liquid
               # The store money format wraps amounts in <span class=money>, and `t` escapes interpolated values, so
-              # strip the markup here (the key stays plain text, not _html).
-              assign pb_min = filter.min_value.value | default: 0 | money | strip_html
-              assign pb_max = filter.max_value.value | default: filter.range_max | money | strip_html
+              # strip the markup here (the keys stay plain text, not _html). Only the bounds the shopper set are
+              # named: "From $X", "Up to $Y" or "$X to $Y", never the range's own minimum or maximum.
+              if filter.min_value.value != null
+                assign pb_min = filter.min_value.value | money | strip_html
+              endif
+              if filter.max_value.value != null
+                assign pb_max = filter.max_value.value | money | strip_html
+              endif
+              if filter.min_value.value != null and filter.max_value.value != null
+                assign pb_price_label = 'pb.collection.price_range' | t: min: pb_min, max: pb_max
+              elsif filter.min_value.value != null
+                assign pb_price_label = 'pb.collection.price_from_only' | t: min: pb_min
+              else
+                assign pb_price_label = 'pb.collection.price_up_to' | t: max: pb_max
+              endif
             -%}
             <li>
               <facet-remove>
                 <a href="{{ filter.url_to_remove }}" class="pb-pill pb-pill--remove">
                   <span>
-                    {{- filter.label | escape }}: {{ 'pb.collection.price_range' | t: min: pb_min, max: pb_max -}}
+                    {{- filter.label | escape }}: {{ pb_price_label -}}
                   </span>
                   {{- pb_close_icon -}}
                   <span class="visually-hidden">{{ 'pb.collection.remove_filter' | t }}</span>
