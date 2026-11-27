@@ -62,7 +62,7 @@ Record each result as **Pass / Fail / Not tested**, with evidence (screenshot pa
 
 - [ ] The hero image is the LCP, loaded eagerly with `fetchpriority="high"`, a responsive `srcset` and explicit dimensions.
 - [ ] Below-the-fold images are lazy-loaded; no layout shift from images or fonts (`font-display: swap`, preloaded heading font).
-- [ ] No new JS beyond `pb-sticky-atc.js` (under 3 KB) and the footer-accordion `matchMedia` snippet.
+- [ ] New JS stays within D-32: `pb-product.js` ≤ 3.5 KB gzip, `pb-sticky-atc.js` ≤ 2.5 KB, `pb-collection.js` ≤ 1.5 KB, each deferred and loaded only on its template, plus the footer-accordion `matchMedia` snippet.
 - [ ] Lighthouse mobile on home, collection and PDP is compared to the Phase 0 baseline; regressions are documented. Lab ≠ field: check CrUX / Shopify Web Performance after launch. Targets: LCP ≤ 2.5s, INP ≤ 200ms, CLS ≤ 0.1.
 
 ## 6 · SEO

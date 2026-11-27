@@ -4,10 +4,9 @@
       "type": "main-product",
       "blocks": {
         "eyebrow": {
-          "type": "text",
+          "type": "custom_liquid",
           "settings": {
-            "text": "{{ product.type }}",
-            "text_style": "uppercase"
+            "custom_liquid": "{%- if product.type != blank -%}<p class=\"product__text caption-with-letter-spacing\">{{ product.type | escape }}</p>{%- endif -%}"
           }
         },
         "title": {

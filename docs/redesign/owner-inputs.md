@@ -15,6 +15,7 @@ The single list of everything waiting on the Parkdale Brass owner. Agents: **don
 | A-02 | Read-only Admin exports: products CSV, collections, menus (screenshots), metafield definitions, redirects CSV, markets and shipping zones, installed apps list | Audit | Phase 0 | Open | 2026-11-26, from the Craft audit, also needed: whether Instant, Bloggle, Sezzle, EZ Preorder and Concierge are still installed; which products, pages and articles use the Craft-only template suffixes (`bellwoods`, `brocktonmk2`, `reviews`, `instant-*`); published languages; the consent banner settings; and the footer `footer` menu items. The theme code and locale diffs are upstream or release-cut, not customizations, so don't re-audit them ([`craft-audit.md`](craft-audit.md)). |
 | A-03 | Search Console access or a 16-month export (queries, pages), plus the analytics landing-page report | URL inventory and redirect plan | Phase 0 | Open | n/a |
 | A-04 | Is a development store available for fixtures? (Yes/No) | Testing the PDP and collection without touching live data | Phase 2 | Open | n/a |
+| A-05 | **Admin access for store changes.** The owner has no legacy custom app, so a static Admin API token isn't possible (Shopify stopped new admin-created custom apps on 2026-01-01), and the request was declined on 2026-11-27. Options: (a) connect the **Shopify connector** at claude.ai → Customize → Connectors, signed in to Parkdale Brass, and start a new session; or (b) the owner applies each approved E-item from the agent's step list. | Menus, pages, collections, metafields, unpublishing (D-28 changes) | Phase 3 | Provided | 2026-11-27: the owner signed the **Shopify connector** in to Parkdale Brass (`get-shop-info` verified). The agent uses its Admin GraphQL tools for D-28 store changes, never its theme-publish tool. Store plan: **Pause and Build** (checkout off), see F-05. |
 
 ## B · Design and brand approvals
 
@@ -60,7 +61,7 @@ The single list of everything waiting on the Parkdale Brass owner. Agents: **don
 
 | ID | Change | Reference | Backup first | Status | Approved by / date |
 | --- | --- | --- | --- | --- | --- |
-| E-01 | Create `custom.*` product metafield definitions | `04` §2 | Export the existing definitions list | Open | n/a |
+| E-01 | Create `custom.*` product metafield definitions | `04` §2 | Export the existing definitions list | Open | 2026-11-27: the theme reads all nine `04` §2 keys and hides empty ones. Optional extra: a collection metafield `custom.category_line` (single-line text) for collection category lines (D-37). |
 | E-02 | Create collections `jewelry`, `bracelets`, `necklaces` (`rings` later) | `04` §3 | n/a (additive) | Open | n/a |
 | E-03 | Create pages `our-story`, `why-brass`, `jewelry-care`, `size-guide` (after a handle-collision check) | `04` §3 | n/a (additive) | Open | n/a |
 | E-04 | Create new menus (old menus untouched) | `04` §3, D-07 | Screenshot the existing menus | **Approved**, not yet applied | Project lead, 2026-11-26. Create `jewelry-main-menu`, `shop-categories`, `footer-shop`, `footer-learn` and `footer-help` exactly as in `04` §3. Leave `main-menu` and `footer` untouched. Rings links are added only once that collection has products. Needs Admin access (the Theme Access password can't create menus), so the owner creates them in Admin → Content → Menus, or provides an Admin token with navigation scope. Screenshot the existing menus first. |
@@ -96,6 +97,9 @@ Details and evidence: [`craft-audit.md`](craft-audit.md). Until an item here is 
 | G-14 | Footer links from the live `footer` menu: CCPA opt-out, Sitemap, "Created By Parkdale Digital" | Add the CCPA opt-out to `footer-help` (an E-04 amendment; agent, D-28). Sitemap link and agency credit: owner's choice; recommend dropping the credit. | Launch | Open | The CCPA part is approved under D-28. |
 | G-15 | Back-in-stock alerts: the live "Get Notified" button only scrolls to the newsletter. | None at launch. A real flow (e.g. Klaviyo) needs a design entry (D-21). | n/a | Open | n/a |
 | G-16 | Shop sign-in button: off on live. Keep it off or turn it on? | Owner's preference. Set it in Admin under new customer accounts (E-13). | Launch | Open | n/a |
+| G-17 | **Store-level scripts that load on every theme** (seen on the unpublished preview, 2026-11-27): Google Tag Manager `GTM-KX2JQ95R`, Ordersify (`cdn.ordersify.com`) and UpPromote (`uppromote.js`). They come from apps or Customer events, not theme code, so the new theme can't switch them off. | Ordersify: remove it if it provides pre-orders or back-in-stock promises (D-26, G-15). GTM: keep only if it's used and behind consent. UpPromote (affiliates): owner's call. | Launch | Open | Admin → Apps, and Settings → Customer events. Removal is the owner's call, or D-28 with notice first (uninstalling deletes app data). |
+| G-18 | **Journal articles:** tag the jewelry, material and brand articles `journal` so the Journal link can show only them (D-36). Candidates: the 30 jewelry and 2 brand articles in `url-inventory.csv`. | Tag them, then set the Journal menu item (E-04) and the homepage "All articles" link to `/blogs/news/tagged/journal`. | Launch | Approved (D-28), not yet applied | Needs Admin access (A-05). Additive and reversible. |
+| G-19 | **Owner overrides for the agent's Phase 2 calls** (D-30 to D-38): mobile reading rule, desktop Filter button, centred concepts, Journal tag links, product eyebrow and price format, category line rule. | Review them on the preview and say which to change. | Launch | Open | Each one stands until the owner overrides it. |
 
 ## F · Launch sign-off
 
@@ -105,3 +109,4 @@ Details and evidence: [`craft-audit.md`](craft-audit.md). Until an item here is 
 | F-02 | Launch and rollback runbook reviewed (`phase-5-brief.md`) | Open | n/a |
 | F-03 | Backups taken (theme duplicate + every export in E) | Open | n/a |
 | F-04 | **Authorize publishing the theme** | Open | n/a |
+| F-05 | **Resume a selling plan.** The store is on Shopify's *Pause and Build* plan (2026-11-27), so checkout is off. Choosing a paid plan is a billing change, which only the owner makes (D-28 excludes billing). | Open | n/a |
