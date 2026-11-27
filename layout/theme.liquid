@@ -9,6 +9,12 @@
 
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- comment -%} PB: Archive diamond favicon when the editor sets none (B-04, D-53) {%- endcomment -%}
+    {%- else -%}
+      <link rel="icon" type="image/png" sizes="192x192" href="{{ 'pb-favicon.png' | asset_url }}">
+      <link rel="icon" type="image/svg+xml" href="{{ 'pb-favicon.svg' | asset_url }}">
+      <link rel="apple-touch-icon" href="{{ 'pb-favicon-180.png' | asset_url }}">
+    {%- comment -%} /PB {%- endcomment -%}
     {%- endif -%}
 
     {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
