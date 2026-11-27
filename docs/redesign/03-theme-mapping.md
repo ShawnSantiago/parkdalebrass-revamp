@@ -562,5 +562,5 @@ signup           → PB · Newsletter (anchor "signup", scheme-3 royal green, do
 
 - `snippets/meta-tags.liquid` already outputs OG and Twitter tags. Set the homepage title and description in Admin → Preferences (store-level; owner approval). Suggested copy is in 04 §5.
 - Product JSON-LD: Dawn outputs `{{ product | structured_data }}` in `main-product`. That's correct for real products only. `pb-featured` in `concepts` mode must not emit any.
-- Add an `Organization` JSON-LD in `layout/theme.liquid` on the homepage only, with the name, URL, logo and verified `sameAs` social URLs.
+- `Organization` JSON-LD: Dawn already outputs one on every page from `sections/header.liquid`. Don't add a second one in `layout/theme.liquid` (D-29). Make a `PB:` edit there instead: output only non-empty `sameAs` URLs, and set `url` to `request.origin | append: routes.root_url` so it is the shop's root on every page. The logo follows `settings.logo` (B-04).
 - Breadcrumbs: add `BreadcrumbList` JSON-LD in a `snippets/pb-breadcrumbs.liquid` rendered on collection and product pages, along with the visible breadcrumb (`<nav aria-label="Breadcrumb"><ol>`).

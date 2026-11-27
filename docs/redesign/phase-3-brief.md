@@ -115,8 +115,8 @@ Draft in `docs/redesign/content/` as Markdown. The owner approves the text there
 - **Done when:** policy drafts are approved and ready to paste at launch, and the consent wording is in the theme.
 
 ### 3.7 · Apps and carry-over follow-through
-- Finish any Craft carry-over item from Phase 2 that needed Admin: Klaviyo list and consent settings, the consent banner, and identifying the `config-security.com` script.
-- The owner decides whether to keep Microsoft Clarity and the unknown script. Removal or app changes are store changes: follow the protocol.
+- Finish any Craft carry-over item from Phase 2 that needed Admin: Klaviyo list and consent settings, and the consent banner. The `config-security.com` script is Triple Whale and isn't carried over (D-27).
+- The owner decides on Microsoft Clarity, Sezzle, Yoast, Concierge and the Judge.me core embed (`owner-inputs.md` G-03 to G-07). Unpublish `/pages/page-2`, `/pages/reviews` and `/blogs/news/fathers-day-24` with backups (G-10 to G-12). Removal or app changes are store changes: follow the protocol.
 - Judge.me stays installed and its records stay. Confirm no widget shows on jewelry templates.
 
 ---

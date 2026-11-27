@@ -15,6 +15,10 @@ Visual reference (private, ask the owner for access): https://claude.ai/artifact
 
 - **Never publish a theme**, and never run `shopify theme push` against the live theme. Use `--unpublished` or `shopify theme dev`.
 - **Never change shared store data** without written owner approval logged in `owner-inputs.md`. That covers products, collections, menus, pages, metafield definitions, redirects, policies, markets, sales channels, apps and email. An unpublished theme does *not* isolate store data.
+  - **Standing approval (D-28, 2026-11-26):** the owner approved any change to Parkdale Brass except **billing** and **admin or staff accounts**. This covers theme, repo, store content and configuration, and merging PRs. It replaces per-change approval, but the agent still:
+    - backs up first and logs each store change in `owner-inputs.md` E, per the `phase-3-brief.md` §2 protocol;
+    - keeps the integrity rules below;
+    - **tells the owner before:** publishing the new theme (launch, only once the `phase-5-brief.md` §1 gates pass), emailing customers, deleting anything, and anything that costs money.
 - **Never invent facts.** Materials, finishes, dimensions, prices, shipping, returns, origin and safety claims come only from owner-verified data. Until then, previews show a visible `[bracketed placeholder]` and the live theme hides the block.
 - **No fake commerce.** No purchasable concept products, fake prices, ratings, reviews, scarcity, discounts or preorders. Never reuse legacy pipe reviews.
 - **Never delete legacy records** (products, reviews, customers, orders, redirects, analytics). Unpublishing needs approval and a CSV export first.
@@ -47,6 +51,6 @@ NODE_USE_ENV_PROXY=1 SHOPIFY_CLI_NO_ANALYTICS=1 npx --yes @shopify/cli@5.1.0 the
 
 ## Current status
 
-- Phase 0 (audit): the repo and the public storefront are audited (`docs/redesign/audit.md`, `docs/redesign/url-inventory.csv`). **The live theme is Craft 14.0.0, not Dawn.** The owner chose to build on **Dawn 16 (this repo)** (D-24), carrying over app embeds and settings from Craft per the checklist in `audit.md` §5. Theme Access is verified (A-01). The Craft file comparison and Admin/SEO exports are still pending (A-02, A-03).
+- Phase 0 (audit): the repo and the public storefront are audited (`docs/redesign/audit.md`, `docs/redesign/url-inventory.csv`). **The live theme is Craft 14.0.0, not Dawn.** The owner chose to build on **Dawn 16 (this repo)** (D-24), carrying over app embeds and settings from Craft per the checklist in `craft-audit.md`. Theme Access is verified (A-01). The Craft theme was pulled and audited on 2026-11-26 (`docs/redesign/craft-audit.md`); its owner questions are `owner-inputs.md` section G. Admin and SEO exports are still pending (A-02, A-03).
 - **Phase 1 is implemented on the Archive foundation branch.** The phase brief and changelog record the foundation and its acceptance checks. Both D-25 cart and search fixes from Phase 2 have regression tests. Continue with the page templates and sections in `docs/redesign/phase-2-brief.md`, then `phase-3-brief.md` (owner-led; every store change is approved one at a time), `phase-4-brief.md` (QA) and `phase-5-brief.md` (launch with the owner present, rollback, monitoring). The unpublished preview and the checks completed so far are recorded in `docs/redesign/qa-results.md`. Note Phase 0 step 2 there: since the build stays on Dawn 16, import the pulled Craft theme into a **separate folder for reference only**. Don't commit it over this repo.
 - Visual direction approved: **B "Archive"** (2026-11-25). Docs updated to match.

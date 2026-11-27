@@ -51,7 +51,7 @@ Remaining Phase 2 edits from `03-theme-mapping.md`:
 
   | File | Planned change | Decision |
   | --- | --- | --- |
-  | `layout/theme.liquid` | Verify homepage Organization JSON-LD | D-02, D-15 |
+  | `sections/header.liquid` | Organization JSON-LD: only non-empty `sameAs`, `url` at the shop root (no second copy in `layout/theme.liquid`) | D-29 |
   | `sections/main-product.liquid` | Hide empty `collapsible_tab` blocks; `open` checkbox on that block; render `pb-sticky-atc` | D-23 |
   | `snippets/product-variant-picker.liquid` | Size guide link inline in the Size legend | D-23 |
   | `snippets/product-variant-options.liquid` | No pre-selected size ("Select a size" start state) | D-23 |
