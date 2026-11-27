@@ -250,8 +250,8 @@ Contact page: [parkdalebrass.com/pages/contact-us](/pages/contact-us)
 | Customers may report an injury or a skin reaction (health information); serious incidents may have to be reported to Health Canada and the supplier | Returns and terms drafts ("Safety concerns", "Metals and skin"); CCPSA s. 14 (COMP-08); lawyer point 23 |
 | Unsubscribed addresses stay on a do-not-email list | Shopify and Klaviyo platform behaviour (an unsubscribed status is kept, not deleted), not a business decision |
 | Platform statements: one-time-code sign-in for new customer accounts, HTTPS, no full card number, Shopify's cookie list, Shopify store reports | Shopify platform behaviour, not a business decision. Owner to confirm the sign-in and card lines (placeholders beside them); lawyer point 14 |
-| Shopify hosts mainly in Canada, with affiliates and sub-processors elsewhere; Klaviyo stores data in the United States | Search results only, kept inside a placeholder: [Shopify sub-processors](https://help.shopify.com/en/manual/privacy-and-security/privacy/subprocessors), [Klaviyo privacy FAQ](https://klaviyo.com/legal/privacy-faqs) |
-| 30-day access reply, one extension of up to 30 days; breach reporting; unsubscribe within 10 business days; six-year tax records | The law, not a business decision; see For the lawyer, points 7, 9, 11 and 15 |
+| Some providers store or process data outside Canada, including the United States ("At a glance" and "Information stored outside Canada") | Search results, 2026-11-27: [Shopify sub-processors](https://help.shopify.com/en/manual/privacy-and-security/privacy/subprocessors) (Google Cloud Canada for hosting; US affiliates and sub-processors, such as Twilio for email); [Klaviyo privacy FAQ](https://klaviyo.com/legal/privacy-faqs) (US storage only, unless EU residency is contracted). Country detail stays inside a placeholder |
+| 30-day access reply, one extension of up to 30 days with notice of the right to complain; written refusal with recourse; breach reporting; unsubscribe within 10 business days; six-year tax records | The law, not a business decision; see For the lawyer, points 7, 9, 11, 15 and 22 |
 
 ### Placeholders
 
@@ -262,13 +262,19 @@ Contact page: [parkdalebrass.com/pages/contact-us](/pages/contact-us)
 | `[legal name of the business, if different]` | Owner, lawyer | Identity (ON-03, ON-22); B-05 keeps the founder unnamed |
 | `[privacy contact title]`, `[privacy contact email]` | Owner | PIPEDA 4.1 and 4.8 (PRIV-02, PRIV-06) |
 | `[mailing address]`, `[email address]` / `[contact email]` | Owner | D-03 wording, CASL s. 6(2) and s. 10(1) (CASL-02, CASL-04) |
-| `[contact page URL]` | Owner, agent | Contact block |
+| Checkout phone number (asked? optional?) | Owner | Checkout setting not read; "if you give it" assumes optional |
+| Tracking updates from the carrier | Owner | Shipping policy `[Tracking]` is still open |
+| What the email platform records as proof of consent | Owner, lawyer | CASL s. 13 (CASL-08); Shopify keeps date and opt-in level only; lawyer point 24 |
+| What a safety-incident report must include | Lawyer | CCPSA s. 14 (COMP-08); lawyer point 23 |
+| Marketing measurement cookies | Owner, lawyer | Shopify's cookie list includes marketing cookies; banner off (SHOP-03); lawyer point 5 |
+| What we keep after an account is closed | Owner, lawyer | The terms point here for it (PRIV-04) |
+| Shop users' privacy policy link | Owner, lawyer | The Shopify URL moved in 2026 (search only); lawyer point 14 |
 | `[payment processor(s)]`, which payment details we see, "no full card number" | Owner | Payments not readable, plan paused (SHOP-07, F-05) |
 | "Sign in with Shop", Shop Pay, the Shop app | Owner | G-16; Shopify is the controller for Shop data (SHOP-01) |
 | Checkout sign-up box | Owner | SHOP-04, CASL-03; current setting unreadable |
 | `[Store email provider]` | Owner | Contact form messages arrive by email |
 | `[Carrier]`, whether the carrier gets the email address | Owner | Shipping policy carrier is still open |
-| Klaviyo or Shopify Email; Klaviyo onsite tracking; what the Klaviyo–Shopify link sends | Owner | Requirements §4 ("list and consent setup open"); PRIV-10 |
+| Klaviyo or Shopify Email; whether Klaviyo runs sign-up forms or onsite tracking; what the Klaviyo–Shopify link sends | Owner | Requirements §4 ("list and consent setup open"); craft-audit ("pick one source of record"); PRIV-10 |
 | `[Other providers]`, other analytics, advertising or affiliate tools | Owner | Table B below (G-03, G-07, G-17, G-23) |
 | "We don't sell your personal information" | Owner, lawyer | GTM pixel declares a sale-of-data purpose (G-17, PRIV-15) |
 | Cookie banner | Owner, lawyer | SHOP-03, PRIV-10, QC-04, QC-05 |
@@ -278,7 +284,7 @@ Contact page: [parkdalebrass.com/pages/contact-us](/pages/contact-us)
 | Access fee | Owner, lawyer | PIPEDA s. 8(6) (PRIV-07) |
 | Quebec rights | Owner, lawyer | QC-03, QC-04 |
 | Checkout reminder emails | Owner | CASL-09 |
-| `[minimum age]`, "made for adults" | Owner, lawyer | PRIV-12, COMP-08 |
+| `[minimum age]`, "made for adults" (bracketed, as in the terms) | Owner, lawyer | PRIV-12, COMP-08; terms point 11(c) |
 | How we tell people about changes | Owner, lawyer | PIPEDA 4.2.4; emailing customers needs notice to the owner first (`AGENTS.md`) |
 | Advertising or affiliate purpose line | Owner | Only if such a tool is kept |
 | Any other source of information | Owner | Shop app or other channels |
