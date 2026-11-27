@@ -1,4 +1,4 @@
-**Draft for legal review — not yet in force. Effective [date].**
+**Draft — not yet in force. Effective [date].**
 
 # Shipping policy
 
@@ -44,9 +44,9 @@ We ship with [carrier and service: owner to name the carrier, the service (for e
 
 ## Changing or cancelling your order
 
-Please check your delivery address before you place your order. [Address changes: owner to say whether customers can change the address after ordering, how (for example by email) and until when (for example until the order ships).]
+Please check your order and your delivery address before you place your order.
 
-[Cancelling before it ships: owner to decide whether customers can cancel an order before it ships, how to ask, and how soon we refund. Use the same words as the Returns and exchanges policy.]
+[Changing or cancelling before it ships: owner to decide whether you can change the address or cancel an order before it ships, how to ask, until when, and how soon we refund. Use the same words in the Shipping policy, the Returns and exchanges policy and the Terms of service.]
 
 [Undeliverable or refused parcels: owner and lawyer to decide what happens if a parcel comes back to us because the address was wrong, it wasn't collected, or it was refused, for example we reship it at cost or refund the order less shipping. Any charge must be stated here.]
 
@@ -54,7 +54,7 @@ Please check your delivery address before you place your order. [Address changes
 
 If your order hasn't arrived within 7 business days after it ships, email us at [contact email] and we'll look into it. [Tracking: if orders are tracked, ask the customer to check the tracking link first.] [Delay notice: owner to say whether we email customers if an order can't ship within 2 business days, and what choices they get then, for example to wait or to cancel for a full refund.]
 
-If we haven't delivered your order within 30 days after the latest delivery date we gave you, you can cancel it at any time before it's delivered. To cancel, email us at [contact email], or tell us any other way you can keep a record of. We'll refund everything you paid, including shipping, within 15 days after you cancel. If those 30 days pass and you then agree to take delivery, you can't cancel for late delivery, but your return rights still apply. [Parcel arrives after you cancel: lawyer to confirm what the customer does, for example send it back unused within 15 days and we pay the reasonable cost, as in the Returns and exchanges policy.] [Lawyer: confirm this paragraph for buyers in Ontario and in other provinces; see "For the lawyer" point 2.]
+If we haven't delivered your order within 30 days after the latest delivery date we gave you, you can cancel it at any time before it's delivered. To cancel, tell us you're cancelling. We suggest a way you can keep a record of, such as an email to [contact email]. We'll refund everything you paid, including shipping, within 15 days after you tell us. If those 30 days pass and you then agree to take delivery, you can't cancel for late delivery, but your return rights still apply. [Parcel arrives after you cancel: lawyer to confirm. Use the same words as the Returns and exchanges policy ("Your rights under the law"): send it back within 15 days after you cancel or after you receive it, whichever is later, by a method that confirms delivery, and we pay the reasonable cost.] [Lawyer: confirm this paragraph for buyers in Ontario and in other provinces; see "For the lawyer" point 2.]
 
 ## Lost or stolen parcels
 
@@ -73,12 +73,12 @@ This time limit doesn't shorten your rights under the law (see "Your rights" bel
 - You can return or exchange unworn pieces in their original packaging within 30 days of delivery.
 - Each ring order includes one free size exchange within those 30 days, with a prepaid return label. We don't resize rings: if The Brockton doesn't fit, exchange it for another size.
 - If you return an unworn piece for a refund (not an exchange), you pay the return shipping.
-- We refund an unworn return to your original payment method within 5 business days after we receive and check it. Your bank may take longer to show the refund.
+- We refund an unworn return to your original payment method within 5 business days after it reaches us and we've checked it. Your bank or card provider may take longer to show the refund.
 - Damaged or faulty pieces are replaced or refunded, with a prepaid return label. Tell us within 30 days of delivery, with photos.
 
 How to start a return or exchange is explained in our [Returns and exchanges policy](/policies/refund-policy).
 
-Orders placed before [launch date] keep the return and warranty terms they were sold under. For help with one of those orders, contact us through our [contact page](/pages/contact-us).
+Orders placed before [launch date] keep the return and warranty terms they were sold under, and your rights under the law still apply. For help with one, contact us through our [contact page](/pages/contact-us) and include your order number.
 
 ## Your rights
 
@@ -90,16 +90,19 @@ We may update this policy. The version in effect when you place your order appli
 
 ## Contact us
 
-Questions about shipping? Email [contact email] or call [business phone number].
+Questions about shipping? Contact us:
 
-Parkdale Brass [legal name of the business, if different: owner and lawyer]
-[business address: street and postal code], Toronto, Ontario
+Parkdale Brass [legal name of the business, if different]
+[business address: street], Toronto, ON [postal code]
+Phone: [business phone number]
+Email: [contact email]
+Contact page: [parkdalebrass.com/pages/contact-us](/pages/contact-us)
 
 ---
 
 # Notes for the owner and the lawyer (don't paste into Shopify)
 
-**How to use this file:** paste only the policy above the line into Shopify Admin → Settings → Policies → Shipping policy, after converting the Markdown to HTML. Shopify prints the policy title itself, so drop the H1 and the draft line. Every `[bracketed]` item must be filled or deleted first, and the top line becomes "Effective [date]." once the lawyer signs off. Saving it in Admin is a store change: back up first and log it in `owner-inputs.md` E (`phase-3-brief.md` §2). The current 2019 text is backed up at [`backup/2026-11-27/config/policies/SHIPPING_POLICY.html`](../backup/2026-11-27/config/policies/SHIPPING_POLICY.html). The draft isn't legal advice.
+**How to use this file:** paste only the policy above the line into Shopify Admin → Settings → Policies → Shipping policy, after converting the Markdown to HTML. Shopify prints the policy title itself, so drop the H1 and the draft line. Every `[bracketed]` item must be filled or deleted first, and the top line becomes "Effective [date]." once the text is approved for launch. Under D-55 (owner, 2026-11-27) there's no lawyer sign-off before launch: the agent resolves each `[Lawyer …]` bracket and "For the lawyer" point with its recommended, more protective answer, listed with its source in [`README.md`](README.md). Owner brackets still need the owner. Saving it in Admin is a store change: back up first and log it in `owner-inputs.md` E (`phase-3-brief.md` §2). The current 2019 text is backed up at [`backup/2026-11-27/config/policies/SHIPPING_POLICY.html`](../backup/2026-11-27/config/policies/SHIPPING_POLICY.html). The draft isn't legal advice.
 
 ## Where each stated fact comes from
 
@@ -137,11 +140,10 @@ Only these appear in the policy without brackets.
 | `[carrier and service: …]` | Carrier, service level and how parcels travel (O. Reg. 17/05 s. 32: the shipper's identity and the mode of transportation) | Owner |
 | `[Tracking: …]` (twice) | Tracking on every order? How is it sent? | Owner |
 | `[Signature: …]` | Signature on delivery? | Owner |
-| `[Address changes: …]` | Can the address be changed after ordering, how and until when? | Owner |
-| `[Cancelling before it ships: …]` | Can an order be cancelled before it ships, how, and how soon is it refunded? (ON-08; same open question as the returns draft) | Owner |
+| `[Changing or cancelling before it ships: …]` | Can the address be changed, or the order cancelled, before it ships? How, until when, and how soon is it refunded? (ON-08; one answer, same words in the Shipping, Returns and Terms drafts) | Owner |
 | `[Undeliverable or refused parcels: …]` | What happens, and any charge | Owner and lawyer |
 | `[Delay notice: …]` | Do we tell customers about a late shipment, and what can they choose? | Owner |
-| `[Parcel arrives after you cancel: …]` | What the buyer does with a parcel that arrives after a late-delivery cancellation | Lawyer |
+| `[Parcel arrives after you cancel: …]` | What the buyer does with a parcel that arrives after a late-delivery cancellation (no "unused" condition, to match the returns draft) | Lawyer (D-55: agent) |
 | `[Lawyer: confirm this paragraph …]` | Late-delivery cancellation wording | Lawyer |
 | `[Lost in transit: …]` | Replace or refund, and when a parcel counts as lost | Owner and lawyer |
 | `[Marked as delivered but not received: …]` | Who bears the loss, and what the customer does first | Owner and lawyer |
@@ -149,9 +151,9 @@ Only these appear in the policy without brackets.
 | `[Replace or refund: …]` | Who chooses; what if it's out of stock | Owner |
 | `[Replacement shipping: …]` | Is a replacement shipped at no charge? | Owner (lawyer point 4) |
 | `[launch date]` | For the legacy-orders line (D-06) | Owner |
-| `[contact email]` | Customer contact email | Owner |
+| `[contact email]` | Customer contact email (the same address in all four policies and the consent line) | Owner |
 | `[business phone number]` | Phone number (O. Reg. 17/05 s. 32) | Owner |
-| `[business address: …]` | Address of the premises | Owner; lawyer on whether a P.O. box is enough |
+| `[business address: street]`, `[postal code]` | Address of the premises | Owner; lawyer on whether a P.O. box is enough |
 | `[legal name of the business, if different: …]` | Legal name and structure | Owner and lawyer (B-05 conflict if it's a person's name) |
 
 ## Questions for the owner
@@ -165,8 +167,8 @@ Only these appear in the policy without brackets.
 7. Are business days Monday to Friday? Which holidays don't count? Is there a daily cut-off time for orders?
 8. How is the $129.00 for free shipping counted: before tax, and after any discount? If a return brings a free-shipping order under $129.00, is anything deducted from the refund? (The draft assumes nothing is. Any deduction must be stated.)
 9. Will every jewelry order ship from an address in Canada? The "no duties or brokerage fees" line is only true if it does, and the supplier isn't chosen yet (D-44).
-10. Can customers change their delivery address after ordering? How, and until when?
-11. Can customers cancel an order before it ships? How do they ask, and how soon is the refund made? (The returns draft asks the same question.)
+10. Can customers change their delivery address, or cancel an order, before it ships? How do they ask, until when, and how soon is the refund made? (One answer goes in the Shipping, Returns and Terms drafts.)
+11. (Merged into question 10.)
 12. What happens if a parcel comes back to you because the address was wrong, it wasn't collected, or it was refused? Is there a charge?
 13. If an order can't ship within 2 business days, will you email the customer? What choices do they get?
 14. If the carrier loses a parcel, will you replace it or refund it? After how long do you treat it as lost?
@@ -187,7 +189,7 @@ These are Phase 5 store changes, not policy text. The policy is only true once t
 - **Order and shipping emails.** Add the delivery estimate, the carrier, the business contact details and a link to this policy to the order confirmation (ON-11, SHOP-06), and match the shipping confirmation to the tracking answer.
 - **Before checkout.** The product-page service lines (`02` §6.2 item 10, D-38) and the cart should state the $15.00 flat rate and the free-from-$129.00 threshold in the same words as this policy (COMP-04; "For the lawyer" point 5). The cart note today is Dawn's "Taxes, discounts and shipping calculated at checkout." (`sections/main-cart-footer.liquid`, `taxes_at_checkout_shipping_at_checkout_*`), with "shipping" linked to this policy once it has a body.
 - **Footer link.** The footer's "Shipping & Returns" item links to this policy (E-04), which is why it carries a short returns section. Keep that section the same as the Returns and exchanges policy, and check the policy page title (the current one is "Shipping").
-- **The two policies must match.** This draft uses D-54 (refunds within 5 business days to the original payment method; damage reported within 30 days, with photos). At this review the returns draft still shows placeholders for both, so update it before either goes live.
+- **The policies must match.** This draft, the returns draft and the terms now all use D-54 (unworn returns refunded within 5 business days to the original payment method; damage reported within 30 days of delivery, with photos) and the same late-delivery and statutory-cancellation wording (cross-checked 2026-11-27, see [`README.md`](README.md)). A change to one needs the same change in the others.
 
 ## Not carried over from the 2019 text
 
@@ -209,7 +211,7 @@ These are Phase 5 store changes, not policy text. The policy is only true once t
    - (b) the trigger when the store gives a window rather than a date ("the latest delivery date we gave you");
    - (c) whether handing the parcel to the carrier counts as "delivery" for this rule (point 3);
    - (d) the 15-day refund: O. Reg. 17/05 Part IX, "Supplier obligations on cancellation" (s. 79 or s. 80, depending on the consolidation), with CPA s. 96;
-   - (e) that "email us, or tell us any other way you can keep a record of" fits CPA s. 92 ("Form of consumer notice");
+   - (e) that "tell us you're cancelling. We suggest a way you can keep a record of, such as an email" fits CPA s. 92 ("Form of consumer notice"). It now matches the returns draft, so it doesn't read as a condition on the right;
    - (f) the bracketed line about a parcel that arrives after the buyer cancels;
    - (g) whether the policy should mention the deemed-delivery cases.
 
@@ -241,5 +243,5 @@ These are Phase 5 store changes, not policy text. The policy is only true once t
 12. **"Your rights" and "Changes to this policy".** Confirm both sentences, and that the terms of service say the same. A change made after an order shouldn't bind that order (CPA ss. 14, 15 and 17 on misleading and unconscionable representations), and naming Ontario can't remove the protection of the buyer's home province (PROV-02). Sources: [CPA 2002](https://www.ontario.ca/laws/statute/02c30); [Harmonization Template](https://ised-isde.canada.ca/site/consumer-measures-committee/en/formal-agreements/internet-sales-contract-harmonization-template).
 13. **Contact block.** Does a P.O. box meet "the address of the premises from which the supplier conducts business"? Search extracts of Business Names Act s. 2(6) refer to setting out "the person's name" on contracts, invoices and orders. So the rule may cover a sole proprietor trading as "Parkdale Brass", not only a corporation. If so, the owner's own name might have to appear on the order confirmation, which conflicts with B-05 (founder not named). How should the legal name appear? Sources: [O. Reg. 17/05](https://www.ontario.ca/laws/regulation/050017) s. 32; [Business Names Act](https://www.ontario.ca/laws/statute/90b17) s. 2(6); `requirements.md` ON-03, ON-22.
 14. **Status at sign-off.** The Consumer Protection Act, 2023 (S.O. 2023, c. 23, Sch. 1) had Royal Assent on 2023-12-06. The e-Laws text found in search says it isn't in force yet, and guides dated September 2026 say it hasn't been proclaimed. One secondary site claims it took effect on 2026-01-01; nothing official confirms that. The 2002 Act's e-Laws text notes that it's repealed on a day to be named by proclamation (2023, c. 23, Sch. 1, s. 110). Once the 2023 Act is proclaimed, it replaces the internet-agreement and future-performance rules behind points 1, 2 and 11, so those points need checking again. Sources: [Bill 142 status](https://www.ola.org/en/legislative-business/bills/parliament-43/session-1/bill-142/status); [CPA 2023](https://www.ontario.ca/laws/statute/23c23).
-15. **One set of facts in two policies.** The footer's "Shipping & Returns" link opens this page, so it repeats the main return terms. This draft uses D-54 (refunds within 5 business days, damage reported within 30 days), but the returns draft still has placeholders for both. Please review the two together, so that no term has two meanings (CPA s. 11: ambiguity is read in the consumer's favour). Source: [CPA 2002](https://www.ontario.ca/laws/statute/02c30) (ON-19).
+15. **One set of facts in two policies.** The footer's "Shipping & Returns" link opens this page, so it repeats the main return terms. The cross-check on 2026-11-27 brought this draft, the returns draft and the terms into line: all three use D-54 (refunds within 5 business days, damage reported within 30 days) and the same late-delivery and cancellation wording. Please review them together, so that no term has two meanings (CPA s. 11: ambiguity is read in the consumer's favour). Source: [CPA 2002](https://www.ontario.ca/laws/statute/02c30) (ON-19).
 16. **Unverified citations.** Check every section number in this list against e-Laws, Justice Laws and LégisQuébec. Neither session could open them, so no statute text was read directly.
