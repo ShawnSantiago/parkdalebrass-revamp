@@ -68,7 +68,7 @@ Apply Availability + Price only, per the Phase 3 proposal.
 ### Step 5 · Publish the new theme (F-04)
 1. The owner signs **F-04** in `owner-inputs.md`.
 2. Publish the new theme in Admin (Online Store → Themes → Publish), or with `shopify theme publish --theme <id>` if the owner prefers the CLI.
-3. **Assign the page templates.** Admin now lists the new theme's templates. Set `our-story` → `page.our-story`, `why-brass` → `page.why-brass`, `jewelry-care` → `page.jewelry-care`, `size-guide` → `page.size-guide`. Then make the four pages **visible**, and open each one to check its layout.
+3. **Check the page templates.** E-03 already set each page's template suffix through the API ([`changes/E-03.md`](changes/E-03.md) §1.1), so confirm in Admin (now listing the new theme's templates) that `our-story` → `page.our-story`, `why-brass` → `page.why-brass`, `jewelry-care` → `page.jewelry-care`, `size-guide` → `page.size-guide`, and set any that an Admin edit reset. Then make the four pages **visible** (only once their bodies hold approved copy with no `[bracketed placeholder]` left), and open each one to check its layout.
 4. Hard-refresh the storefront on a phone and a desktop.
 
 **Checkpoint C.** The new theme is live. Rollback from here is the full table in §3.

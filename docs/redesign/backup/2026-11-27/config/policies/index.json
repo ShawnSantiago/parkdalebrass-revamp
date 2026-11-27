@@ -1,0 +1,68 @@
+{
+  "exportedAt": "2026-11-27",
+  "store": "parkdale-brass.myshopify.com",
+  "source": "Shopify Admin GraphQL API 2026-10 via the Shopify connector (read-only queries; no mutations)",
+  "scope": "shop.shopPolicies: every policy the shop has (4). Bodies are in the sibling <TYPE>.html files.",
+  "notes": [
+    "Personal data in the bodies (a person's name, a named personal mailbox and a street address with postal code) is replaced by [REDACTED: ...] markers. Nothing else was changed.",
+    "No CONTACT_INFORMATION, LEGAL_NOTICE, SUBSCRIPTION_POLICY or TERMS_OF_SALE policy exists.",
+    "All four were last edited in 2019 and describe the legacy store (e.g. Canada Post or FedEx, ships in 1-3 business days, 30-day returns). They are not verified facts for the jewelry launch; E-10 drafts the replacements."
+  ],
+  "policies": [
+    {
+      "type": "PRIVACY_POLICY",
+      "title": "Privacy policy",
+      "id": "gid://shopify/ShopPolicy/8071938110",
+      "url": "https://checkout.shopify.com/9975070782/policies/8071938110.html?locale=en",
+      "createdAt": "2019-07-18T01:44:45Z",
+      "updatedAt": "2019-10-04T23:15:26Z",
+      "file": "PRIVACY_POLICY.html",
+      "redactions": [
+        "personal contact email",
+        "person name",
+        "street address",
+        "postal code"
+      ]
+    },
+    {
+      "type": "REFUND_POLICY",
+      "title": "Refund policy",
+      "id": "gid://shopify/ShopPolicy/8071905342",
+      "url": "https://checkout.shopify.com/9975070782/policies/8071905342.html?locale=en",
+      "createdAt": "2019-07-18T01:44:45Z",
+      "updatedAt": "2019-10-04T23:13:31Z",
+      "file": "REFUND_POLICY.html",
+      "redactions": [
+        "personal contact email (x2)",
+        "person name",
+        "street address",
+        "postal code"
+      ]
+    },
+    {
+      "type": "SHIPPING_POLICY",
+      "title": "Shipping",
+      "id": "gid://shopify/ShopPolicy/8072003646",
+      "url": "https://checkout.shopify.com/9975070782/policies/8072003646.html?locale=en",
+      "createdAt": "2019-07-18T01:44:45Z",
+      "updatedAt": "2019-10-04T23:15:26Z",
+      "file": "SHIPPING_POLICY.html",
+      "redactions": [
+        "street address",
+        "postal code"
+      ]
+    },
+    {
+      "type": "TERMS_OF_SERVICE",
+      "title": "Terms of service",
+      "id": "gid://shopify/ShopPolicy/8071970878",
+      "url": "https://checkout.shopify.com/9975070782/policies/8071970878.html?locale=en",
+      "createdAt": "2019-07-18T01:44:45Z",
+      "updatedAt": "2019-07-18T01:44:45Z",
+      "file": "TERMS_OF_SERVICE.html",
+      "redactions": [
+        "personal contact email"
+      ]
+    }
+  ]
+}

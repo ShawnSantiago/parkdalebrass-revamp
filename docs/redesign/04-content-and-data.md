@@ -82,19 +82,19 @@ Before creating these, check Phase 0's export for existing definitions and reuse
 | Object | Handle | Definition |
 | --- | --- | --- |
 | Collection | `jewelry` | Smart: tag = `jewelry` |
-| Collection | `bracelets` | Smart: type = Bracelet |
-| Collection | `necklaces` | Smart: type = Necklace |
-| Collection | `rings` | Smart: type = Ring (created hidden in Phase 3; rings launch with The Brockton signet, D-40) |
+| Collection | `bracelets` | Smart: type = Bracelet **and** tag = `jewelry` (all must match; the tag keeps legacy items out, D-08 spirit, [E-02](changes/E-02.md)) |
+| Collection | `necklaces` | Smart: type = Necklace **and** tag = `jewelry` (all must match; the tag keeps legacy items out, D-08 spirit, [E-02](changes/E-02.md)) |
+| Collection | `rings` | Smart: type = Ring **and** tag = `jewelry` (created hidden in Phase 3; rings launch with The Brockton signet, D-40) |
 | Page | `our-story`, `why-brass`, `jewelry-care`, `size-guide` | Check for existing handles first; reuse an existing "about" page by redirecting it if one exists |
-| Menu | `jewelry-main-menu` | Shop (→ `/collections/jewelry`; children: All Jewelry, Bracelets, Necklaces, Rings*) · Our Story · Journal (`/blogs/news`) |
+| Menu | `jewelry-main-menu` | Shop (→ `/collections/jewelry`; children: All Jewelry, Bracelets, Necklaces, Rings*) · Our Story · Journal (`/blogs/news/tagged/journal`, an HTTP item: D-36, D-43) |
 | Menu | `shop-categories` | All (`/collections/jewelry`), Bracelets, Necklaces, Rings* |
 | Menu | `footer-shop` | All Jewelry, Bracelets, Necklaces, Rings* |
-| Menu | `footer-learn` | Our Story, Why Brass?, Jewelry Care, Size Guide, Journal |
-| Menu | `footer-help` | Shipping & Returns (policy URL), Contact, Support for previous orders (contact page anchor) |
+| Menu | `footer-learn` | Our Story, Why Brass?, Jewelry Care, Size Guide, Journal (`/blogs/news/tagged/journal`, D-36, D-43) |
+| Menu | `footer-help` | Shipping & Returns (shipping policy), Contact, Support for previous orders (`/pages/contact-us#previous-orders`), Do not sell or share my personal information (`/pages/ccpa-opt-out`, G-14) |
 
 \* Rings launch with The Brockton signet (D-40). The Rings items are in the menus from Phase 3. The live theme doesn't use these menus, so the items only show once the new theme is published.
 
-The existing `main-menu` and `footer` menus are **not edited**. They stay as the rollback path.
+The existing `main-menu` and `footer` menus are **not edited**. They stay as the rollback path. The five menus were created on 2026-11-27 ([E-04](changes/E-04.md)).
 
 ---
 

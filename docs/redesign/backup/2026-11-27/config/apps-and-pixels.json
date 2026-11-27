@@ -1,0 +1,484 @@
+{
+  "exportedAt": "2026-11-27",
+  "store": "parkdale-brass.myshopify.com",
+  "source": "Shopify Admin GraphQL API 2026-10 via the Shopify connector (read-only queries; no mutations)",
+  "scope": "appInstallations (default, privacy PUBLIC, privacy PRIVATE, category CHANNEL), app(id) and appByHandle lookups for the apps named in the brief, currentAppInstallation scopes, and scriptTags (denied). Web pixels and script tags were read from storefront HTML captured earlier (live homepage 2026-11-26, unpublished preview 2026-11-27), because the Admin API can't list them for this client.",
+  "notes": [
+    "The Admin API's appInstallations list is NOT a complete inventory. It omits Sezzle, Concierge, EZ Preorder, Ordersify and UpPromote, yet their theme extensions or script tags were loading on the storefront on 2026-11-26/27. Lookups by app id or handle return installation: null for them (or find no app under the handle tried). Treat Admin → Apps as the source of truth (A-02).",
+    "scriptTags: 'Access denied for scriptTags field'. The connector has no read_script_tags scope (currentAppInstallation.accessScopes lists none).",
+    "Web pixels: webPixel(id) returns only the calling app's own pixel, and Customer events custom pixels aren't exposed in the Admin API, so the list below comes from the storefront's webPixelsConfigList.",
+    "Fresh storefront reads weren't possible today: curl gets a bot-verification page (HTTP 403).",
+    "No billing or subscription fields were queried (activeSubscriptions, pricing)."
+  ],
+  "appInstallations": {
+    "count": 12,
+    "apps": [
+      {
+        "installationId": "gid://shopify/AppInstallation/209507123262",
+        "appId": "gid://shopify/App/683015",
+        "title": "Judge.me Reviews",
+        "handle": "judgeme",
+        "developer": "Judge.me",
+        "developerType": "PARTNER"
+      },
+      {
+        "installationId": "gid://shopify/AppInstallation/309629091902",
+        "appId": "gid://shopify/App/81222",
+        "title": "ShipStation",
+        "handle": "shipstation",
+        "developer": "ShipStation",
+        "developerType": "PARTNER"
+      },
+      {
+        "installationId": "gid://shopify/AppInstallation/309922627646",
+        "appId": "gid://shopify/App/156624",
+        "title": "Printful",
+        "handle": "printful",
+        "developer": "Printful Latvia AS",
+        "developerType": "PARTNER"
+      },
+      {
+        "installationId": "gid://shopify/AppInstallation/309985804350",
+        "appId": "gid://shopify/App/2755583",
+        "title": "Messaging",
+        "handle": "shopify-messaging",
+        "developer": "Shopify",
+        "developerType": "SHOPIFY"
+      },
+      {
+        "installationId": "gid://shopify/AppInstallation/316088746046",
+        "appId": "gid://shopify/App/4842809",
+        "title": "Yoast SEO",
+        "handle": "yoast-seo-2",
+        "developer": "Yoast",
+        "developerType": "PARTNER"
+      },
+      {
+        "installationId": "gid://shopify/AppInstallation/619165843778",
+        "appId": "gid://shopify/App/94633985",
+        "title": "Search & Discovery",
+        "handle": "search-and-discovery",
+        "developer": "Shopify",
+        "developerType": "SHOPIFY"
+      },
+      {
+        "installationId": "gid://shopify/AppInstallation/690552701250",
+        "appId": "gid://shopify/App/5081443",
+        "title": "Theme Access",
+        "handle": "theme-kit-access",
+        "developer": "Shopify",
+        "developerType": "SHOPIFY"
+      },
+      {
+        "installationId": "gid://shopify/AppInstallation/707152380226",
+        "appId": "gid://shopify/App/123074",
+        "title": "Klaviyo: Email Marketing & SMS",
+        "handle": "klaviyo-email-marketing",
+        "developer": "Klaviyo",
+        "developerType": "PARTNER"
+      },
+      {
+        "installationId": "gid://shopify/AppInstallation/720986505538",
+        "appId": "gid://shopify/App/1602671",
+        "title": "Flow",
+        "handle": "flow",
+        "developer": "Shopify",
+        "developerType": "SHOPIFY"
+      },
+      {
+        "installationId": "gid://shopify/AppInstallation/721553686850",
+        "appId": "gid://shopify/App/2753413",
+        "title": "TripleWhale",
+        "handle": "shoppi-2000",
+        "developer": "Triple Whale",
+        "developerType": "PARTNER",
+        "note": "App listing is unpublished (published: false) and not embedded."
+      },
+      {
+        "installationId": "gid://shopify/AppInstallation/1096584560962",
+        "appId": "gid://shopify/App/340764327937",
+        "title": "Shopify ChatGPT MCP App",
+        "handle": "shopify-chatgpt-mcp-app",
+        "developer": "Shopify",
+        "developerType": "SHOPIFY"
+      },
+      {
+        "installationId": "gid://shopify/AppInstallation/1097285435714",
+        "appId": "gid://shopify/App/341262598145",
+        "title": "Shopify Claude Connector App",
+        "handle": "shopify-claude-mcp-app",
+        "developer": "Shopify",
+        "developerType": "SHOPIFY",
+        "note": "The connector used for this export."
+      }
+    ]
+  },
+  "channelAppInstallations": {
+    "count": 5,
+    "apps": [
+      {
+        "installationId": "gid://shopify/AppInstallation/107364712510",
+        "appId": "gid://shopify/App/580111",
+        "title": "Online Store",
+        "handle": "online_store",
+        "developer": "Shopify",
+        "developerType": "SHOPIFY"
+      },
+      {
+        "installationId": "gid://shopify/AppInstallation/309945892926",
+        "appId": "gid://shopify/App/2329312",
+        "title": "Facebook & Instagram",
+        "handle": "facebook-ads",
+        "developer": "Meta",
+        "developerType": "PARTNER"
+      },
+      {
+        "installationId": "gid://shopify/AppInstallation/316069543998",
+        "appId": "gid://shopify/App/3026047",
+        "title": "Inbox",
+        "handle": "shopify-inbox",
+        "developer": "Shopify",
+        "developerType": "SHOPIFY"
+      },
+      {
+        "installationId": "gid://shopify/AppInstallation/963115024706",
+        "appId": "gid://shopify/App/347833794561",
+        "title": "Agentic",
+        "handle": "agentic",
+        "developer": "Shopify",
+        "developerType": "SHOPIFY"
+      },
+      {
+        "installationId": "gid://shopify/AppInstallation/1022661787970",
+        "appId": "gid://shopify/App/292572659713",
+        "title": "Whatnot",
+        "handle": "whatnot-sales-channel",
+        "developer": "Whatnot",
+        "developerType": "PARTNER"
+      }
+    ]
+  },
+  "privateAppInstallations": [],
+  "lookups": [
+    {
+      "queriedHandle": "sezzle",
+      "app": {
+        "id": "gid://shopify/App/1531185",
+        "title": "Sezzle (legacy)"
+      },
+      "installation": null
+    },
+    {
+      "queriedHandle": "sezzle-widget",
+      "app": null,
+      "installation": null
+    },
+    {
+      "queriedHandle": "ez-preorder",
+      "app": null,
+      "installation": null
+    },
+    {
+      "queriedHandle": "concierge-shopping-guide-cm",
+      "app": {
+        "id": "gid://shopify/App/338300665857",
+        "title": "Concierge Shopping Guide - CM"
+      },
+      "installation": null
+    },
+    {
+      "queriedHandle": "instant",
+      "app": {
+        "id": "gid://shopify/App/1950536",
+        "title": "instant"
+      },
+      "installation": null
+    },
+    {
+      "queriedHandle": "bloggle",
+      "app": {
+        "id": "gid://shopify/App/5402673",
+        "title": "Bloggle Complete Blog Builder"
+      },
+      "installation": null
+    },
+    {
+      "queriedHandle": "ordersify",
+      "app": {
+        "id": "gid://shopify/App/2473345",
+        "title": "ordersify"
+      },
+      "installation": null
+    },
+    {
+      "queriedHandle": "ordersify-product-alerts",
+      "app": null,
+      "installation": null
+    },
+    {
+      "queriedHandle": "ordersify-restock-alerts",
+      "app": null,
+      "installation": null
+    },
+    {
+      "queriedHandle": "product-reviews-addon",
+      "app": {
+        "id": "gid://shopify/App/1178253",
+        "title": "Stamped Reviews"
+      },
+      "installation": null
+    },
+    {
+      "queriedHandle": "microsoft-clarity",
+      "app": {
+        "id": "gid://shopify/App/115084787713",
+        "title": "Microsoft Clarity"
+      },
+      "installation": null
+    },
+    {
+      "queriedHandle": "google-tag-manager",
+      "app": {
+        "id": "gid://shopify/App/1808925",
+        "title": "Google Tag Manager by Comfoma"
+      },
+      "installation": null
+    },
+    {
+      "queriedHandle": "google",
+      "app": {
+        "id": "gid://shopify/App/1780363",
+        "title": "Google & YouTube"
+      },
+      "installation": null
+    },
+    {
+      "queriedId": "gid://shopify/App/2773553",
+      "app": {
+        "id": "gid://shopify/App/2773553",
+        "title": "UpPromote Affiliate",
+        "handle": "affliate-by-secomapp"
+      },
+      "installation": null
+    }
+  ],
+  "scriptTags": {
+    "adminApi": "access denied",
+    "seenOnStorefront": {
+      "live_homepage_2026-11-26": [
+        "https://cdn.ordersify.com/sdk/v2/ordersify-shopify.min.js?shop=parkdale-brass.myshopify.com",
+        "https://www.greenaffiliates.com/plugins/Shopify/shopify.php?ac=getCode&shop=parkdale-brass.myshopify.com",
+        "//cdn.shopify.com/proxy/…/static.cdn.printful.com/static/js/external/shopify-product-customizer.js?v=0.28&shop=parkdale-brass.myshopify.com",
+        "https://d1639lhkj5l89m.cloudfront.net/js/storefront/uppromote.js?shop=parkdale-brass.myshopify.com"
+      ],
+      "unpublished_preview_196453663042_2026-11-27": [
+        "https://cdn.ordersify.com/sdk/v2/ordersify-shopify.min.js?shop=parkdale-brass.myshopify.com",
+        "//cdn.shopify.com/proxy/…/static.cdn.printful.com/static/js/external/shopify-product-customizer.js?v=0.28&shop=parkdale-brass.myshopify.com",
+        "https://d1639lhkj5l89m.cloudfront.net/js/storefront/uppromote.js?shop=parkdale-brass.myshopify.com"
+      ]
+    },
+    "note": "greenaffiliates.com was in the live list on 2026-11-26 but not in the preview list on 2026-11-27; owner to check."
+  },
+  "webPixels": {
+    "source": "webPixelsConfigList in storefront HTML (identical on live 2026-11-26 and preview 2026-11-27)",
+    "pixels": [
+      {
+        "id": "2119827778",
+        "type": "APP",
+        "apiClientId": 2773553,
+        "resolvedApp": "UpPromote Affiliate (app(id) lookup)",
+        "runtimeContext": "STRICT",
+        "privacyPurposes": [],
+        "configuration": {
+          "shopId": "57894",
+          "env": "production",
+          "metaData": "[]"
+        }
+      },
+      {
+        "id": "1380155714",
+        "type": "APP",
+        "apiClientId": 683015,
+        "resolvedApp": "Judge.me Reviews",
+        "runtimeContext": "STRICT",
+        "privacyPurposes": [
+          "ANALYTICS"
+        ],
+        "configuration": {
+          "webPixelName": "Judge.me"
+        }
+      },
+      {
+        "id": "327876930",
+        "type": "APP",
+        "apiClientId": 2753413,
+        "resolvedApp": "TripleWhale",
+        "runtimeContext": "STRICT",
+        "privacyPurposes": [
+          "ANALYTICS",
+          "MARKETING"
+        ],
+        "configuration": {
+          "shopId": "parkdale-brass.myshopify.com"
+        }
+      },
+      {
+        "id": "83525954",
+        "type": "CUSTOM",
+        "name": "GTM",
+        "runtimeContext": "LAX",
+        "privacyPurposes": [
+          "ANALYTICS",
+          "MARKETING",
+          "SALE_OF_DATA"
+        ],
+        "note": "Customer events custom pixel named 'GTM'. Its code (and so its container ID) isn't in the page config or the Admin API. owner-inputs G-17 records GTM-KX2JQ95R loading on the preview."
+      },
+      {
+        "id": "shopify-app-pixel",
+        "type": "APP",
+        "apiClientId": "shopify-pixel",
+        "note": "Shopify built-in"
+      },
+      {
+        "id": "shopify-custom-pixel",
+        "type": "CUSTOM",
+        "apiClientId": "shopify-pixel",
+        "note": "Shopify built-in"
+      }
+    ]
+  },
+  "craftThemeAppEmbeds": {
+    "source": "Craft theme config/settings_data.json, pulled 2026-11-26 into a reference folder outside the repo (craft-audit.md), plus the live homepage capture",
+    "embeds": [
+      {
+        "block": "shopify://apps/judge-me-reviews/blocks/judgeme_core",
+        "disabled": false,
+        "renderedLive_2026-11-26": true
+      },
+      {
+        "block": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed",
+        "disabled": false,
+        "renderedLive_2026-11-26": true
+      },
+      {
+        "block": "shopify://apps/triplewhale/blocks/triple_pixel_snippet",
+        "disabled": false,
+        "renderedLive_2026-11-26": true
+      },
+      {
+        "block": "shopify://apps/ez-preorder/blocks/pre-order",
+        "disabled": false,
+        "renderedLive_2026-11-26": true,
+        "evidence": "extension asset pre-order-28-102/assets/pre-order.min.js"
+      },
+      {
+        "block": "shopify://apps/sezzle-widget/blocks/widget-embed",
+        "disabled": false,
+        "renderedLive_2026-11-26": true,
+        "evidence": "extension sezzle-widget-b315276e"
+      },
+      {
+        "block": "shopify://apps/sezzle-widget/blocks/checkout-embed",
+        "disabled": false,
+        "renderedLive_2026-11-26": true
+      },
+      {
+        "block": "shopify://apps/concierge-shopping-guide-cm/blocks/concierge-embed",
+        "disabled": false,
+        "renderedLive_2026-11-26": true,
+        "evidence": "extension concierge-shopping-guide-cm-26, #concierge-widget-root"
+      },
+      {
+        "block": "shopify://apps/yoast-seo-seo-for-everyone/blocks/metatags",
+        "disabled": false,
+        "renderedLive_2026-11-26": false,
+        "evidence": "no Yoast markup found in the captured homepage"
+      },
+      {
+        "block": "shopify://apps/inbox/blocks/chat",
+        "disabled": true,
+        "renderedLive_2026-11-26": false
+      }
+    ]
+  },
+  "otherFindings": [
+    "Microsoft Clarity (project lhbpbzpyom) is hard-coded in the live Craft theme.liquid, not an app (craft-audit.md); appByHandle('microsoft-clarity') installation null.",
+    "Stamped reviews: stamped.* metafields remain on the-brockton; appByHandle('product-reviews-addon') installation null.",
+    "Apps not in the brief: ShipStation, Printful (fulfilment service and 4 delivery profiles), Shopify Messaging, Flow, Search & Discovery, Theme Access, Shopify ChatGPT MCP App, Shopify Claude Connector App; channels Facebook & Instagram, Inbox, Agentic, Whatnot."
+  ],
+  "requestedApps": [
+    {
+      "name": "Google Tag Manager GTM-KX2JQ95R",
+      "adminApi": "Not visible: no GTM app installed (google-tag-manager handle: installation null); custom pixels aren't in the Admin API.",
+      "otherEvidence": "Customer events custom pixel named 'GTM' (id 83525954, LAX sandbox, ANALYTICS/MARKETING/SALE_OF_DATA) in webPixelsConfigList on live and preview. Container ID per G-17.",
+      "status": "present as a custom pixel"
+    },
+    {
+      "name": "Ordersify",
+      "adminApi": "Not in appInstallations; appByHandle('ordersify') installation null. scriptTags: access denied.",
+      "otherEvidence": "Script tag cdn.ordersify.com/sdk/v2/ordersify-shopify.min.js loads on live (2026-11-26) and preview (2026-11-27). Script tags are removed on uninstall, so the app is very likely still installed.",
+      "status": "active script tag; API install list doesn't show it"
+    },
+    {
+      "name": "UpPromote",
+      "adminApi": "Not in appInstallations; app(id 2773553) = 'UpPromote Affiliate', installation null. scriptTags: access denied.",
+      "otherEvidence": "uppromote.js script tag and an UpPromote app web pixel (id 2119827778) on live and preview.",
+      "status": "active script tag and pixel; API install list doesn't show it"
+    },
+    {
+      "name": "Triple Whale",
+      "adminApi": "Installed: TripleWhale (shoppi-2000), installation 721553686850.",
+      "otherEvidence": "App pixel 327876930 (ANALYTICS, MARKETING) and Craft theme embed triple_pixel_snippet (on).",
+      "status": "installed"
+    },
+    {
+      "name": "Klaviyo",
+      "adminApi": "Installed: Klaviyo: Email Marketing & SMS, installation 707152380226.",
+      "otherEvidence": "Craft theme embed klaviyo-onsite-embed (on). No Klaviyo web pixel in webPixelsConfigList.",
+      "status": "installed"
+    },
+    {
+      "name": "Judge.me",
+      "adminApi": "Installed: Judge.me Reviews, installation 209507123262.",
+      "otherEvidence": "App pixel 1380155714; Craft theme embed judgeme_core (on); judgeme.badge/widget metafields on 12 products.",
+      "status": "installed"
+    },
+    {
+      "name": "Sezzle",
+      "adminApi": "Not in appInstallations. appByHandle('sezzle') = 'Sezzle (legacy)', installation null; 'sezzle-widget' handle not found.",
+      "otherEvidence": "Craft embeds sezzle-widget widget-embed and checkout-embed (on) rendered live on 2026-11-26 (extension sezzle-widget-b315276e), which needs an installed app.",
+      "status": "rendering live; API install list doesn't show it"
+    },
+    {
+      "name": "Yoast",
+      "adminApi": "Installed: Yoast SEO (yoast-seo-2), installation 316088746046.",
+      "otherEvidence": "Craft embed yoast metatags (on) but no Yoast markup in the captured homepage; yoast_seo.indexable metafields on 2 products.",
+      "status": "installed"
+    },
+    {
+      "name": "Concierge",
+      "adminApi": "Not in appInstallations; appByHandle('concierge-shopping-guide-cm') installation null.",
+      "otherEvidence": "Craft embed concierge-embed (on) rendered live on 2026-11-26 (extension concierge-shopping-guide-cm-26).",
+      "status": "rendering live; API install list doesn't show it"
+    },
+    {
+      "name": "EZ Preorder",
+      "adminApi": "Not in appInstallations; 'ez-preorder' handle not found.",
+      "otherEvidence": "Craft embed ez-preorder pre-order (on) loaded pre-order.min.js live on 2026-11-26.",
+      "status": "rendering live; API install list doesn't show it"
+    },
+    {
+      "name": "Instant",
+      "adminApi": "Not in appInstallations; appByHandle('instant') installation null.",
+      "otherEvidence": "Only generated instant-* files in the Craft theme (craft-audit.md). No Instant embed or script tag seen.",
+      "status": "unknown; nothing active seen"
+    },
+    {
+      "name": "Bloggle",
+      "adminApi": "Not in appInstallations; appByHandle('bloggle') installation null.",
+      "otherEvidence": "Theme 141930692930 'NEVER DELETE - Theme for Bloggle app' exists. No Bloggle code in Craft.",
+      "status": "unknown; nothing active seen"
+    }
+  ]
+}

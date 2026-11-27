@@ -1,0 +1,432 @@
+{
+  "exportedAt": "2026-11-27T01:22:20Z",
+  "source": "Shopify Admin GraphQL API (read-only queries via the Shopify connector), parkdale-brass.myshopify.com",
+  "snapshot": {
+    "readWindowUtc": [
+      "2026-11-27T01:05:00Z",
+      "2026-11-27T01:14:15Z"
+    ],
+    "changedAfterRead": [],
+    "note": "This file is the state read in readWindowUtc, which is before the changes listed in changedAfterRead (re-checked 2026-11-27T01:22Z)."
+  },
+  "menusCount": 5,
+  "notes": [
+    "Read-only export for the phase-3 backup. Items are nested exactly as in the store (queried 4 levels deep; the deepest menu has 3)."
+  ],
+  "menus": [
+    {
+      "id": "gid://shopify/Menu/69103386686",
+      "handle": "main-menu",
+      "title": "Main menu",
+      "isDefault": true,
+      "createdAt": "2019-05-06T23:58:51Z",
+      "itemCount": 9,
+      "items": [
+        {
+          "id": "gid://shopify/MenuItem/151997907006",
+          "title": "Home",
+          "type": "FRONTPAGE",
+          "url": "/",
+          "resourceId": null,
+          "tags": [],
+          "items": []
+        },
+        {
+          "id": "gid://shopify/MenuItem/166344720446",
+          "title": "Shop",
+          "type": "PRODUCT",
+          "url": "/products/brockton-mk2",
+          "resourceId": "gid://shopify/Product/4409295863870",
+          "tags": [],
+          "items": [
+            {
+              "id": "gid://shopify/MenuItem/278304686142",
+              "title": "Pipes",
+              "type": "COLLECTION",
+              "url": "/collections/metal-smoking-pipes",
+              "resourceId": "gid://shopify/Collection/158879023166",
+              "tags": [],
+              "items": [
+                {
+                  "id": "gid://shopify/MenuItem/566290874690",
+                  "title": "The Brockton MK2",
+                  "type": "PRODUCT",
+                  "url": "/products/brockton-mk2",
+                  "resourceId": "gid://shopify/Product/4409295863870",
+                  "tags": [],
+                  "items": []
+                },
+                {
+                  "id": "gid://shopify/MenuItem/566290907458",
+                  "title": "The Bellwoods",
+                  "type": "PRODUCT",
+                  "url": "/products/the-bellwoods-one-hitter",
+                  "resourceId": "gid://shopify/Product/7069355540542",
+                  "tags": [],
+                  "items": []
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/MenuItem/412719775806",
+              "title": "Apparel",
+              "type": "COLLECTION",
+              "url": "/collections/apparel",
+              "resourceId": "gid://shopify/Collection/261373624382",
+              "tags": [],
+              "items": []
+            },
+            {
+              "id": "gid://shopify/MenuItem/567495950658",
+              "title": "All",
+              "type": "CATALOG",
+              "url": "/collections/all",
+              "resourceId": null,
+              "tags": [],
+              "items": []
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/MenuItem/249631637566",
+          "title": "Blog",
+          "type": "BLOG",
+          "url": "/blogs/news",
+          "resourceId": "gid://shopify/Blog/25815515198",
+          "tags": [],
+          "items": []
+        },
+        {
+          "id": "gid://shopify/MenuItem/263399571518",
+          "title": "Contact",
+          "type": "PAGE",
+          "url": "/pages/contact-us",
+          "resourceId": "gid://shopify/Page/44418269246",
+          "tags": [],
+          "items": []
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Menu/69103419454",
+      "handle": "footer",
+      "title": "Footer menu",
+      "isDefault": true,
+      "createdAt": "2019-05-06T23:58:51Z",
+      "itemCount": 3,
+      "items": [
+        {
+          "id": "gid://shopify/MenuItem/413589209150",
+          "title": "Sitemap",
+          "type": "PAGE",
+          "url": "/pages/sitemap",
+          "resourceId": "gid://shopify/Page/79873769534",
+          "tags": [],
+          "items": []
+        },
+        {
+          "id": "gid://shopify/MenuItem/413589241918",
+          "title": "Do not sell my personal information",
+          "type": "PAGE",
+          "url": "/pages/ccpa-opt-out",
+          "resourceId": "gid://shopify/Page/80604332094",
+          "tags": [],
+          "items": []
+        },
+        {
+          "id": "gid://shopify/MenuItem/729565430082",
+          "title": "Created By Parkdale Digital",
+          "type": "HTTP",
+          "url": "https://www.parkdale.digital",
+          "resourceId": null,
+          "tags": [],
+          "items": []
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Menu/179658948670",
+      "handle": "sitemap",
+      "title": "Sitemap",
+      "isDefault": false,
+      "createdAt": "2021-05-07T12:22:16Z",
+      "itemCount": 26,
+      "items": [
+        {
+          "id": "gid://shopify/MenuItem/412665249854",
+          "title": "Home",
+          "type": "FRONTPAGE",
+          "url": "/",
+          "resourceId": null,
+          "tags": [],
+          "items": []
+        },
+        {
+          "id": "gid://shopify/MenuItem/412665282622",
+          "title": "Collections",
+          "type": "COLLECTIONS",
+          "url": "/collections",
+          "resourceId": null,
+          "tags": [],
+          "items": [
+            {
+              "id": "gid://shopify/MenuItem/412665315390",
+              "title": "Accessories",
+              "type": "COLLECTION",
+              "url": "/collections/accessories",
+              "resourceId": "gid://shopify/Collection/260616519742",
+              "tags": [],
+              "items": []
+            },
+            {
+              "id": "gid://shopify/MenuItem/412665348158",
+              "title": "Cleaning",
+              "type": "COLLECTION",
+              "url": "/collections/cleaning",
+              "resourceId": "gid://shopify/Collection/261273354302",
+              "tags": [],
+              "items": []
+            },
+            {
+              "id": "gid://shopify/MenuItem/412665380926",
+              "title": "Coming Soon",
+              "type": "COLLECTION",
+              "url": "/collections/coming-soon",
+              "resourceId": "gid://shopify/Collection/181557461054",
+              "tags": [],
+              "items": []
+            },
+            {
+              "id": "gid://shopify/MenuItem/412665413694",
+              "title": "Containers",
+              "type": "COLLECTION",
+              "url": "/collections/containers",
+              "resourceId": "gid://shopify/Collection/261287936062",
+              "tags": [],
+              "items": []
+            },
+            {
+              "id": "gid://shopify/MenuItem/412665446462",
+              "title": "Grinders",
+              "type": "COLLECTION",
+              "url": "/collections/grinders",
+              "resourceId": "gid://shopify/Collection/261273387070",
+              "tags": [],
+              "items": []
+            },
+            {
+              "id": "gid://shopify/MenuItem/412665479230",
+              "title": "Lighters and Matches",
+              "type": "COLLECTION",
+              "url": "/collections/lighters-and-matches",
+              "resourceId": "gid://shopify/Collection/261273583678",
+              "tags": [],
+              "items": []
+            },
+            {
+              "id": "gid://shopify/MenuItem/412665511998",
+              "title": "Metal Smoking Pipes",
+              "type": "COLLECTION",
+              "url": "/collections/metal-smoking-pipes",
+              "resourceId": "gid://shopify/Collection/158879023166",
+              "tags": [],
+              "items": []
+            },
+            {
+              "id": "gid://shopify/MenuItem/412665544766",
+              "title": "Shop",
+              "type": "COLLECTION",
+              "url": "/collections/shop",
+              "resourceId": "gid://shopify/Collection/158888558654",
+              "tags": [],
+              "items": []
+            },
+            {
+              "id": "gid://shopify/MenuItem/412665577534",
+              "title": "Trays",
+              "type": "COLLECTION",
+              "url": "/collections/trays",
+              "resourceId": "gid://shopify/Collection/261273747518",
+              "tags": [],
+              "items": []
+            },
+            {
+              "id": "gid://shopify/MenuItem/412665610302",
+              "title": "Vaporizers",
+              "type": "COLLECTION",
+              "url": "/collections/vaporizers",
+              "resourceId": "gid://shopify/Collection/261273452606",
+              "tags": [],
+              "items": []
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/MenuItem/412665643070",
+          "title": "Pages",
+          "type": "FRONTPAGE",
+          "url": "/",
+          "resourceId": null,
+          "tags": [],
+          "items": [
+            {
+              "id": "gid://shopify/MenuItem/412665675838",
+              "title": "Contact Us",
+              "type": "PAGE",
+              "url": "/pages/contact-us",
+              "resourceId": "gid://shopify/Page/44418269246",
+              "tags": [],
+              "items": []
+            },
+            {
+              "id": "gid://shopify/MenuItem/412665708606",
+              "title": "Instagram",
+              "type": "PAGE",
+              "url": "/pages/follow-us-on-instagram-parkdale_brass",
+              "resourceId": "gid://shopify/Page/51661865022",
+              "tags": [],
+              "items": []
+            },
+            {
+              "id": "gid://shopify/MenuItem/412665741374",
+              "title": "Lights From The Bottom",
+              "type": "PAGE",
+              "url": "/pages/smokes-from-the-bottom",
+              "resourceId": "gid://shopify/Page/51620905022",
+              "tags": [],
+              "items": []
+            },
+            {
+              "id": "gid://shopify/MenuItem/412665774142",
+              "title": "Protective Magnetic Lid",
+              "type": "PAGE",
+              "url": "/pages/protective-magnetic-lid",
+              "resourceId": "gid://shopify/Page/51620937790",
+              "tags": [],
+              "items": []
+            },
+            {
+              "id": "gid://shopify/MenuItem/412665806910",
+              "title": "Stockist",
+              "type": "PAGE",
+              "url": "/pages/stocklist",
+              "resourceId": "gid://shopify/Page/51993641022",
+              "tags": [],
+              "items": []
+            },
+            {
+              "id": "gid://shopify/MenuItem/412665839678",
+              "title": "Store Locator",
+              "type": "PAGE",
+              "url": "/pages/store-locator",
+              "resourceId": "gid://shopify/Page/51993608254",
+              "tags": [],
+              "items": []
+            },
+            {
+              "id": "gid://shopify/MenuItem/412665872446",
+              "title": "The Brockton In-Action",
+              "type": "PAGE",
+              "url": "/pages/the-brockton-in-action",
+              "resourceId": "gid://shopify/Page/51826720830",
+              "tags": [],
+              "items": []
+            }
+          ]
+        },
+        {
+          "id": "gid://shopify/MenuItem/412665905214",
+          "title": "News",
+          "type": "BLOG",
+          "url": "/blogs/news",
+          "resourceId": "gid://shopify/Blog/25815515198",
+          "tags": [],
+          "items": []
+        },
+        {
+          "id": "gid://shopify/MenuItem/412665937982",
+          "title": "Policys",
+          "type": "SHOP_POLICY",
+          "url": "/policies/privacy-policy",
+          "resourceId": "gid://shopify/ShopPolicy/8071938110",
+          "tags": [],
+          "items": [
+            {
+              "id": "gid://shopify/MenuItem/412665970750",
+              "title": "Privacy Policy",
+              "type": "SHOP_POLICY",
+              "url": "/policies/privacy-policy",
+              "resourceId": "gid://shopify/ShopPolicy/8071938110",
+              "tags": [],
+              "items": []
+            },
+            {
+              "id": "gid://shopify/MenuItem/412666003518",
+              "title": "Refund Policy",
+              "type": "SHOP_POLICY",
+              "url": "/policies/refund-policy",
+              "resourceId": "gid://shopify/ShopPolicy/8071905342",
+              "tags": [],
+              "items": []
+            },
+            {
+              "id": "gid://shopify/MenuItem/412666036286",
+              "title": "Shipping Policy",
+              "type": "SHOP_POLICY",
+              "url": "/policies/shipping-policy",
+              "resourceId": "gid://shopify/ShopPolicy/8072003646",
+              "tags": [],
+              "items": []
+            },
+            {
+              "id": "gid://shopify/MenuItem/412666069054",
+              "title": "Terms of Service",
+              "type": "SHOP_POLICY",
+              "url": "/policies/terms-of-service",
+              "resourceId": "gid://shopify/ShopPolicy/8071970878",
+              "tags": [],
+              "items": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Menu/241368400194",
+      "handle": "minimal",
+      "title": "Minimal",
+      "isDefault": false,
+      "createdAt": "2023-08-27T19:56:16Z",
+      "itemCount": 0,
+      "items": []
+    },
+    {
+      "id": "gid://shopify/Menu/258802024770",
+      "handle": "customer-account-main-menu",
+      "title": "Customer account main menu",
+      "isDefault": true,
+      "createdAt": "2024-09-12T17:35:47Z",
+      "itemCount": 2,
+      "items": [
+        {
+          "id": "gid://shopify/MenuItem/659675218242",
+          "title": "Orders",
+          "type": "CUSTOMER_ACCOUNT_PAGE",
+          "url": "https://shopify.com/9975070782/account/orders",
+          "resourceId": "gid://shopify/CustomerAccountPage/141102907714",
+          "tags": [],
+          "items": []
+        },
+        {
+          "id": "gid://shopify/MenuItem/774313181506",
+          "title": "Profile",
+          "type": "CUSTOMER_ACCOUNT_PAGE",
+          "url": "https://shopify.com/9975070782/account/profile",
+          "resourceId": "gid://shopify/CustomerAccountPage/141102940482",
+          "tags": [],
+          "items": []
+        }
+      ]
+    }
+  ]
+}

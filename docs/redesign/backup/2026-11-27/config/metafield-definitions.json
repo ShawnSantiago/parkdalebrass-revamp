@@ -1,0 +1,1015 @@
+{
+  "exportedAt": "2026-11-27",
+  "store": "parkdale-brass.myshopify.com",
+  "source": "Shopify Admin GraphQL API 2026-10 via the Shopify connector (read-only queries; no mutations)",
+  "scope": "metafieldDefinitions(ownerType) for PRODUCT, PRODUCTVARIANT, COLLECTION, PAGE, ARTICLE, BLOG and SHOP, every page (pageInfo.hasNextPage was false on each). Plus a read of the metafield namespace/key/type (no values) present on all 14 products and all 14 collections, to catch unstructured metafields that have no definition.",
+  "notes": [
+    "Definitions owned by other apps under reserved $app: namespaces are only visible to the owning app, so they can't appear here. Everything visible to this API client is listed.",
+    "No custom.* definition exists for any owner type, and no product or collection stores a custom.* value. Every key in 04 §2 and custom.category_line is free (see collisionCheck).",
+    "reviews.rating and reviews.rating_count are Shopify standard definitions holding 2 values each (brockton-mk2, 6-5-long-bristle-scrubbing-pipe-cleaners-3-cleaners). They are legacy pipe-review aggregates: never surface them (AGENTS.md: never reuse legacy pipe reviews).",
+    "whatnot.* definitions (10: 8 product, 2 variant) belong to the Whatnot sales channel app; all have 0 values.",
+    "pinned = pinnedPosition is not null. Shopify reports duplicate pinnedPosition values for the Whatnot definitions as returned.",
+    "Metafield values were not exported (only namespace, key, type and definition link), so no product copy or review data is in this file."
+  ],
+  "counts": {
+    "PRODUCT": 14,
+    "PRODUCTVARIANT": 2,
+    "COLLECTION": 0,
+    "PAGE": 0,
+    "ARTICLE": 0,
+    "BLOG": 0,
+    "SHOP": 0
+  },
+  "definitions": {
+    "PRODUCT": [
+      {
+        "id": "gid://shopify/MetafieldDefinition/6752665922",
+        "ownerType": "PRODUCT",
+        "namespace": "shopify--discovery--product_search_boost",
+        "key": "queries",
+        "name": "Search product boosts",
+        "description": "List of search queries for which a product gets higher rank in search results",
+        "type": "list.single_line_text_field",
+        "typeCategory": "TEXT",
+        "validations": [
+          {
+            "name": "max",
+            "type": "number_integer",
+            "value": "100"
+          },
+          {
+            "name": "list.max",
+            "type": "number_integer",
+            "value": "10"
+          }
+        ],
+        "pinned": false,
+        "pinnedPosition": null,
+        "metafieldsCount": 0,
+        "access": {
+          "admin": "PUBLIC_READ_WRITE",
+          "storefront": "PUBLIC_READ",
+          "customerAccount": "NONE"
+        },
+        "adminFilterable": false,
+        "smartCollectionCondition": false,
+        "useAsCollectionCondition": false,
+        "validationStatus": "ALL_VALID",
+        "constraints": {
+          "key": null,
+          "values": []
+        },
+        "standardTemplate": {
+          "id": "gid://shopify/StandardMetafieldDefinitionTemplate/16",
+          "namespace": "shopify--discovery--product_search_boost",
+          "key": "queries"
+        }
+      },
+      {
+        "id": "gid://shopify/MetafieldDefinition/6752731458",
+        "ownerType": "PRODUCT",
+        "namespace": "shopify--discovery--product_recommendation",
+        "key": "related_products",
+        "name": "Related products",
+        "description": "List of related products",
+        "type": "list.product_reference",
+        "typeCategory": "REFERENCE",
+        "validations": [
+          {
+            "name": "list.max",
+            "type": "number_integer",
+            "value": "10"
+          }
+        ],
+        "pinned": false,
+        "pinnedPosition": null,
+        "metafieldsCount": 2,
+        "access": {
+          "admin": "PUBLIC_READ_WRITE",
+          "storefront": "PUBLIC_READ",
+          "customerAccount": "NONE"
+        },
+        "adminFilterable": false,
+        "smartCollectionCondition": false,
+        "useAsCollectionCondition": false,
+        "validationStatus": "ALL_VALID",
+        "constraints": {
+          "key": null,
+          "values": []
+        },
+        "standardTemplate": {
+          "id": "gid://shopify/StandardMetafieldDefinitionTemplate/14",
+          "namespace": "shopify--discovery--product_recommendation",
+          "key": "related_products"
+        }
+      },
+      {
+        "id": "gid://shopify/MetafieldDefinition/6752796994",
+        "ownerType": "PRODUCT",
+        "namespace": "shopify--discovery--product_recommendation",
+        "key": "related_products_display",
+        "name": "Related products settings",
+        "description": "Determines how related products are displayed along with algorithmic product recommendations",
+        "type": "single_line_text_field",
+        "typeCategory": "TEXT",
+        "validations": [
+          {
+            "name": "choices",
+            "type": "list.single_line_text_field",
+            "value": "[\"ahead\",\"only manual\"]"
+          }
+        ],
+        "pinned": false,
+        "pinnedPosition": null,
+        "metafieldsCount": 2,
+        "access": {
+          "admin": "PUBLIC_READ_WRITE",
+          "storefront": "PUBLIC_READ",
+          "customerAccount": "NONE"
+        },
+        "adminFilterable": false,
+        "smartCollectionCondition": false,
+        "useAsCollectionCondition": false,
+        "validationStatus": "ALL_VALID",
+        "constraints": {
+          "key": null,
+          "values": []
+        },
+        "standardTemplate": {
+          "id": "gid://shopify/StandardMetafieldDefinitionTemplate/15",
+          "namespace": "shopify--discovery--product_recommendation",
+          "key": "related_products_display"
+        }
+      },
+      {
+        "id": "gid://shopify/MetafieldDefinition/6752829762",
+        "ownerType": "PRODUCT",
+        "namespace": "shopify--discovery--product_recommendation",
+        "key": "complementary_products",
+        "name": "Complementary products",
+        "description": "List of complementary products",
+        "type": "list.product_reference",
+        "typeCategory": "REFERENCE",
+        "validations": [
+          {
+            "name": "list.max",
+            "type": "number_integer",
+            "value": "10"
+          }
+        ],
+        "pinned": false,
+        "pinnedPosition": null,
+        "metafieldsCount": 2,
+        "access": {
+          "admin": "PUBLIC_READ_WRITE",
+          "storefront": "PUBLIC_READ",
+          "customerAccount": "NONE"
+        },
+        "adminFilterable": false,
+        "smartCollectionCondition": false,
+        "useAsCollectionCondition": false,
+        "validationStatus": "ALL_VALID",
+        "constraints": {
+          "key": null,
+          "values": []
+        },
+        "standardTemplate": {
+          "id": "gid://shopify/StandardMetafieldDefinitionTemplate/17",
+          "namespace": "shopify--discovery--product_recommendation",
+          "key": "complementary_products"
+        }
+      },
+      {
+        "id": "gid://shopify/MetafieldDefinition/46070038850",
+        "ownerType": "PRODUCT",
+        "namespace": "reviews",
+        "key": "rating",
+        "name": "Product rating",
+        "description": "Average rating from customers",
+        "type": "rating",
+        "typeCategory": "RATING",
+        "validations": [
+          {
+            "name": "scale_min",
+            "type": "number_decimal",
+            "value": "1.0"
+          },
+          {
+            "name": "scale_max",
+            "type": "number_decimal",
+            "value": "5.0"
+          }
+        ],
+        "pinned": false,
+        "pinnedPosition": null,
+        "metafieldsCount": 2,
+        "access": {
+          "admin": "PUBLIC_READ_WRITE",
+          "storefront": "PUBLIC_READ",
+          "customerAccount": "NONE"
+        },
+        "adminFilterable": false,
+        "smartCollectionCondition": false,
+        "useAsCollectionCondition": false,
+        "validationStatus": "ALL_VALID",
+        "constraints": {
+          "key": null,
+          "values": []
+        },
+        "standardTemplate": {
+          "id": "gid://shopify/StandardMetafieldDefinitionTemplate/6",
+          "namespace": "reviews",
+          "key": "rating"
+        }
+      },
+      {
+        "id": "gid://shopify/MetafieldDefinition/46070071618",
+        "ownerType": "PRODUCT",
+        "namespace": "reviews",
+        "key": "rating_count",
+        "name": "Product rating count",
+        "description": "Total number of ratings from customers",
+        "type": "number_integer",
+        "typeCategory": "NUMBER",
+        "validations": [
+          {
+            "name": "min",
+            "type": "number_integer",
+            "value": "0"
+          }
+        ],
+        "pinned": false,
+        "pinnedPosition": null,
+        "metafieldsCount": 2,
+        "access": {
+          "admin": "PUBLIC_READ_WRITE",
+          "storefront": "PUBLIC_READ",
+          "customerAccount": "NONE"
+        },
+        "adminFilterable": false,
+        "smartCollectionCondition": false,
+        "useAsCollectionCondition": false,
+        "validationStatus": "ALL_VALID",
+        "constraints": {
+          "key": null,
+          "values": []
+        },
+        "standardTemplate": {
+          "id": "gid://shopify/StandardMetafieldDefinitionTemplate/7",
+          "namespace": "reviews",
+          "key": "rating_count"
+        }
+      },
+      {
+        "id": "gid://shopify/MetafieldDefinition/298312466754",
+        "ownerType": "PRODUCT",
+        "namespace": "whatnot",
+        "key": "condition",
+        "name": "Whatnot Condition",
+        "description": "Product condition for Whatnot listings",
+        "type": "single_line_text_field",
+        "typeCategory": "TEXT",
+        "validations": [],
+        "pinned": true,
+        "pinnedPosition": 2,
+        "metafieldsCount": 0,
+        "access": {
+          "admin": "PUBLIC_READ_WRITE",
+          "storefront": "NONE",
+          "customerAccount": "NONE"
+        },
+        "adminFilterable": false,
+        "smartCollectionCondition": false,
+        "useAsCollectionCondition": false,
+        "validationStatus": "ALL_VALID",
+        "constraints": {
+          "key": null,
+          "values": []
+        },
+        "standardTemplate": null
+      },
+      {
+        "id": "gid://shopify/MetafieldDefinition/298312499522",
+        "ownerType": "PRODUCT",
+        "namespace": "whatnot",
+        "key": "whatnot_description",
+        "name": "Whatnot Description",
+        "description": "Custom description override for Whatnot listings",
+        "type": "multi_line_text_field",
+        "typeCategory": "TEXT",
+        "validations": [],
+        "pinned": true,
+        "pinnedPosition": 1,
+        "metafieldsCount": 0,
+        "access": {
+          "admin": "PUBLIC_READ_WRITE",
+          "storefront": "NONE",
+          "customerAccount": "NONE"
+        },
+        "adminFilterable": false,
+        "smartCollectionCondition": false,
+        "useAsCollectionCondition": false,
+        "validationStatus": "ALL_VALID",
+        "constraints": {
+          "key": null,
+          "values": []
+        },
+        "standardTemplate": null
+      },
+      {
+        "id": "gid://shopify/MetafieldDefinition/298312532290",
+        "ownerType": "PRODUCT",
+        "namespace": "whatnot",
+        "key": "whatnot_buy_it_now_price",
+        "name": "Whatnot Buy-It-Now Price",
+        "description": "Whatnot Buy it Now price for the product",
+        "type": "money",
+        "typeCategory": "MONEY",
+        "validations": [],
+        "pinned": true,
+        "pinnedPosition": 8,
+        "metafieldsCount": 0,
+        "access": {
+          "admin": "PUBLIC_READ_WRITE",
+          "storefront": "NONE",
+          "customerAccount": "NONE"
+        },
+        "adminFilterable": false,
+        "smartCollectionCondition": false,
+        "useAsCollectionCondition": false,
+        "validationStatus": "ALL_VALID",
+        "constraints": {
+          "key": null,
+          "values": []
+        },
+        "standardTemplate": null
+      },
+      {
+        "id": "gid://shopify/MetafieldDefinition/298312565058",
+        "ownerType": "PRODUCT",
+        "namespace": "whatnot",
+        "key": "whatnot_title",
+        "name": "Whatnot Title",
+        "description": "Custom title override for Whatnot listings",
+        "type": "single_line_text_field",
+        "typeCategory": "TEXT",
+        "validations": [],
+        "pinned": true,
+        "pinnedPosition": 2,
+        "metafieldsCount": 0,
+        "access": {
+          "admin": "PUBLIC_READ_WRITE",
+          "storefront": "NONE",
+          "customerAccount": "NONE"
+        },
+        "adminFilterable": false,
+        "smartCollectionCondition": false,
+        "useAsCollectionCondition": false,
+        "validationStatus": "ALL_VALID",
+        "constraints": {
+          "key": null,
+          "values": []
+        },
+        "standardTemplate": null
+      },
+      {
+        "id": "gid://shopify/MetafieldDefinition/298312597826",
+        "ownerType": "PRODUCT",
+        "namespace": "whatnot",
+        "key": "whatnot_livestreams",
+        "name": "Whatnot Livestreams",
+        "description": "Whatnot livestreams this product is part of",
+        "type": "list.metaobject_reference",
+        "typeCategory": "REFERENCE",
+        "validations": [
+          {
+            "name": "metaobject_definition_id",
+            "type": "single_line_text_field",
+            "value": "gid://shopify/MetaobjectDefinition/26647626050"
+          }
+        ],
+        "pinned": true,
+        "pinnedPosition": 2,
+        "metafieldsCount": 0,
+        "access": {
+          "admin": "PUBLIC_READ_WRITE",
+          "storefront": "NONE",
+          "customerAccount": "NONE"
+        },
+        "adminFilterable": false,
+        "smartCollectionCondition": false,
+        "useAsCollectionCondition": false,
+        "validationStatus": "ALL_VALID",
+        "constraints": {
+          "key": null,
+          "values": []
+        },
+        "standardTemplate": null
+      },
+      {
+        "id": "gid://shopify/MetafieldDefinition/298312663362",
+        "ownerType": "PRODUCT",
+        "namespace": "whatnot",
+        "key": "flash_sale_config",
+        "name": "Flash Sale Configuration",
+        "description": "Select a flash sale configuration preset for this product",
+        "type": "metaobject_reference",
+        "typeCategory": "REFERENCE",
+        "validations": [
+          {
+            "name": "metaobject_definition_id",
+            "type": "single_line_text_field",
+            "value": "gid://shopify/MetaobjectDefinition/26647691586"
+          }
+        ],
+        "pinned": true,
+        "pinnedPosition": 1,
+        "metafieldsCount": 0,
+        "access": {
+          "admin": "PUBLIC_READ_WRITE",
+          "storefront": "NONE",
+          "customerAccount": "NONE"
+        },
+        "adminFilterable": false,
+        "smartCollectionCondition": false,
+        "useAsCollectionCondition": false,
+        "validationStatus": "ALL_VALID",
+        "constraints": {
+          "key": null,
+          "values": []
+        },
+        "standardTemplate": null
+      },
+      {
+        "id": "gid://shopify/MetafieldDefinition/298312728898",
+        "ownerType": "PRODUCT",
+        "namespace": "whatnot",
+        "key": "whatnot_category_ref",
+        "name": "Whatnot Category",
+        "description": "Select the Whatnot category for this product",
+        "type": "metaobject_reference",
+        "typeCategory": "REFERENCE",
+        "validations": [
+          {
+            "name": "metaobject_definition_id",
+            "type": "single_line_text_field",
+            "value": "gid://shopify/MetaobjectDefinition/26647593282"
+          }
+        ],
+        "pinned": true,
+        "pinnedPosition": 6,
+        "metafieldsCount": 0,
+        "access": {
+          "admin": "PUBLIC_READ_WRITE",
+          "storefront": "NONE",
+          "customerAccount": "NONE"
+        },
+        "adminFilterable": false,
+        "smartCollectionCondition": false,
+        "useAsCollectionCondition": false,
+        "validationStatus": "ALL_VALID",
+        "constraints": {
+          "key": null,
+          "values": []
+        },
+        "standardTemplate": null
+      },
+      {
+        "id": "gid://shopify/MetafieldDefinition/298312761666",
+        "ownerType": "PRODUCT",
+        "namespace": "whatnot",
+        "key": "whatnot_auction_price",
+        "name": "Whatnot Auction Price",
+        "description": "Starting price for auction for the product",
+        "type": "money",
+        "typeCategory": "MONEY",
+        "validations": [],
+        "pinned": true,
+        "pinnedPosition": 5,
+        "metafieldsCount": 0,
+        "access": {
+          "admin": "PUBLIC_READ_WRITE",
+          "storefront": "NONE",
+          "customerAccount": "NONE"
+        },
+        "adminFilterable": false,
+        "smartCollectionCondition": false,
+        "useAsCollectionCondition": false,
+        "validationStatus": "ALL_VALID",
+        "constraints": {
+          "key": null,
+          "values": []
+        },
+        "standardTemplate": null
+      }
+    ],
+    "PRODUCTVARIANT": [
+      {
+        "id": "gid://shopify/MetafieldDefinition/298312630594",
+        "ownerType": "PRODUCTVARIANT",
+        "namespace": "whatnot",
+        "key": "whatnot_auction_price",
+        "name": "Whatnot Auction Price",
+        "description": "Starting price for auction for the variant",
+        "type": "money",
+        "typeCategory": "MONEY",
+        "validations": [],
+        "pinned": true,
+        "pinnedPosition": 1,
+        "metafieldsCount": 0,
+        "access": {
+          "admin": "PUBLIC_READ_WRITE",
+          "storefront": "NONE",
+          "customerAccount": "NONE"
+        },
+        "adminFilterable": false,
+        "smartCollectionCondition": false,
+        "useAsCollectionCondition": false,
+        "validationStatus": "ALL_VALID",
+        "constraints": {
+          "key": null,
+          "values": []
+        },
+        "standardTemplate": null
+      },
+      {
+        "id": "gid://shopify/MetafieldDefinition/298312794434",
+        "ownerType": "PRODUCTVARIANT",
+        "namespace": "whatnot",
+        "key": "whatnot_buy_it_now_price",
+        "name": "Whatnot Buy-It-Now Price",
+        "description": "Whatnot Buy it Now price for the variant",
+        "type": "money",
+        "typeCategory": "MONEY",
+        "validations": [],
+        "pinned": true,
+        "pinnedPosition": 2,
+        "metafieldsCount": 0,
+        "access": {
+          "admin": "PUBLIC_READ_WRITE",
+          "storefront": "NONE",
+          "customerAccount": "NONE"
+        },
+        "adminFilterable": false,
+        "smartCollectionCondition": false,
+        "useAsCollectionCondition": false,
+        "validationStatus": "ALL_VALID",
+        "constraints": {
+          "key": null,
+          "values": []
+        },
+        "standardTemplate": null
+      }
+    ],
+    "COLLECTION": [],
+    "PAGE": [],
+    "ARTICLE": [],
+    "BLOG": [],
+    "SHOP": []
+  },
+  "collisionCheck": {
+    "against": "docs/redesign/04-content-and-data.md §2 (product custom.*) and D-37 collection custom.category_line",
+    "result": "No collisions. None of the ten planned keys exists as a definition or as an unstructured value, in custom or any other namespace (key-name match checked across all visible definitions).",
+    "reuseCandidates": "None. No existing definition is compatible with the planned keys. global.description_tag / global.title_tag are SEO fields, not product facts; whatnot.whatnot_description is a channel override with 0 values.",
+    "items": [
+      {
+        "ownerType": "PRODUCT",
+        "namespace": "custom",
+        "key": "short_description",
+        "plannedType": "multi_line_text_field",
+        "existingDefinition": null,
+        "existingUnstructuredValues": 0,
+        "sameKeyInOtherNamespace": [],
+        "verdict": "free: no definition and no stored values; create new"
+      },
+      {
+        "ownerType": "PRODUCT",
+        "namespace": "custom",
+        "key": "material",
+        "plannedType": "single_line_text_field",
+        "existingDefinition": null,
+        "existingUnstructuredValues": 0,
+        "sameKeyInOtherNamespace": [],
+        "verdict": "free: no definition and no stored values; create new"
+      },
+      {
+        "ownerType": "PRODUCT",
+        "namespace": "custom",
+        "key": "finish",
+        "plannedType": "single_line_text_field",
+        "existingDefinition": null,
+        "existingUnstructuredValues": 0,
+        "sameKeyInOtherNamespace": [],
+        "verdict": "free: no definition and no stored values; create new"
+      },
+      {
+        "ownerType": "PRODUCT",
+        "namespace": "custom",
+        "key": "patina_notes",
+        "plannedType": "multi_line_text_field",
+        "existingDefinition": null,
+        "existingUnstructuredValues": 0,
+        "sameKeyInOtherNamespace": [],
+        "verdict": "free: no definition and no stored values; create new"
+      },
+      {
+        "ownerType": "PRODUCT",
+        "namespace": "custom",
+        "key": "dimensions",
+        "plannedType": "multi_line_text_field",
+        "existingDefinition": null,
+        "existingUnstructuredValues": 0,
+        "sameKeyInOtherNamespace": [],
+        "verdict": "free: no definition and no stored values; create new"
+      },
+      {
+        "ownerType": "PRODUCT",
+        "namespace": "custom",
+        "key": "fit_notes",
+        "plannedType": "multi_line_text_field",
+        "existingDefinition": null,
+        "existingUnstructuredValues": 0,
+        "sameKeyInOtherNamespace": [],
+        "verdict": "free: no definition and no stored values; create new"
+      },
+      {
+        "ownerType": "PRODUCT",
+        "namespace": "custom",
+        "key": "care_instructions",
+        "plannedType": "multi_line_text_field",
+        "existingDefinition": null,
+        "existingUnstructuredValues": 0,
+        "sameKeyInOtherNamespace": [],
+        "verdict": "free: no definition and no stored values; create new"
+      },
+      {
+        "ownerType": "PRODUCT",
+        "namespace": "custom",
+        "key": "origin",
+        "plannedType": "single_line_text_field",
+        "existingDefinition": null,
+        "existingUnstructuredValues": 0,
+        "sameKeyInOtherNamespace": [],
+        "verdict": "free: no definition and no stored values; create new"
+      },
+      {
+        "ownerType": "PRODUCT",
+        "namespace": "custom",
+        "key": "size_guide",
+        "plannedType": "page_reference",
+        "existingDefinition": null,
+        "existingUnstructuredValues": 0,
+        "sameKeyInOtherNamespace": [],
+        "verdict": "free: no definition and no stored values; create new"
+      },
+      {
+        "ownerType": "COLLECTION",
+        "namespace": "custom",
+        "key": "category_line",
+        "plannedType": "single_line_text_field",
+        "existingDefinition": null,
+        "existingUnstructuredValues": 0,
+        "sameKeyInOtherNamespace": [],
+        "verdict": "free: no definition and no stored values; create new"
+      }
+    ]
+  },
+  "unstructuredMetafieldsObserved": {
+    "note": "Namespace/key/type only, read from products(first:50){metafields(first:50)} and collections(first:50){metafields(first:50)}; hasNextPage false at every level. Values deliberately not exported.",
+    "products": [
+      {
+        "namespace": "global",
+        "key": "description_tag",
+        "type": "string",
+        "hasDefinition": false,
+        "definitionId": null,
+        "ownerHandles": [
+          "brockton-mk2"
+        ],
+        "count": 1
+      },
+      {
+        "namespace": "judgeme",
+        "key": "badge",
+        "type": "string",
+        "hasDefinition": false,
+        "definitionId": null,
+        "ownerHandles": [
+          "brockton-mk2",
+          "brass-pipe-screens",
+          "brockton-mk2-special-edition",
+          "short-sleeve-unisex-t-shirt-4",
+          "short-sleeve-unisex-t-shirt-5",
+          "6-5-long-bristle-scrubbing-pipe-cleaners-3-cleaners",
+          "the-bellwoods-one-hitter",
+          "dad-hat-1",
+          "men-s-slides",
+          "men-s-slides-gold",
+          "toddler-short-sleeve-tee",
+          "parkdale-brass-mug"
+        ],
+        "count": 12
+      },
+      {
+        "namespace": "judgeme",
+        "key": "widget",
+        "type": "string",
+        "hasDefinition": false,
+        "definitionId": null,
+        "ownerHandles": [
+          "brockton-mk2",
+          "brass-pipe-screens",
+          "brockton-mk2-special-edition",
+          "short-sleeve-unisex-t-shirt-4",
+          "short-sleeve-unisex-t-shirt-5",
+          "6-5-long-bristle-scrubbing-pipe-cleaners-3-cleaners",
+          "the-bellwoods-one-hitter",
+          "dad-hat-1",
+          "men-s-slides",
+          "men-s-slides-gold",
+          "toddler-short-sleeve-tee",
+          "parkdale-brass-mug"
+        ],
+        "count": 12
+      },
+      {
+        "namespace": "mc-facebook",
+        "key": "condition",
+        "type": "string",
+        "hasDefinition": false,
+        "definitionId": null,
+        "ownerHandles": [
+          "brockton-mk2",
+          "brass-pipe-screens",
+          "organic-hemp-wicks",
+          "brockton-mk2-special-edition",
+          "short-sleeve-unisex-t-shirt-4",
+          "short-sleeve-unisex-t-shirt-5"
+        ],
+        "count": 6
+      },
+      {
+        "namespace": "mc-facebook",
+        "key": "google_product_category",
+        "type": "string",
+        "hasDefinition": false,
+        "definitionId": null,
+        "ownerHandles": [
+          "brockton-mk2",
+          "brass-pipe-screens",
+          "organic-hemp-wicks",
+          "short-sleeve-unisex-t-shirt-4",
+          "short-sleeve-unisex-t-shirt-5",
+          "the-bellwoods-one-hitter",
+          "men-s-slides",
+          "men-s-slides-gold"
+        ],
+        "count": 8
+      },
+      {
+        "namespace": "pdp_sections",
+        "key": "section_1",
+        "type": "json_string",
+        "hasDefinition": false,
+        "definitionId": null,
+        "ownerHandles": [
+          "the-brockton"
+        ],
+        "count": 1
+      },
+      {
+        "namespace": "pdp_sections",
+        "key": "section_2",
+        "type": "json_string",
+        "hasDefinition": false,
+        "definitionId": null,
+        "ownerHandles": [
+          "the-brockton"
+        ],
+        "count": 1
+      },
+      {
+        "namespace": "pdp_sections",
+        "key": "section_3",
+        "type": "json_string",
+        "hasDefinition": false,
+        "definitionId": null,
+        "ownerHandles": [
+          "the-brockton"
+        ],
+        "count": 1
+      },
+      {
+        "namespace": "pdp_sections",
+        "key": "sections1",
+        "type": "json_string",
+        "hasDefinition": false,
+        "definitionId": null,
+        "ownerHandles": [
+          "brockton-mk2",
+          "brockton-mk2-special-edition"
+        ],
+        "count": 2
+      },
+      {
+        "namespace": "pdp_sections",
+        "key": "sections2",
+        "type": "json_string",
+        "hasDefinition": false,
+        "definitionId": null,
+        "ownerHandles": [
+          "brockton-mk2",
+          "brockton-mk2-special-edition"
+        ],
+        "count": 2
+      },
+      {
+        "namespace": "pdp_sections",
+        "key": "sections3",
+        "type": "json_string",
+        "hasDefinition": false,
+        "definitionId": null,
+        "ownerHandles": [
+          "brockton-mk2",
+          "brockton-mk2-special-edition"
+        ],
+        "count": 2
+      },
+      {
+        "namespace": "pdp_sections",
+        "key": "sections4",
+        "type": "json_string",
+        "hasDefinition": false,
+        "definitionId": null,
+        "ownerHandles": [
+          "brockton-mk2",
+          "brockton-mk2-special-edition"
+        ],
+        "count": 2
+      },
+      {
+        "namespace": "reviews",
+        "key": "rating",
+        "type": "rating",
+        "hasDefinition": true,
+        "definitionId": "gid://shopify/MetafieldDefinition/46070038850",
+        "ownerHandles": [
+          "brockton-mk2",
+          "6-5-long-bristle-scrubbing-pipe-cleaners-3-cleaners"
+        ],
+        "count": 2
+      },
+      {
+        "namespace": "reviews",
+        "key": "rating_count",
+        "type": "number_integer",
+        "hasDefinition": true,
+        "definitionId": "gid://shopify/MetafieldDefinition/46070071618",
+        "ownerHandles": [
+          "brockton-mk2",
+          "6-5-long-bristle-scrubbing-pipe-cleaners-3-cleaners"
+        ],
+        "count": 2
+      },
+      {
+        "namespace": "seo",
+        "key": "hidden",
+        "type": "integer",
+        "hasDefinition": false,
+        "definitionId": null,
+        "ownerHandles": [
+          "the-brockton",
+          "brockton-mk2"
+        ],
+        "count": 2
+      },
+      {
+        "namespace": "shopify--discovery--product_recommendation",
+        "key": "complementary_products",
+        "type": "list.product_reference",
+        "hasDefinition": true,
+        "definitionId": "gid://shopify/MetafieldDefinition/6752829762",
+        "ownerHandles": [
+          "brockton-mk2",
+          "the-bellwoods-one-hitter"
+        ],
+        "count": 2
+      },
+      {
+        "namespace": "shopify--discovery--product_recommendation",
+        "key": "related_products",
+        "type": "list.product_reference",
+        "hasDefinition": true,
+        "definitionId": "gid://shopify/MetafieldDefinition/6752731458",
+        "ownerHandles": [
+          "brockton-mk2",
+          "the-bellwoods-one-hitter"
+        ],
+        "count": 2
+      },
+      {
+        "namespace": "shopify--discovery--product_recommendation",
+        "key": "related_products_display",
+        "type": "single_line_text_field",
+        "hasDefinition": true,
+        "definitionId": "gid://shopify/MetafieldDefinition/6752796994",
+        "ownerHandles": [
+          "brockton-mk2",
+          "the-bellwoods-one-hitter"
+        ],
+        "count": 2
+      },
+      {
+        "namespace": "stamped",
+        "key": "badge",
+        "type": "string",
+        "hasDefinition": false,
+        "definitionId": null,
+        "ownerHandles": [
+          "the-brockton"
+        ],
+        "count": 1
+      },
+      {
+        "namespace": "stamped",
+        "key": "reviews",
+        "type": "string",
+        "hasDefinition": false,
+        "definitionId": null,
+        "ownerHandles": [
+          "the-brockton"
+        ],
+        "count": 1
+      },
+      {
+        "namespace": "stamped",
+        "key": "reviews_average",
+        "type": "string",
+        "hasDefinition": false,
+        "definitionId": null,
+        "ownerHandles": [
+          "the-brockton"
+        ],
+        "count": 1
+      },
+      {
+        "namespace": "stamped",
+        "key": "reviews_count",
+        "type": "string",
+        "hasDefinition": false,
+        "definitionId": null,
+        "ownerHandles": [
+          "the-brockton"
+        ],
+        "count": 1
+      },
+      {
+        "namespace": "yoast_seo",
+        "key": "indexable",
+        "type": "json_string",
+        "hasDefinition": false,
+        "definitionId": null,
+        "ownerHandles": [
+          "the-brockton",
+          "brockton-mk2"
+        ],
+        "count": 2
+      }
+    ],
+    "collections": [
+      {
+        "namespace": "global",
+        "key": "description_tag",
+        "type": "string",
+        "hasDefinition": false,
+        "definitionId": null,
+        "ownerHandles": [
+          "shop",
+          "coming-soon",
+          "accessories",
+          "cleaning",
+          "grinders",
+          "vaporizers",
+          "lighters-and-matches",
+          "trays",
+          "containers",
+          "pipe-accessories",
+          "apparel",
+          "etsy"
+        ],
+        "count": 12
+      },
+      {
+        "namespace": "global",
+        "key": "title_tag",
+        "type": "string",
+        "hasDefinition": false,
+        "definitionId": null,
+        "ownerHandles": [
+          "cleaning"
+        ],
+        "count": 1
+      }
+    ]
+  }
+}
