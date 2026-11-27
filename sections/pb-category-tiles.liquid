@@ -1,8 +1,10 @@
 {%- comment -%}
   PB · Category tiles (03 §4.2, 02 §2.3, §4.2). A centred ruled head, then one tile per collection block.
-  From 750px: 4:5 tiles in as many columns as there are visible tiles. Under 750px: full-width 92px rows.
+  From 960px: 4:5 tiles in as many columns as there are visible tiles. From 750 to 959px: one full-width 4:5
+  tile per row (Archive-Home's stacked state). Under 750px: full-width 92px rows.
   A tile renders only when its collection has at least one product published to the Online Store, and the
-  whole section renders nothing when none remain (02 §4.2). Rings stay out of the template until D-12 lifts.
+  whole section renders nothing when none remain (02 §4.2). So the Rings tile (D-40) stays hidden until the
+  rings collection has a published product.
 {%- endcomment -%}
 {%- liquid
   assign pb_s = section.settings
@@ -19,7 +21,7 @@
   {%- liquid
     assign pb_col_vw = 100 | divided_by: pb_visible
     assign pb_col_px = 1328 | divided_by: pb_visible
-    assign pb_sizes = '(min-width: 1440px) ' | append: pb_col_px | append: 'px, (min-width: 750px) ' | append: pb_col_vw | append: 'vw, 70px'
+    assign pb_sizes = '(min-width: 1440px) ' | append: pb_col_px | append: 'px, (min-width: 960px) ' | append: pb_col_vw | append: 'vw, (min-width: 750px) 100vw, 70px'
 
     assign pb_show_more = false
     if pb_s.show_view_all and pb_s.view_all_label != blank and pb_s.view_all_link != blank
@@ -60,10 +62,10 @@
                   {%- if pb_img != blank -%}
                     {{
                       pb_img
-                      | image_url: width: 1200
+                      | image_url: width: 1800
                       | image_tag:
                         class: 'pb-tile__img',
-                        widths: '140, 300, 450, 650, 900, 1200',
+                        widths: '140, 300, 450, 650, 900, 1200, 1500, 1800',
                         sizes: pb_sizes,
                         loading: 'lazy',
                         alt: ''

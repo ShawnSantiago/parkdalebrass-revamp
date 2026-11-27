@@ -1,5 +1,6 @@
 /* PB · Category tiles (sections/pb-category-tiles.liquid; 02 §2.3, §4.2, 03 §4.2).
-   Archive-Home: 4:5 tiles, gap 28, label 18px below. Archive-Home-Mobile: 92px rows, gap 12, mark 70px on the right. */
+   Archive-Home: 4:5 tiles, gap 28, label 18px below, one column per tile from 960px and one full-width tile
+   per row from 750 to 959px (its max-width: 960px state). Archive-Home-Mobile: 92px rows, gap 12, mark 70px on the right. */
 
 .pb-tiles {
   display: flex;
@@ -80,7 +81,7 @@
 @media screen and (min-width: 750px) {
   .pb-tiles {
     display: grid;
-    grid-template-columns: repeat(var(--pb-cols, 3), minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
     gap: 2.8rem;
   }
 
@@ -129,5 +130,11 @@
 
   .pb-tiles__more {
     margin-top: 4.8rem;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .pb-tiles {
+    grid-template-columns: repeat(var(--pb-cols, 3), minmax(0, 1fr));
   }
 }

@@ -1,5 +1,6 @@
 /* PB · Hero (sections/pb-hero.liquid; 02 §4.1, 03 §4.1).
-   Measured from Archive-Home (1440) and Archive-Home-Mobile (390). Tokens and ornaments come from pb-theme.css.
+   Measured from Archive-Home (1440, and 960 for the stacked state from 750 to 959px) and Archive-Home-Mobile (390).
+   Tokens and ornaments come from pb-theme.css.
    Where the canvas and 02 disagree, 02 wins: the lockup line uses the ruled-eyebrow rules (40 [28] px, 02 §1.5)
    and line-height 1 (02 §1.2). */
 
@@ -52,17 +53,19 @@
   font-family: var(--pb-serif);
   font-size: clamp(1.5rem, calc(0.4762vw + 1.3143rem), 2rem);
   font-weight: 600;
-  line-height: 1;
+  /* One line takes the space of line-height 1 (02 §1.2): the negative margins remove the extra leading.
+     A wrapped name keeps Archive-Home's 1.6 line pitch. */
+  line-height: 1.6;
+  margin-block: -0.3em;
   letter-spacing: 0.28em;
-  white-space: nowrap;
   max-width: 100%;
 }
 
-/* Keep the name on one line in a narrow frame (960–1100px, and phones under 360px): the rules give way first. */
+/* The rules keep their 40 [28] px (02 §1.5). Where the inner frame is narrower than the one-line lockup
+   (about 960 to 1065px, and phones under 360px), the name wraps onto two lines, as Archive-Home wraps it. */
 .pb-hero .pb-hero__lockup-line::before,
 .pb-hero .pb-hero__lockup-line::after {
-  flex-shrink: 1;
-  min-width: 0.8rem;
+  flex-shrink: 0;
 }
 
 .pb-hero .pb-hero__heading {
@@ -221,10 +224,11 @@
     margin-top: 1rem;
   }
 
+  /* Stacked from 750 to 959px: 520 tall and no rules (Archive-Home at 960). */
   .pb-hero__media {
-    height: 56rem;
+    height: 52rem;
     margin-top: 0;
-    border-bottom: 0;
+    border-block: 0;
   }
 
   .pb-hero__placeholder-art {

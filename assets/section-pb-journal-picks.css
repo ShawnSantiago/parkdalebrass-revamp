@@ -1,7 +1,7 @@
 /* PB · Journal picks (sections/pb-journal-picks.liquid; 02 §4.7, 03 §4.5).
    Archive-Home: head row 40px above the cards (eyebrow, 12px, H2 48), 3-up gap 40, card rule gold, padding 22,
    gap 12, numeral 34, tag 11 / 0.28em, title 28, excerpt 15. Archive-Home-Mobile: H2 34 (10 / 24), list gap 28,
-   card padding 16, a 40px numeral column (28) beside the title (22). */
+   card padding 16, gap 12, a 40px numeral column (28) beside the title (22). */
 
 .pb-journal__head {
   display: flex;
@@ -47,7 +47,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 1.2rem;
   padding-top: 1.6rem;
   border-top: 1px solid var(--pb-gold);
 }
@@ -125,8 +125,7 @@
   .pb-journal__card--numbered {
     display: grid;
     grid-template-columns: 4rem minmax(0, 1fr);
-    column-gap: 1.2rem;
-    row-gap: 0.8rem;
+    gap: 1.2rem;
   }
 
   .pb-journal__card--numbered > * {
@@ -164,7 +163,6 @@
   }
 
   .pb-journal__card {
-    gap: 1.2rem;
     padding-top: 2.2rem;
   }
 }

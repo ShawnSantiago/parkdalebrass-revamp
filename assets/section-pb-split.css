@@ -1,5 +1,6 @@
 /* PB · Split (sections/pb-split.liquid, 03 §4.8). Archive tokens and ornaments come from pb-theme.css.
-   Measured from Archive-Home (1440) and Archive-Home-Mobile (390). Values scale fluidly in between (02 §1.3). */
+   Measured from Archive-Home (1440, and 960 for the stacked state from 750 to 959px) and Archive-Home-Mobile (390).
+   Values scale fluidly in between (02 §1.3). */
 
 .pb-split {
   /* 16px at 390, 24px at 1440 */
@@ -57,12 +58,9 @@
   margin-top: var(--pb-split-gap);
 }
 
+/* The button keeps the global 52px secondary height, as every Archive secondary renders (02 §2.1). */
 .pb-split__actions {
   margin-top: 0.4rem;
-}
-
-.pb-split .button.pb-split__button {
-  min-height: 5rem;
 }
 
 /* Full-width mobile secondary: 12px at 0.18em, as the hero's mobile secondary (Archive-Home-Mobile). */
@@ -143,10 +141,25 @@
     inset-inline: 1.6rem;
     bottom: 1.4rem;
   }
+
+  .pb-split__actions {
+    margin-top: 0.8rem;
+  }
+
+  /* Text measure (02 §1.3, §4.4): 660 including the padding on a 1:1 split, 620 on a 6fr/5fr split. */
+  .pb-split--1-1 .pb-split__text {
+    max-width: 66rem;
+    /* 104px at 1440, scaled (02 §1.3) */
+    padding: clamp(6.4rem, 7.2223vw, 10.4rem) var(--pb-gutter);
+  }
+
+  .pb-split--6-5 .pb-split__text {
+    max-width: 62rem;
+  }
 }
 
-/* Stacked below 960px (02 §1.3). */
-@media screen and (max-width: 959px) {
+/* Stacked below 960px (02 §1.3). Under 750px: Archive-Home-Mobile. */
+@media screen and (max-width: 749px) {
   .pb-split--1-1 .pb-split__text {
     padding: 4rem var(--pb-gutter) 4.8rem;
   }
@@ -183,6 +196,19 @@
   }
 }
 
+/* From 750 to 959px: Archive-Home's stacked state. The text block keeps its button and comes first on a
+   text-first split, then the gap (88px at 1440, scaled), then the image. The fill image is 620 tall. */
+@media screen and (min-width: 750px) and (max-width: 959px) {
+  .pb-split--6-5 .pb-split__grid {
+    row-gap: clamp(4.8rem, 6.1112vw, 8.8rem);
+  }
+
+  .pb-split__image--fill {
+    aspect-ratio: auto;
+    height: 62rem;
+  }
+}
+
 @media screen and (min-width: 960px) {
   .pb-split__grid {
     display: grid;
@@ -206,19 +232,10 @@
     grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
   }
 
-  .pb-split__actions {
-    margin-top: 0.8rem;
-  }
-
   /* 104px / 88px at 1440, max-width 660 including padding */
   .pb-split--1-1 .pb-split__text {
     justify-content: center;
-    max-width: 66rem;
-    padding: clamp(6.4rem, 7.2223vw, 10.4rem) clamp(4.8rem, 6.1112vw, 8.8rem);
-  }
-
-  .pb-split--6-5 .pb-split__text {
-    max-width: 62rem;
+    padding-inline: clamp(4.8rem, 6.1112vw, 8.8rem);
   }
 
   .pb-split__image--fill {

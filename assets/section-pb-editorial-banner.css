@@ -1,6 +1,7 @@
 /* PB · Editorial banner (sections/pb-editorial-banner.liquid; 02 §4.5–4.6, 03 §4.4).
    Archive-Home: double frame (10px), 21:9 image, row 36px below (H2 46, max 640; gold text CTA), divider at 112.
-   Archive-Home-Mobile: 16px side margin, 8px frame, 440px-tall crop, H2 32 and CTA stacked 4px in, divider at 64. */
+   Archive-Home-Mobile: 16px side margin, 8px frame, 440px-tall crop inside the 1px inner rule (frame 460), H2 32 and
+   CTA stacked 4px in, divider at 64. */
 
 .pb-editorial .pb-editorial__inner {
   padding-inline: 1.6rem;
@@ -9,7 +10,8 @@
 .pb-editorial__media {
   position: relative;
   overflow: hidden;
-  height: 44rem;
+  /* 440 crop + the 1px gold-line border on each side (border-box) */
+  height: 44.2rem;
   background: var(--pb-onyx-raised);
 }
 
