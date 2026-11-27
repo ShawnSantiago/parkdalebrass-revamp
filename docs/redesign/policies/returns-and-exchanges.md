@@ -1,124 +1,128 @@
-**Draft — not yet in force. Effective [date].**
+Effective [launch date].
 
 # Returns and exchanges
 
-This policy covers orders placed on parkdalebrass.com from [launch date]. We sell and ship within Canada only. Orders placed before that date are covered under "Orders placed before [launch date]" below.
+This policy covers orders placed at parkdalebrass.com from [launch date]. We ship to addresses in Canada, except Quebec. Orders placed before [launch date] are covered under "Orders placed before [launch date]" below.
 
 This policy adds to your rights under consumer protection law. It doesn't replace or limit them.
 
 ## At a glance
 
-- Return or exchange an unworn piece within 30 days of delivery, in its original packaging.
-- Each ring order includes one free size exchange, with a prepaid return label.
+- To return an unworn piece in its original packaging for a refund, contact us within 30 days of delivery. You pay the return shipping.
+- Each order with a ring includes one free size exchange within 30 days of delivery. We send you a prepaid return label, and we ship the new size to you free.
 - We don't resize The Brockton. If it doesn't fit, exchange it for another size.
-- If a piece is damaged or faulty, tell us within 30 days of delivery, with photos. We replace or refund it, and send you a prepaid return label.
-- If you return an unworn piece for a refund, you pay the return shipping. This doesn't apply when you cancel under a right the law gives you.
-- We refund an unworn return to your original payment method within 5 business days after it reaches us and we've checked it.
+- If a piece arrives damaged, has a fault, or isn't what you ordered, tell us within 30 days of delivery, with photos. You choose a replacement or a refund. We send you a prepaid return label, and a replacement ships to you free.
+- We refund to your original payment method within 5 business days after your return reaches us.
+- If you cancel under a right the law gives you, you don't pay to send the piece back.
 
-## Returns and exchanges within 30 days
+## Your 30 days
 
-You can return or exchange The Brockton or The Bellwoods, in either finish, within 30 days of delivery. The piece needs to be:
+The 30 days start on the day your order is delivered, as shown in its Canada Post tracking. If the tracking doesn't show a delivery date, they start on the day you receive it.
 
-- unworn: [what "unworn" means: owner to define, for example tried on briefly, with no marks or signs of wear]; and
-- in its original packaging: [what the packaging includes, for example the box and pouch: owner to supply once the packaging is final].
+To start a return or exchange, contact us within those 30 days.
 
-The 30 days start on the day your order is delivered. [Delivery date: owner to confirm how the delivery date is set, for example the date in the carrier's tracking. Use the same words in this policy and the Terms of service.] Contact us within those 30 days to start a return or exchange. [Owner to decide: how long you then have to send the piece, for example 14 days after our reply.]
+## What we accept back
+
+You can return a piece, or exchange a ring for another size, if it's:
+
+- **unworn:** you've only tried it on to check the fit, and it has no marks, scratches or other signs of wear; and
+- **in its original packaging:** the packaging the piece came in. The outer shipping box or mailer doesn't count, so you don't need to keep it.
+
+[Returned piece that's worn or isn't in its original packaging: owner to decide what happens, for example we send it back to you, and who pays the postage.]
+
+These two conditions don't apply to a damaged, faulty or wrong piece, or when you cancel under a right the law gives you.
 
 ## Ring sizes and your free size exchange
 
 The Brockton comes in whole US/CA ring sizes 5 to 13. There are no half sizes, and we don't resize it.
 
-If your ring doesn't fit, exchange it for another size. Each ring order includes one free size exchange within 30 days of delivery. The ring needs to be unworn and in its original packaging, as above. We send you a prepaid return label, and [owner to confirm: we ship the new size to you at no charge].
+If your ring doesn't fit, exchange it for another size. Each order that includes a ring comes with one free size exchange within 30 days of delivery. The ring needs to be unworn and in its original packaging, as above.
 
-- [Orders with more than one ring: owner to confirm whether each ring gets a free size exchange, or one per order.]
-- [A second size exchange on the same ring: owner to set the cost, or say it isn't offered.]
-- [If the size you need is out of stock: owner to decide, for example a refund with a prepaid label, or waiting for new stock.]
+- We send you a prepaid return label, and we ship the new size to you free.
+- If your order has more than one ring, you can exchange any of them in that one exchange. Send them back together, in one parcel.
+- If the size you need is out of stock, we'll tell you before you send the ring back. You can then return it for a refund, and we still send you the prepaid label.
+- The free size exchange is one per order. If the new size doesn't fit either, you can return it unworn for a refund within 30 days of the day it's delivered. You pay the return shipping on that refund.
 
-## Other exchanges
+## Another finish or another piece
 
-[Owner to confirm: whether you can also exchange an unworn piece for the other finish, or for a different piece, within 30 days of delivery.] [Owner to decide: who pays the return and outgoing shipping on these exchanges, and how a price difference is charged or refunded, for example between Raw brass and Chrome.]
+Our exchange is for ring sizes. If you'd like the other finish or a different piece, return the unworn piece for a refund, as below, and place a new order.
 
 ## Refunds for unworn pieces
 
-If you'd like a refund instead of an exchange, you pay the return shipping. [Owner to decide how: you send the piece yourself with a carrier of your choice, or we email a label and take its cost of [amount] off your refund.]
+If you'd like a refund, contact us within 30 days of delivery. You send the piece back yourself and pay the return shipping. We suggest a tracked service, so you can follow the parcel and claim from the carrier if it's lost.
 
-When the piece arrives, we check that it's unworn and in its original packaging. We then refund it to your original payment method within 5 business days after it reaches us and we've checked it. Your bank or card provider may take longer to show the refund.
+We check the piece when it arrives. We then refund the price and tax you paid for it to your original payment method, within 5 business days after it reaches us. Your bank or card provider may take longer to show the refund.
 
-- [Original shipping charge: owner to decide whether it's refunded, and what happens if you return part of an order that shipped free and the rest comes to less than $129.00 CAD.]
-- [A returned piece that's worn or arrives without its packaging: owner to decide what happens, for example we send it back to you.]
+We don't take any fee or shipping charge off your refund. [Original shipping charge: owner to decide whether the shipping charge paid on an order is refunded when you return it for a refund.]
 
-A business day is Monday to Friday, except the holidays listed in our [Shipping policy](/policies/shipping-policy).
+A business day is Monday to Friday, except the holidays listed in our [Shipping policy](https://parkdalebrass.com/policies/shipping-policy).
 
-You don't pay return shipping on your free size exchange, for a damaged or faulty piece, or when you cancel under a right the law gives you (see "Your rights under the law" below).
+## Damaged, faulty or wrong pieces
 
-## Damaged or faulty pieces
-
-If a piece arrives damaged, or has a fault, we'll replace or refund it. [Replace or refund: owner to say who chooses, and what happens if a replacement is out of stock.] [Replacement shipping: owner to confirm we ship a replacement at no charge.] [refund timing: owner to confirm whether a refund for a damaged or faulty piece is also made to your original payment method within 5 business days after it reaches us.] We send you a prepaid return label, so you don't pay to send it back.
+If a piece arrives damaged, has a fault, or isn't the piece, finish or size you ordered, we'll put it right. A fault is a defect in the piece's materials or in how it was made.
 
 To report it, contact us within 30 days of delivery with:
 
 - your order number;
 - what's wrong; and
-- photos of the piece that show the problem. [Packaging photos: owner to say whether we also need photos of the box or mailer.]
+- photos of the piece that show the problem. If it was damaged on the way, a photo of the parcel helps too, but it isn't required.
 
-[What counts as a fault, and what is normal change in a finish (for example, whether wear to the chrome plating counts): owner and lawyer to define, from what the samples show.]
+Then:
 
-[If we send the wrong piece, finish or size: owner to confirm it's handled the same way, with a prepaid label.]
+- You choose a replacement or a refund. If a replacement isn't in stock, we refund you.
+- We send you a prepaid return label, so you don't pay to send the piece back.
+- When it reaches us, we ship the replacement to you free, or we refund you within 5 business days. A refund covers the price and tax you paid for the piece, and any shipping charge you paid on the order.
 
-[Original shipping charge on a refund for a damaged or faulty piece: owner to decide whether it's refunded.]
-
-Under the law, the pieces you buy must match their description and be of merchantable quality. The 30-day time limit above doesn't shorten those rights.
+The 30-day limit is for this process. It doesn't shorten your rights under the law: the pieces you buy must match their description and be of merchantable quality. If a fault shows up after 30 days, contact us anyway.
 
 ### Safety concerns
 
-If you think a piece is unsafe, or it has caused an injury or a skin reaction, stop wearing it and contact us at [contact email] with your order number.
+If you think a piece is unsafe, or it has caused an injury or a skin reaction, stop wearing it and email us at shawns@parkdalebrass.com with your order number. If the law requires it, we report the incident to Health Canada and to our supplier. Our [Privacy policy](https://parkdalebrass.com/policies/privacy-policy) explains what we share.
 
 ## How to start a return or exchange
 
-1. Contact us within 30 days of delivery, through our [contact page](/pages/contact-us) or by email at [contact email]. Tell us your order number, which piece it is, and whether you'd like an exchange (with the size or finish you want) or a refund. [Owner to decide: whether you can also ask for a return from your account page.]
-2. We reply within [reply time: owner to set, for example 2 business days] with the return address. For a size exchange, or a damaged or faulty piece, we include a prepaid return label.
-3. Pack the piece in its original packaging and send it to [return address].
-4. We let you know when it arrives. We then ship your exchange, or refund you as set out above.
+1. Within 30 days of delivery, email us at shawns@parkdalebrass.com or use our [contact page](https://parkdalebrass.com/pages/contact-us). Tell us your order number, which piece it is, and what you'd like: a size exchange (with the size you need), a refund, or a replacement or refund for a damaged, faulty or wrong piece.
+2. We reply by email with the return address. For a size exchange, or a damaged, faulty or wrong piece, we include a prepaid return label.
+3. Pack the piece securely and send it to the address in our reply. For a refund or a size exchange, use its original packaging. Keep the tracking number until your return is complete.
+4. We let you know when it arrives. We then ship your new size or your replacement, or refund you, as set out above.
 
 Please contact us before you send anything, so we can match the parcel to your order.
 
-[Return parcels lost on the way to us: owner and lawyer to decide who is responsible, and whether to suggest a tracked service.]
-
 ## Changing or cancelling an order before it ships
 
-Orders ship in 1 to 2 business days. [Changing or cancelling before it ships: owner to decide whether you can change the address or cancel an order before it ships, how to ask, until when, and how soon we refund. Use the same words in the Shipping policy, the Returns and exchanges policy and the Terms of service.] Once your order is delivered, the 30-day terms above apply.
+Orders ship in 1 to 2 business days. [Changing or cancelling before it ships: owner to decide whether you can change the address or cancel an order before it ships, how to ask, until when, and how soon we refund. Use the same words in the Shipping policy, the Returns and exchanges policy and the Terms of service.] Once your order is delivered, the 30-day terms above apply. Your rights under the law, below, apply either way.
 
 ## Your rights under the law
 
-Consumer protection law, including Ontario's Consumer Protection Act, 2002 and the law where you live, gives you rights this policy can't take away. For example, you may be able to cancel an online order and get a full refund, including shipping:
+Ontario's consumer protection law applies to every order, because we're based in Ontario. The law where you live may protect you too. These laws give you rights this policy can't take away. For example, you can cancel an online order and get a full refund, including shipping:
 
-- up to 7 days after you get your copy of the order, if we didn't give you the information the law requires before you ordered, or a clear chance to accept, decline or correct your order;
-- up to 30 days after you ordered, if we don't send you a copy of your order, with the information the law requires, within 15 days after you order; or
-- at any time before your order arrives, if it hasn't arrived 30 days after the latest delivery date we gave you. If those 30 days pass and you then agree to take delivery, you can't cancel for late delivery, but your return rights still apply. Our [Shipping policy](/policies/shipping-policy) explains this. [Lawyer to confirm for online orders.]
+- at any time until 7 days after you get your copy of the order (our order confirmation email), if we didn't give you the information the law requires before you ordered, or a clear chance to accept, decline or correct your order;
+- within 30 days after you ordered, if we don't send you a copy of your order, with the information the law requires, within 15 days after you order; or
+- at any time before your order arrives, if it hasn't been delivered within 30 days after the day you placed it. If those 30 days pass and you then agree to take delivery, you can't cancel for late delivery, but your return rights above still apply.
 
-To cancel under one of these rights, tell us you're cancelling. We suggest a way you can keep a record of, such as an email to [contact email]. We refund everything you paid within 15 days after you tell us.
+To cancel under one of these rights, tell us you're cancelling. You can tell us any way you like. We suggest a way you can keep a record of, such as an email to shawns@parkdalebrass.com. If you write to us, your notice counts from the day you send it. We refund everything you paid within 15 days after you tell us.
 
-If you've already received the piece, send it back to our return address within 15 days after you cancel or after you receive it, whichever is later. Use a method that confirms delivery, such as a tracked service. We pay the reasonable cost of sending it back. [Owner to say how, for example by sending you a prepaid label.] [Lawyer to confirm the notice wording, both 15-day periods and the return-cost rule.]
+If you've already received the piece, send it back within 15 days after you cancel or after you receive it, whichever is later. Send it to our address under "Contact us" below, or to a return address we give you, by a method that confirms delivery, such as a tracked service. It counts as returned on the day you send it. We pay the reasonable cost of sending it back: we can send you a prepaid label, or pay you back what you spent.
 
-If we don't refund you in time, you may be able to ask your credit card issuer, in writing, to reverse the charge. [Lawyer to confirm; the Terms of service say the same. See "For the lawyer" point 3.]
+If we don't refund you in time and you paid by credit card, you can ask your credit card issuer, in writing, to reverse the charge. You need to ask within 60 days after our 15 days end.
 
 The Ontario government explains these rights at [ontario.ca/page/your-rights-when-signing-or-cancelling-contract](https://www.ontario.ca/page/your-rights-when-signing-or-cancelling-contract).
 
 ## Orders placed before [launch date]
 
-Orders placed before [launch date] keep the return and warranty terms they were sold under, and your rights under the law still apply. For help with one, contact us through our [contact page](/pages/contact-us) and include your order number.
+Orders placed before [launch date] keep the return and warranty terms they were sold under, and your rights under the law still apply. For help with one, email us at shawns@parkdalebrass.com, or use our [contact page](https://parkdalebrass.com/pages/contact-us), and include your order number.
 
 ## Changes to this policy
 
-We may update this policy. The version in effect when you place your order applies to that order.
+We may update this policy. The version in effect when you place your order applies to that order. A later change doesn't apply to an order you've already placed, unless you agree to it.
 
 ## Contact us
 
-Parkdale Brass [legal name of the business, if different]
-[business address: street], Toronto, ON [postal code]
-Phone: [business phone number]
-Email: [contact email]
-Contact page: [parkdalebrass.com/pages/contact-us](/pages/contact-us)
+[legal name], operating as Parkdale Brass
+[premises street address]
+Phone: [business phone]
+Email: shawns@parkdalebrass.com
+Contact page: [parkdalebrass.com/pages/contact-us](https://parkdalebrass.com/pages/contact-us)
 
 ---
 
@@ -128,108 +132,75 @@ Contact page: [parkdalebrass.com/pages/contact-us](/pages/contact-us)
 
 ### Before this goes into Shopify
 
-- It replaces the 2019 Refund policy (`REFUND_POLICY`), backed up and redacted at [`backup/2026-11-27/config/policies/REFUND_POLICY.html`](../backup/2026-11-27/config/policies/REFUND_POLICY.html). Saving it in Admin → Settings → Policies is a store change: back up first and log it in `owner-inputs.md` E (`phase-3-brief.md` §2).
-- Shopify prints the policy title itself, so drop the H1 and the draft line. Convert to rich text or HTML; plain paragraphs, lists and two heading levels are all it needs.
-- Fill or remove every `[bracket]`. The policy can't go live with one in it.
-- The same terms need to show before purchase and in the order confirmation (CPA s. 38 and s. 39; requirements ON-08, ON-10, ON-11, SHOP-06). Today the product page's "Shipping & returns" tab (`templates/product.json`, block `tab_shipping`) and the return service line are empty, and the order confirmation template hasn't been edited.
-- Shopify's self-serve returns (new customer accounts) can take return requests but not exchanges ([Shopify Help: self-serve returns](https://help.shopify.com/en/manual/fulfillment/managing-orders/returns/self-serve-returns/setup)). That's why step 1 keeps the contact page as the main route.
-- **Keep the four policies in step.** Cross-checked on 2026-11-27 (see [`README.md`](README.md)): the shipping policy, this policy and the terms now use the same D-54 facts, the same late-delivery wording ("If those 30 days pass and you then agree to take delivery …"), the same cancellation-notice wording (a suggested way that keeps a record, not a condition), the same statutory return rule with no "unused" condition, the same card-reversal sentence, and the same placeholders (`[Changing or cancelling before it ships: …]`, `[Replace or refund: …]`, `[Packaging photos: …]`, `[Replacement shipping: …]`, `[Delivery date: …]`, `[contact email]`). A change to one needs the same change in the others (CPA s. 11, ON-19).
-- D-55 (owner, 2026-11-27): there's no lawyer sign-off before launch. The agent resolves each `[Lawyer …]` bracket and "For the lawyer" point with its recommended, more protective answer, listed with its source in [`README.md`](README.md). Owner brackets still need the owner.
-- The contact page links use `/pages/contact-us`, the existing page kept for support (`url-inventory.csv`; `footer-help` menu, `04` §3). The legacy-order link could point at `/pages/contact-us#previous-orders` once that anchor is confirmed on the live theme.
+- It replaces the 2019 Refund policy (`REFUND_POLICY`), backed up and redacted at [`backup/2026-11-27/config/policies/REFUND_POLICY.html`](../backup/2026-11-27/config/policies/REFUND_POLICY.html). Saving it in Admin → Settings → Policies → Refund policy is a store change (E-10): back up first and log it in `owner-inputs.md` E (`phase-3-brief.md` §2).
+- Shopify prints the policy title itself, so drop the H1. Keep the "Effective" line with the date filled in. Convert to rich text or HTML; plain paragraphs, lists and two heading levels are all it needs.
+- Fill every `[bracket]`. The policy can't go live with one in it. The ones left are listed under "Placeholders left".
+- The key terms must also show before purchase and in the order confirmation, which is the buyer's copy of the agreement (legal points 9 and 10). Today the product page's "Shipping & returns" tab (`templates/product.json`, block `tab_shipping`) and the return service line are empty, and the order confirmation template hasn't been edited.
+- Shopify's self-serve returns (new customer accounts) can take return requests but not exchanges ([Shopify Help: self-serve returns](https://help.shopify.com/en/manual/fulfillment/managing-orders/returns/self-serve-returns/setup)). Step 1 keeps email and the contact page as the routes.
+- **Keep the four policies in step.** This pass changed Returns only. The Shipping policy and the Terms still carry older wording that this text now settles differently: the late-delivery trigger (now "30 days after the day you placed it", legal point 4), the 60-day card-reversal deadline (point 3), "notice counts from the day you send it" (point 17), the address for statutory returns (point 1), the unworn and packaging definitions (point 8), the damaged-or-faulty process (points 6 and 20), Quebec, the contact email and the contact block (point 10). Bring them into line when they get their D-55 pass. Where two policies still differ, the terms say the one better for the buyer applies.
+- Store links are full `https://parkdalebrass.com/...` URLs, so the repo's docs check doesn't read them as repo paths. `/pages/contact-us` is the existing page kept for support (`url-inventory.csv`; `footer-help` menu, `04` §3).
 
-### Facts this draft states, and where they come from
+### Facts this text states, and where they come from
 
 | Statement | Source |
 | --- | --- |
-| Parkdale Brass, parkdalebrass.com, Toronto, Ontario | B-05, D-53 |
-| Canada only | D-44 |
-| The Brockton and The Bellwoods, each in Raw brass and Chrome | D-44 |
+| Parkdale Brass, parkdalebrass.com, based in Toronto, Ontario; the seller is a corporation; founder not named | B-05, D-53, D-57 |
+| Ships to Canada except Quebec; no international shipping | D-44, D-57 |
+| Contact email shawns@parkdalebrass.com, for orders, returns and safety reports | Owner, 2026-11-27 (`owner-inputs.md` D-03) |
 | The Brockton: whole US/CA sizes 5 to 13, no half sizes, no resizing | D-44 |
-| Returns or exchanges of unworn pieces within 30 days of delivery, in original packaging | D-44, D-53 (owner-inputs D-02) |
-| One free size exchange per ring order within those 30 days, with a prepaid return label | D-44, D-53 |
-| Damaged or faulty pieces replaced or refunded, with a prepaid return label | D-44, D-53, D-54 (owner-inputs D-02) |
-| Damage or faults reported within 30 days of delivery, with photos | D-54 (owner-inputs D-02) |
-| On a refund of an unworn piece, the customer pays return shipping | D-53 (owner-inputs D-02) |
-| Refunds go to the original payment method within 5 business days of receiving and checking the return; the bank may take longer | D-54 (owner-inputs D-02) |
-| Orders ship in 1 to 2 business days; free shipping from $129.00 CAD | D-53 (owner-inputs D-01) |
-| Orders placed before launch keep their original return and warranty terms; support by email through the contact page | D-06, D-53 |
-| Contact page at `/pages/contact-us` | `url-inventory.csv` (page kept for support); `04` §3 `footer-help` menu (E-04) |
-| Statutory cancellation rights, the 15-day refund and return periods, the return-cost rule and "merchantable quality" | The law, not a business decision; see For the lawyer, points 1 to 5 and 15 to 17 |
-| "The version in effect when you place your order applies" | Matches `shipping-policy.md`; a statement of how the contract works, not a new business promise (lawyer point 18) |
+| Returns of unworn pieces within 30 days of delivery, in original packaging | D-44, D-53 |
+| One free size exchange per ring order within 30 days, with a prepaid return label; the new size ships free | D-44, D-53, D-57 |
+| On a refund of an unworn piece, the customer pays return shipping | D-53 |
+| Refunds to the original payment method within 5 business days after the return arrives; the bank may take longer | D-54, D-57 |
+| Damaged or faulty pieces reported within 30 days of delivery, with photos; replaced or refunded with a prepaid label; the replacement ships free | D-54, D-57 |
+| Orders ship in 1 to 2 business days | D-53 |
+| Canada Post with tracking on every order (so the 30 days can run from the tracking date) | D-57 |
+| Orders placed before launch keep the terms they were sold under; support by email | D-06, D-53 |
+| The definitions and process choices (unworn, original packaging, the buyer's choice of replacement or refund, wrong pieces, out-of-stock sizes, several rings in one exchange, a second exchange, other finishes, no deductions from refunds) | D-55 resolutions below. Each one reads the owner's decisions in the buyer's favour and adds no shipping cost. |
+| Statutory cancellation, refund, return, notice and card-reversal rules; implied conditions | The law, not business facts: see "Legal points resolved" |
 
-### Placeholders
+Nothing is listed as final sale. No decision makes any launch piece non-returnable, and there are no gift cards, engraving or discounts at launch (D-44). If any of those are added later, this policy needs a final-sale section.
 
-| Placeholder | From | Why |
+### Placeholders left
+
+| Placeholder | Needed from | Why |
 | --- | --- | --- |
-| `[date]` (effective date), `[launch date]` | Owner | Legacy-order line (D-06); the date this policy starts |
-| What "unworn" means | Owner, lawyer | One clear meaning (CPA s. 11, ON-19). A ring has to be tried on to check its size. |
-| What the original packaging includes | Owner | Packaging isn't final |
-| `[Delivery date: …]` | Owner | The 30 days run from delivery; same words in the terms (ON-19) |
-| How long to send the piece after contacting us | Owner | Says whether 30 days is the time to ask or the time to send |
-| Outgoing shipping on a free size exchange | Owner | "Free" must be free (Competition Act s. 74.01(1)(a), COMP-01) |
-| Orders with more than one ring; cost of a second size exchange | Owner | Open question (requirements §2) |
-| Size out of stock | Owner | Stock per size is limited (about 60 rings, C-08) |
-| Whether exchanges can be for the other finish or a different piece | Owner | D-44 and D-53 settle size exchanges and "returns or exchanges" of unworn pieces, but not whether an exchange can be for another finish or piece. The first draft promised both; it's now an owner question. |
-| Costs and price differences on finish or piece exchanges | Owner | Chrome will cost more than Raw brass (D-44, C-07) |
-| How the customer pays return shipping on refunds | Owner | They send it themselves, or a label's cost comes off the refund |
-| Original shipping charge on refunds; partial returns that leave a free-shipping order under $129.00 CAD | Owner | Not decided |
-| Worn or unpackaged returns | Owner | Not decided |
-| Holidays in the business-day line | Owner | Now points to the holidays listed in the shipping policy, so there's one list (ON-19) |
-| `[Replace or refund: …]` | Owner | Not decided; same placeholder as the shipping policy |
-| `[Replacement shipping: …]` | Owner | Whether a replacement ships free; same placeholder as the shipping policy |
-| `[refund timing: …]` (damaged or faulty) | Owner | D-54 sets 5 business days for unworn returns only |
-| `[Packaging photos: …]` | Owner | D-54 says "with photos"; whether the packaging is included isn't said; same placeholder as the shipping policy |
-| What counts as a fault (chrome wear) | Owner, lawyer | COMP-03; samples still due (C-03) |
-| Wrong piece, finish or size sent | Owner | Not decided; likely required anyway (sale by description) |
-| Self-serve returns from the account page | Owner | Optional Shopify feature; handles returns, not exchanges |
-| `[reply time]` | Owner | Service level |
-| `[return address]` | Owner | The 2019 address is personal and redacted; don't reuse it without the owner's choice |
-| Lost return parcels | Owner, lawyer | Risk of loss on the way back; see lawyer point 1 for statutory returns |
-| How the store pays the return cost on a statutory cancellation | Owner | The law puts the reasonable cost on the store (lawyer point 1); a prepaid label is the simplest way |
-| `[Changing or cancelling before it ships: …]` | Owner | ON-08 asks for the cancellation policy too; same words in the shipping policy and the terms |
-| `[legal name of the business]`, `[business address]`, `[business phone number]`, `[contact email]` | Owner, lawyer | O. Reg. 17/05 s. 32 (ON-03); Business Names Act (ON-22); B-05 keeps the founder unnamed |
-| `[Lawyer to confirm …]` (two places) | Lawyer | Points 1, 2, 4 and 15 below |
+| `[launch date]` | Owner | The effective date and the legacy-orders line (D-06) |
+| `[legal name]` | Owner | The corporation's legal name. O. Reg. 17/05 s. 32 item 1 and Business Names Act s. 2(6) (points 10, 11) |
+| `[premises street address]` | Owner | The address of the premises the business operates from (s. 32 item 2), and the default address for statutory returns (point 1) |
+| `[business phone]` | Owner | O. Reg. 17/05 s. 32 item 2 |
+| `[Returned piece that's worn or isn't in its original packaging: …]` | Owner | What happens, and who pays the postage, is a cost choice no decision covers |
+| `[Original shipping charge: …]` | Owner | Whether the shipping paid on an order is refunded on a change-of-mind refund is a cost choice no decision covers. It only arises on orders under $129.00 CAD, so never on a ring order, since The Brockton is CAD 150 or more (D-44). |
+| `[Changing or cancelling before it ships: …]` | Owner | Shared placeholder, same words in Shipping, Returns and Terms. There's no statutory right to cancel before shipping beyond the ones in "Your rights under the law", so this is a business choice. |
 
-Nothing is listed as final sale: no decision makes any launch piece non-returnable, and there are no gift cards, engraving or discounts at launch (D-44). If any of those are added later, this policy needs a final-sale section.
+### Still open for the owner (no placeholder needed)
 
-### Questions for the owner (from this draft)
+1. **A send-by time.** The text only asks buyers to contact you within 30 days. If you want a deadline for sending the piece after that, give one and the text will say so.
+2. **Finish wear.** Once samples are in (C-03), say which changes in each finish you'd treat as a fault. Until then the text defines a fault generally and calls no change in a finish "normal" (point 6).
+3. **Gifts.** Can a gift recipient exchange a piece, and who gets the refund? The text says nothing about it yet.
 
-1. What does "unworn" mean for a ring that has to be tried on? What's in the original packaging?
-2. After a customer contacts you within the 30 days, how long do they have to send the piece?
-3. On a free size exchange, is the new size also shipped free? With two rings in one order, does each get a free exchange? What does a second exchange cost? What if the size is out of stock?
-4. Can a customer exchange for the other finish or a different piece? If so, who pays shipping each way, and how is the price difference handled?
-5. On a refund, does the customer ship it back themselves, or do you send a label and take its cost off the refund (how much)?
-6. Is the original shipping charge refunded? What happens if a partial return leaves a free-shipping order under $129.00 CAD?
-7. What happens to a return that's worn or has no packaging?
-8. On a damaged or faulty piece, who chooses replacement or refund? Do you need photos of the packaging too? Does chrome wear count as a fault? Is a wrong piece, finish or size handled the same way?
-9. "Within 5 business days of receiving and checking": how long does the check take? Can the 5 days count from arrival instead (lawyer point 16)?
-10. Which holidays don't count as business days?
-11. Can a customer change or cancel an order before it ships? How, and how soon is the refund?
-12. What's the return address, and the reply time for return requests?
-13. Who bears a return parcel lost on the way back? Should customers be told to use a tracked service?
-14. On a cancellation under the law, will you send a prepaid label for the return?
-15. Will you turn on self-serve returns in customer accounts?
-16. Can someone who got a piece as a gift exchange it, and who gets the refund? (Not in the draft yet; add a line once decided.)
+## Legal points resolved (D-55)
 
-### For the lawyer
+Each point from this file's earlier "For the lawyer" list, with the matching items in [`README.md`](README.md) "Questions for the lawyer". "Verified" means the agent read the cited section on the official site on 2026-11-27: e-Laws (CPA 2002 consolidated from 2025-12-11; O. Reg. 17/05 consolidated from 2026-06-10, last amended by O. Reg. 173/26) or Justice Laws. Not legal advice.
 
-Research limits: neither the drafting session nor this review could open ontario.ca (e-Laws and guidance), canlii.org, cleo.on.ca or ised-isde.canada.ca (the hosts don't resolve in this environment), so no statute or regulation text was read directly. Points marked *(search only)* rest on search-result summaries, re-run in review on 2026-11-27. Section numbers in O. Reg. 17/05 also differ between consolidated versions. Please check every citation against the current e-Laws text. This list isn't legal advice; it's what the drafts need you to confirm.
-
-1. **Return shipping on statutory cancellation.** Please confirm that the "customer pays return shipping on refunds" rule must not apply when a buyer cancels under CPA s. 40 (or late delivery), and that "We pay the reasonable cost of sending it back" is right. In review, search results quoted the O. Reg. 17/05 provision (numbered s. 81 in one version) that applies to CPA s. 96(2) for an internet agreement to which ss. 38 to 40 apply: the consumer returns the goods to the supplier's address, by a method that provides confirmation of delivery, within 15 days after the later of the notice of cancellation and the day the goods come into the consumer's possession (subs. (2)); goods sent other than by personal delivery are treated as returned when sent (subs. (3)); and the supplier is deemed to consent and is responsible for the reasonable cost of returning them (subs. (4)) *(search only)*. Subsection (3) also means the store bears the risk of a statutory return lost in the post after it's sent, which bears on the "lost return parcels" placeholder. Sources: [O. Reg. 17/05 (e-Laws)](https://www.ontario.ca/laws/regulation/050017), [O. Reg. 17/05 (CanLII)](https://www.canlii.org/en/on/laws/regu/o-reg-17-05/latest/o-reg-17-05.html).
-2. **The 15-day refund and the wording of "Your rights under the law".** Search results in review place the supplier's 15 days to refund in O. Reg. 17/05 s. 79(1), counted from the day the consumer *gives* notice under CPA s. 92 *(search only)*. So the draft now says "within 15 days after you tell us", not "of getting your notice". The refund covers "any payment made under the agreement or any related agreement" (CPA s. 96(1), search only), so the draft says "everything you paid" and "including shipping". Please confirm these, and the 7-day and 30-day periods (CPA s. 40(1)–(2)). The draft's 30-day bullet now also covers a copy that's sent but lacks the required information (s. 40(2) refers to any failure to meet s. 39). Is it wise to summarize statutory rights at all, or would a link to the Ontario page be safer? The voluntary refund timing (5 business days after receiving and checking the return, D-54) is shorter than 15 days, but it must not read as replacing the statutory clock. Sources: [CPA 2002](https://www.ontario.ca/laws/statute/02c30); [Ontario: your rights when cancelling a contract](https://www.ontario.ca/page/your-rights-when-signing-or-cancelling-contract); [CLEO](https://www.cleo.on.ca/en/publications/otmshop/how-do-i-cancel-agreement).
-3. **Card reversal (CPA s. 99).** The cross-check on 2026-11-27 added the terms' sentence ("If we don't refund you in time, you may be able to ask your credit card issuer, in writing, to reverse the charge"), so the two documents match. Please confirm it, or remove it from both. Search results in review put the buyer's deadline for that request at 60 days after the supplier's refund period ends (O. Reg. 17/05 s. 85(1) in one version, *search only*). Should the policy say so? Source: [CPA 2002](https://www.ontario.ca/laws/statute/02c30) (ON-14, low confidence).
-4. **Late delivery.** Please confirm the third bullet ("at any time before your order arrives, if it hasn't arrived 30 days after the latest delivery date we gave you", and that accepting late delivery ends the right). Ontario's consumer pages, in search results, say an ordered product must be delivered within 30 days of the promised delivery date or the buyer can ask for a refund *(search only)*. Does this apply to Ontario internet agreements, through the future-performance rules in CPA Part IV, and to buyers elsewhere under the harmonized internet-sales rules? What's the right wording when the store gives a window (ships in 1 to 2 business days, arrives in 2 to 7) rather than a date? The shipping policy uses the same wording. Sources: [Ontario: advice on shopping online](https://www.ontario.ca/page/advice-shopping-online-or-over-phone); [Ontario business guide](https://forms.mgcs.gov.on.ca/dataset/84a1187d-62f2-48a8-8310-d405c1941b9e/resource/8768fdd0-da01-49e4-aff4-9805002ad7bc/download/on00783e.pdf); [Internet Sales Contract Harmonization Template](https://ised-isde.canada.ca/site/consumer-measures-committee/en/formal-agreements/internet-sales-contract-harmonization-template) (ON-15, PROV-01).
-5. **Faulty-goods time limit and implied conditions.** The owner set the reporting window at 30 days of delivery, with photos (D-54). Can that be stated without misstating the implied conditions? CPA s. 9(2)–(3) applies the Sale of Goods Act conditions (description s. 14, merchantable quality and fitness s. 15) to consumer goods and voids any term that negates them. The Ontario Court of Appeal applied s. 9(2) in [the water-heater rental decision](https://coadecisions.ontariocourts.ca/coa/coa/en/11721/1/document.do), and the general limitation period is 2 years from discovery ([Limitations Act, 2002](https://www.ontario.ca/laws/statute/02l24) s. 4). The draft now says the pieces "must match their description and be of merchantable quality", replacing "acceptable quality", which isn't the Ontario term. Is "The 30-day time limit above doesn't shorten those rights" enough? Also [Sale of Goods Act](https://www.ontario.ca/laws/statute/90s01) (ON-17).
-6. **The replace-or-refund promise.** Competition Act s. 74.01(1)(c) requires a warranty or promise to replace not to be materially misleading, and to have a reasonable prospect of being carried out. The time limit and proof are now set (D-54). Once the owner fills in the rest of the process, please confirm it is defined clearly enough, in particular whether wear to the chrome plating is a fault. Source: [Competition Act s. 74.01](https://laws-lois.justice.gc.ca/eng/acts/C-34/section-74.01.html) (COMP-03).
-7. **"Free" size exchange.** If outgoing shipping on the replacement isn't also free, does calling it a "free size exchange" mislead under Competition Act s. 74.01(1)(a) and s. 52 (general impression)? Source: [s. 74.01](https://laws-lois.justice.gc.ca/eng/acts/C-34/section-74.01.html) (COMP-01).
-8. **Unworn and original packaging.** Are these conditions fair, and can they be enforced as defined, under CPA s. 11 (ambiguity is read for the consumer) and ss. 14–15 and 17 (no misleading or unconscionable representations)? A ring must be tried on to check its size, and a return could be refused for a damaged box. Source: [CPA 2002](https://www.ontario.ca/laws/statute/02c30) (ON-18, ON-19).
-9. **Disclosure before purchase.** O. Reg. 17/05 s. 32 requires the cancellation, return, exchange and refund policies, plus every restriction, before the order (here: unworn, original packaging, no resizing, customer pays return shipping on refunds, the 30-day damage window with photos). Is a checkout link to this policy enough, or should the product-page "Shipping & returns" tab state the key terms? The order confirmation is the s. 39 copy; if it lacks these terms, the 30-day cancellation right in s. 40(2) opens. Sources: [O. Reg. 17/05](https://www.ontario.ca/laws/regulation/050017); [Mann Lawyers](https://www.mannlawyers.com/resources/internet-agreements-with-ontario-consumers-consumer-protection-act-considerations-for-businesses/) (ON-08 to ON-11).
-10. **Business identity in the contact block.** O. Reg. 17/05 s. 32 asks for the supplier's name and the name it trades under, a phone number and the address of its premises. If the legal name is a person's name, how do we square that with B-05 (founder not named)? Is a P.O. box enough as the premises address? If a corporation trades as "Parkdale Brass", does Business Names Act s. 2(6) require both names here and on the order confirmation? Sources: [O. Reg. 17/05](https://www.ontario.ca/laws/regulation/050017); [Business Names Act](https://www.ontario.ca/laws/statute/90b17) (ON-03, ON-22).
-11. **Legacy orders.** D-06 says orders placed before launch keep the terms they were sold under. Those 2019 terms include "sale items cannot be refunded", a 30-day window from *purchase* rather than delivery, and, in the 2019 Terms, an "as is" disclaimer of merchantable quality and fitness. The draft now adds "and your rights under the law still apply", so the line doesn't read as reaffirming terms that CPA ss. 7–9 make void. Please confirm that's enough, or whether the store should promise the legacy terms *or the legal minimum, whichever is better for the buyer*. Sources: [`REFUND_POLICY.html`](../backup/2026-11-27/config/policies/REFUND_POLICY.html), [`TERMS_OF_SERVICE.html`](../backup/2026-11-27/config/policies/TERMS_OF_SERVICE.html); [CPA 2002](https://www.ontario.ca/laws/statute/02c30) (ON-16, ON-17).
-12. **Other provinces and Quebec.** Does one Canada-wide policy work? The harmonized template gives a 15-day refund after cancellation and has the buyer return goods within 15 days of the later of cancellation or delivery *(search only)*. Alberta's version also requires the goods to come back "unused and in the same condition in which they were delivered" *(search only)*; see point 15. If Quebec is served, P-40.1 s. 54.13 (refund within 15 days), the legal warranty in ss. 37–38 (nothing may suggest it ends at 30 days) and Charter of the French Language s. 55 (French version first) apply. Is "adds to your rights … doesn't replace or limit them" enough? Sources: [Harmonization Template](https://ised-isde.canada.ca/site/consumer-measures-committee/en/formal-agreements/internet-sales-contract-harmonization-template); [Alta. Reg. 81/2001](https://www.canlii.org/en/ab/laws/regu/alta-reg-81-2001/latest/alta-reg-81-2001.html); [P-40.1](https://www.legisquebec.gouv.qc.ca/en/document/cs/P-40.1); [Gowling WLG on Bill 96](https://gowlingwlg.com/en/insights-resources/articles/2023/bill-96-s-french-first-rule-takes-effect) (PROV-01, PROV-02, QC-01 to QC-03).
-13. **Safety reports.** The "Safety concerns" paragraph is a contact path only and makes no safety claim. Please confirm that it's enough, and that the store knows its duty to report a serious incident within 2 days under the Canada Consumer Product Safety Act s. 14. That duty is an internal process, not policy text. Source: [CCPSA s. 14](https://laws-lois.justice.gc.ca/eng/acts/C-1.68/section-14.html) (COMP-08).
-14. **Consumer Protection Act, 2023.** Search results in review still show it as Royal Assent 2023-12-06, in force on a day to be named by proclamation, with the 2002 Act repealed on a day to be named; no proclamation date for the consumer-contract rules was found *(search only)*. Order in Council 1025/2025 names 2026-07-01 only for a Consumer Reporting Act amendment in the same bill. Please re-check at sign-off. If it's proclaimed, the cancellation and refund wording here needs redrafting. Sources: [CPA 2023](https://www.ontario.ca/laws/statute/23c23); [OIC 1025/2025](https://www.ontario.ca/laws/oic/o251025); [Bill 142 status](https://www.ola.org/en/legislative-business/bills/parliament-43/session-1/bill-142/status) (ON-21).
-15. **No "unused" condition on a statutory return.** The first draft told buyers cancelling under the law to "send it back unused". The Ontario return provision found in search (point 1) asks only for return by a method that confirms delivery within 15 days; the "unused and in the same condition" wording was found only in Alberta's regulation and the harmonized template *(search only)*. Adding a condition the Ontario rule doesn't have could misstate the buyer's rights (CPA s. 14(2), ON-18), so review removed it. Please confirm, and say whether a buyer elsewhere in Canada can be held to "unused" under their own province's rule.
-16. **When the 5-business-day refund clock starts.** D-54 starts it when the store "receives and checks" the return, and the check has no time limit, so the longest wait isn't knowable (CPA s. 11, ON-19; Competition Act s. 74.01(1)(a)). Should the policy count from arrival, or give a time for the check? Owner question 9 asks the same.
-17. **Cancellation notice.** The first draft said "tell us in a way you can keep a record of", which could read as a condition on the right. CPA s. 92 sets how notice may be given; its text couldn't be checked in review. The draft now only suggests a way that keeps a record. Please confirm the s. 92 rules (form, and whether written notice counts from when it's sent) and the wording. Source: [CPA 2002](https://www.ontario.ca/laws/statute/02c30) (ON-13).
-18. **"Changes to this policy".** Review added the same two lines as the shipping policy: the store may update the policy, and the version in effect when the order is placed applies to that order. This avoids changes that bind on "continued use" (requirements §6, ON-18). Please confirm.
+1. **Return shipping on a statutory cancellation** (README 15; lost return parcels). *Applied:* the buyer pays return shipping only on a voluntary refund. After a statutory cancellation they return the piece within 15 days after the later of their notice and receiving the piece, by a method that confirms delivery. It counts as returned when sent, so the store bears a loss after that. The store pays the reasonable cost, and may do so by a prepaid label or by paying the buyer back. It goes to the address in the contact block (the "supplier's address" is the one set out in the agreement, s. 78) or to a return address the store gives. For voluntary returns sent by the buyer, the text suggests a tracked service. For prepaid-label parcels it says to keep the tracking number. *Source:* [O. Reg. 17/05](https://www.ontario.ca/laws/regulation/050017) s. 81(1) para. 1, (2), (3), (4) and s. 78; [CPA 2002](https://www.ontario.ca/laws/statute/02c30) s. 96(2). **Verified.**
+2. **The 15-day refund and the summary of rights** (README 14, 18). *Applied:* "everything you paid, including shipping, within 15 days after you tell us", with no condition that the piece comes back first. The 7-day and 30-day cancellation bullets stay, with the copy explained as the order confirmation email. The voluntary 5-business-day refund stays a separate promise. The summary and the Ontario link stay, since they help buyers more than a bare link. *Source:* O. Reg. 17/05 s. 79(1) (15 days after notice under CPA s. 92); CPA s. 96(1)(a) ("any payment made under the agreement or any related agreement"); CPA s. 40(1) and s. 40(2); CPA s. 39(1) with O. Reg. 17/05 s. 33(1) (copy within 15 days) and s. 33(2) (contents); CPA s. 37 with O. Reg. 17/05 s. 31 ($50 threshold); [Ontario: your rights when cancelling a contract](https://www.ontario.ca/page/your-rights-when-signing-or-cancelling-contract) (page loads; it says most refunds are due in 15 days). **Verified.**
+3. **Card reversal** (README 19). *Applied:* kept the sentence with "in writing" and "if we don't refund you in time". Added the deadline, since telling buyers protects them more: within 60 days after the end of the store's 15 days. *Source:* CPA s. 99(1), (2)(a), (3), (4); O. Reg. 17/05 s. 85(1) (60 days after the end of the refund period). **Verified.**
+4. **Late delivery** (README 13). *Applied:* the right is s. 26, not s. 23. O. Reg. 17/05 s. 18 switches off only ss. 22, 23 and 44 to 47 for an internet agreement that is also a future performance agreement, so s. 26 applies to these orders. An order shipped after it's placed is a future performance agreement, and the threshold is $50. The policy gives a window ("ships in 1 to 2 business days", then 2 to 7 to arrive), not a delivery date. So s. 26(2) applies: the buyer may cancel before delivery if the order isn't delivered within 30 days after the agreement is entered into. That's also the more protective reading, since it triggers earlier than "30 days after the end of the window". The text now says "within 30 days after the day you placed it". The "agree to take delivery" sentence follows s. 26(3). The deemed-delivery cases in s. 26(4) are left out of the text. If the order confirmation ever states a delivery date, revisit this. *Source:* [CPA 2002](https://www.ontario.ca/laws/statute/02c30) s. 1(1) ("future performance agreement"), s. 21(1), s. 26(1)–(4); O. Reg. 17/05 s. 18 and s. 23.1. **Verified** for Ontario. Other provinces' rules (Internet Sales Contract Harmonization Template) are **not verified**, because the proxy refused `ised-isde.canada.ca`. The text says only "the law where you live may protect you too".
+5. **The faulty-goods time limit and the implied conditions** (README 22). *Applied:* the 30 days (D-54) are the store's process for its prepaid-label promise. The text says the limit "doesn't shorten your rights under the law", and asks buyers to contact the store about a later fault anyway. It keeps "match their description and be of merchantable quality". It drops the plain-language gloss of merchantable quality, because the Sale of Goods Act doesn't define the term. *Source:* CPA s. 9(2) and (3); [Sale of Goods Act](https://www.ontario.ca/laws/statute/90s01) s. 14 and s. 15 para. 2. **Verified.** The 2-year limitation period (Limitations Act, 2002 s. 4) isn't stated or relied on in the text, and was **not verified**.
+6. **The replace-or-refund promise, and what a fault is** (README 23). *Applied:* the process is now complete, with no open brackets. It covers the 30 days, the order number, a description and photos of the piece (a parcel photo helps but isn't required), and a prepaid label. The buyer chooses a replacement or a refund. If a replacement isn't in stock, the store refunds. The replacement ships free (D-57). A refund is due within 5 business days after the piece arrives (D-57) and covers the price, tax and any shipping charge paid. "Fault" is defined as a defect in the materials or in how the piece was made. No change in a finish is called normal until samples are checked. The buyer's choice is the protective reading: under SGA s. 12(1) the buyer may elect to treat a breach of condition as a ground to reject the goods. Section 12(3) limits that after acceptance, so the law is unclear, and CPA s. 11 reads "replaced or refunded" in the buyer's favour. The refund of the shipping charge on a faulty piece is the same s. 11 reading of the owner's "refunded". *Source:* [Competition Act](https://laws-lois.justice.gc.ca/eng/acts/C-34/section-74.01.html) s. 74.01(1)(c); SGA s. 12(1), (3); CPA s. 11. **Verified** (the section texts). That the buyer's election and the shipping refund follow from them is the agent's reading.
+7. **"Free" size exchange** (README 28). *Applied:* D-57 ships the new size free and the return comes back on a prepaid label, so "free" is true end to end. The "[owner to confirm: …]" bracket is gone. Service line 2 ("Free ring size exchange") can now be approved as written. *Source:* Competition Act s. 74.01(1)(a); [s. 74.03(5)](https://laws-lois.justice.gc.ca/eng/acts/C-34/section-74.03.html) (general impression as well as literal meaning). **Verified.**
+8. **Unworn and original packaging** (README 29). *Applied:* "unworn" means only tried on to check the fit, with no marks, scratches or other signs of wear, because a ring has to be tried on. "Original packaging" means the packaging the piece came in, not the outer shipping box or mailer. Neither condition applies to damaged, faulty or wrong pieces or to statutory cancellations. These readings narrow the owner's conditions in the buyer's favour and add no cost. *Source:* CPA s. 11 (ambiguity read for the consumer); s. 14(1) and s. 14(2) para. 13 (misleading about rights or obligations); s. 15(2)(e) (excessively one-sided); s. 17. **Verified.**
+9. **Disclosure before purchase and the copy** (README 8). *Applied:* a store follow-up, not policy text. State the key restrictions (unworn, original packaging, 30 days from delivery, return shipping paid by the buyer on refunds, the 30-day damage report with photos, no resizing) in the product page's "Shipping & returns" tab and in the order confirmation, with links to all four policies. *Correction:* the earlier drafts said s. 32 "item 10". The return terms are item 11 (rights and obligations in addition to the Act's, "in relation to cancellations, returns, exchanges and refunds"), and other restrictions are item 14. Item 10 covers services. The copy must include the s. 32 information, the buyer's name and the date (s. 33(2)). Disclosure must let the buyer retain and print it (CPA s. 38(3)). *Source:* [O. Reg. 17/05](https://www.ontario.ca/laws/regulation/050017) s. 32 items 11 and 14, s. 33(2), (3); CPA s. 38(1)–(3), s. 40(2). **Verified.**
+10. **Business identity in the contact block** (README 4, 5). *Applied:* the seller is a corporation (D-57), so the B-05 conflict is gone. The contact block reads "[legal name], operating as Parkdale Brass", with `[premises street address]`, `[business phone]` and the contact email, and the order confirmation should carry the same. A corporation trading as "Parkdale Brass" must register that name and show both names on contracts, invoices and orders. A P.O. box isn't used for the premises line: s. 32 asks for "the address of the premises from which the supplier conducts business". Treating a P.O. box as not enough is the protective reading; the Act doesn't say so in terms. *Source:* O. Reg. 17/05 s. 32 items 1 and 2; [Business Names Act](https://www.ontario.ca/laws/statute/90b17) s. 2(1) and s. 2(6). **Verified.**
+11. **Orders placed before launch** (README 31). *Applied:* kept "keep the return and warranty terms they were sold under, and your rights under the law still apply". The 2019 clauses that would negate the implied conditions or waive rights are void, and the line doesn't reaffirm them. Support is by email (D-06), at the owner's contact email. *Source:* CPA s. 7(1) and s. 9(3). **Verified.**
+12. **One Canada-wide policy, and Quebec** (README 32, 40). *Applied:* Quebec is excluded at launch (D-57), and the opening paragraph says so without a citation. One policy covers every other province and territory. Ontario law applies to every order because the seller is located in Ontario. The text keeps "the law where you live may protect you too" and has no "unused" condition. *Source:* CPA s. 2(1). **Verified.** The Quebec rules behind the exclusion (Charter of the French Language s. 55; Quebec CPA ss. 54.1 to 54.16) are **not verified**: `www.legisquebec.gouv.qc.ca` returned a CloudFront 403 to this session. The text doesn't rely on them. The other provinces' rules are **not verified** (point 4).
+13. **Safety reports** (README 27). *Applied:* kept the contact path, with no safety claim. Added that the store reports an incident to Health Canada and to its supplier if the law requires it, with a pointer to the Privacy policy, which says the same. The two-day report is an internal process. *Source:* [CCPSA](https://laws-lois.justice.gc.ca/eng/acts/C-1.68/section-14.html) s. 14(1) ("incident") and s. 14(2) (the Minister and the person the product came from, within two days). **Verified.**
+14. **Consumer Protection Act, 2023** (README 2). *Applied:* wrote to the 2002 Act. e-Laws shows the 2023 Act as "NOT YET IN FORCE", coming into force on a day to be named by proclamation. The 2002 Act's note says it is repealed on a day to be named (2023, c. 23, Sched. 1, s. 110). Re-check on launch day. *Source:* [CPA 2023](https://www.ontario.ca/laws/statute/23c23); [CPA 2002](https://www.ontario.ca/laws/statute/02c30) (header note). **Verified** on 2026-11-27.
+15. **No "unused" condition on a statutory return** (README 16). *Applied:* kept out for every buyer. Ontario's return rule asks only for return within 15 days by a method that confirms delivery. The buyer's separate duty to take reasonable care of the goods until they're returned (CPA s. 96(3); O. Reg. 17/05 s. 82) applies by law and isn't restated as a condition. *Source:* O. Reg. 17/05 s. 81(2), s. 82; CPA s. 96(3). **Verified.**
+16. **When the 5-business-day refund clock starts** (README 30). *Applied:* the clock starts when the return arrives (D-57, owner), so the longest wait is knowable. The check happens inside those 5 days. The same timing now covers refunds for damaged, faulty and wrong pieces (point 6). *Source:* owner decision D-57; CPA s. 11. **Verified** (s. 11).
+17. **Cancellation notice** (README 17). *Applied:* "tell us you're cancelling. You can tell us any way you like", with email only suggested. Added "If you write to us, your notice counts from the day you send it", which matches the Act and helps the buyer. *Source:* CPA s. 92(2) (any way, as long as it shows the intention), s. 92(3) (oral or written, any means), s. 92(4) (written notice is given when sent), s. 94(2) (the cancellation takes effect when notice is given). **Verified.**
+18. **"Changes to this policy"** (README 12). *Applied:* kept "the version in effect when you place your order applies". Added "A later change doesn't apply to an order you've already placed, unless you agree to it", as in the terms. *Correction:* the README cited O. Reg. 17/05 ss. 42–43 as aimed only at ongoing agreements. The amendment rules are ss. 41–42, and s. 41 does apply to internet agreements: an amendment needs the buyer's explicit agreement, and it doesn't take away rights the buyer already has. *Source:* O. Reg. 17/05 s. 41(1) para. 3, s. 41(2)(c), s. 41(5); CPA s. 14(2) para. 13. **Verified.**
+19. **Which date starts the 30 days** (README 21). *Applied:* the delivery date in the Canada Post tracking (D-57: tracking on every order), or the day the buyer receives the parcel if tracking shows no delivery date. The `[Delivery date: …]` bracket is gone. *Source:* CPA s. 11 (one meaning, read for the consumer). **Verified** (s. 11). The reading is the agent's recommendation.
+20. **Wrong piece, finish or size; out-of-stock sizes; several rings** (README 24, 28). *Applied:* a wrong piece, finish or size is handled like a faulty piece. A sale by description carries an implied condition that the goods match the description, so this is the law, not a new promise. An out-of-stock exchange size becomes a refund on the same prepaid label, which costs the store less than the exchange it already promised. "One free size exchange per ring order" reads as one exchange per order that can include several rings sent back in one parcel. That's still one prepaid label and one outgoing parcel. A second exchange is a normal refund return. *Source:* SGA s. 14; CPA s. 11. **Verified** (the section texts). The readings are the agent's.
+21. **General-impression read-through** (README 39). *Applied to this file:* the at-a-glance list now matches the body (refund timing, the damaged process, free shipping both ways on exchanges, statutory return cost), and no brackets promise more than the text. A read-through of all four policies together still has to wait until Shipping and Terms have had the same pass. *Source:* Competition Act s. 74.01(1)(a), s. 74.03(5). **Verified.**
