@@ -110,12 +110,16 @@
                         {%- endfor -%}
                       </ul>
                     {%- endcapture -%}
+                    {%- comment -%}
+                      Exactly one of the two renders shows at any width: .pb-footer-menu from 750px, the disclosure
+                      below it (one min-width query, so a fractional viewport such as 749.5 or 989.5 never shows both).
+                    {%- endcomment -%}
                     {%- if block.settings.menu.links.size > 0 -%}
-                      <div class="small-hide">
+                      <div class="pb-footer-menu">
                         <h2 class="footer-block__heading">{{ menu_heading | escape }}</h2>
                         {{ footer_menu_links }}
                       </div>
-                      <details class="pb-footer-acc medium-hide large-up-hide" id="Details-Footer-{{ block.id }}">
+                      <details class="pb-footer-acc" id="Details-Footer-{{ block.id }}">
                         <summary>
                           <h2 class="footer-block__heading">{{ menu_heading | escape }}</h2>
                           <span class="pb-footer-acc__marker" aria-hidden="true"></span>
@@ -295,22 +299,26 @@
     {%- comment -%}
       PB: one bottom bar after a content-width hairline: the copyright, the policy links and the Country/region
       select (02 §2.8; Archive-Home, Archive-Home-Mobile). Shopify's "Powered by" link isn't in the design.
-      The legal group is display: contents on desktop, so its two parts and the select share one row.
+      The legal group renders twice so the Tab order follows the layout at every width: before the select on
+      desktop (display: contents, so ©, policies and select share one row) and after it under 750px (the select,
+      then one line of © and policies). It holds no ids, and CSS shows exactly one copy (the other is display: none,
+      so it's out of the Tab order and the accessibility tree). Dawn's localization form renders once.
     {%- endcomment -%}
+    {%- capture pb_footer_legal -%}
+      <p class="pb-footer-bar__copy">&copy; {{ 'now' | date: '%Y' }} {{ shop.name | escape }}</p>
+      {%- if section.settings.show_policy -%}
+        <ul class="pb-footer-bar__policies list-unstyled" role="list">
+          {%- for policy in shop.policies -%}
+            {%- if policy != blank -%}
+              <li><a href="{{ policy.url | escape }}">{{ policy.title | escape }}</a></li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    {%- endcapture -%}
     <div class="footer__content-bottom-wrapper page-width">
       <div class="pb-footer-bar">
-        <div class="pb-footer-bar__legal">
-          <p class="pb-footer-bar__copy">&copy; {{ 'now' | date: '%Y' }} {{ shop.name | escape }}</p>
-          {%- if section.settings.show_policy -%}
-            <ul class="pb-footer-bar__policies list-unstyled" role="list">
-              {%- for policy in shop.policies -%}
-                {%- if policy != blank -%}
-                  <li><a href="{{ policy.url | escape }}">{{ policy.title | escape }}</a></li>
-                {%- endif -%}
-              {%- endfor -%}
-            </ul>
-          {%- endif -%}
-        </div>
+        <div class="pb-footer-bar__legal pb-footer-bar__legal--desktop">{{ pb_footer_legal }}</div>
         <div class="footer__column footer__localization isolate">
           {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
             <localization-form>
@@ -338,6 +346,7 @@
             </localization-form>
           {%- endif -%}
         </div>
+        <div class="pb-footer-bar__legal pb-footer-bar__legal--mobile">{{ pb_footer_legal }}</div>
         {%- comment -%} /PB {%- endcomment -%}
       <div class="footer__column footer__column--info">
         {%- if section.settings.payment_enable -%}
@@ -384,6 +393,7 @@
     letter-spacing: 0.32em;
     text-transform: uppercase;
     text-decoration: none;
+    white-space: nowrap;
   }
 
   .pb-footer-wordmark .pb-diamond {
@@ -453,8 +463,11 @@
     letter-spacing: normal;
   }
 
-  .pb-footer-bar__legal {
-    display: contents;
+  /* Two renders, one shown: the desktop copy from 750px, the mobile copy below it. A single min-width query
+     leaves no fractional-width gap in which both (or neither) would show. */
+  .pb-footer-bar__legal--desktop,
+  .footer .pb-footer-menu {
+    display: none;
   }
 
   .pb-footer-bar__copy {
@@ -538,9 +551,26 @@
   }
 
   @media (min-width: 750px) {
+    .pb-footer-bar__legal--desktop {
+      display: contents;
+    }
+
+    .footer .pb-footer-menu {
+      display: block;
+    }
+
+    .pb-footer-bar__legal--mobile,
+    .footer .pb-footer-acc {
+      display: none;
+    }
+
+    /* 02 §2.8's 1.4fr 1fr 1fr 1fr grid, gap 40. Its tracks keep their automatic minimum (not the canvas's
+       minmax(0, …)), so with the nowrap wordmark the brand column never narrows below the one-line wordmark
+       (about 289px). From 961 to about 1105px, where 1.4fr is narrower than that, the brand column holds at
+       the wordmark's width and the three link columns share the rest equally. */
     .footer .footer__content-top .footer__blocks-wrapper {
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr));
+      grid-template-columns: 1.4fr repeat(3, 1fr);
       gap: 4rem;
     }
 
@@ -553,15 +583,28 @@
       margin-bottom: 1.6rem;
     }
 
-    /* Archive-Home link rows: 14px at 1.6 with 10px between. */
+    /* Archive-Home link rows: 14px at 1.6 with 10px between, at every width from 750px (section-footer.css pads
+       footer links 10px a side up to 989px, which made 42px rows in the two-column footer). */
     .footer .footer-block__details-content .list-menu__item--link {
+      padding-block: 0.5rem;
       line-height: 1.6;
+    }
+
+    .footer .footer-block__details-content > :first-child .list-menu__item--link {
+      padding-top: 0;
     }
 
     /* The country list opens above the select and lines up with its right edge. */
     .footer .pb-footer-country .disclosure__list-wrapper {
       right: 0;
       left: auto;
+    }
+  }
+
+  /* Archive-Home at 960px or less: the footer grid becomes two equal columns (brand | Shop, Learn | Help). */
+  @media (min-width: 750px) and (max-width: 960px) {
+    .footer .footer__content-top .footer__blocks-wrapper {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
@@ -582,7 +625,6 @@
       gap: 1rem;
       font-size: 1.9rem;
       letter-spacing: 0.3em;
-      white-space: nowrap;
     }
 
     .pb-footer-wordmark .pb-diamond {
@@ -635,7 +677,8 @@
       content: '−';
     }
 
-    /* Country/region first (label above a full-width 44px select), then one 12px line of © and policies. */
+    /* Country/region first (label above a full-width 44px select), then one 12px line of © and policies.
+       The DOM has the same order (the mobile legal copy follows the localization column), so Tab does too. */
     .pb-footer-bar {
       flex-direction: column;
       flex-wrap: nowrap;
@@ -647,7 +690,6 @@
     }
 
     .footer .pb-footer-bar .footer__localization {
-      order: -1;
       display: block;
     }
 
@@ -665,7 +707,7 @@
 
     /* Each part carries the separator after it, so no line starts with a "·". 24px lines keep the links
        24px targets (WCAG 2.5.8). */
-    .pb-footer-bar__legal {
+    .pb-footer-bar__legal--mobile {
       display: block;
       font-size: 1.2rem;
       line-height: 2;

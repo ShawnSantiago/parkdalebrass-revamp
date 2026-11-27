@@ -329,18 +329,18 @@ button.shopify-payment-button__button--unbranded:enabled:hover {
   }
 }
 
-/* Under 360px a centred 15px wordmark can't fit between two 88px columns. The left column only holds the 44px
-   menu button (account access is in the drawer), so it narrows to 44px, the wordmark centres between the
-   controls, and the tracking eases to 0.2em. The short announcement stays on one line at 11px, 0.1em. */
+/* Under 360px the wordmark stays centred on the viewport, as it is from 360 up (02 §2.7 "the centred wordmark"),
+   between the same two 88px side columns. The header padding drops to 0 (the bag meets the edge), and the
+   wordmark scales from 15px at 0.28em (360) to 13px at 0.19em (320). Size and tracking are linear in vw and meet
+   the 360 values, so nothing jumps at the breakpoint, and the letters keep about 2px clear of the 44px Search
+   target at every width down to 320. The negative end margin again cancels the trailing tracking. The short
+   announcement stays on one line at 11px, 0.1em. */
 @media screen and (max-width: 359px) {
-  .header-wrapper .header.header--middle-left.header--mobile-center {
-    grid-template-columns: 4.4rem minmax(0, 1fr) 8.8rem;
-  }
-  .header--mobile-center header-drawer { margin-inline-start: 0; }
-  .header--mobile-center:not(.header--has-menu) .header__icon--account { inset-inline-start: 0.2rem; }
+  .header-wrapper .header.header--middle-left.header--mobile-center { padding-inline: 0; }
   .header--mobile-center .header__heading-link .h2 {
-    letter-spacing: 0.2em;
-    margin-inline-end: -0.2em;
+    font-size: calc(5vw - 0.3rem);
+    letter-spacing: max(0rem, calc(4.325vw - 1.137rem));
+    margin-inline-end: min(0rem, calc(1.137rem - 4.325vw));
   }
   .utility-bar .utility-bar__grid.page-width { padding-inline: 1rem; }
   /* PB2:home's 0.14em rule comes later in this file, hence the extra class. */

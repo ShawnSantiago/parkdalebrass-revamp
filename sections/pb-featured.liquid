@@ -9,7 +9,8 @@
     are empty. The sold-out badge uses the concept badge shape in muted. No sale badge and no rating (D-13).
     Dawn's card-product has no descriptor line, so the card is rendered here with the same data and treatment as
     the collection track's snippets/pb-product-card.liquid.
-  4-up from 960px, 2-up below (02 §1.3). From 960px, 1 to 3 cards keep the 4-up card width and centre (D-35).
+  4-up from 960px, 2-up below (02 §1.3). A partial last row, for any count, keeps the full-row card width and
+  centres at every width (D-35); section-pb-featured.css does it with selectors, so the markup carries no count.
 {%- endcomment -%}
 {%- liquid
   assign pb_s = section.settings
@@ -66,13 +67,9 @@
       {%- endif -%}
 
       {%- comment -%}
-        A partial row (1 to 3 cards) is centred from 960px, each card keeping its quarter width (D-35).
+        Only .pb-featured__item children: the CSS finds a partial last row with :nth-child and centres it (D-35).
       {%- endcomment -%}
-      <ul
-        class="pb-featured__grid{% if pb_count < 4 %} pb-featured__grid--partial{% endif %}"
-        style="--pb-count: {{ pb_count }};"
-        role="list"
-      >
+      <ul class="pb-featured__grid" role="list">
         {%- if pb_concepts -%}
           {%- for block in section.blocks -%}
             {%- assign pb_b = block.settings -%}

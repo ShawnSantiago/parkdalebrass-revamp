@@ -2,9 +2,14 @@
    Archive-Home: 4-up, gap 28; card gap 14; name Cormorant 600 24; price Inter 500 15 gold; descriptor 14 muted, -8px.
    Archive-Home-Mobile: 2-up, gap 28 / 12; card gap 8; name 20; descriptor 13, -6px; badge 9px at 8/8. */
 
+/* D-35: a partial last row centres at every width, for any count, and its cards keep the full-row width.
+   The grid has two half-tracks per card (4 below 960px, 8 from 960px) and each card spans two, so a card width
+   is exactly the 2-up or 4-up width at the same gaps. The first card of a partial last row starts as many
+   half-tracks in as there are missing cards; the rest follow it in DOM order, so reading and tab order don't
+   change. Selectors only, so concepts mode and collection mode behave the same for any count. */
 .pb-featured__grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 2.8rem 1.2rem;
   margin: 0;
   padding: 0;
@@ -12,7 +17,14 @@
 }
 
 .pb-featured__item {
+  grid-column: auto / span 2;
   min-width: 0;
+}
+
+@media screen and (max-width: 959px) {
+  .pb-featured__item:nth-child(2n + 1):last-child {
+    grid-column-start: 2;
+  }
 }
 
 /* Concept card (prelaunch) and product card (live) ------------------------ */
@@ -255,13 +267,19 @@
 
 @media screen and (min-width: 960px) {
   .pb-featured__grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(8, minmax(0, 1fr));
   }
 
-  /* D-35: 1 to 3 cards keep the 4-up width (311px at 1440) and centre under the head, so the row never looks
-     unfinished. --pb-count is set on the list by the section. */
-  .pb-featured__grid--partial {
-    grid-template-columns: repeat(var(--pb-count), calc((100% - 3 * 2.8rem) / 4));
-    justify-content: center;
+  /* A last row of 3, 2 or 1 cards (311px each at 1440) centres under the head (D-35). */
+  .pb-featured__item:nth-child(4n + 1):nth-last-child(3) {
+    grid-column-start: 2;
+  }
+
+  .pb-featured__item:nth-child(4n + 1):nth-last-child(2) {
+    grid-column-start: 3;
+  }
+
+  .pb-featured__item:nth-child(4n + 1):last-child {
+    grid-column-start: 4;
   }
 }

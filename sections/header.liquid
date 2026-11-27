@@ -430,12 +430,15 @@
 
     closeMenuDisclosure() {
       this.disclosures = this.disclosures || this.header.querySelectorAll('header-menu');
-      this.disclosures.forEach((disclosure) => disclosure.close());
+      // PB: close only a disclosure that is open, so hiding the header leaves everything else alone.
+      this.disclosures.forEach((disclosure) => disclosure.mainDetailsToggle?.open && disclosure.close());
     }
 
     closeSearchModal() {
       this.searchModals = this.searchModals || this.header.querySelectorAll('details-modal');
-      this.searchModals.forEach((searchModal) => searchModal.close(false));
+      // PB: close only a search modal that is open. DetailsModal.close() always runs removeTrapFocus() and removes
+      // body.overflow-hidden, so on every scroll-down it dropped another dialog's focus trap (the size guide).
+      this.searchModals.forEach((searchModal) => searchModal.isOpen?.() && searchModal.close(false));
     }
   }
 

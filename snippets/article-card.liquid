@@ -24,6 +24,15 @@
       assign ratio = media_aspect_ratio
     endif
   -%}
+  {%- comment -%}
+    PB: the excerpt comes from snippets/pb-article-excerpt.liquid, worked out once for both card copies. It keeps
+    Dawn's excerpt-then-content order and 30 words, and drops a leading copy of the title (legacy article bodies
+    open with it).
+  {%- endcomment -%}
+  {%- if show_excerpt -%}
+    {%- capture pb_excerpt -%}{% render 'pb-article-excerpt', article: article, words: 30 %}{%- endcapture -%}
+  {%- endif -%}
+  {%- comment -%} /PB {%- endcomment -%}
   <div class="article-card-wrapper card-wrapper underline-links-hover">
     {% comment %} <article aria-labelledby="Article-{{ article.id }}"> {% endcomment %}
     <div
@@ -97,15 +106,11 @@
               {%- endif -%}
             </div>
             {%- if show_excerpt -%}
-              {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
-                <p class="article-card__excerpt rte-width">
-                  {%- if article.excerpt.size > 0 -%}
-                    {{ article.excerpt | strip_html | truncatewords: 30 }}
-                  {%- else -%}
-                    {{ article.content | strip_html | truncatewords: 30 }}
-                  {%- endif -%}
-                </p>
+              {%- comment -%} PB: shared excerpt (see top); no paragraph when it has no text {%- endcomment -%}
+              {%- if pb_excerpt != blank -%}
+                <p class="article-card__excerpt rte-width">{{ pb_excerpt }}</p>
               {%- endif -%}
+              {%- comment -%} /PB {%- endcomment -%}
               <div class="article-card__footer">
                 {%- if article.comments_count > 0 and blog.comments_enabled? -%}
                   <span>{{ 'blogs.article.comments' | t: count: article.comments_count }}</span>
@@ -143,15 +148,11 @@
             {%- endif -%}
           </div>
           {%- if show_excerpt -%}
-            {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
-              <p class="article-card__excerpt rte-width">
-                {%- if article.excerpt.size > 0 -%}
-                  {{ article.excerpt | strip_html | truncatewords: 30 }}
-                {%- else -%}
-                  {{ article.content | strip_html | truncatewords: 30 }}
-                {%- endif -%}
-              </p>
+            {%- comment -%} PB: shared excerpt (see top); no paragraph when it has no text {%- endcomment -%}
+            {%- if pb_excerpt != blank -%}
+              <p class="article-card__excerpt rte-width">{{ pb_excerpt }}</p>
             {%- endif -%}
+            {%- comment -%} /PB {%- endcomment -%}
             <div class="article-card__footer">
               {%- if article.comments_count > 0 and blog.comments_enabled? -%}
                 <span>{{ 'blogs.article.comments' | t: count: article.comments_count }}</span>
