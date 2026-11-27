@@ -58,16 +58,24 @@ The product eyebrow shows the product type as entered, without "No. 01" numberin
 - **Homepage SEO (E-11):** the meta description is still the legacy smoking-pipes text. The title reads "Parkdale Brass".
 - **Hidden pages and empty collections (E-02, E-03, E-05):** `/pages/our-story` returned 404 in this pass. The 2.x rounds found the same for `why-brass`, `jewelry-care`, `size-guide` and `/collections/jewelry`. Until they're live, those templates can only be tested through `?view=`.
 - **Legacy article H1 (A-03):** `/blogs/news/how-to-smoke-shatter` still has 2 H1s, because its own body contains an `<h1>`.
-- **Journal excerpts repeat the title (new, not fixed):** on `/blogs/news`, each card's excerpt starts with the article title again, because the article bodies open with it. The homepage journal picks strip it (home-08), but `article-card` doesn't. The fix is either in the content (E-07) or extending the home-08 strip to `article-card`, which would be a Dawn edit with `PB:` markers.
+- **Journal excerpts repeat the title: fixed in the theme (D-50).** Cards on `/blogs/news`, the journal tag page, search and the homepage picks now start with the article text. The article pages themselves still open with the title, and two imported bodies start with a stray "```html" (content clean-up, E-07).
 - **Content and sign-off:** all photography is still placeholder art. Service lines wait on D-01 and D-02. The admin and SEO exports are pending (A-02, A-03). The owner hasn't yet reviewed this record (F-01).
+
+**Theme observations, fixed on 2026-11-27** (commit `a88cd57`, preview 196453663042; an independent regression pass found no regressions):
+
+- Footer Tab order under 750px now matches what you see: menus, then Country/region, then the policy links (D-48).
+- The footer wordmark stays on one line at every width, and the footer is two columns from 750 to 960px, as on Archive-Home (D-47).
+- Under 360px the mobile wordmark stays centred on the viewport and scales to 13px at 320 (D-49).
+- The sticky header no longer drops the size-guide dialog's focus trap during a scroll (a `PB:` edit to stock Dawn's StickyHeader). A control run with the stock handler restored reproduced the bug.
+- A partial last row of featured cards is centred for any count at every width (D-51).
 
 **Theme observations, not fixed:**
 
-- Under 750 px the footer's Tab order reaches the policy links before the country select. The DOM follows the desktop order.
-- From 750 to 1100 px the footer wordmark wraps inside its column. Archive-Home switches the footer to two columns at 960 px or less, and the theme doesn't.
-- Under 360 px the mobile wordmark is centred between the header controls, which puts it 22 px left of the viewport centre at 320.
-- Stock Dawn: while a page scroll is still running, the sticky-header handler drops the size-guide dialog's focus trap. The trap holds once scrolling stops.
-- A partial last row of 5 to 7 featured cards isn't centred. No configured template reaches that case.
+- While the fallback serif is showing (Cormorant still loading, or blocked), the phone wordmark's letters overlap the Search button's box by 2.5 to 4.9px at 320, 360 and 390. This predates the fixes. A fix would need a metric-matched fallback (`size-adjust`) or a font-loading class.
+- From 750 to about 900px, the footer bottom bar wraps Country/region onto a second row: the store has four policies where the canvas draws three. Unchanged by the fixes.
+- The phone footer's legal line uses the full policy titles, including Shipping policy, over two lines. The canvas has "Privacy · Terms · Refunds" on one line. Short labels would need new `pb.*` strings or owner-approved titles.
+- Side gutters are fluid (`--pb-gutter`, 20 to 56px), where the canvas steps from 20px at 960 or less to 56px above. To be settled in the design check against the canvas.
+- Shopify now injects its preview bar on fresh preview links. Its iframe intercepts clicks and adds axe `frame-title` findings, so QA scripts must block `/shopifycloud/preview-bar/` (done in `regress-3/lib.cjs`). It isn't part of the theme.
 
 ### Not tested, and why
 
