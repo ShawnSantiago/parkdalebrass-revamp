@@ -30,9 +30,9 @@ collection,/collections/trays,empty,Unpublish candidate (0 products); confirm no
 collection,/collections/vaporizers,empty,Unpublish candidate (0 products); confirm no traffic,Vaporizers (0 products),,,,,,,
 page,/pages/contact-us,legal/support,Keep (support),,,,,,,,
 page,/pages/ccpa-opt-out,legal/support,Keep (legal),,,,,,,,
-page,/pages/reviews,legacy/duplicate,Empty page; unpublish candidate,,,,,,,,
-page,/pages/fathers-day-24,legacy/duplicate,Legacy promo; retire candidate,,,,,,,,
-page,/pages/page-2,legacy/duplicate,Duplicate of fathers-day-24; retire candidate,,,,,,,,
+page,/pages/reviews,legacy/duplicate,Empty page; unpublish candidate,Admin 2026-11-27: suffix judgeme_all_reviews (no such template in Craft or the repo); empty body,,,,Unpublished (G-11); legacy redirect to / deleted (G-20),None (404),Owner (chat 2026-11-27),2026-11-27
+page,/pages/fathers-day-24,legacy/duplicate,Legacy promo; retire candidate,Admin 2026-11-27: published; suffix instant-LeMnKzmAHEXo1htp (shared with page-2); empty body (G-21),,,,,,,
+page,/pages/page-2,legacy/duplicate,Duplicate of fathers-day-24; retire candidate,Admin 2026-11-27: suffix instant-LeMnKzmAHEXo1htp; empty body,,,,Unpublished (G-10),None (404),Owner (chat 2026-11-27),2026-11-27
 article,/blogs/news/an-introduction-to-the-brockton,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
 article,/blogs/news/is-brass-safe-to-smoke-out-of,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry. Contains health/safety claims: review or retire regardless,,,,,,,,
 article,/blogs/news/5-essential-smoking-accessories-everyone-needs,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
@@ -134,7 +134,7 @@ article,/blogs/news/cannabis-and-sex-does-weed-make-you-horny,legacy-smoking,Own
 article,/blogs/news/why-is-a-proto-pipe-so-expensive-a-deep-dive-into-the-cannabis-accessories-industry,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
 article,/blogs/news/the-rise-and-fall-of-the-proto-pipe-a-cannabis-legend,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
 article,/blogs/news/slow-smoking-on-the-go-with-the-bellwoods,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/fathers-day-24,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
+article,/blogs/news/fathers-day-24,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,Admin 2026-11-27: suffix instant-1DKpbqr14n7lJI3A; empty body,,,,Hidden (G-12); no redirect (D-16),None (404),Owner (chat 2026-11-27),2026-11-27
 article,/blogs/news/revive-your-smoking-ritual,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
 article,/blogs/news/brass-jewelry,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: is-brass-good / mens) pending Search Console,is-brass-good / mens,,,,,,,
 article,/blogs/news/does-brass-tarnish,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: tarnish) pending Search Console,tarnish,,,,,,,
