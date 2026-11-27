@@ -14,7 +14,9 @@
         "placeholder_note": "Placeholder · Launch pieces on dark linen or slate, single warm light",
         "color_scheme": "scheme-1",
         "padding_top": 0,
-        "padding_bottom": 0
+        "padding_bottom": 0,
+        "image": "shopify://shop_images/pb-standin-hero-desktop.jpg",
+        "image_mobile": "shopify://shop_images/pb-standin-hero-mobile.jpg"
       }
     },
     "pb_categories": {
@@ -24,20 +26,31 @@
           "type": "collection",
           "settings": {
             "collection": "bracelets",
-            "label": "Bracelets"
+            "label": "Bracelets",
+            "image": "shopify://shop_images/pb-standin-concept-junction.jpg"
           }
         },
         "necklaces": {
           "type": "collection",
           "settings": {
             "collection": "necklaces",
-            "label": "Necklaces"
+            "label": "Necklaces",
+            "image": "shopify://shop_images/pb-standin-concept-bellwoods.jpg"
+          }
+        },
+        "rings": {
+          "type": "collection",
+          "settings": {
+            "collection": "rings",
+            "label": "Rings",
+            "image": "shopify://shop_images/pb-standin-concept-brockton.jpg"
           }
         }
       },
       "block_order": [
         "bracelets",
-        "necklaces"
+        "necklaces",
+        "rings"
       ],
       "settings": {
         "eyebrow": "The collection",
@@ -58,7 +71,8 @@
           "settings": {
             "name": "The Junction",
             "descriptor": "Open cuff",
-            "link": ""
+            "link": "",
+            "image": "shopify://shop_images/pb-standin-concept-junction.jpg"
           }
         },
         "concept_bellwoods": {
@@ -66,7 +80,8 @@
           "settings": {
             "name": "The Bellwoods",
             "descriptor": "Pendant",
-            "link": ""
+            "link": "",
+            "image": "shopify://shop_images/pb-standin-concept-bellwoods.jpg"
           }
         },
         "concept_brockton": {
@@ -74,7 +89,8 @@
           "settings": {
             "name": "The Brockton",
             "descriptor": "Signet ring",
-            "link": ""
+            "link": "",
+            "image": "shopify://shop_images/pb-standin-concept-brockton.jpg"
           }
         },
         "concept_lansdowne": {
@@ -82,7 +98,8 @@
           "settings": {
             "name": "The Lansdowne",
             "descriptor": "Textured band",
-            "link": ""
+            "link": "",
+            "image": "shopify://shop_images/pb-standin-concept-lansdowne.jpg"
           }
         }
       },
@@ -123,7 +140,8 @@
         "button_label": "Why brass?",
         "button_link": "/pages/why-brass",
         "padding_top": 120,
-        "padding_bottom": 0
+        "padding_bottom": 0,
+        "image": "shopify://shop_images/pb-standin-material-macro.jpg"
       }
     },
     "editorial": {
@@ -136,7 +154,9 @@
         "show_divider_after": true,
         "color_scheme": "scheme-1",
         "padding_top": 120,
-        "padding_bottom": 0
+        "padding_bottom": 0,
+        "image": "shopify://shop_images/pb-standin-editorial-desktop.jpg",
+        "image_mobile": "shopify://shop_images/pb-standin-editorial-mobile.jpg"
       }
     },
     "story": {
@@ -157,7 +177,8 @@
         "button_link": "/pages/our-story",
         "padding_top": 88,
         "padding_bottom": 0,
-        "padding_top_mobile": 48
+        "padding_top_mobile": 48,
+        "image": "shopify://shop_images/pb-standin-story.jpg"
       }
     },
     "journal": {

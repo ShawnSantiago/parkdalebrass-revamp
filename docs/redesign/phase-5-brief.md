@@ -16,7 +16,7 @@
 | Policies ready | D-01 to D-06, E-10 | Approved text ready to paste |
 | Consent wording | D-03 | In the theme's newsletter section |
 | Selling plan | F-05 | The store is on a paid plan, not *Pause and Build*, so checkout works (owner, billing) |
-| Photography | C-09, C-10 | Every `pb-*` image is set, so no placeholder art or "Placeholder · …" art-direction note shows on the storefront |
+| Photography | C-09, C-10, D-52 | Every `pb-*` image is set to **approved photography**, so no placeholder art or "Placeholder · …" art-direction note shows on the storefront. **No `pb-standin-*` image is set anywhere** (search the theme's templates and section groups for `pb-standin`), and, with the owner told first, the 12 stand-in Files and the 12 temporary `assets/pb-standin-*.jpg` theme assets are deleted (`changes/E-16.md` §4) |
 | Timing | Owner | A low-traffic window, at least 2 hours free, no promotions or emails scheduled |
 | Change freeze | Owner | No other Admin or app changes during the window |
 | Access | Owner + agent | Admin access for each step; the CLI only if publishing that way |

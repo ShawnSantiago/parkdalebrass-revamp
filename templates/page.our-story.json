@@ -15,7 +15,8 @@
         "story_image": {
           "type": "image",
           "settings": {
-            "placeholder_note": "Placeholder · Approved Parkdale imagery or founder portrait"
+            "placeholder_note": "Placeholder · Approved Parkdale imagery or founder portrait",
+            "image": "shopify://shop_images/pb-standin-story.jpg"
           }
         },
         "shop": {
