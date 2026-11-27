@@ -10,7 +10,7 @@ Personal information is information about an identifiable person, such as your n
 
 - We collect what we need to take and deliver your order, run your account and answer your messages. If you subscribe, we also use your email address to send you our newsletter.
 - We send marketing emails only to people who subscribe. You can unsubscribe at any time.
-- Shopify runs our store and checkout. We also use the other service providers listed below. Some of them store or process information outside Canada, including in the United States.
+- Shopify runs our store and checkout. We also use the other service providers listed below. Some of them store or process information outside Canada, including in the United States. While it's there, that country's authorities may be able to get access to it.
 - [Owner and lawyer to confirm before this line is used: "We don't sell your personal information." It can't be used while any tool on the site declares a sale-of-data purpose. See the review notes.]
 - You can ask to see or correct the personal information we hold about you. You can raise a concern with our privacy contact, or with the Office of the Privacy Commissioner of Canada.
 
@@ -27,9 +27,9 @@ Our [privacy contact title, for example "Privacy contact": owner to choose] is a
 
 ### When you place an order
 
-- Your name, email address, phone number if you give it, and your shipping and billing addresses.
+- Your name, email address, phone number if you give it [owner to confirm whether checkout asks for a phone number, and whether it's optional], and your shipping and billing addresses.
 - What you order (the piece, the finish and, for The Brockton, the ring size), the prices, tax and shipping charged, and your order number.
-- Delivery details, such as tracking updates from the carrier.
+- Delivery details from the carrier, such as when your parcel was delivered [and tracking updates: owner to confirm whether orders are tracked, to match the shipping policy].
 - Payment details. You enter them in Shopify's checkout, and [payment processor(s): owner to confirm once payments are set up] process them. We're told whether the payment went through, and we can see [which payment details we can see, for example the card type and last four digits: owner to confirm with each processor]. We don't receive your full card number. [Owner to confirm for each payment method offered.]
 - Information used to screen orders for fraud, such as your IP address and the device and browser you used.
 
@@ -41,7 +41,9 @@ Shopify runs our customer accounts. You sign in with your email address and a on
 
 ### When you subscribe to our emails
 
-We collect your email address and a record of your consent: the date and time, the form you used, and the consent wording you saw. The sign-up form shows this wording under the email field, and there's no box ticked in advance:
+We collect your email address and keep a record of your consent, such as when you subscribed. [Owner to confirm what the email platform records: Shopify keeps the date and the opt-in level, and Klaviyo can also keep which form was used. Neither keeps the wording you saw, so keep a dated copy of each version of the form wording. We have to be able to prove consent (CASL s. 13).]
+
+The sign-up form shows this wording under the email field, and there's no box ticked in advance:
 
 > By subscribing, you agree to get emails from Parkdale Brass about new collections and releases. You can unsubscribe at any time. Parkdale Brass, [mailing address], Toronto, ON · Contact: [email address]
 
@@ -50,6 +52,8 @@ We collect your email address and a record of your consent: the date and time, t
 ### When you contact us
 
 We collect your name, email address, phone number if you give it, and your message, along with anything else you send us, such as an order number or photos. Messages from our contact form reach us by email. [Store email provider: owner to supply, so it can be listed under "Who we share it with".]
+
+If you tell us about a safety problem with a piece, such as an injury or a skin reaction, we collect what you tell us about it. This can include information about your health. We use it only to deal with the problem. If the law requires it, we report the incident to Health Canada and to our supplier. [Lawyer to confirm what such a report must include, and whether it needs your details (Canada Consumer Product Safety Act s. 14).]
 
 ### When you browse the site
 
@@ -63,7 +67,7 @@ When you visit, Shopify and the tools described under "Cookies and similar techn
 
 ### Records from before [launch date]
 
-If you bought from us, created an account or subscribed to our emails before [launch date], we still hold those records. We use them only for the purposes they were collected for: your orders, support, any returns and warranties under the terms you bought under, and our legal and tax obligations.
+If you bought from us, created an account or subscribed to our emails before [launch date], we still hold those records. We use them only for your past orders, support, any returns and warranties under the terms you bought under, and our legal and tax obligations.
 
 We don't use those records to send you emails about our jewelry. If you'd like those emails, you're welcome to subscribe through the site.
 
@@ -75,7 +79,7 @@ We use personal information to:
 - run your account;
 - answer your messages, including questions about orders placed before [launch date];
 - send emails about your order, such as the order confirmation, shipping updates, and messages about a return or exchange;
-- contact you about a safety issue or recall affecting a piece you bought;
+- contact you about a safety issue or recall affecting a piece you bought, and deal with any safety problem you report to us;
 - send our newsletter about new collections and releases, only if you've subscribed;
 - screen orders for fraud and keep the site and checkout secure;
 - see how the site is used, so we can fix problems and make it easier to use [analytics tools: owner to confirm which, if any, beyond Shopify's own store reports];
@@ -98,7 +102,8 @@ Cookies are small files that a website stores in your browser. Pixels, tags and 
 
 - **Needed for the store to work:** Shopify sets cookies that keep your cart, run checkout, keep you signed in and protect the site. The store doesn't work properly without them. Shopify lists them at [shopify.com/legal/cookies](https://www.shopify.com/legal/cookies).
 - **Store reports:** Shopify collects information about visits, such as the pages viewed, the type of device and the site that sent you, and gives us reports on how the store is used.
-- **Email sign-up:** Klaviyo's script runs our sign-up form. [Klaviyo onsite tracking: owner to confirm whether it's on. If it is, add: "If you've subscribed, or opened a link in one of our emails, Klaviyo may link the pages and products you view to your email address, so our emails are more relevant." Otherwise delete this note.]
+- [Marketing measurement: Shopify's cookie list also includes marketing cookies, for example to tell which email or link brought a visit or a sale. Owner to confirm which apply once the tools in table B are decided, then describe them here. Otherwise delete this note.]
+- [Klaviyo: owner to confirm its role on the site. The theme's sign-up form saves sign-ups in Shopify, and Klaviyo's script loads only if its app embed is turned on, for its own forms or onsite tracking. If it's on, describe what it does here, for example: "Klaviyo's script runs our email sign-up forms. If you've subscribed, or opened a link in one of our emails, Klaviyo may link the pages and products you view to your email address, so our emails are more relevant." Otherwise delete this note.]
 - [Other analytics, advertising or affiliate tools: owner to confirm which, if any, stay at launch (review notes, table B). For each one kept, give its name, what it does and how to opt out.]
 
 **Your choices:**
@@ -116,21 +121,21 @@ We share personal information with service providers that help us run the store,
 | Shopify | Runs our website, checkout, customer accounts, site search, order emails and fraud screening | All the information described above |
 | [Payment processor(s): owner to confirm] | Processes payments and refunds | Payment details, the order amount, your billing address and email address |
 | [Carrier: owner to confirm] | Delivers orders, and return parcels sent with our prepaid labels | Your name, shipping address and phone number [and email address, for delivery notices: owner to confirm] |
-| Klaviyo | Our email platform: runs our sign-up form, stores subscriber details and consent records [and sends our newsletter: owner to confirm whether Klaviyo or Shopify Email sends it] | Your email address and consent record [and order and browsing activity: owner to confirm what Klaviyo's link with Shopify sends, and whether it includes customers who haven't subscribed] |
+| Klaviyo | Our email marketing platform [owner to confirm its role: whether it sends our newsletter (or Shopify Email does), whether it runs sign-up forms on the site, and whether it keeps subscriber and consent records] | Subscribers' email addresses and consent records [and order and browsing activity: owner to confirm what Klaviyo's link with Shopify sends, and whether it includes customers who haven't subscribed] |
 | [Store email provider: owner to supply] | Hosts our email inbox | Messages you send us, and our replies |
 | [Other providers: owner to confirm (review notes, table B)] | | |
 
-You can read Shopify's privacy policy at [shopify.com/legal/privacy](https://www.shopify.com/legal/privacy). [Shop Pay and the Shop app: if either is offered at checkout or sign-in, add: "If you use Shop Pay or sign in with Shop, Shopify handles that information under its own Consumer Privacy Policy, at [shopify.com/legal/privacy/consumers](https://www.shopify.com/legal/privacy/consumers)." Otherwise delete this note.]
+You can read Shopify's privacy policy at [shopify.com/legal/privacy](https://www.shopify.com/legal/privacy). [Shop Pay and the Shop app: if either is offered at checkout or sign-in, add: "If you use Shop Pay or sign in with Shop, Shopify handles that information under its own privacy policy for Shop users, at [link to confirm at sign-off: search results on 2026-11-27 show a March 2026 version at shopify.com/legal/privacy/app-users, replacing the older shopify.com/legal/privacy/consumers page]." Otherwise delete this note.]
 
 We may also share personal information:
 
-- when the law requires or allows it, for example to comply with a court order or warrant, or to investigate fraud;
+- when the law requires or allows it, for example to comply with a court order or warrant, to report a product safety incident, or to investigate fraud;
 - with our professional advisers, such as our accountant or lawyer, when they need it to advise us, and under a duty of confidentiality; and
-- if the business, or part of it, is sold or merged. The new owner must then use the information as this policy describes. [Lawyer to confirm.]
+- if the business, or part of it, is sold or merged. The new owner may then use the information only as this policy describes, and you'll be told after the sale that your information was transferred. [Lawyer to confirm.]
 
 ## Information stored outside Canada
 
-Some of our service providers store or process personal information outside Canada, for example in the United States. [Lawyer to confirm the countries against each provider's current terms. Shopify says it hosts store data mainly in Canada, with affiliates and sub-processors in other countries, including the United States and Ireland. Klaviyo says it stores its customers' data in the United States.]
+Some of our service providers store or process personal information outside Canada, for example in the United States. [Lawyer to confirm the countries against each provider's current terms. Search results on 2026-11-27: Shopify's sub-processor list names Google Cloud in Canada for hosting, plus Shopify affiliates and sub-processors in other countries, including the United States (for example for email delivery), and Shopify says it may move storage between Google Cloud regions. Klaviyo's privacy FAQ says it stores customer data only in the United States, unless EU storage is agreed in its data processing agreement.]
 
 While your information is in another country, that country's laws apply to it. Its courts, police and national security authorities may be able to get access to it.
 
@@ -141,7 +146,7 @@ We keep personal information only as long as we need it for the purposes in this
 | Record | How long we keep it |
 | --- | --- |
 | Orders, payments, returns and refunds | [period: owner and lawyer to confirm. Tax law generally requires business records to be kept for six years from the end of the tax year they relate to.] |
-| Your account | [period: owner to set, for example until you ask us to close it, or after a set time with no activity] |
+| Your account | [period: owner to set, for example until you ask us to close it, or after a set time with no activity]. [If you ask us to close your account: owner and lawyer to confirm what we keep afterwards and for how long, for example your order records for the period above. Our Terms of service say this policy explains it.] |
 | Newsletter subscription | While you're subscribed. After you unsubscribe, we keep your email address on a do-not-email list so we don't email you again, and we keep the record of your consent for [period: owner and lawyer to set]. |
 | Messages you send us | [period: owner to set] |
 | Information from cookies and similar tools | [period: owner to confirm, per tool] |
@@ -165,7 +170,7 @@ You can ask us:
 
 To make a request, contact our privacy contact. We may ask you to confirm your identity first, so we don't give your information to someone else.
 
-We reply within 30 days. If we need more time, we tell you within those 30 days why, and how much longer we need (no more than 30 more days). [Fee: owner and lawyer to confirm there's no charge.] If we can't give you some of the information, we tell you why, unless the law doesn't allow us to.
+We reply within 30 days. If we need more time, we tell you within those 30 days why, how much longer we need (no more than 30 more days), and that you can complain to the Office of the Privacy Commissioner of Canada about the delay. [Fee: owner and lawyer to confirm there's no charge.] If we can't give you some of the information, we tell you in writing, with how you can complain. We also tell you why, unless the law doesn't allow us to.
 
 When we correct information, we also tell the service providers that have it, where that's needed.
 
@@ -185,13 +190,13 @@ Every newsletter identifies Parkdale Brass, gives our mailing address and a way 
 
 If you unsubscribe, you'll still get emails about your orders, such as order confirmations and shipping updates, and any safety or recall notice about a piece you bought.
 
-[Checkout reminder emails: owner to decide whether Shopify or Klaviyo sends reminders about an unfinished checkout, and to whom. If they go only to subscribers, add a line here saying so. Otherwise delete this note.]
+[Checkout reminder emails: owner to decide whether Shopify or Klaviyo sends reminders about an unfinished checkout, and to whom. If they go only to subscribers, add a line here saying so. If they go to anyone else, the lawyer must approve the basis, and the "only to people who subscribe" lines in "At a glance" and above must change. If there are none, delete this note.]
 
 If you subscribed before [launch date], we don't email you about our jewelry. You can subscribe again through the site.
 
 ## Children
 
-Our site and our jewelry are made for adults. [Owner to confirm.] We don't knowingly collect personal information from anyone under [minimum age: owner and lawyer to set], and we don't market to children. If you think a child has given us personal information, please contact our privacy contact and we'll delete it.
+[Owner to confirm, in the same words as the terms of service: our site and our jewelry are made for adults.] We don't knowingly collect personal information from anyone under [minimum age: owner and lawyer to set], and we don't market to children. If you think a child has given us personal information, please contact our privacy contact. We'll delete it, except anything the law requires us to keep, such as a record of a sale.
 
 ## Changes to this policy
 
@@ -203,7 +208,7 @@ Parkdale Brass [legal name of the business, if different: owner to supply]
 [Privacy contact title: owner to choose]
 [mailing address: owner to supply], Toronto, ON
 Email: [privacy contact email: owner to supply]
-Contact page: [contact page URL]
+Contact page: [parkdalebrass.com/pages/contact-us](/pages/contact-us)
 
 ---
 
@@ -223,7 +228,8 @@ Contact page: [contact page URL]
   - The UpPromote pixel, the Judge.me pixel and the Ordersify, Printful and UpPromote script tags load on every theme (G-17). Each one either gets listed here or is removed.
   - No Canadian region has the cookie banner on (`consentRequired: false`, SHOP-03, QC-05).
   - The checkout email consent box must not be preselected for Canada (SHOP-04, CASL-03).
-- The consent wording in "When you subscribe to our emails" must match the live sign-up form word for word. `sections/pb-newsletter.liquid` posts to Shopify's `customer` form with the tag `newsletter`, so sign-ups are saved in Shopify. Klaviyo receives them only through its Shopify link or its own forms (craft-audit: "pick one source of record").
+- The consent wording in "When you subscribe to our emails" must match the live sign-up form word for word. `sections/pb-newsletter.liquid` posts to Shopify's `customer` form with the tag `newsletter`, so sign-ups are saved in Shopify. Klaviyo receives them only through its Shopify link or its own forms (craft-audit: "pick one source of record"). The Klaviyo app embed isn't on in this theme's `config/settings_data.json` yet, so the draft doesn't say Klaviyo runs the sign-up form; its role stays bracketed until the owner picks.
+- Keep the four policies in step. The Terms of service say "Our Privacy policy explains what we keep after an account is closed, and for how long", so the "Your account" retention row must answer that. The terms and the returns policy both ask customers to report an injury or a skin reaction, which is health information; "When you contact us" now covers it. The minimum age, the "made for adults" line, the contact page (`/pages/contact-us`) and the abandoned-checkout answer must read the same in both.
 
 ### Facts this draft states, and where they come from
 
@@ -238,8 +244,11 @@ Contact page: [contact page URL]
 | Damage reports include photos | D-54 (owner-inputs D-02) |
 | Prepaid labels for some returns (carrier receives the name and address) | D-44, D-53 |
 | Shopify runs the store, checkout and new customer accounts; Search & Discovery is kept | D-01, E-13, E-06; requirements §4 (keep) |
-| Klaviyo is kept for onsite forms and email | D-24, `craft-audit.md`; requirements §4 (keep) |
+| Klaviyo is kept (Craft carry-over). Its role on the new site (sign-up forms, sending, onsite tracking) is still open, so the text brackets it | D-24, `craft-audit.md`; requirements §4 (keep, "list and consent setup open") |
 | The newsletter form is a Shopify customer form tagged `newsletter`; the contact form collects name, email, phone and message (only email is required) | Repo: `sections/pb-newsletter.liquid`, `sections/contact-form.liquid`, `templates/page.contact.json` |
+| Contact page at `/pages/contact-us` | [`url-inventory.csv`](../url-inventory.csv) (kept, support); the terms draft uses the same link |
+| Customers may report an injury or a skin reaction (health information); serious incidents may have to be reported to Health Canada and the supplier | Returns and terms drafts ("Safety concerns", "Metals and skin"); CCPSA s. 14 (COMP-08); lawyer point 23 |
+| Unsubscribed addresses stay on a do-not-email list | Shopify and Klaviyo platform behaviour (an unsubscribed status is kept, not deleted), not a business decision |
 | Platform statements: one-time-code sign-in for new customer accounts, HTTPS, no full card number, Shopify's cookie list, Shopify store reports | Shopify platform behaviour, not a business decision. Owner to confirm the sign-in and card lines (placeholders beside them); lawyer point 14 |
 | Shopify hosts mainly in Canada, with affiliates and sub-processors elsewhere; Klaviyo stores data in the United States | Search results only, kept inside a placeholder: [Shopify sub-processors](https://help.shopify.com/en/manual/privacy-and-security/privacy/subprocessors), [Klaviyo privacy FAQ](https://klaviyo.com/legal/privacy-faqs) |
 | 30-day access reply, one extension of up to 30 days; breach reporting; unsubscribe within 10 business days; six-year tax records | The law, not a business decision; see For the lawyer, points 7, 9, 11 and 15 |
