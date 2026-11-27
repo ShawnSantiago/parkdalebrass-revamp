@@ -1,0 +1,1248 @@
+{
+  "exportedAt": "2026-11-27",
+  "store": "parkdale-brass.myshopify.com",
+  "source": "Shopify Admin GraphQL API 2026-10 via the Shopify connector (read-only queries; no mutations)",
+  "scope": "markets(first:50) with regionsCondition.regions paged to the end (International: 2 pages), currencySettings, priceInclusions, webPresences, catalogsCount; plus shop currency/domain fields, webPresences and backupRegion.",
+  "notes": [
+    "Deprecated Market fields (enabled, primary) are rejected by the connector, so 'enabled' is reported as status (ACTIVE = enabled).",
+    "No market has its own web presence (subfolder or domain): all three use the shop's single web presence on parkdalebrass.com with English only.",
+    "Every market sells in CAD; local currencies are off, so no conversion happens anywhere.",
+    "Market-level shipping configuration (delivery.shipping) is null for all three; shipping comes from delivery profiles (shipping.json)."
+  ],
+  "shop": {
+    "name": "Parkdale Brass",
+    "myshopifyDomain": "parkdale-brass.myshopify.com",
+    "primaryDomain": {
+      "host": "parkdalebrass.com",
+      "url": "https://parkdalebrass.com",
+      "sslEnabled": true
+    },
+    "currencyCode": "CAD",
+    "enabledPresentmentCurrencies": [
+      "CAD"
+    ],
+    "currencyFormats": {
+      "moneyFormat": "<span class=money>${{amount}}</span>",
+      "moneyWithCurrencyFormat": "<span class=money>${{amount}}</span>",
+      "note": "Returned HTML-escaped by the API; unescaped here. Neither format contains 'CAD'. The <span class=money> wrapper is a legacy currency-converter pattern and renders as markup (seen in the live Bellwoods product page and the preview cart)."
+    },
+    "ianaTimezone": "America/New_York",
+    "unitSystem": "IMPERIAL_SYSTEM",
+    "weightUnit": "POUNDS",
+    "taxesIncluded": false,
+    "taxShipping": true,
+    "backupRegion": {
+      "id": "gid://shopify/MarketRegionCountry/132919263294",
+      "code": "CA",
+      "name": "Canada"
+    }
+  },
+  "webPresences": [
+    {
+      "id": "gid://shopify/MarketWebPresence/3019571262",
+      "domain": {
+        "host": "parkdalebrass.com",
+        "url": "https://parkdalebrass.com",
+        "sslEnabled": true
+      },
+      "subfolderSuffix": null,
+      "defaultLocale": {
+        "locale": "en",
+        "name": "English",
+        "primary": true,
+        "published": true
+      },
+      "alternateLocales": [],
+      "rootUrls": [
+        {
+          "locale": "en",
+          "url": "https://parkdalebrass.com/"
+        }
+      ],
+      "markets": []
+    }
+  ],
+  "markets": [
+    {
+      "id": "gid://shopify/Market/1393885246",
+      "name": "Canada",
+      "handle": "ca",
+      "type": "REGION",
+      "status": "ACTIVE",
+      "currencySettings": {
+        "baseCurrency": {
+          "currencyCode": "CAD",
+          "currencyName": "Canadian Dollar",
+          "enabled": true,
+          "manualRate": null
+        },
+        "localCurrencies": false,
+        "roundingEnabled": true
+      },
+      "priceInclusions": null,
+      "webPresences": [],
+      "catalogsCount": 1,
+      "childMarketsCount": 0,
+      "deliveryShippingConfiguration": null,
+      "conditions": {
+        "conditionTypes": [
+          "REGION"
+        ],
+        "applicationLevel": "SPECIFIED",
+        "countryCount": 1,
+        "countries": [
+          {
+            "code": "CA",
+            "name": "Canada",
+            "currency": "CAD"
+          }
+        ]
+      }
+    },
+    {
+      "id": "gid://shopify/Market/1393918014",
+      "name": "International",
+      "handle": "international",
+      "type": "REGION",
+      "status": "ACTIVE",
+      "currencySettings": {
+        "baseCurrency": {
+          "currencyCode": "CAD",
+          "currencyName": "Canadian Dollar",
+          "enabled": true,
+          "manualRate": null
+        },
+        "localCurrencies": false,
+        "roundingEnabled": true
+      },
+      "priceInclusions": null,
+      "webPresences": [],
+      "catalogsCount": 1,
+      "childMarketsCount": 0,
+      "deliveryShippingConfiguration": null,
+      "conditions": {
+        "conditionTypes": [
+          "REGION"
+        ],
+        "applicationLevel": "SPECIFIED",
+        "countryCount": 177,
+        "countriesCurrency": "CAD for every country (local currencies off)",
+        "countries": [
+          {
+            "code": "AD",
+            "name": "Andorra"
+          },
+          {
+            "code": "AE",
+            "name": "United Arab Emirates"
+          },
+          {
+            "code": "AF",
+            "name": "Afghanistan"
+          },
+          {
+            "code": "AG",
+            "name": "Antigua & Barbuda"
+          },
+          {
+            "code": "AI",
+            "name": "Anguilla"
+          },
+          {
+            "code": "AL",
+            "name": "Albania"
+          },
+          {
+            "code": "AM",
+            "name": "Armenia"
+          },
+          {
+            "code": "AR",
+            "name": "Argentina"
+          },
+          {
+            "code": "AT",
+            "name": "Austria"
+          },
+          {
+            "code": "AU",
+            "name": "Australia"
+          },
+          {
+            "code": "AW",
+            "name": "Aruba"
+          },
+          {
+            "code": "AX",
+            "name": "Åland Islands"
+          },
+          {
+            "code": "AZ",
+            "name": "Azerbaijan"
+          },
+          {
+            "code": "BA",
+            "name": "Bosnia & Herzegovina"
+          },
+          {
+            "code": "BB",
+            "name": "Barbados"
+          },
+          {
+            "code": "BD",
+            "name": "Bangladesh"
+          },
+          {
+            "code": "BE",
+            "name": "Belgium"
+          },
+          {
+            "code": "BG",
+            "name": "Bulgaria"
+          },
+          {
+            "code": "BH",
+            "name": "Bahrain"
+          },
+          {
+            "code": "BL",
+            "name": "St. Barthélemy"
+          },
+          {
+            "code": "BM",
+            "name": "Bermuda"
+          },
+          {
+            "code": "BN",
+            "name": "Brunei"
+          },
+          {
+            "code": "BO",
+            "name": "Bolivia"
+          },
+          {
+            "code": "BQ",
+            "name": "Caribbean Netherlands"
+          },
+          {
+            "code": "BR",
+            "name": "Brazil"
+          },
+          {
+            "code": "BS",
+            "name": "Bahamas"
+          },
+          {
+            "code": "BT",
+            "name": "Bhutan"
+          },
+          {
+            "code": "BY",
+            "name": "Belarus"
+          },
+          {
+            "code": "BZ",
+            "name": "Belize"
+          },
+          {
+            "code": "CC",
+            "name": "Cocos (Keeling) Islands"
+          },
+          {
+            "code": "CH",
+            "name": "Switzerland"
+          },
+          {
+            "code": "CK",
+            "name": "Cook Islands"
+          },
+          {
+            "code": "CL",
+            "name": "Chile"
+          },
+          {
+            "code": "CN",
+            "name": "China"
+          },
+          {
+            "code": "CO",
+            "name": "Colombia"
+          },
+          {
+            "code": "CR",
+            "name": "Costa Rica"
+          },
+          {
+            "code": "CW",
+            "name": "Curaçao"
+          },
+          {
+            "code": "CX",
+            "name": "Christmas Island"
+          },
+          {
+            "code": "CY",
+            "name": "Cyprus"
+          },
+          {
+            "code": "CZ",
+            "name": "Czechia"
+          },
+          {
+            "code": "DE",
+            "name": "Germany"
+          },
+          {
+            "code": "DK",
+            "name": "Denmark"
+          },
+          {
+            "code": "DM",
+            "name": "Dominica"
+          },
+          {
+            "code": "DO",
+            "name": "Dominican Republic"
+          },
+          {
+            "code": "EC",
+            "name": "Ecuador"
+          },
+          {
+            "code": "EE",
+            "name": "Estonia"
+          },
+          {
+            "code": "ES",
+            "name": "Spain"
+          },
+          {
+            "code": "FI",
+            "name": "Finland"
+          },
+          {
+            "code": "FJ",
+            "name": "Fiji"
+          },
+          {
+            "code": "FK",
+            "name": "Falkland Islands"
+          },
+          {
+            "code": "FO",
+            "name": "Faroe Islands"
+          },
+          {
+            "code": "FR",
+            "name": "France"
+          },
+          {
+            "code": "GB",
+            "name": "United Kingdom"
+          },
+          {
+            "code": "GD",
+            "name": "Grenada"
+          },
+          {
+            "code": "GE",
+            "name": "Georgia"
+          },
+          {
+            "code": "GF",
+            "name": "French Guiana"
+          },
+          {
+            "code": "GG",
+            "name": "Guernsey"
+          },
+          {
+            "code": "GI",
+            "name": "Gibraltar"
+          },
+          {
+            "code": "GL",
+            "name": "Greenland"
+          },
+          {
+            "code": "GP",
+            "name": "Guadeloupe"
+          },
+          {
+            "code": "GR",
+            "name": "Greece"
+          },
+          {
+            "code": "GS",
+            "name": "South Georgia & South Sandwich Islands"
+          },
+          {
+            "code": "GT",
+            "name": "Guatemala"
+          },
+          {
+            "code": "GY",
+            "name": "Guyana"
+          },
+          {
+            "code": "HK",
+            "name": "Hong Kong SAR"
+          },
+          {
+            "code": "HN",
+            "name": "Honduras"
+          },
+          {
+            "code": "HR",
+            "name": "Croatia"
+          },
+          {
+            "code": "HT",
+            "name": "Haiti"
+          },
+          {
+            "code": "HU",
+            "name": "Hungary"
+          },
+          {
+            "code": "ID",
+            "name": "Indonesia"
+          },
+          {
+            "code": "IE",
+            "name": "Ireland"
+          },
+          {
+            "code": "IL",
+            "name": "Israel"
+          },
+          {
+            "code": "IM",
+            "name": "Isle of Man"
+          },
+          {
+            "code": "IN",
+            "name": "India"
+          },
+          {
+            "code": "IO",
+            "name": "British Indian Ocean Territory"
+          },
+          {
+            "code": "IQ",
+            "name": "Iraq"
+          },
+          {
+            "code": "IS",
+            "name": "Iceland"
+          },
+          {
+            "code": "IT",
+            "name": "Italy"
+          },
+          {
+            "code": "JE",
+            "name": "Jersey"
+          },
+          {
+            "code": "JM",
+            "name": "Jamaica"
+          },
+          {
+            "code": "JO",
+            "name": "Jordan"
+          },
+          {
+            "code": "JP",
+            "name": "Japan"
+          },
+          {
+            "code": "KG",
+            "name": "Kyrgyzstan"
+          },
+          {
+            "code": "KH",
+            "name": "Cambodia"
+          },
+          {
+            "code": "KI",
+            "name": "Kiribati"
+          },
+          {
+            "code": "KN",
+            "name": "St. Kitts & Nevis"
+          },
+          {
+            "code": "KR",
+            "name": "South Korea"
+          },
+          {
+            "code": "KW",
+            "name": "Kuwait"
+          },
+          {
+            "code": "KY",
+            "name": "Cayman Islands"
+          },
+          {
+            "code": "KZ",
+            "name": "Kazakhstan"
+          },
+          {
+            "code": "LA",
+            "name": "Laos"
+          },
+          {
+            "code": "LB",
+            "name": "Lebanon"
+          },
+          {
+            "code": "LC",
+            "name": "St. Lucia"
+          },
+          {
+            "code": "LI",
+            "name": "Liechtenstein"
+          },
+          {
+            "code": "LK",
+            "name": "Sri Lanka"
+          },
+          {
+            "code": "LT",
+            "name": "Lithuania"
+          },
+          {
+            "code": "LU",
+            "name": "Luxembourg"
+          },
+          {
+            "code": "LV",
+            "name": "Latvia"
+          },
+          {
+            "code": "MC",
+            "name": "Monaco"
+          },
+          {
+            "code": "MD",
+            "name": "Moldova"
+          },
+          {
+            "code": "ME",
+            "name": "Montenegro"
+          },
+          {
+            "code": "MF",
+            "name": "St. Martin"
+          },
+          {
+            "code": "MK",
+            "name": "North Macedonia"
+          },
+          {
+            "code": "MM",
+            "name": "Myanmar (Burma)"
+          },
+          {
+            "code": "MN",
+            "name": "Mongolia"
+          },
+          {
+            "code": "MO",
+            "name": "Macao SAR"
+          },
+          {
+            "code": "MQ",
+            "name": "Martinique"
+          },
+          {
+            "code": "MS",
+            "name": "Montserrat"
+          },
+          {
+            "code": "MT",
+            "name": "Malta"
+          },
+          {
+            "code": "MV",
+            "name": "Maldives"
+          },
+          {
+            "code": "MX",
+            "name": "Mexico"
+          },
+          {
+            "code": "MY",
+            "name": "Malaysia"
+          },
+          {
+            "code": "NC",
+            "name": "New Caledonia"
+          },
+          {
+            "code": "NF",
+            "name": "Norfolk Island"
+          },
+          {
+            "code": "NI",
+            "name": "Nicaragua"
+          },
+          {
+            "code": "NL",
+            "name": "Netherlands"
+          },
+          {
+            "code": "NO",
+            "name": "Norway"
+          },
+          {
+            "code": "NP",
+            "name": "Nepal"
+          },
+          {
+            "code": "NR",
+            "name": "Nauru"
+          },
+          {
+            "code": "NU",
+            "name": "Niue"
+          },
+          {
+            "code": "NZ",
+            "name": "New Zealand"
+          },
+          {
+            "code": "OM",
+            "name": "Oman"
+          },
+          {
+            "code": "PA",
+            "name": "Panama"
+          },
+          {
+            "code": "PE",
+            "name": "Peru"
+          },
+          {
+            "code": "PF",
+            "name": "French Polynesia"
+          },
+          {
+            "code": "PG",
+            "name": "Papua New Guinea"
+          },
+          {
+            "code": "PH",
+            "name": "Philippines"
+          },
+          {
+            "code": "PK",
+            "name": "Pakistan"
+          },
+          {
+            "code": "PL",
+            "name": "Poland"
+          },
+          {
+            "code": "PM",
+            "name": "St. Pierre & Miquelon"
+          },
+          {
+            "code": "PN",
+            "name": "Pitcairn Islands"
+          },
+          {
+            "code": "PS",
+            "name": "Palestinian Territories"
+          },
+          {
+            "code": "PT",
+            "name": "Portugal"
+          },
+          {
+            "code": "PY",
+            "name": "Paraguay"
+          },
+          {
+            "code": "QA",
+            "name": "Qatar"
+          },
+          {
+            "code": "RE",
+            "name": "Réunion"
+          },
+          {
+            "code": "RO",
+            "name": "Romania"
+          },
+          {
+            "code": "RS",
+            "name": "Serbia"
+          },
+          {
+            "code": "RU",
+            "name": "Russia"
+          },
+          {
+            "code": "SA",
+            "name": "Saudi Arabia"
+          },
+          {
+            "code": "SB",
+            "name": "Solomon Islands"
+          },
+          {
+            "code": "SE",
+            "name": "Sweden"
+          },
+          {
+            "code": "SG",
+            "name": "Singapore"
+          },
+          {
+            "code": "SI",
+            "name": "Slovenia"
+          },
+          {
+            "code": "SJ",
+            "name": "Svalbard & Jan Mayen"
+          },
+          {
+            "code": "SK",
+            "name": "Slovakia"
+          },
+          {
+            "code": "SM",
+            "name": "San Marino"
+          },
+          {
+            "code": "SR",
+            "name": "Suriname"
+          },
+          {
+            "code": "SV",
+            "name": "El Salvador"
+          },
+          {
+            "code": "SX",
+            "name": "Sint Maarten"
+          },
+          {
+            "code": "TC",
+            "name": "Turks & Caicos Islands"
+          },
+          {
+            "code": "TF",
+            "name": "French Southern Territories"
+          },
+          {
+            "code": "TH",
+            "name": "Thailand"
+          },
+          {
+            "code": "TJ",
+            "name": "Tajikistan"
+          },
+          {
+            "code": "TK",
+            "name": "Tokelau"
+          },
+          {
+            "code": "TL",
+            "name": "Timor-Leste"
+          },
+          {
+            "code": "TM",
+            "name": "Turkmenistan"
+          },
+          {
+            "code": "TO",
+            "name": "Tonga"
+          },
+          {
+            "code": "TR",
+            "name": "Türkiye"
+          },
+          {
+            "code": "TT",
+            "name": "Trinidad & Tobago"
+          },
+          {
+            "code": "TV",
+            "name": "Tuvalu"
+          },
+          {
+            "code": "TW",
+            "name": "Taiwan"
+          },
+          {
+            "code": "UA",
+            "name": "Ukraine"
+          },
+          {
+            "code": "UM",
+            "name": "U.S. Outlying Islands"
+          },
+          {
+            "code": "UY",
+            "name": "Uruguay"
+          },
+          {
+            "code": "UZ",
+            "name": "Uzbekistan"
+          },
+          {
+            "code": "VA",
+            "name": "Vatican City"
+          },
+          {
+            "code": "VC",
+            "name": "St. Vincent & Grenadines"
+          },
+          {
+            "code": "VE",
+            "name": "Venezuela"
+          },
+          {
+            "code": "VG",
+            "name": "British Virgin Islands"
+          },
+          {
+            "code": "VN",
+            "name": "Vietnam"
+          },
+          {
+            "code": "VU",
+            "name": "Vanuatu"
+          },
+          {
+            "code": "WF",
+            "name": "Wallis & Futuna"
+          },
+          {
+            "code": "WS",
+            "name": "Samoa"
+          },
+          {
+            "code": "XK",
+            "name": "Kosovo"
+          },
+          {
+            "code": "YE",
+            "name": "Yemen"
+          },
+          {
+            "code": "YT",
+            "name": "Mayotte"
+          }
+        ]
+      }
+    },
+    {
+      "id": "gid://shopify/Market/1451753534",
+      "name": "US",
+      "handle": "us",
+      "type": "REGION",
+      "status": "ACTIVE",
+      "currencySettings": {
+        "baseCurrency": {
+          "currencyCode": "CAD",
+          "currencyName": "Canadian Dollar",
+          "enabled": true,
+          "manualRate": null
+        },
+        "localCurrencies": false,
+        "roundingEnabled": true
+      },
+      "priceInclusions": null,
+      "webPresences": [],
+      "catalogsCount": 1,
+      "childMarketsCount": 0,
+      "deliveryShippingConfiguration": null,
+      "conditions": {
+        "conditionTypes": [
+          "REGION"
+        ],
+        "applicationLevel": "SPECIFIED",
+        "countryCount": 1,
+        "countries": [
+          {
+            "code": "US",
+            "name": "United States",
+            "currency": "CAD"
+          }
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "marketCount": 3,
+    "activeMarkets": [
+      "Canada (CA)",
+      "US (US)",
+      "International (177 countries)"
+    ],
+    "countriesInMarkets": 179,
+    "currencies": [
+      "CAD"
+    ],
+    "languages": [
+      "en"
+    ],
+    "shipsToCountriesCount": 237,
+    "shipsToCountriesNotInAnyMarket": [
+      "AC",
+      "AO",
+      "BF",
+      "BI",
+      "BJ",
+      "BW",
+      "CD",
+      "CF",
+      "CG",
+      "CI",
+      "CM",
+      "CV",
+      "DJ",
+      "DZ",
+      "EG",
+      "EH",
+      "ER",
+      "ET",
+      "GA",
+      "GH",
+      "GM",
+      "GN",
+      "GQ",
+      "GW",
+      "KE",
+      "KM",
+      "LR",
+      "LS",
+      "LY",
+      "MA",
+      "MG",
+      "ML",
+      "MR",
+      "MU",
+      "MW",
+      "MZ",
+      "NA",
+      "NE",
+      "NG",
+      "RW",
+      "SC",
+      "SD",
+      "SH",
+      "SL",
+      "SN",
+      "SO",
+      "SS",
+      "ST",
+      "SZ",
+      "TA",
+      "TD",
+      "TG",
+      "TN",
+      "TZ",
+      "UG",
+      "ZA",
+      "ZM",
+      "ZW"
+    ],
+    "countriesInShippingZones": {
+      "countryCodes": [
+        "AD",
+        "AL",
+        "AT",
+        "AU",
+        "BA",
+        "BE",
+        "BG",
+        "BR",
+        "CA",
+        "CH",
+        "CY",
+        "CZ",
+        "DE",
+        "DK",
+        "EE",
+        "ES",
+        "FI",
+        "FR",
+        "GB",
+        "GR",
+        "HR",
+        "HU",
+        "IE",
+        "IS",
+        "IT",
+        "JP",
+        "LI",
+        "LT",
+        "LU",
+        "LV",
+        "MC",
+        "MD",
+        "ME",
+        "MK",
+        "MT",
+        "NL",
+        "NO",
+        "NZ",
+        "PL",
+        "PT",
+        "RO",
+        "RS",
+        "SE",
+        "SI",
+        "SK",
+        "SM",
+        "UA",
+        "US",
+        "VA"
+      ],
+      "includeRestOfWorld": true
+    },
+    "shipsToCountries": [
+      "AC",
+      "AD",
+      "AE",
+      "AF",
+      "AG",
+      "AI",
+      "AL",
+      "AM",
+      "AO",
+      "AR",
+      "AT",
+      "AU",
+      "AW",
+      "AX",
+      "AZ",
+      "BA",
+      "BB",
+      "BD",
+      "BE",
+      "BF",
+      "BG",
+      "BH",
+      "BI",
+      "BJ",
+      "BL",
+      "BM",
+      "BN",
+      "BO",
+      "BQ",
+      "BR",
+      "BS",
+      "BT",
+      "BW",
+      "BY",
+      "BZ",
+      "CA",
+      "CC",
+      "CD",
+      "CF",
+      "CG",
+      "CH",
+      "CI",
+      "CK",
+      "CL",
+      "CM",
+      "CN",
+      "CO",
+      "CR",
+      "CV",
+      "CW",
+      "CX",
+      "CY",
+      "CZ",
+      "DE",
+      "DJ",
+      "DK",
+      "DM",
+      "DO",
+      "DZ",
+      "EC",
+      "EE",
+      "EG",
+      "EH",
+      "ER",
+      "ES",
+      "ET",
+      "FI",
+      "FJ",
+      "FK",
+      "FO",
+      "FR",
+      "GA",
+      "GB",
+      "GD",
+      "GE",
+      "GF",
+      "GG",
+      "GH",
+      "GI",
+      "GL",
+      "GM",
+      "GN",
+      "GP",
+      "GQ",
+      "GR",
+      "GS",
+      "GT",
+      "GW",
+      "GY",
+      "HK",
+      "HN",
+      "HR",
+      "HT",
+      "HU",
+      "ID",
+      "IE",
+      "IL",
+      "IM",
+      "IN",
+      "IO",
+      "IQ",
+      "IS",
+      "IT",
+      "JE",
+      "JM",
+      "JO",
+      "JP",
+      "KE",
+      "KG",
+      "KH",
+      "KI",
+      "KM",
+      "KN",
+      "KR",
+      "KW",
+      "KY",
+      "KZ",
+      "LA",
+      "LB",
+      "LC",
+      "LI",
+      "LK",
+      "LR",
+      "LS",
+      "LT",
+      "LU",
+      "LV",
+      "LY",
+      "MA",
+      "MC",
+      "MD",
+      "ME",
+      "MF",
+      "MG",
+      "MK",
+      "ML",
+      "MM",
+      "MN",
+      "MO",
+      "MQ",
+      "MR",
+      "MS",
+      "MT",
+      "MU",
+      "MV",
+      "MW",
+      "MX",
+      "MY",
+      "MZ",
+      "NA",
+      "NC",
+      "NE",
+      "NF",
+      "NG",
+      "NI",
+      "NL",
+      "NO",
+      "NP",
+      "NR",
+      "NU",
+      "NZ",
+      "OM",
+      "PA",
+      "PE",
+      "PF",
+      "PG",
+      "PH",
+      "PK",
+      "PL",
+      "PM",
+      "PN",
+      "PS",
+      "PT",
+      "PY",
+      "QA",
+      "RE",
+      "RO",
+      "RS",
+      "RU",
+      "RW",
+      "SA",
+      "SB",
+      "SC",
+      "SD",
+      "SE",
+      "SG",
+      "SH",
+      "SI",
+      "SJ",
+      "SK",
+      "SL",
+      "SM",
+      "SN",
+      "SO",
+      "SR",
+      "SS",
+      "ST",
+      "SV",
+      "SX",
+      "SZ",
+      "TA",
+      "TC",
+      "TD",
+      "TF",
+      "TG",
+      "TH",
+      "TJ",
+      "TK",
+      "TL",
+      "TM",
+      "TN",
+      "TO",
+      "TR",
+      "TT",
+      "TV",
+      "TW",
+      "TZ",
+      "UA",
+      "UG",
+      "UM",
+      "US",
+      "UY",
+      "UZ",
+      "VA",
+      "VC",
+      "VE",
+      "VG",
+      "VN",
+      "VU",
+      "WF",
+      "WS",
+      "XK",
+      "YE",
+      "YT",
+      "ZA",
+      "ZM",
+      "ZW"
+    ]
+  }
+}

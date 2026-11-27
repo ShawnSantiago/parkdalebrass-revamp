@@ -1,0 +1,89 @@
+{
+  "exportedAt": "2026-11-27",
+  "store": "parkdale-brass.myshopify.com",
+  "source": "Shopify Admin GraphQL API 2026-10 via the Shopify connector (read-only queries; no mutations)",
+  "scope": "publications(first:50) with catalog, includedProductsCount and channels; one page (hasNextPage false).",
+  "notes": [
+    "4 publications. The Agentic channel app is installed (apps-and-pixels.json) but has no publication of its own in this list.",
+    "Each market also has one MarketCatalog (catalogsCount 1); market catalogs are not sales channels and aren't listed here.",
+    "Per-product channel state is in ../catalog/products.json."
+  ],
+  "publications": [
+    {
+      "publicationId": "gid://shopify/Publication/31212404798",
+      "channel": {
+        "id": "gid://shopify/Channel/31212404798",
+        "name": "Online Store",
+        "handle": "online_store",
+        "app": "Online Store",
+        "developer": "Shopify"
+      },
+      "autoPublish": false,
+      "supportsFuturePublishing": true,
+      "catalog": {
+        "type": "AppCatalog",
+        "id": "gid://shopify/AppCatalog/10199761218",
+        "title": "Channel Catalog 31212404798 3bf8d82b-43f5-4530-963b-312b6cbd2e61",
+        "status": "ACTIVE"
+      },
+      "includedProductsCount": 14
+    },
+    {
+      "publicationId": "gid://shopify/Publication/42672619582",
+      "channel": {
+        "id": "gid://shopify/Channel/42672619582",
+        "name": "Facebook & Instagram",
+        "handle": "facebook-ads",
+        "app": "Facebook & Instagram",
+        "developer": "Meta"
+      },
+      "autoPublish": false,
+      "supportsFuturePublishing": false,
+      "catalog": {
+        "type": "AppCatalog",
+        "id": "gid://shopify/AppCatalog/10220601666",
+        "title": "Channel Catalog 42672619582 080816df-0bff-498e-b9d7-535d69183721",
+        "status": "ACTIVE"
+      },
+      "includedProductsCount": 4
+    },
+    {
+      "publicationId": "gid://shopify/Publication/44203671614",
+      "channel": {
+        "id": "gid://shopify/Channel/44203671614",
+        "name": "Inbox",
+        "handle": "shopify-inbox",
+        "app": "Inbox",
+        "developer": "Shopify"
+      },
+      "autoPublish": false,
+      "supportsFuturePublishing": false,
+      "catalog": {
+        "type": "AppCatalog",
+        "id": "gid://shopify/AppCatalog/10237608258",
+        "title": "Channel Catalog 44203671614 3ed7b1c9-4000-4663-8a97-61a36b11be27",
+        "status": "ACTIVE"
+      },
+      "includedProductsCount": 7
+    },
+    {
+      "publicationId": "gid://shopify/Publication/329615475010",
+      "channel": {
+        "id": "gid://shopify/Channel/329615475010",
+        "name": "Whatnot",
+        "handle": "whatnot-sales-channel",
+        "app": "Whatnot",
+        "developer": "Whatnot"
+      },
+      "autoPublish": false,
+      "supportsFuturePublishing": false,
+      "catalog": {
+        "type": "AppCatalog",
+        "id": "gid://shopify/AppCatalog/174105133378",
+        "title": "Channel Catalog 329615475010 for Whatnot",
+        "status": "ACTIVE"
+      },
+      "includedProductsCount": 12
+    }
+  ]
+}

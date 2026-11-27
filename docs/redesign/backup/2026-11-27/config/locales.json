@@ -1,0 +1,25 @@
+{
+  "exportedAt": "2026-11-27",
+  "store": "parkdale-brass.myshopify.com",
+  "source": "Shopify Admin GraphQL API 2026-10 via the Shopify connector (read-only queries; no mutations)",
+  "scope": "shopLocales (all, published and unpublished) and the web presences that use them.",
+  "notes": [
+    "Only one locale is enabled: English, primary and published. No alternate languages, so there is nothing for a language selector to list.",
+    "Store-level translations (Translate & Adapt) were not exported; with no second locale there are none to apply on the storefront."
+  ],
+  "shopLocales": [
+    {
+      "locale": "en",
+      "name": "English",
+      "primary": true,
+      "published": true,
+      "marketWebPresenceIds": [
+        "gid://shopify/MarketWebPresence/3019571262"
+      ]
+    }
+  ],
+  "publishedLocales": [
+    "en"
+  ],
+  "primaryLocale": "en"
+}

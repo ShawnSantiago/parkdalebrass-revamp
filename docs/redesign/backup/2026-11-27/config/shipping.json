@@ -1,0 +1,2316 @@
+{
+  "exportedAt": "2026-11-27",
+  "store": "parkdale-brass.myshopify.com",
+  "source": "Shopify Admin GraphQL API 2026-10 via the Shopify connector (read-only queries; no mutations)",
+  "scope": "deliveryProfiles (all 6), each read with deliveryProfile(id): location groups (locations with includeInactive and includeLegacy), zones, countries, provinces (merchant profiles only) and method definitions with conditions and rates.",
+  "notes": [
+    "Locations are reduced to name, active flags, city and country code. No street address, postal code or phone was queried.",
+    "Two locations appear in the delivery profiles: 'Homebase' (Toronto, CA; merchant location) and 'Printful' (fulfillment service location, CA, no city).",
+    "Merchant profiles price in CAD. The four Printful profiles were created by the Printful app and price in USD.",
+    "General profile 'United States' zone lists 48 contiguous states + DC (no AK, HI or territories). 'Ships Outside North America' US zone includes AK, HI, territories and armed-forces codes.",
+    "'Ships Outside North America' has a 'Rest Of the World' zone with no rates, so its products can't be shipped outside CA, US, AU and NZ.",
+    "activeMethodDefinitionsCount is as Shopify reports it; it can differ from the methods listed (e.g. General profile reports 5, 4 are listed).",
+    "Free Shipping is a 0.00 CAD rate with condition TOTAL_PRICE >= 129.00 CAD (merchant profiles, CA and US zones)."
+  ],
+  "locations": [
+    {
+      "id": "gid://shopify/Location/17296556094",
+      "name": "Homebase",
+      "isActive": true,
+      "isFulfillmentService": false,
+      "fulfillsOnlineOrders": true,
+      "city": "Toronto",
+      "countryCode": "CA"
+    },
+    {
+      "id": "gid://shopify/Location/60908404798",
+      "name": "Printful",
+      "isActive": true,
+      "isFulfillmentService": true,
+      "fulfillmentService": "Printful",
+      "fulfillsOnlineOrders": true,
+      "city": null,
+      "countryCode": "CA"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "gid://shopify/DeliveryProfile/33016578110",
+      "name": "General profile",
+      "default": true,
+      "version": 1,
+      "activeMethodDefinitionsCount": 5,
+      "locationsWithoutRatesCount": 0,
+      "originLocationCount": 2,
+      "zoneCountryCount": 2,
+      "productVariantsCount": 3,
+      "unassignedLocations": [],
+      "locationGroups": [
+        {
+          "locationGroupId": "gid://shopify/DeliveryLocationGroup/32947863614",
+          "locations": [
+            {
+              "id": "gid://shopify/Location/17296556094",
+              "name": "Homebase",
+              "isActive": true,
+              "isFulfillmentService": false,
+              "city": "Toronto",
+              "countryCode": "CA"
+            },
+            {
+              "id": "gid://shopify/Location/60908404798",
+              "name": "Printful",
+              "isActive": true,
+              "isFulfillmentService": true,
+              "fulfillmentService": "Printful",
+              "city": null,
+              "countryCode": "CA"
+            }
+          ],
+          "zones": [
+            {
+              "id": "gid://shopify/DeliveryZone/65676902462",
+              "name": "Domestic",
+              "countries": [
+                {
+                  "code": "CA",
+                  "restOfWorld": false,
+                  "provinces": [
+                    "AB",
+                    "BC",
+                    "MB",
+                    "NB",
+                    "NL",
+                    "NT",
+                    "NS",
+                    "NU",
+                    "ON",
+                    "PE",
+                    "QC",
+                    "SK",
+                    "YT"
+                  ]
+                }
+              ],
+              "methods": [
+                {
+                  "name": "Free Shipping",
+                  "description": null,
+                  "active": true,
+                  "conditions": [
+                    {
+                      "field": "TOTAL_PRICE",
+                      "operator": "GREATER_THAN_OR_EQUAL_TO",
+                      "criteria": {
+                        "type": "MoneyV2",
+                        "amount": "129.0",
+                        "currencyCode": "CAD"
+                      }
+                    }
+                  ],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "0.0",
+                      "currencyCode": "CAD"
+                    }
+                  }
+                },
+                {
+                  "name": "CA Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "15.0",
+                      "currencyCode": "CAD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/94510514238",
+              "name": "United States",
+              "countries": [
+                {
+                  "code": "US",
+                  "restOfWorld": false,
+                  "provinces": [
+                    "AL",
+                    "AZ",
+                    "AR",
+                    "CA",
+                    "CO",
+                    "CT",
+                    "DE",
+                    "DC",
+                    "FL",
+                    "GA",
+                    "ID",
+                    "IL",
+                    "IN",
+                    "IA",
+                    "KS",
+                    "KY",
+                    "LA",
+                    "ME",
+                    "MD",
+                    "MA",
+                    "MI",
+                    "MN",
+                    "MS",
+                    "MO",
+                    "MT",
+                    "NE",
+                    "NV",
+                    "NH",
+                    "NJ",
+                    "NM",
+                    "NY",
+                    "NC",
+                    "ND",
+                    "OH",
+                    "OK",
+                    "OR",
+                    "PA",
+                    "RI",
+                    "SC",
+                    "SD",
+                    "TN",
+                    "TX",
+                    "UT",
+                    "VT",
+                    "VA",
+                    "WA",
+                    "WV",
+                    "WI",
+                    "WY"
+                  ]
+                }
+              ],
+              "methods": [
+                {
+                  "name": "Free Shipping",
+                  "description": null,
+                  "active": true,
+                  "conditions": [
+                    {
+                      "field": "TOTAL_PRICE",
+                      "operator": "GREATER_THAN_OR_EQUAL_TO",
+                      "criteria": {
+                        "type": "MoneyV2",
+                        "amount": "129.0",
+                        "currencyCode": "CAD"
+                      }
+                    }
+                  ],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "0.0",
+                      "currencyCode": "CAD"
+                    }
+                  }
+                },
+                {
+                  "name": "US Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "15.0",
+                      "currencyCode": "CAD"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rateNames": [
+        "CA Flat Rate",
+        "Free Shipping",
+        "US Flat Rate"
+      ]
+    },
+    {
+      "id": "gid://shopify/DeliveryProfile/76653428798",
+      "name": "Ships Outside North America",
+      "default": false,
+      "version": 1,
+      "activeMethodDefinitionsCount": 5,
+      "locationsWithoutRatesCount": 0,
+      "originLocationCount": 2,
+      "zoneCountryCount": 4,
+      "productVariantsCount": 5,
+      "unassignedLocations": [],
+      "locationGroups": [
+        {
+          "locationGroupId": "gid://shopify/DeliveryLocationGroup/77422493758",
+          "locations": [
+            {
+              "id": "gid://shopify/Location/17296556094",
+              "name": "Homebase",
+              "isActive": true,
+              "isFulfillmentService": false,
+              "city": "Toronto",
+              "countryCode": "CA"
+            },
+            {
+              "id": "gid://shopify/Location/60908404798",
+              "name": "Printful",
+              "isActive": true,
+              "isFulfillmentService": true,
+              "city": null,
+              "countryCode": "CA"
+            }
+          ],
+          "zones": [
+            {
+              "id": "gid://shopify/DeliveryZone/226440871998",
+              "name": "AU & NZ",
+              "countries": [
+                {
+                  "code": "AU",
+                  "restOfWorld": false,
+                  "provinces": [
+                    "ACT",
+                    "NSW",
+                    "NT",
+                    "QLD",
+                    "SA",
+                    "TAS",
+                    "VIC",
+                    "WA"
+                  ]
+                },
+                {
+                  "code": "NZ",
+                  "restOfWorld": false,
+                  "provinces": [
+                    "AUK",
+                    "BOP",
+                    "CAN",
+                    "CIT",
+                    "GIS",
+                    "HKB",
+                    "MWT",
+                    "MBH",
+                    "NSN",
+                    "NTL",
+                    "OTA",
+                    "STL",
+                    "TKI",
+                    "TAS",
+                    "WKO",
+                    "WGN",
+                    "WTC"
+                  ]
+                }
+              ],
+              "methods": [
+                {
+                  "name": "Australia & New Zealand Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "50.0",
+                      "currencyCode": "CAD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/226440839230",
+              "name": "Canada",
+              "countries": [
+                {
+                  "code": "CA",
+                  "restOfWorld": false,
+                  "provinces": [
+                    "AB",
+                    "BC",
+                    "MB",
+                    "NB",
+                    "NL",
+                    "NT",
+                    "NS",
+                    "NU",
+                    "ON",
+                    "PE",
+                    "QC",
+                    "SK",
+                    "YT"
+                  ]
+                }
+              ],
+              "methods": [
+                {
+                  "name": "CA Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "15.0",
+                      "currencyCode": "CAD"
+                    }
+                  }
+                },
+                {
+                  "name": "Free Shipping",
+                  "description": null,
+                  "active": true,
+                  "conditions": [
+                    {
+                      "field": "TOTAL_PRICE",
+                      "operator": "GREATER_THAN_OR_EQUAL_TO",
+                      "criteria": {
+                        "type": "MoneyV2",
+                        "amount": "129.0",
+                        "currencyCode": "CAD"
+                      }
+                    }
+                  ],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "0.0",
+                      "currencyCode": "CAD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/226440904766",
+              "name": "Rest Of the World",
+              "countries": [
+                {
+                  "code": null,
+                  "restOfWorld": true,
+                  "provinces": []
+                }
+              ],
+              "methods": []
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/226440806462",
+              "name": "US",
+              "countries": [
+                {
+                  "code": "US",
+                  "restOfWorld": false,
+                  "provinces": [
+                    "AL",
+                    "AK",
+                    "AS",
+                    "AZ",
+                    "AR",
+                    "AA",
+                    "AE",
+                    "AP",
+                    "CA",
+                    "CO",
+                    "CT",
+                    "DE",
+                    "DC",
+                    "FM",
+                    "FL",
+                    "GA",
+                    "GU",
+                    "HI",
+                    "ID",
+                    "IL",
+                    "IN",
+                    "IA",
+                    "KS",
+                    "KY",
+                    "LA",
+                    "ME",
+                    "MH",
+                    "MD",
+                    "MA",
+                    "MI",
+                    "MN",
+                    "MS",
+                    "MO",
+                    "MT",
+                    "NE",
+                    "NV",
+                    "NH",
+                    "NJ",
+                    "NM",
+                    "NY",
+                    "NC",
+                    "ND",
+                    "MP",
+                    "OH",
+                    "OK",
+                    "OR",
+                    "PW",
+                    "PA",
+                    "PR",
+                    "RI",
+                    "SC",
+                    "SD",
+                    "TN",
+                    "TX",
+                    "UT",
+                    "VT",
+                    "VI",
+                    "VA",
+                    "WA",
+                    "WV",
+                    "WI",
+                    "WY"
+                  ]
+                }
+              ],
+              "methods": [
+                {
+                  "name": "US Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "15.0",
+                      "currencyCode": "CAD"
+                    }
+                  }
+                },
+                {
+                  "name": "Free Shipping",
+                  "description": null,
+                  "active": true,
+                  "conditions": [
+                    {
+                      "field": "TOTAL_PRICE",
+                      "operator": "GREATER_THAN_OR_EQUAL_TO",
+                      "criteria": {
+                        "type": "MoneyV2",
+                        "amount": "129.0",
+                        "currencyCode": "CAD"
+                      }
+                    }
+                  ],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "0.0",
+                      "currencyCode": "CAD"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rateNames": [
+        "Australia & New Zealand Flat Rate",
+        "CA Flat Rate",
+        "Free Shipping",
+        "US Flat Rate"
+      ]
+    },
+    {
+      "id": "gid://shopify/DeliveryProfile/119129473346",
+      "name": "Printful: Shoes (#PF-FRG14)",
+      "default": false,
+      "version": 1,
+      "activeMethodDefinitionsCount": 8,
+      "locationsWithoutRatesCount": 1,
+      "originLocationCount": 1,
+      "zoneCountryCount": 244,
+      "productVariantsCount": 36,
+      "unassignedLocations": [
+        {
+          "id": "gid://shopify/Location/17296556094",
+          "name": "Homebase",
+          "isActive": true,
+          "city": "Toronto",
+          "countryCode": "CA"
+        }
+      ],
+      "locationGroups": [
+        {
+          "locationGroupId": "gid://shopify/DeliveryLocationGroup/120888492354",
+          "locations": [
+            {
+              "id": "gid://shopify/Location/60908404798",
+              "name": "Printful",
+              "isActive": true,
+              "isFulfillmentService": true,
+              "city": null,
+              "countryCode": "CA"
+            }
+          ],
+          "zones": [
+            {
+              "id": "gid://shopify/DeliveryZone/526749532482",
+              "name": "Australia & New Zealand Zone",
+              "countries": [
+                {
+                  "code": "AU",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "NZ",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "Australia & New Zealand Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "8.99",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/526749499714",
+              "name": "CA Zone",
+              "countries": [
+                {
+                  "code": "CA",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "CA Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "9.09",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/526749466946",
+              "name": "EFTA Zone",
+              "countries": [
+                {
+                  "code": "IS",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "LI",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "NO",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "CH",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "EFTA Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "10.89",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/526749401410",
+              "name": "Europe Zone",
+              "countries": [
+                {
+                  "code": "AL",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "AD",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "AT",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "BE",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "BA",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "BG",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "HR",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "CY",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "CZ",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "DK",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "EE",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "FI",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "FR",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "DE",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "GR",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "VA",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "HU",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "IE",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "IT",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "LV",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "LT",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "LU",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "MT",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "MD",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "MC",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "ME",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "NL",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "MK",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "PL",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "PT",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "RO",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "SM",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "RS",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "SK",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "SI",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "ES",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "SE",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "UA",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "Europe Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "9.79",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/526749434178",
+              "name": "GB Zone",
+              "countries": [
+                {
+                  "code": "GB",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "GB Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "9.19",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/526749565250",
+              "name": "JP Zone",
+              "countries": [
+                {
+                  "code": "JP",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "JP Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "8.99",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/526749368642",
+              "name": "US Zone",
+              "countries": [
+                {
+                  "code": "US",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "US Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "8.99",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/526749598018",
+              "name": "Worldwide Zone",
+              "countries": [
+                {
+                  "code": null,
+                  "restOfWorld": true
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "Worldwide Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "9.79",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rateNames": [
+        "Australia & New Zealand Flat Rate",
+        "CA Flat Rate",
+        "EFTA Flat Rate",
+        "Europe Flat Rate",
+        "GB Flat Rate",
+        "JP Flat Rate",
+        "US Flat Rate",
+        "Worldwide Flat Rate"
+      ]
+    },
+    {
+      "id": "gid://shopify/DeliveryProfile/119130489154",
+      "name": "Printful: Mugs (11 oz), Tumblers (#PF-FRG24)",
+      "default": false,
+      "version": 1,
+      "activeMethodDefinitionsCount": 9,
+      "locationsWithoutRatesCount": 1,
+      "originLocationCount": 1,
+      "zoneCountryCount": 244,
+      "productVariantsCount": 1,
+      "unassignedLocations": [
+        {
+          "id": "gid://shopify/Location/17296556094",
+          "name": "Homebase",
+          "isActive": true,
+          "city": "Toronto",
+          "countryCode": "CA"
+        }
+      ],
+      "locationGroups": [
+        {
+          "locationGroupId": "gid://shopify/DeliveryLocationGroup/120889540930",
+          "locations": [
+            {
+              "id": "gid://shopify/Location/60908404798",
+              "name": "Printful",
+              "isActive": true,
+              "isFulfillmentService": true,
+              "city": null,
+              "countryCode": "CA"
+            }
+          ],
+          "zones": [
+            {
+              "id": "gid://shopify/DeliveryZone/526752153922",
+              "name": "Australia & New Zealand Zone",
+              "countries": [
+                {
+                  "code": "AU",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "NZ",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "Australia & New Zealand Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "8.39",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/526752219458",
+              "name": "BR Zone",
+              "countries": [
+                {
+                  "code": "BR",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "BR Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "12.39",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/526752121154",
+              "name": "CA Zone",
+              "countries": [
+                {
+                  "code": "CA",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "CA Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "7.79",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/526752088386",
+              "name": "EFTA Zone",
+              "countries": [
+                {
+                  "code": "IS",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "LI",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "NO",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "CH",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "EFTA Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "10.39",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/526752022850",
+              "name": "Europe Zone",
+              "countries": [
+                {
+                  "code": "AL",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "AD",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "AT",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "BE",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "BA",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "BG",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "HR",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "CY",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "CZ",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "DK",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "EE",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "FI",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "FR",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "DE",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "GR",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "VA",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "HU",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "IE",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "IT",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "LV",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "LT",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "LU",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "MT",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "MD",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "MC",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "ME",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "NL",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "MK",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "PL",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "PT",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "RO",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "SM",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "RS",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "SK",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "SI",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "ES",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "SE",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "UA",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "Europe Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "5.19",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/526752055618",
+              "name": "GB Zone",
+              "countries": [
+                {
+                  "code": "GB",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "GB Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "4.99",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/526752186690",
+              "name": "JP Zone",
+              "countries": [
+                {
+                  "code": "JP",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "JP Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "4.79",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/526751990082",
+              "name": "US Zone",
+              "countries": [
+                {
+                  "code": "US",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "US Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "6.49",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/526752252226",
+              "name": "Worldwide Zone",
+              "countries": [
+                {
+                  "code": null,
+                  "restOfWorld": true
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "Worldwide Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "11.99",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rateNames": [
+        "Australia & New Zealand Flat Rate",
+        "BR Flat Rate",
+        "CA Flat Rate",
+        "EFTA Flat Rate",
+        "Europe Flat Rate",
+        "GB Flat Rate",
+        "JP Flat Rate",
+        "US Flat Rate",
+        "Worldwide Flat Rate"
+      ]
+    },
+    {
+      "id": "gid://shopify/DeliveryProfile/120414273858",
+      "name": "Printful: Tshirts (#PF-FRG1001)",
+      "default": false,
+      "version": 1,
+      "activeMethodDefinitionsCount": 10,
+      "locationsWithoutRatesCount": 1,
+      "originLocationCount": 1,
+      "zoneCountryCount": 244,
+      "productVariantsCount": 56,
+      "unassignedLocations": [
+        {
+          "id": "gid://shopify/Location/17296556094",
+          "name": "Homebase",
+          "isActive": true,
+          "city": "Toronto",
+          "countryCode": "CA"
+        }
+      ],
+      "locationGroups": [
+        {
+          "locationGroupId": "gid://shopify/DeliveryLocationGroup/122202358082",
+          "locations": [
+            {
+              "id": "gid://shopify/Location/60908404798",
+              "name": "Printful",
+              "isActive": true,
+              "isFulfillmentService": true,
+              "city": null,
+              "countryCode": "CA"
+            }
+          ],
+          "zones": [
+            {
+              "id": "gid://shopify/DeliveryZone/531673121090",
+              "name": "Australia & New Zealand Zone",
+              "countries": [
+                {
+                  "code": "AU",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "NZ",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "AU Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "7.19",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/531673186626",
+              "name": "BR Zone",
+              "countries": [
+                {
+                  "code": "BR",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "BR Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "4.49",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/531673088322",
+              "name": "CA Zone",
+              "countries": [
+                {
+                  "code": "CA",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "CA Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "8.29",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/531673055554",
+              "name": "EFTA Zone",
+              "countries": [
+                {
+                  "code": "IS",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "LI",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "NO",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "CH",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "FT Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "9.99",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/531672990018",
+              "name": "Europe Zone",
+              "countries": [
+                {
+                  "code": "AL",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "AD",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "AT",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "BE",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "BA",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "BG",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "HR",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "CY",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "CZ",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "DK",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "EE",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "FI",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "FR",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "DE",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "GR",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "VA",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "HU",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "IE",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "IT",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "LV",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "LT",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "LU",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "MT",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "MD",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "MC",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "ME",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "NL",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "MK",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "PL",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "PT",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "RO",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "SM",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "RS",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "SK",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "SI",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "ES",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "SE",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "UA",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "EU Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "4.79",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/531673022786",
+              "name": "GB Zone",
+              "countries": [
+                {
+                  "code": "GB",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "GB Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "4.59",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/531673153858",
+              "name": "JP Zone",
+              "countries": [
+                {
+                  "code": "JP",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "JP Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "4.39",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/531672957250",
+              "name": "US Zone",
+              "countries": [
+                {
+                  "code": "US",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "US Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "4.69",
+                      "currencyCode": "USD"
+                    }
+                  }
+                },
+                {
+                  "name": "US Express Rate (phone number required)",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "8.99",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/531673219394",
+              "name": "Worldwide Zone",
+              "countries": [
+                {
+                  "code": null,
+                  "restOfWorld": true
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "Worldwide Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "11.99",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rateNames": [
+        "AU Flat Rate",
+        "BR Flat Rate",
+        "CA Flat Rate",
+        "EU Flat Rate",
+        "FT Flat Rate",
+        "GB Flat Rate",
+        "JP Flat Rate",
+        "US Express Rate (phone number required)",
+        "US Flat Rate",
+        "Worldwide Flat Rate"
+      ]
+    },
+    {
+      "id": "gid://shopify/DeliveryProfile/120455692610",
+      "name": "Printful: Hats, Bags, Pillowcases, All over prints, Socks, Aprons, Flip Flops, Camper mug (#PF-FRG1042)",
+      "default": false,
+      "version": 1,
+      "activeMethodDefinitionsCount": 10,
+      "locationsWithoutRatesCount": 1,
+      "originLocationCount": 1,
+      "zoneCountryCount": 244,
+      "productVariantsCount": 15,
+      "unassignedLocations": [
+        {
+          "id": "gid://shopify/Location/17296556094",
+          "name": "Homebase",
+          "isActive": true,
+          "city": "Toronto",
+          "countryCode": "CA"
+        }
+      ],
+      "locationGroups": [
+        {
+          "locationGroupId": "gid://shopify/DeliveryLocationGroup/122244301122",
+          "locations": [
+            {
+              "id": "gid://shopify/Location/60908404798",
+              "name": "Printful",
+              "isActive": true,
+              "isFulfillmentService": true,
+              "city": null,
+              "countryCode": "CA"
+            }
+          ],
+          "zones": [
+            {
+              "id": "gid://shopify/DeliveryZone/531941753154",
+              "name": "Australia & New Zealand Zone",
+              "countries": [
+                {
+                  "code": "AU",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "NZ",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "AU Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "7.19",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/531941818690",
+              "name": "BR Zone",
+              "countries": [
+                {
+                  "code": "BR",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "BR Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "4.49",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/531941720386",
+              "name": "CA Zone",
+              "countries": [
+                {
+                  "code": "CA",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "CA Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "6.99",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/531941687618",
+              "name": "EFTA Zone",
+              "countries": [
+                {
+                  "code": "IS",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "LI",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "NO",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "CH",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "FT Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "9.99",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/531941622082",
+              "name": "Europe Zone",
+              "countries": [
+                {
+                  "code": "AL",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "AD",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "AT",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "BE",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "BA",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "BG",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "HR",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "CY",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "CZ",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "DK",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "EE",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "FI",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "FR",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "DE",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "GR",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "VA",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "HU",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "IE",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "IT",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "LV",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "LT",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "LU",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "MT",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "MD",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "MC",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "ME",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "NL",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "MK",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "PL",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "PT",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "RO",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "SM",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "RS",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "SK",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "SI",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "ES",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "SE",
+                  "restOfWorld": false
+                },
+                {
+                  "code": "UA",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "EU Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "4.59",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/531941654850",
+              "name": "GB Zone",
+              "countries": [
+                {
+                  "code": "GB",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "GB Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "4.39",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/531941785922",
+              "name": "JP Zone",
+              "countries": [
+                {
+                  "code": "JP",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "JP Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "4.39",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/531941589314",
+              "name": "US Zone",
+              "countries": [
+                {
+                  "code": "US",
+                  "restOfWorld": false
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "US Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "3.99",
+                      "currencyCode": "USD"
+                    }
+                  }
+                },
+                {
+                  "name": "US Express Rate (phone number required)",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "11.99",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/DeliveryZone/531941851458",
+              "name": "Worldwide Zone",
+              "countries": [
+                {
+                  "code": null,
+                  "restOfWorld": true
+                }
+              ],
+              "provinces": "not exported for Printful zones (country-level zones)",
+              "methods": [
+                {
+                  "name": "Worldwide Flat Rate",
+                  "description": null,
+                  "active": true,
+                  "conditions": [],
+                  "rate": {
+                    "type": "DeliveryRateDefinition",
+                    "price": {
+                      "amount": "11.99",
+                      "currencyCode": "USD"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rateNames": [
+        "AU Flat Rate",
+        "BR Flat Rate",
+        "CA Flat Rate",
+        "EU Flat Rate",
+        "FT Flat Rate",
+        "GB Flat Rate",
+        "JP Flat Rate",
+        "US Express Rate (phone number required)",
+        "US Flat Rate",
+        "Worldwide Flat Rate"
+      ]
+    }
+  ]
+}
