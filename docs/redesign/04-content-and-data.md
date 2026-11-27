@@ -82,8 +82,8 @@ Before creating these, check Phase 0's export for existing definitions and reuse
 | Object | Handle | Definition |
 | --- | --- | --- |
 | Collection | `jewelry` | Smart: tag = `jewelry` |
-| Collection | `bracelets` | Smart: type = Bracelet |
-| Collection | `necklaces` | Smart: type = Necklace |
+| Collection | `bracelets` | Smart: type = Bracelet **and** tag = `jewelry` (all must match; the tag keeps legacy items out, D-08 spirit, [E-02](changes/E-02.md)) |
+| Collection | `necklaces` | Smart: type = Necklace **and** tag = `jewelry` (all must match; the tag keeps legacy items out, D-08 spirit, [E-02](changes/E-02.md)) |
 | Collection | `rings` | Smart: type = Ring (create only when ring sizing and exchanges are ready) |
 | Page | `our-story`, `why-brass`, `jewelry-care`, `size-guide` | Check for existing handles first; reuse an existing "about" page by redirecting it if one exists |
 | Menu | `jewelry-main-menu` | Shop (→ `/collections/jewelry`; children: All Jewelry, Bracelets, Necklaces, Rings*) · Our Story · Journal (`/blogs/news`) |
