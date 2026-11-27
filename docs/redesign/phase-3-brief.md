@@ -43,7 +43,7 @@ Each item in `owner-inputs.md` section E goes through these six steps, in order.
 | --- | --- | --- |
 | E-01 metafield definitions | Create them (invisible to customers) | n/a |
 | E-02 collections | Create them **with the Online Store channel off**, so they don't appear at URLs or in the sitemap | Make them available on Online Store |
-| E-03 pages | Create them with **visibility: hidden**, on the default template. Admin can't assign the new templates yet: its template list only shows templates from the published (Craft) theme. | Assign the four templates right after the new theme is published, then make the pages visible |
+| E-03 pages | Create them with **visibility: hidden**. Admin can't assign the new templates yet (its template list only shows templates from the published Craft theme), but the Admin API can: E-03 set each page's template suffix to its handle ([`changes/E-03.md`](changes/E-03.md) §1.1). | Check the four templates right after the new theme is published, then make the pages visible |
 | E-04 menus | Create the new menus. The live Craft theme doesn't reference them, so they're invisible. **Never edit `main-menu` or `footer`.** | The new theme starts using them when it's published |
 | E-05 products | Create them with **status: Draft** (no channels) | Set them Active and publish to channels |
 | E-06 Search & Discovery filters | Prepare the list and screenshot the current filters | Apply. Filters are store-wide and would affect the live Craft theme. |
@@ -74,7 +74,7 @@ Run these in parallel where owner time allows. §3.1 is the critical path.
 
 ### 3.2 · Store structure (E-02, E-03, E-04, E-06)
 - **E-02 collections:** `jewelry` (smart: tag `jewelry`), `bracelets` and `necklaces` (smart: product type). Create `rings` only when D-12 allows. The audit confirmed none of these handles exist. Create them **hidden** (§2.1).
-- **E-03 pages:** `our-story`, `why-brass`, `jewelry-care`, `size-guide`. The handles are free, per the audit. Create them **hidden** on the default template, and use the content from §3.3. **Don't try to assign `page.our-story` and the others yet.** Admin's template dropdown only lists the *published* theme's templates, so they won't appear while Craft is live. Preview each layout in the unpublished theme's editor instead. The assignment happens in Phase 5, right after publishing.
+- **E-03 pages:** `our-story`, `why-brass`, `jewelry-care`, `size-guide`. The handles are free, per the audit. Create them **hidden**, and use the content from §3.3. Admin's template dropdown only lists the *published* theme's templates, so `page.our-story` and the others won't appear there while Craft is live. **Done 2026-11-27** ([`changes/E-03.md`](changes/E-03.md)): created hidden with draft bodies, and each template suffix set to its handle through the Admin API, which has no such limit. Preview each layout in the unpublished theme's editor. Phase 5 checks the suffixes right after publishing.
 - **E-04 menus:** `jewelry-main-menu`, `shop-categories`, `footer-shop`, `footer-learn`, `footer-help`, exactly as in 04 §3. Add Rings only when its collection has products.
 - **E-06:** prepare only. Applying it changes filters on the live store.
 - **Done when:** previewing the new theme (unpublished) shows working nav, footer links and category pills, the four page layouts preview correctly in its theme editor, and the live Craft storefront is unchanged.
