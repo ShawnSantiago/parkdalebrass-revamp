@@ -39,7 +39,9 @@
       },
       "active_filters": "Active filters",
       "remove_filter": "Remove filter",
-      "price_range": "{{ min }} to {{ max }}"
+      "price_range": "{{ min }} to {{ max }}",
+      "price_from_only": "From {{ min }}",
+      "price_up_to": "Up to {{ max }}"
     },
     "home": {
       "newsletter": {
@@ -100,6 +102,14 @@
     "sticky_atc": {
       "label": "Add to bag",
       "region": "Quick add to bag"
+    },
+    "footer": {
+      "policy_short": {
+        "privacy": "Privacy",
+        "terms": "Terms",
+        "refund": "Refunds",
+        "shipping": "Shipping"
+      }
     }
   },
   "general": {

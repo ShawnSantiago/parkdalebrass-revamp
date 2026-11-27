@@ -303,16 +303,48 @@
       desktop (display: contents, so ©, policies and select share one row) and after it under 750px (the select,
       then one line of © and policies). It holds no ids, and CSS shows exactly one copy (the other is display: none,
       so it's out of the Tab order and the accessibility tree). Dawn's localization form renders once.
+      Policies print in the canvas order (Privacy, Terms, Refunds, then Shipping), each only when the store has it,
+      then any other published policy under its own title. Each link carries its full title (desktop bar) and a
+      short label (the phone line, pb.footer.policy_short.*); CSS shows one per render. The spaces between parts
+      are real text, so the phone line wraps only between parts.
     {%- endcomment -%}
+    {%- capture pb_footer_policy_items -%}
+      {%- if section.settings.show_policy -%}
+        {%- assign pb_policy_order = 'privacy,terms,refund,shipping' | split: ',' -%}
+        {%- assign pb_policy_urls = '|' -%}
+        {%- for pb_policy_key in pb_policy_order -%}
+          {%- case pb_policy_key -%}
+            {%- when 'privacy' -%}
+              {%- assign pb_policy = shop.privacy_policy -%}
+              {%- assign pb_policy_short = 'pb.footer.policy_short.privacy' | t -%}
+            {%- when 'terms' -%}
+              {%- assign pb_policy = shop.terms_of_service -%}
+              {%- assign pb_policy_short = 'pb.footer.policy_short.terms' | t -%}
+            {%- when 'refund' -%}
+              {%- assign pb_policy = shop.refund_policy -%}
+              {%- assign pb_policy_short = 'pb.footer.policy_short.refund' | t -%}
+            {%- when 'shipping' -%}
+              {%- assign pb_policy = shop.shipping_policy -%}
+              {%- assign pb_policy_short = 'pb.footer.policy_short.shipping' | t -%}
+          {%- endcase -%}
+          {%- if pb_policy != blank -%}
+            {%- assign pb_policy_urls = pb_policy_urls | append: pb_policy.url | append: '|' %}
+            <li><a href="{{ pb_policy.url | escape }}"><span class="pb-footer-bar__policy-full">{{ pb_policy.title | escape }}</span><span class="pb-footer-bar__policy-short">{{ pb_policy_short | escape }}</span></a></li>
+          {%- endif -%}
+        {%- endfor -%}
+        {%- for policy in shop.policies -%}
+          {%- assign pb_policy_url_key = '|' | append: policy.url | append: '|' -%}
+          {%- unless policy == blank or pb_policy_urls contains pb_policy_url_key %}
+            <li><a href="{{ policy.url | escape }}">{{ policy.title | escape }}</a></li>
+          {%- endunless -%}
+        {%- endfor -%}
+      {%- endif -%}
+    {%- endcapture -%}
     {%- capture pb_footer_legal -%}
       <p class="pb-footer-bar__copy">&copy; {{ 'now' | date: '%Y' }} {{ shop.name | escape }}</p>
-      {%- if section.settings.show_policy -%}
+      {%- if pb_footer_policy_items != blank %}
         <ul class="pb-footer-bar__policies list-unstyled" role="list">
-          {%- for policy in shop.policies -%}
-            {%- if policy != blank -%}
-              <li><a href="{{ policy.url | escape }}">{{ policy.title | escape }}</a></li>
-            {%- endif -%}
-          {%- endfor -%}
+          {{- pb_footer_policy_items }}
         </ul>
       {%- endif -%}
     {%- endcapture -%}
@@ -379,7 +411,7 @@
 
   .footer .footer-block__heading {
     color: var(--pb-gold);
-    font: 600 1.1rem / 1.5 var(--font-body-family);
+    font: 600 1.1rem / 1.6 var(--font-body-family);
     letter-spacing: 0.28em;
     text-transform: uppercase;
   }
@@ -459,7 +491,7 @@
     border-top: 1px solid var(--pb-rule);
     color: var(--pb-muted);
     font-size: 1.3rem;
-    line-height: 1.5;
+    line-height: 1.6;
     letter-spacing: normal;
   }
 
@@ -482,11 +514,17 @@
     padding: 0;
   }
 
+  /* The canvas's plain link underline: 1px at the font's own offset (auto), breaking at descenders. */
   .pb-footer-bar__policies a {
     color: var(--pb-muted);
     text-decoration: underline;
     text-decoration-thickness: 1px;
-    text-underline-offset: 0.3rem;
+  }
+
+  /* Full policy titles in the desktop bar, short labels on the phone line. */
+  .pb-footer-bar__legal--desktop .pb-footer-bar__policy-short,
+  .pb-footer-bar__legal--mobile .pb-footer-bar__policy-full {
+    display: none;
   }
 
   .pb-footer-bar__policies a:hover {
@@ -592,6 +630,16 @@
 
     .footer .footer-block__details-content > :first-child .list-menu__item--link {
       padding-top: 0;
+    }
+
+    /* The canvas list ends at its last link's text (a 22.4px line), and each row is a flex line, so the
+       inline-block link adds no baseline strut below it: a 5-link list is 151.95px, as on Archive-Home. */
+    .footer .footer-block__details-content > :last-child .list-menu__item--link {
+      padding-bottom: 0;
+    }
+
+    .footer .pb-footer-menu .footer-block__details-content > li {
+      display: flex;
     }
 
     /* The country list opens above the select and lines up with its right edge. */
@@ -705,34 +753,28 @@
       min-height: 4.4rem;
     }
 
-    /* Each part carries the separator after it, so no line starts with a "·". 24px lines keep the links
-       24px targets (WCAG 2.5.8). */
+    /* Archive-Home-Mobile's legal line: 12px at 1.6, "© year shop · Privacy · Terms · Refunds" in muted, with
+       short policy labels. The parts are inline and never break inside; the spaces between them are real text,
+       so a narrow phone wraps only between parts, and each part carries the "·" after it (behind a no-break
+       space), so no line starts with one. The links keep a 1px underline so they read as links; inline links in
+       a line of text fall under WCAG 2.5.8's inline exception, so the line needn't be 24px. */
     .pb-footer-bar__legal--mobile {
       display: block;
       font-size: 1.2rem;
-      line-height: 2;
+      line-height: 1.6;
     }
 
-    .pb-footer-bar__copy,
-    .pb-footer-bar__policies li {
-      display: inline-block;
-      margin-inline-end: 0.6rem;
-      white-space: nowrap;
-    }
-
-    .pb-footer-bar__policies {
+    .pb-footer-bar__legal--mobile :is(.pb-footer-bar__copy, .pb-footer-bar__policies, li) {
       display: inline;
     }
 
-    .pb-footer-bar__policies a {
-      display: inline-block;
+    .pb-footer-bar__legal--mobile :is(.pb-footer-bar__copy, li) {
+      white-space: nowrap;
     }
 
-    .pb-footer-bar__copy:not(:last-child)::after,
-    .pb-footer-bar__policies li:not(:last-child)::after {
-      content: '\00B7';
-      content: '\00B7' / '';
-      margin-inline-start: 0.6rem;
+    .pb-footer-bar__legal--mobile :is(.pb-footer-bar__copy, li):not(:last-child)::after {
+      content: '\00A0\00B7';
+      content: '\00A0\00B7' / '';
     }
   }
   /* /PB */
