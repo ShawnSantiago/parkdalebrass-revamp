@@ -15,9 +15,25 @@
     endif
   endfor
 
+  # "All articles" (D-36): with a tag, the blog's tag page, shown only once an article in the blog has that tag
+  # (matched by handle, as the tag URL is). With no tag, the whole blog. Hidden without a blog or a label.
   assign pb_show_all = false
+  assign pb_all_url = ''
   if pb_s.view_all_label != blank and pb_s.blog != blank
-    assign pb_show_all = true
+    assign pb_tag_handle = pb_s.tag | strip | handleize
+    if pb_tag_handle == blank
+      assign pb_show_all = true
+      assign pb_all_url = pb_s.blog.url
+    else
+      for pb_t in pb_s.blog.all_tags
+        assign pb_t_handle = pb_t | handleize
+        if pb_t_handle == pb_tag_handle
+          assign pb_show_all = true
+          assign pb_all_url = pb_s.blog.url | append: '/tagged/' | append: pb_tag_handle
+          break
+        endif
+      endfor
+    endif
   endif
 -%}
 
@@ -46,7 +62,7 @@
             </div>
           {%- endif -%}
           {%- if pb_show_all -%}
-            <a class="pb-text-cta pb-journal__all" href="{{ pb_s.blog.url }}">{{ pb_s.view_all_label | escape }}</a>
+            <a class="pb-text-cta pb-journal__all" href="{{ pb_all_url }}">{{ pb_s.view_all_label | escape }}</a>
           {%- endif -%}
         </div>
       {%- endif -%}
@@ -71,7 +87,22 @@
             if block.settings.excerpt != blank
               assign pb_excerpt = block.settings.excerpt | escape
             else
-              assign pb_excerpt = pb_a.excerpt_or_content | strip_html | strip | truncatewords: 22
+              # Legacy article bodies open with their own title as text, so a leading copy of the title (plain or,
+              # as strip_html leaves it, entity-encoded) is dropped before truncating.
+              assign pb_excerpt = pb_a.excerpt_or_content | strip_html | strip
+              assign pb_title_size = pb_a.title.size
+              assign pb_lead = pb_excerpt | slice: 0, pb_title_size
+              if pb_lead == pb_a.title
+                assign pb_excerpt = pb_excerpt | slice: pb_title_size, pb_excerpt.size | strip
+              else
+                assign pb_title_escaped = pb_a.title | escape
+                assign pb_title_size = pb_title_escaped.size
+                assign pb_lead = pb_excerpt | slice: 0, pb_title_size
+                if pb_lead == pb_title_escaped
+                  assign pb_excerpt = pb_excerpt | slice: pb_title_size, pb_excerpt.size | strip
+                endif
+              endif
+              assign pb_excerpt = pb_excerpt | truncatewords: 15
             endif
 
             assign pb_has_image = false
@@ -166,6 +197,12 @@
       "id": "blog",
       "label": "t:sections.pb_journal_picks.settings.blog.label",
       "info": "t:sections.pb_journal_picks.settings.blog.info"
+    },
+    {
+      "type": "text",
+      "id": "tag",
+      "label": "t:sections.pb_journal_picks.settings.tag.label",
+      "info": "t:sections.pb_journal_picks.settings.tag.info"
     },
     {
       "type": "checkbox",

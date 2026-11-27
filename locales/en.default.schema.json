@@ -3902,7 +3902,11 @@
         },
         "blog": {
           "label": "Blog for the \"All articles\" link",
-          "info": "The link is hidden without a blog. Choose one only once its listing shows jewelry, material and care articles alone (D-11)."
+          "info": "The link is hidden without a blog. With a tag below, it goes to the blog's articles with that tag (D-36). With no tag, it goes to the whole blog: leave the tag empty only once the blog lists jewelry, material and care articles alone (D-11)."
+        },
+        "tag": {
+          "label": "Tag for the \"All articles\" link",
+          "info": "For example \"journal\". The link goes to the blog's tag page, and stays hidden until an article in the blog has this tag."
         },
         "show_numerals": {
           "label": "Show roman numerals"
@@ -3922,7 +3926,7 @@
             },
             "excerpt": {
               "label": "Excerpt",
-              "info": "Optional. Defaults to the article excerpt, or its first 22 words."
+              "info": "Optional. Defaults to the first 15 words of the article excerpt or text, without a leading copy of the title."
             },
             "show_image": {
               "label": "Show the article image"

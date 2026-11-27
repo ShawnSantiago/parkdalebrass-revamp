@@ -99,6 +99,15 @@
   padding-inline: 2.8rem;
 }
 
+/* Under 360px the full-width button sits in a narrow box inside the green frame: tighter padding and tracking
+   keep a longer label on one line at 13px, as the hero primary. */
+@media screen and (max-width: 359px) {
+  .pb-newsletter .pb-newsletter__button {
+    padding-inline: 1.6rem;
+    letter-spacing: 0.12em;
+  }
+}
+
 /* Errors: ivory text with an icon (02 §2.4). */
 .pb-newsletter__message {
   display: flex;

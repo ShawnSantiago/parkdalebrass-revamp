@@ -65,6 +65,13 @@
   min-height: 5rem;
 }
 
+/* Full-width mobile secondary: 12px at 0.18em, as the hero's mobile secondary (Archive-Home-Mobile). */
+@media screen and (max-width: 749px) {
+  .pb-split .button.pb-split__button {
+    font-size: 1.2rem;
+  }
+}
+
 /* Media: onyx-raised ground, green-deep inside green panels (02 §1.1). */
 .pb-split__image {
   position: relative;
