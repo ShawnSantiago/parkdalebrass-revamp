@@ -61,26 +61,24 @@
             "link": ""
           }
         },
-        "concept_sunnyside": {
+        "concept_bellwoods": {
           "type": "concept",
           "settings": {
-            "name": "The Sunnyside",
-            "descriptor": "Round pendant",
+            "name": "The Bellwoods",
+            "descriptor": "Pendant",
             "link": ""
           }
         },
-        "concept_roncesvalles": {
+        "concept_brockton": {
           "type": "concept",
-          "disabled": true,
           "settings": {
-            "name": "The Roncesvalles",
-            "descriptor": "Oval signet ring",
+            "name": "The Brockton",
+            "descriptor": "Signet ring",
             "link": ""
           }
         },
         "concept_lansdowne": {
           "type": "concept",
-          "disabled": true,
           "settings": {
             "name": "The Lansdowne",
             "descriptor": "Textured band",
@@ -90,8 +88,8 @@
       },
       "block_order": [
         "concept_junction",
-        "concept_sunnyside",
-        "concept_roncesvalles",
+        "concept_bellwoods",
+        "concept_brockton",
         "concept_lansdowne"
       ],
       "settings": {
