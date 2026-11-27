@@ -2057,6 +2057,19 @@
             }
           }
         },
+        "image": {
+          "name": "Framed image",
+          "settings": {
+            "image": {
+              "label": "Image",
+              "info": "Shown at 4:5 in the double frame, at the reading width. Keep to one fully visible double frame per screen."
+            },
+            "placeholder_note": {
+              "label": "Placeholder caption",
+              "info": "Describes the photo still needed. Shown only while no image is chosen."
+            }
+          }
+        },
         "link": {
           "name": "Link",
           "settings": {

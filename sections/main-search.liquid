@@ -14,6 +14,15 @@
 
 <script src="{{ 'main-search.js' | asset_url }}" defer="defer"></script>
 
+{%- comment -%}
+  PB: Archive search (02 §1.2, §2.2, §2.4, §7): the content-page head (section-pb-page.css), the field with its
+  label above (component-pb-field.css), and the results grid with the shared product card (section-pb-search.css).
+{%- endcomment -%}
+{{ 'section-pb-page.css' | asset_url | stylesheet_tag }}
+{{ 'component-pb-field.css' | asset_url | stylesheet_tag }}
+{{ 'section-pb-search.css' | asset_url | stylesheet_tag }}
+{%- comment -%} /PB {%- endcomment -%}
+
 <style>
   .template-search__header {
     margin-bottom: 3rem;
@@ -64,16 +73,25 @@
 {%- endstyle -%}
 
 {% paginate search.results by 24 %}
-  <div class="template-search{% unless search.performed and search.results_count > 0 %} template-search--empty{% endunless %} section-{{ section.id }}-padding">
+  {%- comment -%} PB: pb-search class (section-pb-search.css) {%- endcomment -%}
+  <div class="template-search pb-search{% unless search.performed and search.results_count > 0 %} template-search--empty{% endunless %} section-{{ section.id }}-padding">
+    {%- comment -%} /PB {%- endcomment -%}
     <div class="template-search__header page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      <h1 class="h2 center">
-        {%- if search.performed -%}
-          {{- 'templates.search.title' | t -}}
-        {%- else -%}
-          {{- 'general.search.search' | t -}}
-        {%- endif -%}
-      </h1>
-      <div class="template-search__search">
+      {%- comment -%} PB: the pb-page head: diamond 18 [14] and the caps H1 54 [40] (02 §1.2, §7) {%- endcomment -%}
+      <div class="pb-page__head pb-search__head">
+        <span class="pb-diamond pb-page__diamond" aria-hidden="true"></span>
+        <h1 class="pb-page__title">
+          {%- if search.performed -%}
+            {{- 'templates.search.title' | t -}}
+          {%- else -%}
+            {{- 'general.search.search' | t -}}
+          {%- endif -%}
+        </h1>
+      </div>
+      {%- comment -%} /PB {%- endcomment -%}
+      {%- comment -%} PB: pb-field: the label above the 48px control (02 §2.4) {%- endcomment -%}
+      <div class="template-search__search pb-field">
+        {%- comment -%} /PB {%- endcomment -%}
         {%- if settings.predictive_search_enabled -%}
           <predictive-search data-loading-text="{{ 'accessibility.loading' | t }}">
         {%- endif -%}
@@ -135,13 +153,17 @@
       {%- if search.performed -%}
         {%- unless section.settings.enable_filtering or section.settings.enable_sorting -%}
           {%- if search.results_count > 0 -%}
-            <p role="status">
+            {%- comment -%} PB: centred at the field width {%- endcomment -%}
+            <p class="pb-search__status" role="status">
+              {%- comment -%} /PB {%- endcomment -%}
               {{ 'templates.search.results_with_count_and_term' | t: terms: search.terms, count: search.results_count }}
             </p>
           {%- endif -%}
         {%- endunless -%}
         {%- if search.results_count == 0 and search.filters == empty -%}
-          <p role="status">{{ 'templates.search.no_results' | t: terms: search.terms }}</p>
+          {%- comment -%} PB: centred at the field width {%- endcomment -%}
+          <p class="pb-search__status" role="status">{{ 'templates.search.no_results' | t: terms: search.terms }}</p>
+          {%- comment -%} /PB {%- endcomment -%}
         {%- endif -%}
       {%- endif -%}
     </div>
@@ -256,7 +278,6 @@
                 class="grid product-grid  grid--{{ section.settings.columns_mobile }}-col-tablet-down grid--{{ section.settings.columns_desktop }}-col-desktop"
                 role="list"
               >
-                {%- assign skip_card_product_styles = false -%}
                 {%- for item in search.results -%}
                   {% assign lazy_load = false %}
                   {%- if forloop.index > 2 -%}
@@ -271,19 +292,18 @@
                   >
                     {%- case item.object_type -%}
                       {%- when 'product' -%}
-                        {%- capture product_settings -%}{%- if section.settings.product_show_vendor -%}vendor,{%- endif -%}title,price{%- endcapture -%}
-                        {% render 'card-product',
+                        {%- comment -%}
+                          PB: the shared Archive product card (02 §2.2), as on the collection grid. It ignores
+                          image_ratio, image_shape, show_vendor and show_rating (no ratings, D-13).
+                        {%- endcomment -%}
+                        {% render 'pb-product-card',
                           card_product: item,
-                          media_aspect_ratio: section.settings.image_ratio,
-                          image_shape: section.settings.image_shape,
                           show_secondary_image: section.settings.show_secondary_image,
-                          show_vendor: section.settings.show_vendor,
-                          show_rating: section.settings.show_rating,
                           lazy_load: lazy_load,
-                          skip_styles: skip_card_product_styles,
+                          sizes: '(min-width: 1440px) 311px, (min-width: 960px) calc((100vw - 196px) / 4), (min-width: 750px) calc(50vw - 70px), calc(50vw - 26px)',
                           product_view_context: 'search'
                         %}
-                        {%- assign skip_card_product_styles = true -%}
+                        {%- comment -%} /PB {%- endcomment -%}
                       {%- when 'article' -%}
                         {% render 'article-card',
                           article: item,

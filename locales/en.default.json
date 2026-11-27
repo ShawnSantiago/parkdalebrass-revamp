@@ -61,7 +61,9 @@
       "success": "Thanks. You're on the list."
     },
     "blog": {
-      "articles": "Articles"
+      "articles": "Articles",
+      "back_to_journal": "Back to the journal",
+      "journal_title": "Journal"
     },
     "page": {
       "table_label": "Table {{ index }}",

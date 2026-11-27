@@ -1,12 +1,13 @@
 /* PB · Journal: Archive restyle of Dawn's blog and article templates (sections/main-blog.liquid,
-   sections/main-article.liquid, snippets/article-card.liquid). CSS only; Dawn's markup is unchanged.
+   sections/main-article.liquid, snippets/article-card.liquid). Mostly CSS; the Dawn edits are logged in CHANGELOG.
    02 has no blog or article artboard (03 §0: "Dawn + CSS"), so this reuses the closest specified patterns:
    - the page head of the content pages (02 §7) and the collection head (Archive-Collection): a centred
      diamond 18 [14], the H1 in caps at 54 [40], the date set as a dateline;
-   - the journal card (02 §4.7, Archive-Home and -Mobile): a 1px gold top rule, padding-top 22 [16], the tag line
-     (Inter 600 11, 0.28em, muted), the title (Cormorant 600 28 [22]) and the excerpt (15, muted); 3-up with a
-     40px gap from 960px, stacked below it (28px gap on mobile, 40px from 750px), as pb-journal-picks and the
-     Archive-Home .ar-g3 grid. No roman numerals on the index (pending owner approval; see the track report).
+   - the journal card (02 §4.7, Archive-Home and -Mobile): a 1px gold top rule, padding-top 22 [16], a roman
+     numeral (Cormorant 500 34 [28], gold; D-38: numbered across pages by main-blog), the tag line (Inter 600 11,
+     0.28em, muted), the title (Cormorant 600 28 [22]) and the excerpt (15, muted); 3-up with a 40px gap from
+     960px, stacked below it (28px gap on mobile, 40px from 750px), as pb-journal-picks and the Archive-Home
+     .ar-g3 grid. Under 750px the numeral sits in a 40px column beside the title (Archive-Home-Mobile).
    Article bodies use component-pb-prose.css. Values scale fluidly between 390 and 1440. */
 
 /* ---------- Shared head: diamond, caps H1 ---------- */
@@ -133,6 +134,18 @@
   text-align: start;
 }
 
+/* Roman numeral (02 §1.2, §4.7), as pb-journal-picks: above the tag line and the title. */
+.main-blog .article-card .pb-journal__numeral {
+  order: -2;
+  font-family: var(--pb-serif);
+  /* 28px at 390, 34px at 1440 */
+  font-size: clamp(2.8rem, calc(0.5714vw + 2.5771rem), 3.4rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: normal;
+  color: var(--pb-gold);
+}
+
 .main-blog .article-card .article-card__info {
   order: -1;
   padding: 0;
@@ -177,6 +190,35 @@
   font-size: 1.3rem;
   letter-spacing: normal;
   color: var(--pb-muted);
+}
+
+/* Under 750px: the numeral in a 40px column, level with the title (Archive-Home-Mobile, 02 §4.7). */
+@media screen and (max-width: 749px) {
+  /* Only the copy Dawn shows (the text card's inner one, the image card's outer one). */
+  .main-blog .article-card.card--text > .card__inner .card__information:has(> .pb-journal__numeral),
+  .main-blog .article-card.card--media > .card__content .card__information:has(> .pb-journal__numeral) {
+    display: grid;
+    grid-template-columns: 4rem minmax(0, 1fr);
+    column-gap: 1.2rem;
+    row-gap: 1.2rem;
+  }
+
+  .main-blog .article-card .card__information:has(> .pb-journal__numeral) > * {
+    grid-column: 2;
+  }
+
+  .main-blog .article-card .card__information > .pb-journal__numeral {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .main-blog .article-card .card__information:has(> .article-card__info:not(:empty)) > .pb-journal__numeral {
+    grid-row: 2;
+  }
+
+  .main-blog .article-card .card__information:has(> .pb-journal__numeral) > .article-card__info:empty {
+    display: none;
+  }
 }
 
 /* One focus ring, on the whole card (the link's hit area), in the Archive focus style (02 §1.4). */
@@ -292,8 +334,12 @@
   color: var(--pb-gold);
 }
 
+/* Hover stays gold and underlines the label (02 §1.4: hover is a gold colour change or a gold underline). */
 .article-template .share-button__button:hover {
-  color: var(--pb-gold-pale);
+  color: var(--pb-gold);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.6rem;
 }
 
 .article-template .share-button__button .svg-wrapper {
@@ -304,11 +350,16 @@
   margin-top: clamp(4rem, calc(0.7619vw + 3.7029rem), 4.8rem);
 }
 
-.article-template .article-template__back:last-child {
+.article-template .article-template__back:last-child,
+.article-template > .page-width:last-child {
   margin-bottom: clamp(7.2rem, calc(3.8095vw + 5.7143rem), 11.2rem);
 }
 
+/* The link box is the label's width (centred by .center on the wrapper), so the row around it isn't clickable and
+   the focus ring stays in view. 44px hit area. */
 .article-template .article-template__link {
+  display: inline-flex;
+  vertical-align: top;
   min-height: 4.4rem;
   font-size: 1.3rem;
   font-weight: 600;
@@ -321,7 +372,8 @@
 }
 
 .article-template .article-template__link:hover {
-  color: var(--pb-gold-pale);
+  color: var(--pb-gold);
+  text-decoration-thickness: 2px;
 }
 
 /* Comments, when the blog has them on */

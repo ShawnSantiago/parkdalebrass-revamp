@@ -4,7 +4,9 @@
   - The page body (page.content) at the editorial width, as styled long-form rich text.
     Tables are wrapped (snippets/pb-table-wrap.liquid) so a wide size table scrolls sideways on small screens.
   - Optional blocks after the body: text (e.g. the contact page's previous-orders note),
-    HTML (e.g. a table) and links (gold text CTAs; consecutive links share a row).
+    HTML (e.g. a table), an image (double-framed 4:5 at the reading width, e.g. Our Story, 02 §7; the 02 §3
+    placeholder with its caption chip until an image is chosen) and links (gold text CTAs; consecutive links
+    share a row).
   Placeholder rule (AGENTS.md): a text or HTML block containing a [bracketed placeholder]
   renders only in the theme editor, marked "preview only". The storefront hides it.
   A link to a collection shows only once that collection has products (02 §2.3, D-12).
@@ -110,6 +112,34 @@
                 </div>
               {%- endunless -%}
             {%- endif -%}
+
+          {%- when 'image' -%}
+            <div class="pb-page__block pb-page__block--image" {{ block.shopify_attributes }}>
+              <div class="pb-frame pb-page__frame">
+                <div class="pb-frame__inner pb-page__image">
+                  {%- if block.settings.image != blank -%}
+                    {{
+                      block.settings.image
+                      | image_url: width: 1500
+                      | image_tag:
+                        class: 'pb-page__img',
+                        widths: '375, 550, 750, 1100, 1500',
+                        sizes: '(min-width: 750px) 680px, calc(100vw - 58px)',
+                        loading: 'lazy'
+                    }}
+                  {%- else -%}
+                    <div class="pb-placeholder pb-page__placeholder">
+                      <span class="pb-page__placeholder-art" aria-hidden="true">
+                        {{- 'image' | placeholder_svg_tag: 'placeholder-svg' -}}
+                      </span>
+                      {%- if block.settings.placeholder_note != blank -%}
+                        <p class="pb-placeholder__note">{{ block.settings.placeholder_note | escape }}</p>
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+                </div>
+              </div>
+            </div>
 
           {%- when 'link' -%}
             {%- liquid
@@ -310,6 +340,24 @@
           "id": "anchor",
           "label": "t:sections.pb_page.blocks.text.settings.anchor.label",
           "info": "t:sections.pb_page.blocks.text.settings.anchor.info"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "t:sections.pb_page.blocks.image.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.pb_page.blocks.image.settings.image.label",
+          "info": "t:sections.pb_page.blocks.image.settings.image.info"
+        },
+        {
+          "type": "text",
+          "id": "placeholder_note",
+          "label": "t:sections.pb_page.blocks.image.settings.placeholder_note.label",
+          "info": "t:sections.pb_page.blocks.image.settings.placeholder_note.info"
         }
       ]
     },
