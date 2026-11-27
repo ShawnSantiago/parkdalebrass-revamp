@@ -22,7 +22,7 @@ The single list of everything waiting on the Parkdale Brass owner. Agents: **don
 | ID | Decision / input | Reference | Blocks | Status | Date / note |
 | --- | --- | --- | --- | --- | --- |
 | B-01 | Approve the overall visual direction (palette, type, layout) | Canvas page B, `02-design-spec.md` §1–2, D-19 | Phase 1 | Approved | 2026-11-25: Direction B "Archive" (black, gold, royal green) chosen in design review |
-| B-02 | Approve the homepage section order and copy | `02` §4, `04` §1 | Phase 2 | Open | n/a |
+| B-02 | Approve the homepage section order and copy | `02` §4, `04` §1 | Phase 2 | Open | 2026-11-27: concept lineup updated by D-41 (The Junction, The Bellwoods, The Brockton, The Lansdowne). |
 | B-03 | Approve the collection and product page layouts | `02` §5–6 | Phase 2 | Open | n/a |
 | B-04 | Logo: supply the existing logo files and decide whether to keep, refresh, or use the typeset wordmark | D-14 | Phase 1 (temporary wordmark allowed), launch | Open | 2026-11-26: the live logo is `shopify://shop_images/g3727_140x_2x_1.png` (130 px). No favicon is set. Recommend supplying the original SVG; the wordmark stays until then. |
 | B-05 | Approve the brand story copy ("Rooted in Parkdale", Our Story page) | `04` §1 | Launch | Open | 2026-11-26: the only origin facts in the live theme are 2019, Parkdale, Toronto and the founder's name (homepage "Story" section). Confirm them in writing, and whether the founder is named on Our Story. |
@@ -34,14 +34,14 @@ The single list of everything waiting on the Parkdale Brass owner. Agents: **don
 
 | ID | Input | Blocks | Status | Date / note |
 | --- | --- | --- | --- | --- |
-| C-01 | Final launch products: names, designs, categories (start with cuffs and pendants?). Fill in one fact sheet per product (`product-data/README.md`). | Phase 3 | Open | n/a |
+| C-01 | Final launch products: names, designs, categories (start with cuffs and pendants?). Fill in one fact sheet per product (`product-data/README.md`). | Phase 3 | Open | 2026-11-27: the owner named two launch pieces: **The Brockton** (signet ring) and **The Bellwoods** (pendant) (D-39). Fact sheets: [`product-data/the-brockton-signet.md`](product-data/the-brockton-signet.md), [`product-data/the-bellwoods-pendant.md`](product-data/the-bellwoods-pendant.md). |
 | C-02 | Material composition per SKU + safety documentation/testing (alloy components, coatings, market requirements) | Phase 3 | Open | n/a |
 | C-03 | Actual finishes and coatings per SKU; whether each finish patinas | Phase 3 | Open | n/a |
-| C-04 | Dimensions, size ranges and tested adjustability (rings, cuffs, chains) | Phase 3 | Open | n/a |
+| C-04 | Dimensions, size ranges and tested adjustability (rings, cuffs, chains) | Phase 3 | Open | 2026-11-27: ring sizes and tested fit for The Brockton signet now block launch (D-40). |
 | C-05 | Care instructions confirmed on samples, per finish | Phase 3 | Open | n/a |
 | C-06 | Country of origin per SKU (if it will be disclosed) | Phase 3 | Open | n/a |
 | C-07 | Prices (CAD) and any other market currencies | Phase 3 | Open | n/a |
-| C-08 | Stock levels and fulfilment capacity | Phase 3 | Open | n/a |
+| C-08 | Stock levels and fulfilment capacity | Phase 3 | Open | 2026-11-27: needs stock per ring size for The Brockton (D-40). |
 | C-09 | Product photography: P1–P4 per product and finish, per `photography-brief.md` | Phase 3 | Open | n/a |
 | C-11 | Clean up product types (most are blank) before smart collections rely on them; decide brand-merch products (tees, hat, slides, mug): keep outside the jewelry nav, or unpublish | Phase 3 | Open | Found in audit §3 |
 | C-10 | Editorial imagery E1–E6, per `photography-brief.md` | Launch | Open | n/a |
@@ -51,7 +51,7 @@ The single list of everything waiting on the Parkdale Brass owner. Agents: **don
 | ID | Input | Blocks | Status | Date / note |
 | --- | --- | --- | --- | --- |
 | D-01 | Shipping markets, delivery times, duties/taxes messaging | Launch | Open | n/a |
-| D-02 | Returns and exchanges for jewelry, including ring resizing | Launch | Open | n/a |
+| D-02 | Returns and exchanges for jewelry, including ring resizing | Launch | Open | 2026-11-27: ring resizing and exchanges now block launch (D-40). |
 | D-03 | Newsletter consent wording (CASL-compliant express consent) | Prelaunch signup going public | Open | n/a |
 | D-04 | Lawful basis for emailing existing (legacy) subscribers about jewelry | Any launch email | Open | n/a |
 | D-05 | Privacy policy and terms review for the new category | Launch | Open | n/a |
@@ -62,14 +62,14 @@ The single list of everything waiting on the Parkdale Brass owner. Agents: **don
 | ID | Change | Reference | Backup first | Status | Approved by / date |
 | --- | --- | --- | --- | --- | --- |
 | E-01 | Create `custom.*` product metafield definitions | `04` §2 | Export the existing definitions list | Open | 2026-11-27: the theme reads all nine `04` §2 keys and hides empty ones. Optional extra: a collection metafield `custom.category_line` (single-line text) for collection category lines (D-37). |
-| E-02 | Create collections `jewelry`, `bracelets`, `necklaces` (`rings` later) | `04` §3 | n/a (additive) | Open | n/a |
+| E-02 | Create collections `jewelry`, `bracelets`, `necklaces` (`rings` later) | `04` §3 | n/a (additive) | Open | 2026-11-27: add `rings` (type = Ring AND tag = jewelry), hidden like the others (D-40). |
 | E-03 | Create pages `our-story`, `why-brass`, `jewelry-care`, `size-guide` (after a handle-collision check) | `04` §3 | n/a (additive) | Open | n/a |
 | E-04 | Create new menus (old menus untouched) | `04` §3, D-07 | Screenshot the existing menus | **Approved**, not yet applied | Project lead, 2026-11-26. Create `jewelry-main-menu`, `shop-categories`, `footer-shop`, `footer-learn` and `footer-help` exactly as in `04` §3. Leave `main-menu` and `footer` untouched. Rings links are added only once that collection has products. Needs Admin access (the Theme Access password can't create menus), so the owner creates them in Admin → Content → Menus, or provides an Admin token with navigation scope. Screenshot the existing menus first. |
-| E-05 | Add real jewelry products | `04` §2 | n/a (additive) | Open | n/a |
+| E-05 | Add real jewelry products | `04` §2 | n/a (additive) | Open | 2026-11-27: The Brockton (`the-brockton-signet`, type Ring) and The Bellwoods (`the-bellwoods-pendant`, type Necklace) as Draft products, no channels, once their facts are supplied (D-39). |
 | E-06 | Set Search & Discovery filters to Availability + Price | `03` §8 | Screenshot the current filters | Open | n/a |
 | E-07 | Update the jewelry blog articles (accuracy, internal links) | `04` §5 | Copy the HTML to `docs/redesign/backup/` | **Corrective part done 2026-11-27**; consolidation and internal links still open | Owner said yes in chat (2026-11-27). Fixed the wrong hypoallergenic sentence in `is-brass-good-for-jewelry`. `does-brass-jewelry-tarnish` needed no fix: its sentence is about stainless steel. [`changes/G-10-G-12-E-07.md`](changes/G-10-G-12-E-07.md) |
-| E-08 | Unpublish legacy products from Online Store / Shop / Google channels | `04` §5–6 | Products CSV export | Open | n/a |
-| E-09 | Create URL redirects for retired URLs (per the approved inventory) | `04` §5, D-16 | Redirects CSV export | Open | n/a |
+| E-08 | Unpublish legacy products from Online Store / Shop / Google channels | `04` §5–6 | Products CSV export | Open | 2026-11-27: includes archiving `brockton-mk2`, `brockton-mk2-special-edition` and `the-bellwoods-one-hitter` at launch, CSV first (D-39). |
+| E-09 | Create URL redirects for retired URLs (per the approved inventory) | `04` §5, D-16 | Redirects CSV export | Open | 2026-11-27: includes 301s `/products/brockton-mk2` and `/products/brockton-mk2-special-edition` → `/products/the-brockton-signet`, and `/products/the-bellwoods-one-hitter` → `/products/the-bellwoods-pendant`, after the A-03 check (D-39). |
 | E-10 | Update policies (shipping, refunds, privacy, terms) | Section D | Copy the current policy text | Open | n/a |
 | E-11 | Update homepage title, meta description and social image | `04` §5 | Note the current values | Open | n/a |
 | E-12 | Merchant Center / ads feed changes | `01` Phase 5 | Note the account status | Open | n/a |

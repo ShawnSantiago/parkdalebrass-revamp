@@ -84,7 +84,7 @@ Before creating these, check Phase 0's export for existing definitions and reuse
 | Collection | `jewelry` | Smart: tag = `jewelry` |
 | Collection | `bracelets` | Smart: type = Bracelet |
 | Collection | `necklaces` | Smart: type = Necklace |
-| Collection | `rings` | Smart: type = Ring (create only when ring sizing and exchanges are ready) |
+| Collection | `rings` | Smart: type = Ring (created hidden in Phase 3; rings launch with The Brockton signet, D-40) |
 | Page | `our-story`, `why-brass`, `jewelry-care`, `size-guide` | Check for existing handles first; reuse an existing "about" page by redirecting it if one exists |
 | Menu | `jewelry-main-menu` | Shop (→ `/collections/jewelry`; children: All Jewelry, Bracelets, Necklaces, Rings*) · Our Story · Journal (`/blogs/news`) |
 | Menu | `shop-categories` | All (`/collections/jewelry`), Bracelets, Necklaces, Rings* |
@@ -92,7 +92,7 @@ Before creating these, check Phase 0's export for existing definitions and reuse
 | Menu | `footer-learn` | Our Story, Why Brass?, Jewelry Care, Size Guide, Journal |
 | Menu | `footer-help` | Shipping & Returns (policy URL), Contact, Support for previous orders (contact page anchor) |
 
-\* Add only when the collection has published products.
+\* Rings launch with The Brockton signet (D-40). The Rings items are in the menus from Phase 3. The live theme doesn't use these menus, so the items only show once the new theme is published.
 
 The existing `main-menu` and `footer` menus are **not edited**. They stay as the rollback path.
 

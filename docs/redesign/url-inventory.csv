@@ -7,13 +7,13 @@ product,/products/toddler-short-sleeve-tee,brand-merch,"Owner decision: keep as 
 product,/products/men-s-slides-gold,brand-merch,"Owner decision: keep as brand merch outside jewelry nav, or unpublish",Men’s slides (Gold),,,,,,,
 product,/products/men-s-slides,brand-merch,"Owner decision: keep as brand merch outside jewelry nav, or unpublish",Men’s slides,,,,,,,
 product,/products/dad-hat-1,brand-merch,"Owner decision: keep as brand merch outside jewelry nav, or unpublish",Dad hat,,,,,,,
-product,/products/the-bellwoods-one-hitter,legacy-smoking,Retirement decision after traffic/backlink/support audit; no blanket redirect to home,The Bellwoods One-Hitter,,,,,,,
+product,/products/the-bellwoods-one-hitter,legacy-smoking,Archive at launch (CSV first); 301 to the same-name jewelry piece after the A-03 check (D-39),The Bellwoods One-Hitter,,,,,/products/the-bellwoods-pendant,Owner (D-39),2026-11-27
 product,/products/6-5-long-bristle-scrubbing-pipe-cleaners-3-cleaners,legacy-smoking,Retirement decision after traffic/backlink/support audit; no blanket redirect to home,"6.5"" Long Bristle Scrubbing Pipe Cleaners - 3 Cleaners",,,,,,,
 product,/products/short-sleeve-unisex-t-shirt-5,brand-merch,"Owner decision: keep as brand merch outside jewelry nav, or unpublish",Short-Sleeve Unisex T-Shirt,,,,,,,
 product,/products/short-sleeve-unisex-t-shirt-4,brand-merch,"Owner decision: keep as brand merch outside jewelry nav, or unpublish",Short-Sleeve Unisex T-Shirt,,,,,,,
-product,/products/brockton-mk2-special-edition,legacy-smoking,Retirement decision after traffic/backlink/support audit; no blanket redirect to home,The Brockton Mk2 Special Edition,,,,,,,
+product,/products/brockton-mk2-special-edition,legacy-smoking,Archive at launch (CSV first); 301 to the same-name jewelry piece after the A-03 check (D-39),The Brockton Mk2 Special Edition,,,,,/products/the-brockton-signet,Owner (D-39),2026-11-27
 product,/products/brass-pipe-screens,legacy-smoking,Retirement decision after traffic/backlink/support audit; no blanket redirect to home,Brass Pipe Screens,,,,,,,
-product,/products/brockton-mk2,legacy-smoking,Retirement decision after traffic/backlink/support audit; no blanket redirect to home,The Brockton Mk2,,,,,,,
+product,/products/brockton-mk2,legacy-smoking,Archive at launch (CSV first); 301 to the same-name jewelry piece after the A-03 check (D-39),The Brockton Mk2,,,,,/products/the-brockton-signet,Owner (D-39),2026-11-27
 collection,/collections/accessories,legacy/internal,Retire or keep unlinked; decide with traffic data,Accessories (1 products),,,,,,,
 collection,/collections/apparel,brand-merch,Owner decision (see apparel products),Apparel (6 products),,,,,,,
 collection,/collections/cleaning,empty,Unpublish candidate (0 products); confirm no traffic,Cleaning (0 products),,,,,,,
