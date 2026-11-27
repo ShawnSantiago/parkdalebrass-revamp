@@ -1,0 +1,4276 @@
+{
+  "exportedAt": "2026-11-27T01:09:53Z",
+  "source": {
+    "store": "parkdale-brass.myshopify.com",
+    "method": "Shopify Admin GraphQL through the Shopify connector (graphql_query, read-only). No mutations.",
+    "personalData": "None. No customer, order, staff or author fields were queried."
+  },
+  "scope": "Every product in every status (status:active,draft,archived,unlisted; productsCount 14, all pages read).",
+  "notes": [
+    "publications lists every APP-catalog publication the product is added to (onlyPublished:false); a channel missing from the list means the product is not added to it.",
+    "marketCatalogPublications are the MARKET catalogs (Canada, US, International).",
+    "inventoryQuantity is summed across locations by Shopify; totalInventory is Shopify's own product total."
+  ],
+  "publicationsInStore": [
+    {
+      "publicationId": "gid://shopify/Publication/31212404798",
+      "catalogType": "APP",
+      "channel": "Online Store",
+      "channelHandle": "online_store",
+      "appId": "gid://shopify/App/580111"
+    },
+    {
+      "publicationId": "gid://shopify/Publication/42672619582",
+      "catalogType": "APP",
+      "channel": "Facebook & Instagram",
+      "channelHandle": "facebook-ads",
+      "appId": "gid://shopify/App/2329312"
+    },
+    {
+      "publicationId": "gid://shopify/Publication/44203671614",
+      "catalogType": "APP",
+      "channel": "Inbox",
+      "channelHandle": "shopify-inbox",
+      "appId": "gid://shopify/App/3026047"
+    },
+    {
+      "publicationId": "gid://shopify/Publication/298917691714",
+      "catalogType": "APP",
+      "channel": "Concierge Shopping Guide - CM",
+      "channelHandle": "concierge-shopping-guide-cm",
+      "appId": "gid://shopify/App/338300665857"
+    },
+    {
+      "publicationId": "gid://shopify/Publication/329615475010",
+      "catalogType": "APP",
+      "channel": "Whatnot",
+      "channelHandle": "whatnot-sales-channel",
+      "appId": "gid://shopify/App/292572659713"
+    },
+    {
+      "publicationId": "gid://shopify/Publication/113037967682",
+      "catalogType": "MARKET",
+      "catalog": "Canada"
+    },
+    {
+      "publicationId": "gid://shopify/Publication/113038033218",
+      "catalogType": "MARKET",
+      "catalog": "US"
+    },
+    {
+      "publicationId": "gid://shopify/Publication/113038000450",
+      "catalogType": "MARKET",
+      "catalog": "International"
+    }
+  ],
+  "summary": {
+    "productCount": 14,
+    "byStatus": {
+      "ACTIVE": 12,
+      "ARCHIVED": 1,
+      "DRAFT": 1,
+      "UNLISTED": 0
+    },
+    "byProductType": {
+      "(blank)": 6,
+      "Screens": 1,
+      "Slides": 2,
+      "T Shirt": 1,
+      "Wicks": 1,
+      "pipe": 3
+    },
+    "byProductTypeAndStatus": {
+      "(blank)": {
+        "ACTIVE": 6
+      },
+      "Screens": {
+        "ACTIVE": 1
+      },
+      "Slides": {
+        "ACTIVE": 2
+      },
+      "T Shirt": {
+        "ACTIVE": 1
+      },
+      "Wicks": {
+        "DRAFT": 1
+      },
+      "pipe": {
+        "ACTIVE": 2,
+        "ARCHIVED": 1
+      }
+    },
+    "variantCount": 116,
+    "variantsByInventoryPolicy": {
+      "DENY": 116
+    },
+    "continueVariants": [],
+    "negativeInventoryVariants": [
+      {
+        "product": "6-5-long-bristle-scrubbing-pipe-cleaners-3-cleaners",
+        "variant": "Default Title",
+        "inventoryQuantity": -28,
+        "inventoryPolicy": "DENY"
+      }
+    ],
+    "nonEmptyTemplateSuffixes": [
+      {
+        "handle": "brockton-mk2",
+        "status": "ACTIVE",
+        "templateSuffix": "brocktonmk2",
+        "craftOnly": true,
+        "onOnlineStore": true
+      },
+      {
+        "handle": "the-bellwoods-one-hitter",
+        "status": "ACTIVE",
+        "templateSuffix": "bellwoods",
+        "craftOnly": true,
+        "onOnlineStore": true
+      }
+    ],
+    "productsPerChannel": {
+      "Online Store": 12,
+      "Facebook & Instagram": 4,
+      "Inbox": 6,
+      "Concierge Shopping Guide - CM": 12,
+      "Whatnot": 12
+    },
+    "productsPerMarketCatalog": {
+      "Canada": 12,
+      "US": 12,
+      "International": 12
+    },
+    "jewelryProducts": [],
+    "plannedHandleCollisions": []
+  },
+  "products": [
+    {
+      "id": "gid://shopify/Product/2145566883902",
+      "legacyResourceId": "2145566883902",
+      "handle": "the-brockton",
+      "title": "The Brockton",
+      "status": "ARCHIVED",
+      "productType": "pipe",
+      "vendor": "Parkdale Brass",
+      "tags": [
+        "BrocktonMK1",
+        "Metal Smoking Pipes",
+        "shop",
+        "Smoking Accessories"
+      ],
+      "templateSuffix": "",
+      "craftOnlyTemplateSuffix": false,
+      "onlineStoreUrl": null,
+      "publishedAt": null,
+      "createdAt": "2019-05-06T23:59:25Z",
+      "updatedAt": "2026-03-24T16:29:33Z",
+      "category": null,
+      "hasOnlyDefaultVariant": true,
+      "tracksInventory": true,
+      "totalInventory": 0,
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ],
+      "variantCount": 1,
+      "continueVariantCount": 0,
+      "negativeInventoryVariantCount": 0,
+      "variants": [
+        {
+          "id": "gid://shopify/ProductVariant/19657272787006",
+          "title": "Default Title",
+          "position": 1,
+          "sku": "BRCKTN_001",
+          "selectedOptions": [
+            {
+              "name": "Title",
+              "value": "Default Title"
+            }
+          ],
+          "price": "120.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 0,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": false
+        }
+      ],
+      "collections": [
+        {
+          "id": "gid://shopify/Collection/158879023166",
+          "handle": "metal-smoking-pipes",
+          "title": "Metal Smoking Pipes"
+        }
+      ],
+      "publishedOnChannels": [],
+      "publishedOnMarketCatalogs": [],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": false,
+          "publishDate": null
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": false,
+          "publishDate": null
+        }
+      ],
+      "marketCatalogPublications": [
+        {
+          "publicationId": "gid://shopify/Publication/113037967682",
+          "catalog": "Canada",
+          "isPublished": false,
+          "publishDate": null
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038033218",
+          "catalog": "US",
+          "isPublished": false,
+          "publishDate": null
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038000450",
+          "catalog": "International",
+          "isPublished": false,
+          "publishDate": null
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/4409295863870",
+      "legacyResourceId": "4409295863870",
+      "handle": "brockton-mk2",
+      "title": "The Brockton Mk2",
+      "status": "ACTIVE",
+      "productType": "pipe",
+      "vendor": "Parkdale Brass",
+      "tags": [
+        "__tab1:protective-magnetic-lid",
+        "__tab2:smokes-from-the-bottom",
+        "BrocktonMk2",
+        "etsy",
+        "Metal Smoking Pipes",
+        "shop",
+        "Smoking Accessories"
+      ],
+      "templateSuffix": "brocktonmk2",
+      "craftOnlyTemplateSuffix": true,
+      "onlineStoreUrl": "https://parkdalebrass.com/products/brockton-mk2",
+      "publishedAt": "2019-12-24T16:22:24Z",
+      "createdAt": "2019-12-24T16:24:03Z",
+      "updatedAt": "2026-10-17T14:10:20Z",
+      "category": "Uncategorized",
+      "hasOnlyDefaultVariant": true,
+      "tracksInventory": true,
+      "totalInventory": 0,
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ],
+      "variantCount": 1,
+      "continueVariantCount": 0,
+      "negativeInventoryVariantCount": 0,
+      "variants": [
+        {
+          "id": "gid://shopify/ProductVariant/32205639417918",
+          "title": "Default Title",
+          "position": 1,
+          "sku": "BRCKTN_002",
+          "selectedOptions": [
+            {
+              "name": "Title",
+              "value": "Default Title"
+            }
+          ],
+          "price": "120.00",
+          "compareAtPrice": "0.00",
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 0,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": false
+        }
+      ],
+      "collections": [
+        {
+          "id": "gid://shopify/Collection/158879023166",
+          "handle": "metal-smoking-pipes",
+          "title": "Metal Smoking Pipes"
+        },
+        {
+          "id": "gid://shopify/Collection/261430411326",
+          "handle": "etsy",
+          "title": "Etsy"
+        },
+        {
+          "id": "gid://shopify/Collection/266174103614",
+          "handle": "featured-products",
+          "title": "Featured Products"
+        }
+      ],
+      "publishedOnChannels": [
+        "Online Store",
+        "Facebook & Instagram",
+        "Inbox",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "publishedOnMarketCatalogs": [
+        "Canada",
+        "US",
+        "International"
+      ],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2019-12-24T16:22:24Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/42672619582",
+          "channel": "Facebook & Instagram",
+          "channelHandle": "facebook-ads",
+          "isPublished": true,
+          "publishDate": "2021-10-12T13:30:49Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/44203671614",
+          "channel": "Inbox",
+          "channelHandle": "shopify-inbox",
+          "isPublished": true,
+          "publishDate": "2022-02-12T15:22:15Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-24T16:29:33Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:54Z"
+        }
+      ],
+      "marketCatalogPublications": [
+        {
+          "publicationId": "gid://shopify/Publication/113037967682",
+          "catalog": "Canada",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038033218",
+          "catalog": "US",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038000450",
+          "catalog": "International",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/4467093962814",
+      "legacyResourceId": "4467093962814",
+      "handle": "brass-pipe-screens",
+      "title": "Brass Pipe Screens",
+      "status": "ACTIVE",
+      "productType": "Screens",
+      "vendor": "Parkdale Brass",
+      "tags": [
+        "accessories",
+        "pipe accessories"
+      ],
+      "templateSuffix": "",
+      "craftOnlyTemplateSuffix": false,
+      "onlineStoreUrl": "https://parkdalebrass.com/products/brass-pipe-screens",
+      "publishedAt": "2020-03-22T01:20:08Z",
+      "createdAt": "2020-03-22T01:24:02Z",
+      "updatedAt": "2026-10-17T14:05:38Z",
+      "category": null,
+      "hasOnlyDefaultVariant": true,
+      "tracksInventory": true,
+      "totalInventory": 0,
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ],
+      "variantCount": 1,
+      "continueVariantCount": 0,
+      "negativeInventoryVariantCount": 0,
+      "variants": [
+        {
+          "id": "gid://shopify/ProductVariant/31643411218494",
+          "title": "Default Title",
+          "position": 1,
+          "sku": "BRASSSCRN-001",
+          "selectedOptions": [
+            {
+              "name": "Title",
+              "value": "Default Title"
+            }
+          ],
+          "price": "10.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 0,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": false
+        }
+      ],
+      "collections": [
+        {
+          "id": "gid://shopify/Collection/261361926206",
+          "handle": "pipe-accessories",
+          "title": "Pipe Accessories"
+        }
+      ],
+      "publishedOnChannels": [
+        "Online Store",
+        "Inbox",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "publishedOnMarketCatalogs": [
+        "Canada",
+        "US",
+        "International"
+      ],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2020-03-22T01:20:08Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/44203671614",
+          "channel": "Inbox",
+          "channelHandle": "shopify-inbox",
+          "isPublished": true,
+          "publishDate": "2022-02-12T15:22:16Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-24T16:29:34Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:55Z"
+        }
+      ],
+      "marketCatalogPublications": [
+        {
+          "publicationId": "gid://shopify/Publication/113037967682",
+          "catalog": "Canada",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038033218",
+          "catalog": "US",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038000450",
+          "catalog": "International",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/4586922836030",
+      "legacyResourceId": "4586922836030",
+      "handle": "organic-hemp-wicks",
+      "title": "Organic Hemp Wicks",
+      "status": "DRAFT",
+      "productType": "Wicks",
+      "vendor": "Parkdale Brass",
+      "tags": [
+        "accessories",
+        "pipe accessories"
+      ],
+      "templateSuffix": "",
+      "craftOnlyTemplateSuffix": false,
+      "onlineStoreUrl": null,
+      "publishedAt": null,
+      "createdAt": "2020-06-09T10:32:22Z",
+      "updatedAt": "2026-03-24T16:29:34Z",
+      "category": null,
+      "hasOnlyDefaultVariant": true,
+      "tracksInventory": true,
+      "totalInventory": 96,
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ],
+      "variantCount": 1,
+      "continueVariantCount": 0,
+      "negativeInventoryVariantCount": 0,
+      "variants": [
+        {
+          "id": "gid://shopify/ProductVariant/32097551712318",
+          "title": "Default Title",
+          "position": 1,
+          "sku": "HEMP_WICK-001",
+          "selectedOptions": [
+            {
+              "name": "Title",
+              "value": "Default Title"
+            }
+          ],
+          "price": "10.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 96,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        }
+      ],
+      "collections": [
+        {
+          "id": "gid://shopify/Collection/158888558654",
+          "handle": "shop",
+          "title": "Shop"
+        },
+        {
+          "id": "gid://shopify/Collection/260616519742",
+          "handle": "accessories",
+          "title": "Accessories"
+        },
+        {
+          "id": "gid://shopify/Collection/261361926206",
+          "handle": "pipe-accessories",
+          "title": "Pipe Accessories"
+        }
+      ],
+      "publishedOnChannels": [],
+      "publishedOnMarketCatalogs": [],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": false,
+          "publishDate": null
+        },
+        {
+          "publicationId": "gid://shopify/Publication/44203671614",
+          "channel": "Inbox",
+          "channelHandle": "shopify-inbox",
+          "isPublished": false,
+          "publishDate": null
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": false,
+          "publishDate": null
+        }
+      ],
+      "marketCatalogPublications": [
+        {
+          "publicationId": "gid://shopify/Publication/113037967682",
+          "catalog": "Canada",
+          "isPublished": false,
+          "publishDate": null
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038033218",
+          "catalog": "US",
+          "isPublished": false,
+          "publishDate": null
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038000450",
+          "catalog": "International",
+          "isPublished": false,
+          "publishDate": null
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/4814543388734",
+      "legacyResourceId": "4814543388734",
+      "handle": "brockton-mk2-special-edition",
+      "title": "The Brockton Mk2 Special Edition",
+      "status": "ACTIVE",
+      "productType": "pipe",
+      "vendor": "Parkdale Brass",
+      "tags": [
+        "__tab1:protective-magnetic-lid",
+        "__tab2:smokes-from-the-bottom",
+        "__tab3:the-brockton-in-action",
+        "BrocktonMk2",
+        "Metal Smoking Pipes",
+        "shop",
+        "Smoking Accessories"
+      ],
+      "templateSuffix": "",
+      "craftOnlyTemplateSuffix": false,
+      "onlineStoreUrl": "https://parkdalebrass.com/products/brockton-mk2-special-edition",
+      "publishedAt": "2021-03-14T21:52:35Z",
+      "createdAt": "2021-02-13T16:26:11Z",
+      "updatedAt": "2026-10-17T14:05:36Z",
+      "category": null,
+      "hasOnlyDefaultVariant": true,
+      "tracksInventory": true,
+      "totalInventory": 0,
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ],
+      "variantCount": 1,
+      "continueVariantCount": 0,
+      "negativeInventoryVariantCount": 0,
+      "variants": [
+        {
+          "id": "gid://shopify/ProductVariant/32773513216062",
+          "title": "Default Title",
+          "position": 1,
+          "sku": "BRCKTN_002SE",
+          "selectedOptions": [
+            {
+              "name": "Title",
+              "value": "Default Title"
+            }
+          ],
+          "price": "140.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 0,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": false
+        }
+      ],
+      "collections": [
+        {
+          "id": "gid://shopify/Collection/158879023166",
+          "handle": "metal-smoking-pipes",
+          "title": "Metal Smoking Pipes"
+        },
+        {
+          "id": "gid://shopify/Collection/181557461054",
+          "handle": "coming-soon",
+          "title": "Coming Soon"
+        }
+      ],
+      "publishedOnChannels": [
+        "Online Store",
+        "Inbox",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "publishedOnMarketCatalogs": [
+        "Canada",
+        "US",
+        "International"
+      ],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2021-03-14T21:52:35Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/44203671614",
+          "channel": "Inbox",
+          "channelHandle": "shopify-inbox",
+          "isPublished": true,
+          "publishDate": "2022-02-12T15:22:16Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-24T16:29:34Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:55Z"
+        }
+      ],
+      "marketCatalogPublications": [
+        {
+          "publicationId": "gid://shopify/Publication/113037967682",
+          "catalog": "Canada",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038033218",
+          "catalog": "US",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038000450",
+          "catalog": "International",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/6583968563262",
+      "legacyResourceId": "6583968563262",
+      "handle": "short-sleeve-unisex-t-shirt-4",
+      "title": "Short-Sleeve Unisex T-Shirt",
+      "status": "ACTIVE",
+      "productType": "",
+      "vendor": "Parkdale Brass",
+      "tags": [
+        "apparel"
+      ],
+      "templateSuffix": null,
+      "craftOnlyTemplateSuffix": false,
+      "onlineStoreUrl": "https://parkdalebrass.com/products/short-sleeve-unisex-t-shirt-4",
+      "publishedAt": "2021-05-15T12:55:13Z",
+      "createdAt": "2021-05-15T12:55:10Z",
+      "updatedAt": "2026-09-23T14:17:55Z",
+      "category": null,
+      "hasOnlyDefaultVariant": false,
+      "tracksInventory": true,
+      "totalInventory": 469953,
+      "options": [
+        {
+          "name": "Color",
+          "position": 1,
+          "values": [
+            "Black",
+            "Black Heather",
+            "Forest",
+            "Olive",
+            "Kelly",
+            "White"
+          ]
+        },
+        {
+          "name": "Size",
+          "position": 2,
+          "values": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL",
+            "5XL"
+          ]
+        }
+      ],
+      "variantCount": 48,
+      "continueVariantCount": 0,
+      "negativeInventoryVariantCount": 0,
+      "variants": [
+        {
+          "id": "gid://shopify/ProductVariant/39432424783934",
+          "title": "Black / XS",
+          "position": 1,
+          "sku": "7569864_9527",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "XS"
+            }
+          ],
+          "price": "17.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/39432424816702",
+          "title": "Black / S",
+          "position": 2,
+          "sku": "7569864_4016",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "S"
+            }
+          ],
+          "price": "19.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/39432424849470",
+          "title": "Black / M",
+          "position": 3,
+          "sku": "7569864_4017",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "M"
+            }
+          ],
+          "price": "19.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/39432424882238",
+          "title": "Black / L",
+          "position": 4,
+          "sku": "7569864_4018",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "L"
+            }
+          ],
+          "price": "19.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/39432424915006",
+          "title": "Black / XL",
+          "position": 5,
+          "sku": "7569864_4019",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "XL"
+            }
+          ],
+          "price": "19.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/39432424947774",
+          "title": "Black / 2XL",
+          "position": 6,
+          "sku": "7569864_4020",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "2XL"
+            }
+          ],
+          "price": "21.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/39432424980542",
+          "title": "Black / 3XL",
+          "position": 7,
+          "sku": "7569864_5295",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "3XL"
+            }
+          ],
+          "price": "23.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/39432425013310",
+          "title": "Black / 4XL",
+          "position": 8,
+          "sku": "7569864_5310",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "4XL"
+            }
+          ],
+          "price": "23.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723001540930",
+          "title": "Black Heather / XS",
+          "position": 9,
+          "sku": "3100643_9575",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black Heather"
+            },
+            {
+              "name": "Size",
+              "value": "XS"
+            }
+          ],
+          "price": "18.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723001573698",
+          "title": "Black Heather / S",
+          "position": 10,
+          "sku": "3100643_8923",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black Heather"
+            },
+            {
+              "name": "Size",
+              "value": "S"
+            }
+          ],
+          "price": "18.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 0,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": false
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723001639234",
+          "title": "Black Heather / M",
+          "position": 11,
+          "sku": "3100643_8924",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black Heather"
+            },
+            {
+              "name": "Size",
+              "value": "M"
+            }
+          ],
+          "price": "18.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723001672002",
+          "title": "Black Heather / L",
+          "position": 12,
+          "sku": "3100643_8925",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black Heather"
+            },
+            {
+              "name": "Size",
+              "value": "L"
+            }
+          ],
+          "price": "18.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723001704770",
+          "title": "Black Heather / XL",
+          "position": 13,
+          "sku": "3100643_8926",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black Heather"
+            },
+            {
+              "name": "Size",
+              "value": "XL"
+            }
+          ],
+          "price": "18.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723001737538",
+          "title": "Black Heather / 2XL",
+          "position": 14,
+          "sku": "3100643_8927",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black Heather"
+            },
+            {
+              "name": "Size",
+              "value": "2XL"
+            }
+          ],
+          "price": "20.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723001770306",
+          "title": "Black Heather / 3XL",
+          "position": 15,
+          "sku": "3100643_8928",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black Heather"
+            },
+            {
+              "name": "Size",
+              "value": "3XL"
+            }
+          ],
+          "price": "23.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723001835842",
+          "title": "Black Heather / 4XL",
+          "position": 16,
+          "sku": "3100643_8929",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black Heather"
+            },
+            {
+              "name": "Size",
+              "value": "4XL"
+            }
+          ],
+          "price": "27.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723001934146",
+          "title": "Black Heather / 5XL",
+          "position": 17,
+          "sku": "3100643_12878",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black Heather"
+            },
+            {
+              "name": "Size",
+              "value": "5XL"
+            }
+          ],
+          "price": "30.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723001966914",
+          "title": "Forest / S",
+          "position": 18,
+          "sku": "3100643_8451",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Forest"
+            },
+            {
+              "name": "Size",
+              "value": "S"
+            }
+          ],
+          "price": "18.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723001999682",
+          "title": "Forest / M",
+          "position": 19,
+          "sku": "3100643_8452",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Forest"
+            },
+            {
+              "name": "Size",
+              "value": "M"
+            }
+          ],
+          "price": "18.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723002032450",
+          "title": "Forest / L",
+          "position": 20,
+          "sku": "3100643_8453",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Forest"
+            },
+            {
+              "name": "Size",
+              "value": "L"
+            }
+          ],
+          "price": "18.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723002065218",
+          "title": "Forest / XL",
+          "position": 21,
+          "sku": "3100643_8454",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Forest"
+            },
+            {
+              "name": "Size",
+              "value": "XL"
+            }
+          ],
+          "price": "18.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723002097986",
+          "title": "Forest / 2XL",
+          "position": 22,
+          "sku": "3100643_8455",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Forest"
+            },
+            {
+              "name": "Size",
+              "value": "2XL"
+            }
+          ],
+          "price": "20.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723002261826",
+          "title": "Forest / 3XL",
+          "position": 23,
+          "sku": "3100643_8456",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Forest"
+            },
+            {
+              "name": "Size",
+              "value": "3XL"
+            }
+          ],
+          "price": "23.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723002294594",
+          "title": "Forest / 4XL",
+          "position": 24,
+          "sku": "3100643_8457",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Forest"
+            },
+            {
+              "name": "Size",
+              "value": "4XL"
+            }
+          ],
+          "price": "27.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723002360130",
+          "title": "Olive / S",
+          "position": 25,
+          "sku": "3100643_4121",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Olive"
+            },
+            {
+              "name": "Size",
+              "value": "S"
+            }
+          ],
+          "price": "18.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723002425666",
+          "title": "Olive / M",
+          "position": 26,
+          "sku": "3100643_4122",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Olive"
+            },
+            {
+              "name": "Size",
+              "value": "M"
+            }
+          ],
+          "price": "18.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723002458434",
+          "title": "Olive / L",
+          "position": 27,
+          "sku": "3100643_4123",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Olive"
+            },
+            {
+              "name": "Size",
+              "value": "L"
+            }
+          ],
+          "price": "18.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723002523970",
+          "title": "Olive / XL",
+          "position": 28,
+          "sku": "3100643_4124",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Olive"
+            },
+            {
+              "name": "Size",
+              "value": "XL"
+            }
+          ],
+          "price": "18.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723002556738",
+          "title": "Olive / 2XL",
+          "position": 29,
+          "sku": "3100643_4125",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Olive"
+            },
+            {
+              "name": "Size",
+              "value": "2XL"
+            }
+          ],
+          "price": "20.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723002949954",
+          "title": "Olive / 3XL",
+          "position": 30,
+          "sku": "3100643_16340",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Olive"
+            },
+            {
+              "name": "Size",
+              "value": "3XL"
+            }
+          ],
+          "price": "23.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723003015490",
+          "title": "Olive / 4XL",
+          "position": 31,
+          "sku": "3100643_16341",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Olive"
+            },
+            {
+              "name": "Size",
+              "value": "4XL"
+            }
+          ],
+          "price": "27.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723003081026",
+          "title": "Kelly / XS",
+          "position": 32,
+          "sku": "3100643_9541",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Kelly"
+            },
+            {
+              "name": "Size",
+              "value": "XS"
+            }
+          ],
+          "price": "18.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723003146562",
+          "title": "Kelly / S",
+          "position": 33,
+          "sku": "3100643_4086",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Kelly"
+            },
+            {
+              "name": "Size",
+              "value": "S"
+            }
+          ],
+          "price": "18.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723003244866",
+          "title": "Kelly / M",
+          "position": 34,
+          "sku": "3100643_4087",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Kelly"
+            },
+            {
+              "name": "Size",
+              "value": "M"
+            }
+          ],
+          "price": "18.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723003310402",
+          "title": "Kelly / L",
+          "position": 35,
+          "sku": "3100643_4088",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Kelly"
+            },
+            {
+              "name": "Size",
+              "value": "L"
+            }
+          ],
+          "price": "18.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723003572546",
+          "title": "Kelly / XL",
+          "position": 36,
+          "sku": "3100643_4089",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Kelly"
+            },
+            {
+              "name": "Size",
+              "value": "XL"
+            }
+          ],
+          "price": "18.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723003605314",
+          "title": "Kelly / 2XL",
+          "position": 37,
+          "sku": "3100643_4090",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Kelly"
+            },
+            {
+              "name": "Size",
+              "value": "2XL"
+            }
+          ],
+          "price": "20.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723003703618",
+          "title": "Kelly / 3XL",
+          "position": 38,
+          "sku": "3100643_5300",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Kelly"
+            },
+            {
+              "name": "Size",
+              "value": "3XL"
+            }
+          ],
+          "price": "23.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723003736386",
+          "title": "Kelly / 4XL",
+          "position": 39,
+          "sku": "3100643_5315",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Kelly"
+            },
+            {
+              "name": "Size",
+              "value": "4XL"
+            }
+          ],
+          "price": "27.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723003769154",
+          "title": "White / XS",
+          "position": 40,
+          "sku": "3100643_9526",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "XS"
+            }
+          ],
+          "price": "18.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723003801922",
+          "title": "White / S",
+          "position": 41,
+          "sku": "3100643_4011",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "S"
+            }
+          ],
+          "price": "18.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723003834690",
+          "title": "White / M",
+          "position": 42,
+          "sku": "3100643_4012",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "M"
+            }
+          ],
+          "price": "18.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723003867458",
+          "title": "White / L",
+          "position": 43,
+          "sku": "3100643_4013",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "L"
+            }
+          ],
+          "price": "18.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723003900226",
+          "title": "White / XL",
+          "position": 44,
+          "sku": "3100643_4014",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "XL"
+            }
+          ],
+          "price": "18.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723003965762",
+          "title": "White / 2XL",
+          "position": 45,
+          "sku": "3100643_4015",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "2XL"
+            }
+          ],
+          "price": "20.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723004195138",
+          "title": "White / 3XL",
+          "position": 46,
+          "sku": "3100643_5294",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "3XL"
+            }
+          ],
+          "price": "23.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723004227906",
+          "title": "White / 4XL",
+          "position": 47,
+          "sku": "3100643_5309",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "4XL"
+            }
+          ],
+          "price": "27.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/48723004424514",
+          "title": "White / 5XL",
+          "position": 48,
+          "sku": "3100643_12872",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "5XL"
+            }
+          ],
+          "price": "30.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        }
+      ],
+      "collections": [
+        {
+          "id": "gid://shopify/Collection/158888558654",
+          "handle": "shop",
+          "title": "Shop"
+        },
+        {
+          "id": "gid://shopify/Collection/261373624382",
+          "handle": "apparel",
+          "title": "Apparel"
+        }
+      ],
+      "publishedOnChannels": [
+        "Online Store",
+        "Facebook & Instagram",
+        "Inbox",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "publishedOnMarketCatalogs": [
+        "Canada",
+        "US",
+        "International"
+      ],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2021-05-15T12:55:13Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/42672619582",
+          "channel": "Facebook & Instagram",
+          "channelHandle": "facebook-ads",
+          "isPublished": true,
+          "publishDate": "2021-05-15T19:48:29Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/44203671614",
+          "channel": "Inbox",
+          "channelHandle": "shopify-inbox",
+          "isPublished": true,
+          "publishDate": "2022-02-12T15:22:19Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-24T16:29:34Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:55Z"
+        }
+      ],
+      "marketCatalogPublications": [
+        {
+          "publicationId": "gid://shopify/Publication/113037967682",
+          "catalog": "Canada",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038033218",
+          "catalog": "US",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038000450",
+          "catalog": "International",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/6583968596030",
+      "legacyResourceId": "6583968596030",
+      "handle": "short-sleeve-unisex-t-shirt-5",
+      "title": "Short-Sleeve Unisex T-Shirt",
+      "status": "ACTIVE",
+      "productType": "",
+      "vendor": "Parkdale Brass",
+      "tags": [
+        "apparel"
+      ],
+      "templateSuffix": null,
+      "craftOnlyTemplateSuffix": false,
+      "onlineStoreUrl": "https://parkdalebrass.com/products/short-sleeve-unisex-t-shirt-5",
+      "publishedAt": "2021-05-15T12:55:23Z",
+      "createdAt": "2021-05-15T12:55:20Z",
+      "updatedAt": "2026-09-23T14:17:56Z",
+      "category": null,
+      "hasOnlyDefaultVariant": false,
+      "tracksInventory": true,
+      "totalInventory": 79992,
+      "options": [
+        {
+          "name": "Size",
+          "position": 1,
+          "values": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL"
+          ]
+        }
+      ],
+      "variantCount": 8,
+      "continueVariantCount": 0,
+      "negativeInventoryVariantCount": 0,
+      "variants": [
+        {
+          "id": "gid://shopify/ProductVariant/39432425177150",
+          "title": "XS",
+          "position": 1,
+          "sku": "4739876_9526",
+          "selectedOptions": [
+            {
+              "name": "Size",
+              "value": "XS"
+            }
+          ],
+          "price": "19.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/39432425209918",
+          "title": "S",
+          "position": 2,
+          "sku": "4739876_4011",
+          "selectedOptions": [
+            {
+              "name": "Size",
+              "value": "S"
+            }
+          ],
+          "price": "19.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/39432425242686",
+          "title": "M",
+          "position": 3,
+          "sku": "4739876_4012",
+          "selectedOptions": [
+            {
+              "name": "Size",
+              "value": "M"
+            }
+          ],
+          "price": "19.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/39432425275454",
+          "title": "L",
+          "position": 4,
+          "sku": "4739876_4013",
+          "selectedOptions": [
+            {
+              "name": "Size",
+              "value": "L"
+            }
+          ],
+          "price": "19.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/39432425308222",
+          "title": "XL",
+          "position": 5,
+          "sku": "4739876_4014",
+          "selectedOptions": [
+            {
+              "name": "Size",
+              "value": "XL"
+            }
+          ],
+          "price": "19.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/39432425340990",
+          "title": "2XL",
+          "position": 6,
+          "sku": "4739876_4015",
+          "selectedOptions": [
+            {
+              "name": "Size",
+              "value": "2XL"
+            }
+          ],
+          "price": "21.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/39432425373758",
+          "title": "3XL",
+          "position": 7,
+          "sku": "4739876_5294",
+          "selectedOptions": [
+            {
+              "name": "Size",
+              "value": "3XL"
+            }
+          ],
+          "price": "23.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/39432425406526",
+          "title": "4XL",
+          "position": 8,
+          "sku": "4739876_5309",
+          "selectedOptions": [
+            {
+              "name": "Size",
+              "value": "4XL"
+            }
+          ],
+          "price": "23.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        }
+      ],
+      "collections": [
+        {
+          "id": "gid://shopify/Collection/158888558654",
+          "handle": "shop",
+          "title": "Shop"
+        },
+        {
+          "id": "gid://shopify/Collection/261373624382",
+          "handle": "apparel",
+          "title": "Apparel"
+        }
+      ],
+      "publishedOnChannels": [
+        "Online Store",
+        "Facebook & Instagram",
+        "Inbox",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "publishedOnMarketCatalogs": [
+        "Canada",
+        "US",
+        "International"
+      ],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2021-05-15T12:55:23Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/42672619582",
+          "channel": "Facebook & Instagram",
+          "channelHandle": "facebook-ads",
+          "isPublished": true,
+          "publishDate": "2021-05-15T19:48:29Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/44203671614",
+          "channel": "Inbox",
+          "channelHandle": "shopify-inbox",
+          "isPublished": true,
+          "publishDate": "2022-02-12T15:22:19Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-24T16:29:34Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:56Z"
+        }
+      ],
+      "marketCatalogPublications": [
+        {
+          "publicationId": "gid://shopify/Publication/113037967682",
+          "catalog": "Canada",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038033218",
+          "catalog": "US",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038000450",
+          "catalog": "International",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/6868860141630",
+      "legacyResourceId": "6868860141630",
+      "handle": "6-5-long-bristle-scrubbing-pipe-cleaners-3-cleaners",
+      "title": "6.5\" Long Bristle Scrubbing Pipe Cleaners - 3 Cleaners",
+      "status": "ACTIVE",
+      "productType": "",
+      "vendor": "Parkdale Brass",
+      "tags": [],
+      "templateSuffix": "",
+      "craftOnlyTemplateSuffix": false,
+      "onlineStoreUrl": "https://parkdalebrass.com/products/6-5-long-bristle-scrubbing-pipe-cleaners-3-cleaners",
+      "publishedAt": "2022-02-23T11:59:38Z",
+      "createdAt": "2022-02-23T11:59:27Z",
+      "updatedAt": "2026-10-17T14:05:38Z",
+      "category": null,
+      "hasOnlyDefaultVariant": true,
+      "tracksInventory": true,
+      "totalInventory": -28,
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ],
+      "variantCount": 1,
+      "continueVariantCount": 0,
+      "negativeInventoryVariantCount": 1,
+      "variants": [
+        {
+          "id": "gid://shopify/ProductVariant/39708003205182",
+          "title": "Default Title",
+          "position": 1,
+          "sku": "",
+          "selectedOptions": [
+            {
+              "name": "Title",
+              "value": "Default Title"
+            }
+          ],
+          "price": "5.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": -28,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": false
+        }
+      ],
+      "collections": [],
+      "publishedOnChannels": [
+        "Online Store",
+        "Facebook & Instagram",
+        "Inbox",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "publishedOnMarketCatalogs": [
+        "Canada",
+        "US",
+        "International"
+      ],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2022-02-23T11:59:38Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/42672619582",
+          "channel": "Facebook & Instagram",
+          "channelHandle": "facebook-ads",
+          "isPublished": true,
+          "publishDate": "2022-02-23T11:59:38Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/44203671614",
+          "channel": "Inbox",
+          "channelHandle": "shopify-inbox",
+          "isPublished": true,
+          "publishDate": "2022-02-23T11:59:38Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-24T16:29:34Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:56Z"
+        }
+      ],
+      "marketCatalogPublications": [
+        {
+          "publicationId": "gid://shopify/Publication/113037967682",
+          "catalog": "Canada",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038033218",
+          "catalog": "US",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038000450",
+          "catalog": "International",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/7069355540542",
+      "legacyResourceId": "7069355540542",
+      "handle": "the-bellwoods-one-hitter",
+      "title": "The Bellwoods One-Hitter",
+      "status": "ACTIVE",
+      "productType": "",
+      "vendor": "Parkdale Brass",
+      "tags": [
+        "Metal Smoking Pipes"
+      ],
+      "templateSuffix": "bellwoods",
+      "craftOnlyTemplateSuffix": true,
+      "onlineStoreUrl": "https://parkdalebrass.com/products/the-bellwoods-one-hitter",
+      "publishedAt": "2022-09-07T02:07:21Z",
+      "createdAt": "2022-09-06T01:00:42Z",
+      "updatedAt": "2026-10-17T14:05:45Z",
+      "category": "Uncategorized",
+      "hasOnlyDefaultVariant": false,
+      "tracksInventory": true,
+      "totalInventory": 125,
+      "options": [
+        {
+          "name": "Style",
+          "position": 1,
+          "values": [
+            "Single",
+            "Signature Set"
+          ]
+        }
+      ],
+      "variantCount": 2,
+      "continueVariantCount": 0,
+      "negativeInventoryVariantCount": 0,
+      "variants": [
+        {
+          "id": "gid://shopify/ProductVariant/49002218750274",
+          "title": "Single",
+          "position": 1,
+          "sku": "BELLWOODS",
+          "selectedOptions": [
+            {
+              "name": "Style",
+              "value": "Single"
+            }
+          ],
+          "price": "30.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 100,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49002213146946",
+          "title": "Signature Set",
+          "position": 2,
+          "sku": "BELLWOODSSET",
+          "selectedOptions": [
+            {
+              "name": "Style",
+              "value": "Signature Set"
+            }
+          ],
+          "price": "50.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 25,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        }
+      ],
+      "collections": [
+        {
+          "id": "gid://shopify/Collection/158879023166",
+          "handle": "metal-smoking-pipes",
+          "title": "Metal Smoking Pipes"
+        },
+        {
+          "id": "gid://shopify/Collection/158888558654",
+          "handle": "shop",
+          "title": "Shop"
+        },
+        {
+          "id": "gid://shopify/Collection/181557461054",
+          "handle": "coming-soon",
+          "title": "Coming Soon"
+        },
+        {
+          "id": "gid://shopify/Collection/266174103614",
+          "handle": "featured-products",
+          "title": "Featured Products"
+        }
+      ],
+      "publishedOnChannels": [
+        "Online Store",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "publishedOnMarketCatalogs": [
+        "Canada",
+        "US",
+        "International"
+      ],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2022-09-07T02:07:21Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-24T16:29:35Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:56Z"
+        }
+      ],
+      "marketCatalogPublications": [
+        {
+          "publicationId": "gid://shopify/Publication/113037967682",
+          "catalog": "Canada",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038033218",
+          "catalog": "US",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038000450",
+          "catalog": "International",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/7076480286782",
+      "legacyResourceId": "7076480286782",
+      "handle": "dad-hat-1",
+      "title": "Dad hat",
+      "status": "ACTIVE",
+      "productType": "",
+      "vendor": "Parkdale Brass",
+      "tags": [
+        "apparel"
+      ],
+      "templateSuffix": null,
+      "craftOnlyTemplateSuffix": false,
+      "onlineStoreUrl": "https://parkdalebrass.com/products/dad-hat-1",
+      "publishedAt": "2022-09-13T13:56:38Z",
+      "createdAt": "2022-09-13T13:56:24Z",
+      "updatedAt": "2026-09-23T14:17:56Z",
+      "category": null,
+      "hasOnlyDefaultVariant": false,
+      "tracksInventory": true,
+      "totalInventory": 69993,
+      "options": [
+        {
+          "name": "Color",
+          "position": 1,
+          "values": [
+            "Black",
+            "Navy",
+            "Cranberry",
+            "Spruce",
+            "Pink",
+            "Light Blue",
+            "White"
+          ]
+        }
+      ],
+      "variantCount": 7,
+      "continueVariantCount": 0,
+      "negativeInventoryVariantCount": 0,
+      "variants": [
+        {
+          "id": "gid://shopify/ProductVariant/39877061705790",
+          "title": "Black",
+          "position": 1,
+          "sku": "9420894_7854",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            }
+          ],
+          "price": "30.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/39877061738558",
+          "title": "Navy",
+          "position": 2,
+          "sku": "9420894_7857",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Navy"
+            }
+          ],
+          "price": "30.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/39877061771326",
+          "title": "Cranberry",
+          "position": 3,
+          "sku": "9420894_12735",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Cranberry"
+            }
+          ],
+          "price": "30.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/39877061804094",
+          "title": "Spruce",
+          "position": 4,
+          "sku": "9420894_8745",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Spruce"
+            }
+          ],
+          "price": "30.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/39877061836862",
+          "title": "Pink",
+          "position": 5,
+          "sku": "9420894_7858",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Pink"
+            }
+          ],
+          "price": "30.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/39877061869630",
+          "title": "Light Blue",
+          "position": 6,
+          "sku": "9420894_7856",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Light Blue"
+            }
+          ],
+          "price": "30.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/39877061902398",
+          "title": "White",
+          "position": 7,
+          "sku": "9420894_7853",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            }
+          ],
+          "price": "30.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        }
+      ],
+      "collections": [
+        {
+          "id": "gid://shopify/Collection/158888558654",
+          "handle": "shop",
+          "title": "Shop"
+        },
+        {
+          "id": "gid://shopify/Collection/261373624382",
+          "handle": "apparel",
+          "title": "Apparel"
+        }
+      ],
+      "publishedOnChannels": [
+        "Online Store",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "publishedOnMarketCatalogs": [
+        "Canada",
+        "US",
+        "International"
+      ],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2022-09-13T13:56:38Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-24T16:29:35Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:56Z"
+        }
+      ],
+      "marketCatalogPublications": [
+        {
+          "publicationId": "gid://shopify/Publication/113037967682",
+          "catalog": "Canada",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038033218",
+          "catalog": "US",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038000450",
+          "catalog": "International",
+          "isPublished": true,
+          "publishDate": "2023-01-16T14:29:15Z"
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/9657319850306",
+      "legacyResourceId": "9657319850306",
+      "handle": "men-s-slides",
+      "title": "Men’s slides",
+      "status": "ACTIVE",
+      "productType": "Slides",
+      "vendor": "Parkdale Brass",
+      "tags": [
+        "apparel"
+      ],
+      "templateSuffix": null,
+      "craftOnlyTemplateSuffix": false,
+      "onlineStoreUrl": "https://parkdalebrass.com/products/men-s-slides",
+      "publishedAt": "2024-07-30T13:12:18Z",
+      "createdAt": "2024-07-30T13:11:50Z",
+      "updatedAt": "2026-09-23T14:17:56Z",
+      "category": "Apparel & Accessories > Shoes > Slippers",
+      "hasOnlyDefaultVariant": false,
+      "tracksInventory": true,
+      "totalInventory": 179982,
+      "options": [
+        {
+          "name": "Color",
+          "position": 1,
+          "values": [
+            "Black",
+            "White"
+          ]
+        },
+        {
+          "name": "Size",
+          "position": 2,
+          "values": [
+            "6.5",
+            "7",
+            "8",
+            "8.5",
+            "9.5",
+            "10",
+            "11",
+            "11.5",
+            "12.5"
+          ]
+        }
+      ],
+      "variantCount": 18,
+      "continueVariantCount": 0,
+      "negativeInventoryVariantCount": 0,
+      "variants": [
+        {
+          "id": "gid://shopify/ProductVariant/49485329170754",
+          "title": "Black / 6.5",
+          "position": 1,
+          "sku": "1915956_15236",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "6.5"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485329203522",
+          "title": "Black / 7",
+          "position": 2,
+          "sku": "1915956_15237",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "7"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485329236290",
+          "title": "Black / 8",
+          "position": 3,
+          "sku": "1915956_15238",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "8"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485329269058",
+          "title": "Black / 8.5",
+          "position": 4,
+          "sku": "1915956_15239",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "8.5"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485329301826",
+          "title": "Black / 9.5",
+          "position": 5,
+          "sku": "1915956_15240",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "9.5"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485329334594",
+          "title": "Black / 10",
+          "position": 6,
+          "sku": "1915956_15241",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "10"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485329367362",
+          "title": "Black / 11",
+          "position": 7,
+          "sku": "1915956_15242",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "11"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485329400130",
+          "title": "Black / 11.5",
+          "position": 8,
+          "sku": "1915956_15243",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "11.5"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485329432898",
+          "title": "Black / 12.5",
+          "position": 9,
+          "sku": "1915956_15244",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "12.5"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485329465666",
+          "title": "White / 6.5",
+          "position": 10,
+          "sku": "1915956_15245",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "6.5"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485329498434",
+          "title": "White / 7",
+          "position": 11,
+          "sku": "1915956_15246",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "7"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485329531202",
+          "title": "White / 8",
+          "position": 12,
+          "sku": "1915956_15247",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "8"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485329563970",
+          "title": "White / 8.5",
+          "position": 13,
+          "sku": "1915956_15248",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "8.5"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485329596738",
+          "title": "White / 9.5",
+          "position": 14,
+          "sku": "1915956_15249",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "9.5"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485329629506",
+          "title": "White / 10",
+          "position": 15,
+          "sku": "1915956_15250",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "10"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485329662274",
+          "title": "White / 11",
+          "position": 16,
+          "sku": "1915956_15251",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "11"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485329695042",
+          "title": "White / 11.5",
+          "position": 17,
+          "sku": "1915956_15252",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "11.5"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485329727810",
+          "title": "White / 12.5",
+          "position": 18,
+          "sku": "1915956_15253",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "12.5"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        }
+      ],
+      "collections": [
+        {
+          "id": "gid://shopify/Collection/158888558654",
+          "handle": "shop",
+          "title": "Shop"
+        },
+        {
+          "id": "gid://shopify/Collection/261373624382",
+          "handle": "apparel",
+          "title": "Apparel"
+        }
+      ],
+      "publishedOnChannels": [
+        "Online Store",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "publishedOnMarketCatalogs": [
+        "Canada",
+        "US",
+        "International"
+      ],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2024-07-30T13:12:18Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-24T16:29:35Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:56Z"
+        }
+      ],
+      "marketCatalogPublications": [
+        {
+          "publicationId": "gid://shopify/Publication/113037967682",
+          "catalog": "Canada",
+          "isPublished": true,
+          "publishDate": "2024-07-30T13:11:51Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038000450",
+          "catalog": "International",
+          "isPublished": true,
+          "publishDate": "2024-07-30T13:11:51Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038033218",
+          "catalog": "US",
+          "isPublished": true,
+          "publishDate": "2024-07-30T13:11:52Z"
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/9657330172226",
+      "legacyResourceId": "9657330172226",
+      "handle": "men-s-slides-gold",
+      "title": "Men’s slides (Gold)",
+      "status": "ACTIVE",
+      "productType": "Slides",
+      "vendor": "Parkdale Brass",
+      "tags": [
+        "apparel"
+      ],
+      "templateSuffix": null,
+      "craftOnlyTemplateSuffix": false,
+      "onlineStoreUrl": "https://parkdalebrass.com/products/men-s-slides-gold",
+      "publishedAt": "2024-07-30T13:47:15Z",
+      "createdAt": "2024-07-30T13:46:50Z",
+      "updatedAt": "2026-09-23T14:17:57Z",
+      "category": "Apparel & Accessories > Shoes > Slippers",
+      "hasOnlyDefaultVariant": false,
+      "tracksInventory": true,
+      "totalInventory": 179982,
+      "options": [
+        {
+          "name": "Color",
+          "position": 1,
+          "values": [
+            "Black",
+            "White"
+          ]
+        },
+        {
+          "name": "Size",
+          "position": 2,
+          "values": [
+            "6.5",
+            "7",
+            "8",
+            "8.5",
+            "9.5",
+            "10",
+            "11",
+            "11.5",
+            "12.5"
+          ]
+        }
+      ],
+      "variantCount": 18,
+      "continueVariantCount": 0,
+      "negativeInventoryVariantCount": 0,
+      "variants": [
+        {
+          "id": "gid://shopify/ProductVariant/49485376323906",
+          "title": "Black / 6.5",
+          "position": 1,
+          "sku": "6189067_15236",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "6.5"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485376356674",
+          "title": "Black / 7",
+          "position": 2,
+          "sku": "6189067_15237",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "7"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485376389442",
+          "title": "Black / 8",
+          "position": 3,
+          "sku": "6189067_15238",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "8"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485376422210",
+          "title": "Black / 8.5",
+          "position": 4,
+          "sku": "6189067_15239",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "8.5"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485376454978",
+          "title": "Black / 9.5",
+          "position": 5,
+          "sku": "6189067_15240",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "9.5"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485376487746",
+          "title": "Black / 10",
+          "position": 6,
+          "sku": "6189067_15241",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "10"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485376520514",
+          "title": "Black / 11",
+          "position": 7,
+          "sku": "6189067_15242",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "11"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485376553282",
+          "title": "Black / 11.5",
+          "position": 8,
+          "sku": "6189067_15243",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "11.5"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485376586050",
+          "title": "Black / 12.5",
+          "position": 9,
+          "sku": "6189067_15244",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "12.5"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485376618818",
+          "title": "White / 6.5",
+          "position": 10,
+          "sku": "6189067_15245",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "6.5"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485376651586",
+          "title": "White / 7",
+          "position": 11,
+          "sku": "6189067_15246",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "7"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485376684354",
+          "title": "White / 8",
+          "position": 12,
+          "sku": "6189067_15247",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "8"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485376717122",
+          "title": "White / 8.5",
+          "position": 13,
+          "sku": "6189067_15248",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "8.5"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485376749890",
+          "title": "White / 9.5",
+          "position": 14,
+          "sku": "6189067_15249",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "9.5"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485376782658",
+          "title": "White / 10",
+          "position": 15,
+          "sku": "6189067_15250",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "10"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485376815426",
+          "title": "White / 11",
+          "position": 16,
+          "sku": "6189067_15251",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "11"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485376848194",
+          "title": "White / 11.5",
+          "position": 17,
+          "sku": "6189067_15252",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "11.5"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485376880962",
+          "title": "White / 12.5",
+          "position": 18,
+          "sku": "6189067_15253",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "12.5"
+            }
+          ],
+          "price": "40.00",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        }
+      ],
+      "collections": [
+        {
+          "id": "gid://shopify/Collection/158888558654",
+          "handle": "shop",
+          "title": "Shop"
+        },
+        {
+          "id": "gid://shopify/Collection/261373624382",
+          "handle": "apparel",
+          "title": "Apparel"
+        }
+      ],
+      "publishedOnChannels": [
+        "Online Store",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "publishedOnMarketCatalogs": [
+        "Canada",
+        "US",
+        "International"
+      ],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2024-07-30T13:47:15Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-24T16:29:35Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:57Z"
+        }
+      ],
+      "marketCatalogPublications": [
+        {
+          "publicationId": "gid://shopify/Publication/113037967682",
+          "catalog": "Canada",
+          "isPublished": true,
+          "publishDate": "2024-07-30T13:46:51Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038000450",
+          "catalog": "International",
+          "isPublished": true,
+          "publishDate": "2024-07-30T13:46:51Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038033218",
+          "catalog": "US",
+          "isPublished": true,
+          "publishDate": "2024-07-30T13:46:51Z"
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/9657335251266",
+      "legacyResourceId": "9657335251266",
+      "handle": "toddler-short-sleeve-tee",
+      "title": "Toddler Short Sleeve Tee",
+      "status": "ACTIVE",
+      "productType": "T Shirt",
+      "vendor": "Parkdale Brass",
+      "tags": [
+        "apparel"
+      ],
+      "templateSuffix": null,
+      "craftOnlyTemplateSuffix": false,
+      "onlineStoreUrl": "https://parkdalebrass.com/products/toddler-short-sleeve-tee",
+      "publishedAt": "2024-07-30T14:03:43Z",
+      "createdAt": "2024-07-30T14:03:25Z",
+      "updatedAt": "2026-09-23T14:17:57Z",
+      "category": "Uncategorized",
+      "hasOnlyDefaultVariant": false,
+      "tracksInventory": true,
+      "totalInventory": 79992,
+      "options": [
+        {
+          "name": "Color",
+          "position": 1,
+          "values": [
+            "Black",
+            "White"
+          ]
+        },
+        {
+          "name": "Size",
+          "position": 2,
+          "values": [
+            "2T",
+            "3T",
+            "4T",
+            "5T"
+          ]
+        }
+      ],
+      "variantCount": 8,
+      "continueVariantCount": 0,
+      "negativeInventoryVariantCount": 0,
+      "variants": [
+        {
+          "id": "gid://shopify/ProductVariant/49485403619650",
+          "title": "Black / 2T",
+          "position": 1,
+          "sku": "3845369_9422",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "2T"
+            }
+          ],
+          "price": "28.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485403652418",
+          "title": "Black / 3T",
+          "position": 2,
+          "sku": "3845369_9423",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "3T"
+            }
+          ],
+          "price": "28.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485403685186",
+          "title": "Black / 4T",
+          "position": 3,
+          "sku": "3845369_9424",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "4T"
+            }
+          ],
+          "price": "28.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485403717954",
+          "title": "Black / 5T",
+          "position": 4,
+          "sku": "3845369_9425",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "5T"
+            }
+          ],
+          "price": "28.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485403750722",
+          "title": "White / 2T",
+          "position": 5,
+          "sku": "3845369_9418",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "2T"
+            }
+          ],
+          "price": "28.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485403783490",
+          "title": "White / 3T",
+          "position": 6,
+          "sku": "3845369_9419",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "3T"
+            }
+          ],
+          "price": "28.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485403816258",
+          "title": "White / 4T",
+          "position": 7,
+          "sku": "3845369_9420",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "4T"
+            }
+          ],
+          "price": "28.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49485403849026",
+          "title": "White / 5T",
+          "position": 8,
+          "sku": "3845369_9421",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "White"
+            },
+            {
+              "name": "Size",
+              "value": "5T"
+            }
+          ],
+          "price": "28.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        }
+      ],
+      "collections": [
+        {
+          "id": "gid://shopify/Collection/158888558654",
+          "handle": "shop",
+          "title": "Shop"
+        },
+        {
+          "id": "gid://shopify/Collection/261373624382",
+          "handle": "apparel",
+          "title": "Apparel"
+        }
+      ],
+      "publishedOnChannels": [
+        "Online Store",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "publishedOnMarketCatalogs": [
+        "Canada",
+        "US",
+        "International"
+      ],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2024-07-30T14:03:43Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-24T16:29:36Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:57Z"
+        }
+      ],
+      "marketCatalogPublications": [
+        {
+          "publicationId": "gid://shopify/Publication/113037967682",
+          "catalog": "Canada",
+          "isPublished": true,
+          "publishDate": "2024-07-30T14:03:26Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038000450",
+          "catalog": "International",
+          "isPublished": true,
+          "publishDate": "2024-07-30T14:03:26Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038033218",
+          "catalog": "US",
+          "isPublished": true,
+          "publishDate": "2024-07-30T14:03:26Z"
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/9657337348418",
+      "legacyResourceId": "9657337348418",
+      "handle": "parkdale-brass-mug",
+      "title": "Parkdale Brass Mug",
+      "status": "ACTIVE",
+      "productType": "",
+      "vendor": "Parkdale Brass",
+      "tags": [],
+      "templateSuffix": null,
+      "craftOnlyTemplateSuffix": false,
+      "onlineStoreUrl": "https://parkdalebrass.com/products/parkdale-brass-mug",
+      "publishedAt": "2024-07-30T14:08:56Z",
+      "createdAt": "2024-07-30T14:08:45Z",
+      "updatedAt": "2026-09-23T14:17:57Z",
+      "category": null,
+      "hasOnlyDefaultVariant": true,
+      "tracksInventory": true,
+      "totalInventory": 9999,
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ],
+      "variantCount": 1,
+      "continueVariantCount": 0,
+      "negativeInventoryVariantCount": 0,
+      "variants": [
+        {
+          "id": "gid://shopify/ProductVariant/49485411221826",
+          "title": "Default Title",
+          "position": 1,
+          "sku": "4276382_11048",
+          "selectedOptions": [
+            {
+              "name": "Title",
+              "value": "Default Title"
+            }
+          ],
+          "price": "14.50",
+          "compareAtPrice": null,
+          "inventoryPolicy": "DENY",
+          "inventoryQuantity": 9999,
+          "inventoryTracked": true,
+          "requiresShipping": true,
+          "availableForSale": true
+        }
+      ],
+      "collections": [
+        {
+          "id": "gid://shopify/Collection/158888558654",
+          "handle": "shop",
+          "title": "Shop"
+        }
+      ],
+      "publishedOnChannels": [
+        "Online Store",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "publishedOnMarketCatalogs": [
+        "Canada",
+        "US",
+        "International"
+      ],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2024-07-30T14:08:56Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-24T16:29:36Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:57Z"
+        }
+      ],
+      "marketCatalogPublications": [
+        {
+          "publicationId": "gid://shopify/Publication/113037967682",
+          "catalog": "Canada",
+          "isPublished": true,
+          "publishDate": "2024-07-30T14:08:45Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038000450",
+          "catalog": "International",
+          "isPublished": true,
+          "publishDate": "2024-07-30T14:08:45Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/113038033218",
+          "catalog": "US",
+          "isPublished": true,
+          "publishDate": "2024-07-30T14:08:45Z"
+        }
+      ]
+    }
+  ]
+}
