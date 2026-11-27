@@ -93,7 +93,7 @@ Record each result as **Pass / Fail / Not tested**, with evidence (screenshot pa
 - [ ] Desktop: home vs `Archive-Home`, collection vs `Archive-Collection`, product vs `Archive-Product`. Mobile: home vs `Archive-Home-Mobile`, collection vs `Archive-Collection-Mobile` (including the filter drawer and no-results states), product vs `Archive-Product-Mobile` (including the sticky bar and cart drawer).
 - [ ] Each required Dawn edit and `pb-*` part from 03 §0 is present. Nothing is marked "optional" or "acceptable".
 - [ ] **Deviation log:** list every visible difference with its reason. Each is either fixed, or approved by the owner with a decision ID. Unapproved deviations block launch.
-- [ ] Known platform limits, which can't be themed and need no approval: Shopify checkout pages, Shopify-rendered notification emails, third-party app widgets (styled as far as the app allows).
+- [ ] Known platform limits, which can't be themed and need no approval: Shopify checkout pages, Shopify-rendered notification emails, third-party app widgets (styled as far as the app allows), and Shopify's `<shopify-account>` sign-in component in the header (Dawn 16 stock). It loads its own GTStandard-M font (about 64 KB) on every desktop page, and draws its sign-in dialog and signed-in avatar in its shadow DOM. The theme styles only what it exposes: the `--shopify-account-*` properties and the `signed-out-avatar` part, which carries the Archive focus ring and the 44×44 target (2.x QA G-05, G-16). The signed-in avatar's focus ring isn't verified (QA never signs in).
 
 ## Acceptance (from the brief §13)
 
