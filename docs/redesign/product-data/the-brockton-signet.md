@@ -14,7 +14,7 @@
 | Product category | Apparel & Accessories > Jewelry > Rings | Shopify taxonomy |
 | Status at import | Draft, no sales channels | `phase-3-brief.md` §2.1 |
 | Name origin | Brockton Village (Toronto neighbourhood), like the other "The {Place}" names | D-39 |
-| Legacy product | `brockton-mk2` and `brockton-mk2-special-edition` is **not** converted. It's archived at launch, and its URL gets a 301 to this piece (D-39). Its pipe reviews are never shown (D-13). | D-39 |
+| Legacy product | `brockton-mk2` and `brockton-mk2-special-edition` are **not** converted. They're archived at launch, and their URLs get a 301 to this piece (D-39). Their pipe reviews are never shown (D-13). | D-39 |
 | Homepage concept card | "The Brockton" / "Signet ring" until launch | D-41 |
 
 ## Needed from the owner
