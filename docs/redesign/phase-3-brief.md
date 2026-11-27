@@ -75,7 +75,7 @@ Run these in parallel where owner time allows. §3.1 is the critical path.
 ### 3.2 · Store structure (E-02, E-03, E-04, E-06)
 - **E-02 collections:** `jewelry` (smart: tag `jewelry`), `bracelets` and `necklaces` (smart: product type). Create `rings` only when D-12 allows. The audit confirmed none of these handles exist. Create them **hidden** (§2.1).
 - **E-03 pages:** `our-story`, `why-brass`, `jewelry-care`, `size-guide`. The handles are free, per the audit. Create them **hidden**, and use the content from §3.3. Admin's template dropdown only lists the *published* theme's templates, so `page.our-story` and the others won't appear there while Craft is live. **Done 2026-11-27** ([`changes/E-03.md`](changes/E-03.md)): created hidden with draft bodies, and each template suffix set to its handle through the Admin API, which has no such limit. Preview each layout in the unpublished theme's editor. Phase 5 checks the suffixes right after publishing.
-- **E-04 menus:** `jewelry-main-menu`, `shop-categories`, `footer-shop`, `footer-learn`, `footer-help`, exactly as in 04 §3. Add Rings only when its collection has products.
+- **E-04 menus:** `jewelry-main-menu`, `shop-categories`, `footer-shop`, `footer-learn`, `footer-help`, exactly as in 04 §3. Add Rings only when its collection has products. **Done 2026-11-27** ([`changes/E-04.md`](changes/E-04.md)): created with the D-36 Journal link (an HTTP item, D-40) and the G-14 CCPA link; `main-menu` and `footer` untouched.
 - **E-06:** prepare only. Applying it changes filters on the live store.
 - **Done when:** previewing the new theme (unpublished) shows working nav, footer links and category pills, the four page layouts preview correctly in its theme editor, and the live Craft storefront is unchanged.
 
