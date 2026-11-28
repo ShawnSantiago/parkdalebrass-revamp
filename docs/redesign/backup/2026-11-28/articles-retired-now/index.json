@@ -5,7 +5,7 @@
   "notes": [
     "Author names are not exported (staff names).",
     "Personal data (a staff name, a guest writer's name and her personal social media URLs) is replaced with [REDACTED: ...] markers in the files; the live records still hold the originals. bodySha256Original is the hash of the unredacted body.",
-    "Rollback: articleUpdate isPublished true for each id."
+    "Rollback: articleUpdate with isPublished true AND publishDate set to the original publishedAt for each id (hiding cleared publishedAt; see changes/OD-7-OD-8.md §4). Never restore the 3 redacted bodies from this backup."
   ],
   "count": 24,
   "articles": [
