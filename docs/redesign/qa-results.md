@@ -2,6 +2,74 @@
 
 Newest record first. Each record says what was tested, on what, and what wasn't tested and why (`05-qa-checklist.md`).
 
+## Design check against the Archive canvas (2026-11-27)
+
+The theme on unpublished preview `196453663042` was measured against canvas page B ("Archive") and fixed where it differed. The live Craft theme `168071168322` wasn't touched, and nothing was published. Only theme files were pushed, each with `--only` and `--nodelete`, and every push reported `"issues": []`. No `templates/*.json` or `config/*` file was pushed; `sections/header-group.json` changed by one key, merged against the pulled remote copy (GLOB-06).
+
+**Method.** Five steps, each by separate agents in Playwright Chromium at deviceScaleFactor 1:
+
+1. **Compare.** Four areas (global: announcement, header, footer and tokens; home; collection; product) were measured element by element on the preview and on the canvas rendered locally with the theme's fonts, at 1440, 1024, 960, 959 and 390, plus extra widths from 320 to 1440 where a layout changes.
+2. **Verify.** A second agent re-measured every finding and classified it: fix, spec over canvas (`02` wins, AGENTS.md), decided (a decision already covers it), store data, platform limit, or needs the owner. It also listed deviations the compare pass missed (the `-V` IDs). 119 findings were verified.
+3. **Fix.** Six lanes (tokens, header, home, footer, collection, product) fixed the **55 confirmed deviations**. The lead decided the five "needs owner" items under D-28 (GLOB-17, HOME-07, COL-06, COL-07, PDP-13); two of them needed building (HOME-07, PDP-13). The decisions are D-58 to D-67, and the code changes are in `CHANGELOG.md` under Fixed.
+4. **Re-measure.** An independent agent pulled the 22 changed files from the preview (byte-identical to the branch) and measured all 57 items against the canvas: **56 pass and 1 partial** (HOME-07: phones from 320 to 354px still wrapped the hero name, fixed by F3).
+5. **Sweep.** An independent regression pass over the whole theme (below).
+
+**Follow-ups after the re-measure** (all pushed, theme check exit 0 with the 8 baseline warnings, 11 of 11 tests pass, docs check pass):
+
+| ID | Change | Result |
+| --- | --- | --- |
+| F1 | `pb-theme.css`: every Dawn select (`select.select__select`, `.customer select`) has letter-spacing normal. | `/search?q=brass` at 1440 and 390: `#SortBy` and `#SortBy-mobile` go from 0.4px to normal, font size unchanged. `/collections/all` `#SortBy` is still normal. |
+| F2 | `pb-theme.css`: in `forced-colors: active`, the Archive outline glyphs (search, account, bag, menu, caret, truck, return) get `fill: none` and `stroke: CanvasText`, both `!important` (the caret kept a gold stroke otherwise). | Forced colours emulated on `/` and the product page at 1440 and 390: every visible glyph (caret, search, account, bag, menu, zoom) is an outline in `CanvasText`. Normal mode is unchanged on all four page and width combinations. |
+| F3 | `section-pb-hero.css`: under 360px the hero lockup line scales from 15px at 0.28em (360) to 13px at 0.19em (320), like the D-49 wordmark (D-64). | One line at every measured width: 320 13px / 2.47px, 222.05 of 230px; 340 14px, 242.42 of 250; 354 14.7px, 256.58 of 264; 359 261.67 of 269. 360, 375, 390 and 1440 are identical to before (390 equals the canvas, 15px / 4.2px / 262.8px). No horizontal scroll. |
+| F4 | `main-product.liquid` and `section-pb-product.css`: the size guide's title and close share a fixed header row with a `--pb-rule` under it, and only the body scrolls (D-66). | On the product page at 1440, 960 and 390: the short guide is 177/177/182px tall and doesn't scroll. A long injected body (paragraphs, a 30-row table, links) caps the panel at 80vh (720/720/675px), the header row stays put and only the body scrolls, with nothing showing above the header. Title Cormorant 600 24 ivory, close 44 × 44 named "Close", `aria-labelledby` resolves to the title. Tab cycles inside the dialog; Escape and the close return focus to "Size guide" and release the scroll lock. axe: 0 violations, short and long. The lightbox and the cart drawer still work at 1440 and 390. |
+
+### Sweep results
+
+| Check | Result | Evidence |
+| --- | --- | --- |
+| Theme Check, tests | Pass | `shopify theme check --fail-level error`: 204 files, 0 errors, the same 8 warnings in the same 7 files as before. `node --test tests/*.test.cjs`: 11 pass. |
+| Preview in sync | Pass | A full pull matched the working tree for every file under `assets/`, `snippets/`, `sections/`, `layout/`, `locales/` and `config/` (four templates differ only by Shopify's empty `"settings": {}`; 12 remote-only `pb-standin-*.jpg` assets are the lead's). Re-pushing the 26 changed theme files reported `"changed": false`. Every local CSS declaration was found in the served, minified file at its `?v=` URL. |
+| Pages | Pass | 16 pages × 8 widths (1440, 990, 989, 975, 960, 959, 390, 320): 0 Liquid errors, 0 missing translations, 0 theme asset failures, one visible H1 each, no overflow. axe 4.14.1: 0 violations on all 112 runs (320 is skipped). |
+| Horizontal overflow | Pass | `/` and the product page every 10px from 320 to 1440 plus the edge widths (359/360, 749/750, 819/820, 959 to 961, 975, 989/990, 1064/1065, 1100, 1221/1222); 13 other pages every 20px plus every 10px from 740 to 1000. 0 widths with overflow; a negative control was caught. |
+| Flows | Pass | No change from the previous regression run: add to bag, cart drawer, quantity, remove, sticky add-to-bag, filter drawer; predictive search ("C++"), skip link, newsletter `required`, SEO and JSON-LD. The menu drawer at 390 and 959 (it closes when the window grows to 975), the Shop dropdown at 960, 975, 989, 990 and 1440 by mouse and keyboard, the search modal at seven widths and the size-guide focus trap all passed. |
+| Regressions | None | Screenshot heights changed by −45 to +8px, each matching a reported fix. axe "needs review" contrast items on the four concept badges over the D-52 stand-in images are new and expected (about 7:1 median; one highlight at 390 crosses the Bellwoods badge at about 2.3:1, for the lead to consider when choosing crops). |
+
+### Observations not changed, and why
+
+**Spec over canvas** (`02` wins; AGENTS.md):
+
+- **Side gutters are fluid** (`--pb-gutter`, 20px up to 749 and 56px at 1440), where the canvas steps from 20px to 56px above 960 (GLOB-19, HOME-12, PDP-22). The `02` preamble says "Between 750 and 1440, scale fluidly". So absolute positions in the 960 to 1100 band differ from the canvas by the gutter (for example the wordmark text at x 57.78 against 82 at 975).
+- **The hero lockup line is line-height 1** (`02` §1.2), where the canvas inherits 1.6, so the name sits about 6 [4.5]px closer to the top diamond (HOME-08, D-64).
+- **The PDP phone service lines keep the `--pb-rule` hairline and 16px above them** (`02` §6.2.10, PDP-24); the canvas puts the text 10px under the button.
+- The other spec-over-canvas items (40 in all) cover line-heights the canvas inherits, fluid sizes between 750 and 1440, the right-aligned nav, the full announcement copy, button padding, gold on green at 12px, full-width phone buttons and 44px hit areas. Each is in the verify results.
+
+**Store data:**
+
+- The store's **fourth policy** (Shipping) makes the desktop policy group longer than the canvas's three links and wraps the phone legal line at 375 and below (GLOB-29).
+- The **long Help link** "Do not sell or share my personal information" wraps to 3 lines at 961 to 1065, so the footer is 431.94 there against the canvas's 419.55 (GLOB-28).
+- Category tiles and pills, finish swatches, service lines and the short description don't render on the preview (no published jewelry, no metafield data), so they were measured with injected markup (HOME-22, COL-26, PDP-29, PDP-30).
+
+**Theme, left as is:**
+
+- **Category tile media** is border-box, 2px smaller than the canvas's content-box 4:5 box (424 × 530 against 426 × 532 at 1440). The canvas box overflows its column by 1px on each side; low priority (D-58).
+- **Dawn's nav underline** still shows on the open Shop dropdown, and nav hover adds Dawn's gold text underline (`02` §1.4 allows it). The canvas has no open or hover state (D-62).
+- **The bag target sits 2px from the right edge from 361 to 460px**, against 8px on Archive-Home-Mobile, because of the 2px header padding behind D-49's wordmark clearance.
+- **The mega menu isn't styled** (caret, current item): the store uses the dropdown (D-62).
+- **The announcement bar's own Dawn 990 rules** (utility-bar social icons and localization, and the 50px utility padding) still switch at 990; with the current settings nothing visible changes (D-60).
+- **Size guide:** a long guide with no links can't be scrolled from the keyboard in Safari, which doesn't make a scrolling region focusable (Chrome and Firefox do). The table header row scrolls with the body. Neither was asked for, and adding `tabindex="0"` would change the Tab order.
+- **Stacked range spacing (D-63):** from 750 to 959 the material padding and story gap use the fluid desktop clamps (69 and 58.6px at 959) rather than the canvas's fixed 104 and 88, so the material section is about 102px shorter than the canvas at 959.
+- **Collection:** "Clear all" drops to its own line on phones when the pill row is full (360 with both price bounds, 320 with any price pill). The active-filter remove pills stay 40px, beside 42px category pills (D-65).
+- The unversioned URL of `section-pb-category-tiles.css` returned an older CDN copy. Real renders use the versioned `asset_url`, so it only misleads injection tests.
+
+### Not tested, and why
+
+- **Browsers other than headless Linux Chromium** (Safari, Firefox, real iOS and Android, touch) and **DSF 2**: all measurements were at DSF 1, apart from one DSF 2 spot check of the diamonds.
+- **Forced colours** was only emulated in Chromium for F2; the GLOB-14 rule, the PDP-V4 ring and its no-`:has()` fallback weren't checked. The truck and return glyphs weren't visible on the test product, so F2 covers them by selector only.
+- **Real category tiles, pills, swatches, service lines and short descriptions:** the store data is empty (see above). The Rings tile (HOME-V02) was checked in the template configuration only.
+- **Customer account forms** (GLOB-15, F1 `.customer select`): `/account` redirects to Shopify's customer accounts host, which this environment blocks.
+- **Canvas comparisons below 390:** the mobile artboards are fixed at 390, so 375, 360, 340 and 320 were checked for consistency and overflow only. Widths below 320 or above 1440 weren't tested.
+- **Partial coverage:** axe at 390 and 959 to 1440 only (not 320); the filter drawer at 390 and 1440 only; the sticky add-to-bag at 390 only; the lightbox zoom icon at 960 only; `facets.js` re-renders of the price pill only in the fix lane; the size guide with a real table (the live page has none; an injected table was used); Our Story and Why Brass not re-measured, apart from the current-nav underline; whether the announcement wraps between 750 and 819 was measured by the header lane, not the sweep.
+
 ## Phase 2 preview QA (2026-11-27)
 
 Theme source `7a09819` on `pb2/qa-fixes`: Phase 2 plus the 2.x QA fixes for home, collection, product, pages and global. Unpublished preview `196453663042`, renamed **"Parkdale Brass · Archive · Phase 2 7a09819"**. The live Craft theme `168071168322` wasn't touched, and nothing was published.
@@ -72,9 +140,9 @@ The product eyebrow shows the product type as entered, without "No. 01" numberin
 **Theme observations, not fixed:**
 
 - While the fallback serif is showing (Cormorant still loading, or blocked), the phone wordmark's letters overlap the Search button's box by 2.5 to 4.9px at 320, 360 and 390. This predates the fixes. A fix would need a metric-matched fallback (`size-adjust`) or a font-loading class.
-- From 750 to about 900px, the footer bottom bar wraps Country/region onto a second row: the store has four policies where the canvas draws three. Unchanged by the fixes.
-- The phone footer's legal line uses the full policy titles, including Shipping policy, over two lines. The canvas has "Privacy · Terms · Refunds" on one line. Short labels would need new `pb.*` strings or owner-approved titles.
-- Side gutters are fluid (`--pb-gutter`, 20 to 56px), where the canvas steps from 20px at 960 or less to 56px above. To be settled in the design check against the canvas.
+- From 750 to about 900px, the footer bottom bar wraps Country/region onto a second row: the store has four policies where the canvas draws three. Unchanged by the fixes. *Settled by the design check (2026-11-27) as store data (GLOB-29):* the bar is two rows from 750 to 820px, and the canvas itself wraps at 750 to 780.
+- The phone footer's legal line uses the full policy titles, including Shipping policy, over two lines. The canvas has "Privacy · Terms · Refunds" on one line. Short labels would need new `pb.*` strings or owner-approved titles. *Fixed in the design check (GLOB-12, D-67):* short `pb.footer.policy_short.*` labels on one line at 390, two balanced lines at 375 and below.
+- Side gutters are fluid (`--pb-gutter`, 20 to 56px), where the canvas steps from 20px at 960 or less to 56px above. To be settled in the design check against the canvas. *Settled (2026-11-27) as spec over canvas (GLOB-19, HOME-12, PDP-22):* the `02` preamble says to scale fluidly between 750 and 1440, so the gutter stays.
 - Shopify now injects its preview bar on fresh preview links. Its iframe intercepts clicks and adds axe `frame-title` findings, so QA scripts must block `/shopifycloud/preview-bar/` (done in `regress-3/lib.cjs`). It isn't part of the theme.
 
 ### Not tested, and why

@@ -62,7 +62,8 @@
 }
 
 /* The rules keep their 40 [28] px (02 §1.5). Where the inner frame is narrower than the one-line lockup
-   (about 960 to 1065px, and phones under 360px), the name wraps onto two lines, as Archive-Home wraps it. */
+   (about 960 to 1065px), the name wraps onto two lines, as Archive-Home wraps it. Phones under 360px scale it instead
+   (below). */
 .pb-hero .pb-hero__lockup-line::before,
 .pb-hero .pb-hero__lockup-line::after {
   flex-shrink: 0;
@@ -127,6 +128,16 @@
   .pb-hero .pb-hero__primary.button {
     padding-inline: 1.6rem;
     letter-spacing: 0.12em;
+  }
+}
+
+/* Under 360px the lockup line stays on one line with its 28px rules and 12px gaps (HOME-07), as the header wordmark
+   does (D-49): it scales from 15px at 0.28em (360, the 390 values) to 13px at 0.19em (320), linear in vw, so nothing
+   jumps at the breakpoint and about 7px stays spare inside the inner frame at every width down to 320. */
+@media screen and (max-width: 359px) {
+  .pb-hero .pb-hero__lockup-line {
+    font-size: calc(5vw - 0.3rem);
+    letter-spacing: max(0rem, calc(4.325vw - 1.137rem));
   }
 }
 

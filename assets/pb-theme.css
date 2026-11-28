@@ -537,6 +537,9 @@ button.shopify-payment-button__button--unbranded:enabled:hover {
 
 /* Typed text is untracked, as the Archive-Foundations field (02 §2.4 sets no tracking; Dawn adds 0.04rem). */
 .field .field__input, .customer .field input { letter-spacing: normal; }
+/* Every select is untracked too, as every Archive select (Dawn sets 0.04rem on .select__select, .customer select and
+   .caption-large, which the search sort selects also carry). PB selects already compute to normal. */
+select.select__select, .customer select { letter-spacing: normal; }
 
 .color-scheme-3 :is(.field__input, .select__select) { background-color: var(--pb-green-deep); }
 .field::after, .select::after, .field:hover.field::after, .select:hover.select::after {
@@ -1594,3 +1597,13 @@ b {
   font-weight: 600;
 }
 /* /PB2:global */
+
+/* Forced colours: Archive's outline glyphs are stroked (fill none). Dawn's base.css forces .icon { fill: CanvasText
+   !important }, which would fill their outlines (the search lens becomes a disk), and a coloured stroke (the gold caret)
+   would stay. Keep the fill empty and draw the stroke in CanvasText. The zoom glyph is handled in section-pb-product.css. */
+@media (forced-colors: active) {
+  svg:is(.pb-icon-search, .pb-icon-account, .pb-icon-bag, .pb-icon-menu, .pb-icon-caret, .pb-icon-truck, .pb-icon-return) {
+    fill: none !important;
+    stroke: CanvasText !important;
+  }
+}

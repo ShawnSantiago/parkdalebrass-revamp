@@ -775,7 +775,8 @@
       {%- for block in popups -%}
         {%- comment -%}
           PB: open the resolved size-guide page (D-23). No page, no modal (its opener doesn't render either). The
-          title is an h2 that names the dialog, so the product title stays the page's only h1 (D-31).
+          title is an h2 that names the dialog, so the product title stays the page's only h1 (D-31). As the cart
+          drawer (02 §6.5), the title and the close share a fixed header row and only the page body scrolls below it.
         {%- endcomment -%}
         {%- liquid
           assign pb_popup_page = block.settings.page
@@ -794,18 +795,20 @@
             class="product-popup-modal__content"
             tabindex="-1"
           >
-            <button
-              id="ModalClose-{{ block.id }}"
-              type="button"
-              class="product-popup-modal__toggle"
-              aria-label="{{ 'accessibility.close' | t }}"
-            >
-              {{- 'icon-close.svg' | inline_asset_content -}}
-            </button>
-            <div class="product-popup-modal__content-info">
-              <h2 id="PopupModalTitle-{{ block.id }}" class="h2">
+            <div class="pb-popup-modal__header">
+              <h2 id="PopupModalTitle-{{ block.id }}" class="pb-popup-modal__title h2">
                 {{- pb_popup_page.title | escape -}}
               </h2>
+              <button
+                id="ModalClose-{{ block.id }}"
+                type="button"
+                class="product-popup-modal__toggle"
+                aria-label="{{ 'accessibility.close' | t }}"
+              >
+                {{- 'icon-close.svg' | inline_asset_content -}}
+              </button>
+            </div>
+            <div class="product-popup-modal__content-info">
               <div class="rte">{{ pb_popup_page.content }}</div>
             </div>
           </div>
