@@ -1,0 +1,546 @@
+{
+ "exportedAt": "2026-11-28",
+ "store": "parkdale-brass.myshopify.com",
+ "purpose": "State before the D-56 / D-57 / D-68 / D-27 clean-up. Read-only inventory; no mutation was run.",
+ "sources": [
+  "Shopify Admin GraphQL API 2026-10 through the Shopify connector (queries only)",
+  "Live storefront https://parkdalebrass.com (Craft 14.0.0, theme 168071168322) loaded in Playwright Chromium on 2026-11-28: home, /products/brockton-mk2, /cart, plus one /checkout load with one item (cart cleared afterwards)"
+ ],
+ "limits": [
+  "The session's network policy blocks every third-party host, so third-party scripts were REQUESTED but never ran. The host list is first-level requests only; whatever those scripts would load in turn (GTM tags, Klaviyo forms, Triple Whale) wasn't seen.",
+  "The container is geolocated in the US (Shopify.country 'US', customerPrivacy.getRegion() 'US'), not Canada. The Canadian banner state comes from the Admin consentPolicy query, not from a Canadian page view.",
+  "Connector scopes: no read_privacy_settings / write_privacy_settings, no script-tag or pixel scopes. privacySettings, checkoutAndAccountsConfigurations and scriptTags are denied.",
+  "help.shopify.com isn't reachable from this session, so Admin click paths are unverified wording except the cookie banner path, which shopify.dev states.",
+  "appInstallations isn't proof of absence on its own (it missed installed apps on 2026-11-27). 'Not installed' below rests on two signals together: the API lookup and the storefront."
+ ],
+ "apps": {
+  "appInstallations": [
+   {
+    "title": "Judge.me Reviews",
+    "handle": "judgeme",
+    "appId": "gid://shopify/App/683015",
+    "installationId": "gid://shopify/AppInstallation/209507123262"
+   },
+   {
+    "title": "ShipStation",
+    "handle": "shipstation",
+    "appId": "gid://shopify/App/81222",
+    "installationId": "gid://shopify/AppInstallation/309629091902"
+   },
+   {
+    "title": "Printful",
+    "handle": "printful",
+    "appId": "gid://shopify/App/156624",
+    "installationId": "gid://shopify/AppInstallation/309922627646"
+   },
+   {
+    "title": "Messaging",
+    "handle": "shopify-messaging",
+    "appId": "gid://shopify/App/2755583",
+    "installationId": "gid://shopify/AppInstallation/309985804350"
+   },
+   {
+    "title": "Yoast SEO",
+    "handle": "yoast-seo-2",
+    "appId": "gid://shopify/App/4842809",
+    "installationId": "gid://shopify/AppInstallation/316088746046"
+   },
+   {
+    "title": "Search & Discovery",
+    "handle": "search-and-discovery",
+    "appId": "gid://shopify/App/94633985",
+    "installationId": "gid://shopify/AppInstallation/619165843778"
+   },
+   {
+    "title": "Theme Access",
+    "handle": "theme-kit-access",
+    "appId": "gid://shopify/App/5081443",
+    "installationId": "gid://shopify/AppInstallation/690552701250"
+   },
+   {
+    "title": "Klaviyo: Email Marketing & SMS",
+    "handle": "klaviyo-email-marketing",
+    "appId": "gid://shopify/App/123074",
+    "installationId": "gid://shopify/AppInstallation/707152380226"
+   },
+   {
+    "title": "Flow",
+    "handle": "flow",
+    "appId": "gid://shopify/App/1602671",
+    "installationId": "gid://shopify/AppInstallation/720986505538"
+   },
+   {
+    "title": "TripleWhale",
+    "handle": "shoppi-2000",
+    "appId": "gid://shopify/App/2753413",
+    "installationId": "gid://shopify/AppInstallation/721553686850",
+    "note": "listing unpublished, not embedded"
+   }
+  ],
+  "changeSince_2026-11-27": "The default list has 10 apps, down from 12: 'Shopify ChatGPT MCP App' is gone and the Claude connector no longer lists itself (currentAppInstallation still returns it, installation 1097285435714).",
+  "channelAppInstallations": [
+   {
+    "title": "Online Store",
+    "handle": "online_store",
+    "installationId": "gid://shopify/AppInstallation/107364712510",
+    "publicationId": "gid://shopify/Publication/31212404798"
+   },
+   {
+    "title": "Facebook & Instagram",
+    "handle": "facebook-ads",
+    "installationId": "gid://shopify/AppInstallation/309945892926",
+    "publicationId": "gid://shopify/Publication/42672619582"
+   },
+   {
+    "title": "Inbox",
+    "handle": "shopify-inbox",
+    "installationId": "gid://shopify/AppInstallation/316069543998",
+    "publicationId": "gid://shopify/Publication/44203671614"
+   },
+   {
+    "title": "Agentic",
+    "handle": "agentic",
+    "installationId": "gid://shopify/AppInstallation/963115024706",
+    "publicationId": null
+   },
+   {
+    "title": "Whatnot",
+    "handle": "whatnot-sales-channel",
+    "installationId": "gid://shopify/AppInstallation/1022661787970",
+    "publicationId": "gid://shopify/Publication/329615475010"
+   }
+  ],
+  "privateAppInstallations": [],
+  "channelsQuery": "channels(first:100) returned no nodes for this client; publications returned the 4 above.",
+  "notInstalledChannelApps": [
+   "Point of Sale",
+   "Buy Button",
+   "Google & YouTube",
+   "Pinterest",
+   "Shop",
+   "Hydrogen",
+   "Sell on WordPress"
+  ],
+  "lookups": [
+   {
+    "name": "Klaviyo",
+    "appId": "gid://shopify/App/123074",
+    "installed": true,
+    "installationId": "gid://shopify/AppInstallation/707152380226"
+   },
+   {
+    "name": "Triple Whale",
+    "appId": "gid://shopify/App/2753413",
+    "handle": "shoppi-2000",
+    "installed": true,
+    "installationId": "gid://shopify/AppInstallation/721553686850"
+   },
+   {
+    "name": "Judge.me",
+    "appId": "gid://shopify/App/683015",
+    "installed": true
+   },
+   {
+    "name": "Yoast SEO",
+    "appId": "gid://shopify/App/4842809",
+    "installed": true
+   },
+   {
+    "name": "Printful",
+    "appId": "gid://shopify/App/156624",
+    "installed": true
+   },
+   {
+    "name": "ShipStation",
+    "appId": "gid://shopify/App/81222",
+    "installed": true
+   },
+   {
+    "name": "Ordersify",
+    "appId": "gid://shopify/App/2473345",
+    "handle": "ordersify",
+    "installed": false,
+    "evidence": "installation null; its script tag (cdn.ordersify.com) loaded on 2026-11-26/27 and is absent today"
+   },
+   {
+    "name": "UpPromote Affiliate",
+    "appId": "gid://shopify/App/2773553",
+    "handle": "affliate-by-secomapp",
+    "installed": false,
+    "evidence": "installation null; its script tag (uppromote.js) and app pixel 2119827778 were present on 2026-11-27 and are absent today"
+   },
+   {
+    "name": "Concierge Shopping Guide - CM",
+    "appId": "gid://shopify/App/338300665857",
+    "installed": false,
+    "evidence": "installation null; live HTML says its app block 'does not exist'; no Concierge channel or publication exists"
+   },
+   {
+    "name": "Sezzle",
+    "appId": "gid://shopify/App/1531185 (Sezzle (legacy)); widget app handle not found",
+    "installed": false,
+    "evidence": "installation null; live HTML says both sezzle-widget app blocks 'do not exist'"
+   },
+   {
+    "name": "EZ PreOrder",
+    "appId": "gid://shopify/App/45093322753",
+    "handle": "pre-order-28",
+    "installed": false,
+    "evidence": "installation null; live HTML says its app block 'does not exist'"
+   }
+  ]
+ },
+ "storefront": {
+  "theme": {
+   "name": "Craft 14.0.0 | 24 - 05 - 13",
+   "id": 168071168322,
+   "role": "main"
+  },
+  "pages": {
+   "home": 200,
+   "product /products/the-brockton -> /products/brockton-mk2": 200,
+   "cart": 200
+  },
+  "thirdPartyHostsRequested": {
+   "static.klaviyo.com": "klaviyo.js?company_id=MFtNea, from the Klaviyo app embed (all 3 pages)",
+   "www.clarity.ms": "tag/lhbpbzpyom, Microsoft Clarity hard-coded in Craft theme.liquid (all 3 pages)",
+   "www.googletagmanager.com": "gtm.js?id=GTM-KX2JQ95R, from the custom pixel 'GTM' sandbox iframe (all 3 pages)",
+   "conf.config-security.com": "Triple Whale app embed (all 3 pages); api.config-security.com is preconnected",
+   "tracking.aws.judge.me, public-images.judge.me": "Judge.me (home, product); cdn.judge.me, cdn1.judge.me, api.judge.me referenced in HTML",
+   "unpkg.com": "@splinetool/viewer 1.0.17, a Craft homepage section (home only)",
+   "shop.app": "pay/hop iframe from Shopify's shop-js (Shop user recognition)",
+   "cdn.shopify.com": "Shopify CDN: shop-js modules, the Judge.me extension judgeme-882, and the Printful script tag through cdn.shopify.com/proxy (static.cdn.printful.com shopify-product-customizer.js)",
+   "monorail-edge.shopifysvc.com, otlp-http-production.shopifysvc.com, error-analytics-sessions-production.shopifysvc.com": "Shopify's own telemetry"
+  },
+  "scriptTags_asyncLoad": [
+   "static.cdn.printful.com/static/js/external/shopify-product-customizer.js (through cdn.shopify.com/proxy)"
+  ],
+  "scriptTagsGoneSince_2026-11-27": [
+   "cdn.ordersify.com ordersify-shopify.min.js",
+   "d1639lhkj5l89m.cloudfront.net uppromote.js",
+   "www.greenaffiliates.com (already gone on 2026-11-27)"
+  ],
+  "webPixelsConfigList": [
+   {
+    "id": "1380155714",
+    "type": "APP",
+    "apiClientId": 683015,
+    "app": "Judge.me Reviews",
+    "runtimeContext": "STRICT",
+    "privacyPurposes": [
+     "ANALYTICS"
+    ],
+    "purpose": "review widget analytics"
+   },
+   {
+    "id": "327876930",
+    "type": "APP",
+    "apiClientId": 2753413,
+    "app": "TripleWhale",
+    "runtimeContext": "STRICT",
+    "privacyPurposes": [
+     "ANALYTICS",
+     "MARKETING"
+    ],
+    "purpose": "ad attribution"
+   },
+   {
+    "id": "83525954",
+    "type": "CUSTOM",
+    "name": "GTM",
+    "runtimeContext": "LAX",
+    "scriptVersion": "6",
+    "privacyPurposes": [
+     "ANALYTICS",
+     "MARKETING",
+     "SALE_OF_DATA"
+    ],
+    "purpose": "loads Google Tag Manager container GTM-KX2JQ95R (seen requesting gtm.js today)"
+   },
+   {
+    "id": "shopify-app-pixel",
+    "type": "APP",
+    "app": "Shopify built-in",
+    "privacyPurposes": [
+     "ANALYTICS",
+     "MARKETING"
+    ]
+   },
+   {
+    "id": "shopify-custom-pixel",
+    "type": "CUSTOM",
+    "app": "Shopify built-in",
+    "privacyPurposes": [
+     "ANALYTICS",
+     "MARKETING"
+    ]
+   }
+  ],
+  "pixelsGoneSince_2026-11-27": [
+   {
+    "id": "2119827778",
+    "app": "UpPromote Affiliate"
+   }
+  ],
+  "noKlaviyoWebPixel": true,
+  "appEmbedBlocks": {
+   "rendered": [
+    "shopify://apps/judge-me-reviews/blocks/judgeme_core",
+    "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed",
+    "shopify://apps/triplewhale/blocks/triple_pixel_snippet"
+   ],
+   "failedToRender_appBlockPathDoesNotExist": [
+    "shopify://apps/sezzle-widget/blocks/checkout-embed",
+    "shopify://apps/sezzle-widget/blocks/widget-embed",
+    "shopify://apps/concierge-shopping-guide-cm/blocks/concierge-embed",
+    "shopify://apps/ez-preorder/blocks/pre-order"
+   ],
+   "note": "The four failed blocks are stale entries in the live Craft settings_data.json. They output only an HTML comment. The live theme's files are out of scope and weren't touched.",
+   "notRendered": [
+    "Yoast metatags embed (no Yoast markup in the HTML)",
+    "Inbox chat (disabled)"
+   ]
+  },
+  "hardCoded": [
+   "Microsoft Clarity lhbpbzpyom in Craft theme.liquid (D-56: dropped in the new theme; the live theme's files are out of scope)"
+  ],
+  "consent": {
+   "visitorRegionSeen": "US (not Canada)",
+   "customerPrivacy": {
+    "getRegion": "US",
+    "shouldShowBanner": false,
+    "shouldShowGDPRBanner": false,
+    "shouldShowCCPABanner": true,
+    "saleOfDataRegion": true,
+    "getTrackingConsent": "no_interaction",
+    "userCanBeTracked": true,
+    "analyticsProcessingAllowed": true,
+    "marketingAllowed": true,
+    "saleOfDataAllowed": true,
+    "getRegulation": "",
+    "isRegulationEnforced": true,
+    "doesMerchantSupportGranularConsent": true,
+    "getShopPrefs": {
+     "limit": []
+    }
+   },
+   "bannerInDom": false,
+   "bannerScriptInHtml": false,
+   "cookiesSet": [
+    "_shopify_essential",
+    "_shopify_analytics",
+    "_shopify_marketing",
+    "localization",
+    "_shopify_cmp"
+   ],
+   "reading": "No cookie banner for this US visitor, and no privacy-banner script in the HTML. Tracking runs without consent (userCanBeTracked true)."
+  },
+  "shopSignIn": {
+   "Shopify.SignInWithShop.eligible": true,
+   "shopJsLoaded": "loader.init-shop-cart-sync, shop.app/pay/hop",
+   "reading": "Shop's shop-js runs on the storefront. This doesn't by itself prove the 'Sign in with Shop' account option is on; that setting isn't in the Admin API."
+  },
+  "checkout": {
+   "result": "HTTP 403",
+   "message": "This store isn't set up to receive orders yet. Contact the store directly for help.",
+   "url": "/checkouts/cn/…/en-us",
+   "note": "One item (brockton-mk2) added from a US-located browser, then /checkout. No checkout form rendered, so the 'Email me with news and offers' box couldn't be read. Cause not established: it may be real (no active payment provider; shop.paymentSettings.supportedDigitalWallets is empty) or specific to this automated/US session. Owner to check."
+  }
+ },
+ "adminSettings": {
+  "consentPolicy": {
+   "CA": {
+    "provinces": "13 rows (CAAB, CABC, CAMB, CANB, CANL, CANS, CANT, CANU, CAON, CAPE, CAQC, CASK, CAYT) plus the CA default",
+    "consentRequired": false,
+    "dataSaleOptOutRequired": false,
+    "ids": {
+     "CAAB": "775338852674",
+     "CABC": "775338885442",
+     "CAMB": "775338918210",
+     "CANB": "775338950978",
+     "CANL": "775338983746",
+     "CANS": "775339016514",
+     "CANT": "775339049282",
+     "CANU": "775339082050",
+     "CAON": "775339114818",
+     "CAPE": "775339147586",
+     "CAQC": "775339180354",
+     "CASK": "775339213122",
+     "CAYT": "775339245890"
+    }
+   },
+   "consentRequiredTrue": [
+    "AT",
+    "BE",
+    "BG",
+    "CY",
+    "CZ",
+    "DE",
+    "DK",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GB",
+    "GR",
+    "HR",
+    "HU",
+    "IE",
+    "IS",
+    "IT",
+    "LI",
+    "LT",
+    "LU",
+    "LV",
+    "MT",
+    "NL",
+    "NO",
+    "PL",
+    "PT",
+    "RO",
+    "SE",
+    "SI",
+    "SK"
+   ],
+   "dataSaleOptOutRequiredTrue_US": [
+    "USCA",
+    "USCO",
+    "USCT",
+    "USDE",
+    "USFL",
+    "USIA",
+    "USMT",
+    "USNE",
+    "USNH",
+    "USNJ",
+    "USOR",
+    "USTN",
+    "USTX",
+    "USUT",
+    "USVA"
+   ],
+   "everywhereElse": "consentRequired false, dataSaleOptOutRequired false"
+  },
+  "privacySettings": "Access denied (needs read_privacy_settings). Whether the cookie banner itself is enabled isn't readable.",
+  "checkoutMarketingOptIn": "Not exposed. Only shop.marketingSmsConsentEnabledAtCheckout = false is readable. The email box and its 'Preselected' state aren't in the Admin API (checkoutAndAccountsConfigurations is denied, and its input only holds branding).",
+  "customerAccounts": {
+   "customerAccountsVersion": "NEW_CUSTOMER_ACCOUNTS",
+   "loginLinksVisibleOnStorefrontAndCheckout": true,
+   "loginRequiredAtCheckout": false,
+   "url": "https://shopify.com/9975070782/account",
+   "signInWithShop": "not exposed in the Admin API"
+  },
+  "shop": {
+   "setupRequired": false,
+   "checkoutApiSupported": false,
+   "supportedDigitalWallets": [],
+   "alerts": []
+  }
+ },
+ "apiCapability": {
+  "appUninstall": "Takes no arguments and uninstalls the CALLING app (the connector). Never call it. No Admin API mutation uninstalls another app.",
+  "webPixelDelete": "Only deletes the calling app's own web pixel. Custom pixels (Customer events) have no Admin API object.",
+  "channelDelete / publicationDelete": "channelDelete only deletes channels created with channelCreate by the calling app. Not a way to remove another app's sales channel.",
+  "consentPolicyUpdate": "Exists: consentPolicyUpdate(consentPolicies: [{countryCode, regionCode, consentRequired, dataSaleOptOutRequired}]). Requires write_privacy_settings, which the connector doesn't have, so it isn't usable today. It also sets the regional policy only; turning the banner on is a separate Admin setting.",
+  "privacyFeaturesDisable": "Exists (COOKIE_BANNER, DATA_SALE_OPT_OUT_PAGE, PRIVACY_POLICY) but only disables; there is no enable mutation.",
+  "checkoutAndAccountsConfigurationUpdate": "Branding and overrides only. No marketing opt-in or sign-in fields."
+ },
+ "targets": [
+  {
+   "target": "GTM custom pixel 'GTM' (GTM-KX2JQ95R)",
+   "status": "Present and connected: pixel 83525954 loads gtm.js on every page",
+   "api": "None (custom pixels aren't in the Admin API)",
+   "adminOnly": true,
+   "adminPath": "Settings > Customer events > Custom pixels tab > 'GTM' > Disconnect, then the ... menu > Delete. Copy the pixel's code into a private note first as the backup.",
+   "pathVerified": false,
+   "pathNote": "Click path written from general knowledge of Shopify Admin; help.shopify.com isn't reachable from this session, so the exact wording wasn't checked against the current help docs."
+  },
+  {
+   "target": "Ordersify",
+   "status": "Not installed today. Script tag gone from the live storefront; installation null.",
+   "api": "None",
+   "adminOnly": true,
+   "adminPath": "Nothing to do. To confirm: Settings > Apps and sales channels; Ordersify shouldn't be listed.",
+   "pathVerified": false,
+   "pathNote": "Click path written from general knowledge of Shopify Admin; help.shopify.com isn't reachable from this session, so the exact wording wasn't checked against the current help docs."
+  },
+  {
+   "target": "UpPromote",
+   "status": "Not installed today. Script tag and app pixel 2119827778 gone; installation null.",
+   "api": "None",
+   "adminOnly": true,
+   "adminPath": "Nothing to do. To confirm: Settings > Apps and sales channels; UpPromote shouldn't be listed, and Settings > Customer events > App pixels shouldn't list it.",
+   "pathVerified": false,
+   "pathNote": "Click path written from general knowledge of Shopify Admin; help.shopify.com isn't reachable from this session, so the exact wording wasn't checked against the current help docs."
+  },
+  {
+   "target": "Concierge Shopping Guide app + channel",
+   "status": "Not installed today. App block 'does not exist' on the live site; no Concierge channel or publication. A stale embed entry remains in the live Craft settings (harmless, out of scope).",
+   "api": "None",
+   "adminOnly": true,
+   "adminPath": "Nothing to do. To confirm: Settings > Apps and sales channels, and the Sales channels list in the left sidebar; Concierge shouldn't be in either.",
+   "pathVerified": false,
+   "pathNote": "Click path written from general knowledge of Shopify Admin; help.shopify.com isn't reachable from this session, so the exact wording wasn't checked against the current help docs."
+  },
+  {
+   "target": "Klaviyo",
+   "status": "Installed (installation 707152380226). App embed klaviyo-onsite-embed is on in the live Craft theme and requests klaviyo.js (company MFtNea). No Klaviyo web pixel.",
+   "api": "None for the uninstall",
+   "adminOnly": true,
+   "adminPath": "Export what's needed from Klaviyo first (lists, consent records, flows). Then Settings > Apps and sales channels > Klaviyo: Email Marketing & SMS > Uninstall. Check afterwards whether the Klaviyo account bills separately.",
+   "pathVerified": false,
+   "pathNote": "Click path written from general knowledge of Shopify Admin; help.shopify.com isn't reachable from this session, so the exact wording wasn't checked against the current help docs."
+  },
+  {
+   "target": "Triple Whale",
+   "status": "Installed (installation 721553686850). App pixel 327876930 and the triple_pixel_snippet embed are live (config-security.com).",
+   "api": "None for the uninstall",
+   "adminOnly": true,
+   "adminPath": "Settings > Apps and sales channels > TripleWhale > Uninstall. This also removes its app pixel and embed output. Check whether Triple Whale bills separately.",
+   "pathVerified": false,
+   "pathNote": "Click path written from general knowledge of Shopify Admin; help.shopify.com isn't reachable from this session, so the exact wording wasn't checked against the current help docs."
+  },
+  {
+   "target": "Cookie banner ON for Canada",
+   "status": "Off for Canada: consentRequired false for all 13 provinces and territories. Banner enabled state unreadable (scope). No banner seen (US visitor).",
+   "api": "consentPolicyUpdate exists but needs write_privacy_settings, which the connector lacks; it can't turn the banner itself on",
+   "adminOnly": true,
+   "adminPath": "Settings > Customer Privacy > Cookie banner > Regions: add Canada, then Save. (Optional: Appearance > Customize.)",
+   "pathVerified": true,
+   "pathNote": "Path as given on shopify.dev (Hydrogen consent guide)."
+  },
+  {
+   "target": "Checkout 'Email me with news and offers' not pre-ticked",
+   "status": "Unknown. Not in the Admin API, and the checkout page returned 'This store isn't set up to receive orders yet' so the box couldn't be read.",
+   "api": "None",
+   "adminOnly": true,
+   "adminPath": "Settings > Checkout > Marketing options > Email: keep the sign-up option if wanted, and clear 'Preselected'. Save.",
+   "pathVerified": false,
+   "pathNote": "Click path written from general knowledge of Shopify Admin; help.shopify.com isn't reachable from this session, so the exact wording wasn't checked against the current help docs."
+  },
+  {
+   "target": "Shop sign-in off",
+   "status": "Unknown. Customer accounts are the new version with login links shown; shop-js reports SignInWithShop.eligible true. The setting isn't in the Admin API.",
+   "api": "None",
+   "adminOnly": true,
+   "adminPath": "Settings > Customer accounts > Sign-in options (or 'Sign in with Shop'): turn off Sign in with Shop. Save.",
+   "pathVerified": false,
+   "pathNote": "Click path written from general knowledge of Shopify Admin; help.shopify.com isn't reachable from this session, so the exact wording wasn't checked against the current help docs."
+  },
+  {
+   "target": "Sezzle",
+   "status": "Not installed today. Both sezzle-widget app blocks 'do not exist' on the live site; installation null. Whether Sezzle is still an active payment method can't be read by API.",
+   "api": "None",
+   "adminOnly": true,
+   "adminPath": "Settings > Payments: if Sezzle is listed under additional payment methods, Manage > Deactivate.",
+   "pathVerified": false,
+   "pathNote": "Click path written from general knowledge of Shopify Admin; help.shopify.com isn't reachable from this session, so the exact wording wasn't checked against the current help docs."
+  }
+ ],
+ "alsoNoted": [
+  "Judge.me is still installed and its embed and pixel are live. D-56 turns it off in the new theme only ('off until real reviews'), so it isn't a target here.",
+  "EZ PreOrder is not installed today (app block 'does not exist').",
+  "Whatnot and Facebook & Instagram channels are installed with publications. D-56 'jewelry on Online Store only' is a per-product publishing rule, not a channel removal.",
+  "Microsoft Clarity still loads on the live site from Craft theme.liquid. It goes away when the new theme is published."
+ ]
+}
