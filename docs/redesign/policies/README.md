@@ -46,11 +46,8 @@ The HTML files hold only the customer-facing body: no H1 (Shopify prints the tit
 | `[launch date]` | The launch date: each policy's "Effective" line and the lines on orders, records and subscribers from before launch | All four policies |
 | `[payment processor]` | Who processes card payments | Privacy (three places) |
 | `[Canada Post service]`, `[method of transport]` | The Canada Post service, and whether parcels go by road, air or both | Shipping |
-| `[Changing or cancelling before it ships: …]` | Whether the buyer can change the address or cancel before shipping (same words in all three) | Shipping, Returns, Terms |
-| `[Undeliverable or refused parcels: …]` | What happens when a parcel comes back, and any charge | Shipping |
-| `[Returned piece that's worn or isn't in its original packaging: …]`, `[Original shipping charge: …]` | Two returns choices | Returns |
 | `[how long records from before launch are kept]` | Retention for pre-launch records | Privacy |
-| `[Any other app still connected at launch …]`, `[Any other app still on the site at launch …]` | Apps that still receive data or run scripts at launch, or delete both | Privacy |
+| `[Any other app still connected at launch …]`, `[Any other app still on the site at launch …]` | Apps other than Klaviyo (disconnected before launch) that still receive data or run scripts at launch, or delete both | Privacy |
 
 The contact email **shawns@parkdalebrass.com** (owner-supplied, owner-inputs D-03) is filled in everywhere: customer service, returns, cancellations, safety reports and privacy.
 
@@ -92,7 +89,7 @@ Every point from the four files' former "For the lawyer" lists and the consent l
 | 8 | Key terms before purchase and in the order confirmation (the copy, within 15 days) | S11, R9, T3 | CPA ss. 38–40; O. Reg. 17/05 ss. 32–33 |
 | 9 | Agreement starts at the order confirmation; price or description mistakes: buyer chooses, never charged more without agreement; refund within 15 days if no reply | T4 | CPA ss. 11, 14, 15(2)(e), 17; O. Reg. 17/05 ss. 41, 79(1) |
 | 10 | The store's closed list of cancellation reasons; full refund within 15 days | T5 | CPA ss. 14(2) para. 13, 15(2)(e); O. Reg. 17/05 s. 79(1) |
-| 11 | Changing or cancelling before shipping: owner placeholder, with a pointer to the statutory rights | S18, T24 | O. Reg. 17/05 s. 32 items 11, 14; CPA ss. 26, 40 |
+| 11 | Changing or cancelling before shipping, and parcels that come back: the owner's answers (2026-11-28), with a pointer to the statutory rights | S18, T24 | O. Reg. 17/05 s. 32 items 11, 14; CPA ss. 26, 40 |
 | 12 | "The version in effect when you place your order applies"; privacy changes notified before they take effect | S12, R18, T9, P18 | O. Reg. 17/05 ss. 41–42; PIPEDA Sch. 1 cl. 4.2.4 |
 | 13 | "If two policies conflict, the one that's better for you applies" | T10 | CPA s. 11 |
 | | **Cancelling under the law, and refunds** | | |
@@ -166,11 +163,20 @@ Only facts and choices no one else can supply. Each fills a visible placeholder.
 5. **Launch date.**
 6. **Payment processor** (for example Shopify Payments). The store export doesn't show it.
 7. **Canada Post service** for jewelry orders, and whether parcels go by **road, air or both**.
-8. **Four choices:** can a buyer change or cancel before it ships (how, until when, refund timing)? What happens to a parcel that comes back, and is there a charge? What happens to a return that's worn or has no packaging? Is the original shipping charge refunded on a change-of-mind refund?
-9. **Pre-launch records:** how long to keep them (deleting any needs an export first).
-10. **Apps at launch:** keep Klaviyo connected (then it's named in the privacy policy) or disconnect it? Any other app still receiving customer data?
+8. **Pre-launch records:** how long to keep them (deleting any needs an export first).
+9. **Apps at launch:** any app other than Klaviyo still receiving customer data or running a script (Printful, ShipStation, Flow, staff AI apps)? Name it in the privacy policy's placeholder rows, or disconnect it and delete the rows.
 
-Please confirm, or tell the agent if not: lost parcels are replaced or refunded at the buyer's choice, with a refund within 15 days (the law already requires a full refund after 30 days without delivery); Canada Post meets 2 to 7 business days everywhere you ship; no launch order can total $50 or less.
+Please confirm, or tell the agent if not: Canada Post meets 2 to 7 business days everywhere you ship; no launch order can total $50 or less. Also say if you want to charge postage for sending back a worn or unpackaged return (the text states no charge, so for now the store pays).
+
+## Answered by the owner
+
+Recorded 2026-11-28, owner, in chat. Each replaces a former placeholder or check, in the same words in every file and its `html/` copy.
+
+1. **Changing or cancelling before it ships** (Shipping, Returns, Terms): yes. The buyer emails shawns@parkdalebrass.com. If the order hasn't shipped, we change the address or cancel it with a full refund, including shipping, to the original payment method within 5 business days. Once shipped, the Returns and exchanges policy applies.
+2. **Original shipping charge** (Returns; summaries in Shipping and Terms): a refund of an unworn piece covers the price and its tax, not the original shipping charge. A cancellation under a right the law gives still refunds everything, including shipping.
+3. **Worn or unpackaged returns** (Returns): not refunded or exchanged; we send the piece back. The text says this doesn't limit the buyer's rights, and the damaged, faulty or wrong route is unaffected.
+4. **Parcels that come back, and lost parcels** (Shipping): a parcel returned to us (wrong address, not collected, refused) is refunded for the jewelry's price and tax, with the shipping charge kept, or sent again once the buyer pays the $15.00 CAD shipping again. A parcel Canada Post declares lost is replaced or refunded, the buyer's choice, with a refund within 15 days (confirmed; the text already said so).
+5. **Klaviyo** (Privacy): disconnected before launch, so the privacy policy doesn't list it. The "any other app" placeholder rows stay for the other candidates; the `[payment processor]` placeholder stays.
 
 ## Store changes these policies depend on
 
@@ -189,7 +195,7 @@ Each is a **Phase 3 store change**: back up first, apply, verify and log it in `
 | 9 | **Abandoned-checkout emails** off, or sent to subscribers only | Privacy, Terms | Phase 3 store change |
 | 10 | **Shopify Email:** pre-launch subscribers kept out of every audience (D-04); the newsletter template carries the name, mailing address, a contact method and an unsubscribe link; choose a welcome email or double opt-in | Privacy, consent line | Phase 3 store change |
 | 11 | **Apps and pixels (D-56, D-27):** remove the GTM pixel, Ordersify, UpPromote, Concierge and Microsoft Clarity; Sezzle off; Judge.me off; Shop sign-in off; Online Store the only channel. Triple Whale is dropped | Privacy, Terms | Phase 3 store change (tell the owner the day of each uninstall: it deletes app data) |
-| 12 | **Klaviyo's future**, and any other app still receiving customer data (Printful, ShipStation, Flow, staff AI apps): disconnect, or name it in the privacy policy's placeholder rows | Privacy | Phase 3 store change (tell the owner first: uninstalling deletes data) |
+| 12 | **Disconnect Klaviyo** before launch (owner, 2026-11-28), after exporting its data; and any other app still receiving customer data (Printful, ShipStation, Flow, staff AI apps): disconnect, or name it in the privacy policy's placeholder rows | Privacy | Phase 3 store change (tell the owner first: uninstalling deletes data) |
 | 13 | **"Do not sell or share" footer link** and `/pages/ccpa-opt-out`: take the link out of `footer-help` or rewrite the page, which says the store shares data with advertising partners | Privacy | Phase 3 store change (tell the owner first if the page is deleted) |
 | 14 | **Payments:** automatic capture stays on ("you pay the full amount when you place your order") | Terms | Phase 3 store change (check) |
 | 15 | **Money format with "CAD"** (E-14) | Shipping, Terms, service lines | Phase 3 store change |

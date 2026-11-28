@@ -8,7 +8,7 @@ This policy adds to your rights under consumer protection law. It doesn't replac
 
 ## At a glance
 
-- To return an unworn piece in its original packaging for a refund, contact us within 30 days of delivery. You pay the return shipping.
+- To return an unworn piece in its original packaging for a refund, contact us within 30 days of delivery. You pay the return shipping. The refund covers the price and tax you paid for the piece, not the shipping charge on your order.
 - Each order with a ring includes one free size exchange within 30 days of delivery. We send you a prepaid return label, and we ship the new size to you free.
 - We don't resize The Brockton. If it doesn't fit, exchange it for another size.
 - If a piece arrives damaged, has a fault, or isn't what you ordered, tell us within 30 days of delivery, with photos. You choose a replacement or a refund. We send you a prepaid return label, and a replacement ships to you free.
@@ -28,7 +28,7 @@ You can return a piece, or exchange a ring for another size, if it's:
 - **unworn:** you've only tried it on to check the fit, and it has no marks, scratches or other signs of wear; and
 - **in its original packaging:** the packaging the piece came in. The outer shipping box or mailer doesn't count, so you don't need to keep it.
 
-[Returned piece that's worn or isn't in its original packaging: owner to decide what happens, for example we send it back to you, and who pays the postage.]
+If a piece reaches us worn, or without its original packaging, we can't accept it for a refund or a size exchange. We send it back to you. This doesn't limit your rights under the law.
 
 These two conditions don't apply to a damaged, faulty or wrong piece, or when you cancel under a right the law gives you.
 
@@ -53,7 +53,7 @@ If you'd like a refund, contact us within 30 days of delivery. You send the piec
 
 We check the piece when it arrives. We then refund the price and tax you paid for it to your original payment method, within 5 business days after it reaches us. Your bank or card provider may take longer to show the refund.
 
-We don't take a restocking fee or any other fee off your refund. [Original shipping charge: owner to decide whether the shipping charge paid on an order is refunded when you return it for a refund.]
+We don't take a restocking fee or any other fee off your refund. We don't refund the shipping charge you paid on your order, unless you cancel under a right the law gives you (see "Your rights under the law" below).
 
 A business day is Monday to Friday, except the Ontario public holidays listed in our [Shipping policy](https://parkdalebrass.com/policies/shipping-policy).
 
@@ -90,7 +90,7 @@ Please contact us before you send anything, so we can match the parcel to your o
 
 ## Changing or cancelling an order before it ships
 
-Orders ship in 1 to 2 business days. [Changing or cancelling before it ships: owner to decide whether you can change the address or cancel an order before it ships, how to ask, until when, and how soon we refund. Use the same words in the Shipping policy, the Returns and exchanges policy and the Terms of service.] Once your order is delivered, the 30-day terms above apply. Your rights under the law, below, apply either way.
+Orders ship in 1 to 2 business days. You can ask us to change your delivery address or cancel your order until it ships. Email us at shawns@parkdalebrass.com with your order number. If your order hasn't shipped yet, we change the address or cancel the order. If we cancel it, we refund everything you paid, including shipping, to your original payment method within 5 business days. Once your order has shipped, our Returns and exchanges policy applies. Your rights under the law, below, apply either way.
 
 ## Your rights under the law
 
@@ -154,6 +154,9 @@ Contact page: [parkdalebrass.com/pages/contact-us](https://parkdalebrass.com/pag
 | Refunds to the original payment method within 5 business days after the return arrives; the bank may take longer | D-54, D-57 |
 | Damaged or faulty pieces reported within 30 days of delivery, with photos; replaced or refunded with a prepaid label; the replacement ships free | D-54, D-57 |
 | Orders ship in 1 to 2 business days | D-53 |
+| Changing the address or cancelling before shipping: by email to shawns@parkdalebrass.com; if it hasn't shipped, address changed or order cancelled with a full refund, including shipping, to the original payment method within 5 business days; once shipped, the Returns and exchanges policy applies | Owner, in chat, 2026-11-28 (README "Answered by the owner" 1) |
+| Refunds of unworn pieces cover the price and tax, not the original shipping charge; a statutory cancellation still refunds everything, including shipping | Owner, in chat, 2026-11-28 (README "Answered by the owner" 2) |
+| A return that arrives worn or without its original packaging isn't refunded or exchanged; it's sent back to the buyer | Owner, in chat, 2026-11-28 (README "Answered by the owner" 3) |
 | Canada Post with tracking on every order (so the 30 days can run from the tracking date) | D-57 |
 | Orders placed before launch keep the terms they were sold under; support by email | D-06, D-53 |
 | The definitions and process choices (unworn, original packaging, the buyer's choice of replacement or refund, wrong pieces, out-of-stock sizes, several rings in one exchange, a second exchange, other finishes, no deductions from refunds) | D-55 resolutions below. Each one reads the owner's decisions in the buyer's favour and adds no shipping cost. |
@@ -169,15 +172,13 @@ Nothing is listed as final sale. No decision makes any launch piece non-returnab
 | `[legal name]` | Owner | The corporation's legal name. O. Reg. 17/05 s. 32 item 1 and Business Names Act s. 2(6) (points 10, 11) |
 | `[premises street address]` | Owner | The address of the premises the business operates from (s. 32 item 2), and the default address for statutory returns (point 1) |
 | `[business phone]` | Owner | O. Reg. 17/05 s. 32 item 2 |
-| `[Returned piece that's worn or isn't in its original packaging: …]` | Owner | What happens, and who pays the postage, is a cost choice no decision covers |
-| `[Original shipping charge: …]` | Owner | Whether the shipping paid on an order is refunded on a change-of-mind refund is a cost choice no decision covers. It only arises on orders under $129.00 CAD, so never on a ring order, since The Brockton is CAD 150 or more (D-44). |
-| `[Changing or cancelling before it ships: …]` | Owner | Shared placeholder, same words in Shipping, Returns and Terms. There's no statutory right to cancel before shipping beyond the ones in "Your rights under the law", so this is a business choice. |
 
 ### Still open for the owner (no placeholder needed)
 
 1. **A send-by time.** The text only asks buyers to contact you within 30 days. If you want a deadline for sending the piece after that, give one and the text will say so.
 2. **Finish wear.** Once samples are in (C-03), say which changes in each finish you'd treat as a fault. Until then the text defines a fault generally and calls no change in a finish "normal" (point 6).
 3. **Gifts.** Can a gift recipient exchange a piece, and who gets the refund? The text says nothing about it yet.
+4. **Postage on a worn or unpackaged return.** The owner said such a return is sent back (2026-11-28) but not who pays to send it. The text says "We send it back to you" with no charge stated, and any charge would have to be disclosed before purchase (O. Reg. 17/05 s. 32 items 5 and 14), so for now the store pays. Tell the agent if you want to charge for it.
 
 ## Legal points resolved (D-55)
 
@@ -203,5 +204,5 @@ Each point from this file's earlier "For the lawyer" list, with the matching ite
 18. **"Changes to this policy"** (README 12). *Applied:* kept "the version in effect when you place your order applies". Added "A later change doesn't apply to an order you've already placed, unless you agree to it", as in the terms. *Correction:* the README cited O. Reg. 17/05 ss. 42–43 as aimed only at ongoing agreements. The amendment rules are ss. 41–42, and s. 41 does apply to internet agreements: an amendment needs the buyer's explicit agreement, and it doesn't take away rights the buyer already has. *Source:* O. Reg. 17/05 s. 41(1) para. 3, s. 41(2)(c), s. 41(5); CPA s. 14(2) para. 13. **Verified.**
 19. **Which date starts the 30 days** (README 21). *Applied:* the delivery date in the Canada Post tracking (D-57: tracking on every order), or the day the buyer receives the parcel if tracking shows no delivery date. The `[Delivery date: …]` bracket is gone. *Source:* CPA s. 11 (one meaning, read for the consumer). **Verified** (s. 11). The reading is the agent's recommendation.
 20. **Wrong piece, finish or size; out-of-stock sizes; several rings** (README 24, 28). *Applied:* a wrong piece, finish or size is handled like a faulty piece. A sale by description carries an implied condition that the goods match the description, so this is the law, not a new promise. An out-of-stock exchange size becomes a refund on the same prepaid label, which costs the store less than the exchange it already promised. "One free size exchange per ring order" reads as one exchange per order that can include several rings sent back in one parcel. That's still one prepaid label and one outgoing parcel. A second exchange is a normal refund return. *Source:* SGA s. 14; CPA s. 11. **Verified** (the section texts). The readings are the agent's.
-21. **General-impression read-through** (README 39). *Applied to this file:* the at-a-glance list now matches the body (refund timing, the damaged process, free shipping both ways on exchanges, statutory return cost), and no brackets promise more than the text. A read-through of all four policies together still has to wait until Shipping and Terms have had the same pass. *Verification pass, 2026-11-27:* "We don't take any fee or shipping charge off your refund" could be read (CPA s. 11) as a promise to refund the original shipping, which is still the owner's open `[Original shipping charge: …]` choice. It now reads "a restocking fee or any other fee", so the bracket decides the shipping charge. *Source:* Competition Act s. 74.01(1)(a), s. 74.03(5); CPA s. 11. **Verified.**
+21. **General-impression read-through** (README 39). *Applied to this file:* the at-a-glance list now matches the body (refund timing, the damaged process, free shipping both ways on exchanges, statutory return cost), and no brackets promise more than the text. A read-through of all four policies together still has to wait until Shipping and Terms have had the same pass. *Verification pass, 2026-11-27:* "We don't take any fee or shipping charge off your refund" could be read (CPA s. 11) as a promise to refund the original shipping, which is still the owner's open `[Original shipping charge: …]` choice. It now reads "a restocking fee or any other fee", so the bracket decides the shipping charge. *Owner answers, 2026-11-28:* the original shipping charge isn't refunded on a change-of-mind refund; the text says so in the body and the at-a-glance list, with the statutory cancellation (everything paid, including shipping) kept as the exception. A worn or unpackaged return isn't refunded and is sent back, and the sentence says it doesn't limit the buyer's rights; the damaged, faulty or wrong route and statutory cancellations are untouched by it. The `[Changing or cancelling before it ships: …]` bracket is replaced by the owner's answer, in the same words as Shipping and Terms. *Source:* Competition Act s. 74.01(1)(a), s. 74.03(5); CPA s. 11. **Verified.**
 22. **The $50 threshold** (verification pass). The 7-day and 30-day internet-agreement rights (CPA s. 37, O. Reg. 17/05 s. 31) and the late-delivery right (CPA s. 21(1), O. Reg. 17/05 s. 23.1) apply only when the order's total potential payment exceeds $50. The text states them without the threshold. That's accurate for a ring order (The Brockton is CAD 150, D-44). The Bellwoods price isn't set yet: if a launch order could total $50 or less, the text gives those buyers the same rights, which is a promise beyond the law. Keep it as is (the protective reading, and no likely order is that small), or add "on an order over $50" once the Bellwoods price is known. **Verified** (the section texts).
