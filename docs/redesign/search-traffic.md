@@ -151,3 +151,12 @@ Shopify applies a redirect only when nothing is published at its old path, so a 
 | The 2 dead tarnish handles (`/blogs/news/the-straight-answer-will-brass-jewelry-tarnish`, `/blogs/jewelry-stories/does-brass-jewelry-tarnish`) and the 16 other dead or misspelt handles and `/blogs` | 19 | Nothing: these paths already 404, so the 301s work from step 6.3. |
 
 Rollback (`phase-5-brief.md` §3 step 2) deletes every redirect created at launch, dormant or not, from the list in `launch-log.md`.
+
+## 7 · Backlinks check (Search Console Links export, 2026-11-28)
+
+Source: [`top-target-pages.csv`](backup/2026-11-27/search/search-console-links/top-target-pages.csv) (Top linked pages; 17 URLs have external links).
+
+- The site's link profile is small: the homepage has 50 links from 24 sites, `/products/brockton-mk2` 10 from 8. Both keep their value: the homepage stays and Brockton MK2 gets the D-39 301 to `/products/the-brockton-signet`, as does `/products/the-bellwoods-one-hitter` (1 link).
+- The jewelry articles with links all stay or merge into a kept canonical: `does-brass-jewelry-turn-green` (10 links, 1 site; merges into `does-brass-turn-green`, OD-11, so its links pass through the 301), `is-brass-jewelry-waterproof` (9, 1 site), `brass-vs-gold-jewelry-choosing-right-metal` (2, 1), `mens-brass-jewelry-durability` (1, 1).
+- Retiring articles carry almost nothing: `marijuana-and-vitamin-c` 12 links from a single site, and every other one 1 to 3 links from 1 or 2 sites (`how-to-clean-a-santa-cruz-shredder`, `is-brass-safe-to-smoke-out-of`, `the-brockton-versus-the-proto-pipe`, `does-coughing-get-you-higher`, `how-to-clean-a-metal-smoking-pipe`, `jacqui-childs-cannabis-journey`, `powerful-people-and-smoking-pipes`), plus `/collections/metal-smoking-pipes` 1 from 1.
+- **Result:** no change to the plan. No retiring URL has links from more than 2 sites, so none justifies keeping cannabis or smoking content online, and none has a relevant jewelry page to redirect to (D-16).
