@@ -1,0 +1,11 @@
+{
+  "readAt": "2026-11-27 (before NAV-01)",
+  "source": "Admin GraphQL via the Shopify connector: collections(query: handle:jewelry OR bracelets OR necklaces OR rings)",
+  "note": "productsCount includes the two Draft launch products (the-brockton-signet, the-bellwoods-pendant); drafts never render on the storefront.",
+  "collections": [
+    {"id": "gid://shopify/Collection/530340053314", "handle": "jewelry", "title": "Jewelry", "descriptionHtml": "", "updatedAt": "2026-11-27T02:22:06Z", "templateSuffix": null, "productsCount": 2, "seo.hidden": null, "publications": []},
+    {"id": "gid://shopify/Collection/530340184386", "handle": "bracelets", "title": "Bracelets", "descriptionHtml": "", "updatedAt": "2026-11-27T01:48:06Z", "templateSuffix": null, "productsCount": 0, "seo.hidden": null, "publications": []},
+    {"id": "gid://shopify/Collection/530340282690", "handle": "necklaces", "title": "Necklaces", "descriptionHtml": "", "updatedAt": "2026-11-27T02:22:06Z", "templateSuffix": null, "productsCount": 1, "seo.hidden": null, "publications": []},
+    {"id": "gid://shopify/Collection/530354471234", "handle": "rings", "title": "Rings", "descriptionHtml": "", "updatedAt": "2026-11-27T02:21:53Z", "templateSuffix": null, "productsCount": 1, "seo.hidden": null, "publications": []}
+  ]
+}

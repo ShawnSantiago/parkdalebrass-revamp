@@ -1,0 +1,263 @@
+{
+  "exportedAt": "2026-11-27T01:22:20Z",
+  "source": "Shopify Admin GraphQL API (read-only queries via the Shopify connector), parkdale-brass.myshopify.com",
+  "snapshot": {
+    "readWindowUtc": [
+      "2026-11-27T01:05:00Z",
+      "2026-11-27T01:14:15Z"
+    ],
+    "changedAfterRead": [
+      {
+        "record": "gid://shopify/Page/137022210370",
+        "handle": "page-2",
+        "change": "unpublished by another process",
+        "updatedAt": "2026-11-27T01:10:08Z"
+      },
+      {
+        "record": "gid://shopify/Page/81507975230",
+        "handle": "reviews",
+        "change": "unpublished by another process",
+        "updatedAt": "2026-11-27T01:12:27Z"
+      },
+      {
+        "record": "gid://shopify/UrlRedirect/441294848322",
+        "path": "/pages/reviews",
+        "target": "/",
+        "change": "removed by another process between 01:14Z and 01:22Z (21 redirects remain)"
+      }
+    ],
+    "note": "This file is the state read in readWindowUtc, which is before the changes listed in changedAfterRead (re-checked 2026-11-27T01:22Z)."
+  },
+  "pagesCount": 16,
+  "notes": [
+    "Read-only export for the phase-3 backup. Nothing in the store was changed.",
+    "body is the page body HTML exactly as stored (also written byte-for-byte to bodyFile). An empty string means the page has no body content; the page template (for example the Craft instant-* template) or an app supplies what the page shows.",
+    "Published page bodies were cross-checked against the live storefront page HTML and predictive search JSON. Unpublished page bodies come from the Admin API only, so a non-breaking space (U+00A0) in them may appear as a plain space."
+  ],
+  "pages": [
+    {
+      "id": "gid://shopify/Page/44418269246",
+      "handle": "contact-us",
+      "title": "Contact Us",
+      "isPublished": true,
+      "publishedAt": "2019-09-18T11:44:00Z",
+      "templateSuffix": "contact",
+      "createdAt": "2019-09-18T11:44:51Z",
+      "updatedAt": "2022-03-21T18:01:16Z",
+      "bodyFile": "pages/contact-us.html",
+      "bodyLength": 225,
+      "bodySource": "admin-api+storefront-identical",
+      "body": "<div style=\"text-align: center;\">Have a question? Contact us here.</div>\n<div style=\"text-align: center;\">Email Us : info@parkdalebrass.com</div>\n<div style=\"text-align: center;\"></div>\n<div style=\"text-align: center;\"></div>"
+    },
+    {
+      "id": "gid://shopify/Page/50502598718",
+      "handle": "parkdale",
+      "title": "Parkdale",
+      "isPublished": false,
+      "publishedAt": null,
+      "templateSuffix": "",
+      "createdAt": "2020-05-19T01:01:10Z",
+      "updatedAt": "2023-09-02T01:17:20Z",
+      "bodyFile": "pages/parkdale.html",
+      "bodyLength": 0,
+      "bodySource": "admin-api (empty body)",
+      "body": ""
+    },
+    {
+      "id": "gid://shopify/Page/51319144510",
+      "handle": "contests",
+      "title": "Contests",
+      "isPublished": false,
+      "publishedAt": null,
+      "templateSuffix": "",
+      "createdAt": "2020-07-04T13:21:10Z",
+      "updatedAt": "2023-09-02T01:18:08Z",
+      "bodyFile": "pages/contests.html",
+      "bodyLength": 185,
+      "bodySource": "admin-api (unpublished; no storefront copy to cross-check U+00A0)",
+      "body": "<a class=\"e-widget\" href=\"https://gleam.io/Pf0hk/email-signup\" rel=\"nofollow\">Email Signup</a>\n<script type=\"text/javascript\" src=\"https://widget.gleamjs.io/e.js\" async=\"true\"></script>"
+    },
+    {
+      "id": "gid://shopify/Page/51620905022",
+      "handle": "smokes-from-the-bottom",
+      "title": "Lights From The Bottom",
+      "isPublished": false,
+      "publishedAt": null,
+      "templateSuffix": "",
+      "createdAt": "2020-07-28T01:48:14Z",
+      "updatedAt": "2023-09-02T01:16:33Z",
+      "bodyFile": "pages/smokes-from-the-bottom.html",
+      "bodyLength": 407,
+      "bodySource": "admin-api (unpublished; no storefront copy to cross-check U+00A0)",
+      "body": "<meta charset=\"utf-8\">\n<p><span><img src=\"https://cdn.shopify.com/s/files/1/0099/7507/0782/files/Brockton_light_5_480x480.jpg?v=1589081433\" alt=\"\" width=\"543\" height=\"422\"></span></p>\n<p><span>With a closed lid, this pipe is designed to smoke from the bottom. Never worry about hurting your fingers while trying to light it. Guide your light under the bowl to heat the brass and crisp the flower.</span></p>"
+    },
+    {
+      "id": "gid://shopify/Page/51620937790",
+      "handle": "protective-magnetic-lid",
+      "title": "Protective Magnetic Lid",
+      "isPublished": false,
+      "publishedAt": null,
+      "templateSuffix": "",
+      "createdAt": "2020-07-28T01:49:06Z",
+      "updatedAt": "2023-09-02T01:16:33Z",
+      "bodyFile": "pages/protective-magnetic-lid.html",
+      "bodyLength": 434,
+      "bodySource": "admin-api (unpublished; no storefront copy to cross-check U+00A0)",
+      "body": "<p><img src=\"https://cdn.shopify.com/s/files/1/0099/7507/0782/files/Brockton_light_6_480x480.jpg?v=1589081434\" alt=\"\" width=\"541\" height=\"397\"></p>\n<meta charset=\"utf-8\"><meta charset=\"utf-8\">\n<p><span>Brockton Mk2’s brass bowl slides open to make loading flower easy. Its lid seals securely with the help of three small magnets around the lip. Closing the magnetic lid ensures that your stuff will be safe inside the bowl.</span></p>"
+    },
+    {
+      "id": "gid://shopify/Page/51661865022",
+      "handle": "follow-us-on-instagram-parkdale_brass",
+      "title": "Instagram",
+      "isPublished": false,
+      "publishedAt": null,
+      "templateSuffix": "",
+      "createdAt": "2020-07-30T14:55:58Z",
+      "updatedAt": "2023-09-02T01:17:20Z",
+      "bodyFile": "pages/follow-us-on-instagram-parkdale_brass.html",
+      "bodyLength": 0,
+      "bodySource": "admin-api (empty body)",
+      "body": ""
+    },
+    {
+      "id": "gid://shopify/Page/51826720830",
+      "handle": "the-brockton-in-action",
+      "title": "The Brockton In-Action",
+      "isPublished": false,
+      "publishedAt": null,
+      "templateSuffix": "",
+      "createdAt": "2020-08-12T12:36:03Z",
+      "updatedAt": "2023-09-02T01:16:33Z",
+      "bodyFile": "pages/the-brockton-in-action.html",
+      "bodyLength": 270,
+      "bodySource": "admin-api (unpublished; no storefront copy to cross-check U+00A0)",
+      "body": "<iframe src=\"https://player.vimeo.com/video/521869847?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479\" width=\"1280\" height=\"720\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen title=\"yt1s.com - Brockton MK2_1080p.mp4\"></iframe>"
+    },
+    {
+      "id": "gid://shopify/Page/51993608254",
+      "handle": "store-locator",
+      "title": "Store Locator",
+      "isPublished": false,
+      "publishedAt": null,
+      "templateSuffix": null,
+      "createdAt": "2020-08-24T21:33:41Z",
+      "updatedAt": "2023-09-02T01:16:51Z",
+      "bodyFile": "pages/store-locator.html",
+      "bodyLength": 407,
+      "bodySource": "admin-api (unpublished; no storefront copy to cross-check U+00A0)",
+      "body": "<!-- Start Stockist.co widget -->\n<div data-stockist-widget-tag=\"u6672\">Loading store locator\nfrom <a href=\"https://stockist.co\">Stockist store locator</a>...</div>\n<script>\n  (function(s,t,o,c,k){c=s.createElement(t);c.src=o;c.async=1;\n  k=s.getElementsByTagName(t)[0];k.parentNode.insertBefore(c,k);\n  })(document,'script','//stockist.co/embed/v1/widget.min.js');\n</script>\n<!-- End Stockist.co widget -->"
+    },
+    {
+      "id": "gid://shopify/Page/51993641022",
+      "handle": "stocklist",
+      "title": "Stockist",
+      "isPublished": false,
+      "publishedAt": null,
+      "templateSuffix": "large",
+      "createdAt": "2020-08-24T21:41:33Z",
+      "updatedAt": "2022-02-05T00:00:24Z",
+      "bodyFile": "pages/stocklist.html",
+      "bodyLength": 407,
+      "bodySource": "admin-api (unpublished; no storefront copy to cross-check U+00A0)",
+      "body": "<!-- Start Stockist.co widget -->\n<div data-stockist-widget-tag=\"u6672\">Loading store locator\nfrom <a href=\"https://stockist.co\">Stockist store locator</a>...</div>\n<script>\n  (function(s,t,o,c,k){c=s.createElement(t);c.src=o;c.async=1;\n  k=s.getElementsByTagName(t)[0];k.parentNode.insertBefore(c,k);\n  })(document,'script','//stockist.co/embed/v1/widget.min.js');\n</script>\n<!-- End Stockist.co widget -->"
+    },
+    {
+      "id": "gid://shopify/Page/79873769534",
+      "handle": "sitemap",
+      "title": "Sitemap",
+      "isPublished": false,
+      "publishedAt": null,
+      "templateSuffix": "sitemap",
+      "createdAt": "2021-05-12T12:22:59Z",
+      "updatedAt": "2023-09-02T01:18:05Z",
+      "bodyFile": "pages/sitemap.html",
+      "bodyLength": 0,
+      "bodySource": "admin-api (empty body)",
+      "body": ""
+    },
+    {
+      "id": "gid://shopify/Page/80277274686",
+      "handle": "stories",
+      "title": "Stories",
+      "isPublished": false,
+      "publishedAt": null,
+      "templateSuffix": "storify",
+      "createdAt": "2021-07-14T12:22:39Z",
+      "updatedAt": "2021-07-14T12:22:39Z",
+      "bodyFile": "pages/stories.html",
+      "bodyLength": 64,
+      "bodySource": "admin-api (unpublished; no storefront copy to cross-check U+00A0)",
+      "body": "Read our great stories and have the latest news about our brand."
+    },
+    {
+      "id": "gid://shopify/Page/80604332094",
+      "handle": "ccpa-opt-out",
+      "title": "Do not sell my personal information",
+      "isPublished": true,
+      "publishedAt": "2021-09-21T13:40:00Z",
+      "templateSuffix": null,
+      "createdAt": "2021-09-21T13:40:00Z",
+      "updatedAt": "2024-09-16T21:32:05Z",
+      "bodyFile": "pages/ccpa-opt-out.html",
+      "bodyLength": 2085,
+      "bodySource": "admin-api+storefront-identical",
+      "body": "<link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdn.shopify.com/shopifycloud/privacy-banner/data-sale-opt-out.css\">\n<meta charset=\"utf-8\"> <p>As described in our Privacy Policy, we collect personal information from your interactions with us and our website, including through cookies and similar technologies. We may also share this personal information with third parties, including advertising partners. We do this in order to show you ads on other websites that are more relevant to your interests and for other reasons outlined in our privacy policy.</p> <p>Sharing of personal information for targeted advertising based on your interaction on different websites may be considered \"sales\", \"sharing\", or \"targeted advertising\" under certain U.S. state privacy laws. Depending on where you live, you may have the right to opt out of these activities. If you would like to exercise this opt-out right, please follow the instructions below.</p> <p>If you visit our website with the Global Privacy Control opt-out preference signal enabled, depending on where you are, we will treat this as a request to opt-out of activity that may be considered a “sale” or “sharing” of personal information or other uses that may be considered targeted advertising for the device and browser you used to visit our website.</p>\n<div id=\"pc--optOutFormContainer\" data-not-applicable='To opt out of the \"sale\" or \"sharing\" of your personal information collected using cookies and other device-based identifiers as described above, you must be browsing from one of the applicable US states referred to above.' data-form-description='If you would like to opt out of activity that may be considered a \"sale\" or \"share,\" or \"targeted advertising\", please submit your email.' data-email-label=\"Email\" data-success=\"Opted-out successfully\" data-error=\"A problem occurred, try submitting your email again&gt;\"></div>\n<script src=\"https://cdn.shopify.com/shopifycloud/privacy-banner/data-sale-opt-out.js\" defer></script> <script src=\"https://js.hcaptcha.com/1/api.js?onload=optOutOnLoad\" defer></script>\n\n"
+    },
+    {
+      "id": "gid://shopify/Page/81507975230",
+      "handle": "reviews",
+      "title": "reviews",
+      "isPublished": true,
+      "publishedAt": "2022-02-25T22:16:47Z",
+      "templateSuffix": "judgeme_all_reviews",
+      "createdAt": "2022-02-25T22:16:47Z",
+      "updatedAt": "2022-02-25T22:16:47Z",
+      "bodyFile": "pages/reviews.html",
+      "bodyLength": 0,
+      "bodySource": "admin-api (empty body)",
+      "body": ""
+    },
+    {
+      "id": "gid://shopify/Page/81630232638",
+      "handle": "sca-affiliate-empty-page",
+      "title": "Affiliate Empty Page",
+      "isPublished": false,
+      "publishedAt": null,
+      "templateSuffix": "sca-affiliate-empty",
+      "createdAt": "2022-03-15T23:36:14Z",
+      "updatedAt": "2023-09-02T01:17:09Z",
+      "bodyFile": "pages/sca-affiliate-empty-page.html",
+      "bodyLength": 0,
+      "bodySource": "admin-api (empty body)",
+      "body": ""
+    },
+    {
+      "id": "gid://shopify/Page/137000419650",
+      "handle": "fathers-day-24",
+      "title": "Father's Day 24",
+      "isPublished": true,
+      "publishedAt": "2024-05-29T20:33:58Z",
+      "templateSuffix": "instant-LeMnKzmAHEXo1htp",
+      "createdAt": "2024-05-29T20:33:58Z",
+      "updatedAt": "2024-05-30T14:44:43Z",
+      "bodyFile": "pages/fathers-day-24.html",
+      "bodyLength": 0,
+      "bodySource": "admin-api (empty body)",
+      "body": ""
+    },
+    {
+      "id": "gid://shopify/Page/137022210370",
+      "handle": "page-2",
+      "title": "Page 2",
+      "isPublished": true,
+      "publishedAt": "2024-05-30T14:43:34Z",
+      "templateSuffix": "instant-LeMnKzmAHEXo1htp",
+      "createdAt": "2024-05-30T14:43:34Z",
+      "updatedAt": "2024-05-30T14:43:34Z",
+      "bodyFile": "pages/page-2.html",
+      "bodyLength": 0,
+      "bodySource": "admin-api (empty body)",
+      "body": ""
+    }
+  ]
+}

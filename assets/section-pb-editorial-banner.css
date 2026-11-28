@@ -1,0 +1,124 @@
+/* PB · Editorial banner (sections/pb-editorial-banner.liquid; 02 §4.5–4.6, 03 §4.4).
+   Archive-Home: double frame (10px), 21:9 image, row 36px below (H2 46, max 640; gold text CTA), divider at 112.
+   Archive-Home-Mobile: 16px side margin, 8px frame, 440px-tall crop inside the 1px inner rule (frame 460), H2 32 and
+   CTA stacked 4px in, divider at 64. */
+
+.pb-editorial .pb-editorial__inner {
+  padding-inline: 1.6rem;
+}
+
+.pb-editorial__media {
+  position: relative;
+  overflow: hidden;
+  /* 440 crop + the 1px gold-line border on each side (border-box) */
+  height: 44.2rem;
+  background: var(--pb-onyx-raised);
+}
+
+.pb-editorial__media picture {
+  display: contents;
+}
+
+.pb-editorial__img,
+.pb-editorial__placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.pb-editorial__img {
+  object-fit: cover;
+}
+
+.pb-editorial__placeholder-art {
+  display: block;
+  width: 22rem;
+}
+
+.pb-editorial__placeholder .placeholder-svg {
+  height: auto;
+  fill: var(--pb-gold);
+}
+
+.pb-editorial .pb-editorial__note {
+  inset-inline: 1rem;
+  bottom: 1rem;
+  margin: 0;
+  padding: 0.5rem 0.8rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.pb-editorial__row {
+  margin: 2.4rem 0.4rem 0;
+}
+
+/* 32px at 390, 46px at 1440 */
+.pb-editorial .pb-editorial__heading {
+  max-width: 64rem;
+  margin: 0;
+  font-size: clamp(3.2rem, calc(1.3333vw + 2.68rem), 4.6rem);
+  line-height: 1.1;
+}
+
+.pb-editorial .pb-editorial__cta {
+  margin-top: 0.8rem;
+  padding-block: 1rem;
+  font-size: 1.2rem;
+  text-underline-offset: 0.5rem;
+}
+
+.pb-editorial__cta[aria-disabled='true'] {
+  color: var(--pb-muted);
+}
+
+/* The page's single ornament divider (02 §1.5): 80 / 12 / 80 at 390, gap 14. */
+.pb-editorial .pb-editorial__divider {
+  gap: 1.4rem;
+  padding-top: 6.4rem;
+}
+
+@media screen and (min-width: 750px) {
+  .pb-editorial .pb-editorial__inner {
+    padding-inline: var(--pb-gutter);
+  }
+
+  .pb-editorial__media {
+    height: auto;
+    aspect-ratio: 21 / 9;
+  }
+
+  .pb-editorial__placeholder-art {
+    width: 34%;
+  }
+
+  .pb-editorial .pb-editorial__note {
+    inset-inline: 2rem auto;
+    bottom: 1.8rem;
+    padding: 0.6rem 1rem;
+    font-size: 1.2rem;
+  }
+
+  .pb-editorial__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 3.2rem;
+    margin: 3.6rem 0 0;
+  }
+
+  .pb-editorial .pb-editorial__cta {
+    margin-top: 0;
+    padding-block: 1.2rem;
+    font-size: 1.3rem;
+    text-underline-offset: 0.6rem;
+  }
+
+  /* 120 / 14 / 120, gap 18 */
+  .pb-editorial .pb-editorial__divider {
+    gap: 1.8rem;
+    padding-top: 11.2rem;
+  }
+}

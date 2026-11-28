@@ -1,0 +1,2629 @@
+{
+  "exportedAt": "2026-11-27T01:22:20Z",
+  "source": "Shopify Admin GraphQL API (read-only queries via the Shopify connector), parkdale-brass.myshopify.com",
+  "snapshot": {
+    "readWindowUtc": [
+      "2026-11-27T01:05:00Z",
+      "2026-11-27T01:14:15Z"
+    ],
+    "changedAfterRead": [
+      {
+        "record": "gid://shopify/Article/608730317122",
+        "handle": "fathers-day-24",
+        "change": "unpublished by another process",
+        "updatedAt": "2026-11-27T01:14:28Z"
+      },
+      {
+        "record": "gid://shopify/Article/610172764482",
+        "handle": "is-brass-good-for-jewelry",
+        "change": "body edited by another process; bodyFile holds the earlier body",
+        "updatedAt": "2026-11-27T01:15:51Z"
+      }
+    ],
+    "note": "This file is the state read in readWindowUtc, which is before the changes listed in changedAfterRead (re-checked 2026-11-27T01:22Z)."
+  },
+  "notes": [
+    "Read-only export for the phase-3 backup. Nothing in the store was changed.",
+    "Article author names are not exported (they are staff names).",
+    "summary is the article excerpt HTML as stored; null and \"\" are kept as the API returned them. Where the live storefront holds the same text, its exact characters (including U+00A0) were used.",
+    "Full body HTML is saved only for the requested articles (bodyFile). Staff names inside a body are replaced with [staff name redacted]; the live record still holds the original.",
+    "_derived is not store data: it is this export's topic call (jewelry or legacy) from the title, tags and body text.",
+    "Requested article handles that do not exist in any blog: page-2-related"
+  ],
+  "blogs": [
+    {
+      "id": "gid://shopify/Blog/25815515198",
+      "handle": "news",
+      "title": "News",
+      "templateSuffix": "",
+      "commentPolicy": "MODERATED",
+      "tags": [
+        "Brass",
+        "Brockton",
+        "Canada",
+        "Cannabis",
+        "Cannabis accessories",
+        "Cannabis Culture",
+        "Cannabis Education",
+        "Cleaning tips",
+        "Community",
+        "Edibles",
+        "Guest Post",
+        "Pipe care",
+        "Pipes",
+        "review",
+        "Sex",
+        "Strains",
+        "Tips",
+        "Tobacco",
+        "Toronto"
+      ],
+      "createdAt": "2019-05-06T23:58:51Z",
+      "updatedAt": "2025-04-25T21:30:22Z",
+      "articlesCount": 133
+    }
+  ],
+  "articlesCount": 133,
+  "topicCounts": {
+    "legacy": 103,
+    "jewelry": 30
+  },
+  "bodyRedactions": [
+    {
+      "handle": "the-parkdale-brass-story",
+      "replacedWith": [
+        "Our founder, [staff name redacted], is",
+        "market, [staff name redacted] decided"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "id": "gid://shopify/Article/32309248062",
+      "blog": "news",
+      "handle": "an-introduction-to-the-brockton",
+      "title": "An Introduction to The Brockton",
+      "isPublished": true,
+      "publishedAt": "2019-09-06T01:41:00Z",
+      "tags": [
+        "Brockton"
+      ],
+      "templateSuffix": null,
+      "summary": "<meta charset=\"utf-8\"><span>At Parkdale Brass, we believe in stellar smoke sessions and, in order to have a good experience, you need to know how to use your gear. If you’ve never used an all-brass pipe before, you may not know where to start. Even if you’re a seasoned brass pipe pro, you may still have some questions.</span>",
+      "createdAt": "2019-09-06T01:38:59Z",
+      "updatedAt": "2020-07-07T18:44:31Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (1 smoking terms vs 0 jewelry terms); tags: Brockton"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/32574668862",
+      "blog": "news",
+      "handle": "is-brass-safe-to-smoke-out-of",
+      "title": "Is Brass Safe to Use?",
+      "isPublished": true,
+      "publishedAt": "2019-09-25T09:32:00Z",
+      "tags": [
+        "Pipes"
+      ],
+      "templateSuffix": null,
+      "summary": "<meta charset=\"utf-8\"><span>Having a well-designed and high-quality piece to smoke out of isn’t the only thing that matters to smokers and it shouldn’t be! Whether you’re a recreational smoker or smoke like a chimney, you want to be sure that your gear is safe to use. Although brass has a long history of being used in pipes, it’s rare to see it in smoke shops nowadays. While some people might interpret that as a bad sign, we’re here to lay the rumours to rest.</span>",
+      "createdAt": "2019-09-25T09:34:50Z",
+      "updatedAt": "2020-09-14T13:31:23Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (7 smoking terms vs 0 jewelry terms); tags: Pipes"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/383558516798",
+      "blog": "news",
+      "handle": "5-essential-smoking-accessories-everyone-needs",
+      "title": "5 Essential Accessories You Need For Your Session",
+      "isPublished": true,
+      "publishedAt": "2019-12-17T18:12:00Z",
+      "tags": [],
+      "templateSuffix": "",
+      "summary": "<span style=\"font-weight: 400;\">Delighting in the ritual often requires a bit of time and effort. As a matter of fact, most people need tools and accessories</span><span style=\"font-weight: 400;\"> to help them enjoy their experience to the fullest. Nowadays there are accessories of all kinds, but depending on how you prefer to indulge, you may lean towards certain products. Still, there are essential accessories that everyone can enjoy regardless of their personal style or preference. Read on to discover the five essential accessories you’ll need to help you fully enjoy your next session.</span>",
+      "createdAt": "2019-12-17T18:12:02Z",
+      "updatedAt": "2021-10-19T10:30:09Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (34 smoking terms vs 0 jewelry terms); tags: none"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/384240255038",
+      "blog": "news",
+      "handle": "a-review-of-the-brockton-by-alyssa-yeoman",
+      "title": "A Review of The Brockton by Alyssa Yeoman",
+      "isPublished": true,
+      "publishedAt": "2020-03-02T15:03:00Z",
+      "tags": [
+        "Brockton",
+        "review"
+      ],
+      "templateSuffix": "",
+      "summary": "<span>Alyssa Yeoman is a stand-up comedian, writer, actor, and producer in Seattle, Washington. Alyssa is a co-host of the popular Leafly podcast, The Roll-Up, and works locally as a producer for Seattle's Naked Brunch, QTPOC Is Not A Rapper, and Unladylike at Comedy Underground, as well as the regional director for Don't Tell Comedy Seattle and host of Seattle's Moth StorySLAM. Because of Alyssa's reputation as a highlarious cannaseur, we decided to send them The Brockton to try out. This was what Alyssa had to say. </span>",
+      "createdAt": "2020-03-02T15:02:07Z",
+      "updatedAt": "2021-10-19T10:29:21Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (38 smoking terms vs 0 jewelry terms); tags: Brockton, review"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/386155839550",
+      "blog": "news",
+      "handle": "how-to-clean-a-metal-smoking-pipe",
+      "title": "How to Clean a Metal Smoking Pipe",
+      "isPublished": true,
+      "publishedAt": "2020-03-23T16:36:00Z",
+      "tags": [
+        "Brockton",
+        "Cleaning tips",
+        "Pipe care"
+      ],
+      "templateSuffix": "",
+      "summary": "<span>For those who aren’t as familiar with cleaning a metal smoking pipe,</span><span> there’s nothing to fear. Keeping your pipe in tip-top shape is simple once you get the hang of it. In this article, we’ll guide you through the tools, tips, and ways to keep your metal smoking pipe working like a charm.</span>",
+      "createdAt": "2020-03-23T15:40:09Z",
+      "updatedAt": "2021-06-07T22:27:06Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (52 smoking terms vs 0 jewelry terms); tags: Brockton, Cleaning tips, Pipe care"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/386703884350",
+      "blog": "news",
+      "handle": "stretch-your-cannabis-stash-in-lockdown",
+      "title": "How to Stretch Your Cannabis Stash",
+      "isPublished": true,
+      "publishedAt": "2020-04-09T17:59:00Z",
+      "tags": [
+        "Brockton",
+        "Cannabis",
+        "Tips"
+      ],
+      "templateSuffix": null,
+      "summary": "<span>Social distancing and other measures in place are making it difficult for smokers everywhere to maintain their stock. If you’re wondering how to stay medicated in all this madness, here are some solid tips on how to stretch your cannabis stash amid the lockdown. </span>",
+      "createdAt": "2020-04-09T17:57:11Z",
+      "updatedAt": "2020-05-27T10:14:10Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (48 smoking terms vs 0 jewelry terms); tags: Brockton, Cannabis, Tips"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/386766274622",
+      "blog": "news",
+      "handle": "best-smoke-shops-in-toronto",
+      "title": "Best Smoke Shops in Toronto",
+      "isPublished": true,
+      "publishedAt": "2020-04-16T16:08:00Z",
+      "tags": [
+        "Cannabis",
+        "Toronto"
+      ],
+      "templateSuffix": null,
+      "summary": "<span style=\"font-weight: 400;\">As long-time smokers and locals to Toronto, </span><span style=\"font-weight: 400;\">we’ve visited quite a few smoke shops in our day. Since sharing is caring, we decided to create a short and sweet guide to some of the greatest smoke shops in our hometown. In this guide, you’ll find our list of the best smoke shops in Toronto and what we love about them.</span>",
+      "createdAt": "2020-04-16T16:08:59Z",
+      "updatedAt": "2020-05-27T10:12:57Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (31 smoking terms vs 0 jewelry terms); tags: Cannabis, Toronto"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/386828959806",
+      "blog": "news",
+      "handle": "how-to-smoke-a-pipe",
+      "title": "How to Smoke a Pipe",
+      "isPublished": true,
+      "publishedAt": "2020-04-21T20:19:00Z",
+      "tags": [
+        "Pipe care",
+        "Pipes"
+      ],
+      "templateSuffix": "",
+      "summary": "<span>People all over the world still choose to indulge in the age-old tradition of smoking from a pipe. Regardless of what you smoke, there’s guaranteed to be a pipe out there for you. Uncover our tips for how to find, clean, load, and smoke a pipe.</span>",
+      "createdAt": "2020-04-21T20:14:57Z",
+      "updatedAt": "2021-05-19T19:41:25Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (78 smoking terms vs 0 jewelry terms); tags: Pipe care, Pipes"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/387040346174",
+      "blog": "news",
+      "handle": "lockdown-cannabis-strains-for-2020",
+      "title": "NoviceMedicalGrower’s Lockdown Strains for 2020",
+      "isPublished": true,
+      "publishedAt": "2020-04-28T17:18:00Z",
+      "tags": [
+        "Cannabis",
+        "Guest Post",
+        "Strains"
+      ],
+      "templateSuffix": null,
+      "summary": "<span>Recently, Parkdale Brass reached out and asked what were some of my favourite cannabis strains to enjoy while being at home. With Covid-19 keeping me indoors, I figured it was the perfect opportunity to sit down and share with everyone a few of my favourite strains to not only grow, but also smoke, vape, and dab!</span>",
+      "createdAt": "2020-04-28T16:41:22Z",
+      "updatedAt": "2020-05-27T10:11:58Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (19 smoking terms vs 0 jewelry terms); tags: Cannabis, Guest Post, Strains"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/387139764286",
+      "blog": "news",
+      "handle": "jacqui-childs-cannabis-journey",
+      "title": "A Look Inside Jacqui Childs’ Cannabis Journey",
+      "isPublished": true,
+      "publishedAt": "2020-05-05T13:45:00Z",
+      "tags": [
+        "Canada",
+        "Cannabis",
+        "Community"
+      ],
+      "templateSuffix": null,
+      "summary": "<span style=\"font-weight: 400;\">Jacqui Childs is an award-winning social influencer with an online following into the millions. She is an international best selling author and the host of a very successful cannabis podcast called The Green Room on Cannabis Wiki.</span>",
+      "createdAt": "2020-05-05T13:45:55Z",
+      "updatedAt": "2020-05-27T10:12:15Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (23 smoking terms vs 0 jewelry terms); tags: Canada, Cannabis, Community"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/387607953470",
+      "blog": "news",
+      "handle": "redesigning-home-grow-grass-and-grain-co",
+      "title": "Redesigning the Home Grow with Grass + Grain Co.",
+      "isPublished": true,
+      "publishedAt": "2020-05-11T11:54:00Z",
+      "tags": [
+        "Canada",
+        "Cannabis",
+        "Community"
+      ],
+      "templateSuffix": null,
+      "summary": "<p>Grass + Grain Co. designs and builds Custom Grow Cabinets in Ontario, Canada. The complete Seed-to-Harvest systems incorporate the latest cultivation technology inside of a beautiful, handmade piece of furniture.<strong><span> </span></strong><span></span><span> </span></p>",
+      "createdAt": "2020-05-11T11:54:08Z",
+      "updatedAt": "2020-05-27T10:11:02Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (13 smoking terms vs 0 jewelry terms); tags: Canada, Cannabis, Community"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/389418811454",
+      "blog": "news",
+      "handle": "powerful-people-and-smoking-pipes",
+      "title": "Powerful People and Smoking Pipes",
+      "isPublished": true,
+      "publishedAt": "2020-05-19T12:13:00Z",
+      "tags": [
+        "Pipes"
+      ],
+      "templateSuffix": null,
+      "summary": "<span>Pipes allow people to transcend and connect with realms beyond or our own to acquire knowledge and valuable insight. Smoking pipes often denote intellect and authority, and in this article, we’ll highlight the powerful people who smoked them.</span>",
+      "createdAt": "2020-05-19T10:47:52Z",
+      "updatedAt": "2020-05-27T10:10:21Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (83 smoking terms vs 0 jewelry terms); tags: Pipes"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/389530419262",
+      "blog": "news",
+      "handle": "how-to-use-hemp-wick",
+      "title": "How to Use Hemp Wick",
+      "isPublished": true,
+      "publishedAt": "2020-05-27T21:45:00Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis accessories"
+      ],
+      "templateSuffix": null,
+      "summary": "<span>Whether you’re looking to save a little money or choose more sustainable accessories, hemp wick is here to please. Smokers who use hemp wick are rewarded with low-stress and consistently high-quality smoke sessions. Discover everything you need to know about hemp wick and why you should consider adding it to your collection.</span>",
+      "createdAt": "2020-05-27T10:08:21Z",
+      "updatedAt": "2020-05-27T21:59:48Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (79 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis accessories"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/389957910590",
+      "blog": "news",
+      "handle": "an-introduction-to-the-brockton-mk2",
+      "title": "An Introduction to the Brockton Mk2",
+      "isPublished": true,
+      "publishedAt": "2020-07-07T19:59:00Z",
+      "tags": [
+        "Brockton"
+      ],
+      "templateSuffix": "",
+      "summary": "<span>In our guide to The Brockton Mk2, you will find the answers to all of your burning questions about our signature accessory. Here, we explore the nature of the materials and address some of the conversations around brass. This article also covers how to light, enjoy, care for, and transport your accessory. </span>",
+      "createdAt": "2020-07-07T19:59:30Z",
+      "updatedAt": "2021-05-04T09:29:13Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (1 smoking terms vs 0 jewelry terms); tags: Brockton"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/390029672510",
+      "blog": "news",
+      "handle": "how-cannabis-makes-your-life-happier",
+      "title": "How Cannabis Makes Your Life Happier",
+      "isPublished": true,
+      "publishedAt": "2020-07-14T12:43:00Z",
+      "tags": [
+        "Cannabis"
+      ],
+      "templateSuffix": null,
+      "summary": "<span>Old stereotypes of cannabis consumers portray them as slackers, complete misfits, or jailbirds. However, science and recent studies have evidence that proves quite the opposite. Read on to discover how cannabis makes your life happier and the statistics behind it.</span>",
+      "createdAt": "2020-07-14T12:34:05Z",
+      "updatedAt": "2020-07-14T13:01:46Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (33 smoking terms vs 0 jewelry terms); tags: Cannabis"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/390120669246",
+      "blog": "news",
+      "handle": "the-best-cannabis-strains-for-anxiety",
+      "title": "The Best Cannabis Strains for Anxiety",
+      "isPublished": true,
+      "publishedAt": "2020-07-21T09:59:00Z",
+      "tags": [
+        "Cannabis"
+      ],
+      "templateSuffix": null,
+      "summary": "<span style=\"font-weight: 400;\">Cannabis has been known to help treat various disorders and illnesses, making this plant a treasure for those dealing with anxiety. Although before buying, smokers should educate themselves on how to choose strains that will reduce (not magnify) any negative feelings. In this article, we’ll explore the symptoms of anxiety, some basic science behind cannabinoids, and the best cannabis strains for anxiety.</span>",
+      "createdAt": "2020-07-21T09:59:18Z",
+      "updatedAt": "2020-07-21T10:13:08Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (29 smoking terms vs 0 jewelry terms); tags: Cannabis"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/390193840190",
+      "blog": "news",
+      "handle": "canada-and-the-cannabis-stigma",
+      "title": "Canada and the Cannabis Stigma",
+      "isPublished": true,
+      "publishedAt": "2020-07-27T16:53:00Z",
+      "tags": [
+        "Canada",
+        "Cannabis"
+      ],
+      "templateSuffix": null,
+      "summary": "<span>In its second year of legalization, the Canadian cannabis space has been met with variable markets, Covid-19, and the unshakeable cannabis stigma. Although many had high hopes that legalization would equal normalization, the truth is that cannabis is not entirely socially acceptable, yet. This week, we’re exploring where Canadians stand on cannabis and how education may factor into that. </span>",
+      "createdAt": "2020-07-27T16:45:37Z",
+      "updatedAt": "2020-07-27T17:25:33Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (45 smoking terms vs 0 jewelry terms); tags: Canada, Cannabis"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/390461456446",
+      "blog": "news",
+      "handle": "a-beginners-guide-to-hash",
+      "title": "A Beginner's Guide to Hash",
+      "isPublished": true,
+      "publishedAt": "2020-08-18T12:13:00Z",
+      "tags": [
+        "Cannabis"
+      ],
+      "templateSuffix": null,
+      "summary": "<span>Hash is the smokable substance that comes from collecting the crystals or trichomes from cannabis plants. In this article, we’ll cover the history, different methods for making hash, and how best to consume it.</span>",
+      "createdAt": "2020-08-18T12:13:33Z",
+      "updatedAt": "2020-08-18T12:35:35Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (30 smoking terms vs 0 jewelry terms); tags: Cannabis"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/390533677118",
+      "blog": "news",
+      "handle": "does-coughing-get-you-higher",
+      "title": "Cannabis Myths: Does Coughing Get You Higher?",
+      "isPublished": true,
+      "publishedAt": "2020-08-25T11:53:00Z",
+      "tags": [
+        "Cannabis"
+      ],
+      "templateSuffix": "",
+      "summary": "<span>While some smokers swear by the cannabis cough, others have it pinned down as a myth. This week, we explore the science behind this cannabis myth and find out whether it truly makes a difference in your smoke session.</span>",
+      "createdAt": "2020-08-25T11:17:07Z",
+      "updatedAt": "2022-08-31T11:35:01Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (28 smoking terms vs 0 jewelry terms); tags: Cannabis"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/390603014206",
+      "blog": "news",
+      "handle": "choosing-the-best-cannabis-strains-for-pain",
+      "title": "Choosing the Best Cannabis Strains for Pain",
+      "isPublished": true,
+      "publishedAt": "2020-09-01T15:56:00Z",
+      "tags": [
+        "Cannabis",
+        "Strains"
+      ],
+      "templateSuffix": "",
+      "summary": "Many people use cannabis to heal themselves and alleviate the symptoms of chronic pain. In this article, we’ll explore how cannabis alleviates pain, what ailments it can treat, and the best cannabis strains for pain.",
+      "createdAt": "2020-09-01T15:59:03Z",
+      "updatedAt": "2020-09-22T08:57:02Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (45 smoking terms vs 0 jewelry terms); tags: Cannabis, Strains"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/390689783870",
+      "blog": "news",
+      "handle": "does-legalization-affect-youth-cannabis-use",
+      "title": "Does Legalization Affect Youth Cannabis Use?",
+      "isPublished": true,
+      "publishedAt": "2020-09-08T12:14:00Z",
+      "tags": [
+        "Canada",
+        "Cannabis"
+      ],
+      "templateSuffix": null,
+      "summary": "<span>As infused beverages, edibles, and the like make their debut in Canada, many have questions about how the youth will be affected. In this week’s article, we take a look at the numbers to find out whether or not legalization affects youth cannabis use. </span>",
+      "createdAt": "2020-09-08T10:52:21Z",
+      "updatedAt": "2020-09-08T14:07:32Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (25 smoking terms vs 0 jewelry terms); tags: Canada, Cannabis"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/390805520446",
+      "blog": "news",
+      "handle": "why-cannabis-gives-you-munchies",
+      "title": "Why Cannabis Gives You Munchies",
+      "isPublished": true,
+      "publishedAt": "2020-09-15T12:38:46Z",
+      "tags": [
+        "Cannabis"
+      ],
+      "templateSuffix": "",
+      "summary": "Munchies are a common reaction from cannabis users of all kinds, regardless of how they consume cannabis. In this artcile, we take a look at the body’s endocannabinoid system, senses, and hormones to find out why cannabis gives you munchies!",
+      "createdAt": "2020-09-15T12:38:39Z",
+      "updatedAt": "2020-09-15T12:51:37Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (27 smoking terms vs 0 jewelry terms); tags: Cannabis"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/390882656318",
+      "blog": "news",
+      "handle": "the-best-cannabis-strains-for-autumn",
+      "title": "The Best Cannabis Strains for Autumn",
+      "isPublished": true,
+      "publishedAt": "2020-09-22T13:18:42Z",
+      "tags": [
+        "Canada",
+        "Cannabis",
+        "Strains"
+      ],
+      "templateSuffix": "",
+      "summary": "<p><span style=\"font-weight: 400;\">Whether you’re snuggled up by a campfire or indoors watching the leaves change colour, you’ll surely enjoy these cannabis strains for autumn. Read on to discover the best strains for autumn that you’ll want to smoke all season long.</span></p>",
+      "createdAt": "2020-09-22T11:58:03Z",
+      "updatedAt": "2020-09-22T14:25:26Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (25 smoking terms vs 0 jewelry terms); tags: Canada, Cannabis, Strains"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/390950355006",
+      "blog": "news",
+      "handle": "what-you-need-to-know-about-coffee-and-cannabis",
+      "title": "What You Need to Know About Coffee and Cannabis",
+      "isPublished": true,
+      "publishedAt": "2020-09-29T14:07:09Z",
+      "tags": [
+        "Cannabis"
+      ],
+      "templateSuffix": "",
+      "summary": "<span>In honour of International Coffee Day this week, we are exploring the science behind a favourite combination in the cannabis community: coffee and cannabis. Learn more about caffeine’s effect on the body, how it works with the endocannabinoid system, and what these two substances do when they work together.</span>",
+      "createdAt": "2020-09-29T14:07:09Z",
+      "updatedAt": "2020-09-29T14:40:57Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (19 smoking terms vs 0 jewelry terms); tags: Cannabis"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/391025164350",
+      "blog": "news",
+      "handle": "how-to-manage-your-weed-tolerance",
+      "title": "How to Manage Your Weed Tolerance",
+      "isPublished": true,
+      "publishedAt": "2020-10-05T21:30:04Z",
+      "tags": [
+        "Cannabis"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>If you’re a regular cannabis consumer, you may very well know what your weed tolerance is. In this week’s article, we explore the role of THC in weed tolerance, how you build a tolerance, and why a ‘T break’ might be a good idea.</span>",
+      "createdAt": "2020-10-05T21:29:59Z",
+      "updatedAt": "2020-10-08T19:36:57Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (36 smoking terms vs 0 jewelry terms); tags: Cannabis"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/391095255102",
+      "blog": "news",
+      "handle": "do-genetics-influence-your-cannabis-response",
+      "title": "Do Genetics Influence Your Cannabis Response?",
+      "isPublished": true,
+      "publishedAt": "2020-10-13T08:31:19Z",
+      "tags": [
+        "Cannabis"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>Have you ever shared a smoke session with someone and found that they didn’t have the same effects as you? Or perhaps, you’ve had people tell you that cannabis just doesn’t “do” anything to them. While some might believe that these are hyperbole or flat out lies, the truth is that not everyone responds to cannabis the same way. The answer to this riddle can be found in each person’s DNA, the double helix which contains genes that code a person’s response to cannabis. </span>",
+      "createdAt": "2020-10-13T08:16:09Z",
+      "updatedAt": "2020-10-20T09:01:19Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (29 smoking terms vs 0 jewelry terms); tags: Cannabis"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/391132086334",
+      "blog": "news",
+      "handle": "history-of-cannabis-persecutions-in-canada",
+      "title": "History of Cannabis Persecutions in Canada",
+      "isPublished": true,
+      "publishedAt": "2020-10-20T12:59:16Z",
+      "tags": [
+        "Canada",
+        "Cannabis"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>While Canada may be one of the first countries in the world to legalize cannabis across the board, it also has its fair share of murky cannabis history. In this week’s article, we delve into the history of cannabis persecutions, decriminalization, and how cannabis laws affect users today. </span>",
+      "createdAt": "2020-10-20T11:01:27Z",
+      "updatedAt": "2020-10-20T13:08:48Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (34 smoking terms vs 0 jewelry terms); tags: Canada, Cannabis"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/555570528318",
+      "blog": "news",
+      "handle": "the-origins-of-the-metal-smoking-pipe",
+      "title": "The Origins of the Metal Smoking Pipe",
+      "isPublished": true,
+      "publishedAt": "2021-04-07T16:13:49Z",
+      "tags": [
+        "Pipes"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span style=\"font-weight: 400;\">While the history of wooden pipes is well-documented, many might wonder about the origins of the metal smoking pipe. </span><span style=\"font-weight: 400;\">As a more modern smoking pipe, it may have a shorter history than some of its counterparts, but certainly not any less exciting. Read on to learn more about the origins of the metal smoking pipe, from its beginnings to modern metal pipes.</span>",
+      "createdAt": "2021-04-07T16:05:04Z",
+      "updatedAt": "2021-05-24T00:15:47Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (61 smoking terms vs 0 jewelry terms); tags: Pipes"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/555671552062",
+      "blog": "news",
+      "handle": "the-pros-and-cons-of-metal-smoking-pipes",
+      "title": "The Pros and Cons of Metal Smoking Pipes",
+      "isPublished": true,
+      "publishedAt": "2021-05-04T09:24:14Z",
+      "tags": [
+        "Pipes",
+        "Tips"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>Are you considering buying yourself a metal smoking pipe but need a little help deciding? We know how that goes, and we’re here to provide support in any way we can. Discover more about metal smoking pipes and their pros and cons for smokers.</span>",
+      "createdAt": "2021-05-04T09:24:15Z",
+      "updatedAt": "2021-06-07T21:54:18Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (72 smoking terms vs 0 jewelry terms); tags: Pipes, Tips"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/555709530174",
+      "blog": "news",
+      "handle": "how-to-choose-the-best-rolling-tray",
+      "title": "How to Choose The Best Rolling Tray",
+      "isPublished": true,
+      "publishedAt": "2021-05-12T17:37:01Z",
+      "tags": [
+        "Cannabis accessories",
+        "Tips"
+      ],
+      "templateSuffix": "",
+      "summary": "<span>There are certain accessories every smoker needs. A quality rolling tray can help you keep your house tidy, organize your goods and take the work out of your ritual. However, you may not know which to choose if you are searching for your ideal rolling tray. Read on for our tips on how to find and select the perfect rolling tray for you!</span>",
+      "createdAt": "2021-05-12T17:37:02Z",
+      "updatedAt": "2021-05-12T17:43:03Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (10 smoking terms vs 0 jewelry terms); tags: Cannabis accessories, Tips"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/555759042622",
+      "blog": "news",
+      "handle": "a-beginners-guide-to-pipes",
+      "title": "A Beginner's Guide to Pipes",
+      "isPublished": true,
+      "publishedAt": "2021-05-19T19:34:02Z",
+      "tags": [
+        "Cleaning tips",
+        "Pipe care",
+        "Pipes"
+      ],
+      "templateSuffix": "",
+      "summary": "",
+      "createdAt": "2021-05-19T19:34:03Z",
+      "updatedAt": "2021-05-24T00:22:30Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (51 smoking terms vs 0 jewelry terms); tags: Cleaning tips, Pipe care, Pipes"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/555787485246",
+      "blog": "news",
+      "handle": "the-brockton-versus-the-proto-pipe",
+      "title": "The Brockton Versus The Proto Pipe",
+      "isPublished": true,
+      "publishedAt": "2021-05-25T19:18:33Z",
+      "tags": [
+        "Brockton",
+        "Pipes"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span style=\"font-weight: 400;\">First and foremost, this isn’t a competition between our brass pipes and the legendary Proto Pipe. However, as we often find that people draw a comparison between the two, we thought we’d lay our cards on the table and stack them up side by side. </span><span style=\"font-weight: 400;\">Learn more about the differences between the two pipes, as well as what unites them.</span>",
+      "createdAt": "2021-05-25T19:18:33Z",
+      "updatedAt": "2021-10-08T01:13:55Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (41 smoking terms vs 0 jewelry terms); tags: Brockton, Pipes"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/555822841918",
+      "blog": "news",
+      "handle": "celebrating-craft-cannabis-with-lowell-farms-origin-collection",
+      "title": "Celebrating Craft Cannabis with Lowell Farms’ Origin Collection",
+      "isPublished": true,
+      "publishedAt": "2021-06-02T12:10:10Z",
+      "tags": [
+        "Cannabis",
+        "Community",
+        "Strains"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>Lowell Farms has set themselves apart in the American craft cannabis space by striving for quality and sustainability, while never forgetting their roots. Their newest line, the Origin Collection, is inspired by the “terroir” concept in winemaking, likening Californian cannabis to wine produced in Napa Valley. Discover more about Lowell Farms and how their </span><span></span><span></span>Origin Collection<span> honours the land used to cultivate their precious cannabis.</span>",
+      "createdAt": "2021-06-02T12:10:11Z",
+      "updatedAt": "2021-06-02T12:11:21Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (17 smoking terms vs 0 jewelry terms); tags: Cannabis, Community, Strains"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/555863572542",
+      "blog": "news",
+      "handle": "the-brockton-versus-the-journey-pipe",
+      "title": "The Brockton Versus The Journey Pipe",
+      "isPublished": true,
+      "publishedAt": "2021-06-09T17:58:22Z",
+      "tags": [
+        "Cannabis accessories",
+        "Pipes"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span style=\"font-weight: 400;\">Here we are again, laying our pipes on the table and stacking them up side by side with the Journey Pipe. This American-made pipe has a gold version that resembles the look of the Brockton Mk2. Discover the differences between the two and how they are upgrading the metal smoking pipe game.</span>",
+      "createdAt": "2021-06-09T17:58:23Z",
+      "updatedAt": "2021-06-09T17:59:54Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (41 smoking terms vs 0 jewelry terms); tags: Cannabis accessories, Pipes"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/555916591166",
+      "blog": "news",
+      "handle": "why-metal-pipes-are-better-than-glass-pipes",
+      "title": "Why Metal Pipes Are Better than Glass Pipes",
+      "isPublished": true,
+      "publishedAt": "2021-06-18T16:30:14Z",
+      "tags": [
+        "Pipes"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>When it comes down to the nitty-gritty of what works and what doesn’t, the material your gear is made from is crucial. For cannabis consumers who want to use accessories that are robust and resilient, metal pipes are it, chief! Read on to learn exactly why metal pipes are better than glass pipes. </span>",
+      "createdAt": "2021-06-18T16:30:15Z",
+      "updatedAt": "2021-06-18T16:40:08Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (38 smoking terms vs 0 jewelry terms); tags: Pipes"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/555935399998",
+      "blog": "news",
+      "handle": "4-reasons-to-love-clippers-lighters",
+      "title": "4 Reasons to Love Clippers Lighters",
+      "isPublished": true,
+      "publishedAt": "2021-06-23T19:12:44Z",
+      "tags": [
+        "Cannabis accessories"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>Lighters are an essential tool when it comes to consuming cannabis through combustion. However, some lighters stand out from the crowd for their features. Clipper lighters come to mind when discussing lighters that are a step above the rest, and their design is celebrated worldwide. Learn about four major reasons why stoners love Clipper lighters.</span>",
+      "createdAt": "2021-06-23T19:12:44Z",
+      "updatedAt": "2021-06-23T19:12:45Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (42 smoking terms vs 0 jewelry terms); tags: Cannabis accessories"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/555980128318",
+      "blog": "news",
+      "handle": "how-to-clean-a-weed-pipe",
+      "title": "How to Clean A Weed Pipe",
+      "isPublished": true,
+      "publishedAt": "2021-07-02T17:06:04Z",
+      "tags": [
+        "Cleaning tips",
+        "Pipes"
+      ],
+      "templateSuffix": "",
+      "summary": "<span>Weed pipes come in all shapes, sizes, designs, and materials, but what unifies them all is that they all need to be cleaned. Granted that how often you indulge in cannabis will dictate the frequency of cleaning, although we can say that regular maintenance will usually mean faster clean-ups.</span>",
+      "createdAt": "2021-07-02T17:06:05Z",
+      "updatedAt": "2021-07-02T17:11:47Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (61 smoking terms vs 0 jewelry terms); tags: Cleaning tips, Pipes"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556011061310",
+      "blog": "news",
+      "handle": "what-is-grasscity",
+      "title": "What is GrassCity?",
+      "isPublished": true,
+      "publishedAt": "2021-07-09T19:40:03Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis accessories"
+      ],
+      "templateSuffix": "",
+      "summary": "<span>Over twenty years ago, shopping in a smoke shop was only possible if you had one in your town or city. Everyone else had to travel to find one or get a friend to purchase goods and mail them, that is until the invention of GrassCity. This cannabis culture icon made it possible for cannabis consumers everywhere to get their goods delivered discreetly to their homes. Discover the story behind GrassCity, how they helped shape the modern cannabis space, and the legacy they’ve created.</span>",
+      "createdAt": "2021-07-09T19:40:04Z",
+      "updatedAt": "2021-07-09T19:46:18Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (26 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis accessories"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556024660030",
+      "blog": "news",
+      "handle": "5-tips-to-find-the-perfect-pot-pipe",
+      "title": "5 Tips to Find the Perfect Pot Pipe",
+      "isPublished": true,
+      "publishedAt": "2021-07-13T16:27:19Z",
+      "tags": [],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>If you’re just starting to build your collection of accessories and want to have a solid base, it’s vital to find the perfect pot pipe for you. At the end of the day, the perfect pot pipe will be the one that accommodates your hobbies, experience, and most of all, your wallet! Get helpful advice and actionable tips you can use to find the perfect pot pipe today!</span>",
+      "createdAt": "2021-07-13T16:27:20Z",
+      "updatedAt": "2021-07-13T16:35:14Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (38 smoking terms vs 0 jewelry terms); tags: none"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556070043710",
+      "blog": "news",
+      "handle": "why-you-should-try-king-palm",
+      "title": "Why You Should Try King Palm",
+      "isPublished": true,
+      "publishedAt": "2021-07-26T15:07:32Z",
+      "tags": [],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>While the team at Parkdale Brass are pipe smokers through and through, on the occasion we enjoy a rollie, we like to make it special. In comes King Palm, whose products you’ve likely seen in nearly every cannabis influencers’ set up at one point or another. The name says it all: king, evoking a sense of luxury and royalty, and palm, referring to the main material used in the all-natural leaf wraps. It’s those kinds of standards that we look for and support when venturing into the world of cigars and wraps. Discover more about this pioneering smoking accessory brand and why you should try King Palm.</span>",
+      "createdAt": "2021-07-26T15:07:33Z",
+      "updatedAt": "2021-07-26T15:07:34Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (24 smoking terms vs 0 jewelry terms); tags: none"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556097503294",
+      "blog": "news",
+      "handle": "10-classic-smoking-pipe-types",
+      "title": "10 Classic Smoking Pipe Types",
+      "isPublished": true,
+      "publishedAt": "2021-08-02T19:52:07Z",
+      "tags": [
+        "Pipes",
+        "Tips"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>Pipes aren’t only prized for their functionality, but also their undeniable style. No matter who you are, there is a smoking pipe type out there that will suit your needs and aesthetic. This short and sweet guide will serve as a prelude to educate you about classic smoking pipes you may want to add to your collection. Discover some of the most popular classic smoking pipes, what they’re made of and how to select the best one for you!</span>",
+      "createdAt": "2021-08-02T19:52:08Z",
+      "updatedAt": "2021-08-02T19:52:08Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (65 smoking terms vs 0 jewelry terms); tags: Pipes, Tips"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556123291710",
+      "blog": "news",
+      "handle": "the-pot-leaf-in-history",
+      "title": "The Pot Leaf in History",
+      "isPublished": true,
+      "publishedAt": "2021-08-09T22:29:48Z",
+      "tags": [
+        "Cannabis"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>When it comes to symbols of a subculture, there’s nothing more iconic than the pot leaf. However, while this leaf has become synonymous with modern cannabis culture, it has a long past that stretches back to ancient civilizations where it was a source of inspiration for artists. Here's a brief look at the history of the pot leaf, as well as its role in cultures and societies around the world.</span>",
+      "createdAt": "2021-08-09T22:29:48Z",
+      "updatedAt": "2021-08-09T22:35:33Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (15 smoking terms vs 0 jewelry terms); tags: Cannabis"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556181946430",
+      "blog": "news",
+      "handle": "how-to-clean-a-metal-one-hitter",
+      "title": "How to Clean A Metal One Hitter",
+      "isPublished": true,
+      "publishedAt": "2021-08-26T12:53:32Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis accessories",
+        "Cleaning tips"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>There’s nothing quite like a discreet smoke on the go with your handy one hitter or chillum. However, it doesn’t take much for this minimal smoking accessory to need a little cleaning up. Read on to learn why cleaning your one hitter is important, plus what gear you need and how to do it.</span>",
+      "createdAt": "2021-08-26T12:53:32Z",
+      "updatedAt": "2021-08-26T12:53:33Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (11 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis accessories, Cleaning tips"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556204392510",
+      "blog": "news",
+      "handle": "does-smoking-more-get-you-higher",
+      "title": "Does Smoking More Get You Higher?",
+      "isPublished": true,
+      "publishedAt": "2021-09-02T14:35:08Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis Education"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>Whether you’re a regular or not-so-regular cannabis user, the question of, “If I smoke more, will I get higher?” has probably crossed your mind before. So, if you’re wondering whether more is more when it comes to smoking weed, the answer isn’t quite so simple. In this article, we’ll cover how THC affects the body, the role tobacco plays, and finally answer the question: does smoking more get you higher?</span>",
+      "createdAt": "2021-09-02T14:34:42Z",
+      "updatedAt": "2021-09-02T14:44:48Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (44 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis Education"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556232900670",
+      "blog": "news",
+      "handle": "recreational-cannabis-and-canna-provisions",
+      "title": "Recreational Cannabis and Canna Provisions",
+      "isPublished": true,
+      "publishedAt": "2021-09-10T19:48:54Z",
+      "tags": [
+        "Cannabis",
+        "Community"
+      ],
+      "templateSuffix": "",
+      "summary": "<span>As a dispensary with a reputation for promoting knowledge and excellence, our American neighbours in the US, Canna Provisions, are an obvious choice. A company that prides itself on helping local communities and providing plant medicine to those who need it, this company also supplies cannabis professionals with opportunities in New England. Learn more about how Canna Provisions has helped pave the way for recreational cannabis and the future of the plant we all respect.</span>",
+      "createdAt": "2021-09-10T19:48:55Z",
+      "updatedAt": "2021-09-10T19:57:36Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (21 smoking terms vs 0 jewelry terms); tags: Cannabis, Community"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556247744574",
+      "blog": "news",
+      "handle": "how-to-choose-the-best-pipe-tobacco",
+      "title": "How to Choose the Best Pipe Tobacco",
+      "isPublished": true,
+      "publishedAt": "2021-09-16T18:30:21Z",
+      "tags": [
+        "Pipes",
+        "Tobacco"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>As the most traditional pipe filling, plenty of pipe smokers have had their dance with tobacco. Similar to finding the right wine or whiskey to suit your liking, the journey to finding the best pipe tobacco for you is about learning about the offerings and trying them out!</span>",
+      "createdAt": "2021-09-16T18:30:22Z",
+      "updatedAt": "2021-09-16T18:35:17Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (49 smoking terms vs 0 jewelry terms); tags: Pipes, Tobacco"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556274876478",
+      "blog": "news",
+      "handle": "cannabis-myths-does-thc-indicate-the-strength-of-a-cannabis-strain",
+      "title": "Cannabis Myths: Does THC Indicate the Strength of a Cannabis Strain?",
+      "isPublished": true,
+      "publishedAt": "2021-09-24T16:18:03Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis Education",
+        "Strains"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>The level of THC in a product may not be a good indicator of the high it provides. When purchasing your cannabis, there’s something else you should be focusing on to ensure it brings the desired effects. Read on to learn what it is and why choosing cannabis based on its THC content isn’t the best game plan.</span>",
+      "createdAt": "2021-09-24T16:18:04Z",
+      "updatedAt": "2021-09-24T16:23:37Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (31 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis Education, Strains"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556301156414",
+      "blog": "news",
+      "handle": "whats-to-come-for-canadian-cannabis",
+      "title": "What's to Come for Canadian Cannabis?",
+      "isPublished": true,
+      "publishedAt": "2021-10-01T20:34:57Z",
+      "tags": [
+        "Canada",
+        "Cannabis"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>As pioneers in the recreational cannabis world, Canadian cannabis companies have had their fair share of issues. Whether they have been financial, legal, or from the devastation of Covid-19, it seems there has been no shortage of hurdles. However, one of the most impacting remains the cannabis stigma and the subsequent bans on opening legal cannabis stores in Canadian municipalities.</span>",
+      "createdAt": "2021-10-01T20:34:58Z",
+      "updatedAt": "2021-10-01T20:34:58Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (36 smoking terms vs 0 jewelry terms); tags: Canada, Cannabis"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556330516542",
+      "blog": "news",
+      "handle": "why-you-should-try-metal-weed-pipes",
+      "title": "Why You Should Try Metal Weed Pipes",
+      "isPublished": true,
+      "publishedAt": "2021-10-08T22:50:47Z",
+      "tags": [
+        "Cannabis accessories",
+        "Pipes",
+        "Tips"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>Ever thought of trying out a metal weed pipe but were unfamiliar with the gear or even worried about using it? Read on to learn why you should try metal weed pipes and get tips and resources for how to use them! </span>",
+      "createdAt": "2021-10-08T22:50:48Z",
+      "updatedAt": "2021-10-08T23:00:22Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (43 smoking terms vs 0 jewelry terms); tags: Cannabis accessories, Pipes, Tips"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556350668862",
+      "blog": "news",
+      "handle": "what-are-the-differences-between-cbda-cbg",
+      "title": "What are the differences between CBDA & CBG?",
+      "isPublished": true,
+      "publishedAt": "2021-10-15T16:54:53Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis Education"
+      ],
+      "templateSuffix": "",
+      "summary": "<span>There is more to the cannabis story than just CBD and THC. In fact, there are an array of cannabinoids present in marijuana, two of which have recently gained more recognition for their medicinal properties. Discover more about the cannabinoids CBDA and CBG, plus the health benefits they can offer.</span>",
+      "createdAt": "2021-10-15T16:54:53Z",
+      "updatedAt": "2021-10-15T16:58:43Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (32 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis Education"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556370133054",
+      "blog": "news",
+      "handle": "five-cannabis-cookbooks-to-try-this-fall",
+      "title": "Five Cannabis Cookbooks to Try This Fall!",
+      "isPublished": true,
+      "publishedAt": "2021-10-22T21:56:11Z",
+      "tags": [
+        "Cannabis"
+      ],
+      "templateSuffix": "",
+      "summary": "<span>Tired of space cakes or the same old weed cookies or brownies? Well, it's time to get creative with the help of professionals! Discover five cannabis cookbooks you'll want to try this fall to impress all your stoner friends!</span>",
+      "createdAt": "2021-10-22T21:56:12Z",
+      "updatedAt": "2021-10-22T21:56:13Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (42 smoking terms vs 0 jewelry terms); tags: Cannabis"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556395823166",
+      "blog": "news",
+      "handle": "3-benefits-of-a-smoking-pipe-with-a-lid",
+      "title": "3 Benefits of a Smoking Pipe With a Lid",
+      "isPublished": true,
+      "publishedAt": "2021-10-29T20:56:03Z",
+      "tags": [
+        "Brockton",
+        "Pipes"
+      ],
+      "templateSuffix": "",
+      "summary": "<span>Despite the leaps and bounds most smoking pipes have travelled, some still debate the need for a smoking pipe with a lid. Apart from aesthetics, there is plenty to love about a pipe with a lid, especially if you are a smoker who needs a functional, dependable and efficient pipe. Discover the advantages that adding a lid to your accessory can provide.</span>",
+      "createdAt": "2021-10-29T20:56:04Z",
+      "updatedAt": "2021-10-29T20:56:04Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (47 smoking terms vs 0 jewelry terms); tags: Brockton, Pipes"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556423118910",
+      "blog": "news",
+      "handle": "room-to-grow-in-the-canadian-cannabis-industry",
+      "title": "Room to Grow in the Canadian Cannabis Industry",
+      "isPublished": true,
+      "publishedAt": "2021-11-08T22:41:19Z",
+      "tags": [
+        "Canada",
+        "Cannabis",
+        "Community"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>Three years into legalization, we recognize that there are still many areas in which our industry can improve. Although most of these areas are controlled externally, by legislation from the Canadian government, that doesn’t mean that we cannot do anything about them or push to change them. Read on to discover three areas in which the Canadian cannabis industry can grow and improve.</span>",
+      "createdAt": "2021-11-08T22:41:12Z",
+      "updatedAt": "2021-11-08T22:52:36Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (21 smoking terms vs 0 jewelry terms); tags: Canada, Cannabis, Community"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556444483646",
+      "blog": "news",
+      "handle": "4-easy-holiday-gifts-for-the-stoner-in-your-life",
+      "title": "4 Easy Holiday Gifts for the Stoner in Your Life",
+      "isPublished": true,
+      "publishedAt": "2021-11-15T17:33:57Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis accessories",
+        "Tips"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\">\n<p><span style=\"font-weight: 400;\">With Thanksgiving and Halloween past us, many are preparing to celebrate their respective holidays, whether that’s Hanukkah, Christmas, Kwanzaa or something else. No matter what you celebrate, you may find it tough to find that perfect gift for your best bud. Read on for four simple ideas on what you can surprise the stoner in your life with this holiday season.</span></p>",
+      "createdAt": "2021-11-15T17:33:58Z",
+      "updatedAt": "2021-11-15T17:34:02Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (27 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis accessories, Tips"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556481904702",
+      "blog": "news",
+      "handle": "the-bright-history-of-brass",
+      "title": "The Bright History of Brass",
+      "isPublished": true,
+      "publishedAt": "2021-11-25T21:04:07Z",
+      "tags": [
+        "Brass"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>While many recall the Bronze and Iron Ages, the history books don’t highlight the rise of brass. Although many might think that is because brass wasn’t all that popular, the truth is it was. Discover the history of our favourite alloy, from the ancient brass to modern brass to brass pipes of today.</span>",
+      "createdAt": "2021-11-25T21:04:08Z",
+      "updatedAt": "2021-11-25T21:04:09Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (16 smoking terms vs 0 jewelry terms); tags: Brass"
+      },
+      "bodyFile": "articles/the-bright-history-of-brass.html",
+      "bodyLength": 4488,
+      "bodySource": "admin-api+storefront-nbsp-restored"
+    },
+    {
+      "id": "gid://shopify/Article/556510675006",
+      "blog": "news",
+      "handle": "what-made-cannabis-essential-in-2020",
+      "title": "What made cannabis essential in 2020?",
+      "isPublished": true,
+      "publishedAt": "2021-12-07T16:54:59Z",
+      "tags": [
+        "Canada",
+        "Cannabis",
+        "Toronto"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>Although initial figures and sales were very promising, numbers coming in from the second year of legalization had many labelling the Canadian “green wave” a flop. Nonetheless, new legislation permitted the sale of edibles and infused goods which would allow cannabis to take up more of the Canadian market share. As dispensaries and cannabis brands alike prepared to roll out these new products and continue with their business, the threat of Covid-19 drew closer.</span>",
+      "createdAt": "2021-12-07T16:54:59Z",
+      "updatedAt": "2021-12-07T16:55:00Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (36 smoking terms vs 0 jewelry terms); tags: Canada, Cannabis, Toronto"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556535119934",
+      "blog": "news",
+      "handle": "cannabis-in-film-history",
+      "title": "Cannabis in Film History",
+      "isPublished": true,
+      "publishedAt": "2021-12-14T16:45:25Z",
+      "tags": [
+        "Cannabis Culture"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>On the topic of cannabis and movies, many think of funny “stoner films” like How High, Dazed and Confused, Harold &amp; Kumar Go to White Castle or even Pineapple Express. However, cannabis wasn’t always viewed as something comical in films. Let’s take a closer look at the progression of cannabis in films throughout the decades.</span>",
+      "createdAt": "2021-12-14T16:45:25Z",
+      "updatedAt": "2021-12-14T16:52:19Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (32 smoking terms vs 0 jewelry terms); tags: Cannabis Culture"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556586336318",
+      "blog": "news",
+      "handle": "4-reasons-to-keep-cbd-legal",
+      "title": "4 Reasons to Keep CBD Legal",
+      "isPublished": true,
+      "publishedAt": "2022-01-07T16:50:03Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis Education"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span style=\"font-weight: 400;\">If you hadn’t already heard, just last summer the French courts ruled that selling CBD was illegal. </span><span style=\"font-weight: 400;\">Since it is a stepping stone towards decriminalization as well as the legalization of the plant, it’s important not to ignore happenings like this. Cannabidiol (CBD) has various healing properties, which have contributed to the widespread use and popularity of the cannabis plant. So, here are the biggest benefits of CBD and five reasons why it should remain legal.</span>",
+      "createdAt": "2022-01-07T16:50:04Z",
+      "updatedAt": "2022-01-07T16:57:50Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (24 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis Education"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556613173310",
+      "blog": "news",
+      "handle": "cannabis-helps-prevent-covid-19-infections",
+      "title": "Cannabis Helps Prevent COVID-19 Infections",
+      "isPublished": true,
+      "publishedAt": "2022-01-17T23:22:05Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis Education"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>We’ll admit it, we were very excited when we read the news about the recently published study on cannabis and COVID-19. However, as supporters of cannabis education and information, we must take a moment to examine the true findings and not be led astray by media hype. Join us as we take a look at the real findings of the study and explore the importance of cannabis in the realm of COVID-19.</span>",
+      "createdAt": "2022-01-17T23:22:05Z",
+      "updatedAt": "2022-01-17T23:24:32Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (18 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis Education"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556639715390",
+      "blog": "news",
+      "handle": "cannabis-and-your-pet",
+      "title": "Cannabis and Your Pet",
+      "isPublished": true,
+      "publishedAt": "2022-01-24T17:08:55Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis Education"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>It’s only natural that while you are sparking or dosing up on cannabis, you may wonder whether it’s safe for your pet. Read on to learn more about the potential benefits and risks of cannabis for pets and what veterinarians think of giving your furry friend weed.</span>",
+      "createdAt": "2022-01-24T17:08:56Z",
+      "updatedAt": "2022-03-09T16:12:59Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (25 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis Education"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556675366974",
+      "blog": "news",
+      "handle": "how-to-pick-the-best-pipe-for-you",
+      "title": "How to Pick the Best Pipe For You",
+      "isPublished": true,
+      "publishedAt": "2022-02-03T17:07:11Z",
+      "tags": [
+        "Pipes",
+        "Tips"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>Picking the best pipe for you is essential to a stellar smoking experience. Even the pickiest shoppers won’t need to do too much soul-searching in the process, however, there are a few important aspects to consider. Here are three major tips that will help you on your way to finding the most suitable pipe for your needs.</span>",
+      "createdAt": "2022-02-03T17:07:12Z",
+      "updatedAt": "2022-02-03T17:15:20Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (36 smoking terms vs 0 jewelry terms); tags: Pipes, Tips"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556704071742",
+      "blog": "news",
+      "handle": "the-parkdale-brass-story",
+      "title": "The Parkdale Brass Story",
+      "isPublished": true,
+      "publishedAt": "2022-02-13T14:42:27Z",
+      "tags": [],
+      "templateSuffix": "",
+      "summary": null,
+      "createdAt": "2022-02-13T14:42:22Z",
+      "updatedAt": "2022-02-16T15:04:33Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (27 smoking terms vs 0 jewelry terms); tags: none"
+      },
+      "bodyFile": "articles/the-parkdale-brass-story.html",
+      "bodyLength": 5809,
+      "bodySource": "admin-api+storefront-nbsp-restored",
+      "bodyRedactions": [
+        "Our founder, [staff name redacted], is",
+        "market, [staff name redacted] decided"
+      ]
+    },
+    {
+      "id": "gid://shopify/Article/556722421822",
+      "blog": "news",
+      "handle": "how-to-roll-a-joint",
+      "title": "How to Roll a Joint",
+      "isPublished": true,
+      "publishedAt": "2022-02-18T13:43:56Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis Education",
+        "Tips"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>Although we are a cannabis accessories company that prides itself on making pipes, we know a thing or two about rolling up a nice doobie! As a classic means of smoking cannabis, joints have been enjoyed by cannabis consumers for decades due to their lightweight and spontaneous nature. What’s not to love about that? Read on for our tips on how to roll a joint.</span>",
+      "createdAt": "2022-02-18T13:43:51Z",
+      "updatedAt": "2022-02-18T13:48:24Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (24 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis Education, Tips"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556751880254",
+      "blog": "news",
+      "handle": "how-to-roll-a-blunt",
+      "title": "How to Roll a Blunt",
+      "isPublished": true,
+      "publishedAt": "2022-02-26T13:55:40Z",
+      "tags": [
+        "Cannabis",
+        "Tips",
+        "Tobacco"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>Calling all cigar aficionados! For many smokers, the line between a pipe smoker and a cigar lover is often blurred. If you want to enjoy a nice smoke session with the taste of tobacco to complement your bud’s terpene profile, then a blunt is just the thing. Bursting at the seams with flavours, ranging from natural to vanilla to blueberry, blunts are an emblem of functionality, style, and taste. Grab your rillos and get ready to roll a blunt.</span>",
+      "createdAt": "2022-02-26T13:55:41Z",
+      "updatedAt": "2022-02-26T14:00:59Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (52 smoking terms vs 0 jewelry terms); tags: Cannabis, Tips, Tobacco"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556791660606",
+      "blog": "news",
+      "handle": "the-ancient-history-of-hemp",
+      "title": "The Ancient History of Hemp",
+      "isPublished": true,
+      "publishedAt": "2022-03-05T10:52:59Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis Culture",
+        "Cannabis Education"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span style=\"font-weight: 400;\">If you know anything about cannabis, you’ll know that this famous plant falls into two categories: marijuana and hemp. Although the stigma </span><span style=\"font-weight: 400;\">surrounding the plant feels as though it’s been around forever, the truth is that people have long depended on hemp as a source for textiles, food, and even spiritual rituals. Before the War on Drugs, hemp provided ancient civilizations with a means to clothe and feed themselves. Learn all about the ancient history of hemp in this article!</span>",
+      "createdAt": "2022-03-05T10:52:59Z",
+      "updatedAt": "2022-03-05T10:58:54Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (51 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis Culture, Cannabis Education"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556812402750",
+      "blog": "news",
+      "handle": "cannabis-and-sustainability",
+      "title": "Cannabis and Sustainability",
+      "isPublished": true,
+      "publishedAt": "2022-03-13T21:43:46Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis Education",
+        "Community"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>What do you think of when you think of green? Cannabis? Sustainability? While some may insist that the two are synonymous, t</span><span>he reality is that the modern industrialization of cannabis has led to some dirty practices. Join us as we take a look at sustainability in the cannabis industry.</span>",
+      "createdAt": "2022-03-13T21:43:47Z",
+      "updatedAt": "2022-03-13T21:49:25Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (21 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis Education, Community"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556869713982",
+      "blog": "news",
+      "handle": "smoking-legends-who-invented-the-proto-pipe",
+      "title": "Smoking Legends: Who Invented the Proto Pipe?",
+      "isPublished": true,
+      "publishedAt": "2022-03-27T17:50:25Z",
+      "tags": [
+        "Cannabis Culture",
+        "Community",
+        "Pipes"
+      ],
+      "templateSuffix": "",
+      "summary": "<span>As fans of both smoking and history, we love to highlight people and stories that play a significant role in smoking culture. Since movements are often driven by one or more people, our new series Smoking Legends will seek to spotlight the folks behind it all. So, you may have heard of the iconic Proto Pipe, but have you ever wondered who was the person responsible for its creation? Read on to learn who invented the Proto Pipe and how this modular pipe changed the smoking culture for good.</span>",
+      "createdAt": "2022-03-27T17:50:11Z",
+      "updatedAt": "2022-03-27T17:52:08Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (43 smoking terms vs 0 jewelry terms); tags: Cannabis Culture, Community, Pipes"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556914737214",
+      "blog": "news",
+      "handle": "how-to-clean-a-santa-cruz-shredder",
+      "title": "How to Clean A Santa Cruz Shredder",
+      "isPublished": true,
+      "publishedAt": "2022-04-10T21:21:53Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis accessories",
+        "Cleaning tips"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>So you bought a Santa Cruz Shredder a while back and you’ve been enjoying it to the fullest. If you are a regular smoker, you may notice that your grinder could use a little spit-shine (figuratively speaking). There are plenty of reasons why you may want to clean your grinder, like improving flavours or just keeping your gear in good working shape. Nonetheless, there is only one tried and true way to clean this grinder, and we’re here to share it with you. Get all the details on the Santa Cruz Shredder, and find out what tools and steps are necessary to clean it.</span>",
+      "createdAt": "2022-04-09T18:46:50Z",
+      "updatedAt": "2022-04-10T21:30:04Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (19 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis accessories, Cleaning tips"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/556932792382",
+      "blog": "news",
+      "handle": "what-are-the-parts-of-a-pipe",
+      "title": "What Are the Parts of a Pipe?",
+      "isPublished": true,
+      "publishedAt": "2022-04-18T21:26:34Z",
+      "tags": [
+        "Cannabis",
+        "Pipes",
+        "Tips",
+        "Tobacco"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>They just don’t make pipes like they used to, eh? No really, they don’t! We know because we’ve studied the designs. More complex and high-quality pipes tend to have more parts. Read on to learn about the parts of a pipe and the mechanics that go into pipe smoking.</span>",
+      "createdAt": "2022-04-18T21:26:35Z",
+      "updatedAt": "2022-04-18T21:26:35Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (43 smoking terms vs 0 jewelry terms); tags: Cannabis, Pipes, Tips, Tobacco"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/557085163582",
+      "blog": "news",
+      "handle": "how-to-use-pipe-screens",
+      "title": "How to Use Pipe Screens",
+      "isPublished": true,
+      "publishedAt": "2022-05-08T21:42:56Z",
+      "tags": [
+        "Cannabis accessories",
+        "Pipe care",
+        "Pipes"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>Just like when you filter coffee grounds out of a delicious cup of coffee, pipe screens work to keep unwanted debris and flavours out of your mouth. Much like coffee drinking culture itself, it all comes down to the personal experience you want to cultivate. Read on for a quick guide on how to use pipe screens.</span>",
+      "createdAt": "2022-05-08T21:42:37Z",
+      "updatedAt": "2022-05-08T21:45:18Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (33 smoking terms vs 0 jewelry terms); tags: Cannabis accessories, Pipe care, Pipes"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/557099319358",
+      "blog": "news",
+      "handle": "slow-smoking-with-brass-pipes",
+      "title": "Slow Smoking with Brass Pipes",
+      "isPublished": true,
+      "publishedAt": "2022-05-12T10:08:40Z",
+      "tags": [
+        "Brass",
+        "Brockton",
+        "Cannabis Culture",
+        "Pipes"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span style=\"font-weight: 400;\">While we do our best to give everyone the information and support they need to smoke The Brockton, </span><span style=\"font-weight: 400;\">the reality is that it’s not a pipe for every smoker. It was fundamentally conceived and designed as a pipe that demands you to pause, sit down and engage in the art of slow smoking. If you’re interested in learning more, read on to explore what slow smoking is and why brass is the perfect material for it.</span>",
+      "createdAt": "2022-05-12T10:08:41Z",
+      "updatedAt": "2022-05-12T10:12:26Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (34 smoking terms vs 0 jewelry terms); tags: Brass, Brockton, Cannabis Culture, Pipes"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/557137657918",
+      "blog": "news",
+      "handle": "indulge-in-cannabis-vodka-this-summer",
+      "title": "Indulge in Cannabis Vodka this Summer",
+      "isPublished": true,
+      "publishedAt": "2022-05-26T22:24:17Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis Culture"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>It’s getting hot out, and you need something to quench your thirst and relax your body, too! Look no further than a nice, cool cannabis-infused beverage!  Learn all about cannabis vodka in this article, classic cocktails to use it in, and how to make it at home.</span>",
+      "createdAt": "2022-05-26T22:24:18Z",
+      "updatedAt": "2022-05-26T22:24:18Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (26 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis Culture"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/557159448638",
+      "blog": "news",
+      "handle": "3-benefits-of-cbd-skincare",
+      "title": "3 Benefits of CBD Skincare",
+      "isPublished": true,
+      "publishedAt": "2022-06-04T15:53:02Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis Culture",
+        "Cannabis Education"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>CBD skincare has taken over the health and wellness scene. As the legalization of this cannabinoid sweeps the globe, CBD is making appearances in everything from men’s anti-ageing creams to skin balms and much more. As is normal with any new trend, if you’ve never tried, or lack first-hand experience with it, you may wonder if it really works and if its skin health benefits have any truth to them. So, we thought we’d dive into the science behind CBD, its purported skin health benefits, and whether you should try it.</span>",
+      "createdAt": "2022-06-04T15:53:03Z",
+      "updatedAt": "2022-07-07T13:11:18Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (42 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis Culture, Cannabis Education"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/557285179454",
+      "blog": "news",
+      "handle": "will-cannabis-lounges-come-to-canada",
+      "title": "Will Cannabis Lounges Come to Canada?",
+      "isPublished": true,
+      "publishedAt": "2022-07-18T08:21:38Z",
+      "tags": [
+        "Canada",
+        "Cannabis",
+        "Cannabis Culture",
+        "Community"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span style=\"font-weight: 400;\">The topic of cannabis lounges conjures images of people indulging in the plant in cafes in Amsterdam and or ritzy restaurants in Los Angeles. However, in a country that legalized cannabis over three years ago,</span><span style=\"font-weight: 400;\"> the noticeable lack of such spaces feels very telling. Join us as we explore why cannabis lounges are necessary, their legal standing, and what steps business owners are taking to cultivate these spaces.</span>",
+      "createdAt": "2022-07-18T08:21:38Z",
+      "updatedAt": "2022-07-18T08:21:38Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (26 smoking terms vs 0 jewelry terms); tags: Canada, Cannabis, Cannabis Culture, Community"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/557329907774",
+      "blog": "news",
+      "handle": "national-cannabis-festivals-in-2022",
+      "title": "National Cannabis Festivals in 2022",
+      "isPublished": true,
+      "publishedAt": "2022-08-02T23:28:21Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis Culture",
+        "Community"
+      ],
+      "templateSuffix": "",
+      "summary": "<span>Since the legalization of cannabis in Canada in 2018, festivals have begun to appear across the country. These festivals and trade shows vary in who they are aimed towards. Some festivals are aimed at cannabis users and typically will have food and product vendors. Others are aimed towards producers, and feature the latest innovations in growing. Here are some of the upcoming festivals to look forward to in 2022.</span>",
+      "createdAt": "2022-08-02T22:26:01Z",
+      "updatedAt": "2022-08-26T20:34:56Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (19 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis Culture, Community"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/557338558526",
+      "blog": "news",
+      "handle": "does-weed-have-calories",
+      "title": "Does Weed Have Calories?",
+      "isPublished": true,
+      "publishedAt": "2022-08-08T13:00:00Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis Culture",
+        "Cannabis Education"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>The short answer would be yes. Everything that one consumes has calories. This is specifically related to eating cannabis in all forms. Cannabis can be ingested for its nutritional value with or without getting high. Eating cannabis to get high does not work for everyone, and can often take longer to feel the effects. The best advice when eating cannabis is to start low and go slow. </span>",
+      "createdAt": "2022-08-05T17:39:50Z",
+      "updatedAt": "2022-08-08T13:00:00Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (40 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis Culture, Cannabis Education"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/557347995710",
+      "blog": "news",
+      "handle": "marijuana-and-vitamin-c",
+      "title": "Marijuana and Vitamin C",
+      "isPublished": true,
+      "publishedAt": "2022-08-10T12:00:10Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis Culture",
+        "Cannabis Education"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\">\n<p>People often wonder if there are interactions between marijuana and other compounds. In some cases, the compounds that are mixed with tetrahydrocannabinol (THC) can enhance the effects of this cannabinoid, or conversely, stop them working well. Let’s see what happens when marijuana is paired with Vitamin C. </p>",
+      "createdAt": "2022-08-09T09:32:30Z",
+      "updatedAt": "2022-08-10T12:00:10Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (30 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis Culture, Cannabis Education"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/557381877822",
+      "blog": "news",
+      "handle": "what-is-weed-aesthetic",
+      "title": "What Is Weed Aesthetic?",
+      "isPublished": true,
+      "publishedAt": "2022-08-15T14:21:07Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis accessories",
+        "Cannabis Culture"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>\"Weed Aesthetic\" is a concept used to describe cannabis culture from a fashion, art and aesthetic perspective. This aesthetic has as many definitions as there are weed smokers.  As cannabis legalizes in more areas, whether or not marijuana will remain a counter-culture symbol is now in question. </span>",
+      "createdAt": "2022-08-15T14:21:07Z",
+      "updatedAt": "2022-08-17T11:54:58Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (49 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis accessories, Cannabis Culture"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/557381943358",
+      "blog": "news",
+      "handle": "how-long-does-weed-stay-good",
+      "title": "How Long Does Weed Stay Good?",
+      "isPublished": true,
+      "publishedAt": "2022-08-17T13:00:00Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis Education",
+        "Tips"
+      ],
+      "templateSuffix": "",
+      "summary": "<meta charset=\"UTF-8\"><span>Marijuana can have a long shelf life. How long weed stays good has a lot to do with how it is stored and preserved. According to Lex Corwin, the CEO and founder of Stone Road, “Cannabis degrades easily.” Much of the storage capacity for weed has to do with the curing process; however, we will be looking at post cure methods.</span>",
+      "createdAt": "2022-08-15T14:39:42Z",
+      "updatedAt": "2022-08-17T13:00:00Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (26 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis Education, Tips"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/557382074430",
+      "blog": "news",
+      "handle": "pipe-vs-bong-for-smoking-weed",
+      "title": "Pipe VS. Bong for Smoking Weed: A Fair Comparison",
+      "isPublished": true,
+      "publishedAt": "2022-08-19T04:00:00Z",
+      "tags": [
+        "Guest Post"
+      ],
+      "templateSuffix": null,
+      "summary": "<meta charset=\"UTF-8\"><span style=\"font-weight: 400;\">If rolling up a blunt isn’t your jam, the question of </span><span style=\"font-weight: 400;\">bong vs. pipe</span><span style=\"font-weight: 400;\"> arises.</span><br><span style=\"font-weight: 400;\">Of course, everybody has their preferences, but which accessory is objectively better? Are there even large differences between them? </span><span style=\"font-weight: 400;\">We’re about to add our two cents to this debate. Join us to compare these two tools across five categories </span><span style=\"font-weight: 400;\">and help you pick the better option for you.</span>",
+      "createdAt": "2022-08-15T15:05:11Z",
+      "updatedAt": "2023-01-17T14:08:05Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (85 smoking terms vs 0 jewelry terms); tags: Guest Post"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/557389676606",
+      "blog": "news",
+      "handle": "how-to-inhale-weed",
+      "title": "How to Inhale Weed",
+      "isPublished": true,
+      "publishedAt": "2022-08-22T12:00:00Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis accessories",
+        "Pipes"
+      ],
+      "templateSuffix": "",
+      "summary": "<p><span style=\"font-weight: 400;\">Inhaling weed is how we as humans harvest the THC (and other cannabinoids such as CBD) from cannabis smoke. In other words, inhaling weed is how we get high! There are many different ways to get that smoke and different benefits to each. With every method, the smoke is held in the body for several moments to ensure the most absorption of the cannabinoids. Read on to get tips on how best to inhale weed with different methods of smoking.</span></p>",
+      "createdAt": "2022-08-17T11:41:55Z",
+      "updatedAt": "2022-08-22T12:00:00Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (73 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis accessories, Pipes"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/557389774910",
+      "blog": "news",
+      "handle": "can-you-donate-plasma-if-you-smoke-weed",
+      "title": "Can You Donate Plasma If You Smoke Weed?",
+      "isPublished": true,
+      "publishedAt": "2022-08-24T12:30:01Z",
+      "tags": [
+        "Canada",
+        "Cannabis",
+        "Cannabis Education"
+      ],
+      "templateSuffix": "",
+      "summary": "<span>Donating plasma is an individual choice that is often made out of one of these two reasons: a desire to help others by providing vital and under-sourced medical fluids, or a desire to be compensated for this donation. In either case, the recipients of plasma can continue their medical therapy. A common question we hear is, can you donate plasma if you smoke weed? Let's take a closer look together.</span>",
+      "createdAt": "2022-08-17T12:17:49Z",
+      "updatedAt": "2022-08-24T12:30:01Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (17 smoking terms vs 0 jewelry terms); tags: Canada, Cannabis, Cannabis Education"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/557475790910",
+      "blog": "news",
+      "handle": "how-to-recover-from-edibles",
+      "title": "How to Recover From Edibles",
+      "isPublished": true,
+      "publishedAt": "2022-09-14T04:00:01Z",
+      "tags": [
+        "Cannabis",
+        "Edibles"
+      ],
+      "templateSuffix": "",
+      "summary": "",
+      "createdAt": "2022-09-13T15:55:25Z",
+      "updatedAt": "2022-09-14T04:00:01Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (47 smoking terms vs 0 jewelry terms); tags: Cannabis, Edibles"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/557475823678",
+      "blog": "news",
+      "handle": "best-things-to-do-when-high",
+      "title": "Best Things To Do When High",
+      "isPublished": true,
+      "publishedAt": "2022-09-16T16:00:00Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis Culture",
+        "Tips"
+      ],
+      "templateSuffix": "",
+      "summary": "",
+      "createdAt": "2022-09-13T15:57:36Z",
+      "updatedAt": "2022-09-16T16:00:00Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (23 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis Culture, Tips"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/557476151358",
+      "blog": "news",
+      "handle": "how-to-roll-a-rose-blunt",
+      "title": "How To Roll A Rose Blunt",
+      "isPublished": true,
+      "publishedAt": "2022-09-19T16:00:01Z",
+      "tags": [
+        "Cannabis",
+        "Cannabis accessories",
+        "Cannabis Culture",
+        "Tips"
+      ],
+      "templateSuffix": "",
+      "summary": "<span>Blunt wraps and papers have been around for a long time, but if you're like anyone else chances are you've always wanted to try something different. How about a rose blunt? Rose petals contain aromatic terpenes that meld with your weed's terpenes to provide a new smoking sensation. Rose petals can be fashioned into a blunt to add a bit of class and envy to your next session. Read on to find out how!</span>",
+      "createdAt": "2022-09-13T19:38:42Z",
+      "updatedAt": "2022-09-19T16:00:01Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (30 smoking terms vs 0 jewelry terms); tags: Cannabis, Cannabis accessories, Cannabis Culture, Tips"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/557492011070",
+      "blog": "news",
+      "handle": "all-you-need-to-know-about-taking-a-tolerance-break-from-weed",
+      "title": "All You Need To Know About Taking A Tolerance Break from Weed",
+      "isPublished": true,
+      "publishedAt": "2022-09-22T00:01:07Z",
+      "tags": [],
+      "templateSuffix": "",
+      "summary": "",
+      "createdAt": "2022-09-22T00:01:08Z",
+      "updatedAt": "2022-09-22T00:01:09Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (49 smoking terms vs 0 jewelry terms); tags: none"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/557492043838",
+      "blog": "news",
+      "handle": "the-science-behind-why-weed-makes-you-hungry",
+      "title": "The Science Behind Why Weed Makes You Hungry",
+      "isPublished": true,
+      "publishedAt": "2022-09-23T13:00:00Z",
+      "tags": [],
+      "templateSuffix": "",
+      "summary": "",
+      "createdAt": "2022-09-22T00:03:35Z",
+      "updatedAt": "2022-09-23T13:00:00Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (56 smoking terms vs 0 jewelry terms); tags: none"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/557507412030",
+      "blog": "news",
+      "handle": "when-to-stop-smoking-weed-while-pregnant",
+      "title": "When to Stop Smoking Weed While Pregnant",
+      "isPublished": true,
+      "publishedAt": "2022-09-30T13:00:02Z",
+      "tags": [],
+      "templateSuffix": "",
+      "summary": "",
+      "createdAt": "2022-09-30T00:30:57Z",
+      "updatedAt": "2023-03-11T01:52:38Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (53 smoking terms vs 0 jewelry terms); tags: none"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/557507444798",
+      "blog": "news",
+      "handle": "how-to-smoke-shatter",
+      "title": "How to Smoke Shatter",
+      "isPublished": true,
+      "publishedAt": "2022-10-03T13:00:01Z",
+      "tags": [],
+      "templateSuffix": "",
+      "summary": "",
+      "createdAt": "2022-09-30T00:32:38Z",
+      "updatedAt": "2022-10-03T13:00:01Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (92 smoking terms vs 0 jewelry terms); tags: none"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/557532708926",
+      "blog": "news",
+      "handle": "5-ways-to-get-higher-from-weed",
+      "title": "5 Ways to Get Higher from Weed",
+      "isPublished": true,
+      "publishedAt": "2022-10-14T12:00:21Z",
+      "tags": [],
+      "templateSuffix": "",
+      "summary": "",
+      "createdAt": "2022-10-12T13:27:32Z",
+      "updatedAt": "2022-10-14T12:00:21Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (59 smoking terms vs 0 jewelry terms); tags: none"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/557532741694",
+      "blog": "news",
+      "handle": "is-marijuana-a-depressant-how-it-impacts-the-brain",
+      "title": "Is Marijuana a Depressant? How It Impacts The Brain",
+      "isPublished": true,
+      "publishedAt": "2022-10-14T12:00:21Z",
+      "tags": [],
+      "templateSuffix": "",
+      "summary": "",
+      "createdAt": "2022-10-12T13:33:56Z",
+      "updatedAt": "2022-10-14T12:00:21Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (40 smoking terms vs 0 jewelry terms); tags: none"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/604375220546",
+      "blog": "news",
+      "handle": "how-to-dose-cannabis-properly-in-all-forms",
+      "title": "How to Dose Cannabis Properly (In All Forms)",
+      "isPublished": true,
+      "publishedAt": "2022-10-21T12:00:01Z",
+      "tags": [],
+      "templateSuffix": "",
+      "summary": "",
+      "createdAt": "2022-10-20T11:59:15Z",
+      "updatedAt": "2022-10-21T12:00:01Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (63 smoking terms vs 0 jewelry terms); tags: none"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/604375253314",
+      "blog": "news",
+      "handle": "edibles-vs-smoking",
+      "title": "Edibles vs Smoking",
+      "isPublished": true,
+      "publishedAt": "2022-10-21T12:00:02Z",
+      "tags": [],
+      "templateSuffix": "",
+      "summary": "",
+      "createdAt": "2022-10-20T12:01:33Z",
+      "updatedAt": "2022-10-21T12:00:02Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (82 smoking terms vs 0 jewelry terms); tags: none"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/604387868994",
+      "blog": "news",
+      "handle": "let-s-talk-about-kief-and-how-awesome-it-is",
+      "title": "Let’s Talk About Kief",
+      "isPublished": true,
+      "publishedAt": "2022-10-28T12:00:01Z",
+      "tags": [],
+      "templateSuffix": "",
+      "summary": "",
+      "createdAt": "2022-10-27T23:19:55Z",
+      "updatedAt": "2022-10-28T12:00:01Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (47 smoking terms vs 0 jewelry terms); tags: none"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/604387901762",
+      "blog": "news",
+      "handle": "cbd-vs-thc-is-one-better-for-you-than-the-other",
+      "title": "CBD vs THC: Is One Better For You Than The Other?",
+      "isPublished": true,
+      "publishedAt": "2022-10-28T12:00:01Z",
+      "tags": [],
+      "templateSuffix": "",
+      "summary": "",
+      "createdAt": "2022-10-27T23:23:21Z",
+      "updatedAt": "2022-10-28T12:00:01Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (70 smoking terms vs 0 jewelry terms); tags: none"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/604615246146",
+      "blog": "news",
+      "handle": "how-to-come-down-from-a-high",
+      "title": "How To Come Down From A High",
+      "isPublished": true,
+      "publishedAt": "2022-12-06T16:15:56Z",
+      "tags": [
+        "Cannabis Education",
+        "Tips"
+      ],
+      "templateSuffix": "",
+      "summary": "",
+      "createdAt": "2022-12-06T15:05:53Z",
+      "updatedAt": "2022-12-06T16:15:56Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (5 smoking terms vs 0 jewelry terms); tags: Cannabis Education, Tips"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/605670375746",
+      "blog": "news",
+      "handle": "how-long-does-cannabis-stay-good",
+      "title": "How Long Does Cannabis Stay Good?",
+      "isPublished": true,
+      "publishedAt": "2023-07-13T00:41:52Z",
+      "tags": [],
+      "templateSuffix": "",
+      "summary": "",
+      "createdAt": "2023-07-13T00:39:09Z",
+      "updatedAt": "2023-07-13T00:41:52Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (43 smoking terms vs 0 jewelry terms); tags: none"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/605691412802",
+      "blog": "news",
+      "handle": "cannabis-and-sex-does-weed-make-you-horny",
+      "title": "Cannabis and Sex: Does Weed Make You Horny?",
+      "isPublished": true,
+      "publishedAt": "2023-07-17T14:16:49Z",
+      "tags": [
+        "Cannabis",
+        "Sex"
+      ],
+      "templateSuffix": "",
+      "summary": "<span>Explore the complex relationship between cannabis and sexual arousal in this comprehensive guide. Uncover the science behind how weed's psychoactive compound, THC, interacts with the body's endocannabinoid system, potentially enhancing sexual desire. We delve into individual responses to cannabis, which can vary greatly due to personal biology, strain selection, and consumption methods. Furthermore, we highlight specific strains that may enhance sexual arousal, including Sour Diesel, Granddaddy Purple, Blue Dream, and Pineapple Express. Also, discover the unique experience of smoking cannabis with a brass pipe, offering a meditative, immersive journey. For more information and resources, including brass pipe tips, infographics, and cannabis education, visit the Parkdale Brass blog and Instagram. Don't forget to explore the variety of accessories in The Parkdale Brass shop for a tailored smoking experience.</span>",
+      "createdAt": "2023-07-17T14:16:42Z",
+      "updatedAt": "2023-07-17T14:16:49Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (33 smoking terms vs 0 jewelry terms); tags: Cannabis, Sex"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/605898178882",
+      "blog": "news",
+      "handle": "why-is-a-proto-pipe-so-expensive-a-deep-dive-into-the-cannabis-accessories-industry",
+      "title": "Why is a Proto Pipe So Expensive? A Deep Dive into the Cannabis Accessories Industry",
+      "isPublished": true,
+      "publishedAt": "2023-08-21T23:53:09Z",
+      "tags": [],
+      "templateSuffix": "",
+      "summary": "",
+      "createdAt": "2023-08-21T23:53:02Z",
+      "updatedAt": "2023-08-21T23:56:55Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (37 smoking terms vs 0 jewelry terms); tags: none"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/607094276418",
+      "blog": "news",
+      "handle": "the-rise-and-fall-of-the-proto-pipe-a-cannabis-legend",
+      "title": "The Rise and Fall of the Proto Pipe: A Cannabis Legend",
+      "isPublished": true,
+      "publishedAt": "2023-12-28T18:41:57Z",
+      "tags": [],
+      "templateSuffix": "",
+      "summary": "",
+      "createdAt": "2023-12-28T18:41:53Z",
+      "updatedAt": "2023-12-28T18:41:57Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (57 smoking terms vs 0 jewelry terms); tags: none"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/608697352514",
+      "blog": "news",
+      "handle": "slow-smoking-on-the-go-with-the-bellwoods",
+      "title": "Slow Smoking on the Go with The Bellwoods",
+      "isPublished": true,
+      "publishedAt": "2024-06-04T01:41:42Z",
+      "tags": [],
+      "templateSuffix": "",
+      "summary": "",
+      "createdAt": "2024-06-04T01:40:53Z",
+      "updatedAt": "2024-06-04T01:41:42Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (22 smoking terms vs 0 jewelry terms); tags: none"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/608730317122",
+      "blog": "news",
+      "handle": "fathers-day-24",
+      "title": "Stylish Gift Ideas for Father’s Day",
+      "isPublished": true,
+      "publishedAt": "2024-06-13T14:14:48Z",
+      "tags": [],
+      "templateSuffix": "instant-1DKpbqr14n7lJI3A",
+      "summary": "",
+      "createdAt": "2024-06-13T14:14:48Z",
+      "updatedAt": "2024-06-13T14:25:10Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Body is empty; the Craft Instant template article.instant-1DKpbqr14n7lJI3A holds pipe and cannabis Father's Day gift copy (craft-audit.md)"
+      },
+      "bodyFile": "articles/fathers-day-24.html",
+      "bodyLength": 0,
+      "bodySource": "admin-api (empty body)"
+    },
+    {
+      "id": "gid://shopify/Article/608903135554",
+      "blog": "news",
+      "handle": "revive-your-smoking-ritual",
+      "title": "Revive Your Smoking Ritual",
+      "isPublished": true,
+      "publishedAt": "2024-07-23T13:27:51Z",
+      "tags": [],
+      "templateSuffix": "",
+      "summary": "",
+      "createdAt": "2024-07-23T13:27:52Z",
+      "updatedAt": "2024-07-23T13:27:52Z",
+      "_derived": {
+        "topic": "legacy",
+        "basis": "Title and body are about smoking, pipes or cannabis (41 smoking terms vs 0 jewelry terms); tags: none"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610168635714",
+      "blog": "news",
+      "handle": "brass-jewelry",
+      "title": "Brass Jewelry for Men: The Ultimate Guide to Style, Care & Timeless Appeal",
+      "isPublished": true,
+      "publishedAt": "2025-04-18T18:19:32Z",
+      "tags": [],
+      "templateSuffix": "article",
+      "summary": "",
+      "createdAt": "2025-04-18T18:19:32Z",
+      "updatedAt": "2025-04-18T18:39:29Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (73 jewelry terms vs 1 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610168799554",
+      "blog": "news",
+      "handle": "does-brass-tarnish",
+      "title": "The Straight Answer: Does Brass Tarnish?",
+      "isPublished": true,
+      "publishedAt": "2025-04-18T19:49:23Z",
+      "tags": [],
+      "templateSuffix": "article",
+      "summary": "",
+      "createdAt": "2025-04-18T19:49:23Z",
+      "updatedAt": "2025-04-18T21:28:33Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (22 jewelry terms vs 0 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610168963394",
+      "blog": "news",
+      "handle": "does-brass-turn-your-skin-green",
+      "title": "The Straight Answer: Does Brass Turn Your Skin Green?",
+      "isPublished": true,
+      "publishedAt": "2025-04-18T21:29:15Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-18T21:29:15Z",
+      "updatedAt": "2025-04-18T21:29:15Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (28 jewelry terms vs 0 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610169061698",
+      "blog": "news",
+      "handle": "does-brass-turn-green",
+      "title": "Why Does Brass Jewelry Turn Green? The Science Explained",
+      "isPublished": true,
+      "publishedAt": "2025-04-18T22:16:07Z",
+      "tags": [],
+      "templateSuffix": "article",
+      "summary": "",
+      "createdAt": "2025-04-18T22:16:07Z",
+      "updatedAt": "2025-04-18T22:39:26Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (35 jewelry terms vs 0 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610169192770",
+      "blog": "news",
+      "handle": "does-brass-jewelry-tarnish",
+      "title": "So, Does Brass Jewelry Tarnish? The Straight Answer",
+      "isPublished": true,
+      "publishedAt": "2025-04-19T03:29:57Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-19T03:29:57Z",
+      "updatedAt": "2025-04-19T03:29:57Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (36 jewelry terms vs 0 smoking terms); no tags"
+      },
+      "bodyFile": "articles/does-brass-jewelry-tarnish.html",
+      "bodyLength": 14033,
+      "bodySource": "admin-api+storefront-identical"
+    },
+    {
+      "id": "gid://shopify/Article/610169618754",
+      "blog": "news",
+      "handle": "brass-necklace",
+      "title": "Unlock Your Style: The Enduring Appeal of the Brass Necklace",
+      "isPublished": true,
+      "publishedAt": "2025-04-19T09:29:43Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-19T09:29:44Z",
+      "updatedAt": "2025-04-19T09:29:44Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (70 jewelry terms vs 0 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610170339650",
+      "blog": "news",
+      "handle": "how-to-clean-brass-jewelry",
+      "title": "Why Does Brass Jewelry Tarnish? Understanding the Basics",
+      "isPublished": true,
+      "publishedAt": "2025-04-19T15:30:10Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-19T15:30:10Z",
+      "updatedAt": "2025-04-19T15:30:10Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (40 jewelry terms vs 0 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610172436802",
+      "blog": "news",
+      "handle": "brass-jewelry-tarnish",
+      "title": "What Exactly is Brass Jewelry Tarnish?",
+      "isPublished": true,
+      "publishedAt": "2025-04-20T03:29:52Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-20T03:29:52Z",
+      "updatedAt": "2025-04-20T03:29:52Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (52 jewelry terms vs 0 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610172764482",
+      "blog": "news",
+      "handle": "is-brass-good-for-jewelry",
+      "title": "What Exactly is Brass? Understanding the Metal",
+      "isPublished": true,
+      "publishedAt": "2025-04-20T09:30:28Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-20T09:30:28Z",
+      "updatedAt": "2025-04-20T09:30:28Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (41 jewelry terms vs 0 smoking terms); no tags"
+      },
+      "bodyFile": "articles/is-brass-good-for-jewelry.html",
+      "bodyLength": 11818,
+      "bodySource": "admin-api+storefront-identical"
+    },
+    {
+      "id": "gid://shopify/Article/610173059394",
+      "blog": "news",
+      "handle": "is-brass-jewelry-good",
+      "title": "Brass Jewelry for Men: Weighing the Pros and Cons",
+      "isPublished": true,
+      "publishedAt": "2025-04-20T15:29:56Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-20T15:29:56Z",
+      "updatedAt": "2025-04-20T15:29:56Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (37 jewelry terms vs 1 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610173387074",
+      "blog": "news",
+      "handle": "does-brass-jewelry-turn-green",
+      "title": "So, Does Brass Jewelry Turn Green? The Straight Answer",
+      "isPublished": true,
+      "publishedAt": "2025-04-20T21:29:43Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-20T21:29:43Z",
+      "updatedAt": "2025-04-20T21:29:43Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (47 jewelry terms vs 0 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610184724802",
+      "blog": "news",
+      "handle": "why-your-brass-jewelry-needs-polishing",
+      "title": "Why Your Brass Jewelry Needs Polishing",
+      "isPublished": true,
+      "publishedAt": "2025-04-21T13:12:39Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-21T13:12:39Z",
+      "updatedAt": "2025-04-21T13:12:39Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (31 jewelry terms vs 0 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610185085250",
+      "blog": "news",
+      "handle": "does-brass-jewelry-turn-skin-green",
+      "title": "The Straight Answer: Does Brass Jewelry Turn Skin Green?",
+      "isPublished": true,
+      "publishedAt": "2025-04-21T15:30:06Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-21T15:30:06Z",
+      "updatedAt": "2025-04-21T15:30:06Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (45 jewelry terms vs 0 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610185642306",
+      "blog": "news",
+      "handle": "brass-mens-jewelry",
+      "title": "Understanding Brass in Men's Jewelry",
+      "isPublished": true,
+      "publishedAt": "2025-04-21T21:29:42Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-21T21:29:42Z",
+      "updatedAt": "2025-04-21T21:29:42Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (29 jewelry terms vs 0 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610186264898",
+      "blog": "news",
+      "handle": "why-cleaning-brass-jewelry-matters",
+      "title": "Why Cleaning Your Brass Jewelry Matters",
+      "isPublished": true,
+      "publishedAt": "2025-04-22T03:29:40Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-22T03:29:40Z",
+      "updatedAt": "2025-04-22T03:29:40Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (36 jewelry terms vs 0 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610187444546",
+      "blog": "news",
+      "handle": "what-is-brass-made-of",
+      "title": "Understanding Brass: What Is It Actually Made Of?",
+      "isPublished": true,
+      "publishedAt": "2025-04-22T09:30:02Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-22T09:30:02Z",
+      "updatedAt": "2025-04-22T09:30:02Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (39 jewelry terms vs 0 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610189574466",
+      "blog": "news",
+      "handle": "is-brass-jewelry-waterproof",
+      "title": "Understanding Brass and Water: Is Brass Jewelry Waterproof?",
+      "isPublished": true,
+      "publishedAt": "2025-04-22T15:30:14Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-22T15:30:15Z",
+      "updatedAt": "2025-04-22T15:30:15Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (42 jewelry terms vs 0 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610191868226",
+      "blog": "news",
+      "handle": "why-cleaning-your-brass-jewelry-is-essential",
+      "title": "Why Cleaning Your Brass Jewelry is Essential",
+      "isPublished": true,
+      "publishedAt": "2025-04-22T21:29:31Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-22T21:29:31Z",
+      "updatedAt": "2025-04-22T21:29:31Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (31 jewelry terms vs 0 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610192589122",
+      "blog": "news",
+      "handle": "brass-vs-gold-jewelry-choosing-right-metal",
+      "title": "Brass vs Gold Jewelry: Choosing the Right Metal for Your Style",
+      "isPublished": true,
+      "publishedAt": "2025-04-23T03:29:30Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-23T03:29:30Z",
+      "updatedAt": "2025-04-23T03:29:30Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (25 jewelry terms vs 0 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610193080642",
+      "blog": "news",
+      "handle": "will-brass-jewelry-tarnish",
+      "title": "The Straight Answer: Will Brass Jewelry Tarnish?",
+      "isPublished": true,
+      "publishedAt": "2025-04-23T09:30:15Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-23T09:30:15Z",
+      "updatedAt": "2025-04-23T09:30:15Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (36 jewelry terms vs 0 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610194850114",
+      "blog": "news",
+      "handle": "importance-right-brass-cleaner",
+      "title": "Keeping Your Brass Looking Its Best: The Importance of the Right Cleaner",
+      "isPublished": true,
+      "publishedAt": "2025-04-23T15:30:27Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-23T15:30:27Z",
+      "updatedAt": "2025-04-23T15:30:27Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (29 jewelry terms vs 0 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610195538242",
+      "blog": "news",
+      "handle": "is-brass-good-metal-for-mens-jewelry",
+      "title": "So, Is Brass a Good Metal for Jewelry, Especially for Men?",
+      "isPublished": true,
+      "publishedAt": "2025-04-23T21:30:32Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-23T21:30:32Z",
+      "updatedAt": "2025-04-23T21:30:32Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (40 jewelry terms vs 1 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610196619586",
+      "blog": "news",
+      "handle": "brass-tarnish-jewelry-changes-color",
+      "title": "Understanding Brass Tarnish: Why Your Jewelry Changes Color",
+      "isPublished": true,
+      "publishedAt": "2025-04-24T03:29:38Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-24T03:29:38Z",
+      "updatedAt": "2025-04-24T03:29:38Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (40 jewelry terms vs 0 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610199404866",
+      "blog": "news",
+      "handle": "gold-plated-brass-jewelry",
+      "title": "What Exactly is Gold Plated Brass Jewelry?",
+      "isPublished": true,
+      "publishedAt": "2025-04-24T09:30:11Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-24T09:30:11Z",
+      "updatedAt": "2025-04-24T09:30:11Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (56 jewelry terms vs 0 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610201010498",
+      "blog": "news",
+      "handle": "mens-brass-jewelry-durability",
+      "title": "Understanding the Durability of Men's Brass Jewelry",
+      "isPublished": true,
+      "publishedAt": "2025-04-24T15:31:02Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-24T15:31:02Z",
+      "updatedAt": "2025-04-24T15:31:02Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (32 jewelry terms vs 0 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610202517826",
+      "blog": "news",
+      "handle": "brass-jewelry-box-collection",
+      "title": "Why Choose a Brass Jewelry Box for Your Collection?",
+      "isPublished": true,
+      "publishedAt": "2025-04-24T21:30:45Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-24T21:30:45Z",
+      "updatedAt": "2025-04-24T21:30:45Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (48 jewelry terms vs 0 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610210185538",
+      "blog": "news",
+      "handle": "importance-cleaning-brass-jewelry",
+      "title": "Why Cleaning Your Brass Jewelry is Essential",
+      "isPublished": true,
+      "publishedAt": "2025-04-25T03:29:37Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-25T03:29:37Z",
+      "updatedAt": "2025-04-25T03:29:37Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (37 jewelry terms vs 0 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610213855554",
+      "blog": "news",
+      "handle": "brass-vs-bronze-jewelry-guide",
+      "title": "Understanding the Contenders: Brass vs Bronze Jewelry",
+      "isPublished": true,
+      "publishedAt": "2025-04-25T09:30:05Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-25T09:30:05Z",
+      "updatedAt": "2025-04-25T09:30:05Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (45 jewelry terms vs 1 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610215231810",
+      "blog": "news",
+      "handle": "why-choose-brass-cz-jewelry",
+      "title": "Discover the Appeal: Why Choose Brass CZ Jewelry?",
+      "isPublished": true,
+      "publishedAt": "2025-04-25T15:29:56Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-25T15:29:56Z",
+      "updatedAt": "2025-04-25T15:29:56Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (55 jewelry terms vs 0 smoking terms); no tags"
+      }
+    },
+    {
+      "id": "gid://shopify/Article/610216771906",
+      "blog": "news",
+      "handle": "what-is-brass-jewelry-metal",
+      "title": "Understanding Brass: What Exactly Is This Jewelry Metal?",
+      "isPublished": true,
+      "publishedAt": "2025-04-25T21:30:22Z",
+      "tags": [],
+      "templateSuffix": null,
+      "summary": null,
+      "createdAt": "2025-04-25T21:30:22Z",
+      "updatedAt": "2025-04-25T21:30:22Z",
+      "_derived": {
+        "topic": "jewelry",
+        "basis": "Title and body are about brass jewelry (46 jewelry terms vs 1 smoking terms); no tags"
+      }
+    }
+  ]
+}

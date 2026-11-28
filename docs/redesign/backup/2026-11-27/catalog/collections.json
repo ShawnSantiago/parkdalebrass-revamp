@@ -1,0 +1,1690 @@
+{
+  "exportedAt": "2026-11-27T01:09:53Z",
+  "source": {
+    "store": "parkdale-brass.myshopify.com",
+    "method": "Shopify Admin GraphQL through the Shopify connector (graphql_query, read-only). No mutations.",
+    "personalData": "None. No customer, order, staff or author fields were queried."
+  },
+  "scope": "Every collection (collectionsCount 14, all pages read).",
+  "notes": [
+    "The pinned Admin API schema has no Collection.ruleSet field; smart rules are exposed as Collection.sources (CollectionConditionsSource).",
+    "ruleSet is derived from sources in the CollectionRuleSetInput shape (TAGGED_WITH -> TAG EQUALS) so it can be used to recreate a collection. sources is the raw API data and wins if they disagree.",
+    "collectionType comes from the collections query filters collection_type:smart and collection_type:custom.",
+    "products lists every member in any status, so DRAFT and ARCHIVED products appear where a rule matches them.",
+    "Collection publications only support APP catalogs, so there are no market catalog entries here."
+  ],
+  "summary": {
+    "collectionCount": 14,
+    "byType": {
+      "custom": 2,
+      "smart": 12
+    },
+    "publishedOnOnlineStore": 14,
+    "emptyCollections": [
+      "cleaning",
+      "grinders",
+      "vaporizers",
+      "lighters-and-matches",
+      "trays",
+      "containers"
+    ],
+    "nonEmptyTemplateSuffixes": [],
+    "collectionsPerChannel": {
+      "Online Store": 14,
+      "Facebook & Instagram": 14,
+      "Inbox": 14,
+      "Concierge Shopping Guide - CM": 14,
+      "Whatnot": 14
+    },
+    "plannedHandleCollisions": []
+  },
+  "collections": [
+    {
+      "id": "gid://shopify/Collection/158879023166",
+      "legacyResourceId": "158879023166",
+      "handle": "metal-smoking-pipes",
+      "title": "Metal Smoking Pipes",
+      "collectionType": "smart",
+      "templateSuffix": "",
+      "sortOrder": "BEST_SELLING",
+      "updatedAt": "2026-09-23T14:17:54Z",
+      "seo": {
+        "title": null,
+        "description": null
+      },
+      "productsCount": 4,
+      "productsCountPrecision": "EXACT",
+      "publishedOnOnlineStore": true,
+      "onlineStorePublishDate": "2020-03-18T23:55:29Z",
+      "publishedOnChannels": [
+        "Online Store",
+        "Facebook & Instagram",
+        "Inbox",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "ruleSet": {
+        "appliedDisjunctively": false,
+        "rules": [
+          {
+            "column": "TAG",
+            "relation": "EQUALS",
+            "condition": "Metal Smoking Pipes"
+          }
+        ]
+      },
+      "ruleSetWarnings": [],
+      "products": [
+        {
+          "id": "gid://shopify/Product/4409295863870",
+          "handle": "brockton-mk2",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "gid://shopify/Product/2145566883902",
+          "handle": "the-brockton",
+          "status": "ARCHIVED"
+        },
+        {
+          "id": "gid://shopify/Product/7069355540542",
+          "handle": "the-bellwoods-one-hitter",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "gid://shopify/Product/4814543388734",
+          "handle": "brockton-mk2-special-edition",
+          "status": "ACTIVE"
+        }
+      ],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2020-03-18T23:55:29Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/42672619582",
+          "channel": "Facebook & Instagram",
+          "channelHandle": "facebook-ads",
+          "isPublished": true,
+          "publishDate": "2021-05-15T19:48:24Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/44203671614",
+          "channel": "Inbox",
+          "channelHandle": "shopify-inbox",
+          "isPublished": true,
+          "publishDate": "2022-02-12T15:22:15Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-27T22:56:30Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:54Z"
+        }
+      ],
+      "sources": [
+        {
+          "__typename": "CollectionConditionsSource",
+          "id": "gid://shopify/CollectionConditionsSource/9344713026",
+          "title": "Untitled Source",
+          "description": null,
+          "targetType": "PRODUCTS",
+          "inclusion": {
+            "matchType": "ALL",
+            "conditions": [
+              {
+                "__typename": "CollectionSourceInclusionConditionProductTag",
+                "id": "gid://shopify/CollectionSourceInclusionConditionProductTag/4908843330",
+                "matchType": "ALL",
+                "relation": "TAGGED_WITH",
+                "values": [
+                  "Metal Smoking Pipes"
+                ]
+              }
+            ],
+            "selections": {
+              "nodes": [],
+              "pageInfo": {
+                "hasNextPage": false
+              }
+            }
+          },
+          "exclusion": {
+            "matchType": "ALL",
+            "conditions": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Collection/158888558654",
+      "legacyResourceId": "158888558654",
+      "handle": "shop",
+      "title": "Shop",
+      "collectionType": "smart",
+      "templateSuffix": "",
+      "sortOrder": "MANUAL",
+      "updatedAt": "2026-09-23T14:26:08Z",
+      "seo": {
+        "title": null,
+        "description": "A place to shop for metal smoking pipes and brass accessories."
+      },
+      "productsCount": 9,
+      "productsCountPrecision": "EXACT",
+      "publishedOnOnlineStore": true,
+      "onlineStorePublishDate": "2020-03-19T12:58:31Z",
+      "publishedOnChannels": [
+        "Online Store",
+        "Facebook & Instagram",
+        "Inbox",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "ruleSet": {
+        "appliedDisjunctively": false,
+        "rules": [
+          {
+            "column": "VARIANT_INVENTORY",
+            "relation": "GREATER_THAN",
+            "condition": "0"
+          }
+        ]
+      },
+      "ruleSetWarnings": [],
+      "products": [
+        {
+          "id": "gid://shopify/Product/6583968563262",
+          "handle": "short-sleeve-unisex-t-shirt-4",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "gid://shopify/Product/6583968596030",
+          "handle": "short-sleeve-unisex-t-shirt-5",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "gid://shopify/Product/4586922836030",
+          "handle": "organic-hemp-wicks",
+          "status": "DRAFT"
+        },
+        {
+          "id": "gid://shopify/Product/7076480286782",
+          "handle": "dad-hat-1",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "gid://shopify/Product/9657319850306",
+          "handle": "men-s-slides",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "gid://shopify/Product/9657330172226",
+          "handle": "men-s-slides-gold",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "gid://shopify/Product/9657335251266",
+          "handle": "toddler-short-sleeve-tee",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "gid://shopify/Product/9657337348418",
+          "handle": "parkdale-brass-mug",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "gid://shopify/Product/7069355540542",
+          "handle": "the-bellwoods-one-hitter",
+          "status": "ACTIVE"
+        }
+      ],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2020-03-19T12:58:31Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/42672619582",
+          "channel": "Facebook & Instagram",
+          "channelHandle": "facebook-ads",
+          "isPublished": true,
+          "publishDate": "2021-05-15T19:48:24Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/44203671614",
+          "channel": "Inbox",
+          "channelHandle": "shopify-inbox",
+          "isPublished": true,
+          "publishDate": "2022-02-12T15:22:15Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-27T22:56:30Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:54Z"
+        }
+      ],
+      "sources": [
+        {
+          "__typename": "CollectionConditionsSource",
+          "id": "gid://shopify/CollectionConditionsSource/9344745794",
+          "title": "Untitled Source",
+          "description": null,
+          "targetType": "PRODUCTS",
+          "inclusion": {
+            "matchType": "ALL",
+            "conditions": [
+              {
+                "__typename": "CollectionSourceInclusionConditionVariantInventory",
+                "id": "gid://shopify/CollectionSourceInclusionConditionVariantInventory/4908876098",
+                "relation": "GREATER_THAN",
+                "value": 0
+              }
+            ],
+            "selections": {
+              "nodes": [],
+              "pageInfo": {
+                "hasNextPage": false
+              }
+            }
+          },
+          "exclusion": {
+            "matchType": "ALL",
+            "conditions": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Collection/181557461054",
+      "legacyResourceId": "181557461054",
+      "handle": "coming-soon",
+      "title": "Coming Soon",
+      "collectionType": "custom",
+      "templateSuffix": "",
+      "sortOrder": "BEST_SELLING",
+      "updatedAt": "2026-09-23T14:17:55Z",
+      "seo": {
+        "title": null,
+        "description": "Find all our upcoming product, product collaboration and prototype brass accessories."
+      },
+      "productsCount": 2,
+      "productsCountPrecision": "EXACT",
+      "publishedOnOnlineStore": true,
+      "onlineStorePublishDate": "2021-05-12T12:20:29Z",
+      "publishedOnChannels": [
+        "Online Store",
+        "Facebook & Instagram",
+        "Inbox",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "ruleSet": null,
+      "ruleSetWarnings": [],
+      "products": [
+        {
+          "id": "gid://shopify/Product/7069355540542",
+          "handle": "the-bellwoods-one-hitter",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "gid://shopify/Product/4814543388734",
+          "handle": "brockton-mk2-special-edition",
+          "status": "ACTIVE"
+        }
+      ],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2021-05-12T12:20:29Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/42672619582",
+          "channel": "Facebook & Instagram",
+          "channelHandle": "facebook-ads",
+          "isPublished": true,
+          "publishDate": "2021-05-15T19:48:24Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/44203671614",
+          "channel": "Inbox",
+          "channelHandle": "shopify-inbox",
+          "isPublished": true,
+          "publishDate": "2022-02-12T15:22:15Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-27T22:56:30Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:54Z"
+        }
+      ],
+      "sources": [
+        {
+          "__typename": "CollectionConditionsSource",
+          "id": "gid://shopify/CollectionConditionsSource/9405727042",
+          "title": "Untitled Source",
+          "description": null,
+          "targetType": "PRODUCTS",
+          "inclusion": {
+            "matchType": null,
+            "conditions": [],
+            "selections": {
+              "nodes": [
+                {
+                  "product": {
+                    "id": "gid://shopify/Product/4814543388734",
+                    "handle": "brockton-mk2-special-edition"
+                  },
+                  "variantIds": null
+                },
+                {
+                  "product": {
+                    "id": "gid://shopify/Product/7069355540542",
+                    "handle": "the-bellwoods-one-hitter"
+                  },
+                  "variantIds": null
+                }
+              ],
+              "pageInfo": {
+                "hasNextPage": false
+              }
+            }
+          },
+          "exclusion": {
+            "matchType": "ALL",
+            "conditions": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Collection/260616519742",
+      "legacyResourceId": "260616519742",
+      "handle": "accessories",
+      "title": "Accessories",
+      "collectionType": "smart",
+      "templateSuffix": "",
+      "sortOrder": "BEST_SELLING",
+      "updatedAt": "2026-09-23T14:17:55Z",
+      "seo": {
+        "title": null,
+        "description": "Our brass accessories products"
+      },
+      "productsCount": 1,
+      "productsCountPrecision": "EXACT",
+      "publishedOnOnlineStore": true,
+      "onlineStorePublishDate": "2021-03-14T22:16:47Z",
+      "publishedOnChannels": [
+        "Online Store",
+        "Facebook & Instagram",
+        "Inbox",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "ruleSet": {
+        "appliedDisjunctively": false,
+        "rules": [
+          {
+            "column": "TAG",
+            "relation": "EQUALS",
+            "condition": "accessories"
+          },
+          {
+            "column": "VARIANT_INVENTORY",
+            "relation": "GREATER_THAN",
+            "condition": "0"
+          }
+        ]
+      },
+      "ruleSetWarnings": [],
+      "products": [
+        {
+          "id": "gid://shopify/Product/4586922836030",
+          "handle": "organic-hemp-wicks",
+          "status": "DRAFT"
+        }
+      ],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2021-03-14T22:16:47Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/42672619582",
+          "channel": "Facebook & Instagram",
+          "channelHandle": "facebook-ads",
+          "isPublished": true,
+          "publishDate": "2021-05-15T19:48:24Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/44203671614",
+          "channel": "Inbox",
+          "channelHandle": "shopify-inbox",
+          "isPublished": true,
+          "publishDate": "2022-02-12T15:22:16Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-27T22:56:30Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:55Z"
+        }
+      ],
+      "sources": [
+        {
+          "__typename": "CollectionConditionsSource",
+          "id": "gid://shopify/CollectionConditionsSource/9424929090",
+          "title": "Untitled Source",
+          "description": null,
+          "targetType": "PRODUCTS",
+          "inclusion": {
+            "matchType": "ALL",
+            "conditions": [
+              {
+                "__typename": "CollectionSourceInclusionConditionProductTag",
+                "id": "gid://shopify/CollectionSourceInclusionConditionProductTag/4984504642",
+                "matchType": "ALL",
+                "relation": "TAGGED_WITH",
+                "values": [
+                  "accessories"
+                ]
+              },
+              {
+                "__typename": "CollectionSourceInclusionConditionVariantInventory",
+                "id": "gid://shopify/CollectionSourceInclusionConditionVariantInventory/4984537410",
+                "relation": "GREATER_THAN",
+                "value": 0
+              }
+            ],
+            "selections": {
+              "nodes": [],
+              "pageInfo": {
+                "hasNextPage": false
+              }
+            }
+          },
+          "exclusion": {
+            "matchType": "ALL",
+            "conditions": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Collection/261273354302",
+      "legacyResourceId": "261273354302",
+      "handle": "cleaning",
+      "title": "Cleaning",
+      "collectionType": "smart",
+      "templateSuffix": "",
+      "sortOrder": "BEST_SELLING",
+      "updatedAt": "2026-09-23T14:17:55Z",
+      "seo": {
+        "title": "Cleaning Products",
+        "description": "Cleaning product for all types of smoking accessories from pipes, bongs vapes, etc."
+      },
+      "productsCount": 0,
+      "productsCountPrecision": "EXACT",
+      "publishedOnOnlineStore": true,
+      "onlineStorePublishDate": "2021-05-12T12:20:29Z",
+      "publishedOnChannels": [
+        "Online Store",
+        "Facebook & Instagram",
+        "Inbox",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "ruleSet": {
+        "appliedDisjunctively": false,
+        "rules": [
+          {
+            "column": "TAG",
+            "relation": "EQUALS",
+            "condition": "cleaning"
+          }
+        ]
+      },
+      "ruleSetWarnings": [],
+      "products": [],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2021-05-12T12:20:29Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/42672619582",
+          "channel": "Facebook & Instagram",
+          "channelHandle": "facebook-ads",
+          "isPublished": true,
+          "publishDate": "2021-05-15T19:48:24Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/44203671614",
+          "channel": "Inbox",
+          "channelHandle": "shopify-inbox",
+          "isPublished": true,
+          "publishDate": "2022-02-12T15:22:16Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-27T22:56:30Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:55Z"
+        }
+      ],
+      "sources": [
+        {
+          "__typename": "CollectionConditionsSource",
+          "id": "gid://shopify/CollectionConditionsSource/9436758338",
+          "title": "Untitled Source",
+          "description": null,
+          "targetType": "PRODUCTS",
+          "inclusion": {
+            "matchType": "ALL",
+            "conditions": [
+              {
+                "__typename": "CollectionSourceInclusionConditionProductTag",
+                "id": "gid://shopify/CollectionSourceInclusionConditionProductTag/4996956482",
+                "matchType": "ALL",
+                "relation": "TAGGED_WITH",
+                "values": [
+                  "cleaning"
+                ]
+              }
+            ],
+            "selections": {
+              "nodes": [],
+              "pageInfo": {
+                "hasNextPage": false
+              }
+            }
+          },
+          "exclusion": {
+            "matchType": "ALL",
+            "conditions": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Collection/261273387070",
+      "legacyResourceId": "261273387070",
+      "handle": "grinders",
+      "title": "Grinders",
+      "collectionType": "smart",
+      "templateSuffix": "",
+      "sortOrder": "BEST_SELLING",
+      "updatedAt": "2026-09-23T14:17:55Z",
+      "seo": {
+        "title": null,
+        "description": "Herb grinders"
+      },
+      "productsCount": 0,
+      "productsCountPrecision": "EXACT",
+      "publishedOnOnlineStore": true,
+      "onlineStorePublishDate": "2021-05-12T12:20:29Z",
+      "publishedOnChannels": [
+        "Online Store",
+        "Facebook & Instagram",
+        "Inbox",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "ruleSet": {
+        "appliedDisjunctively": false,
+        "rules": [
+          {
+            "column": "TAG",
+            "relation": "EQUALS",
+            "condition": "grinder"
+          }
+        ]
+      },
+      "ruleSetWarnings": [],
+      "products": [],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2021-05-12T12:20:29Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/42672619582",
+          "channel": "Facebook & Instagram",
+          "channelHandle": "facebook-ads",
+          "isPublished": true,
+          "publishDate": "2021-05-15T19:48:25Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/44203671614",
+          "channel": "Inbox",
+          "channelHandle": "shopify-inbox",
+          "isPublished": true,
+          "publishDate": "2022-02-12T15:22:16Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-27T22:56:30Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:55Z"
+        }
+      ],
+      "sources": [
+        {
+          "__typename": "CollectionConditionsSource",
+          "id": "gid://shopify/CollectionConditionsSource/9436791106",
+          "title": "Untitled Source",
+          "description": null,
+          "targetType": "PRODUCTS",
+          "inclusion": {
+            "matchType": "ALL",
+            "conditions": [
+              {
+                "__typename": "CollectionSourceInclusionConditionProductTag",
+                "id": "gid://shopify/CollectionSourceInclusionConditionProductTag/4996989250",
+                "matchType": "ALL",
+                "relation": "TAGGED_WITH",
+                "values": [
+                  "grinder"
+                ]
+              }
+            ],
+            "selections": {
+              "nodes": [],
+              "pageInfo": {
+                "hasNextPage": false
+              }
+            }
+          },
+          "exclusion": {
+            "matchType": "ALL",
+            "conditions": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Collection/261273452606",
+      "legacyResourceId": "261273452606",
+      "handle": "vaporizers",
+      "title": "Vaporizers",
+      "collectionType": "smart",
+      "templateSuffix": "",
+      "sortOrder": "BEST_SELLING",
+      "updatedAt": "2026-09-23T14:17:55Z",
+      "seo": {
+        "title": null,
+        "description": "A collection of various vaporizers."
+      },
+      "productsCount": 0,
+      "productsCountPrecision": "EXACT",
+      "publishedOnOnlineStore": true,
+      "onlineStorePublishDate": "2021-05-12T12:20:30Z",
+      "publishedOnChannels": [
+        "Online Store",
+        "Facebook & Instagram",
+        "Inbox",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "ruleSet": {
+        "appliedDisjunctively": false,
+        "rules": [
+          {
+            "column": "TAG",
+            "relation": "EQUALS",
+            "condition": "Vaporizer"
+          }
+        ]
+      },
+      "ruleSetWarnings": [],
+      "products": [],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2021-05-12T12:20:30Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/42672619582",
+          "channel": "Facebook & Instagram",
+          "channelHandle": "facebook-ads",
+          "isPublished": true,
+          "publishDate": "2021-05-15T19:48:25Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/44203671614",
+          "channel": "Inbox",
+          "channelHandle": "shopify-inbox",
+          "isPublished": true,
+          "publishDate": "2022-02-12T15:22:16Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-27T22:56:30Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:55Z"
+        }
+      ],
+      "sources": [
+        {
+          "__typename": "CollectionConditionsSource",
+          "id": "gid://shopify/CollectionConditionsSource/9436823874",
+          "title": "Untitled Source",
+          "description": null,
+          "targetType": "PRODUCTS",
+          "inclusion": {
+            "matchType": "ALL",
+            "conditions": [
+              {
+                "__typename": "CollectionSourceInclusionConditionProductTag",
+                "id": "gid://shopify/CollectionSourceInclusionConditionProductTag/4997022018",
+                "matchType": "ALL",
+                "relation": "TAGGED_WITH",
+                "values": [
+                  "Vaporizer"
+                ]
+              }
+            ],
+            "selections": {
+              "nodes": [],
+              "pageInfo": {
+                "hasNextPage": false
+              }
+            }
+          },
+          "exclusion": {
+            "matchType": "ALL",
+            "conditions": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Collection/261273583678",
+      "legacyResourceId": "261273583678",
+      "handle": "lighters-and-matches",
+      "title": "Lighters and Matches",
+      "collectionType": "smart",
+      "templateSuffix": "",
+      "sortOrder": "BEST_SELLING",
+      "updatedAt": "2026-09-23T14:17:55Z",
+      "seo": {
+        "title": null,
+        "description": "A collection of varies lighters and matches for smoking products."
+      },
+      "productsCount": 0,
+      "productsCountPrecision": "EXACT",
+      "publishedOnOnlineStore": true,
+      "onlineStorePublishDate": "2021-05-12T12:20:29Z",
+      "publishedOnChannels": [
+        "Online Store",
+        "Facebook & Instagram",
+        "Inbox",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "ruleSet": {
+        "appliedDisjunctively": true,
+        "rules": [
+          {
+            "column": "TAG",
+            "relation": "EQUALS",
+            "condition": "matches"
+          },
+          {
+            "column": "TAG",
+            "relation": "EQUALS",
+            "condition": "lighters"
+          }
+        ]
+      },
+      "ruleSetWarnings": [],
+      "products": [],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2021-05-12T12:20:29Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/42672619582",
+          "channel": "Facebook & Instagram",
+          "channelHandle": "facebook-ads",
+          "isPublished": true,
+          "publishDate": "2021-05-15T19:48:25Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/44203671614",
+          "channel": "Inbox",
+          "channelHandle": "shopify-inbox",
+          "isPublished": true,
+          "publishDate": "2022-02-12T15:22:16Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-27T22:56:30Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:55Z"
+        }
+      ],
+      "sources": [
+        {
+          "__typename": "CollectionConditionsSource",
+          "id": "gid://shopify/CollectionConditionsSource/9436856642",
+          "title": "Untitled Source",
+          "description": null,
+          "targetType": "PRODUCTS",
+          "inclusion": {
+            "matchType": "ANY",
+            "conditions": [
+              {
+                "__typename": "CollectionSourceInclusionConditionProductTag",
+                "id": "gid://shopify/CollectionSourceInclusionConditionProductTag/4997054786",
+                "matchType": "ANY",
+                "relation": "TAGGED_WITH",
+                "values": [
+                  "matches",
+                  "lighters"
+                ]
+              }
+            ],
+            "selections": {
+              "nodes": [],
+              "pageInfo": {
+                "hasNextPage": false
+              }
+            }
+          },
+          "exclusion": {
+            "matchType": "ALL",
+            "conditions": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Collection/261273747518",
+      "legacyResourceId": "261273747518",
+      "handle": "trays",
+      "title": "Trays",
+      "collectionType": "smart",
+      "templateSuffix": "",
+      "sortOrder": "BEST_SELLING",
+      "updatedAt": "2026-09-23T14:17:55Z",
+      "seo": {
+        "title": null,
+        "description": "Cannabis and tobacco trays"
+      },
+      "productsCount": 0,
+      "productsCountPrecision": "EXACT",
+      "publishedOnOnlineStore": true,
+      "onlineStorePublishDate": "2021-05-12T12:20:30Z",
+      "publishedOnChannels": [
+        "Online Store",
+        "Facebook & Instagram",
+        "Inbox",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "ruleSet": {
+        "appliedDisjunctively": false,
+        "rules": [
+          {
+            "column": "TAG",
+            "relation": "EQUALS",
+            "condition": "trays"
+          }
+        ]
+      },
+      "ruleSetWarnings": [],
+      "products": [],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2021-05-12T12:20:30Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/42672619582",
+          "channel": "Facebook & Instagram",
+          "channelHandle": "facebook-ads",
+          "isPublished": true,
+          "publishDate": "2021-05-15T19:48:25Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/44203671614",
+          "channel": "Inbox",
+          "channelHandle": "shopify-inbox",
+          "isPublished": true,
+          "publishDate": "2022-02-12T15:22:16Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-27T22:56:30Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:55Z"
+        }
+      ],
+      "sources": [
+        {
+          "__typename": "CollectionConditionsSource",
+          "id": "gid://shopify/CollectionConditionsSource/9436889410",
+          "title": "Untitled Source",
+          "description": null,
+          "targetType": "PRODUCTS",
+          "inclusion": {
+            "matchType": "ALL",
+            "conditions": [
+              {
+                "__typename": "CollectionSourceInclusionConditionProductTag",
+                "id": "gid://shopify/CollectionSourceInclusionConditionProductTag/4997087554",
+                "matchType": "ALL",
+                "relation": "TAGGED_WITH",
+                "values": [
+                  "trays"
+                ]
+              }
+            ],
+            "selections": {
+              "nodes": [],
+              "pageInfo": {
+                "hasNextPage": false
+              }
+            }
+          },
+          "exclusion": {
+            "matchType": "ALL",
+            "conditions": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Collection/261287936062",
+      "legacyResourceId": "261287936062",
+      "handle": "containers",
+      "title": "Containers",
+      "collectionType": "smart",
+      "templateSuffix": "",
+      "sortOrder": "BEST_SELLING",
+      "updatedAt": "2026-09-23T14:17:55Z",
+      "seo": {
+        "title": null,
+        "description": "Cannabis and tobacco containers"
+      },
+      "productsCount": 0,
+      "productsCountPrecision": "EXACT",
+      "publishedOnOnlineStore": true,
+      "onlineStorePublishDate": "2021-05-12T12:20:29Z",
+      "publishedOnChannels": [
+        "Online Store",
+        "Facebook & Instagram",
+        "Inbox",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "ruleSet": {
+        "appliedDisjunctively": false,
+        "rules": [
+          {
+            "column": "TAG",
+            "relation": "EQUALS",
+            "condition": "containers"
+          }
+        ]
+      },
+      "ruleSetWarnings": [],
+      "products": [],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2021-05-12T12:20:29Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/42672619582",
+          "channel": "Facebook & Instagram",
+          "channelHandle": "facebook-ads",
+          "isPublished": true,
+          "publishDate": "2021-05-15T19:48:25Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/44203671614",
+          "channel": "Inbox",
+          "channelHandle": "shopify-inbox",
+          "isPublished": true,
+          "publishDate": "2022-02-12T15:22:16Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-27T22:56:30Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:55Z"
+        }
+      ],
+      "sources": [
+        {
+          "__typename": "CollectionConditionsSource",
+          "id": "gid://shopify/CollectionConditionsSource/9436954946",
+          "title": "Untitled Source",
+          "description": null,
+          "targetType": "PRODUCTS",
+          "inclusion": {
+            "matchType": "ALL",
+            "conditions": [
+              {
+                "__typename": "CollectionSourceInclusionConditionProductTag",
+                "id": "gid://shopify/CollectionSourceInclusionConditionProductTag/4997153090",
+                "matchType": "ALL",
+                "relation": "TAGGED_WITH",
+                "values": [
+                  "containers"
+                ]
+              }
+            ],
+            "selections": {
+              "nodes": [],
+              "pageInfo": {
+                "hasNextPage": false
+              }
+            }
+          },
+          "exclusion": {
+            "matchType": "ALL",
+            "conditions": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Collection/261361926206",
+      "legacyResourceId": "261361926206",
+      "handle": "pipe-accessories",
+      "title": "Pipe Accessories",
+      "collectionType": "smart",
+      "templateSuffix": "",
+      "sortOrder": "BEST_SELLING",
+      "updatedAt": "2026-09-23T14:17:55Z",
+      "seo": {
+        "title": null,
+        "description": "Pipe accessories like screens, wicks, brush, etc."
+      },
+      "productsCount": 2,
+      "productsCountPrecision": "EXACT",
+      "publishedOnOnlineStore": true,
+      "onlineStorePublishDate": "2021-05-13T16:21:36Z",
+      "publishedOnChannels": [
+        "Online Store",
+        "Facebook & Instagram",
+        "Inbox",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "ruleSet": {
+        "appliedDisjunctively": false,
+        "rules": [
+          {
+            "column": "TAG",
+            "relation": "EQUALS",
+            "condition": "pipe accessories"
+          }
+        ]
+      },
+      "ruleSetWarnings": [],
+      "products": [
+        {
+          "id": "gid://shopify/Product/4467093962814",
+          "handle": "brass-pipe-screens",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "gid://shopify/Product/4586922836030",
+          "handle": "organic-hemp-wicks",
+          "status": "DRAFT"
+        }
+      ],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2021-05-13T16:21:36Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/42672619582",
+          "channel": "Facebook & Instagram",
+          "channelHandle": "facebook-ads",
+          "isPublished": true,
+          "publishDate": "2021-05-15T19:48:26Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/44203671614",
+          "channel": "Inbox",
+          "channelHandle": "shopify-inbox",
+          "isPublished": true,
+          "publishDate": "2022-02-12T15:22:16Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-27T22:56:30Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:55Z"
+        }
+      ],
+      "sources": [
+        {
+          "__typename": "CollectionConditionsSource",
+          "id": "gid://shopify/CollectionConditionsSource/9440723266",
+          "title": "Untitled Source",
+          "description": null,
+          "targetType": "PRODUCTS",
+          "inclusion": {
+            "matchType": "ALL",
+            "conditions": [
+              {
+                "__typename": "CollectionSourceInclusionConditionProductTag",
+                "id": "gid://shopify/CollectionSourceInclusionConditionProductTag/5001707842",
+                "matchType": "ALL",
+                "relation": "TAGGED_WITH",
+                "values": [
+                  "pipe accessories"
+                ]
+              }
+            ],
+            "selections": {
+              "nodes": [],
+              "pageInfo": {
+                "hasNextPage": false
+              }
+            }
+          },
+          "exclusion": {
+            "matchType": "ALL",
+            "conditions": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Collection/261373624382",
+      "legacyResourceId": "261373624382",
+      "handle": "apparel",
+      "title": "Apparel",
+      "collectionType": "smart",
+      "templateSuffix": "",
+      "sortOrder": "MANUAL",
+      "updatedAt": "2026-09-23T14:17:55Z",
+      "seo": {
+        "title": null,
+        "description": "Custom parkdale brass apparel like shirts, hats, sweaters, etc."
+      },
+      "productsCount": 6,
+      "productsCountPrecision": "EXACT",
+      "publishedOnOnlineStore": true,
+      "onlineStorePublishDate": "2021-05-15T12:58:01Z",
+      "publishedOnChannels": [
+        "Online Store",
+        "Facebook & Instagram",
+        "Inbox",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "ruleSet": {
+        "appliedDisjunctively": false,
+        "rules": [
+          {
+            "column": "TAG",
+            "relation": "EQUALS",
+            "condition": "apparel"
+          }
+        ]
+      },
+      "ruleSetWarnings": [],
+      "products": [
+        {
+          "id": "gid://shopify/Product/6583968563262",
+          "handle": "short-sleeve-unisex-t-shirt-4",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "gid://shopify/Product/6583968596030",
+          "handle": "short-sleeve-unisex-t-shirt-5",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "gid://shopify/Product/7076480286782",
+          "handle": "dad-hat-1",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "gid://shopify/Product/9657330172226",
+          "handle": "men-s-slides-gold",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "gid://shopify/Product/9657319850306",
+          "handle": "men-s-slides",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "gid://shopify/Product/9657335251266",
+          "handle": "toddler-short-sleeve-tee",
+          "status": "ACTIVE"
+        }
+      ],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2021-05-15T12:58:01Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/42672619582",
+          "channel": "Facebook & Instagram",
+          "channelHandle": "facebook-ads",
+          "isPublished": true,
+          "publishDate": "2021-05-15T19:48:26Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/44203671614",
+          "channel": "Inbox",
+          "channelHandle": "shopify-inbox",
+          "isPublished": true,
+          "publishDate": "2022-02-12T15:22:16Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-27T22:56:30Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:55Z"
+        }
+      ],
+      "sources": [
+        {
+          "__typename": "CollectionConditionsSource",
+          "id": "gid://shopify/CollectionConditionsSource/9440788802",
+          "title": "Untitled Source",
+          "description": null,
+          "targetType": "PRODUCTS",
+          "inclusion": {
+            "matchType": "ALL",
+            "conditions": [
+              {
+                "__typename": "CollectionSourceInclusionConditionProductTag",
+                "id": "gid://shopify/CollectionSourceInclusionConditionProductTag/5001773378",
+                "matchType": "ALL",
+                "relation": "TAGGED_WITH",
+                "values": [
+                  "apparel"
+                ]
+              }
+            ],
+            "selections": {
+              "nodes": [],
+              "pageInfo": {
+                "hasNextPage": false
+              }
+            }
+          },
+          "exclusion": {
+            "matchType": "ALL",
+            "conditions": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Collection/261430411326",
+      "legacyResourceId": "261430411326",
+      "handle": "etsy",
+      "title": "Etsy",
+      "collectionType": "smart",
+      "templateSuffix": "",
+      "sortOrder": "BEST_SELLING",
+      "updatedAt": "2026-09-23T14:17:55Z",
+      "seo": {
+        "title": null,
+        "description": "A etsy collection"
+      },
+      "productsCount": 1,
+      "productsCountPrecision": "EXACT",
+      "publishedOnOnlineStore": true,
+      "onlineStorePublishDate": "2021-05-23T16:28:41Z",
+      "publishedOnChannels": [
+        "Online Store",
+        "Facebook & Instagram",
+        "Inbox",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "ruleSet": {
+        "appliedDisjunctively": false,
+        "rules": [
+          {
+            "column": "TAG",
+            "relation": "EQUALS",
+            "condition": "etsy"
+          }
+        ]
+      },
+      "ruleSetWarnings": [],
+      "products": [
+        {
+          "id": "gid://shopify/Product/4409295863870",
+          "handle": "brockton-mk2",
+          "status": "ACTIVE"
+        }
+      ],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2021-05-23T16:28:41Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/42672619582",
+          "channel": "Facebook & Instagram",
+          "channelHandle": "facebook-ads",
+          "isPublished": true,
+          "publishDate": "2021-05-23T16:28:41Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/44203671614",
+          "channel": "Inbox",
+          "channelHandle": "shopify-inbox",
+          "isPublished": true,
+          "publishDate": "2022-02-12T15:22:16Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-27T22:56:30Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:55Z"
+        }
+      ],
+      "sources": [
+        {
+          "__typename": "CollectionConditionsSource",
+          "id": "gid://shopify/CollectionConditionsSource/9442230594",
+          "title": "Untitled Source",
+          "description": null,
+          "targetType": "PRODUCTS",
+          "inclusion": {
+            "matchType": "ALL",
+            "conditions": [
+              {
+                "__typename": "CollectionSourceInclusionConditionProductTag",
+                "id": "gid://shopify/CollectionSourceInclusionConditionProductTag/5002985794",
+                "matchType": "ALL",
+                "relation": "TAGGED_WITH",
+                "values": [
+                  "etsy"
+                ]
+              }
+            ],
+            "selections": {
+              "nodes": [],
+              "pageInfo": {
+                "hasNextPage": false
+              }
+            }
+          },
+          "exclusion": {
+            "matchType": "ALL",
+            "conditions": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Collection/266174103614",
+      "legacyResourceId": "266174103614",
+      "handle": "featured-products",
+      "title": "Featured Products",
+      "collectionType": "custom",
+      "templateSuffix": "",
+      "sortOrder": "BEST_SELLING",
+      "updatedAt": "2026-09-23T14:17:55Z",
+      "seo": {
+        "title": null,
+        "description": null
+      },
+      "productsCount": 2,
+      "productsCountPrecision": "EXACT",
+      "publishedOnOnlineStore": true,
+      "onlineStorePublishDate": "2022-09-22T00:05:56Z",
+      "publishedOnChannels": [
+        "Online Store",
+        "Facebook & Instagram",
+        "Inbox",
+        "Concierge Shopping Guide - CM",
+        "Whatnot"
+      ],
+      "ruleSet": null,
+      "ruleSetWarnings": [],
+      "products": [
+        {
+          "id": "gid://shopify/Product/4409295863870",
+          "handle": "brockton-mk2",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "gid://shopify/Product/7069355540542",
+          "handle": "the-bellwoods-one-hitter",
+          "status": "ACTIVE"
+        }
+      ],
+      "publications": [
+        {
+          "publicationId": "gid://shopify/Publication/31212404798",
+          "channel": "Online Store",
+          "channelHandle": "online_store",
+          "isPublished": true,
+          "publishDate": "2022-09-22T00:05:56Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/42672619582",
+          "channel": "Facebook & Instagram",
+          "channelHandle": "facebook-ads",
+          "isPublished": true,
+          "publishDate": "2022-09-22T00:05:56Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/44203671614",
+          "channel": "Inbox",
+          "channelHandle": "shopify-inbox",
+          "isPublished": true,
+          "publishDate": "2022-09-22T00:05:56Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/298917691714",
+          "channel": "Concierge Shopping Guide - CM",
+          "channelHandle": "concierge-shopping-guide-cm",
+          "isPublished": true,
+          "publishDate": "2026-03-27T22:56:30Z"
+        },
+        {
+          "publicationId": "gid://shopify/Publication/329615475010",
+          "channel": "Whatnot",
+          "channelHandle": "whatnot-sales-channel",
+          "isPublished": true,
+          "publishDate": "2026-09-23T14:17:55Z"
+        }
+      ],
+      "sources": [
+        {
+          "__typename": "CollectionConditionsSource",
+          "id": "gid://shopify/CollectionConditionsSource/9493217602",
+          "title": "Untitled Source",
+          "description": null,
+          "targetType": "PRODUCTS",
+          "inclusion": {
+            "matchType": null,
+            "conditions": [],
+            "selections": {
+              "nodes": [
+                {
+                  "product": {
+                    "id": "gid://shopify/Product/4409295863870",
+                    "handle": "brockton-mk2"
+                  },
+                  "variantIds": null
+                },
+                {
+                  "product": {
+                    "id": "gid://shopify/Product/7069355540542",
+                    "handle": "the-bellwoods-one-hitter"
+                  },
+                  "variantIds": null
+                }
+              ],
+              "pageInfo": {
+                "hasNextPage": false
+              }
+            }
+          },
+          "exclusion": {
+            "matchType": "ALL",
+            "conditions": []
+          }
+        }
+      ]
+    }
+  ]
+}

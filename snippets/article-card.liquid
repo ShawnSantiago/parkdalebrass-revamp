@@ -11,6 +11,7 @@
   - show_author: {String} The setting either show the article author or not. If it's not included it will not show the author by default
   - show_badge: {String} The setting either show the blog badge or not.
   - lazy_load: {Boolean} Image should be lazy loaded. Default: true (optional)
+  - pb_numeral: {Number} PB: a roman numeral above the title (journal index, D-38). Omitted: no numeral (optional)
 
   Usage:
   {% render 'article-card' blog: blog, article: article, show_image: section.settings.show_image %}
@@ -23,6 +24,15 @@
       assign ratio = media_aspect_ratio
     endif
   -%}
+  {%- comment -%}
+    PB: the excerpt comes from snippets/pb-article-excerpt.liquid, worked out once for both card copies. It keeps
+    Dawn's excerpt-then-content order and 30 words, and drops a leading copy of the title (legacy article bodies
+    open with it).
+  {%- endcomment -%}
+  {%- if show_excerpt -%}
+    {%- capture pb_excerpt -%}{% render 'pb-article-excerpt', article: article, words: 30 %}{%- endcapture -%}
+  {%- endif -%}
+  {%- comment -%} /PB {%- endcomment -%}
   <div class="article-card-wrapper card-wrapper underline-links-hover">
     {% comment %} <article aria-labelledby="Article-{{ article.id }}"> {% endcomment %}
     <div
@@ -75,9 +85,16 @@
         {%- endif -%}
         <div class="card__content">
           <div class="card__information">
+            {%- comment -%} PB: journal numeral (D-38), only when the caller passes one {%- endcomment -%}
+            {%- if pb_numeral != blank -%}
+              <span class="pb-journal__numeral" aria-hidden="true">{% render 'pb-roman', n: pb_numeral %}</span>
+            {%- endif -%}
+            {%- comment -%} /PB {%- endcomment -%}
             <h3 class="card__heading{% if show_excerpt %} h2{% endif %}">
               <a href="{{ article.url }}" class="full-unstyled-link">
-                {{ article.title | truncate: 50 | escape }}
+                {%- comment -%} PB: full title, no 50-character truncation (D-38) {%- endcomment -%}
+                {{ article.title | escape }}
+                {%- comment -%} /PB {%- endcomment -%}
               </a>
             </h3>
             <div class="article-card__info caption-with-letter-spacing h5">
@@ -89,15 +106,11 @@
               {%- endif -%}
             </div>
             {%- if show_excerpt -%}
-              {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
-                <p class="article-card__excerpt rte-width">
-                  {%- if article.excerpt.size > 0 -%}
-                    {{ article.excerpt | strip_html | truncatewords: 30 }}
-                  {%- else -%}
-                    {{ article.content | strip_html | truncatewords: 30 }}
-                  {%- endif -%}
-                </p>
+              {%- comment -%} PB: shared excerpt (see top); no paragraph when it has no text {%- endcomment -%}
+              {%- if pb_excerpt != blank -%}
+                <p class="article-card__excerpt rte-width">{{ pb_excerpt }}</p>
               {%- endif -%}
+              {%- comment -%} /PB {%- endcomment -%}
               <div class="article-card__footer">
                 {%- if article.comments_count > 0 and blog.comments_enabled? -%}
                   <span>{{ 'blogs.article.comments' | t: count: article.comments_count }}</span>
@@ -114,9 +127,16 @@
       </div>
       <div class="card__content">
         <div class="card__information">
+          {%- comment -%} PB: journal numeral (D-38), only when the caller passes one {%- endcomment -%}
+          {%- if pb_numeral != blank -%}
+            <span class="pb-journal__numeral" aria-hidden="true">{% render 'pb-roman', n: pb_numeral %}</span>
+          {%- endif -%}
+          {%- comment -%} /PB {%- endcomment -%}
           <h3 class="card__heading{% if show_excerpt %} h2{% endif %}">
             <a href="{{ article.url }}" class="full-unstyled-link">
-              {{ article.title | truncate: 50 | escape }}
+              {%- comment -%} PB: full title, no 50-character truncation (D-38) {%- endcomment -%}
+              {{ article.title | escape }}
+              {%- comment -%} /PB {%- endcomment -%}
             </a>
           </h3>
           <div class="article-card__info caption-with-letter-spacing h5">
@@ -128,15 +148,11 @@
             {%- endif -%}
           </div>
           {%- if show_excerpt -%}
-            {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
-              <p class="article-card__excerpt rte-width">
-                {%- if article.excerpt.size > 0 -%}
-                  {{ article.excerpt | strip_html | truncatewords: 30 }}
-                {%- else -%}
-                  {{ article.content | strip_html | truncatewords: 30 }}
-                {%- endif -%}
-              </p>
+            {%- comment -%} PB: shared excerpt (see top); no paragraph when it has no text {%- endcomment -%}
+            {%- if pb_excerpt != blank -%}
+              <p class="article-card__excerpt rte-width">{{ pb_excerpt }}</p>
             {%- endif -%}
+            {%- comment -%} /PB {%- endcomment -%}
             <div class="article-card__footer">
               {%- if article.comments_count > 0 and blog.comments_enabled? -%}
                 <span>{{ 'blogs.article.comments' | t: count: article.comments_count }}</span>

@@ -15,6 +15,8 @@
 | Phase 3 complete | `phase-3-brief.md` §4 | Products Draft and verified; collections, pages and menus hidden; unpublish and redirect files approved |
 | Policies ready | D-01 to D-06, E-10 | Approved text ready to paste |
 | Consent wording | D-03 | In the theme's newsletter section |
+| Selling plan | F-05 | The store is on a paid plan, not *Pause and Build*, so checkout works (owner, billing) |
+| Photography | C-09, C-10, D-52 | Every `pb-*` image is set to **approved photography**, so no placeholder art or "Placeholder · …" art-direction note shows on the storefront. **No `pb-standin-*` image is set anywhere** (search the theme's templates and section groups for `pb-standin`), and, with the owner told first, the 12 stand-in Files and the 12 temporary `assets/pb-standin-*.jpg` theme assets are deleted (`changes/E-16.md` §4) |
 | Timing | Owner | A low-traffic window, at least 2 hours free, no promotions or emails scheduled |
 | Change freeze | Owner | No other Admin or app changes during the window |
 | Access | Owner + agent | Admin access for each step; the CLI only if publishing that way |
@@ -41,7 +43,7 @@ Record each step in `docs/redesign/launch-log.md` (time, who, result, evidence) 
 **Checkpoint A.** Nothing customer-facing has changed yet. Safe to stop.
 
 ### Step 2 · Prepare the new theme (still unpublished)
-1. In the new theme's editor, switch the homepage to the live configuration (`templates/index.live.json.txt`):
+1. In the new theme's editor, switch the homepage to the live configuration (`docs/redesign/index.live.json`):
    - `pb-featured` set to collection mode (`jewelry`);
    - hero CTA "Shop jewelry";
    - live editorial CTA;
@@ -54,8 +56,8 @@ Record each step in `docs/redesign/launch-log.md` (time, who, result, evidence) 
 
 ### Step 3 · Make the jewelry visible (E-05, E-02, E-03)
 1. Set the launch products to **Active** and publish them to **Online Store** (other channels in step 8).
-2. Make `jewelry`, `bracelets` and `necklaces` (and `rings` only if approved) available on Online Store.
-3. Leave the four content pages **hidden** for now. Their templates can only be assigned once the new theme is published (step 5).
+2. The four collections (`jewelry`, `bracelets`, `necklaces`, `rings`) are already on Online Store, noindexed (NAV-01, D-46). Remove their `seo.hidden` metafield now. Publish them to other channels only as the owner names them (step 8).
+3. The four content pages are already published with a holding line and `seo.hidden` (NAV-01, D-46). Replace each holding line with its **approved** copy (B-05, with no bracketed placeholder left), check `templateSuffix` (D-42), then remove `seo.hidden`.
 4. Check in the new theme's preview that home, collection and product pages now show real products.
 
 From here the jewelry URLs are public. The old Craft theme is still live, so the window between here and step 5 should be minutes.
@@ -66,7 +68,7 @@ Apply Availability + Price only, per the Phase 3 proposal.
 ### Step 5 · Publish the new theme (F-04)
 1. The owner signs **F-04** in `owner-inputs.md`.
 2. Publish the new theme in Admin (Online Store → Themes → Publish), or with `shopify theme publish --theme <id>` if the owner prefers the CLI.
-3. **Assign the page templates.** Admin now lists the new theme's templates. Set `our-story` → `page.our-story`, `why-brass` → `page.why-brass`, `jewelry-care` → `page.jewelry-care`, `size-guide` → `page.size-guide`. Then make the four pages **visible**, and open each one to check its layout.
+3. **Check the page templates.** E-03 already set each page's template suffix through the API ([`changes/E-03.md`](changes/E-03.md) §1.1), so confirm in Admin (now listing the new theme's templates) that `our-story` → `page.our-story`, `why-brass` → `page.why-brass`, `jewelry-care` → `page.jewelry-care`, `size-guide` → `page.size-guide`, and set any that an Admin edit reset. Then make the four pages **visible** (only once their bodies hold approved copy with no `[bracketed placeholder]` left), and open each one to check its layout.
 4. Hard-refresh the storefront on a phone and a desktop.
 
 **Checkpoint C.** The new theme is live. Rollback from here is the full table in §3.

@@ -9,6 +9,12 @@
 
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- comment -%} PB: Archive diamond favicon when the editor sets none (B-04, D-53) {%- endcomment -%}
+    {%- else -%}
+      <link rel="icon" type="image/png" sizes="192x192" href="{{ 'pb-favicon.png' | asset_url }}">
+      <link rel="icon" type="image/svg+xml" href="{{ 'pb-favicon.svg' | asset_url }}">
+      <link rel="apple-touch-icon" href="{{ 'pb-favicon-180.png' | asset_url }}">
+    {%- comment -%} /PB {%- endcomment -%}
     {%- endif -%}
 
     {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
@@ -75,6 +81,26 @@
       {% comment %} PB: Inter medium and semibold used by the Archive controls (D-19) {% endcomment %}
       {{ settings.type_body_font | font_modify: 'weight', '500' | font_face: font_display: 'swap' }}
       {{ settings.type_body_font | font_modify: 'weight', '600' | font_face: font_display: 'swap' }}
+      {% comment %} /PB {% endcomment %}
+      {% comment %}
+        PB: Archive display face (D-15, D-19). Declared here, not in pb-theme.css, so the src is the same versioned
+        asset_url as the 600 preload below and the preloaded file is the one the page uses.
+      {% endcomment %}
+      @font-face {
+        font-family: 'Cormorant Garamond';
+        src: url({{ 'cormorant-garamond-500.woff2' | asset_url }}) format('woff2');
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Cormorant Garamond';
+        src: url({{ 'cormorant-garamond-600.woff2' | asset_url }}) format('woff2');
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+      }
       {% comment %} /PB {% endcomment %}
       {{ settings.type_body_font | font_face: font_display: 'swap' }}
       {{ body_font_bold | font_face: font_display: 'swap' }}

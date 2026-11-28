@@ -1,4 +1,9 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+{%- comment -%} PB: Archive article head, long-form body and comment fields (02 §7, §2.4) {%- endcomment -%}
+{{ 'component-pb-prose.css' | asset_url | stylesheet_tag }}
+{{ 'component-pb-field.css' | asset_url | stylesheet_tag }}
+{{ 'section-pb-journal.css' | asset_url | stylesheet_tag }}
+{%- comment -%} /PB {%- endcomment -%}
 
 <article class="article-template">
   {%- for block in section.blocks -%}
@@ -82,16 +87,35 @@
     {%- endcase -%}
   {%- endfor -%}
 
-  <div class="article-template__back element-margin-top center{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-    <a href="{{ blog.url }}" class="article-template__link link animate-arrow">
-      <span class="icon-wrap">
-        <span class="svg-wrapper">
-          {{- 'icon-arrow.svg' | inline_asset_content -}}
+  {%- comment -%}
+    PB: the back link goes to the journal tag view only (D-36: /blogs/news lists the legacy articles and stays
+    unlinked). It shows once an article in the blog has the tag "journal" (matched by handle, as the tag URL is);
+    with no such article there is no back link.
+  {%- endcomment -%}
+  {%- liquid
+    assign pb_journal_tag = 'journal'
+    assign pb_back_url = ''
+    for pb_t in blog.all_tags
+      assign pb_t_handle = pb_t | handleize
+      if pb_t_handle == pb_journal_tag
+        assign pb_back_url = blog.url | append: '/tagged/' | append: pb_journal_tag
+        break
+      endif
+    endfor
+  -%}
+  {%- if pb_back_url != blank -%}
+    <div class="article-template__back element-margin-top center{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <a href="{{ pb_back_url }}" class="article-template__link link animate-arrow">
+        <span class="icon-wrap">
+          <span class="svg-wrapper">
+            {{- 'icon-arrow.svg' | inline_asset_content -}}
+          </span>
         </span>
-      </span>
-      {{ 'blogs.article.back_to_blog' | t: title: blog.title | escape }}
-    </a>
-  </div>
+        {{ 'pb.blog.back_to_journal' | t | escape }}
+      </a>
+    </div>
+  {%- endif -%}
+  {%- comment -%} /PB {%- endcomment -%}
   {%- if blog.comments_enabled? -%}
     <div class="article-template__comment-wrapper background-secondary">
       <div

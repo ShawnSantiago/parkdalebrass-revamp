@@ -1,0 +1,59 @@
+{
+  "sections": {
+    "main": {
+      "type": "pb-page",
+      "blocks": {
+        "story_outline": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "heading_style": "heading",
+            "text": "<p>[Page body: the owner-approved brand story, written in the page in Shopify admin. Draft for approval from 04 §1, shown here as a preview only:]</p><p>Parkdale Brass began in 2019 in Toronto's Parkdale neighbourhood with an appreciation for brass and the industrial design of everyday objects. Today, we're taking that same interest in form, function and character into jewelry. Our next chapter is about pieces that feel personal, with warm tones, considered shapes and a style that doesn't need to shout.</p><p>[Est. 2019 refers to the brand, not the jewelry line. No invented manufacturing history.]</p>",
+            "anchor": ""
+          }
+        },
+        "story_image": {
+          "type": "image",
+          "settings": {
+            "placeholder_note": "Placeholder · Approved Parkdale imagery or founder portrait",
+            "image": "shopify://shop_images/pb-standin-story.jpg"
+          }
+        },
+        "shop": {
+          "type": "link",
+          "settings": {
+            "label": "Shop jewelry",
+            "collection": "jewelry",
+            "link": ""
+          }
+        },
+        "why_brass": {
+          "type": "link",
+          "settings": {
+            "label": "Why brass?",
+            "link": "/pages/why-brass"
+          }
+        }
+      },
+      "block_order": [
+        "story_outline",
+        "story_image",
+        "shop",
+        "why_brass"
+      ],
+      "settings": {
+        "show_diamond": true,
+        "dateline": "Est. 2019 · Toronto",
+        "width": "story",
+        "color_scheme": "scheme-1",
+        "padding_top": 112,
+        "padding_bottom": 112,
+        "padding_top_mobile": 72,
+        "padding_bottom_mobile": 72
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

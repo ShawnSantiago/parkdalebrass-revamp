@@ -1,0 +1,19 @@
+{
+  "taken_at": "2026-11-27",
+  "note": "Before adding Rings items (D-40). Read through the Admin API immediately before menuUpdate.",
+  "jewelry-main-menu": {"id": "gid://shopify/Menu/332042404162", "title": "Jewelry main menu", "items": [
+    {"id": "gid://shopify/MenuItem/833638236482", "title": "Shop", "type": "COLLECTION", "resourceId": "gid://shopify/Collection/530340053314", "items": [
+      {"id": "gid://shopify/MenuItem/833638269250", "title": "All Jewelry", "type": "COLLECTION", "resourceId": "gid://shopify/Collection/530340053314"},
+      {"id": "gid://shopify/MenuItem/833638302018", "title": "Bracelets", "type": "COLLECTION", "resourceId": "gid://shopify/Collection/530340184386"},
+      {"id": "gid://shopify/MenuItem/833638334786", "title": "Necklaces", "type": "COLLECTION", "resourceId": "gid://shopify/Collection/530340282690"}]},
+    {"id": "gid://shopify/MenuItem/833638367554", "title": "Our Story", "type": "PAGE", "resourceId": "gid://shopify/Page/171437818178"},
+    {"id": "gid://shopify/MenuItem/833638400322", "title": "Journal", "type": "HTTP", "url": "/blogs/news/tagged/journal"}]},
+  "shop-categories": {"id": "gid://shopify/Menu/332042600770", "title": "Shop categories", "items": [
+    {"id": "gid://shopify/MenuItem/833639186754", "title": "All", "type": "COLLECTION", "resourceId": "gid://shopify/Collection/530340053314"},
+    {"id": "gid://shopify/MenuItem/833639219522", "title": "Bracelets", "type": "COLLECTION", "resourceId": "gid://shopify/Collection/530340184386"},
+    {"id": "gid://shopify/MenuItem/833639252290", "title": "Necklaces", "type": "COLLECTION", "resourceId": "gid://shopify/Collection/530340282690"}]},
+  "footer-shop": {"id": "gid://shopify/Menu/332042633538", "title": "Footer: Shop", "items": [
+    {"id": "gid://shopify/MenuItem/833639285058", "title": "All Jewelry", "type": "COLLECTION", "resourceId": "gid://shopify/Collection/530340053314"},
+    {"id": "gid://shopify/MenuItem/833639317826", "title": "Bracelets", "type": "COLLECTION", "resourceId": "gid://shopify/Collection/530340184386"},
+    {"id": "gid://shopify/MenuItem/833639350594", "title": "Necklaces", "type": "COLLECTION", "resourceId": "gid://shopify/Collection/530340282690"}]}
+}

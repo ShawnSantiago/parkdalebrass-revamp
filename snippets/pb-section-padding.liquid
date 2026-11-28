@@ -1,0 +1,39 @@
+{%- comment -%}
+  Outer padding for a pb-* section (03 §4), as Dawn's .section-{id}-padding pattern.
+  Desktop values apply from 750px. Under 750px the optional padding_top_mobile / padding_bottom_mobile
+  number settings win; left blank, they fall back to 60% of the desktop value (the pb-split pattern).
+
+  Accepts:
+  - section: {Object} The section. Reads settings padding_top, padding_bottom and the optional mobile values.
+
+  Usage:
+  {% render 'pb-section-padding', section: section %}
+  <div class="section-{{ section.id }}-padding">…</div>
+{%- endcomment -%}
+{%- liquid
+  assign pb_pad = section.settings
+  assign pb_pad_top = pb_pad.padding_top | default: 0
+  assign pb_pad_bottom = pb_pad.padding_bottom | default: 0
+
+  assign pb_pad_top_m = pb_pad_top | times: 0.6 | round: 0
+  if pb_pad.padding_top_mobile != blank
+    assign pb_pad_top_m = pb_pad.padding_top_mobile | at_least: 0
+  endif
+  assign pb_pad_bottom_m = pb_pad_bottom | times: 0.6 | round: 0
+  if pb_pad.padding_bottom_mobile != blank
+    assign pb_pad_bottom_m = pb_pad.padding_bottom_mobile | at_least: 0
+  endif
+-%}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ pb_pad_top_m }}px;
+    padding-bottom: {{ pb_pad_bottom_m }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ pb_pad_top }}px;
+      padding-bottom: {{ pb_pad_bottom }}px;
+    }
+  }
+{%- endstyle -%}

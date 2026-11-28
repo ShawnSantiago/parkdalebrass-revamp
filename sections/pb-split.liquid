@@ -1,0 +1,389 @@
+{%- comment -%}
+  PB · Split (03 §4.8). Two presets reproduce the Archive artboards:
+  - Material story (02 §4.4): green, 1:1, full bleed, gold-line borders, diamond, image first.
+  - Our story (02 §4.6): onyx, 6fr/5fr with an 88px gap, double-framed 4:5 image, text first.
+  Padding is the space outside the coloured panel, so a full-bleed panel starts at its border.
+  Columns stack below 960px (02 §1.3). From 750 to 959px the stack follows Archive-Home's stacked state: the
+  text block with its button, then the image. Under 750px a text-first split puts the button after the image
+  (Archive-Home-Mobile).
+{%- endcomment -%}
+{%- liquid
+  assign pb_s = section.settings
+  assign pb_image = pb_s.image | default: pb_s.image_mobile
+  assign pb_image_first = true
+  if pb_s.layout == 'text_first'
+    assign pb_image_first = false
+  endif
+
+  assign pb_pad_top_mobile = pb_s.padding_top | times: 0.6 | round: 0
+  if pb_s.padding_top_mobile != blank
+    assign pb_pad_top_mobile = pb_s.padding_top_mobile | at_least: 0
+  endif
+  assign pb_pad_bottom_mobile = pb_s.padding_bottom | times: 0.6 | round: 0
+  if pb_s.padding_bottom_mobile != blank
+    assign pb_pad_bottom_mobile = pb_s.padding_bottom_mobile | at_least: 0
+  endif
+
+  if pb_s.frame_image or pb_s.ratio == '6-5'
+    assign pb_image_shape = 'portrait'
+  else
+    assign pb_image_shape = 'fill'
+  endif
+
+  if pb_s.ratio == '6-5'
+    assign pb_sizes = '(min-width: 1440px) 563px, (min-width: 960px) 40vw, 100vw'
+  elsif pb_s.full_bleed
+    assign pb_sizes = '(min-width: 1440px) 720px, (min-width: 960px) 50vw, 100vw'
+  else
+    assign pb_sizes = '(min-width: 1440px) 664px, (min-width: 960px) 50vw, 100vw'
+  endif
+
+  assign pb_show_button = false
+  if pb_s.button_label != blank
+    if pb_s.button_link != blank or request.design_mode
+      assign pb_show_button = true
+    endif
+  endif
+
+  assign pb_has_content = false
+  if pb_s.eyebrow != blank or pb_s.heading != blank or pb_s.text != blank or pb_show_button
+    assign pb_has_content = true
+  endif
+-%}
+
+{%- if pb_has_content or pb_image != blank or request.design_mode -%}
+  {{ 'section-pb-split.css' | asset_url | stylesheet_tag }}
+
+  {%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ pb_pad_top_mobile }}px;
+      padding-bottom: {{ pb_pad_bottom_mobile }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ pb_s.padding_top }}px;
+        padding-bottom: {{ pb_s.padding_bottom }}px;
+      }
+    }
+  {%- endstyle -%}
+
+  {%- capture pb_media -%}
+    <div class="pb-split__media{% if pb_s.frame_image %} pb-frame{% endif %}">
+      <div class="pb-split__image pb-split__image--{{ pb_image_shape }}{% if pb_s.frame_image %} pb-frame__inner{% endif %}">
+        {%- if pb_image != blank -%}
+          <picture>
+            {%- if pb_s.image != blank and pb_s.image_mobile != blank -%}
+              {%- liquid
+                assign pb_mobile = pb_s.image_mobile
+                assign pb_mobile_widths = '375,550,750,1100,1500' | split: ','
+                assign pb_mobile_srcset = ''
+                for pb_w in pb_mobile_widths
+                  assign pb_w_px = pb_w | plus: 0
+                  if pb_mobile.width > pb_w_px
+                    assign pb_src = pb_mobile | image_url: width: pb_w_px
+                    assign pb_mobile_srcset = pb_mobile_srcset | append: pb_src | append: ' ' | append: pb_w | append: 'w, '
+                  endif
+                endfor
+                assign pb_src = pb_mobile | image_url
+                assign pb_mobile_srcset = pb_mobile_srcset | append: pb_src | append: ' ' | append: pb_mobile.width | append: 'w'
+              -%}
+              <source
+                media="(max-width: 959px)"
+                srcset="{{ pb_mobile_srcset }}"
+                sizes="100vw"
+                width="{{ pb_mobile.width }}"
+                height="{{ pb_mobile.height }}"
+              >
+            {%- endif -%}
+            {{
+              pb_image
+              | image_url: width: 1800
+              | image_tag:
+                class: 'pb-split__img',
+                widths: '375, 550, 750, 1100, 1500, 1800',
+                sizes: pb_sizes,
+                loading: 'lazy'
+            }}
+          </picture>
+        {%- else -%}
+          <div class="pb-placeholder pb-split__placeholder">
+            <span class="pb-split__placeholder-art" aria-hidden="true">
+              {{- 'image' | placeholder_svg_tag: 'placeholder-svg' -}}
+            </span>
+            {%- if pb_s.placeholder_note != blank -%}
+              <p class="pb-placeholder__note">{{ pb_s.placeholder_note | escape }}</p>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endcapture -%}
+
+  <section
+    id="PbSplit-{{ section.id }}"
+    class="pb-split-section section-{{ section.id }}-padding"
+    {% if pb_s.heading != blank %}
+      aria-labelledby="PbSplit-{{ section.id }}-heading"
+    {% endif %}
+  >
+    <div{% unless pb_s.full_bleed %} class="page-width"{% endunless %}>
+      <div class="pb-split pb-split--{{ pb_s.ratio }} pb-split--{{ pb_s.layout | replace: '_', '-' }}{% if pb_s.full_bleed %} pb-split--full-bleed{% endif %}{% if pb_s.show_borders %} pb-split--bordered{% endif %} color-{{ pb_s.color_scheme }} gradient">
+        <div class="pb-split__grid{% if pb_s.full_bleed %}{% if pb_s.ratio == '6-5' %} page-width{% else %} pb-split__grid--contained{% endif %}{% endif %}">
+          {%- if pb_image_first -%}
+            {{ pb_media }}
+          {%- endif -%}
+
+          {%- if pb_has_content -%}
+            <div class="pb-split__text">
+              <div class="pb-split__content">
+                {%- if pb_s.show_diamond -%}
+                  <span class="pb-diamond pb-split__diamond" aria-hidden="true"></span>
+                {%- endif -%}
+                {%- if pb_s.eyebrow != blank -%}
+                  <p class="pb-eyebrow">{{ pb_s.eyebrow | escape }}</p>
+                {%- endif -%}
+                {%- if pb_s.heading != blank -%}
+                  <h2 id="PbSplit-{{ section.id }}-heading" class="pb-split__heading">
+                    {{- pb_s.heading | escape -}}
+                  </h2>
+                {%- endif -%}
+                {%- if pb_s.text != blank -%}
+                  <div class="pb-split__body rte">{{ pb_s.text }}</div>
+                {%- endif -%}
+              </div>
+              {%- if pb_show_button -%}
+                <div class="pb-split__actions">
+                  <a
+                    class="button button--secondary pb-split__button"
+                    {% if pb_s.button_link != blank %}
+                      href="{{ pb_s.button_link }}"
+                    {% else %}
+                      role="link" aria-disabled="true"
+                    {% endif %}
+                  >
+                    {{- pb_s.button_label | escape -}}
+                  </a>
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- unless pb_image_first -%}
+            {{ pb_media }}
+          {%- endunless -%}
+        </div>
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.pb_split.name",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.pb_split.settings.layout_header.content"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "t:sections.pb_split.settings.layout.label",
+      "info": "t:sections.pb_split.settings.layout.info",
+      "options": [
+        {
+          "value": "image_first",
+          "label": "t:sections.pb_split.settings.layout.options__1.label"
+        },
+        {
+          "value": "text_first",
+          "label": "t:sections.pb_split.settings.layout.options__2.label"
+        }
+      ],
+      "default": "image_first"
+    },
+    {
+      "type": "select",
+      "id": "ratio",
+      "label": "t:sections.pb_split.settings.ratio.label",
+      "options": [
+        {
+          "value": "1-1",
+          "label": "t:sections.pb_split.settings.ratio.options__1.label"
+        },
+        {
+          "value": "6-5",
+          "label": "t:sections.pb_split.settings.ratio.options__2.label"
+        }
+      ],
+      "default": "1-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_bleed",
+      "label": "t:sections.pb_split.settings.full_bleed.label",
+      "info": "t:sections.pb_split.settings.full_bleed.info",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_borders",
+      "label": "t:sections.pb_split.settings.show_borders.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "frame_image",
+      "label": "t:sections.pb_split.settings.frame_image.label",
+      "info": "t:sections.pb_split.settings.frame_image.info",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_diamond",
+      "label": "t:sections.pb_split.settings.show_diamond.label",
+      "default": false
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.pb_split.settings.media_header.content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.pb_split.settings.image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "t:sections.pb_split.settings.image_mobile.label",
+      "info": "t:sections.pb_split.settings.image_mobile.info"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_note",
+      "label": "t:sections.pb_split.settings.placeholder_note.label",
+      "info": "t:sections.pb_split.settings.placeholder_note.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.pb_split.settings.content_header.content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.pb_split.settings.eyebrow.label"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.pb_split.settings.heading.label"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.pb_split.settings.text.label"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.pb_split.settings.button_label.label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.pb_split.settings.button_link.label",
+      "info": "t:sections.pb_split.settings.button_link.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading",
+      "info": "t:sections.pb_split.settings.padding_header.info"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 104
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "t:sections.pb_split.settings.padding_top_mobile.label",
+      "info": "t:sections.pb_split.settings.padding_mobile.info"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "t:sections.pb_split.settings.padding_bottom_mobile.label",
+      "info": "t:sections.pb_split.settings.padding_mobile.info"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.pb_split.presets.material.name",
+      "settings": {
+        "layout": "image_first",
+        "ratio": "1-1",
+        "full_bleed": true,
+        "show_borders": true,
+        "frame_image": false,
+        "show_diamond": true,
+        "color_scheme": "scheme-3",
+        "placeholder_note": "Placeholder · Macro of the real finish, warm raking light",
+        "eyebrow": "The material",
+        "heading": "A material with character.",
+        "text": "<p>Brass is an alloy of copper and zinc, prized for its warm tone and the way it takes a finish. Uncoated brass darkens and softens with wear. Coated and plated finishes behave differently.</p><p>Every piece lists its actual finish and how to care for it, so you know how it will change.</p>",
+        "button_label": "Why brass?",
+        "padding_top": 120,
+        "padding_bottom": 0
+      }
+    },
+    {
+      "name": "t:sections.pb_split.presets.story.name",
+      "settings": {
+        "layout": "text_first",
+        "ratio": "6-5",
+        "full_bleed": false,
+        "show_borders": false,
+        "frame_image": true,
+        "show_diamond": false,
+        "color_scheme": "scheme-1",
+        "placeholder_note": "Placeholder · Approved Parkdale imagery or founder portrait",
+        "eyebrow": "Our story",
+        "heading": "Rooted in Parkdale.",
+        "text": "<p>Parkdale Brass began in 2019 in Toronto’s Parkdale neighbourhood, with an appreciation for brass and the industrial design of everyday objects.</p><p>Our next chapter takes that same interest in form, function and character into jewelry: warm tones, considered shapes and a style that doesn’t need to shout.</p>",
+        "button_label": "Our story",
+        "padding_top": 88,
+        "padding_bottom": 0,
+        "padding_top_mobile": 48
+      }
+    }
+  ]
+}
+{% endschema %}

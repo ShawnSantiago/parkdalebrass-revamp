@@ -1,0 +1,39 @@
+{
+  "readAt": "2026-11-27 (before NAV-01)",
+  "source": "Admin GraphQL via the Shopify connector: pages(query: handle:our-story OR why-brass OR jewelry-care OR size-guide)",
+  "note": "The E-03 draft bodies, verbatim. They go back on the pages for the B-05 copy review; NAV-01 replaced them with a holding line so the pages can be visible without placeholders.",
+  "pages": [
+    {
+      "id": "gid://shopify/Page/171437818178",
+      "handle": "our-story",
+      "title": "Our Story",
+      "isPublished": false,
+      "templateSuffix": "our-story",
+      "body": "<!-- Draft, hidden. Needs owner approval (B-05) before publishing. -->\n<p>Parkdale Brass began in [2019] in [Toronto's Parkdale neighbourhood] with an appreciation for brass and the industrial design of everyday objects. Today, we're taking that same interest in form, function and character into jewelry. Our next chapter is about pieces that feel personal, with warm tones, considered shapes and a style that doesn't need to shout.</p>\n<p>[Founder: name the founder here only if the owner confirms it in writing (B-05). Otherwise remove this line.]</p>\n<p>[Est. 2019 refers to the brand, not the jewelry line. Add nothing about where or how the jewelry is made unless the owner verifies it (C-06).]</p>"
+    },
+    {
+      "id": "gid://shopify/Page/171437883714",
+      "handle": "why-brass",
+      "title": "Why Brass?",
+      "isPublished": false,
+      "templateSuffix": "why-brass",
+      "body": "<!-- Draft, hidden. Needs owner approval (B-05) before publishing. -->\n<h2>What brass is</h2>\n<p>Brass is an alloy of copper and zinc, prized for its warm tone and the way it takes a finish.</p>\n<p>[The alloy in our jewelry, from supplier documentation only (C-02).]</p>\n<h2>Raw, coated and plated</h2>\n<p>Uncoated brass darkens and softens with wear. Coated and plated finishes behave differently.</p>\n<p>[How each finish we offer wears, and whether it patinas. Only the finishes actually offered (C-03).]</p>\n<p>Every piece lists its actual finish and how to care for it, so you know how it will change.</p>\n<h2>Patina and skin discolouration</h2>\n<p>[Owner-approved copy on patina and skin discolouration. Include a note to stop wearing a piece if irritation develops. Green skin isn't proof of safety, or of harm.]</p>\n<h2>Read more</h2>\n<p>[Links to the two kept Journal articles, once the cluster review picks them (phase-3-brief §3.4), and to the jewelry collection once it is live.]</p>"
+    },
+    {
+      "id": "gid://shopify/Page/171437916482",
+      "handle": "jewelry-care",
+      "title": "Jewelry Care",
+      "isPublished": false,
+      "templateSuffix": "jewelry-care",
+      "body": "<!-- Draft, hidden. Needs owner approval (B-05) before publishing. -->\n<p>[Introduction to caring for brass jewelry, confirmed on samples (C-05). Only the finishes actually offered. No abrasive polish, acid or soaking advice for coated pieces without supplier approval.]</p>\n<p>Every piece lists its actual finish and how to care for it, so you know how it will change.</p>\n<p>[Care for each finish offered, storage and what to avoid: one Care row each in the page template, confirmed on samples (C-05) and with the supplier.]</p>"
+    },
+    {
+      "id": "gid://shopify/Page/171437949250",
+      "handle": "size-guide",
+      "title": "Size Guide",
+      "isPublished": false,
+      "templateSuffix": "size-guide",
+      "body": "<!-- Draft, hidden. Needs owner approval (B-05) before publishing. -->\n<p>[Measured, owner-validated data only (C-04). No “adjustable” claim without tested limits.]</p>\n<h2>How to measure</h2>\n<p>[Measuring steps for each category offered, validated by the owner (C-04).]</p>\n<h2>[Cuffs]</h2>\n<table>\n<thead><tr>\n<th scope=\"col\">[Size]</th>\n<th scope=\"col\">[Inner circumference]</th>\n<th scope=\"col\">[Opening]</th>\n</tr></thead>\n<tbody>\n<tr>\n<th scope=\"row\">[S/M]</th>\n<td>[— cm / — in]</td>\n<td>[— cm / — in]</td>\n</tr>\n<tr>\n<th scope=\"row\">[M/L]</th>\n<td>[— cm / — in]</td>\n<td>[— cm / — in]</td>\n</tr>\n</tbody>\n</table>\n<h2>[Chains]</h2>\n<table>\n<thead><tr>\n<th scope=\"col\">[Length]</th>\n<th scope=\"col\">[cm]</th>\n<th scope=\"col\">[in]</th>\n</tr></thead>\n<tbody>\n<tr>\n<th scope=\"row\">[Short]</th>\n<td>[—]</td>\n<td>[—]</td>\n</tr>\n<tr>\n<th scope=\"row\">[Long]</th>\n<td>[—]</td>\n<td>[—]</td>\n</tr>\n</tbody>\n</table>\n<p>[Rings: add a ring size table (CA/US) only when rings launch (D-12).]</p>"
+    }
+  ]
+}

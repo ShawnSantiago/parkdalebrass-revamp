@@ -10,10 +10,15 @@
     margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
   }
 
+  {%- comment -%}
+    PB: Archive-Home-Mobile spaces the footer 36 top and 40 bottom: half the top setting and the full bottom one,
+    instead of Dawn's 0.75 scale.
+  {%- endcomment -%}
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-top: {{ section.settings.padding_top | divided_by: 2 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
   }
+  {%- comment -%} /PB {%- endcomment -%}
 
   @media screen and (min-width: 750px) {
     .footer {
@@ -105,12 +110,16 @@
                         {%- endfor -%}
                       </ul>
                     {%- endcapture -%}
+                    {%- comment -%}
+                      Exactly one of the two renders shows at any width: .pb-footer-menu from 750px, the disclosure
+                      below it (one min-width query, so a fractional viewport such as 749.5 or 989.5 never shows both).
+                    {%- endcomment -%}
                     {%- if block.settings.menu.links.size > 0 -%}
-                      <div class="small-hide">
+                      <div class="pb-footer-menu">
                         <h2 class="footer-block__heading">{{ menu_heading | escape }}</h2>
                         {{ footer_menu_links }}
                       </div>
-                      <details class="pb-footer-acc medium-hide large-up-hide" id="Details-Footer-{{ block.id }}">
+                      <details class="pb-footer-acc" id="Details-Footer-{{ block.id }}">
                         <summary>
                           <h2 class="footer-block__heading">{{ menu_heading | escape }}</h2>
                           <span class="pb-footer-acc__marker" aria-hidden="true"></span>
@@ -287,53 +296,90 @@
       data-cascade
     {% endif %}
   >
-    {%- comment -%} PB: single bottom bar for policies, localisation and payments (D-19). {%- endcomment -%}
+    {%- comment -%}
+      PB: one bottom bar after a content-width hairline: the copyright, the policy links and the Country/region
+      select (02 §2.8; Archive-Home, Archive-Home-Mobile). Shopify's "Powered by" link isn't in the design.
+      The legal group renders twice so the Tab order follows the layout at every width: before the select on
+      desktop (display: contents, so ©, policies and select share one row) and after it under 750px (the select,
+      then one line of © and policies). It holds no ids, and CSS shows exactly one copy (the other is display: none,
+      so it's out of the Tab order and the accessibility tree). Dawn's localization form renders once.
+      Policies print in the canvas order (Privacy, Terms, Refunds, then Shipping), each only when the store has it,
+      then any other published policy under its own title. Each link carries its full title (desktop bar) and a
+      short label (the phone line, pb.footer.policy_short.*); CSS shows one per render. The spaces between parts
+      are real text, so the phone line wraps only between parts.
+    {%- endcomment -%}
+    {%- capture pb_footer_policy_items -%}
+      {%- if section.settings.show_policy -%}
+        {%- assign pb_policy_order = 'privacy,terms,refund,shipping' | split: ',' -%}
+        {%- assign pb_policy_urls = '|' -%}
+        {%- for pb_policy_key in pb_policy_order -%}
+          {%- case pb_policy_key -%}
+            {%- when 'privacy' -%}
+              {%- assign pb_policy = shop.privacy_policy -%}
+              {%- assign pb_policy_short = 'pb.footer.policy_short.privacy' | t -%}
+            {%- when 'terms' -%}
+              {%- assign pb_policy = shop.terms_of_service -%}
+              {%- assign pb_policy_short = 'pb.footer.policy_short.terms' | t -%}
+            {%- when 'refund' -%}
+              {%- assign pb_policy = shop.refund_policy -%}
+              {%- assign pb_policy_short = 'pb.footer.policy_short.refund' | t -%}
+            {%- when 'shipping' -%}
+              {%- assign pb_policy = shop.shipping_policy -%}
+              {%- assign pb_policy_short = 'pb.footer.policy_short.shipping' | t -%}
+          {%- endcase -%}
+          {%- if pb_policy != blank -%}
+            {%- assign pb_policy_urls = pb_policy_urls | append: pb_policy.url | append: '|' %}
+            <li><a href="{{ pb_policy.url | escape }}"><span class="pb-footer-bar__policy-full">{{ pb_policy.title | escape }}</span><span class="pb-footer-bar__policy-short">{{ pb_policy_short | escape }}</span></a></li>
+          {%- endif -%}
+        {%- endfor -%}
+        {%- for policy in shop.policies -%}
+          {%- assign pb_policy_url_key = '|' | append: policy.url | append: '|' -%}
+          {%- unless policy == blank or pb_policy_urls contains pb_policy_url_key %}
+            <li><a href="{{ policy.url | escape }}">{{ policy.title | escape }}</a></li>
+          {%- endunless -%}
+        {%- endfor -%}
+      {%- endif -%}
+    {%- endcapture -%}
+    {%- capture pb_footer_legal -%}
+      <p class="pb-footer-bar__copy">&copy; {{ 'now' | date: '%Y' }} {{ shop.name | escape }}</p>
+      {%- if pb_footer_policy_items != blank %}
+        <ul class="pb-footer-bar__policies list-unstyled" role="list">
+          {{- pb_footer_policy_items }}
+        </ul>
+      {%- endif -%}
+    {%- endcapture -%}
     <div class="footer__content-bottom-wrapper page-width">
-      <div class="footer__copyright caption">
-        <small class="copyright__content"
-          >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | escape | link_to: routes.root_url -}}
-        </small>
-        <small class="copyright__content">{{ powered_by_link }}</small>
-        {%- if section.settings.show_policy -%}
-          <ul class="policies list-unstyled">
-            {%- for policy in shop.policies -%}
-              {%- if policy != blank -%}
-                <li>
-                  <small class="copyright__content"
-                    ><a href="{{ policy.url | escape }}">{{ policy.title | escape }}</a></small
-                  >
-                </li>
-              {%- endif -%}
-            {%- endfor -%}
-          </ul>
-        {%- endif -%}
-      </div>
-      {%- comment -%} /PB {%- endcomment -%}
-      <div class="footer__column footer__localization isolate">
-        {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
-          <localization-form>
-            {%- form 'localization', id: 'FooterCountryForm', class: 'localization-form' -%}
-              <div>
-                <h2 class="caption-large text-body" id="FooterCountryLabel">{{ 'localization.country_label' | t }}</h2>
-                {%- render 'country-localization', localPosition: 'FooterCountry' -%}
-              </div>
-            {%- endform -%}
-          </localization-form>
-        {%- endif -%}
+      <div class="pb-footer-bar">
+        <div class="pb-footer-bar__legal pb-footer-bar__legal--desktop">{{ pb_footer_legal }}</div>
+        <div class="footer__column footer__localization isolate">
+          {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
+            <localization-form>
+              {%- form 'localization', id: 'FooterCountryForm', class: 'localization-form' -%}
+                <div class="pb-footer-country">
+                  <span class="pb-footer-country__label" id="FooterCountryLabel">
+                    {{- 'localization.country_label' | t -}}
+                  </span>
+                  {%- render 'country-localization', localPosition: 'FooterCountry' -%}
+                </div>
+              {%- endform -%}
+            </localization-form>
+          {%- endif -%}
 
-        {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
-          <localization-form>
-            {%- form 'localization', id: 'FooterLanguageForm', class: 'localization-form' -%}
-              <div>
-                <h2 class="caption-large text-body" id="FooterLanguageLabel">
-                  {{ 'localization.language_label' | t }}
-                </h2>
-                {%- render 'language-localization', localPosition: 'FooterLanguage' -%}
-              </div>
-            {%- endform -%}
-          </localization-form>
-        {%- endif -%}
-      </div>
+          {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
+            <localization-form>
+              {%- form 'localization', id: 'FooterLanguageForm', class: 'localization-form' -%}
+                <div class="pb-footer-country">
+                  <span class="pb-footer-country__label" id="FooterLanguageLabel">
+                    {{- 'localization.language_label' | t -}}
+                  </span>
+                  {%- render 'language-localization', localPosition: 'FooterLanguage' -%}
+                </div>
+              {%- endform -%}
+            </localization-form>
+          {%- endif -%}
+        </div>
+        <div class="pb-footer-bar__legal pb-footer-bar__legal--mobile">{{ pb_footer_legal }}</div>
+        {%- comment -%} /PB {%- endcomment -%}
       <div class="footer__column footer__column--info">
         {%- if section.settings.payment_enable -%}
           <div class="footer__payment">
@@ -348,19 +394,24 @@
           </div>
         {%- endif -%}
       </div>
+      {%- comment -%} PB: closes .pb-footer-bar {%- endcomment -%}
+      </div>
+      {%- comment -%} /PB {%- endcomment -%}
     </div>
   </div>
 </footer>
 
 {% stylesheet %}
-  /* PB: Archive footer, D-19 and D-22. */
+  /* PB: Archive footer, D-19 and D-22; 2.x QA spacing and bottom bar (02 §2.8, Archive-Home, Archive-Home-Mobile).
+     Section stylesheets load before Dawn's section-footer.css and component-localization-form.css, so these
+     selectors carry the extra classes they need to win. */
   footer.footer[class*="color-"] {
     border-top: 1px solid var(--pb-gold-line);
   }
 
   .footer .footer-block__heading {
     color: var(--pb-gold);
-    font: 600 1.1rem / 1.5 var(--font-body-family);
+    font: 600 1.1rem / 1.6 var(--font-body-family);
     letter-spacing: 0.28em;
     text-transform: uppercase;
   }
@@ -370,15 +421,30 @@
     align-items: center;
     gap: 1.2rem;
     color: var(--pb-ivory);
-    font: 600 2.1rem / 1.15 var(--pb-serif);
+    font: 600 2.1rem / 1.6 var(--pb-serif);
     letter-spacing: 0.32em;
     text-transform: uppercase;
     text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .pb-footer-wordmark .pb-diamond {
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+
+  .footer .footer-block__brand-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.4rem;
   }
 
   .pb-footer-brand-copy {
-    margin-top: 1.4rem;
+    max-width: 28rem;
     color: var(--pb-muted);
+    font-size: 1.4rem;
+    line-height: 1.6;
   }
 
   .pb-footer-brand-copy > span {
@@ -396,59 +462,236 @@
     font-size: 1.4rem;
   }
 
-  .footer .footer-block__details-content .list-menu__item--link:hover,
-  .footer .copyright__content a:hover {
+  .footer .footer-block__details-content .list-menu__item--link:hover {
     color: var(--pb-gold);
   }
 
+  .footer .footer__content-top.page-width {
+    padding-bottom: 0;
+  }
+
+  /* Bottom bar: a --pb-rule hairline at content width, then ©, the policies and Country/region on one row. */
   .footer .footer__content-bottom {
-    border-top: 1px solid var(--pb-rule);
-    padding-top: 2rem;
+    padding-top: 0;
+    border-top: 0;
   }
 
-  .footer .footer__content-bottom-wrapper {
-    align-items: center;
-    justify-content: flex-start;
+  .footer .footer__content-bottom .footer__content-bottom-wrapper {
+    display: block;
+  }
+
+  .pb-footer-bar {
+    display: flex;
     flex-wrap: wrap;
-    gap: 1.6rem 3.2rem;
-  }
-
-  .footer .footer__content-bottom-wrapper .footer__copyright {
-    flex: 1 1 24rem;
-    margin: 0;
-    text-align: start;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.4rem;
+    margin-top: 5.6rem;
+    padding-top: 2.4rem;
+    border-top: 1px solid var(--pb-rule);
     color: var(--pb-muted);
+    font-size: 1.3rem;
+    line-height: 1.6;
+    letter-spacing: normal;
   }
 
-  .footer .footer__column {
+  /* Two renders, one shown: the desktop copy from 750px, the mobile copy below it. A single min-width query
+     leaves no fractional-width gap in which both (or neither) would show. */
+  .pb-footer-bar__legal--desktop,
+  .footer .pb-footer-menu {
+    display: none;
+  }
+
+  .pb-footer-bar__copy {
+    margin: 0;
+  }
+
+  .pb-footer-bar__policies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 2rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* The canvas's plain link underline: 1px at the font's own offset (auto), breaking at descenders. */
+  .pb-footer-bar__policies a {
+    color: var(--pb-muted);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+  }
+
+  /* Full policy titles in the desktop bar, short labels on the phone line. */
+  .pb-footer-bar__legal--desktop .pb-footer-bar__policy-short,
+  .pb-footer-bar__legal--mobile .pb-footer-bar__policy-full {
+    display: none;
+  }
+
+  .pb-footer-bar__policies a:hover {
+    color: var(--pb-gold);
+  }
+
+  .footer .pb-footer-bar .footer__column {
     width: auto;
     padding: 0;
   }
 
-  .footer .localization-form__select {
-    background: var(--pb-onyx-raised);
+  .footer .pb-footer-bar .footer__column--info:not(:has(.list-payment__item)) {
+    display: none;
+  }
+
+  .footer .pb-footer-bar .footer__localization {
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    padding: 0;
+  }
+
+  .footer .pb-footer-bar .localization-form {
+    display: block;
+    width: auto;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pb-footer-country {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .pb-footer-country__label {
+    color: var(--pb-muted);
+    font-size: 1.3rem;
+  }
+
+  /* The select: onyx-raised, 1px rule-strong border, radius 2, 40 tall [44, full width]; no Dawn ring. */
+  .footer .pb-footer-country .disclosure__button.localization-form__select {
+    width: auto;
+    height: 4rem;
+    min-height: 4rem;
+    margin: 0;
+    padding: 0 2.8rem 0 1rem;
     border: 1px solid var(--pb-rule-strong);
+    border-radius: 2px;
+    background: var(--pb-onyx-raised);
+    color: var(--pb-ivory);
+    font: 400 1.3rem / 1.2 var(--font-body-family);
+    letter-spacing: normal;
+  }
+
+  .footer .pb-footer-country .disclosure__button.localization-form__select::before,
+  .footer .pb-footer-country .disclosure__button.localization-form__select::after {
+    content: none;
+  }
+
+  .footer .pb-footer-country .localization-form__select .icon-caret {
+    right: 1rem;
   }
 
   @media (min-width: 750px) {
-    .footer .footer__blocks-wrapper {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr));
+    .pb-footer-bar__legal--desktop {
+      display: contents;
     }
 
-    .footer .footer__blocks-wrapper > .footer-block {
+    .footer .pb-footer-menu {
+      display: block;
+    }
+
+    .pb-footer-bar__legal--mobile,
+    .footer .pb-footer-acc {
+      display: none;
+    }
+
+    /* 02 §2.8's 1.4fr 1fr 1fr 1fr grid, gap 40. Its tracks keep their automatic minimum (not the canvas's
+       minmax(0, …)), so with the nowrap wordmark the brand column never narrows below the one-line wordmark
+       (about 289px). From 961 to about 1105px, where 1.4fr is narrower than that, the brand column holds at
+       the wordmark's width and the three link columns share the rest equally. */
+    .footer .footer__content-top .footer__blocks-wrapper {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(3, 1fr);
+      gap: 4rem;
+    }
+
+    .footer .footer__content-top .footer__blocks-wrapper > .footer-block {
       width: auto;
       max-width: none;
+    }
+
+    .footer .footer-block--menu .footer-block__heading {
+      margin-bottom: 1.6rem;
+    }
+
+    /* Archive-Home link rows: 14px at 1.6 with 10px between, at every width from 750px (section-footer.css pads
+       footer links 10px a side up to 989px, which made 42px rows in the two-column footer). */
+    .footer .footer-block__details-content .list-menu__item--link {
+      padding-block: 0.5rem;
+      line-height: 1.6;
+    }
+
+    .footer .footer-block__details-content > :first-child .list-menu__item--link {
+      padding-top: 0;
+    }
+
+    /* The canvas list ends at its last link's text (a 22.4px line), and each row is a flex line, so the
+       inline-block link adds no baseline strut below it: a 5-link list is 151.95px, as on Archive-Home. */
+    .footer .footer-block__details-content > :last-child .list-menu__item--link {
+      padding-bottom: 0;
+    }
+
+    .footer .pb-footer-menu .footer-block__details-content > li {
+      display: flex;
+    }
+
+    /* The country list opens above the select and lines up with its right edge. */
+    .footer .pb-footer-country .disclosure__list-wrapper {
+      right: 0;
+      left: auto;
+    }
+  }
+
+  /* Archive-Home at 960px or less: the footer grid becomes two equal columns (brand | Shop, Learn | Help). */
+  @media (min-width: 750px) and (max-width: 960px) {
+    .footer .footer__content-top .footer__blocks-wrapper {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
   @media (max-width: 749px) {
-    footer.footer .footer__content-top {
-      padding-inline: 2rem;
+    footer.footer .footer__content-top.page-width {
+      padding: 0 2rem;
     }
 
-    .footer .footer-block.grid__item.footer-block--menu {
+    .footer .footer__content-top .footer__blocks-wrapper {
+      margin-bottom: 0;
+    }
+
+    .footer .footer__content-top .footer-block.grid__item {
       margin: 0;
+    }
+
+    .pb-footer-wordmark {
+      gap: 1rem;
+      font-size: 1.9rem;
+      letter-spacing: 0.3em;
+    }
+
+    .pb-footer-wordmark .pb-diamond {
+      width: 0.8rem;
+      height: 0.8rem;
+    }
+
+    .pb-footer-brand-copy {
+      display: none;
+    }
+
+    /* Accordion rows: 52px including a --pb-rule bottom border; the first also has the top border. */
+    .footer .footer__content-top .footer-block.grid__item.footer-block--menu {
+      border-top: 0;
+      border-bottom: 1px solid var(--pb-rule);
+    }
+
+    .footer .footer__content-top .footer-block.grid__item:not(.footer-block--menu) + .footer-block--menu {
+      margin-top: 2.4rem;
       border-top: 1px solid var(--pb-rule);
     }
 
@@ -457,7 +700,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 5.2rem;
+      min-height: 5.1rem;
     }
 
     .pb-footer-acc .footer-block__heading,
@@ -469,13 +712,71 @@
       margin: 0 0 1.6rem;
     }
 
+    .pb-footer-acc__marker {
+      color: var(--pb-gold);
+      font: 600 1.8rem / 1 var(--font-body-family);
+    }
+
     .pb-footer-acc__marker::before {
       content: '+';
-      color: var(--pb-gold);
     }
 
     .pb-footer-acc[open] .pb-footer-acc__marker::before {
       content: '−';
+    }
+
+    /* Country/region first (label above a full-width 44px select), then one 12px line of © and policies.
+       The DOM has the same order (the mobile legal copy follows the localization column), so Tab does too. */
+    .pb-footer-bar {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: stretch;
+      gap: 2.4rem;
+      margin-top: 2.4rem;
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .footer .pb-footer-bar .footer__localization {
+      display: block;
+    }
+
+    .pb-footer-country {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.6rem;
+    }
+
+    .footer .pb-footer-country .disclosure__button.localization-form__select {
+      width: 100%;
+      height: 4.4rem;
+      min-height: 4.4rem;
+    }
+
+    /* Archive-Home-Mobile's legal line: 12px at 1.6, "© year shop · Privacy · Terms · Refunds" in muted, with
+       short policy labels. The parts are inline and never break inside; the spaces between them are real text,
+       so a narrow phone wraps only between parts, and each part carries the "·" after it (behind a no-break
+       space), so no line starts with one. Where it wraps (four policies under about 375px), balance keeps the
+       two lines even instead of leaving one label alone. The links keep a 1px underline so they read as links;
+       inline links in a line of text fall under WCAG 2.5.8's inline exception, so the line needn't be 24px. */
+    .pb-footer-bar__legal--mobile {
+      display: block;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      text-wrap: balance;
+    }
+
+    .pb-footer-bar__legal--mobile :is(.pb-footer-bar__copy, .pb-footer-bar__policies, li) {
+      display: inline;
+    }
+
+    .pb-footer-bar__legal--mobile :is(.pb-footer-bar__copy, li) {
+      white-space: nowrap;
+    }
+
+    .pb-footer-bar__legal--mobile :is(.pb-footer-bar__copy, li):not(:last-child)::after {
+      content: '\00A0\00B7';
+      content: '\00A0\00B7' / '';
     }
   }
   /* /PB */

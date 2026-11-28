@@ -33,6 +33,17 @@
     assign hide_mobile_slider = true
   endif
 
+  # PB: Archive gallery (03 §5.6, D-23): left thumbnail column and a framed main image from 960px; on small
+  # screens the framed slider keeps its "1 / 4" counter and the thumbnails become indicator buttons.
+  assign pb_gallery = false
+  if section.settings.pb_archive and limit == null
+    assign pb_gallery = true
+    if media_count > 1 and single_media_visible_mobile != true
+      assign hide_mobile_slider = false
+    endif
+  endif
+  # /PB
+
   if section.settings.media_size == 'large'
     assign media_width = 0.65
   elsif section.settings.media_size == 'medium'
@@ -45,9 +56,9 @@
 <media-gallery
   id="MediaGallery-{{ section.id }}"
   role="region"
-  {% if section.settings.enable_sticky_info %}
-    class="product__column-sticky"
-  {% endif %}
+  {% comment %} PB: pb-gallery classes for the Archive layout (D-23). {% endcomment %}
+  class="{% if section.settings.enable_sticky_info %}product__column-sticky{% endif %}{% if pb_gallery %} pb-gallery{% if media_count > 1 %} pb-gallery--thumbs{% endif %}{% endif %}"
+  {% comment %} /PB {% endcomment %}
   aria-label="{{ 'products.product.media.gallery_viewer' | t }}"
   data-desktop-layout="{{ section.settings.gallery_layout }}"
 >
@@ -56,6 +67,18 @@
     <a class="skip-to-content-link button visually-hidden quick-add-hidden" href="#ProductInfo-{{ section.id }}">
       {{ 'accessibility.skip_to_product_info' | t }}
     </a>
+    {%- comment -%} PB: double frame around the main image and its counter (02 §1.5, §6.1). {%- endcomment -%}
+    {%- if pb_gallery -%}
+      <div class="pb-frame pb-gallery__frame">
+      <div class="pb-frame__inner pb-gallery__inner">
+      {%- if media_count == 0 -%}
+        <div class="pb-placeholder pb-gallery__placeholder">
+          {{- 'product-1' | placeholder_svg_tag: 'pb-gallery__placeholder-svg' -}}
+          <p class="pb-placeholder__note pb-gallery__note">{{ 'pb.product.placeholder_caption' | t }}</p>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+    {%- comment -%} /PB {%- endcomment -%}
     <ul
       id="Slider-Gallery-{{ section.id }}"
       class="product__media-list contains-media grid grid--peek list-unstyled slider slider--mobile"
@@ -153,6 +176,12 @@
         </span>
       </button>
     </div>
+    {%- comment -%} PB: close the frame (D-23). {%- endcomment -%}
+    {%- if pb_gallery -%}
+      </div>
+      </div>
+    {%- endif -%}
+    {%- comment -%} /PB {%- endcomment -%}
   </slider-component>
   {%- if first_3d_model -%}
     <button
@@ -220,19 +249,29 @@
               endif
             endcapture
             assign media_index = media_index | plus: 1
+            # PB: number thumbnails among the visible ones, as the "1 / 6" counter does (PDP-06, G-19). With
+            # hide_variants, a variant image shows only as the first thumbnail, so it is always image 1.
+            assign pb_thumb_count = 1
+            assign pb_position = media_index
+            if pb_gallery
+              assign pb_position = 1
+            endif
+            # /PB
           -%}
           <li
             id="Slide-Thumbnails-{{ section.id }}-0"
             class="thumbnail-list__item slider__slide{% if section.settings.hide_variants and variant_images contains featured_media.src %} thumbnail-list_item--variant{% endif %}"
             data-target="{{ section.id }}-{{ featured_media.id }}"
-            data-media-position="{{ media_index }}"
+            {% comment %} PB: visible position (PDP-06). {% endcomment %}
+            data-media-position="{{ pb_position }}"
+            {% comment %} /PB {% endcomment %}
           >
-            {%- capture thumbnail_id -%}
-              Thumbnail-{{ section.id }}-0
-            {%- endcapture -%}
+            {%- comment -%} PB: one-line ID, so aria-describedby matches the img id exactly (G-19). {%- endcomment -%}
+            {%- assign thumbnail_id = 'Thumbnail-' | append: section.id | append: '-0' -%}
+            {%- comment -%} /PB {%- endcomment -%}
             <button
               class="thumbnail global-media-settings global-media-settings--no-shadow"
-              aria-label="{%- if featured_media.media_type == 'image' -%}{{ 'products.product.media.load_image' | t: index: media_index }}{%- elsif featured_media.media_type == 'model' -%}{{ 'products.product.media.load_model' | t: index: media_index }}{%- elsif featured_media.media_type == 'video' or featured_media.media_type == 'external_video' -%}{{ 'products.product.media.load_video' | t: index: media_index }}{%- endif -%}"
+              aria-label="{%- if pb_gallery and featured_media.media_type == 'image' -%}{{ 'pb.product.media_image' | t: index: pb_position, count: media_count }}{%- elsif featured_media.media_type == 'image' -%}{{ 'products.product.media.load_image' | t: index: media_index }}{%- elsif featured_media.media_type == 'model' -%}{{ 'products.product.media.load_model' | t: index: media_index }}{%- elsif featured_media.media_type == 'video' or featured_media.media_type == 'external_video' -%}{{ 'products.product.media.load_video' | t: index: media_index }}{%- endif -%}"
               aria-current="true"
               aria-controls="GalleryViewer-{{ section.id }}"
               aria-describedby="{{ thumbnail_id }}"
@@ -264,12 +303,25 @@
                 endif
               endcapture
               assign media_index = media_index | plus: 1
+              # PB: visible position (PDP-06). A hidden variant image is image 1 when it shows; the rest count on.
+              assign pb_position = media_index
+              if pb_gallery
+                if section.settings.hide_variants and variant_images contains media.src and pb_thumb_count > 0
+                  assign pb_position = 1
+                else
+                  assign pb_thumb_count = pb_thumb_count | default: 0 | plus: 1
+                  assign pb_position = pb_thumb_count
+                endif
+              endif
+              # /PB
             -%}
             <li
               id="Slide-Thumbnails-{{ section.id }}-{{ forloop.index }}"
               class="thumbnail-list__item slider__slide{% if section.settings.hide_variants and variant_images contains media.src %} thumbnail-list_item--variant{% endif %}"
               data-target="{{ section.id }}-{{ media.id }}"
-              data-media-position="{{ media_index }}"
+              {% comment %} PB: visible position (PDP-06). {% endcomment %}
+              data-media-position="{{ pb_position }}"
+              {% comment %} /PB {% endcomment %}
             >
               {%- if media.media_type == 'model' -%}
                 <span class="thumbnail__badge" aria-hidden="true">
@@ -284,12 +336,12 @@
                   </span>
                 </span>
               {%- endif -%}
-              {%- capture thumbnail_id -%}
-                Thumbnail-{{ section.id }}-{{ forloop.index }}
-              {%- endcapture -%}
+              {%- comment -%} PB: one-line ID, so aria-describedby matches the img id exactly (G-19). {%- endcomment -%}
+              {%- assign thumbnail_id = 'Thumbnail-' | append: section.id | append: '-' | append: forloop.index -%}
+              {%- comment -%} /PB {%- endcomment -%}
               <button
                 class="thumbnail global-media-settings global-media-settings--no-shadow"
-                aria-label="{%- if media.media_type == 'image' -%}{{ 'products.product.media.load_image' | t: index: media_index }}{%- elsif media.media_type == 'model' -%}{{ 'products.product.media.load_model' | t: index: media_index }}{%- elsif media.media_type == 'video' or media.media_type == 'external_video' -%}{{ 'products.product.media.load_video' | t: index: media_index }}{%- endif -%}"
+                aria-label="{%- if pb_gallery and media.media_type == 'image' -%}{{ 'pb.product.media_image' | t: index: pb_position, count: media_count }}{%- elsif media.media_type == 'image' -%}{{ 'products.product.media.load_image' | t: index: media_index }}{%- elsif media.media_type == 'model' -%}{{ 'products.product.media.load_model' | t: index: media_index }}{%- elsif media.media_type == 'video' or media.media_type == 'external_video' -%}{{ 'products.product.media.load_video' | t: index: media_index }}{%- endif -%}"
                 {% if media == product.selected_or_first_available_variant.featured_media
                   or product.selected_or_first_available_variant.featured_media == null
                   and forloop.index == 1

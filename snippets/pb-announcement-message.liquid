@@ -1,0 +1,61 @@
+{%- comment -%}
+  PB announcement message with an inline link (02 §2.7; Archive-Home, Archive-Home-Mobile).
+  Rendered by the PB: edit in sections/announcement-bar.liquid when a block has a link label. The message stays
+  plain gold-pale text and only the label is a link: ivory, underlined, no arrow. Under 820px the optional short
+  message and short label replace the full ones, so the bar keeps to one line. Archive-Home-Mobile joins the short
+  message and its link with a middle dot ("Collection in development · Join the list"); a single full stop at the
+  end of the short message gives way to it. The dot is decorative (aria-hidden): the link is its own stop for
+  screen readers. A blank link renders the message without a link. "#signup" resolves against the localized
+  homepage, as in Phase 1's edit.
+  Styles: the PB2:home block at the end of assets/pb-theme.css (the bar is on every page).
+
+  Accepts:
+  - block: {Object} The announcement block (required)
+
+  Usage:
+  {% render 'pb-announcement-message', block: block %}
+{%- endcomment -%}
+{%- liquid
+  assign pb_b = block.settings
+
+  assign pb_href = ''
+  if pb_b.link != blank
+    assign pb_href = pb_b.link
+    if pb_b.link == '#signup'
+      assign pb_href = routes.root_url | append: pb_b.link
+    endif
+  endif
+
+  assign pb_text_short = pb_b.pb_text_mobile | default: pb_b.text
+  assign pb_label_short = pb_b.pb_link_label_mobile | default: pb_b.pb_link_label
+  assign pb_has_short = false
+  if pb_text_short != pb_b.text or pb_label_short != pb_b.pb_link_label
+    assign pb_has_short = true
+  endif
+
+  if pb_href != blank
+    assign pb_text_short = pb_text_short | strip
+    assign pb_short_end = pb_text_short | slice: -2, 2
+    assign pb_short_last = pb_short_end | slice: -1
+    if pb_short_last == '.' and pb_short_end != '..'
+      assign pb_text_short = pb_text_short | remove_last: '.'
+    endif
+  endif
+-%}
+<p class="announcement-bar__message h5 pb-announcement">
+  <span class="pb-announcement__version{% if pb_has_short %} pb-announcement__version--full{% endif %}">
+    {{- pb_b.text | escape }}
+    {% if pb_href != blank -%}
+      <a href="{{ pb_href | escape }}" class="pb-announcement__link">{{ pb_b.pb_link_label | escape }}</a>
+    {%- endif -%}
+  </span>
+  {%- if pb_has_short -%}
+    <span class="pb-announcement__version pb-announcement__version--short">
+      {{- pb_text_short | escape -}}
+      {%- if pb_href != blank %}
+        <span aria-hidden="true">&middot;</span>
+        <a href="{{ pb_href | escape }}" class="pb-announcement__link">{{ pb_label_short | escape }}</a>
+      {%- endif -%}
+    </span>
+  {%- endif -%}
+</p>

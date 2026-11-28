@@ -28,13 +28,15 @@
     }
   {%- endif -%}
 
+  {%- comment -%} PB: the desktop header starts at 960px, not 990 (02 §1.3; assets/pb-theme.css). {%- endcomment -%}
   {%- if section.settings.menu_type_desktop != "drawer" -%}
-    @media screen and (min-width: 990px) {
+    @media screen and (min-width: 960px) {
       header-drawer {
         display: none;
       }
     }
   {%- endif -%}
+  {%- comment -%} /PB {%- endcomment -%}
 
   .menu-drawer-container {
     display: flex;
@@ -116,12 +118,14 @@
     }
   }
 
-  @media screen and (min-width: 990px) {
+  {%- comment -%} PB: desktop header padding from 960px. {%- endcomment -%}
+  @media screen and (min-width: 960px) {
     .header {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  {%- comment -%} /PB {%- endcomment -%}
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
@@ -181,9 +185,8 @@
     -%}
 
     {%- if section.settings.logo_position != 'middle-center' -%}
-      {%- if request.page_type == 'index' -%}
-        <h1 class="header__heading">
-      {%- endif -%}
+      {%- comment -%} PB: no h1 around the wordmark on the homepage: the pb-hero heading is the page's one H1 (02 §4.1, 05 §4). {%- endcomment -%}
+      {%- comment -%} /PB {%- endcomment -%}
       <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
         {%- if settings.logo != blank -%}
           <div class="header__heading-logo-wrapper">
@@ -208,9 +211,8 @@
           <span class="h2">{{ shop.name }}</span>
         {%- endif -%}
       </a>
-      {%- if request.page_type == 'index' -%}
-        </h1>
-      {%- endif -%}
+      {%- comment -%} PB: closing h1 removed with the opening one. {%- endcomment -%}
+      {%- comment -%} /PB {%- endcomment -%}
     {%- endif -%}
 
     {%- liquid
@@ -224,9 +226,8 @@
     %}
 
     {%- if section.settings.logo_position == 'middle-center' -%}
-      {%- if request.page_type == 'index' -%}
-        <h1 class="header__heading">
-      {%- endif -%}
+      {%- comment -%} PB: no h1 around the wordmark on the homepage: the pb-hero heading is the page's one H1 (02 §4.1, 05 §4). {%- endcomment -%}
+      {%- comment -%} /PB {%- endcomment -%}
       <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
         {%- if settings.logo != blank -%}
           <div class="header__heading-logo-wrapper">
@@ -251,9 +252,8 @@
           <span class="h2">{{ shop.name }}</span>
         {%- endif -%}
       </a>
-      {%- if request.page_type == 'index' -%}
-        </h1>
-      {%- endif -%}
+      {%- comment -%} PB: closing h1 removed with the opening one. {%- endcomment -%}
+      {%- comment -%} /PB {%- endcomment -%}
     {%- endif -%}
 
     <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
@@ -287,7 +287,9 @@
           menu="{{ settings.customer_account_menu | default: 'customer-account-main-menu' }}"
           class="header__icon header__icon--account link focus-inset"
         >
-          <span slot="signed-out-avatar" class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
+          {%- comment -%} PB: Archive outline glyph (02 §2.7, Archive-Home). {%- endcomment -%}
+          <span slot="signed-out-avatar" class="svg-wrapper">{{ 'pb-icon-account.svg' | inline_asset_content }}</span>
+          {%- comment -%} /PB {%- endcomment -%}
           <span slot="signed-out-avatar" class="visually-hidden">{{ 'customer.log_in' | t }}</span>
         </shopify-account>
       {%- endif -%}
@@ -300,11 +302,12 @@
       {%- endfor -%}
 
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
-        {% if cart == empty %}
-          <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
-        {% else %}
-          <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
-        {% endif %}
+        {%- comment -%}
+          PB: one Archive outline bag for the empty and filled cart; the count dot shows the items (02 §2.7).
+          sections/cart-icon-bubble.liquid renders the same markup after cart updates.
+        {%- endcomment -%}
+        <span class="svg-wrapper">{{ 'pb-icon-bag.svg' | inline_asset_content }}</span>
+        {%- comment -%} /PB {%- endcomment -%}
         <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
         {%- if cart != empty -%}
           <div class="cart-count-bubble">
@@ -335,7 +338,8 @@
 
     connectedCallback() {
       this.header = document.querySelector('.section-header');
-      this.mobileMediaQuery = window.matchMedia('(max-width: 990px)');
+      // PB: the mobile header ends at 959px (assets/pb-theme.css), so the height is re-read when the layout switches.
+      this.mobileMediaQuery = window.matchMedia('(max-width: 959px)');
       this.headerIsAlwaysSticky =
         this.getAttribute('data-sticky-type') === 'always' ||
         this.getAttribute('data-sticky-type') === 'reduce-logo-size';
@@ -431,12 +435,15 @@
 
     closeMenuDisclosure() {
       this.disclosures = this.disclosures || this.header.querySelectorAll('header-menu');
-      this.disclosures.forEach((disclosure) => disclosure.close());
+      // PB: close only a disclosure that is open, so hiding the header leaves everything else alone.
+      this.disclosures.forEach((disclosure) => disclosure.mainDetailsToggle?.open && disclosure.close());
     }
 
     closeSearchModal() {
       this.searchModals = this.searchModals || this.header.querySelectorAll('details-modal');
-      this.searchModals.forEach((searchModal) => searchModal.close(false));
+      // PB: close only a search modal that is open. DetailsModal.close() always runs removeTrapFocus() and removes
+      // body.overflow-hidden, so on every scroll-down it dropped another dialog's focus trap (the size guide).
+      this.searchModals.forEach((searchModal) => searchModal.isOpen?.() && searchModal.close(false));
     }
   }
 
@@ -458,6 +465,23 @@
   customElements.define('sticky-header', StickyHeader);
 {% endjavascript %}
 
+{%- comment -%} PB: list only filled-in social profile URLs, and use the shop root as the url (D-29). {%- endcomment -%}
+{%- liquid
+  assign pb_same_as = ''
+  assign pb_social_ids = 'social_twitter_link,social_facebook_link,social_pinterest_link,social_instagram_link,social_tiktok_link,social_tumblr_link,social_snapchat_link,social_youtube_link,social_vimeo_link' | split: ','
+  for pb_social_id in pb_social_ids
+    assign pb_social_url = settings[pb_social_id] | strip
+    assign pb_social_head = pb_social_url | slice: 0, 8 | downcase
+    if pb_social_head == 'https://' or pb_social_head contains 'http://'
+      if pb_same_as != blank
+        assign pb_same_as = pb_same_as | append: ', '
+      endif
+      assign pb_social_json = pb_social_url | json
+      assign pb_same_as = pb_same_as | append: pb_social_json
+    endif
+  endfor
+-%}
+{%- comment -%} /PB {%- endcomment -%}
 <script type="application/ld+json">
   {
     "@context": "http://schema.org",
@@ -466,18 +490,10 @@
     {% if settings.logo %}
       "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
     {% endif %}
-    "sameAs": [
-      {{ settings.social_twitter_link | json }},
-      {{ settings.social_facebook_link | json }},
-      {{ settings.social_pinterest_link | json }},
-      {{ settings.social_instagram_link | json }},
-      {{ settings.social_tiktok_link | json }},
-      {{ settings.social_tumblr_link | json }},
-      {{ settings.social_snapchat_link | json }},
-      {{ settings.social_youtube_link | json }},
-      {{ settings.social_vimeo_link | json }}
-    ],
-    "url": {{ request.origin | append: page.url | json }}
+    {%- comment -%} PB: D-29 {%- endcomment -%}
+    "sameAs": [{{ pb_same_as }}],
+    "url": {{ request.origin | append: routes.root_url | json }}
+    {%- comment -%} /PB {%- endcomment -%}
   }
 </script>
 

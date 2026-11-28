@@ -1,0 +1,42 @@
+{
+  "sections": {
+    "main": {
+      "type": "pb-page",
+      "blocks": {
+        "measure": {
+          "type": "text",
+          "settings": {
+            "heading": "How to measure",
+            "heading_style": "heading",
+            "text": "<p>[Measuring steps, validated by the owner. Measured data only: cuff inner circumference and opening, chain lengths in cm and inches. No “adjustable” claim without tested limits.]</p>",
+            "anchor": "how-to-measure"
+          }
+        },
+        "tables": {
+          "type": "html",
+          "settings": {
+            "html": "<h3>[Cuffs]</h3><table><thead><tr><th scope=\"col\">[Size]</th><th scope=\"col\">[Inner circumference]</th><th scope=\"col\">[Opening]</th></tr></thead><tbody><tr><th scope=\"row\">[S/M]</th><td>[— cm / — in]</td><td>[— cm / — in]</td></tr><tr><th scope=\"row\">[M/L]</th><td>[— cm / — in]</td><td>[— cm / — in]</td></tr></tbody></table><h3>[Chains]</h3><table><thead><tr><th scope=\"col\">[Length]</th><th scope=\"col\">[cm]</th><th scope=\"col\">[in]</th></tr></thead><tbody><tr><th scope=\"row\">[Short]</th><td>[—]</td><td>[—]</td></tr><tr><th scope=\"row\">[Long]</th><td>[—]</td><td>[—]</td></tr></tbody></table>",
+            "anchor": ""
+          }
+        }
+      },
+      "block_order": [
+        "measure",
+        "tables"
+      ],
+      "settings": {
+        "show_diamond": true,
+        "dateline": "",
+        "width": "narrow",
+        "color_scheme": "scheme-1",
+        "padding_top": 112,
+        "padding_bottom": 112,
+        "padding_top_mobile": 72,
+        "padding_bottom_mobile": 72
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

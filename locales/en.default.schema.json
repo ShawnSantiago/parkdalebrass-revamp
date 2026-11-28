@@ -9,6 +9,65 @@
       "empty_text": "Try removing a filter, or browse all jewelry.",
       "reset": "Reset filters"
     },
+    "home": {
+      "settings": {
+        "content_header": {
+          "content": "Text"
+        },
+        "media_header": {
+          "content": "Image"
+        },
+        "eyebrow": {
+          "label": "Eyebrow"
+        },
+        "heading": {
+          "label": "Heading"
+        },
+        "text": {
+          "label": "Text"
+        },
+        "button_label": {
+          "label": "Button label"
+        },
+        "button_link": {
+          "label": "Button link",
+          "info": "The button shows only when it has a link. Use #signup to scroll to the newsletter on the homepage."
+        },
+        "image": {
+          "label": "Image"
+        },
+        "image_mobile": {
+          "label": "Mobile image"
+        },
+        "placeholder_note": {
+          "label": "Placeholder caption",
+          "info": "Describes the photo still needed. Shown only while no image is chosen."
+        },
+        "padding_top_mobile": {
+          "label": "Top padding on mobile (px)"
+        },
+        "padding_bottom_mobile": {
+          "label": "Bottom padding on mobile (px)"
+        },
+        "padding_mobile": {
+          "info": "Under 750px. Leave blank to use 60% of the desktop value."
+        }
+      },
+      "announcement": {
+        "link_label": {
+          "label": "Link label",
+          "info": "When set, the message stays plain text and only this label is the link, shown after it in ivory."
+        },
+        "text_mobile": {
+          "label": "Short text on mobile",
+          "info": "Optional. Replaces the text under 750px so the bar stays on one line. Used only with a link label."
+        },
+        "link_label_mobile": {
+          "label": "Short link label on mobile",
+          "info": "Optional. Replaces the link label under 750px."
+        }
+      }
+    },
     "journal": {
       "view_all": "All articles"
     },
@@ -1926,6 +1985,118 @@
     "main-page": {
       "name": "Page"
     },
+    "pb_page": {
+      "name": "PB · Page",
+      "settings": {
+        "paragraph": {
+          "content": "Centred head and reading-width body. The title and body come from the page in Shopify admin."
+        },
+        "show_diamond": {
+          "label": "Show diamond"
+        },
+        "dateline": {
+          "label": "Dateline",
+          "info": "Optional, under the title, e.g. Est. 2019 · Toronto. Shown in spaced capitals."
+        },
+        "width": {
+          "label": "Reading width",
+          "options__1": {
+            "label": "Editorial (720px)"
+          },
+          "options__2": {
+            "label": "Long-form story (680px)"
+          },
+          "options__3": {
+            "label": "Page width"
+          }
+        },
+        "padding_top_mobile": {
+          "label": "Top padding on mobile (px)"
+        },
+        "padding_bottom_mobile": {
+          "label": "Bottom padding on mobile (px)"
+        },
+        "padding_mobile": {
+          "info": "Under 750px. Leave blank to use 60% of the desktop value."
+        }
+      },
+      "blocks": {
+        "text": {
+          "name": "Text",
+          "settings": {
+            "paragraph": {
+              "content": "Shown after the page body. Text with a [bracketed placeholder] shows only in the theme editor, never on the storefront."
+            },
+            "heading": {
+              "label": "Heading"
+            },
+            "heading_style": {
+              "label": "Heading style",
+              "options__1": {
+                "label": "Heading"
+              },
+              "options__2": {
+                "label": "Eyebrow"
+              }
+            },
+            "text": {
+              "label": "Text"
+            },
+            "anchor": {
+              "label": "Anchor ID",
+              "info": "Optional. Links can jump here with #anchor-id, e.g. previous-orders."
+            }
+          }
+        },
+        "html": {
+          "name": "Table or HTML",
+          "settings": {
+            "html": {
+              "label": "HTML",
+              "info": "For a table, put the header row in thead with th cells, and give it a caption (or a heading just before it): screen readers use it to name the table. Wide tables scroll sideways on small screens."
+            }
+          }
+        },
+        "image": {
+          "name": "Framed image",
+          "settings": {
+            "image": {
+              "label": "Image",
+              "info": "Shown at 4:5 in the double frame, at the reading width. Keep to one fully visible double frame per screen."
+            },
+            "placeholder_note": {
+              "label": "Placeholder caption",
+              "info": "Describes the photo still needed. Shown only while no image is chosen."
+            }
+          }
+        },
+        "link": {
+          "name": "Link",
+          "settings": {
+            "label": {
+              "label": "Label"
+            },
+            "collection": {
+              "label": "Collection",
+              "info": "Optional. Links to this collection, and only shows once it has products."
+            },
+            "link": {
+              "label": "Link",
+              "info": "Used when no collection is chosen."
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "PB · Page"
+      },
+      "collapsible_content": {
+        "pb_hide_placeholders": {
+          "label": "Hide rows with [bracketed placeholders] on the storefront",
+          "info": "PB. A row whose heading or content contains [ shows only in the theme editor. Turn it off if a real row needs a [ character."
+        }
+      }
+    },
     "main-password-footer": {
       "name": "Password footer"
     },
@@ -3418,6 +3589,450 @@
         },
         "open_by_default": {
           "label": "Open by default"
+        }
+      }
+    },
+    "pb_collection_header": {
+      "name": "PB · Collection header",
+      "settings": {
+        "show_breadcrumbs": {
+          "label": "Show breadcrumb"
+        },
+        "menu": {
+          "label": "Category menu",
+          "info": "Builds the category line when there's no override: on the menu's first link (All), the menu's other links; on a link with child links, those children. Only collections with products are named. Use the same menu as the product grid's category pills."
+        },
+        "category_line": {
+          "label": "Category line",
+          "info": "Optional. Replaces the line built from the menu on every collection. A collection's custom.category_line metafield, if set, is used first."
+        },
+        "show_description": {
+          "label": "Show collection description"
+        },
+        "padding_top_mobile": {
+          "label": "Top padding on mobile (px)"
+        },
+        "padding_bottom_mobile": {
+          "label": "Bottom padding on mobile (px)"
+        },
+        "padding_mobile": {
+          "info": "Under 750px. Leave blank to use 60% of the desktop value."
+        }
+      },
+      "presets": {
+        "name": "PB · Collection header"
+      },
+      "grid": {
+        "header": {
+          "content": "Archive layout"
+        },
+        "pb_layout": {
+          "label": "Use the Archive toolbar, cards and empty states",
+          "info": "Turn off to use Dawn's standard filters and product cards."
+        },
+        "pb_category_menu": {
+          "label": "Category pills menu",
+          "info": "Pills show this menu's collections that have products. Use the same menu as the collection header's category menu. An empty menu shows no pills."
+        },
+        "promo_header": {
+          "content": "Promo tile",
+          "info": "Shown after the products on the last page only. Hidden when no products match."
+        },
+        "pb_promo_enable": {
+          "label": "Show promo tile"
+        },
+        "pb_promo_eyebrow": {
+          "label": "Eyebrow"
+        },
+        "pb_promo_text": {
+          "label": "Text"
+        },
+        "pb_promo_text_mobile": {
+          "label": "Mobile text",
+          "info": "Shorter line for the two-column mobile grid. Leave blank to use the text."
+        },
+        "pb_promo_link_label": {
+          "label": "Link label"
+        },
+        "pb_promo_link": {
+          "label": "Link",
+          "info": "The link shows only when it's set."
+        }
+      }
+    },
+    "pb_split": {
+      "name": "PB · Split",
+      "settings": {
+        "layout_header": {
+          "content": "Layout"
+        },
+        "layout": {
+          "label": "Order",
+          "info": "When the columns stack (under 960px), the button always comes last.",
+          "options__1": {
+            "label": "Image first"
+          },
+          "options__2": {
+            "label": "Text first"
+          }
+        },
+        "ratio": {
+          "label": "Columns",
+          "options__1": {
+            "label": "Equal (1:1), image fills its half"
+          },
+          "options__2": {
+            "label": "Text wider (6:5), 88px gap"
+          }
+        },
+        "full_bleed": {
+          "label": "Full-width background",
+          "info": "The colour spans the screen. Content stays within the page width."
+        },
+        "show_borders": {
+          "label": "Gold-line borders, top and bottom"
+        },
+        "frame_image": {
+          "label": "Double frame around the image",
+          "info": "Shows the image at 4:5. Keep to one fully visible double frame per screen."
+        },
+        "show_diamond": {
+          "label": "Diamond above the eyebrow"
+        },
+        "media_header": {
+          "content": "Image"
+        },
+        "image": {
+          "label": "Image"
+        },
+        "image_mobile": {
+          "label": "Mobile image",
+          "info": "Optional crop for screens under 960px."
+        },
+        "placeholder_note": {
+          "label": "Placeholder caption",
+          "info": "Describes the photo still needed. Shown only while no image is chosen."
+        },
+        "content_header": {
+          "content": "Text"
+        },
+        "eyebrow": {
+          "label": "Eyebrow"
+        },
+        "heading": {
+          "label": "Heading"
+        },
+        "text": {
+          "label": "Text"
+        },
+        "button_label": {
+          "label": "Button label"
+        },
+        "button_link": {
+          "label": "Button link",
+          "info": "The button shows only when it has a link."
+        },
+        "padding_header": {
+          "info": "Space outside the coloured panel."
+        },
+        "padding_top_mobile": {
+          "label": "Top padding on mobile (px)"
+        },
+        "padding_bottom_mobile": {
+          "label": "Bottom padding on mobile (px)"
+        },
+        "padding_mobile": {
+          "info": "Under 750px. Leave blank to use 60% of the desktop value."
+        }
+      },
+      "presets": {
+        "material": {
+          "name": "PB · Split: material"
+        },
+        "story": {
+          "name": "PB · Split: our story"
+        }
+      }
+    },
+    "pb_hero": {
+      "name": "PB · Hero",
+      "settings": {
+        "lockup": {
+          "label": "Lockup line"
+        },
+        "heading": {
+          "info": "Press Enter for a line break. Set in capitals by the theme."
+        },
+        "dateline": {
+          "label": "Dateline"
+        },
+        "button_label": {
+          "info": "Prelaunch: \"Get launch updates\" to #signup. Live: \"Shop jewelry\" to the jewelry collection."
+        },
+        "link_label": {
+          "label": "Secondary button label"
+        },
+        "link_url": {
+          "label": "Secondary button link"
+        },
+        "image": {
+          "info": "About 1440 × 1520 px, shot on a dark ground with a single warm light (02 §3)."
+        },
+        "image_mobile": {
+          "info": "Optional 4:5 crop for screens under 750px."
+        }
+      },
+      "presets": {
+        "name": "PB · Hero"
+      }
+    },
+    "pb_category_tiles": {
+      "name": "PB · Category tiles",
+      "settings": {
+        "paragraph": {
+          "content": "A tile shows only when its collection has at least one product published to the Online Store. With none, the section is hidden."
+        },
+        "show_view_all": {
+          "label": "Show a \"View all\" button"
+        }
+      },
+      "blocks": {
+        "collection": {
+          "name": "Collection",
+          "settings": {
+            "collection": {
+              "label": "Collection",
+              "info": "Keep rings out until ring sizing, stock and exchanges are ready (D-12)."
+            },
+            "label": {
+              "label": "Label",
+              "info": "Optional. Defaults to the collection title."
+            },
+            "image": {
+              "info": "Optional. Defaults to the collection image. 4:5 on desktop, a small square on mobile."
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "PB · Category tiles"
+      }
+    },
+    "pb_featured": {
+      "name": "PB · Featured",
+      "settings": {
+        "mode": {
+          "label": "Mode",
+          "info": "Concepts before launch: concept blocks with no price and no product link. Collection after launch: real products from the collection below.",
+          "options__1": {
+            "label": "Concepts (prelaunch)"
+          },
+          "options__2": {
+            "label": "Collection (live)"
+          }
+        },
+        "collection": {
+          "label": "Collection",
+          "info": "Collection mode only. With no published products, the section is hidden."
+        },
+        "products_to_show": {
+          "label": "Products to show"
+        },
+        "view_all_label": {
+          "label": "\"View all\" button label",
+          "info": "Collection mode only. Links to the collection."
+        },
+        "eyebrow": {
+          "info": "Prelaunch: \"Coming soon\". Live: \"Everyday essentials\"."
+        },
+        "note": {
+          "label": "Note under the heading",
+          "info": "Concepts mode only."
+        },
+        "badge_label": {
+          "label": "Concept badge",
+          "info": "Concepts mode only. Every concept card shows this badge."
+        }
+      },
+      "blocks": {
+        "concept": {
+          "name": "Concept",
+          "settings": {
+            "paragraph": {
+              "content": "An editorial concept card: no price, no product link and no product data."
+            },
+            "name": {
+              "label": "Name"
+            },
+            "descriptor": {
+              "label": "Descriptor",
+              "info": "A short design description. No unverified finish, material or size claims."
+            },
+            "link": {
+              "label": "Link",
+              "info": "Optional, e.g. #signup. Product links are ignored."
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "PB · Featured"
+      }
+    },
+    "pb_editorial_banner": {
+      "name": "PB · Editorial banner",
+      "settings": {
+        "image": {
+          "info": "21:9, inside the double frame. On-body, with dark wool, denim or workwear (02 §3)."
+        },
+        "image_mobile": {
+          "info": "Optional 4:5 portrait crop for screens under 750px."
+        },
+        "link_label": {
+          "label": "Link label",
+          "info": "Prelaunch: \"Be first to know\" to #signup. Live: \"Shop bracelets\"."
+        },
+        "link_url": {
+          "label": "Link"
+        },
+        "show_divider_after": {
+          "label": "Show the ornament divider after this section",
+          "info": "One divider per page (02 §1.5)."
+        }
+      },
+      "presets": {
+        "name": "PB · Editorial banner"
+      }
+    },
+    "pb_journal_picks": {
+      "name": "PB · Journal picks",
+      "settings": {
+        "paragraph": {
+          "content": "Hand-picked articles only, never the latest posts (D-11). Pick jewelry, material and care articles."
+        },
+        "view_all_label": {
+          "label": "\"All articles\" link label"
+        },
+        "blog": {
+          "label": "Blog for the \"All articles\" link",
+          "info": "The link is hidden without a blog. With a tag below, it goes to the blog's articles with that tag (D-36). With no tag, it goes to the whole blog: leave the tag empty only once the blog lists jewelry, material and care articles alone (D-11)."
+        },
+        "tag": {
+          "label": "Tag for the \"All articles\" link",
+          "info": "For example \"journal\". The link goes to the blog's tag page, and stays hidden until an article in the blog has this tag."
+        },
+        "show_numerals": {
+          "label": "Show roman numerals"
+        }
+      },
+      "blocks": {
+        "article": {
+          "name": "Article",
+          "settings": {
+            "article": {
+              "label": "Article",
+              "info": "Empty or deleted articles are skipped."
+            },
+            "tag_label": {
+              "label": "Tag",
+              "info": "Optional. Defaults to the article's first tag."
+            },
+            "excerpt": {
+              "label": "Excerpt",
+              "info": "Optional. Defaults to the first 15 words of the article excerpt or text, without a leading copy of the title."
+            },
+            "show_image": {
+              "label": "Show the article image"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "PB · Journal picks"
+      }
+    },
+    "pb_newsletter": {
+      "name": "PB · Newsletter",
+      "settings": {
+        "paragraph": {
+          "content": "Signs shoppers up as customers tagged \"newsletter\", like Dawn's newsletter section."
+        },
+        "anchor_id": {
+          "label": "Anchor",
+          "info": "Links to #signup scroll here. Keep \"signup\" on the homepage."
+        },
+        "button_label": {
+          "info": "Prelaunch: \"Notify me\". Live: \"Subscribe\"."
+        },
+        "consent": {
+          "label": "Consent text",
+          "info": "Owner-approved, CASL-compliant consent wording (owner-inputs D-03). Leave empty until it is approved."
+        },
+        "color_scheme": {
+          "label": "Panel colour scheme"
+        }
+      },
+      "presets": {
+        "name": "PB · Newsletter"
+      }
+    },
+    "pb_product": {
+      "settings": {
+        "header": {
+          "content": "Archive layout"
+        },
+        "pb_archive": {
+          "label": "Use the Archive layout",
+          "info": "Left thumbnail column and framed main image, breadcrumb, Archive option buttons and the mobile add-to-bag bar."
+        },
+        "pb_show_breadcrumbs": {
+          "label": "Show breadcrumb"
+        },
+        "pb_breadcrumb_menu": {
+          "label": "Breadcrumb categories",
+          "info": "The trail names the smallest collection in this menu that contains the product."
+        },
+        "pb_padding_top_mobile": {
+          "label": "Top padding on mobile (px)",
+          "info": "Under 750px. Leave blank to use 75% of the top padding."
+        }
+      },
+      "blocks": {
+        "collapsible_tab": {
+          "pb_source": {
+            "label": "Content from",
+            "info": "Product fields come from the product's custom metafields. A row with no content is hidden.",
+            "options__1": {
+              "label": "Content and page below"
+            },
+            "options__2": {
+              "label": "Product description"
+            },
+            "options__3": {
+              "label": "Materials & finish (material, finish, patina notes, origin)"
+            },
+            "options__4": {
+              "label": "Dimensions & fit (dimensions, fit notes)"
+            },
+            "options__5": {
+              "label": "Care (care instructions)"
+            }
+          },
+          "pb_open": {
+            "label": "Open by default"
+          }
+        },
+        "popup": {
+          "pb_size_legend": {
+            "label": "Show in the Size legend",
+            "info": "Puts this link on the Size row when the variant picker uses buttons in the Archive layout; otherwise it stays here. A product's custom.size_guide page replaces the page above."
+          }
+        },
+        "variant_picker": {
+          "pb_size_start": {
+            "label": "Start with no size selected",
+            "info": "Archive layout, buttons only. The button reads \"Select a size\" until a size is chosen. Links with ?variant= keep their size."
+          }
         }
       }
     }

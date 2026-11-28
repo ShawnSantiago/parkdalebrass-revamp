@@ -19,9 +19,9 @@ How each part of `02-design-spec.md` is built in this repo. File paths are relat
 
 | Design element (02) | Built with | Why |
 | --- | --- | --- |
-| Header, nav, wordmark + diamond, announcement | Dawn `header`, `announcement-bar` + `pb-theme.css` | Matches with CSS |
-| Footer desktop | Dawn `footer` + CSS | Matches with CSS |
-| Footer mobile accordions | **Dawn edit** `sections/footer.liquid` (§7) | Dawn stacks the groups instead of collapsing them |
+| Header, nav, wordmark + diamond, announcement | Dawn `header`, `announcement-bar` + `pb-theme.css` + **Dawn edits**: `header` (no H1 around the wordmark, D-31; Organization JSON-LD, D-29; outline glyphs), `header-search`, `header-drawer` (account link; menu glyph), `cart-icon-bubble` (bag glyph), `announcement-bar` (signup link, inline link label) | Dawn's homepage H1, filled icons and whole-message link don't match. Glyphs: D-45 |
+| Footer desktop | Dawn `footer` + CSS + **Dawn edit** `sections/footer.liquid` (wordmark; bottom bar with a content-width hairline, ©, policies and an inline Country/region select; no "Powered by Shopify") | Dawn's bottom bar is centred and stacked, with its own separators and select ring (D-45) |
+| Footer mobile accordions | **Dawn edit** `sections/footer.liquid` (§7; 36/40 padding under 750px) | Dawn stacks the groups instead of collapsing them |
 | Hero | **`pb-hero`** | Framed lockup, two buttons, mobile order |
 | Category tiles / mobile rows | **`pb-category-tiles`** | Hides empty collections; tiles become rows on mobile |
 | Featured (prelaunch concepts and live products) | **`pb-featured`** | Centred ruled head, gold-outline badge, button below, concept mode without prices |
@@ -30,17 +30,21 @@ How each part of `02-design-spec.md` is built in this repo. File paths are relat
 | Journal | **`pb-journal-picks`** | Hand-picked articles, numerals |
 | Signup | **`pb-newsletter`** | Green double frame, centred |
 | Collection head + category pills | **`pb-collection-header`** | Centred diamond head, live-category line, pills |
-| Collection grid, filters, sort, pagination | Dawn `main-collection-product-grid` + CSS + **Dawn edit** (promo tile) | Filtering logic stays native |
-| Collection help strip | Dawn `multicolumn` + CSS | Matches with CSS (hide the arrow icon, gold caps links) |
-| Product gallery (left thumbnail column, framed main image, mobile counter) | Dawn `main-product` + **Dawn edit** (§5.6) + CSS | Dawn puts thumbnails below the main image |
-| Product info, options, accordions | Dawn `main-product` blocks + **Dawn edits** (§5) | Keeps Dawn's variant and cart JavaScript |
+| Collection grid, filters, sort, pagination | Dawn `main-collection-product-grid` + CSS + **Dawn edit** behind `pb_layout`: toolbar, grid, promo tile, empty states. About 110 lines, accepted over the 20-line guideline (D-33) | Filtering logic and Dawn's facets JavaScript stay native |
+| Collection help strip | Dawn `multicolumn` + CSS (`pb-theme.css`) + **Dawn edit** (bracketed text hidden outside the editor; link named by the column title) | D-33 |
+| Product gallery (left thumbnail column, framed main image, mobile counter) | Dawn `main-product` + **Dawn edits** `product-media-gallery` (§5.6; position labels) and `product-thumbnail` (LCP priority, opener labels) + CSS | Dawn puts thumbnails below the main image (D-23; G-17, PDP-06) |
+| Product info, options, accordions | Dawn `main-product` blocks + **Dawn edits** (§5): `main-product`, `product-variant-picker`, `product-variant-options`, `buy-buttons`, `icon-accordion` (service glyphs, D-38) | Keeps Dawn's variant and cart JavaScript (D-23, D-31) |
 | "Select a size" start state, inline size-guide link | **Dawn edits** (§5.3, §5.5) | Required by the design |
 | Mobile sticky add-to-bag | **`snippets/pb-sticky-atc.liquid` + `assets/pb-sticky-atc.js`** (§4.10) | Not in Dawn |
-| Recommendations | Dawn `related-products` + CSS (centred head, diamond) | Matches with CSS |
-| Cart drawer | Dawn `cart-drawer` + CSS | Matches with CSS |
-| Content pages (Our Story, Why Brass, Care, Size Guide) | **`pb-page`** (+ `pb-split`, Dawn `collapsible-content`) | Centred diamond head with caps H1 and dateline |
-| Blog / article | Dawn + CSS | Matches with CSS. Verify in QA. |
+| Recommendations | Dawn `related-products` + **Dawn edit** (renders `pb-product-card`) + CSS (centred head, diamond); `assets/global.js` **Dawn edit** (loads on connect) | The shared 02 §2.2 card; no late layout shift (D-33; G-02) |
+| Cart drawer | Dawn `cart-drawer` + **Dawn edit** (`pb.cart.*` strings, option rows, continue link) + CSS (`pb-theme.css`) | Dawn's copy and layout differ from 02 §6.5 (D-33) |
+| Content pages | Our Story: one **`pb-page`** (head, body, framed image, links). Why Brass: **`pb-page`** + `pb-split`, `pb-journal-picks`, `pb-featured`. Jewelry Care: **`pb-page`** + Dawn `collapsible-content` (**Dawn edit**: placeholder rows hidden). Size Guide: **`pb-page`**. Contact: `pb-page` + Dawn `contact-form` (**Dawn edit**: loads the PB field styles) | Centred diamond head with caps H1 and dateline (02 §7, D-38) |
+| Blog / article | Dawn `main-blog`, `main-article`, `article-card` + **Dawn edits** (journal H1, stable numerals, no title truncation, journal back link, prose styles) + CSS | D-33, D-36, D-38 |
+| Search, 404, cart page | Dawn `main-search`, `main-404`, `main-cart-items` + **Dawn edits** (pb-page head, `pb-product-card` results, "Continue shopping" target, cart options) + CSS | 02 §7 heads and §2.2 cards (D-45) |
+| Display font | `layout/theme.liquid` **Dawn edit**: Inter 500/600, Cormorant Garamond 500/600 `@font-face` with `asset_url` srcs, Cormorant 600 preload | The preload only counts if the `@font-face` URL matches it exactly (D-15, D-45) |
 | Cart quantity edits; predictive search | **Dawn edits** to `assets/cart.js` and `assets/predictive-search.js` | Fix two Dawn 16 bugs customers would hit (D-25; `phase-2-brief.md` §2.10) |
+
+**Dawn files that carry `PB:` markers** (each has a row in `CHANGELOG.md`; check with `grep -rl "PB:" sections snippets layout assets`): `layout/theme.liquid`; `sections/announcement-bar.liquid`, `cart-icon-bubble.liquid`, `collapsible-content.liquid`, `contact-form.liquid`, `footer.liquid`, `header.liquid`, `main-404.liquid`, `main-article.liquid`, `main-blog.liquid`, `main-cart-items.liquid`, `main-collection-product-grid.liquid`, `main-product.liquid`, `main-search.liquid`, `multicolumn.liquid`, `related-products.liquid`; `snippets/article-card.liquid`, `buy-buttons.liquid`, `cart-drawer.liquid`, `country-localization.liquid`, `header-drawer.liquid`, `header-dropdown-menu.liquid`, `header-search.liquid`, `icon-accordion.liquid`, `product-media-gallery.liquid`, `product-thumbnail.liquid`, `product-variant-options.liquid`, `product-variant-picker.liquid`; `assets/cart.js`, `global.js`, `predictive-search.js`. The grep also finds two theme-owned files that only mention `PB:` in comments, `assets/section-pb-product.css` and `snippets/pb-announcement-message.liquid`. Decisions: D-21, D-22, D-23, D-25, D-29, D-31, D-33, D-45, D-60, D-62 and D-67.
 
 ## 1 · `config/settings_data.json`: global settings (merge into the active preset)
 
@@ -230,6 +234,8 @@ a:hover { color: var(--pb-gold); }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
 ```
 
+As built, two breakpoints differ from these starting contents. The side gutter is the fluid `--pb-gutter` (20px up to 749, scaling to 56px at 1440), not the 990px step above; the design check kept it as spec over canvas (`02` preamble, "scale fluidly"; qa-results). The header is the desktop header from **960px**, not Dawn's 990 (D-60): `pb-theme.css` repeats Dawn's ≥990 header rules for 960 to 989, and the phone header and D-49 wordmark rules stop at 959.
+
 Class names from Dawn (`.card__inner`, `.field:after`, `.header__heading-link`, etc.) must be checked against the pulled live theme's markup. Adjust the selectors rather than adding `!important`.
 
 Dawn sets `html { font-size: 62.5% }`, so `1rem = 10px`. Check the generated `--font-heading-family` order: Dawn writes it inline in `theme.liquid`, so `pb-theme.css` must load **after** that `<style>` block. If it doesn't, scope the overrides to `:root:root` instead.
@@ -359,9 +365,11 @@ The heading is uppercased by CSS (`.pb-display`), so the merchant types it in se
 
 CSS:
 - **Mobile (< 750px):** `.pb-tiles{display:flex;flex-direction:column;gap:1.2rem}`. Each tile is a 9.2rem row: `display:flex; justify-content:space-between; align-items:center; padding:0 2rem; background:var(--pb-onyx-raised); border:1px solid var(--pb-rule)`. The label is on the left, and the image is a 7rem square on the right (`object-fit:contain`).
-- **≥ 750px:** `display:grid; grid-template-columns:repeat(var(--pb-cols),minmax(0,1fr)); gap:2.8rem`. Each tile is a column with a centred label. The media box is `aspect-ratio:4/5; background:var(--pb-onyx-raised); border:1px solid var(--pb-rule)`, with `object-fit:cover`.
+- **750 to 959px:** `display:grid; grid-template-columns:minmax(0,1fr); gap:2.8rem`: one 4:5 tile per row at full content width, Archive-Home's stacked state (D-63).
+- **≥ 960px:** `grid-template-columns:repeat(var(--pb-cols),minmax(0,1fr))`. Each tile is a column with a centred label. The media box is `aspect-ratio:4/5; background:var(--pb-onyx-raised); border:1px solid var(--pb-rule)`, with `object-fit:cover`.
 - Label: `font-family:var(--pb-serif); font-weight:600; font-size:2.2rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--pb-ivory)`.
 - Hover: the media border and the label turn `var(--pb-gold)`.
+- As built, `sizes` is `(min-width: 1440px) {1328/n}px, (min-width: 960px) {100/n}vw, (min-width: 750px) 100vw, 70px` and the srcset reaches 1500 and 1800 for the wide stacked tiles (the sketch above predates that).
 - Section head: centred `.pb-eyebrow--ruled` "THE COLLECTION", then the H2.
 
 `products_count` counts products published to the Online Store. Confirm on the store that draft fixtures don't count.
@@ -437,7 +445,8 @@ For the material story, our story, and content-page splits.
   - `image`, `image_mobile`;
   - color_scheme, padding.
 - Desktop grid: `1-1` = `repeat(2,minmax(0,1fr))` with no gap; the text side has padding 10.4rem 8.8rem and max-width 66rem. `6-5` = `minmax(0,6fr) minmax(0,5fr)` with gap 8.8rem.
-- Mobile: image then text (or as set), single column.
+- **750 to 959px (stacked, D-63):** one column at full width, following Archive-Home's `max-width: 960px` state. `1-1`: the text block is capped at 66rem including padding (`padding: clamp(6.4rem, 7.2223vw, 10.4rem) var(--pb-gutter)`) and a fill image is 62rem tall. `6-5`: the text block is capped at 62rem. A `text_first` split keeps its button in the text block, then the image after `clamp(4.8rem, 6.1112vw, 8.8rem)`. `image_mobile` (the `<source media="(max-width: 959px)">` crop) is used up to 959.
+- **Under 750px:** single column in the `Archive-*-Mobile` order: for `text_first`, eyebrow, heading and text, then the image, then the button (`display: contents` reorder); 40/48 text padding on `1-1`.
 - Material: `scheme-3`, `1-1`, `full_bleed`, gold-line top and bottom borders, `show_diamond`.
 - Story: `scheme-1`, `6-5`, `text_first`, `frame_image`.
 
@@ -496,7 +505,7 @@ Connect the metafields through the theme editor's **dynamic source** picker; don
    - On the first size pick, Dawn's `variant:change` flow takes over unchanged.
    - Products with one size, or with no Size option, keep Dawn's behaviour.
    - Test with keyboard, back/forward navigation and shared `?variant=` links, against `assets/product-info.js`.
-6. **Gallery: thumbnail column on the left, framed main image.** In `snippets/product-media-gallery.liquid`, at ≥ 990px with `gallery_layout: thumbnail`, lay out `.product__media-wrapper` as a grid `8.4rem minmax(0,1fr)` with gap 1.6rem. The thumbnail list goes in column 1 as a vertical list (4:5 thumbs, 1px rule-strong border, gold when `aria-current`). The main slider goes in column 2, wrapped in `.pb-frame > .pb-frame__inner`, with the zoom button inside the frame top-right. Mobile keeps Dawn's slider, with the "1 / 4" counter and gold indicator styling.
+6. **Gallery: thumbnail column on the left, framed main image.** In `snippets/product-media-gallery.liquid`, from 750px with `gallery_layout: thumbnail`, lay out `.product__media-wrapper` as a grid `8.4rem minmax(0,1fr)` with gap 1.6rem (as built in `section-pb-product.css`). The page is two columns (gallery and purchase column) from 960px. From 750 to 959px it's Archive-Product's stacked state (D-63): the thumbnail column beside the frame at full content width, then the purchase column 7.2rem below at full width, with Dawn's 60rem `.product__info-container` cap lifted. The thumbnail list goes in column 1 as a vertical list (4:5 thumbs, 1px rule-strong border, gold when `aria-current`). The main slider goes in column 2, wrapped in `.pb-frame > .pb-frame__inner`, with the zoom button inside the frame top-right. Mobile keeps Dawn's slider, with the "1 / 4" counter and gold indicator styling.
 7. **Sticky add-to-bag.** Render `{% render 'pb-sticky-atc', product: product, section_id: section.id %}` at the end of `main-product`, and load `pb-sticky-atc.js` with `defer` (§4.10).
 
 ## 6 · Locales (`locales/en.default.json` + `en.default.schema.json`)
@@ -521,6 +530,7 @@ Override: `products.product.add_to_cart` = "Add to bag", `general.cart.title` = 
 `sections/header-group.json`:
 - `announcement-bar`: one block, `color_scheme: scheme-3` (royal green; text styled gold-pale by `pb-theme.css`), text "The first Parkdale Brass jewelry collection is in development.", with the link empty until the homepage signup section exists. In Phase 2 set the link to `#signup` to send shoppers to the localized homepage signup from any page. Remove the block entirely at launch if there's no verified message.
 - `header`: `menu: jewelry-main-menu`, `menu_type_desktop: dropdown`, `logo_position: middle-left`, `mobile_logo_position: center`, `sticky_header_type: on-scroll-up`, `show_line_separator: true`, `enable_country_selector: false` (the footer has it), `enable_language_selector: false`, padding 16/16.
+- Breakpoint: the desktop header (inline nav, account icon, no drawer) starts at **960px**, not Dawn's 990 (D-60). The `PB:` edits in `sections/header.liquid` (inline queries, `StickyHeader`), `assets/global.js` (`HeaderDrawer.onResize` closes an open tablet drawer at 960 or wider) and the 960 to 989 block in `pb-theme.css` carry it. The announcement bar keeps `show_line_separator: false` (D-61); the current nav item and the Shop caret come from `snippets/header-dropdown-menu.liquid` (D-62).
 
 `sections/footer-group.json` (`footer`):
 - `color_scheme: scheme-2`, `newsletter_enable: false`, `enable_follow_on_shop: false` unless the owner wants it, `show_social: true` (renders only filled links), `enable_country_selector: true`, `payment_enable` per owner, `show_policy: true`.

@@ -3,11 +3,58 @@
     "badge": {
       "concept": "Concept"
     },
+    "breadcrumbs": {
+      "label": "Breadcrumb",
+      "home": "Home"
+    },
     "collection": {
       "categories": "Categories",
       "empty_heading": "Nothing matches those filters.",
       "empty_text": "Try removing a filter, or browse all jewelry.",
-      "reset": "Reset filters"
+      "reset": "Reset filters",
+      "page_empty_heading": "Nothing on this page.",
+      "page_empty_text": "This page is past the end of the collection.",
+      "page_empty_link": "Go to the first page",
+      "empty_collection_heading": "Nothing here yet.",
+      "empty_collection_text": "This collection has no pieces right now.",
+      "empty_collection_link": "Back to home",
+      "count": {
+        "one": "{{ count }} piece",
+        "other": "{{ count }} pieces"
+      },
+      "count_filtered": {
+        "one": "{{ product_count }} of {{ count }} piece",
+        "other": "{{ product_count }} of {{ count }} pieces"
+      },
+      "filter": "Filter",
+      "close_filters": "Close filters",
+      "sort": "Sort",
+      "in_stock_only": "In stock only",
+      "price_from": "From",
+      "price_to": "To",
+      "clear_all": "Clear all",
+      "show_results": {
+        "one": "Show {{ count }} piece",
+        "other": "Show {{ count }} pieces"
+      },
+      "active_filters": "Active filters",
+      "remove_filter": "Remove filter",
+      "price_range": "{{ min }} to {{ max }}",
+      "price_from_only": "From {{ min }}",
+      "price_up_to": "Up to {{ max }}"
+    },
+    "home": {
+      "newsletter": {
+        "label": "Email address",
+        "placeholder": "you@example.com",
+        "consent_missing": "[Consent wording to be confirmed by the owner (D-03).]"
+      },
+      "editor": {
+        "categories_hidden": "[Shop by category is hidden on the storefront: none of its collections has a published product yet.]",
+        "featured_concepts_empty": "[Featured is hidden on the storefront: add a concept block with a name or an image.]",
+        "featured_collection_empty": "[Featured is hidden on the storefront: choose a collection that has published products.]",
+        "journal_empty": "[Journal picks are hidden on the storefront: choose at least one article.]"
+      }
     },
     "journal": {
       "view_all": "All articles"
@@ -15,12 +62,54 @@
     "newsletter": {
       "success": "Thanks. You're on the list."
     },
+    "blog": {
+      "articles": "Articles",
+      "back_to_journal": "Back to the journal",
+      "journal_title": "Journal"
+    },
+    "page": {
+      "table_label": "Table {{ index }}",
+      "empty_body": "Page body: write it in Shopify admin under Online Store > Pages.",
+      "preview_placeholder": "Preview only: hidden on the storefront until every [bracketed placeholder] is replaced.",
+      "preview_empty_collection": "Preview only: hidden on the storefront until this collection has products.",
+      "preview_no_link": "Preview only: add a link to show this on the storefront."
+    },
     "product": {
-      "select_size": "Select a size"
+      "select_size": "Select a size",
+      "added": "[item] added to your bag.",
+      "size_switched": "[size] isn't available in [option]. Showing [new].",
+      "media_image": "Image {{ index }} of {{ count }}",
+      "media_open": "Open image {{ index }} of {{ count }}",
+      "in_stock": "In stock",
+      "size_unavailable": "Unavailable",
+      "spec_material": "Material",
+      "spec_finish": "Finish",
+      "spec_patina": "How it ages",
+      "spec_origin": "Made in",
+      "editor_empty_tab": "[No content yet. This row stays hidden on the storefront until it has some.]",
+      "editor_short_description": "[Short description: add it to the product's custom.short_description metafield. Hidden on the storefront until then.]",
+      "editor_fit_notes": "[Fit note: add it to the product's custom.fit_notes metafield. Hidden on the storefront until then.]",
+      "placeholder_caption": "Placeholder · Front / three-quarter view on dark ground"
+    },
+    "cart": {
+      "title_with_count": "Your bag ({{ quantity }})",
+      "empty": "Your bag is empty",
+      "remove": "Remove",
+      "subtotal": "Subtotal",
+      "taxes_shipping_at_checkout": "Taxes and shipping calculated at checkout.",
+      "taxes_shipping_at_checkout_with_policy_html": "Taxes and <a href=\"{{ link }}\">shipping</a> calculated at checkout."
     },
     "sticky_atc": {
       "label": "Add to bag",
       "region": "Quick add to bag"
+    },
+    "footer": {
+      "policy_short": {
+        "privacy": "Privacy",
+        "terms": "Terms",
+        "refund": "Refunds",
+        "shipping": "Shipping"
+      }
     }
   },
   "general": {

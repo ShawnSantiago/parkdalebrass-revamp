@@ -1,0 +1,294 @@
+{%- comment -%}
+  PB · Journal picks (03 §4.5, 02 §4.7). Hand-picked articles only (D-11), never the latest posts, so legacy
+  posts can't reach the homepage. A left-aligned head with a gold "All articles" text CTA, then up to three
+  cards: a gold top rule, a roman numeral (snippets/pb-roman.liquid, decorative), the tag, the title and the
+  excerpt. 3-up from 960px. Under 750px the numeral sits in a 40px column beside the title.
+  Empty or deleted article blocks are skipped and numbering stays continuous; with none left the section
+  renders nothing.
+{%- endcomment -%}
+{%- liquid
+  assign pb_s = section.settings
+  assign pb_count = 0
+  for block in section.blocks
+    if block.settings.article != blank
+      assign pb_count = pb_count | plus: 1
+    endif
+  endfor
+
+  # "All articles" (D-36): with a tag, the blog's tag page, shown only once an article in the blog has that tag
+  # (matched by handle, as the tag URL is). With no tag, the whole blog. Hidden without a blog or a label.
+  assign pb_show_all = false
+  assign pb_all_url = ''
+  if pb_s.view_all_label != blank and pb_s.blog != blank
+    assign pb_tag_handle = pb_s.tag | strip | handleize
+    if pb_tag_handle == blank
+      assign pb_show_all = true
+      assign pb_all_url = pb_s.blog.url
+    else
+      for pb_t in pb_s.blog.all_tags
+        assign pb_t_handle = pb_t | handleize
+        if pb_t_handle == pb_tag_handle
+          assign pb_show_all = true
+          assign pb_all_url = pb_s.blog.url | append: '/tagged/' | append: pb_tag_handle
+          break
+        endif
+      endfor
+    endif
+  endif
+-%}
+
+{%- if pb_count > 0 -%}
+  {{ 'section-pb-journal-picks.css' | asset_url | stylesheet_tag }}
+  {% render 'pb-section-padding', section: section %}
+
+  <section
+    id="PbJournal-{{ section.id }}"
+    class="pb-journal color-{{ pb_s.color_scheme }} gradient section-{{ section.id }}-padding"
+    {% if pb_s.heading != blank %}
+      aria-labelledby="PbJournal-{{ section.id }}-heading"
+    {% endif %}
+  >
+    <div class="page-width">
+      {%- if pb_s.eyebrow != blank or pb_s.heading != blank or pb_show_all -%}
+        <div class="pb-journal__head">
+          {%- if pb_s.eyebrow != blank or pb_s.heading != blank -%}
+            <div class="pb-journal__titles">
+              {%- if pb_s.eyebrow != blank -%}
+                <p class="pb-eyebrow">{{ pb_s.eyebrow | escape }}</p>
+              {%- endif -%}
+              {%- if pb_s.heading != blank -%}
+                <h2 id="PbJournal-{{ section.id }}-heading" class="pb-journal__heading">{{ pb_s.heading | escape }}</h2>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+          {%- if pb_show_all -%}
+            <a class="pb-text-cta pb-journal__all" href="{{ pb_all_url }}">{{ pb_s.view_all_label | escape }}</a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      <ul class="pb-journal__list" role="list">
+        {%- assign pb_n = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- assign pb_a = block.settings.article -%}
+          {%- if pb_a == blank -%}{%- continue -%}{%- endif -%}
+          {%- comment -%}
+            The excerpt override is plain text, so it's escaped. The article's own excerpt comes from
+            snippets/pb-article-excerpt.liquid, as on the blog's cards: it drops a leading copy of the title and
+            keeps strip_html's encoding, so it isn't escaped again.
+          {%- endcomment -%}
+          {%- liquid
+            assign pb_n = pb_n | plus: 1
+
+            assign pb_tag = block.settings.tag_label
+            if pb_tag == blank
+              assign pb_tag = pb_a.tags.first
+            endif
+
+            if block.settings.excerpt != blank
+              assign pb_excerpt = block.settings.excerpt | escape
+            else
+              capture pb_excerpt
+                render 'pb-article-excerpt', article: pb_a, words: 15
+              endcapture
+            endif
+
+            assign pb_has_image = false
+            if block.settings.show_image and pb_a.image != blank
+              assign pb_has_image = true
+            endif
+
+            assign pb_title_row = 1
+            if pb_has_image
+              assign pb_title_row = pb_title_row | plus: 1
+            endif
+            if pb_tag != blank
+              assign pb_title_row = pb_title_row | plus: 1
+            endif
+          -%}
+          <li
+            class="pb-journal__card{% if pb_s.show_numerals %} pb-journal__card--numbered{% endif %}"
+            style="--pb-title-row: {{ pb_title_row }};"
+            {{ block.shopify_attributes }}
+          >
+            {%- if pb_has_image -%}
+              <div class="pb-journal__media">
+                {{
+                  pb_a.image
+                  | image_url: width: 900
+                  | image_tag:
+                    class: 'pb-journal__img',
+                    widths: '360, 533, 720, 900',
+                    sizes: '(min-width: 1440px) 416px, (min-width: 960px) 30vw, 100vw',
+                    loading: 'lazy',
+                    alt: ''
+                }}
+              </div>
+            {%- endif -%}
+            {%- if pb_s.show_numerals -%}
+              <span class="pb-journal__numeral" aria-hidden="true">{% render 'pb-roman', n: pb_n %}</span>
+            {%- endif -%}
+            {%- if pb_tag != blank -%}
+              <p class="pb-journal__tag">{{ pb_tag | escape }}</p>
+            {%- endif -%}
+            <h3 class="pb-journal__title">
+              <a href="{{ pb_a.url }}" class="pb-journal__link">{{ pb_a.title | escape }}</a>
+            </h3>
+            {%- if pb_excerpt != blank -%}
+              <p class="pb-journal__excerpt">{{ pb_excerpt }}</p>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </section>
+{%- elsif request.design_mode -%}
+  {{ 'section-pb-head.css' | asset_url | stylesheet_tag }}
+  <div class="page-width">
+    <p class="pb-editor-note">{{ 'pb.home.editor.journal_empty' | t }}</p>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.pb_journal_picks.name",
+  "class": "section",
+  "max_blocks": 3,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.pb_journal_picks.settings.paragraph.content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:pb.home.settings.eyebrow.label",
+      "default": "The journal"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:pb.home.settings.heading.label",
+      "default": "Notes on brass"
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "t:sections.pb_journal_picks.settings.view_all_label.label",
+      "default": "All articles"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "t:sections.pb_journal_picks.settings.blog.label",
+      "info": "t:sections.pb_journal_picks.settings.blog.info"
+    },
+    {
+      "type": "text",
+      "id": "tag",
+      "label": "t:sections.pb_journal_picks.settings.tag.label",
+      "info": "t:sections.pb_journal_picks.settings.tag.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_numerals",
+      "label": "t:sections.pb_journal_picks.settings.show_numerals.label",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 128
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "t:pb.home.settings.padding_top_mobile.label",
+      "info": "t:pb.home.settings.padding_mobile.info",
+      "default": 72
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "t:pb.home.settings.padding_bottom_mobile.label",
+      "info": "t:pb.home.settings.padding_mobile.info"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "article",
+      "name": "t:sections.pb_journal_picks.blocks.article.name",
+      "settings": [
+        {
+          "type": "article",
+          "id": "article",
+          "label": "t:sections.pb_journal_picks.blocks.article.settings.article.label",
+          "info": "t:sections.pb_journal_picks.blocks.article.settings.article.info"
+        },
+        {
+          "type": "text",
+          "id": "tag_label",
+          "label": "t:sections.pb_journal_picks.blocks.article.settings.tag_label.label",
+          "info": "t:sections.pb_journal_picks.blocks.article.settings.tag_label.info"
+        },
+        {
+          "type": "text",
+          "id": "excerpt",
+          "label": "t:sections.pb_journal_picks.blocks.article.settings.excerpt.label",
+          "info": "t:sections.pb_journal_picks.blocks.article.settings.excerpt.info"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_image",
+          "label": "t:sections.pb_journal_picks.blocks.article.settings.show_image.label",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.pb_journal_picks.presets.name",
+      "blocks": [
+        {
+          "type": "article"
+        },
+        {
+          "type": "article"
+        },
+        {
+          "type": "article"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

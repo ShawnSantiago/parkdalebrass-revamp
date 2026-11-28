@@ -10,14 +10,30 @@
   }
 </style>
 
-<div class="template-404 page-width page-margin center">
-  <p>
-    {{ 'templates.404.subtext' | t }}
-  </p>
-  <h1 class="title">
-    {{ 'templates.404.title' | t }}
-  </h1>
-  <a href="{{ routes.all_products_collection_url }}" class="button">
+{%- comment -%}
+  PB: the content-page head (section-pb-page.css; 02 §1.2, §7): diamond, the caps H1 54 [40] and "404" as the gold
+  dateline, 112 [72] below the header. "Continue shopping" goes to the jewelry collection once it has products,
+  otherwise home (D-08: never /collections/all, which lists the legacy catalogue).
+{%- endcomment -%}
+{{ 'section-pb-page.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign pb_shop_url = routes.root_url
+  if collections['jewelry'].products_count > 0
+    assign pb_shop_url = collections['jewelry'].url
+  endif
+-%}
+<div class="template-404 pb-404 page-width center">
+  <div class="pb-page__head">
+    <span class="pb-diamond pb-page__diamond" aria-hidden="true"></span>
+    <h1 class="pb-page__title">
+      {{ 'templates.404.title' | t }}
+    </h1>
+    <p class="pb-dateline pb-page__dateline">
+      {{ 'templates.404.subtext' | t }}
+    </p>
+  </div>
+  <a href="{{ pb_shop_url }}" class="button">
     {{ 'general.continue_shopping' | t }}
   </a>
 </div>
+{%- comment -%} /PB {%- endcomment -%}

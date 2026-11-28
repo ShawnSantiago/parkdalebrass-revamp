@@ -16,7 +16,9 @@
       aria-label="{{ 'sections.header.menu' | t }}"
     >
       <span>
-        {{- 'icon-hamburger.svg' | inline_asset_content -}}
+        {%- comment -%} PB: Archive outline glyph, 22px (02 §2.7, Archive-Home-Mobile). The close icon stays Dawn's. {%- endcomment -%}
+        {{- 'pb-icon-menu.svg' | inline_asset_content -}}
+        {%- comment -%} /PB {%- endcomment -%}
         {{- 'icon-close.svg' | inline_asset_content -}}
       </span>
     </summary>

@@ -1,0 +1,226 @@
+{%- comment -%}
+  PB · Category tiles (03 §4.2, 02 §2.3, §4.2). A centred ruled head, then one tile per collection block.
+  From 960px: 4:5 tiles in as many columns as there are visible tiles. From 750 to 959px: one full-width 4:5
+  tile per row (Archive-Home's stacked state). Under 750px: full-width 92px rows.
+  A tile renders only when its collection has at least one product published to the Online Store, and the
+  whole section renders nothing when none remain (02 §4.2). So the Rings tile (D-40) stays hidden until the
+  rings collection has a published product.
+{%- endcomment -%}
+{%- liquid
+  assign pb_s = section.settings
+  assign pb_visible = 0
+  for block in section.blocks
+    assign pb_c = block.settings.collection
+    if pb_c != blank and pb_c.products_count > 0
+      assign pb_visible = pb_visible | plus: 1
+    endif
+  endfor
+-%}
+
+{%- if pb_visible > 0 -%}
+  {%- liquid
+    assign pb_col_vw = 100 | divided_by: pb_visible
+    assign pb_col_px = 1328 | divided_by: pb_visible
+    assign pb_sizes = '(min-width: 1440px) ' | append: pb_col_px | append: 'px, (min-width: 960px) ' | append: pb_col_vw | append: 'vw, (min-width: 750px) 100vw, 70px'
+
+    assign pb_show_more = false
+    if pb_s.show_view_all and pb_s.view_all_label != blank and pb_s.view_all_link != blank
+      assign pb_show_more = true
+    endif
+  -%}
+  {{ 'section-pb-head.css' | asset_url | stylesheet_tag }}
+  {{ 'section-pb-category-tiles.css' | asset_url | stylesheet_tag }}
+  {% render 'pb-section-padding', section: section %}
+
+  <section
+    id="PbTiles-{{ section.id }}"
+    class="pb-tiles-section color-{{ pb_s.color_scheme }} gradient section-{{ section.id }}-padding"
+    {% if pb_s.heading != blank %}
+      aria-labelledby="PbTiles-{{ section.id }}-heading"
+    {% endif %}
+  >
+    <div class="page-width">
+      {%- if pb_s.eyebrow != blank or pb_s.heading != blank -%}
+        <div class="pb-head pb-head--center">
+          {%- if pb_s.eyebrow != blank -%}
+            <p class="pb-eyebrow pb-eyebrow--ruled">{{ pb_s.eyebrow | escape }}</p>
+          {%- endif -%}
+          {%- if pb_s.heading != blank -%}
+            <h2 id="PbTiles-{{ section.id }}-heading" class="pb-head__heading">{{ pb_s.heading | escape }}</h2>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      <ul class="pb-tiles" role="list" style="--pb-cols: {{ pb_visible }};">
+        {%- for block in section.blocks -%}
+          {%- assign pb_c = block.settings.collection -%}
+          {%- if pb_c != blank and pb_c.products_count > 0 -%}
+            {%- assign pb_img = block.settings.image | default: pb_c.featured_image -%}
+            <li class="pb-tiles__item" {{ block.shopify_attributes }}>
+              <a href="{{ pb_c.url }}" class="pb-tile">
+                <span class="pb-tile__media">
+                  {%- if pb_img != blank -%}
+                    {{
+                      pb_img
+                      | image_url: width: 1800
+                      | image_tag:
+                        class: 'pb-tile__img',
+                        widths: '140, 300, 450, 650, 900, 1200, 1500, 1800',
+                        sizes: pb_sizes,
+                        loading: 'lazy',
+                        alt: ''
+                    }}
+                  {%- else -%}
+                    <span class="pb-placeholder pb-tile__placeholder" aria-hidden="true">
+                      {{- 'image' | placeholder_svg_tag: 'placeholder-svg' -}}
+                    </span>
+                  {%- endif -%}
+                </span>
+                <span class="pb-tile__label">{{ block.settings.label | default: pb_c.title | escape }}</span>
+              </a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+
+      {%- if pb_show_more -%}
+        <div class="pb-tiles__more">
+          <a class="button button--secondary" href="{{ pb_s.view_all_link }}">{{ pb_s.view_all_label | escape }}</a>
+        </div>
+      {%- endif -%}
+    </div>
+  </section>
+{%- elsif request.design_mode -%}
+  {{ 'section-pb-head.css' | asset_url | stylesheet_tag }}
+  <div class="page-width">
+    <p class="pb-editor-note">{{ 'pb.home.editor.categories_hidden' | t }}</p>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.pb_category_tiles.name",
+  "class": "section",
+  "max_blocks": 4,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.pb_category_tiles.settings.paragraph.content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:pb.home.settings.eyebrow.label",
+      "default": "The collection"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:pb.home.settings.heading.label",
+      "default": "Shop by category"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "t:sections.pb_category_tiles.settings.show_view_all.label",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "t:pb.home.settings.button_label.label",
+      "default": "View all jewelry"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "t:pb.home.settings.button_link.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 112
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "t:pb.home.settings.padding_top_mobile.label",
+      "info": "t:pb.home.settings.padding_mobile.info",
+      "default": 64
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "t:pb.home.settings.padding_bottom_mobile.label",
+      "info": "t:pb.home.settings.padding_mobile.info"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "t:sections.pb_category_tiles.blocks.collection.name",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "t:sections.pb_category_tiles.blocks.collection.settings.collection.label",
+          "info": "t:sections.pb_category_tiles.blocks.collection.settings.collection.info"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "t:sections.pb_category_tiles.blocks.collection.settings.label.label",
+          "info": "t:sections.pb_category_tiles.blocks.collection.settings.label.info"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:pb.home.settings.image.label",
+          "info": "t:sections.pb_category_tiles.blocks.collection.settings.image.info"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.pb_category_tiles.presets.name",
+      "blocks": [
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

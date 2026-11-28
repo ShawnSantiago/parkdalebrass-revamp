@@ -1,75 +1,259 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "pb_hero": {
+      "type": "pb-hero",
+      "settings": {
+        "lockup": "Parkdale Brass",
+        "heading": "Made to wear.\nMade to age.",
+        "dateline": "Est. 2019 · Toronto",
+        "text": "Brass jewelry with character, inspired by industrial design and rooted in Parkdale.",
+        "button_label": "Get launch updates",
+        "button_link": "#signup",
+        "link_label": "Our story",
+        "link_url": "/pages/our-story",
+        "placeholder_note": "Placeholder · Launch pieces on dark linen or slate, single warm light",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "image": "shopify://shop_images/pb-standin-hero-desktop.jpg",
+        "image_mobile": "shopify://shop_images/pb-standin-hero-mobile.jpg"
+      }
+    },
+    "pb_categories": {
+      "type": "pb-category-tiles",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "bracelets": {
+          "type": "collection",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "collection": "bracelets",
+            "label": "Bracelets",
+            "image": "shopify://shop_images/pb-standin-concept-junction.jpg"
           }
         },
-        "button": {
-          "type": "buttons",
+        "necklaces": {
+          "type": "collection",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "collection": "necklaces",
+            "label": "Necklaces",
+            "image": "shopify://shop_images/pb-standin-concept-bellwoods.jpg"
+          }
+        },
+        "rings": {
+          "type": "collection",
+          "settings": {
+            "collection": "rings",
+            "label": "Rings",
+            "image": "shopify://shop_images/pb-standin-concept-brockton.jpg"
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "bracelets",
+        "necklaces",
+        "rings"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "eyebrow": "The collection",
+        "heading": "Shop by category",
+        "show_view_all": false,
+        "view_all_label": "View all jewelry",
+        "color_scheme": "scheme-1",
+        "padding_top": 112,
+        "padding_bottom": 0,
+        "padding_top_mobile": 64
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "pb_featured": {
+      "type": "pb-featured",
+      "blocks": {
+        "concept_junction": {
+          "type": "concept",
+          "settings": {
+            "name": "The Junction",
+            "descriptor": "Open cuff",
+            "link": "",
+            "image": "shopify://shop_images/pb-standin-concept-junction.jpg"
+          }
+        },
+        "concept_bellwoods": {
+          "type": "concept",
+          "settings": {
+            "name": "The Bellwoods",
+            "descriptor": "Pendant",
+            "link": "",
+            "image": "shopify://shop_images/pb-standin-concept-bellwoods.jpg"
+          }
+        },
+        "concept_brockton": {
+          "type": "concept",
+          "settings": {
+            "name": "The Brockton",
+            "descriptor": "Signet ring",
+            "link": "",
+            "image": "shopify://shop_images/pb-standin-concept-brockton.jpg"
+          }
+        },
+        "concept_lansdowne": {
+          "type": "concept",
+          "settings": {
+            "name": "The Lansdowne",
+            "descriptor": "Textured band",
+            "link": "",
+            "image": "shopify://shop_images/pb-standin-concept-lansdowne.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "concept_junction",
+        "concept_bellwoods",
+        "concept_brockton",
+        "concept_lansdowne"
+      ],
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
+        "mode": "concepts",
+        "collection": "",
+        "products_to_show": 4,
+        "view_all_label": "View all jewelry",
+        "eyebrow": "Coming soon",
+        "heading": "The first collection",
+        "note": "Concepts in development. Designs, finishes and prices may change before release.",
+        "badge_label": "Concept",
         "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "padding_top": 120,
+        "padding_bottom": 0
+      }
+    },
+    "material": {
+      "type": "pb-split",
+      "settings": {
+        "layout": "image_first",
+        "ratio": "1-1",
+        "full_bleed": true,
+        "show_borders": true,
+        "frame_image": false,
+        "show_diamond": true,
+        "color_scheme": "scheme-3",
+        "placeholder_note": "Placeholder · Macro of the real finish, warm raking light",
+        "eyebrow": "The material",
+        "heading": "A material with character.",
+        "text": "<p>Brass is an alloy of copper and zinc, prized for its warm tone and the way it takes a finish. Uncoated brass darkens and softens with wear. Coated and plated finishes behave differently.</p><p>Every piece lists its actual finish and how to care for it, so you know how it will change.</p>",
+        "button_label": "Why brass?",
+        "button_link": "/pages/why-brass",
+        "padding_top": 120,
+        "padding_bottom": 0,
+        "image": "shopify://shop_images/pb-standin-material-macro.jpg"
+      }
+    },
+    "editorial": {
+      "type": "pb-editorial-banner",
+      "settings": {
+        "placeholder_note": "Placeholder · On-body: cuff + pendant with dark wool, denim, workwear",
+        "heading": "Considered forms. Everyday character.",
+        "link_label": "Be first to know",
+        "link_url": "#signup",
+        "show_divider_after": true,
+        "color_scheme": "scheme-1",
+        "padding_top": 120,
+        "padding_bottom": 0,
+        "image": "shopify://shop_images/pb-standin-editorial-desktop.jpg",
+        "image_mobile": "shopify://shop_images/pb-standin-editorial-mobile.jpg"
+      }
+    },
+    "story": {
+      "type": "pb-split",
+      "settings": {
+        "layout": "text_first",
+        "ratio": "6-5",
+        "full_bleed": false,
+        "show_borders": false,
+        "frame_image": true,
+        "show_diamond": false,
+        "color_scheme": "scheme-1",
+        "placeholder_note": "Placeholder · Approved Parkdale imagery or founder portrait",
+        "eyebrow": "Our story",
+        "heading": "Rooted in Parkdale.",
+        "text": "<p>Parkdale Brass began in 2019 in Toronto’s Parkdale neighbourhood, with an appreciation for brass and the industrial design of everyday objects.</p><p>Our next chapter takes that same interest in form, function and character into jewelry: warm tones, considered shapes and a style that doesn’t need to shout.</p>",
+        "button_label": "Our story",
+        "button_link": "/pages/our-story",
+        "padding_top": 88,
+        "padding_bottom": 0,
+        "padding_top_mobile": 48,
+        "image": "shopify://shop_images/pb-standin-story.jpg"
+      }
+    },
+    "journal": {
+      "type": "pb-journal-picks",
+      "blocks": {
+        "article_material": {
+          "type": "article",
+          "settings": {
+            "article": "news/what-is-brass-jewelry-metal",
+            "tag_label": "Material",
+            "excerpt": "",
+            "show_image": false
+          }
+        },
+        "article_finishes": {
+          "type": "article",
+          "settings": {
+            "article": "news/gold-plated-brass-jewelry",
+            "tag_label": "Finishes",
+            "excerpt": "",
+            "show_image": false
+          }
+        },
+        "article_care": {
+          "type": "article",
+          "settings": {
+            "article": "",
+            "tag_label": "Care",
+            "excerpt": "",
+            "show_image": false
+          }
+        }
+      },
+      "block_order": [
+        "article_material",
+        "article_finishes",
+        "article_care"
+      ],
+      "settings": {
+        "eyebrow": "The journal",
+        "heading": "Notes on brass",
+        "view_all_label": "All articles",
+        "blog": "news",
+        "tag": "journal",
+        "show_numerals": true,
+        "color_scheme": "scheme-1",
+        "padding_top": 128,
+        "padding_bottom": 0,
+        "padding_top_mobile": 72
+      }
+    },
+    "signup": {
+      "type": "pb-newsletter",
+      "settings": {
+        "anchor_id": "signup",
+        "eyebrow": "Launch list",
+        "heading": "The next chapter.",
+        "text": "Get collection news and new release updates.",
+        "button_label": "Notify me",
+        "consent": "",
+        "color_scheme": "scheme-3",
+        "padding_top": 128,
+        "padding_bottom": 120,
+        "padding_top_mobile": 72
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "pb_hero",
+    "pb_categories",
+    "pb_featured",
+    "material",
+    "editorial",
+    "story",
+    "journal",
+    "signup"
   ]
 }

@@ -1,20 +1,5 @@
-/* Parkdale Brass — Archive foundations on Dawn 16. */
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('cormorant-garamond-500.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('cormorant-garamond-600.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-}
-
+/* Parkdale Brass — Archive foundations on Dawn 16.
+   The Cormorant Garamond @font-face rules live in layout/theme.liquid, so their src matches the versioned preload. */
 :root {
   --pb-onyx: #121211;
   --pb-onyx-raised: #1b1a18;
@@ -129,8 +114,12 @@ h1, .h0, .pb-display {
 
 .pb-frame__inner { border: 1px solid var(--pb-gold-line); }
 
+/* 02 §1.5 sizes (10 / 14 / 18 / 26) are the inner square, with the 1.5px outline outside it, as every Archive
+   artboard draws them (content-box). Dawn's inherited border-box would put the outline inside and draw each
+   diamond 2px smaller at DSF 1 (3px at DSF 2). */
 .pb-diamond, .header__heading-link .h2::before {
   display: inline-block;
+  box-sizing: content-box;
   width: 1.8rem;
   height: 1.8rem;
   flex: none;
@@ -150,6 +139,9 @@ h1, .h0, .pb-display {
 @media screen and (max-width: 749px) {
   .pb-frame { padding: 0.8rem; }
   .caption-with-letter-spacing, .pb-eyebrow, .pb-dateline { font-size: 1.1rem; }
+  /* Every Archive-*-Mobile eyebrow tracks at 0.3em (D-30: 02 §1.2 brackets only the size). The dateline and the
+     hero lockup line keep their own mobile tracking. */
+  .caption-with-letter-spacing, .pb-eyebrow { letter-spacing: 0.3em; }
   .color-scheme-3 :is(.pb-eyebrow, .pb-dateline) { font-size: 1.2rem; }
   .pb-eyebrow--ruled::before, .pb-eyebrow--ruled::after { width: 2.8rem; }
   .pb-divider::before, .pb-divider::after { width: 8rem; }
@@ -214,7 +206,14 @@ button.shopify-payment-button__button--unbranded:enabled:hover {
 }
 
 .rte a { color: rgb(var(--color-link)); }
-.pb-text-cta:hover, .rte a:hover { color: var(--pb-gold-pale); }
+/* Hover keeps the link colour and thickens the underline: gold-pale is only the focus ring and the
+   announcement text (02 §1.1, §1.4). */
+.pb-text-cta:hover {
+  color: var(--pb-gold);
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+}
+.rte a:hover { color: rgb(var(--color-link)); text-decoration-thickness: 2px; }
 .color-scheme-5 .rte a:hover { color: var(--pb-onyx); }
 
 :focus-visible, .focused,
@@ -260,12 +259,14 @@ button.shopify-payment-button__button--unbranded:enabled:hover {
   color: var(--pb-gold);
 }
 
-.header .header__active-menu-item { text-decoration-thickness: 1px; }
 .header .cart-count-bubble { background: var(--pb-gold); color: var(--pb-onyx); }
 .header__icon:hover .icon { transform: none; }
 
+/* Archive-Home's bar is 41.19px: 11px above and below 12px type at 1.6, with no rule under it. Phones: below. */
 .announcement-bar .announcement-bar__message {
-  font: 500 1.2rem/1.4 var(--font-body-family);
+  min-height: 0;
+  padding-block: 1.1rem;
+  font: 500 1.2rem/1.6 var(--font-body-family);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--pb-gold-pale);
@@ -275,19 +276,156 @@ button.shopify-payment-button__button--unbranded:enabled:hover {
   color: var(--pb-ivory);
 }
 
-@media screen and (min-width: 990px) {
+/* The desktop header starts at 960px, where 02 §1.3 and the Archive canvas change layout (Dawn's is 990px). The
+   960 to 989px block after this one repeats Dawn's own desktop header rules for that range. */
+@media screen and (min-width: 960px) {
   .header.header--middle-left { min-height: 8.4rem; }
-  .header--middle-left.header--has-menu:not(.drawer-menu) { grid-template-columns: auto 1fr auto; }
+  /* The nav never comes closer than Archive-Home's 32px row gap to the icons. The variable feeds the 960 to 989px
+     grid rule below. */
+  .header--middle-left.header--has-menu:not(.drawer-menu) {
+    --pb-header-columns: auto 1fr auto;
+    grid-template-columns: auto 1fr auto;
+    column-gap: 3.2rem;
+  }
   .header--middle-left .header__inline-menu { justify-self: end; }
   .header__inline-menu > .list-menu--inline { column-gap: 4.4rem; }
+
+  /* 44px link boxes: the Nav role's line-height 1 (02 §1.2) with 16px above and below. The text doesn't move. */
+  .header__inline-menu > .list-menu > li > .header__menu-item,
+  .header__inline-menu > .list-menu > li > header-menu > details > .header__menu-item {
+    position: relative;
+    padding-block: 1.6rem;
+    line-height: 1;
+  }
+
   .header__inline-menu > ul > li > a { padding-inline: 0; }
-  .header__inline-menu > ul > li > header-menu > details > summary { padding-inline: 0 1.5rem; }
-  .header__inline-menu > ul > li > header-menu > details > summary .icon-caret { right: 0; }
+  /* Archive-Home's stroked 9px chevron (assets/pb-icon-caret.svg), 8px after the label. */
+  .header__inline-menu > ul > li > header-menu > details > summary { padding-inline: 0 1.7rem; }
+  .header__inline-menu > ul > li > header-menu > details > summary .icon-caret {
+    top: calc(50% - 0.45rem);
+    right: 0;
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+
+  /* The current item (02 §2.7, Archive-Collection): gold, with a 1px gold rule along the bottom of its 44px box,
+     under the label. A border, not a shadow, so forced colours keep it. The text underline goes. */
+  .header__inline-menu .pb-nav-current::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    border-bottom: 1px solid var(--pb-gold);
+  }
+  .header__inline-menu summary.pb-nav-current::after { inset-inline-end: 1.7rem; }
+  .header__inline-menu .pb-nav-current .header__active-menu-item,
+  .header__inline-menu details[open] > .pb-nav-current {
+    text-decoration: none;
+  }
+
+  /* 44px targets 4px apart with the bag on the content edge (Dawn pads the group 8px and pulls the bag 12px out).
+     Margins, not a gap: the group also holds empty elements (the localization wrapper, Shopify's <shopify-store>). */
+  .header__icons { padding-right: 0; }
+  .header__icons > :is(.header__icon, .shopify-app-block) { margin-inline-start: 0.4rem; }
+  .header .header__icon--cart { margin-right: 0; }
   .header__heading-link .h2 { font-size: 2.3rem; letter-spacing: 0.32em; }
 }
 
-/* Dawn switches to its mobile header at 990px. Put search beside the bag in both account modes. */
-@media screen and (max-width: 989px) {
+/* From 960 to 989px, Dawn's desktop header rules (base.css and component-cart-notification.css at min-width 990px),
+   so the header is the same as from 990. Dawn's tablet rules (max-width 989px) still match here, so where one of
+   them is more specific, the override repeats its selector. sections/header.liquid hides the drawer from 960. */
+@media screen and (min-width: 960px) and (max-width: 989px) {
+  /* Grid. The values go through variables, so one rule also beats Dawn's tablet grid for a header with a menu and
+     accounts (a four-class selector). */
+  .header {
+    --pb-header-areas: 'left-icons heading icons';
+    --pb-header-columns: 1fr auto 1fr;
+  }
+  .header--top-left,
+  .header--middle-left:not(.header--has-menu) {
+    --pb-header-areas: 'heading icons' 'navigation navigation';
+    --pb-header-columns: 1fr auto;
+  }
+  .header--top-left.drawer-menu,
+  .header--middle-left.drawer-menu {
+    --pb-header-areas: 'navigation heading icons';
+    --pb-header-columns: auto 1fr auto;
+    column-gap: 1rem;
+  }
+  .header--middle-left {
+    --pb-header-areas: 'heading navigation icons';
+    --pb-header-columns: auto auto 1fr;
+    column-gap: 2rem;
+  }
+  .header--middle-center:not(.drawer-menu) {
+    --pb-header-areas: 'navigation heading icons';
+    --pb-header-columns: 1fr auto 1fr;
+    column-gap: 2rem;
+  }
+  .header--top-center { --pb-header-areas: 'left-icons heading icons' 'navigation navigation navigation'; }
+  .header--top-center.drawer-menu {
+    --pb-header-areas: 'left-icons heading icons';
+    --pb-header-columns: 1fr auto 1fr;
+  }
+  .header-wrapper .header,
+  .header--has-account.header--has-menu:not(.header--mobile-left):not(.header--has-app) {
+    grid-template-areas: var(--pb-header-areas);
+    grid-template-columns: var(--pb-header-columns);
+  }
+  .header:not(.header--middle-left, .header--middle-center) .header__inline-menu { margin-top: 1.05rem; }
+
+  .header .header__heading,
+  .header .header__heading-link {
+    justify-self: start;
+    text-align: start;
+  }
+  .header--middle-left .header__heading-link,
+  .header--top-left .header__heading-link {
+    margin-left: -0.75rem;
+  }
+  .header--middle-center .header__heading-link,
+  .header--middle-center .header__heading,
+  .header--top-center .header__heading-link,
+  .header--top-center .header__heading {
+    justify-self: center;
+    text-align: center;
+  }
+
+  /* Search sits in the icon group. */
+  .header:not(.header--top-center) * > .header__search,
+  .header--top-center > .header__search {
+    display: inline-flex;
+  }
+  .header:not(.header--top-center) > .header__search,
+  .header--top-center * > .header__search,
+  .header--has-account > .header__search,
+  .header--has-account:not(.header--has-menu) > .header__search,
+  .header--has-account.header--has-menu:not(.header--mobile-left):not(.header--has-app) > .header__search {
+    display: none;
+  }
+  .header--has-account .header__icons > .header__search,
+  .header--has-account.header--has-menu:not(.header--mobile-left):not(.header--has-app) .header__icons > .header__search {
+    display: inline-flex;
+  }
+
+  .header__inline-menu { display: block; }
+  .header--top-center .header__inline-menu { justify-self: center; }
+  .header--top-center .header__inline-menu > .list-menu--inline { justify-content: center; }
+  .header--middle-left .header__inline-menu { margin-left: 0; }
+  /* Dawn's .medium-hide is !important. */
+  .header__icons .desktop-localization-wrapper > .medium-hide { display: block !important; }
+
+  .search-modal__form { max-width: 74.2rem; }
+  .search-modal__close-button {
+    position: initial;
+    margin-left: 0.5rem;
+  }
+  .overflow-hidden-tablet { overflow: auto; }
+  .cart-notification-wrapper:is(.page-width) > .cart-notification { right: 4rem; }
+}
+
+/* Dawn's mobile header, up to 959px. Put search beside the bag in both account modes. */
+@media screen and (max-width: 959px) {
   .header-wrapper .header--middle-left.header--mobile-center.header--has-account {
     grid-template-areas: 'left-icons heading icons';
     grid-template-columns: 1fr 2fr 1fr;
@@ -313,24 +451,55 @@ button.shopify-payment-button__button--unbranded:enabled:hover {
   }
 }
 
-/* On narrow phones the diamond hangs into the space beside the centred text.
-   Reserve two complete icon targets on the right, including while the menu is empty. */
+/* Archive-Home-Mobile draws no diamond before the centred wordmark (the desktop one stays). */
+@media screen and (max-width: 959px) {
+  .header__heading-link .h2::before { display: none; }
+}
+
+/* Archive-Home-Mobile's announcement bar: 10px above and below the message, 16px at the sides (37.59px). */
+@media screen and (max-width: 749px) {
+  .utility-bar .utility-bar__grid.page-width { padding-inline: 1.6rem; }
+  .announcement-bar .announcement-bar__message { padding-block: 1rem; }
+}
+
+/* On phones, reserve two complete icon targets on the right, including while the menu is empty, and keep the
+   wordmark on one line: 17px at 390 (02 §1.2 [m]), scaling to 15px at 360. The negative end margin cancels the
+   trailing letter-spacing so the letters, not the box, are centred. */
 @media screen and (max-width: 460px) {
   .header-wrapper .header.header--middle-left.header--mobile-center {
     grid-template-columns: 8.8rem minmax(0, 1fr) 8.8rem;
     padding-inline: 0.2rem;
   }
-  .header--mobile-center header-drawer { margin-inline-start: 0.8rem; }
+  /* The menu target sits 8px in from the edge, as on Archive-Home-Mobile (2px header padding + 6px). */
+  .header--mobile-center header-drawer { margin-inline-start: 0.6rem; }
   .header--mobile-center .header__icons { padding-inline: 0; }
   .header--mobile-center .header__icon--cart { margin-inline-end: 0; }
   .header--mobile-center .header__heading-link { padding-block: 0.5rem; }
-  .header--mobile-center .header__heading-link .h2 { position: relative; display: inline-block; }
-  .header--mobile-center .header__heading-link .h2::before {
-    position: absolute;
-    inset-inline-end: calc(100% + 0.8rem);
-    top: 50%;
-    transform: translateY(-50%) rotate(45deg);
+  .header--mobile-center .header__heading-link .h2 {
+    font-size: clamp(1.5rem, calc(6.667vw - 0.9rem), 1.7rem);
+    white-space: nowrap;
+    margin-inline-end: -0.28em;
   }
+}
+
+/* Under 360px the wordmark stays centred on the viewport, as it is from 360 up (02 §2.7 "the centred wordmark"),
+   between the same two 88px side columns. The header padding drops to 0 (the bag meets the edge), and the
+   wordmark scales from 15px at 0.28em (360) to 13px at 0.19em (320). Size and tracking are linear in vw and meet
+   the 360 values, so nothing jumps at the breakpoint, and the letters keep about 2px clear of the 44px Search
+   target at every width down to 320. The negative end margin again cancels the trailing tracking. The short
+   announcement stays on one line at 11px, 0.1em. */
+@media screen and (max-width: 359px) {
+  .header-wrapper .header.header--middle-left.header--mobile-center { padding-inline: 0; }
+  .header--mobile-center header-drawer { margin-inline-start: 0.8rem; }
+  .header--mobile-center .header__heading-link .h2 {
+    font-size: calc(5vw - 0.3rem);
+    letter-spacing: max(0rem, calc(4.325vw - 1.137rem));
+    margin-inline-end: min(0rem, calc(1.137rem - 4.325vw));
+  }
+  .utility-bar .utility-bar__grid.page-width { padding-inline: 1rem; }
+  /* PB2:home's 0.14em rule comes later in this file, hence the extra class. */
+  .utility-bar .announcement-bar .pb-announcement { letter-spacing: 0.1em; }
+  .pb-announcement__version--short { white-space: nowrap; }
 }
 
 /* Product cards retain Dawn's image swapping and link hit areas. */
@@ -365,6 +534,12 @@ button.shopify-payment-button__button--unbranded:enabled:hover {
   font-size: 1.6rem;
   border-radius: 2px;
 }
+
+/* Typed text is untracked, as the Archive-Foundations field (02 §2.4 sets no tracking; Dawn adds 0.04rem). */
+.field .field__input, .customer .field input { letter-spacing: normal; }
+/* Every select is untracked too, as every Archive select (Dawn sets 0.04rem on .select__select, .customer select and
+   .caption-large, which the search sort selects also carry). PB selects already compute to normal. */
+select.select__select, .customer select { letter-spacing: normal; }
 
 .color-scheme-3 :is(.field__input, .select__select) { background-color: var(--pb-green-deep); }
 .field::after, .select::after, .field:hover.field::after, .select:hover.select::after {
@@ -468,4 +643,967 @@ variant-selects .product-form__input .form__label {
   }
   html { scroll-behavior: auto; }
   .section-header.animate, .header__heading-logo-wrapper, .card .media img { transition-duration: 1ms; }
+  /* Dawn rules with literal durations: the menu icon swap, media fades and link underlines. 1ms, not none,
+     so transitionend still fires. Spinners keep turning (essential). */
+  .header__icon--menu .icon, .media > img, .underlined-link, .customer a, .inline-richtext a {
+    transition-duration: 1ms !important;
+  }
+}
+
+/* PB2:foundation */
+/* Breadcrumbs (snippets/pb-breadcrumbs.liquid; 02 §5, Archive-Collection and Archive-Product). */
+.pb-breadcrumbs {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: var(--pb-muted);
+}
+
+.pb-breadcrumbs__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* A 44px target that doesn't change the row height. */
+.pb-breadcrumbs__link {
+  position: relative;
+  display: inline-block;
+  color: var(--pb-muted);
+}
+
+.pb-breadcrumbs__link::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100% + 1.2rem, 4.4rem);
+  height: 4.4rem;
+  transform: translate(-50%, -50%);
+}
+
+.pb-breadcrumbs__link:hover { color: var(--pb-gold); }
+
+@media screen and (max-width: 749px) {
+  .pb-breadcrumbs { font-size: 1.2rem; }
+  /* Archive-Collection-Mobile and Archive-Product-Mobile set the trail as inline text: one word space (3.38px at
+     12px) either side of the slash. Desktop keeps the 8px gap. */
+  .pb-breadcrumbs__list { column-gap: 0.28em; }
+  .pb-breadcrumbs--long :is(.pb-breadcrumbs__item--home, .pb-breadcrumbs__item--home + .pb-breadcrumbs__sep) {
+    display: none;
+  }
+}
+
+/* Secondary buttons on royal green fill gold with onyx text, as on onyx (02 §2.1). */
+.color-scheme-3 .button.button--secondary:not(:disabled, [aria-disabled='true']):hover {
+  color: var(--pb-onyx);
+}
+/* /PB2:foundation */
+
+/* PB2:home */
+/* Announcement with an inline link (snippets/pb-announcement-message.liquid; 02 §2.7).
+   Archive-Home: the message stays gold-pale and only the CTA is a link, ivory and underlined (offset 3px), no arrow.
+   Archive-Home-Mobile: the short message, a middle dot and the short label, 11px at 0.14em, on one line, the link
+   underlined at the font's own offset. The full message needs about 805px for one line, so the short one also shows
+   from 750 to 819px, in the desktop type. */
+.pb-announcement__link {
+  position: relative;
+  white-space: nowrap;
+  color: var(--pb-ivory);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3rem;
+}
+
+.pb-announcement__link:hover {
+  color: var(--pb-gold-pale);
+}
+
+/* A 44px target that doesn't change the bar's height. */
+.pb-announcement__link::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100% + 1.2rem, 4.4rem);
+  height: 4.4rem;
+  transform: translate(-50%, -50%);
+}
+
+.pb-announcement__version--short {
+  display: none;
+}
+
+@media screen and (max-width: 819px) {
+  .pb-announcement__version--full {
+    display: none;
+  }
+
+  .pb-announcement__version--short {
+    display: inline;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .announcement-bar .pb-announcement {
+    font-size: 1.1rem;
+    letter-spacing: 0.14em;
+  }
+
+  .pb-announcement__link {
+    text-underline-offset: auto;
+  }
+}
+/* /PB2:home */
+
+/* PB2:collection */
+/* 02 §2.5 and §5.8: the dashed line of unavailable sizes and empty states. */
+:root {
+  --pb-dashed: #5c5446;
+}
+
+/* Product card for real products (snippets/pb-product-card.liquid; 02 §2.2, Archive-Collection and -Mobile).
+   Global so the homepage and product page can render the same card. */
+.pb-card-wrapper {
+  display: block;
+  height: 100%;
+}
+
+.pb-card {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.8rem, calc(0.87vw + 0.148rem), 1.4rem);
+  height: 100%;
+  color: var(--pb-ivory);
+  text-decoration: none;
+}
+
+.pb-card__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--pb-rule);
+  background: var(--pb-onyx-raised);
+}
+
+.pb-card:hover .pb-card__media,
+.pb-card:focus-visible .pb-card__media {
+  border-color: var(--pb-gold);
+}
+
+.pb-card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pb-card__img--second {
+  opacity: 0;
+}
+
+@media (hover: hover) {
+  .pb-card:hover .pb-card__media--swap .pb-card__img--second {
+    opacity: 1;
+  }
+}
+
+.pb-card__placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.pb-card__placeholder svg {
+  width: 60%;
+  height: auto;
+  fill: var(--pb-rule-strong);
+}
+
+.pb-card__badge {
+  position: absolute;
+  top: clamp(0.8rem, calc(0.58vw + 0.365rem), 1.2rem);
+  left: clamp(0.8rem, calc(0.58vw + 0.365rem), 1.2rem);
+  z-index: 1;
+  padding: clamp(0.3rem, calc(0.145vw + 0.191rem), 0.4rem) clamp(0.6rem, calc(0.29vw + 0.383rem), 0.8rem);
+  border: 1px solid var(--pb-gold);
+  background: transparent;
+  color: var(--pb-gold);
+  font-family: var(--font-body-family);
+  font-size: clamp(0.9rem, calc(0.145vw + 0.791rem), 1rem);
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.pb-card__badge--muted {
+  border-color: var(--pb-muted);
+  color: var(--pb-muted);
+}
+
+.pb-card__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+
+.pb-card .pb-card__name {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.pb-card:hover .pb-card__name {
+  text-decoration: underline;
+  text-decoration-color: var(--pb-gold);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.5rem;
+}
+
+.pb-card__price {
+  flex: none;
+}
+
+.pb-card__price .price {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: normal;
+  white-space: nowrap;
+  color: var(--pb-gold);
+}
+
+.pb-card__price .price .price-item {
+  margin: 0;
+}
+
+.pb-card__price .price s.price-item {
+  margin-inline-end: 0.6rem;
+  color: var(--pb-muted);
+}
+
+.pb-card__desc {
+  display: -webkit-box;
+  margin: -0.8rem 0 0;
+  overflow: hidden;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: var(--pb-muted);
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+@media screen and (max-width: 749px) {
+  .pb-card__badge {
+    letter-spacing: 0.22em;
+  }
+
+  /* Archive-Collection-Mobile stacks the name, descriptor and price. */
+  .pb-card__row {
+    display: contents;
+  }
+
+  .pb-card .pb-card__name {
+    order: 1;
+  }
+
+  .pb-card__desc {
+    order: 2;
+    margin-top: -0.6rem;
+    font-size: 1.3rem;
+  }
+
+  .pb-card__price {
+    order: 3;
+    margin-top: -0.4rem;
+  }
+
+  .pb-card__price .price {
+    font-size: 1.4rem;
+  }
+}
+/* Collection help strip: the multicolumn section with the key "pb_help" in templates/collection.json (02 §5.7,
+   03 §8). A stock section can't load its own stylesheet, so its rules live here, as 03 §8 says, and don't depend
+   on the grid's Archive layout switch. Padding 104/112 [56/72], fluid from 750 to 1440. */
+.shopify-section[id$='__pb_help'] .multicolumn .page-width {
+  padding: clamp(5.6rem, calc(6.9565vw + 0.3826rem), 10.4rem) var(--pb-gutter)
+    clamp(7.2rem, calc(5.7971vw + 2.8522rem), 11.2rem);
+}
+
+.shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4rem;
+  width: auto;
+  margin: 0;
+  padding: 4rem 0 0;
+  border-top: 1px solid var(--pb-gold-line);
+}
+
+.shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list__item {
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list .multicolumn-card__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 0;
+}
+
+.shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info > * {
+  margin: 0;
+}
+
+.shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list h3 {
+  font-family: var(--pb-serif);
+  font-size: 2.8rem;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: normal;
+  color: var(--pb-ivory);
+}
+
+.shopify-section[id$='__pb_help'] .multicolumn .rte {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: var(--pb-muted);
+}
+
+.shopify-section[id$='__pb_help'] .multicolumn .rte p {
+  margin: 0;
+}
+
+/* Text CTA (02 §2.1): a 44px hit area, 12px block padding, underline offset 6. */
+.shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info .link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 4.4rem;
+  padding: 1.2rem 0;
+  color: var(--pb-gold);
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 0.6rem;
+}
+
+.shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info .link:hover {
+  color: var(--pb-gold);
+  text-decoration-thickness: 2px;
+}
+
+.shopify-section[id$='__pb_help'] .multicolumn .link .icon-wrap {
+  display: none;
+}
+
+.shopify-section[id$='__pb_help'] .multicolumn .link .icon-arrow path {
+  transform: none;
+  transition: none;
+}
+
+@media screen and (min-width: 750px) and (max-width: 959px) {
+  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile: each column becomes a 60px row link with a gold arrow (Archive-Collection-Mobile). */
+@media screen and (max-width: 749px) {
+  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list {
+    display: block;
+    padding: 0;
+  }
+
+  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list__item {
+    position: relative;
+    border-bottom: 1px solid var(--pb-rule);
+  }
+
+  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card {
+    position: static;
+  }
+
+  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list .multicolumn-card__info {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.6rem;
+    min-height: 6rem;
+  }
+
+  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-list h3 {
+    font-size: 2.2rem;
+  }
+
+  .shopify-section[id$='__pb_help'] .multicolumn .rte {
+    display: none;
+  }
+
+  /* The link covers the whole row. Its label stays in the accessibility tree, and multicolumn's PB edit puts
+     the column title (the row's visible label) first in its name (WCAG 2.5.3). */
+  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info .link {
+    flex: none;
+    padding: 0;
+    font-size: 0;
+    letter-spacing: 0;
+    text-decoration: none;
+  }
+
+  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info .link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info .link:focus-visible {
+    outline: none !important;
+  }
+
+  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info .link:focus-visible::after {
+    outline: 2px solid var(--pb-gold-pale);
+    outline-offset: 3px;
+  }
+
+  /* The row arrow is Archive-Collection-Mobile's text glyph (Inter 600 16 / 25.6, gold), 16px wide at the row's
+     end and centred in it. It's decorative (empty alt text); the link's name stays its aria-label. Dawn's 20px
+     icon slot is dropped. The font is set here because the link itself is font-size 0. */
+  .shopify-section[id$='__pb_help'] .multicolumn .link .svg-wrapper {
+    display: none;
+  }
+
+  .shopify-section[id$='__pb_help'] .multicolumn .multicolumn-card__info .link::before {
+    content: '\2192';
+    content: '\2192' / '';
+    font: 600 1.6rem / 1.6 var(--font-body-family);
+    letter-spacing: 0;
+    color: var(--pb-gold);
+  }
+}
+/* /PB2:collection */
+
+/* PB2:product */
+/* Cart drawer (02 §6.5, Archive-Product-Mobile "cart drawer" state). The drawer is on every page.
+   Dawn loads its drawer styles after this file, so these rules lead with the cart-drawer element. */
+cart-drawer.drawer {
+  background-color: rgb(13 13 12 / 0.72);
+}
+
+cart-drawer .cart-drawer .drawer__inner {
+  padding: 0;
+  border: 0;
+  border-left: 1px solid var(--pb-gold-line);
+  background: var(--pb-onyx);
+}
+
+cart-drawer .cart-drawer .drawer__inner-empty {
+  padding: 0 2rem;
+}
+
+cart-drawer .cart-drawer .drawer__header {
+  min-height: 6.4rem;
+  padding: 0 0.8rem 0 2rem;
+  border-bottom: 1px solid var(--pb-rule);
+}
+
+cart-drawer .cart-drawer .drawer__heading,
+cart-drawer .cart-drawer .cart__empty-text {
+  margin: 0;
+  font-family: var(--pb-serif);
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--pb-ivory);
+}
+
+cart-drawer .cart-drawer .drawer__close {
+  position: static;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4.4rem;
+  min-height: 4.4rem;
+  color: var(--pb-gold);
+}
+
+cart-drawer .cart-drawer .cart-drawer__warnings .drawer__close {
+  position: absolute;
+  top: 1rem;
+  right: 0.8rem;
+}
+
+cart-drawer .cart-drawer .drawer__close .svg-wrapper {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+/* The column headings stay for screen readers only. */
+cart-drawer .cart-drawer .cart-items thead {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Line: an 80px 4:5 image, the name and gold price on one row, the options, then quantity and Remove. */
+cart-drawer .cart-drawer .cart-item {
+  grid-template-columns: 8rem minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  column-gap: 1.6rem;
+  row-gap: 0.8rem;
+  margin: 0;
+  padding: 2rem;
+  border-bottom: 1px solid var(--pb-rule);
+}
+
+cart-drawer .cart-drawer .cart-item:last-child {
+  margin-bottom: 0;
+}
+
+cart-drawer .cart-drawer .cart-items td,
+cart-drawer .cart-drawer .cart-items .cart-item > td + td {
+  padding: 0;
+}
+
+cart-drawer .cart-drawer .cart-item__media {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1 / 3;
+  align-self: start;
+  width: 8rem;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--pb-rule);
+  background: var(--pb-onyx-raised);
+  overflow: hidden;
+}
+
+cart-drawer .cart-drawer .cart-item__image {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+cart-drawer .cart-drawer .cart-item__details {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+cart-drawer .cart-drawer .cart-item__totals {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+cart-drawer .cart-drawer .cart-items .cart-item__quantity {
+  grid-column: 2 / 4;
+  grid-row: 2;
+}
+
+cart-drawer .cart-drawer .cart-item__name {
+  font-family: var(--pb-serif);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-decoration: none;
+  color: var(--pb-ivory);
+}
+
+cart-drawer .cart-drawer .cart-item__name:hover {
+  color: var(--pb-gold);
+}
+
+/* The line total on the name row carries the price; the repeated unit price is left out. */
+cart-drawer .cart-drawer .cart-item__details > div.product-option,
+cart-drawer .cart-drawer .cart-item__details > .cart-item__discounted-prices {
+  display: none;
+}
+
+cart-drawer .cart-drawer .cart-item__details dl {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.4rem 0 0;
+}
+
+cart-drawer .cart-drawer .cart-item__details .product-option {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: var(--pb-muted);
+}
+
+cart-drawer .cart-drawer .cart-item__details dl .product-option {
+  display: flex;
+  gap: 0.4rem;
+}
+
+cart-drawer .cart-drawer .pb-cart-option dt {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+cart-drawer .cart-drawer .cart-item__details dl .product-option + .product-option::before {
+  content: '\00B7';
+  content: '\00B7' / '';
+  margin-inline: 0.6rem 0.2rem;
+}
+
+cart-drawer .cart-drawer .cart-item__totals .price {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--pb-gold);
+}
+
+cart-drawer .cart-drawer .cart-item__totals .cart-item__old-price {
+  color: var(--pb-muted);
+}
+
+cart-drawer .cart-drawer .cart-item__quantity-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+cart-drawer .cart-drawer .quantity {
+  width: auto;
+  min-height: 4.4rem;
+  border: 1px solid var(--pb-rule-strong);
+  border-radius: 2px;
+}
+
+cart-drawer .cart-drawer .quantity::before,
+cart-drawer .cart-drawer .quantity::after {
+  content: none;
+}
+
+cart-drawer .cart-drawer .quantity__button {
+  width: 4.4rem;
+  margin: 0;
+  color: var(--pb-gold);
+}
+
+cart-drawer .cart-drawer .quantity__input {
+  width: 2.8rem;
+  padding: 0;
+  font-size: 1.5rem;
+  text-align: center;
+  color: var(--pb-ivory);
+}
+
+cart-drawer .cart-drawer cart-remove-button {
+  margin: 0;
+}
+
+cart-drawer .cart-drawer cart-remove-button .button.cart-remove-button {
+  min-width: 0;
+  min-height: 4.4rem;
+  height: 4.4rem;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body-family);
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+  text-decoration: underline;
+  text-decoration-color: var(--pb-gold);
+  text-underline-offset: 0.3rem;
+  color: var(--pb-ivory);
+  box-shadow: none;
+}
+
+cart-drawer .cart-drawer cart-remove-button .button.cart-remove-button:hover {
+  color: var(--pb-gold);
+}
+
+cart-drawer .cart-drawer .cart-remove-button .svg-wrapper {
+  display: none;
+}
+
+/* Footer: Subtotal, the tax line and a full-width gold Check out button (native checkout). */
+cart-drawer .cart-drawer .drawer__footer {
+  padding: 2rem;
+  border-top: 0;
+}
+
+cart-drawer .cart-drawer .cart-drawer__footer > * + * {
+  margin-top: 1.2rem;
+}
+
+cart-drawer .cart-drawer .totals {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 0;
+}
+
+cart-drawer .cart-drawer .totals__total,
+cart-drawer .cart-drawer .totals__total-value {
+  margin: 0;
+  font-family: var(--font-body-family);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--pb-ivory);
+}
+
+cart-drawer .cart-drawer .totals__total-value {
+  color: var(--pb-gold);
+}
+
+cart-drawer .cart-drawer .tax-note {
+  display: block;
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: start;
+  color: var(--pb-muted);
+}
+
+cart-drawer .cart-drawer .cart__ctas {
+  margin-top: 1.2rem;
+}
+
+cart-drawer .cart-drawer .cart__checkout-button.button {
+  width: 100%;
+  min-height: 5.6rem;
+}
+/* /PB2:product */
+
+/* PB2:pages */
+/* Size tables (02 §7): gold header text, an onyx-raised header row and --pb-rule row lines. Shared by the
+   long-form page and article bodies (component-pb-prose.css) and the product page's size-guide popup, which
+   shows the Size Guide page (02 §2.5). Cell padding, row lines and the 15px size are the .rte table rules above;
+   the popup gets them here too, because stock Dawn doesn't wrap the popup's page content in .rte. */
+.product-popup-modal__content-info table:not([class]) {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.5rem;
+  box-shadow: none;
+}
+
+.product-popup-modal__content-info table:not([class]) :is(th, td) {
+  padding: 1rem 1.2rem;
+  border: 0;
+  border-bottom: 1px solid var(--pb-rule);
+  text-align: start;
+}
+
+:is(.pb-prose, .article-template__content, .product-popup-modal__content-info) table {
+  margin: 0 0 var(--pb-prose-gap, 2.4rem);
+  border: 0;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+}
+
+:is(.pb-prose, .article-template__content, .product-popup-modal__content-info) table:last-child {
+  margin-bottom: 0;
+}
+
+:is(.pb-prose, .article-template__content, .product-popup-modal__content-info) :is(th, td) {
+  vertical-align: top;
+}
+
+/* Row headers (a th in the body) are gold text; only the header row gets the onyx-raised band. */
+:is(.pb-prose, .article-template__content, .product-popup-modal__content-info) th {
+  font-weight: 600;
+  color: var(--pb-gold);
+  background-color: transparent;
+}
+
+/* Header row: a thead, a first row of th cells, or (pasted legacy tables without th) bold cells in the first row. */
+:is(.pb-prose, .article-template__content, .product-popup-modal__content-info) :is(
+  thead th,
+  thead td,
+  table:not(:has(thead)) > tbody:first-of-type > tr:first-child > th,
+  table:not(:has(thead, th)) > tbody:first-of-type > tr:first-child > td:has(> :is(strong, b):only-child)
+) {
+  background-color: var(--pb-onyx-raised);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pb-gold);
+  vertical-align: bottom;
+}
+
+:is(.pb-prose, .article-template__content, .product-popup-modal__content-info) caption {
+  padding-bottom: 1rem;
+  font-size: 1.3rem;
+  text-align: start;
+  color: var(--pb-muted);
+}
+/* /PB2:pages */
+
+/* PB2:global */
+/* Reverse keyboard focus can't land under the sticky header (WCAG 2.2 2.4.11, 05 §4). sections/header.liquid
+   sets --header-height on the root element; anchors (/#signup) also stop below the header. */
+html {
+  scroll-padding-top: calc(var(--header-height, 8.5rem) + 0.8rem);
+}
+
+/* The skip link sits inside the viewport when focused, so its whole ring shows (Dawn's .visually-hidden keeps a
+   -1px margin, and mobile buttons are full width). */
+.skip-to-content-link:focus {
+  width: auto;
+  margin: 0;
+  top: 0.8rem;
+  left: 0.8rem;
+}
+
+/* Its target, main#MainContent (tabindex -1), isn't a control: Dawn's .focus-none keeps it ringless, which the
+   global !important ring above overrode. */
+.focus-none:is(:focus-visible, .focused) {
+  outline: none !important;
+}
+
+/* Header account (<shopify-account>): focus lands on the button in its shadow root, which Shopify exposes as
+   part "signed-out-avatar". Give it the 44x44 target and the Archive ring instead of the browser's (02 §1.4). */
+shopify-account.header__icon::part(signed-out-avatar) {
+  min-width: 4.4rem;
+  min-height: 4.4rem;
+}
+
+shopify-account.header__icon::part(signed-out-avatar):focus {
+  outline: none;
+}
+
+shopify-account.header__icon::part(signed-out-avatar):focus-visible {
+  outline: 2px solid var(--pb-gold-pale);
+  outline-offset: 3px;
+}
+
+/* Header glyphs (02 §2.7, Archive-Home): 20px outline icons, the menu 22px. Dawn sizes its 40-unit cart icon at
+   44px; the Archive bag is a 24-unit glyph like the others. */
+.header__icon--cart .icon.pb-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.header__icon--menu .icon.pb-icon-menu {
+  width: 2.2rem;
+  height: 2.2rem;
+}
+
+/* The cart drawer's container takes focus for screen readers when it opens; it isn't a control, so no ring next
+   to its gold-line border (Tab moves on to Close). */
+cart-drawer :is(.drawer__inner, .drawer__inner-empty):is(:focus-visible, .focused) {
+  outline: none !important;
+}
+
+/* Scrims: the cart drawer's onyx (PB2:product) instead of Dawn's 50% ivory wash behind the search modal, the
+   tablet menu drawer and the mobile country sheet. */
+.header__search details[open] .modal-overlay::after,
+.header .header__icon--menu[aria-expanded='true']::before,
+.disclosure .country-selector__overlay {
+  background-color: rgb(13 13 12 / 0.72);
+}
+
+/* Mobile menu drawer in the Nav role (02 §1.2: Inter 500 12, 0.24em, caps): 52px rows with --pb-rule dividers,
+   ivory, gold on hover and for the current page. Rows sit inside the 20px gutter so the 3px-offset focus ring
+   isn't clipped by the drawer. component-menu-drawer.css loads after this file, hence the longer selectors. */
+.menu-drawer .menu-drawer__navigation {
+  padding: 1.2rem 0 2.4rem;
+}
+
+.js .menu-drawer .menu-drawer__menu > li {
+  margin: 0 2rem;
+  border-bottom: 1px solid var(--pb-rule);
+}
+
+.menu-drawer .menu-drawer__menu-item,
+.menu-drawer .menu-drawer__close-button {
+  min-height: 5.2rem;
+  padding: 0;
+  color: var(--pb-ivory);
+  background-color: transparent;
+  font: 500 1.2rem / 1.3 var(--font-body-family);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.menu-drawer .menu-drawer__menu summary.menu-drawer__menu-item {
+  padding-inline-end: 3.2rem;
+}
+
+.menu-drawer .menu-drawer__menu-item > .svg-wrapper {
+  right: 0;
+  color: var(--pb-gold);
+}
+
+.menu-drawer .menu-drawer__menu-item:is(:hover, :focus, .menu-drawer__menu-item--active),
+.menu-drawer .menu-drawer__close-button:is(:hover, :focus) {
+  background-color: transparent;
+}
+
+.menu-drawer .menu-drawer__menu-item:is(:hover, .menu-drawer__menu-item--active, [aria-current='page']),
+.menu-drawer .menu-drawer__close-button:hover {
+  color: var(--pb-gold);
+}
+
+/* A submenu's back button heads its list, in the same row style. */
+.menu-drawer .menu-drawer__close-button {
+  width: calc(100% - 4rem);
+  margin: 1.2rem 2rem 0;
+  border-bottom: 1px solid var(--pb-rule);
+}
+
+.menu-drawer .menu-drawer__close-button .svg-wrapper {
+  color: var(--pb-gold);
+}
+
+.header .menu-drawer .menu-drawer__utility-links {
+  padding: 0 2rem 2.4rem;
+  background-color: transparent;
+}
+
+.menu-drawer .menu-drawer__utility-links .menu-drawer__menu-item {
+  border-top: 1px solid var(--pb-rule);
+}
+
+/* 02 §1.2 loads Inter 400, 500 and 600 only: merchant bold renders at 600 instead of fetching Inter 700. */
+strong,
+b {
+  font-weight: 600;
+}
+
+.predictive-search .predictive-search__item-query-result *:not(mark) {
+  font-weight: 600;
+}
+/* /PB2:global */
+
+/* Forced colours: Archive's outline glyphs are stroked (fill none). Dawn's base.css forces .icon { fill: CanvasText
+   !important }, which would fill their outlines (the search lens becomes a disk), and a coloured stroke (the gold caret)
+   would stay. Keep the fill empty and draw the stroke in CanvasText. The zoom glyph is handled in section-pb-product.css. */
+@media (forced-colors: active) {
+  svg:is(.pb-icon-search, .pb-icon-account, .pb-icon-bag, .pb-icon-menu, .pb-icon-caret, .pb-icon-truck, .pb-icon-return) {
+    fill: none !important;
+    stroke: CanvasText !important;
+  }
 }

@@ -35,21 +35,34 @@
         class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
         role="list"
       >
-        {% assign skip_card_product_styles = false %}
+        {%- comment -%}
+          PB: "Wear it with" uses the Archive product card (02 §2.2, §6.3): name and gold price on one row, then the
+          custom.finish / custom.short_description descriptor. Dawn's card-product has no descriptor line. The card
+          ignores image_ratio, image_shape, show_vendor and show_rating (always 4:5, no vendor, no rating, D-13).
+          The sizes string is for the 4-up grid (2-up below 990px); other column counts use the card's default.
+          Dawn's skip_card_product_styles assigns (before the loop and at the end of each item) are removed: the
+          card has no per-card stylesheet.
+        {%- endcomment -%}
+        {%- liquid
+          assign pb_rec_sizes = null
+          if section.settings.columns_desktop == 4
+            assign pb_rec_sizes = '(min-width: 1440px) 311px, (min-width: 990px) calc(22.39vw - 11px), (min-width: 750px) calc(44.78vw + 5px), calc(50vw - 26px)'
+          endif
+        -%}
+        {%- comment -%} /PB {%- endcomment -%}
         {% for recommendation in recommendations.products %}
           <li class="grid__item">
-            {% render 'card-product',
+            {%- comment -%} PB: the Archive card replaces Dawn's card-product render {%- endcomment -%}
+            {% render 'pb-product-card',
               card_product: recommendation,
-              media_aspect_ratio: section.settings.image_ratio,
-              image_shape: section.settings.image_shape,
               show_secondary_image: section.settings.show_secondary_image,
-              show_vendor: section.settings.show_vendor,
-              show_rating: section.settings.show_rating,
-              skip_styles: skip_card_product_styles,
+              sizes: pb_rec_sizes,
+              heading_tag: 'h3',
+              lazy_load: true,
               product_view_context: 'recommendation'
             %}
+            {%- comment -%} /PB {%- endcomment -%}
           </li>
-          {%- assign skip_card_product_styles = true -%}
         {% endfor %}
       </ul>
     {% endif %}

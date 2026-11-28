@@ -1,6 +1,37 @@
+{%- comment -%} PB: Archive product page state, shared by the blocks and snippets below (D-23). {%- endcomment -%}
+{%- liquid
+  assign pb_archive = section.settings.pb_archive
+  assign pb_size_start = false
+  assign pb_has_size = false
+  assign pb_size_guide_block = null
+  assign pb_size_guide_page = null
+
+  if pb_archive
+    capture pb_flags
+      render 'pb-product-flags', product: product, blocks: section.blocks, field: 'state'
+    endcapture
+    if pb_flags contains 'size'
+      assign pb_has_size = true
+    endif
+    if pb_flags contains 'start'
+      assign pb_size_start = true
+    endif
+  endif
+
+  # The size-guide popup opens the product's own custom.size_guide page when it has one.
+  capture pb_size_guide_id
+    render 'pb-product-flags', product: product, blocks: section.blocks, field: 'guide'
+  endcapture
+  assign pb_size_guide_id = pb_size_guide_id | strip
+  assign pb_size_guide_block = section.blocks | where: 'id', pb_size_guide_id | first
+  assign pb_size_guide_page = product.metafields.custom.size_guide.value | default: pb_size_guide_block.settings.page
+-%}
+{%- comment -%} /PB {%- endcomment -%}
 <product-info
   id="MainProduct-{{ section.id }}"
-  class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
+  {% comment %} PB: pb-product scopes the Archive styles (D-23). {% endcomment %}
+  class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}{% if pb_archive %} pb-product{% endif %}"
+  {% comment %} /PB {% endcomment %}
   data-section="{{ section.id }}"
   data-product-id="{{ product.id }}"
   data-update-url="true"
@@ -24,10 +55,18 @@
   {%- if product.quantity_price_breaks_configured? -%}
     {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
   {%- endif -%}
+  {%- comment -%} PB: Archive product page styles (D-23). {%- endcomment -%}
+  {%- if pb_archive -%}
+    {{ 'section-pb-product.css' | asset_url | stylesheet_tag }}
+  {%- endif -%}
+  {%- comment -%} /PB {%- endcomment -%}
 
   {%- style -%}
     .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      {%- comment -%} PB: optional mobile top padding, as on pb-split (D-23). {%- endcomment -%}
+      {%- assign pb_padding_top_small = section.settings.padding_top | times: 0.75 | round: 0 -%}
+      padding-top: {{ section.settings.pb_padding_top_mobile | default: pb_padding_top_small }}px;
+      {%- comment -%} /PB {%- endcomment -%}
       padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     }
 
@@ -75,7 +114,17 @@
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <product-component view-event-payload="{{ product | standard_event_data: 'view', context: 'page' | escape }}">
     <div class="page-width">
-      <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+      {%- comment -%} PB: breadcrumb above the columns on larger screens (02 §6, Archive-Product). {%- endcomment -%}
+      {%- render 'pb-product-breadcrumbs',
+        product: product,
+        show: pb_archive,
+        section_settings: section.settings,
+        class: 'pb-product__crumbs pb-product__crumbs--wide quick-add-hidden'
+      -%}
+      {%- comment -%} /PB {%- endcomment -%}
+      {%- comment -%} PB: the Archive layout keeps two columns with a framed placeholder when there's no media. {%- endcomment -%}
+      <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 or pb_archive %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+      {%- comment -%} /PB {%- endcomment -%}
         <div class="grid__item product__media-wrapper">
           {% render 'product-media-gallery', variant_images: variant_images %}
         </div>
@@ -85,6 +134,16 @@
             class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
           >
             {%- assign product_form_id = 'product-form-' | append: section.id -%}
+
+            {%- comment -%} PB: on small screens the breadcrumb sits under the gallery (Archive-Product-Mobile). {%- endcomment -%}
+            {%- render 'pb-product-breadcrumbs',
+              product: product,
+              show: pb_archive,
+              section_settings: section.settings,
+              schema: false,
+              class: 'pb-product__crumbs pb-product__crumbs--narrow quick-add-hidden'
+            -%}
+            {%- comment -%} /PB {%- endcomment -%}
 
             {%- for block in section.blocks -%}
               {%- case block.type -%}
@@ -211,23 +270,12 @@
                 {%- when 'custom_liquid' -%}
                   {{ block.settings.custom_liquid }}
                 {%- when 'collapsible_tab' -%}
-                  <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
-                    <details id="Details-{{ block.id }}-{{ section.id }}">
-                      <summary>
-                        <div class="summary__title">
-                          {% render 'icon-accordion', icon: block.settings.icon %}
-                          <h2 class="h4 accordion__title inline-richtext">
-                            {{ block.settings.heading | default: block.settings.page.title | escape }}
-                          </h2>
-                        </div>
-                        {{- 'icon-caret.svg' | inline_asset_content -}}
-                      </summary>
-                      <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
-                        {{ block.settings.content }}
-                        {{ block.settings.page.content }}
-                      </div>
-                    </details>
-                  </div>
+                  {%- comment -%}
+                    PB: the tab renders from snippets/pb-product-tab.liquid: content from a product field, empty tabs
+                    hidden, open by default (D-23).
+                  {%- endcomment -%}
+                  {%- render 'pb-product-tab', block: block, product: product, section_id: section.id -%}
+                  {%- comment -%} /PB {%- endcomment -%}
                 {%- when 'quantity_selector' -%}
                   <div
                     id="Quantity-Form-{{ section.id }}"
@@ -456,20 +504,35 @@
                     {%- endif -%}
                   </div>
                 {%- when 'popup' -%}
-                  <modal-opener
-                    class="product-popup-modal__opener quick-add-hidden"
-                    data-modal="#PopupModal-{{ block.id }}"
-                    {{ block.shopify_attributes }}
-                  >
-                    <button
-                      id="ProductPopup-{{ block.id }}"
-                      class="product-popup-modal__button link"
-                      type="button"
-                      aria-haspopup="dialog"
+                  {%- comment -%}
+                    PB: the size-guide popup opens the product's custom.size_guide page when it has one, shows inline
+                    in the Size legend (snippets/product-variant-picker.liquid), and hides when it has no page (D-23).
+                  {%- endcomment -%}
+                  {%- liquid
+                    assign pb_popup_page = block.settings.page
+                    if block.settings.pb_size_legend
+                      assign pb_popup_page = pb_size_guide_page
+                    endif
+                  -%}
+                  {%- if pb_has_size and block.settings.pb_size_legend -%}
+                    <div class="pb-popup-opener--inline" hidden {{ block.shopify_attributes }}></div>
+                  {%- elsif pb_popup_page != blank -%}
+                    <modal-opener
+                      class="product-popup-modal__opener quick-add-hidden"
+                      data-modal="#PopupModal-{{ block.id }}"
+                      {{ block.shopify_attributes }}
                     >
-                      {{ block.settings.text | default: block.settings.page.title | escape }}
-                    </button>
-                  </modal-opener>
+                      <button
+                        id="ProductPopup-{{ block.id }}"
+                        class="product-popup-modal__button link"
+                        type="button"
+                        aria-haspopup="dialog"
+                      >
+                        {{ block.settings.text | default: pb_popup_page.title | escape }}
+                      </button>
+                    </modal-opener>
+                  {%- endif -%}
+                  {%- comment -%} /PB {%- endcomment -%}
                 {%- when 'share' -%}
                   {% liquid
                     assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
@@ -486,10 +549,15 @@
                     surface: 'product_page'
                   -%}
                 {%- when 'variant_picker' -%}
+                  {%- comment -%} PB: Archive options, "Select a size" start state and inline size guide (D-23). {%- endcomment -%}
                   {% render 'product-variant-picker',
                     product: product,
                     block: block,
-                    product_form_id: product_form_id
+                    product_form_id: product_form_id,
+                    pb_archive: pb_archive,
+                    pb_size_start: pb_size_start,
+                    pb_size_guide_block: pb_size_guide_block,
+                    pb_size_guide_page: pb_size_guide_page
                   %}
                 {%- when 'buy_buttons' -%}
                   {%- render 'buy-buttons',
@@ -497,8 +565,11 @@
                     product: product,
                     product_form_id: product_form_id,
                     section_id: section.id,
-                    show_pickup_availability: true
+                    show_pickup_availability: true,
+                    pb_archive: pb_archive,
+                    pb_size_start: pb_size_start
                   -%}
+                  {%- comment -%} /PB {%- endcomment -%}
                 {%- when 'rating' -%}
                   {%- if product.metafields.reviews.rating.value != blank -%}
                     <div class="rating-wrapper">
@@ -702,28 +773,47 @@
 
       {% assign popups = section.blocks | where: 'type', 'popup' %}
       {%- for block in popups -%}
+        {%- comment -%}
+          PB: open the resolved size-guide page (D-23). No page, no modal (its opener doesn't render either). The
+          title is an h2 that names the dialog, so the product title stays the page's only h1 (D-31). As the cart
+          drawer (02 §6.5), the title and the close share a fixed header row and only the page body scrolls below it.
+        {%- endcomment -%}
+        {%- liquid
+          assign pb_popup_page = block.settings.page
+          if block.settings.pb_size_legend
+            assign pb_popup_page = pb_size_guide_page
+          endif
+          if pb_popup_page == blank
+            continue
+          endif
+        -%}
         <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
           <div
             role="dialog"
-            aria-label="{{ block.settings.text }}"
+            aria-labelledby="PopupModalTitle-{{ block.id }}"
             aria-modal="true"
             class="product-popup-modal__content"
             tabindex="-1"
           >
-            <button
-              id="ModalClose-{{ block.id }}"
-              type="button"
-              class="product-popup-modal__toggle"
-              aria-label="{{ 'accessibility.close' | t }}"
-            >
-              {{- 'icon-close.svg' | inline_asset_content -}}
-            </button>
+            <div class="pb-popup-modal__header">
+              <h2 id="PopupModalTitle-{{ block.id }}" class="pb-popup-modal__title h2">
+                {{- pb_popup_page.title | escape -}}
+              </h2>
+              <button
+                id="ModalClose-{{ block.id }}"
+                type="button"
+                class="product-popup-modal__toggle"
+                aria-label="{{ 'accessibility.close' | t }}"
+              >
+                {{- 'icon-close.svg' | inline_asset_content -}}
+              </button>
+            </div>
             <div class="product-popup-modal__content-info">
-              <h1 class="h2">{{ block.settings.page.title | escape }}</h1>
-              {{ block.settings.page.content }}
+              <div class="rte">{{ pb_popup_page.content }}</div>
             </div>
           </div>
         </modal-dialog>
+        {%- comment -%} /PB {%- endcomment -%}
       {%- endfor -%}
 
       {%- if product.media.size > 0 -%}
@@ -751,7 +841,29 @@
       </script>
     </div>
   </product-component>
+  {%- comment -%} PB: "Select a size" start state and the add-to-bag status line (D-23). {%- endcomment -%}
+  {%- if pb_archive -%}
+    <pb-product-state
+      class="quick-add-hidden"
+      data-section="{{ section.id }}"
+      data-size-start="{{ pb_size_start }}"
+      data-select-size="{{ 'pb.product.select_size' | t | escape }}"
+      data-added="{{ 'pb.product.added' | t | escape }}"
+      data-switched="{{ 'pb.product.size_switched' | t | escape_once }}"
+      hidden
+    ></pb-product-state>
+    <script src="{{ 'pb-product.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+  {%- comment -%} /PB {%- endcomment -%}
 </product-info>
+
+{%- comment -%}
+  PB: mobile sticky add-to-bag bar, outside product-info so quick add never copies it (D-23, 03 §4.10). The
+  snippet renders only with pb_archive (the check lives there to keep this file under theme check's
+  LiquidComplexity limit).
+{%- endcomment -%}
+{%- render 'pb-sticky-atc', product: product, section_id: section.id, pb_archive: pb_archive -%}
+{%- comment -%} /PB {%- endcomment -%}
 
 {% schema %}
 {
@@ -919,6 +1031,13 @@
             }
           ],
           "default": "circle"
+        },
+        {
+          "type": "checkbox",
+          "id": "pb_size_start",
+          "default": false,
+          "label": "t:sections.pb_product.blocks.variant_picker.pb_size_start.label",
+          "info": "t:sections.pb_product.blocks.variant_picker.pb_size_start.info"
         }
       ]
     },
@@ -1219,6 +1338,41 @@
           "type": "page",
           "id": "page",
           "label": "t:sections.main-product.blocks.collapsible_tab.settings.page.label"
+        },
+        {
+          "type": "select",
+          "id": "pb_source",
+          "label": "t:sections.pb_product.blocks.collapsible_tab.pb_source.label",
+          "info": "t:sections.pb_product.blocks.collapsible_tab.pb_source.info",
+          "options": [
+            {
+              "value": "content",
+              "label": "t:sections.pb_product.blocks.collapsible_tab.pb_source.options__1.label"
+            },
+            {
+              "value": "description",
+              "label": "t:sections.pb_product.blocks.collapsible_tab.pb_source.options__2.label"
+            },
+            {
+              "value": "materials",
+              "label": "t:sections.pb_product.blocks.collapsible_tab.pb_source.options__3.label"
+            },
+            {
+              "value": "dimensions",
+              "label": "t:sections.pb_product.blocks.collapsible_tab.pb_source.options__4.label"
+            },
+            {
+              "value": "care",
+              "label": "t:sections.pb_product.blocks.collapsible_tab.pb_source.options__5.label"
+            }
+          ],
+          "default": "content"
+        },
+        {
+          "type": "checkbox",
+          "id": "pb_open",
+          "default": false,
+          "label": "t:sections.pb_product.blocks.collapsible_tab.pb_open.label"
         }
       ]
     },
@@ -1236,6 +1390,13 @@
           "id": "page",
           "type": "page",
           "label": "t:sections.main-product.blocks.popup.settings.page.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "pb_size_legend",
+          "default": false,
+          "label": "t:sections.pb_product.blocks.popup.pb_size_legend.label",
+          "info": "t:sections.pb_product.blocks.popup.pb_size_legend.info"
         }
       ]
     },
@@ -2299,6 +2460,29 @@
     },
     {
       "type": "header",
+      "content": "t:sections.pb_product.settings.header.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "pb_archive",
+      "default": false,
+      "label": "t:sections.pb_product.settings.pb_archive.label",
+      "info": "t:sections.pb_product.settings.pb_archive.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "pb_show_breadcrumbs",
+      "default": true,
+      "label": "t:sections.pb_product.settings.pb_show_breadcrumbs.label"
+    },
+    {
+      "type": "link_list",
+      "id": "pb_breadcrumb_menu",
+      "label": "t:sections.pb_product.settings.pb_breadcrumb_menu.label",
+      "info": "t:sections.pb_product.settings.pb_breadcrumb_menu.info"
+    },
+    {
+      "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"
     },
     {
@@ -2320,6 +2504,12 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "number",
+      "id": "pb_padding_top_mobile",
+      "label": "t:sections.pb_product.settings.pb_padding_top_mobile.label",
+      "info": "t:sections.pb_product.settings.pb_padding_top_mobile.info"
     }
   ]
 }

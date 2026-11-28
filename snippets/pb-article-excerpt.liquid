@@ -1,0 +1,143 @@
+{%- comment -%}
+  Prints an article's excerpt, or its content when it has no excerpt, as text cut to `words` words. Shared by
+  snippets/article-card.liquid (blog, search and featured blog cards) and sections/pb-journal-picks.liquid.
+
+  Many legacy and imported article bodies open with their own title as text, so the card would say it twice.
+  A leading copy of the title is dropped, with a colon or dash after it, and a stray Markdown code fence before
+  it ("```html", left by an import). The comparison ignores case, runs of whitespace (non-breaking spaces too),
+  entity encoding (strip_html leaves entities encoded: &#39;, &rsquo;, &amp;), curly against straight quotes and
+  apostrophes, en and em dashes against hyphens, and a colon or dash at the end of the title. A title run into
+  the text with no space ("Metal?Before") still counts, unless the text word just carries on ("Care" isn't
+  dropped from "Careful"). Text that doesn't open with the title prints exactly as Dawn's article card did.
+
+  The output keeps strip_html's encoding, as Dawn's card does, so print it without escape: escaping would
+  double-encode its entities. It has no surrounding whitespace; it's empty when nothing is left.
+
+  Accepts:
+  - article: {Object} Article object
+  - words: {Number} Words to keep before "...". Default: 30 (optional)
+
+  Usage:
+  {%- capture excerpt -%}{% render 'pb-article-excerpt', article: article, words: 30 %}{%- endcapture -%}
+{%- endcomment -%}
+{%- liquid
+  assign pb_ax_words = words | default: 30
+  if article.excerpt.size > 0
+    assign pb_ax_text = article.excerpt | strip_html | strip
+  else
+    assign pb_ax_text = article.content | strip_html | strip
+  endif
+  assign pb_ax_out = pb_ax_text | truncatewords: pb_ax_words
+
+  if pb_ax_text != blank and article.title != blank
+    # The title (pass 1) and the head of the text (pass 2) are normalised the same way. "e" only evens out
+    # spacing, keeping strip_html's encoding: its words are what's printed. "f" is lower case, decoded, with
+    # straight quotes and hyphens, and is only compared. "f" never adds or removes a space, so both split into
+    # the same words. &amp; is decoded last, so "&amp;#39;" stays the literal text "&#39;". Some of the quoted
+    # characters are invisible: "e" turns U+00A0, U+2002, U+2003, U+2007, U+2009 and U+202F into spaces and
+    # removes U+200B and U+FEFF.
+    assign pb_ax_title_size = 0
+    for pb_ax_pass in (1..2)
+      if pb_ax_pass == 1
+        assign pb_ax_e = article.title
+      else
+        # Enough words for the title, a fence, a separator and the excerpt itself.
+        assign pb_ax_head_size = pb_ax_title_size | plus: pb_ax_words | plus: 4
+        assign pb_ax_e = pb_ax_text | truncatewords: pb_ax_head_size, ''
+      endif
+      assign pb_ax_e = pb_ax_e | replace: '&nbsp;', ' ' | replace: '&#160;', ' ' | replace: '&#xa0;', ' ' | replace: '&#xA0;', ' ' | replace: '&ensp;', ' ' | replace: '&emsp;', ' ' | replace: '&thinsp;', ' ' | replace: ' ', ' ' | replace: ' ', ' ' | replace: ' ', ' ' | replace: ' ', ' ' | replace: ' ', ' ' | replace: ' ', ' ' | remove: '​' | remove: '﻿' | remove: '&#8203;' | remove: '&zwj;' | remove: '&zwnj;'
+      assign pb_ax_f = pb_ax_e | downcase | replace: '&#39;', "'" | replace: '&#039;', "'" | replace: '&#x27;', "'" | replace: '&apos;', "'" | replace: '&rsquo;', "'" | replace: '&lsquo;', "'" | replace: '&#8217;', "'" | replace: '&#8216;', "'" | replace: '&#x2019;', "'" | replace: '&#x2018;', "'" | replace: '’', "'" | replace: '‘', "'" | replace: '‛', "'" | replace: '′', "'" | replace: '&quot;', '"' | replace: '&#34;', '"' | replace: '&#034;', '"' | replace: '&#x22;', '"' | replace: '&ldquo;', '"' | replace: '&rdquo;', '"' | replace: '&bdquo;', '"' | replace: '&#8220;', '"' | replace: '&#8221;', '"' | replace: '&#x201c;', '"' | replace: '&#x201d;', '"' | replace: '“', '"' | replace: '”', '"' | replace: '„', '"' | replace: '″', '"' | replace: '&ndash;', '-' | replace: '&mdash;', '-' | replace: '&minus;', '-' | replace: '&#8211;', '-' | replace: '&#8212;', '-' | replace: '&#x2013;', '-' | replace: '&#x2014;', '-' | replace: '–', '-' | replace: '—', '-' | replace: '‒', '-' | replace: '―', '-' | replace: '−', '-' | replace: '‐', '-' | replace: '‑', '-' | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&#38;', '&' | replace: '&#038;', '&' | replace: '&#x26;', '&' | replace: '&amp;', '&'
+
+      if pb_ax_pass == 1
+        # A colon or dash at the end of the title isn't needed in the text.
+        assign pb_ax_title_f = pb_ax_f | strip
+        for pb_ax_k in (1..3)
+          assign pb_ax_c = pb_ax_title_f | slice: -1
+          if pb_ax_c == ':' or pb_ax_c == '-'
+            assign pb_ax_len = pb_ax_title_f.size | minus: 1
+            assign pb_ax_title_f = pb_ax_title_f | slice: 0, pb_ax_len | strip
+          else
+            break
+          endif
+        endfor
+        assign pb_ax_title_words = pb_ax_title_f | split: ' '
+        assign pb_ax_title_size = pb_ax_title_words.size
+        if pb_ax_title_size == 0
+          break
+        endif
+      else
+        assign pb_ax_head_e = pb_ax_e | split: ' '
+        assign pb_ax_head_f = pb_ax_f | split: ' '
+      endif
+    endfor
+
+    if pb_ax_title_size > 0
+      # A stray code fence ("```html") before the title goes with it.
+      assign pb_ax_from = 0
+      assign pb_ax_c = pb_ax_head_e.first | slice: 0, 3
+      if pb_ax_c == '```'
+        assign pb_ax_from = 1
+      endif
+
+      # Word by word. Only the title's last word may run into the text ("Metal?Before"): then the rest of that
+      # word must start with a separator or a capital, or the title must end in punctuation. The word is cut
+      # where the title ends, which is the same place in "e" and "f" while no entity comes before it.
+      assign pb_ax_match = true
+      assign pb_ax_glue = ''
+      for pb_ax_w in pb_ax_title_words
+        assign pb_ax_j = forloop.index0 | plus: pb_ax_from
+        assign pb_ax_h = pb_ax_head_f[pb_ax_j]
+        if pb_ax_h != pb_ax_w
+          assign pb_ax_match = false
+          if forloop.last and pb_ax_h != blank
+            assign pb_ax_o = pb_ax_head_e[pb_ax_j]
+            assign pb_ax_lead = pb_ax_h | slice: 0, pb_ax_w.size
+            assign pb_ax_o_lead = pb_ax_o | slice: 0, pb_ax_w.size
+            unless pb_ax_o_lead contains '&'
+              if pb_ax_lead == pb_ax_w
+                assign pb_ax_glue = pb_ax_o | slice: pb_ax_w.size, pb_ax_o.size
+                assign pb_ax_c = pb_ax_glue | slice: 0
+                assign pb_ax_c_lower = pb_ax_c | downcase
+                assign pb_ax_w_end = pb_ax_w | slice: -1
+                if '-:|–—' contains pb_ax_c or '?!.:' contains pb_ax_w_end or pb_ax_c != pb_ax_c_lower
+                  assign pb_ax_match = true
+                endif
+              endif
+            endunless
+          endif
+          break
+        endif
+      endfor
+
+      if pb_ax_match
+        assign pb_ax_from = pb_ax_from | plus: pb_ax_title_size
+
+        # A colon or dash after the title: on the end of its last word, or as words of their own.
+        for pb_ax_k in (1..3)
+          assign pb_ax_c = pb_ax_glue | slice: 0
+          if pb_ax_c != blank and '-:|–—' contains pb_ax_c
+            assign pb_ax_glue = pb_ax_glue | slice: 1, pb_ax_glue.size
+          else
+            break
+          endif
+        endfor
+        if pb_ax_glue == blank
+          for pb_ax_k in (1..2)
+            assign pb_ax_h = pb_ax_head_f[pb_ax_from] | remove: '-' | remove: ':' | remove: '|'
+            if pb_ax_head_f[pb_ax_from] != blank and pb_ax_h == blank
+              assign pb_ax_from = pb_ax_from | plus: 1
+            else
+              break
+            endif
+          endfor
+        endif
+
+        assign pb_ax_rest = pb_ax_head_e | slice: pb_ax_from, pb_ax_head_e.size | join: ' '
+        assign pb_ax_rest = pb_ax_glue | append: ' ' | append: pb_ax_rest | strip
+        assign pb_ax_out = pb_ax_rest | truncatewords: pb_ax_words
+      endif
+    endif
+  endif
+
+  echo pb_ax_out
+-%}

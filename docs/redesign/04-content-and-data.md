@@ -82,19 +82,19 @@ Before creating these, check Phase 0's export for existing definitions and reuse
 | Object | Handle | Definition |
 | --- | --- | --- |
 | Collection | `jewelry` | Smart: tag = `jewelry` |
-| Collection | `bracelets` | Smart: type = Bracelet |
-| Collection | `necklaces` | Smart: type = Necklace |
-| Collection | `rings` | Smart: type = Ring (create only when ring sizing and exchanges are ready) |
+| Collection | `bracelets` | Smart: type = Bracelet **and** tag = `jewelry` (all must match; the tag keeps legacy items out, D-08 spirit, [E-02](changes/E-02.md)) |
+| Collection | `necklaces` | Smart: type = Necklace **and** tag = `jewelry` (all must match; the tag keeps legacy items out, D-08 spirit, [E-02](changes/E-02.md)) |
+| Collection | `rings` | Smart: type = Ring **and** tag = `jewelry` (created hidden in Phase 3; rings launch with The Brockton signet, D-40) |
 | Page | `our-story`, `why-brass`, `jewelry-care`, `size-guide` | Check for existing handles first; reuse an existing "about" page by redirecting it if one exists |
-| Menu | `jewelry-main-menu` | Shop (→ `/collections/jewelry`; children: All Jewelry, Bracelets, Necklaces, Rings*) · Our Story · Journal (`/blogs/news`) |
+| Menu | `jewelry-main-menu` | Shop (→ `/collections/jewelry`; children: All Jewelry, Bracelets, Necklaces, Rings*) · Our Story · Journal (`/blogs/news/tagged/journal`, an HTTP item: D-36, D-43) |
 | Menu | `shop-categories` | All (`/collections/jewelry`), Bracelets, Necklaces, Rings* |
 | Menu | `footer-shop` | All Jewelry, Bracelets, Necklaces, Rings* |
-| Menu | `footer-learn` | Our Story, Why Brass?, Jewelry Care, Size Guide, Journal |
-| Menu | `footer-help` | Shipping & Returns (policy URL), Contact, Support for previous orders (contact page anchor) |
+| Menu | `footer-learn` | Our Story, Why Brass?, Jewelry Care, Size Guide, Journal (`/blogs/news/tagged/journal`, D-36, D-43) |
+| Menu | `footer-help` | Shipping & Returns (shipping policy), Contact, Support for previous orders (`/pages/contact-us#previous-orders`), Do not sell or share my personal information (`/pages/ccpa-opt-out`, G-14) |
 
-\* Add only when the collection has published products.
+\* Rings launch with The Brockton signet (D-40). The Rings items are in the menus from Phase 3. The live theme doesn't use these menus, so the items only show once the new theme is published.
 
-The existing `main-menu` and `footer` menus are **not edited**. They stay as the rollback path.
+The existing `main-menu` and `footer` menus are **not edited**. They stay as the rollback path. The five menus were created on 2026-11-27 ([E-04](changes/E-04.md)).
 
 ---
 
@@ -135,14 +135,15 @@ The existing `main-menu` and `footer` menus are **not edited**. They stay as the
 
 ### URL inventory
 
-The full public inventory (167 URLs, each classified with a proposed first action) is in [`url-inventory.csv`](url-inventory.csv). Fill in its Search Console columns, then the final action, destination and approver per row. The table below covers the key rows.
+The full public inventory (279 URLs since 2026-11-28: the 167 originals plus 112 from the traffic data) is in [`url-inventory.csv`](url-inventory.csv), with its Search Console and Shopify numbers, final action, destination and approver per row; the owner decided the open rows on 2026-11-28 (D-69, [`search-traffic.md`](search-traffic.md) §6). The table below covers the key rows.
 
 | URL | Action | Destination / note | Approval |
 | --- | --- | --- | --- |
 | `/` | Replace content at launch | n/a | Required |
 | `/collections/all` | Keep (Shopify default) | Legacy items leave it once unpublished. Menus link to `/collections/jewelry`. | Required |
 | `/blogs/news` | Keep | Journal | n/a |
-| `/blogs/news/what-is-brass-jewelry-metal` | Keep and update | Accuracy review; link to Why Brass and the collection | Required |
+| `/blogs/news/what-is-brass-jewelry-metal` | Merge and 301 (amended 2026-11-28, OD-12, D-69) | Merge its content into `/blogs/news/what-is-brass-made-of` at the E-07 rewrite (launch step 7), hide it (never delete), then 301 to that article. 16-month clicks: 69 for what-is-brass-made-of against 32. | Approved (owner, D-69) |
+| `/blogs/news/what-is-brass-made-of` | Keep and update | The material canonical: accuracy review; link to Why Brass and the collection | Approved (owner, D-69) |
 | `/blogs/news/gold-plated-brass-jewelry` | Keep and update | Clearly separate plating from actual product finishes | Required |
 | `/products/brockton-mk2` | Decide after traffic, backlink and support audit | Options: keep unpublished (404), or 301 only to a genuinely relevant page (e.g. a legacy support page). **Not to the homepage.** | Required |
 | `/products/the-bellwoods-one-hitter` | Same as above | Same as above | Required |

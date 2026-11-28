@@ -1,0 +1,6 @@
+{
+  "taken_at": "2026-11-27",
+  "source": "Shopify Admin GraphQL, urlRedirects(query: \"path:/pages/reviews\"), immediately before deletion",
+  "redirect": { "id": "gid://shopify/UrlRedirect/441294848322", "path": "/pages/reviews", "target": "/" },
+  "restore": "urlRedirectCreate(urlRedirect: { path: \"/pages/reviews\", target: \"/\" })"
+}

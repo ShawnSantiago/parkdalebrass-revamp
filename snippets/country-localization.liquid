@@ -33,11 +33,16 @@
     aria-controls="{{ localPosition }}-country-results"
     aria-describedby="{{ localPosition }}Label"
   >
-    <span>
-      {{- localization.country.name }} |
-      {{ localization.country.currency.iso_code }}
-      {{ localization.country.currency.symbol -}}
-    </span>
+    {%- comment -%}
+      PB: the selected country reads "Canada (CAD $)", as the Archive canvas draws its Country/region select,
+      instead of Dawn's "Canada | CAD $". Text only; localization-form.js doesn't read it.
+    {%- endcomment -%}
+    {%- liquid
+      assign pb_currency = localization.country.currency
+      assign pb_country_label = localization.country.name | append: ' (' | append: pb_currency.iso_code | append: ' ' | append: pb_currency.symbol | append: ')'
+    -%}
+    <span>{{ pb_country_label | escape }}</span>
+    {%- comment -%} /PB {%- endcomment -%}
     {{ 'icon-caret.svg' | inline_asset_content }}
   </button>
   <div class="disclosure__list-wrapper country-selector" hidden>

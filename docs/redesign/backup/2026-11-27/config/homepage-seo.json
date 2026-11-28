@@ -1,0 +1,26 @@
+{
+  "exportedAt": "2026-11-27",
+  "store": "parkdale-brass.myshopify.com",
+  "source": "Shopify Admin GraphQL API 2026-10 via the Shopify connector (read-only queries; no mutations)",
+  "scope": "shop.description and shop-level global.title_tag / global.description_tag metafields; compared with the live homepage <head> captured on 2026-11-26.",
+  "notes": [
+    "The Admin API exposes the homepage meta description as shop.description. It does not expose a separate 'homepage title' field: shop.metafield(global.title_tag) and (global.description_tag) are both null.",
+    "The live homepage <title> is 'Parkdale Brass', the same as shop.name. Whether the Preferences title is set to that value or blank (falling back to the shop name) can't be told from the API.",
+    "Live homepage has no og:image (matches audit.md §SEO). E-11 drafts the replacement title, description and OG image."
+  ],
+  "api": {
+    "shopName": "Parkdale Brass",
+    "metaDescription": "Parkdale Brass provides high quality, sleek, and 20th century inspired smoking pipes that are rugged and can withstand the ups and downs of day-to-day life. Driven by the desire to pay homage to the style and quality of smoke wear of the past, we create pipes with attention to detail and subtle sophistication.",
+    "metafield_global_title_tag": null,
+    "metafield_global_description_tag": null
+  },
+  "liveHomepageHead_2026-11-26": {
+    "source": "storefront HTML captured 2026-11-26 by the audit session (curl now gets a bot-verification page, HTTP 403)",
+    "title": "Parkdale Brass",
+    "metaDescription": "same text as shop.description",
+    "ogTitle": "Parkdale Brass",
+    "ogDescription": "same text as shop.description",
+    "ogImage": null,
+    "canonical": "https://parkdalebrass.com/"
+  }
+}
