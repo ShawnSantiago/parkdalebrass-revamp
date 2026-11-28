@@ -1,6 +1,6 @@
 # Phase 3 clean-up · your Admin steps (about 10 minutes)
 
-**For:** the owner. **Record:** [`phase-3-cleanup.md`](phase-3-cleanup.md) (tracker row E-18).
+**For:** the owner. **Record:** [`E-18.md`](E-18.md) (tracker row E-18).
 
 The agent's connector can't do any of these: Shopify's API can't uninstall another app, can't see custom pixels, and the connector has no privacy-settings permission. They're ordered safest first. Steps 1 to 6 delete nothing. Steps 7 to 9 remove things, so do the export first.
 
