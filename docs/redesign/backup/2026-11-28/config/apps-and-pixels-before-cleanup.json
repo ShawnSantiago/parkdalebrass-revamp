@@ -77,7 +77,7 @@
     "note": "listing unpublished, not embedded"
    }
   ],
-  "changeSince_2026-11-27": "The default list has 10 apps, down from 12: 'Shopify ChatGPT MCP App' is gone and the Claude connector no longer lists itself (currentAppInstallation still returns it, installation 1097285435714).",
+  "changeSince_2026-11-27": "No change: 12 apps, as on 2026-11-27. CORRECTED 2026-11-28: this note first said the default list had 10 apps, down from 12, with 'Shopify ChatGPT MCP App' gone and the Claude connector no longer listing itself. That was wrong. Two verification reads on 2026-11-28 each returned 12 apps, including 'Shopify ChatGPT MCP App' and the Claude connector (installation 1097285435714). The appInstallations array above is the incomplete 10-app read and omits those two; their entries are in backup/2026-11-27/config/apps-and-pixels.json.",
   "channelAppInstallations": [
    {
     "title": "Online Store",
@@ -344,7 +344,7 @@
    "result": "HTTP 403",
    "message": "This store isn't set up to receive orders yet. Contact the store directly for help.",
    "url": "/checkouts/cn/…/en-us",
-   "note": "One item (brockton-mk2) added from a US-located browser, then /checkout. No checkout form rendered, so the 'Email me with news and offers' box couldn't be read. Cause not established: it may be real (no active payment provider; shop.paymentSettings.supportedDigitalWallets is empty) or specific to this automated/US session. Owner to check."
+   "note": "UNCONFIRMED (flagged 2026-11-28): this note says the item added was brockton-mk2, but that product's only variant is unavailable on 2026-11-28, so which item was in the cart, or whether any was, is not confirmed, and the 403 may not reflect a real checkout with a purchasable item. Original note follows. One item (brockton-mk2) added from a US-located browser, then /checkout. No checkout form rendered, so the 'Email me with news and offers' box couldn't be read. Cause not established: it may be real (no active payment provider; shop.paymentSettings.supportedDigitalWallets is empty) or specific to this automated/US session. Owner to check."
   }
  },
  "adminSettings": {

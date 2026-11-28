@@ -10,10 +10,11 @@ The menu wording below is from memory except step 6, which follows shopify.dev. 
 
 ## Checks first (nothing changes)
 
-1. **Test the checkout.** In a normal browser, open parkdalebrass.com, add any in-stock item, and go to checkout.
-   - Why: the agent's automated test (a US-located browser) got "This store isn't set up to receive orders yet". The cause isn't known. It may be the test only.
+1. **Test the checkout.** In a normal browser, open parkdalebrass.com, add an item that is **in stock** (one whose button says "Add to cart", not "Sold out"), and go to checkout. Don't use the Brockton MK2: it's sold out.
+   - Why: the agent's automated test (a US-located browser) got "This store isn't set up to receive orders yet". The cause isn't known. It may be the test only: the test's record names a sold-out item, so it isn't confirmed that a purchasable item was in the cart.
    - Tell the agent what you see: a normal checkout, or that message. If it's the message, look at **Settings → Payments** for an inactive provider. Don't change anything there yet.
 2. **Confirm the apps that already disappeared.** Open **Settings → Apps and sales channels**. Ordersify, UpPromote, Concierge Shopping Guide, Sezzle and EZ PreOrder should **not** be listed.
+   - Concierge was also a sales channel. On the same screen, look at the **Sales channels** list too: Concierge should **not** be there either.
    - These were on the store on 2026-11-27 and are gone today. The agent didn't remove them. If you did, say so and the agent will log it. If you didn't, tell the agent.
    - Their data inside Shopify went with the uninstall. If you still want the UpPromote affiliate list, try logging in to UpPromote directly; the agent can't tell whether it's still there.
    - If any of them **is** still listed, leave it and tell the agent.
@@ -31,6 +32,14 @@ The menu wording below is from memory except step 6, which follows shopify.dev. 
 6. **Cookie banner for Canada (D-57).** **Settings → Customer privacy → Cookie banner**: turn the banner on if it's off, then under **Regions** add **Canada**, **Save**.
    - What it does: Canadian visitors see Shopify's consent banner, and analytics and marketing pixels wait for their choice.
    - Nothing is lost. To undo, remove Canada from the regions.
+   - The real test: from Canada, open parkdalebrass.com in a private (incognito) window and check that the banner appears. The setting being saved isn't proof; seeing the banner is.
+
+## A question for you (optional, nothing to do unless you choose)
+
+- **Judge.me: keep it installed or uninstall it?** Its app pixel runs store-wide, on every theme. D-56 keeps reviews off in the new theme, but that doesn't stop the pixel. Your choice:
+  - **Leave it installed:** nothing changes; the pixel keeps loading.
+  - **Uninstall it:** the pixel stops. The reviews data stays with Judge.me only if you export it from Judge.me first.
+  - Tell the agent which you prefer. This is a question, not an instruction; it isn't one of the numbered steps.
 
 ## Removals (export first)
 
@@ -62,7 +71,7 @@ Tell the agent which numbers you did. It then checks, without changing anything:
 | 3 | Loads the checkout and reads the box's state (only possible once step 1 is sorted); otherwise asks you for a screenshot |
 | 4 | Checks the sign-in page; if that's inconclusive, asks you for a screenshot |
 | 5 | The product, cart and checkout pages show no Sezzle option |
-| 6 | The consent policy query shows `consentRequired: true` for the 13 provinces and territories. The agent's browser is in the US, so please also open the site in a private window and confirm the banner appears |
+| 6 | The real test is yours: from Canada, open the site in a private window and confirm the banner appears (the agent's browser is in the US and can't see it). The agent also checks that the consent policy query shows `consentRequired: true` for the 13 provinces and territories |
 | 7 | Pixel 83525954 is gone from the page's pixel list, and no page requests `googletagmanager.com` |
 
 **Not part of this list (launch day):** removing Quebec from shipping, the money format, publishing the theme, redirects, unpublishing products. Microsoft Clarity lives in the old theme's code and goes away when the new theme is published.
