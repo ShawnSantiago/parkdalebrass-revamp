@@ -12,7 +12,7 @@ Personal information is information about an identifiable person, such as your n
 - We send marketing emails only to people who subscribe. You can unsubscribe at any time.
 - We use cookies for store reports and marketing only if you accept them in our cookie banner.
 - Shopify runs our store, our checkout and our newsletter. Canada Post delivers our parcels. Shopify also uses some information about your visit for its own purposes, under its own privacy policy.
-- Shopify and some of our other service providers store or process information outside Canada, including in the United States. While it's there, that country's courts, police and national security authorities may be able to get access to it.
+- Shopify, and other service providers we use, may store or process information outside Canada, including in the United States. While it's there, that country's courts, police and national security authorities may be able to get access to it.
 - We don't sell your personal information.
 - You can ask to see or correct the personal information we hold about you. You can raise a concern with our privacy contact, or with the Office of the Privacy Commissioner of Canada.
 
@@ -47,7 +47,7 @@ We collect your email address and keep a record of your consent, such as when yo
 
 Subscribing is always your choice, and it's separate from buying. Our sign-up form shows this wording under the email field:
 
-> By subscribing, you agree to get emails from Parkdale Brass about new collections and releases. You can unsubscribe at any time. Parkdale Brass, [mailing address], Toronto, ON [postal code] · Contact: shawns@parkdalebrass.com
+> By subscribing, you agree to get emails from Parkdale Brass about new collections and releases. You can unsubscribe at any time. Parkdale Brass, [mailing address], Toronto, ON [postal code] · Contact: shawns@parkdalebrass.com · [Privacy policy](https://parkdalebrass.com/policies/privacy-policy)
 
 No sign-up box is ever ticked for you in advance, on our site or at checkout.
 
@@ -55,7 +55,7 @@ No sign-up box is ever ticked for you in advance, on our site or at checkout.
 
 We collect your name, email address, phone number if you give it, and your message, along with anything else you send us, such as an order number or photos. Messages from our contact form reach us by email.
 
-If you tell us about a safety problem with a piece, such as an injury or a skin reaction, we collect what you tell us about it. This can include information about your health. We use it only to deal with the problem. If the law requires us to report the incident to Health Canada and to our supplier, we give them the information the law requires, and we tell you that we've reported it. We don't give our supplier your name or contact details unless you agree, or the law requires it.
+If you tell us about a safety problem with a piece, such as an injury or a skin reaction, we collect what you tell us about it. This can include information about your health. We use it only to deal with the problem. If the law requires us to report the incident to Health Canada and to our supplier, we give them the information the law requires. We don't give our supplier your name or contact details unless you agree, or the law requires it.
 
 ### When you browse the site
 
@@ -68,7 +68,7 @@ When you visit, Shopify automatically collects information about your device and
 
 ### Records from before [launch date]
 
-If you bought from us, created an account or subscribed to our emails before [launch date], we still hold those records. We use them only for your past orders, support, any returns and warranties under the terms you bought under, and our legal and tax obligations.
+If you bought from us, created an account or subscribed to our emails before [launch date], we still hold those records. We use them only for your past orders, for support and any returns under the terms you bought under, and for our legal and tax obligations.
 
 We don't use those records to send you emails about our jewelry. If you'd like those emails, you're welcome to subscribe through the site.
 
@@ -79,7 +79,7 @@ We use personal information to:
 - take, pack, ship and deliver your order, and handle returns, exchanges and refunds (see our [Returns and exchanges policy](https://parkdalebrass.com/policies/refund-policy));
 - run your account;
 - answer your messages, including questions about orders placed before [launch date];
-- send emails about your order, such as the order confirmation and messages about its delivery, a return or an exchange;
+- send emails about your order, such as the order confirmation, the tracking number when it ships, and messages about its delivery, a return or an exchange;
 - contact you about a safety issue or recall affecting a piece you bought, and deal with any safety problem you report to us;
 - send our newsletter about new collections and releases, only if you've subscribed;
 - screen orders for fraud and keep the site and checkout secure;
@@ -138,7 +138,7 @@ We may also share personal information:
 
 ## Information stored outside Canada
 
-Shopify and some of our other service providers store or process personal information outside Canada, for example in the United States. Shopify is a Canadian company, and it may send personal information outside Canada, including to the United States.
+Shopify, and other service providers we use, may store or process personal information outside Canada, for example in the United States. Shopify is a Canadian company, and it may send personal information outside Canada, including to the United States.
 
 While your information is in another country, that country's laws apply to it. Its courts, police and national security authorities may be able to get access to it.
 
@@ -154,7 +154,7 @@ We keep personal information only as long as we need it for the purposes in this
 | Messages you send us | Two years after our last reply |
 | Safety reports | Two years after we've dealt with the problem |
 | Cookies | Up to one year for Shopify's own store cookies. Shopify's cookie list gives the time for each one. |
-| Records from before [launch date] | [Records from before [launch date]: owner to approve how long they're kept. The six-year tax period has already ended for the oldest of them, and deleting legacy records needs your approval and an export first.] |
+| Records from before [launch date] | [how long records from before launch are kept] |
 
 If you've asked to see your information, we keep it for as long as you need to use any right to complain about our answer, even past these times.
 
@@ -195,15 +195,15 @@ We send our newsletter only to people who have subscribed and given express cons
 
 Every newsletter identifies Parkdale Brass, gives our mailing address and a way to contact us, and includes an unsubscribe link. You can unsubscribe at any time, for free, through that link or by emailing shawns@parkdalebrass.com. We act on your request without delay, and within 10 business days at the latest.
 
-A reminder about a checkout you didn't finish is a marketing email too, so we send one only if you've subscribed.
+We treat a reminder about a checkout you didn't finish as a marketing email, so we send one only if you've subscribed.
 
-If you unsubscribe, you'll still get emails about your orders, such as order confirmations and messages about delivery, returns or exchanges, and any safety or recall notice about a piece you bought.
+If you unsubscribe, you'll still get emails about your orders, such as order confirmations, tracking numbers and messages about delivery, returns or exchanges, and any safety or recall notice about a piece you bought.
 
 If you subscribed before [launch date], we don't email you about our jewelry. You can subscribe again through the site.
 
 ## Children
 
-You need to be the age of majority where you live to place an order or create an account. We don't knowingly collect personal information from children under 13, and we don't direct our marketing at children. If you think a child has given us personal information, please contact our privacy contact. We'll delete it, except anything the law requires us to keep, such as a record of a sale.
+You need to have reached the age of majority in your province or territory to place an order or create an account. We don't knowingly collect personal information from children under 13, and we don't direct our marketing at children. If you think a child has given us personal information, please contact our privacy contact. We'll delete it, except anything the law requires us to keep, such as a record of a sale.
 
 ## Changes to this policy
 
@@ -230,8 +230,8 @@ Contact page: [parkdalebrass.com/pages/contact-us](https://parkdalebrass.com/pag
 - Shopify prints the policy title itself, so drop the H1. Keep the "Effective" line with the date filled in. Convert to rich text or HTML. The two tables can become short lists if the policy editor doesn't keep tables.
 - Fill every `[bracket]`. The policy can't go live with one in it. The ones left are listed under "Placeholders left".
 - The policy is only true once the store matches it (requirements §5). The store follow-ups it depends on: the cookie banner on for Canada and tested; the GTM pixel, Ordersify, UpPromote, Concierge and Triple Whale removed, Sezzle off and Judge.me's pixel off (D-56, D-27); Klaviyo, Printful, ShipStation, Flow and the staff AI apps either disconnected or added to the placeholder row; the footer "Do not sell or share my personal information" link and its page `/pages/ccpa-opt-out` removed or rewritten, because that page says the store shares data with advertising partners; the checkout email box never pre-ticked for Canada; abandoned-checkout emails to subscribers only; pre-launch subscribers kept out of every Shopify Email audience (D-04); markets and shipping narrowed to Canada without Quebec (D-57).
-- The consent line quoted under "When you subscribe to our emails" must match the live form word for word. This text fills the contact email with the owner's address (shawns@parkdalebrass.com). [`newsletter-consent.md`](newsletter-consent.md) still shows `[contact email]`, so it and the `pb-newsletter` consent setting need the same address.
-- Keep the four policies in step. The Terms of service should use "the age of majority where you live" (README legal point 43), the same account-closure words as the "Your account" row, and no "full card number" line until it's verified (point 14 below). Shipping and Terms still show `[contact email]` and the older contact block. Returns already uses the same contact email, `[legal name], operating as Parkdale Brass` and the full-URL links.
+- The consent line quoted under "When you subscribe to our emails" must match the live form word for word. It's the line in [`newsletter-consent.md`](newsletter-consent.md), with the contact email filled and the privacy-policy link (D-55).
+- Keep the four policies in step. *Cross-policy pass (2026-11-28):* the four policies were read together and brought into line; see [`README.md`](README.md) "Cross-policy fixes".
 - Store links are full `https://parkdalebrass.com/...` URLs, so the repo's docs check doesn't read them as repo paths.
 
 ### Facts this text states, and where they come from
@@ -244,7 +244,7 @@ Contact page: [parkdalebrass.com/pages/contact-us](https://parkdalebrass.com/pag
 | Order contents include the finish and, for The Brockton, the ring size | D-44 |
 | Canada Post, tracking on every order; prepaid labels for size exchanges and damaged, faulty or wrong pieces | D-44, D-54, D-57; returns policy |
 | Newsletter sent with Shopify Email; Klaviyo isn't used for it | D-57 |
-| Consent wording under the email field, no box ticked in advance | D-03, D-53 (contact email filled) |
+| Consent wording under the email field, no box ticked in advance | D-03, D-53 (contact email filled); privacy-policy link added under D-55 |
 | Cookie banner on for Canadian visitors | D-57 |
 | Launch service providers: Shopify, the payment processor (placeholder), Canada Post, the email host. Removed or off: GTM pixel, Ordersify, UpPromote, Concierge, Clarity, Sezzle, Judge.me, Triple Whale. Shop sign-in off; Online Store the only sales channel | D-56, D-27, D-57 |
 | Legacy records used only for past orders and obligations; legacy subscribers not emailed about jewelry | D-04, D-06, D-53 |
@@ -266,7 +266,7 @@ Contact page: [parkdalebrass.com/pages/contact-us](https://parkdalebrass.com/pag
 | `[mailing address]`, `[postal code]` | Owner | The CASL mailing address (a P.O. box is fine), in the consent line, the privacy contact and the contact block. Same names as [`newsletter-consent.md`](newsletter-consent.md) |
 | `[payment processor]` (three places) | Owner | Not in the store export; the plan is paused (F-05) |
 | `[Any other app still connected at launch …]` (provider row) and `[Any other app still on the site at launch …]` (cookies note) | Owner and store state | For example Klaviyo while it stays installed, Printful's script, ShipStation, Flow workflows or the staff AI apps. Delete both once none is left |
-| `[Records from before [launch date]: …]` (retention row) | Owner | The six-year tax period has passed for the oldest records, and deleting legacy records needs the owner's approval and an export first (`AGENTS.md`) |
+| `[how long records from before launch are kept]` (retention row) | Owner | The six-year tax period has passed for the oldest records, and deleting legacy records needs the owner's approval and an export first (`AGENTS.md`) |
 
 ### Not carried over from the 2019 text
 
@@ -275,7 +275,7 @@ Contact page: [parkdalebrass.com/pages/contact-us](https://parkdalebrass.com/pag
 - Google Analytics as a named provider, the NAI and DAA opt-out portals, and the Facebook, Google and Bing ad opt-out links. None is used at launch.
 - The "Do Not Track" statement. The text makes no promise about browser privacy signals.
 - The personal name and home address in the contact block (redacted in the backup). The contact block now uses a role title and the mailing address.
-- Minimum age 18. Replaced by "the age of majority where you live".
+- Minimum age 18. Replaced by "the age of majority in your province or territory".
 
 ## Legal points resolved (D-55)
 
@@ -312,7 +312,7 @@ Each point from this file's earlier "For the lawyer" list, with the matching ite
 
     *Source:* [CASL](https://laws-lois.justice.gc.ca/eng/acts/E-1.6/FullText.html) s. 6(1), (2), (6), s. 10(1), (10), s. 11(1)–(3); [SOR/2012-36](https://laws-lois.justice.gc.ca/eng/regulations/SOR-2012-36/FullText.html) ss. 2–4. **Verified.** CRTC Bulletins 2012-548 and 2012-549 and the CRTC FAQ: **not verified** (crtc.gc.ca returned 403).
 16. **Records from before launch** (README 51). *Applied:* both public statements are kept (D-04, D-06). The text makes no use of the implied consent from a past purchase, and it doesn't claim the old list is deleted or converted. Keeping pre-launch subscribers out of every Shopify Email audience is a store follow-up, because their marketing state may still read "subscribed". *Source:* CASL s. 10(9)–(10); PIPEDA Sch. 1 clauses 4.2.4, 4.5.3. **Verified.**
-17. **Children and minimum age** (README 43). *Applied:* "the age of majority where you live" to order or open an account, the same as the Terms need. "Children under 13" for knowing collection, per the OPC. The "made for adults" product statement is left to the Terms and the owner, because it's a product claim. *Source:* [OPC Guidelines for obtaining meaningful consent](https://www.priv.gc.ca/en/privacy-topics/privacy-for-businesses/appropriate-handling-of-personal-information/collecting-personal-information-and-consent/consent/gl_omc_201805/), "Consent and children". **Verified.** Each province's age of majority: **not verified**, and not stated, because "where you live" covers it.
+17. **Children and minimum age** (README 43). *Applied:* "the age of majority in your province or territory" to order or open an account, in the Terms' words (cross-policy pass, 2026-11-28). "Children under 13" for knowing collection, per the OPC. The "made for adults" product statement is left to the Terms and the owner, because it's a product claim. *Source:* [OPC Guidelines for obtaining meaningful consent](https://www.priv.gc.ca/en/privacy-topics/privacy-for-businesses/appropriate-handling-of-personal-information/collecting-personal-information-and-consent/consent/gl_omc_201805/), "Consent and children". **Verified.** Each province's age of majority: **not verified**, and not stated, because "where you live" covers it.
 18. **Changes to the policy** (README 12). *Applied:* notice of a change before it takes effect, by email where the store has the address and on this page, with consent asked where the law requires it. Emailing customers needs the owner told first (`AGENTS.md`). *Source:* PIPEDA Sch. 1 clause 4.2.4. **Verified.**
 19. **Staff-side AI tools** (README 66). *Applied:* the placeholder row covers them. The owner decides whether staff use them with customer data (then they're listed) or whether they're restricted or removed. *Source:* PIPEDA Sch. 1 clause 4.1.3. **Verified** (the principle). The apps' data terms: **not verified**.
 20. **Bill C-36 and pending law** (README 3). *Applied:* written to PIPEDA. Justice Laws shows PIPEDA current to 2026-11-12, last amended 2025-03-04. Its only amendments not in force (2026, c. 3, a data-mobility division) don't affect this text. So PIPEDA Part 1 was still the law on that date. Re-check at launch. *Source:* [PIPEDA](https://laws-lois.justice.gc.ca/eng/acts/P-8.6/FullText.html), currency note and "Amendments not in force". **Verified.** The bill's stage on LEGISinfo: **not verified** (www.parl.ca unreachable).
@@ -321,3 +321,15 @@ Each point from this file's earlier "For the lawyer" list, with the matching ite
 23. **Safety reports and health information** (README 27). *Applied:* a seller must give Health Canada and its supplier all the information in its control about an incident within two days. So the text says the store gives them what the law requires, tells the customer it has reported, and gives the supplier the customer's name or contact details only with their agreement or where the law requires it. The health details are used only to deal with the problem. CCPSA s. 13 records are supply-chain records (six years), not incident reports, so safety reports get their own two-year row (point 7). *Source:* [CCPSA](https://laws-lois.justice.gc.ca/eng/acts/C-1.68/FullText.html) s. 13(1)–(2), s. 14(1)–(2); PIPEDA s. 7(3)(i). **Verified.** Health Canada's reporting guide: **not verified** (www.canada.ca unreachable).
 24. **Proof of newsletter consent** (README 50). *Applied:* the text says only that the store keeps a record of consent, "such as when you subscribed". Store follow-ups: keep a dated copy of each version of the consent wording, and the owner chooses a confirmation email or Shopify's double opt-in. *Source:* CASL s. 13 (the person alleging consent has the onus of proving it). **Verified.** CRTC 2012-548 on confirming consent: **not verified**.
 25. **Closing an account** (README 67). *Applied:* the "Your account" row says the store closes the account, deletes what it doesn't need to keep (such as saved addresses), and keeps order records for the six-year period. An unsubscribed address stays on the do-not-email list (newsletter row). The Terms' "Your account" pointer now has its answer. *Source:* PIPEDA Sch. 1 clause 4.5.3. **Verified.** How Shopify closes or erases a customer who has orders: **not verified** (help.shopify.com unreachable). Testing it in Admin before launch is a store follow-up.
+
+### Verification pass (2026-11-28)
+
+A second agent re-read the official texts: PIPEDA s. 7.2, s. 8(3)–(8), s. 10.1(1), (3), (6), Sch. 1 clauses 4.3.8, 4.9.5, 4.10.4; CASL s. 6(6), s. 11(1), (3), s. 13; SOR/2012-36 s. 4; SOR/2018-64 s. 6(1); Business Names Act s. 2(6); CCPSA s. 14(1)–(2); Income Tax Act s. 230(4)(b); Excise Tax Act s. 286(3); Shopify's Consumer Privacy Policy (last updated 2026-03-02, privacy portal at privacy.shopify.com/en), Privacy Policy ("We are a Canadian company … including to the United States") and cookie list (every merchant-storefront cookie lasts 1 year or less). All match the text. Changes made:
+
+- "store or process information outside Canada" now reads "may store or process": only Shopify's own statement is verified, and the payment processor and email host aren't known yet.
+- Removed "and we tell you that we've reported it" from the safety paragraph. The CCPSA doesn't require it, and it was a business promise beyond the owner's decisions.
+- "any returns and warranties under the terms you bought under" now reads "support and any returns under the terms you bought under", so the text doesn't imply a warranty the owner hasn't confirmed.
+- The checkout-reminder line now says "We treat … as a marketing email", because whether CASL treats it as one is unclear (point 15(d)); the protective practice is kept.
+- The pre-launch retention placeholder no longer nests a bracket or speaks to the owner in the customer text: `[how long records from before launch are kept]`.
+
+Still not verified: `help.shopify.com` (HTTP 403 again), so the cookie banner's behaviour and one-time-code sign-in remain store tests.

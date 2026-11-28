@@ -42,7 +42,7 @@ When your order ships, we email you its tracking number.
 
 Orders don't need a signature on delivery. Please choose a delivery address where your parcel can be left safely.
 
-The day Canada Post's tracking shows your parcel as delivered is your delivery date. Your 30 days to return or exchange a piece, or to report damage, start that day.
+The day Canada Post's tracking shows your parcel as delivered is your delivery date. If the tracking doesn't show a delivery date, it's the day you receive your parcel. Your 30 days to return or exchange a piece, or to report damage, start on your delivery date.
 
 ## Changing or cancelling your order
 
@@ -60,11 +60,13 @@ You can follow your parcel with the tracking number in your shipping email. If y
 
 If your order hasn't been delivered within 30 days after you placed it, you can cancel it at any time before it's delivered. If you agreed in writing to a later delivery date, the 30 days count from that date instead.
 
-To cancel, tell us you're cancelling, in any way you like. We suggest a way you can keep a record of, such as an email to shawns@parkdalebrass.com. We refund everything you paid, including shipping, within 15 days after you tell us.
+To cancel, tell us you're cancelling. You can tell us any way you like. We suggest a way you can keep a record of, such as an email to shawns@parkdalebrass.com. If you write to us, your notice counts from the day you send it. We refund everything you paid, including shipping, within 15 days after you tell us.
 
 If those 30 days pass and you then agree to take delivery, you can't cancel for late delivery, but your return rights still apply.
 
-If your parcel reaches you after you cancel, send it back to us at the address in "Contact us" below. Do this within 15 days after you cancel or after it arrives, whichever is later. Use a method that confirms delivery, such as a tracked service. We pay the reasonable cost of sending it back.
+If your parcel reaches you after you cancel, send it back within 15 days after you cancel or after you receive it, whichever is later. Send it to our address under "Contact us" below, or to a return address we give you, by a method that confirms delivery, such as a tracked service. It counts as returned on the day you send it. We pay the reasonable cost of sending it back: we can send you a prepaid label, or pay you back what you spent.
+
+If we don't refund you in time and you paid by credit card, you can ask your credit card issuer, in writing, to reverse the charge. You need to ask within 60 days after our 15 days end.
 
 ## Lost or missing parcels
 
@@ -92,15 +94,15 @@ This time limit doesn't shorten your rights under the law. The jewelry you buy m
 
 ## Returns and exchanges, in short
 
-- You can return or exchange unworn pieces in their original packaging within 30 days of delivery.
-- Each ring order includes one free size exchange within those 30 days. We send you a prepaid return label, and we ship the new size to you free. We don't resize rings: if The Brockton doesn't fit, exchange it for another size.
+- You can return or exchange unworn pieces in their original packaging within 30 days of delivery. Unworn means you've only tried the piece on to check the fit, and it has no marks, scratches or other signs of wear. Original packaging is the packaging the piece came in, not the outer shipping box or mailer.
+- Each order with a ring includes one free size exchange within those 30 days. We send you a prepaid return label, and we ship the new size to you free. We don't resize rings: if The Brockton doesn't fit, exchange it for another size.
 - If you return an unworn piece for a refund (not an exchange), you pay the return shipping. This doesn't apply when you cancel under a right the law gives you.
-- We refund an unworn return to your original payment method within 5 business days after it reaches us. Your bank or card provider may take longer to show the refund.
-- If a piece is damaged or faulty, tell us within 30 days of delivery, with photos. We replace or refund it, send you a prepaid return label, and ship any replacement to you free.
+- If a piece arrives damaged, has a fault, or isn't what you ordered, tell us within 30 days of delivery, with photos. You choose a replacement or a refund. We send you a prepaid return label, and a replacement ships to you free.
+- We refund to your original payment method within 5 business days after your return reaches us. Your bank or card provider may take longer to show the refund.
 
 How to start a return or exchange is explained in our [Returns and exchanges policy](https://parkdalebrass.com/policies/refund-policy).
 
-Orders placed before [launch date] keep the return and warranty terms they were sold under, and your rights under the law still apply. For help with one, email us at shawns@parkdalebrass.com and include your order number.
+Orders placed before [launch date] keep the terms they were sold under, and your rights under the law still apply. For help with one, email us at shawns@parkdalebrass.com, or use our [contact page](https://parkdalebrass.com/pages/contact-us), and include your order number.
 
 ## Your rights
 
@@ -146,8 +148,8 @@ Only these appear in the policy without brackets.
 | Late delivery, the 15-day refund, notice in any way, the return rule for a parcel that arrives after cancelling | The law, legal point 2 |
 | The store bears loss until delivery; lost parcels replaced or refunded, buyer's choice; steps for "delivered but not received" | Legal point 3 |
 | Damage: 30 days from delivery, with photos; replaced or refunded, buyer's choice; prepaid return label; replacement ships free | D-54, D-57; legal point 4 |
-| Returns summary: unworn, original packaging, 30 days from delivery; one free size exchange per ring order with a prepaid label, new size shipped free; no resizing; customer pays return shipping on refunds, except a cancellation under the law; refund to the original payment method within 5 business days after the return arrives | D-44, D-53, D-54, D-57 |
-| Legacy orders keep their original terms; support by email | D-06, D-53 |
+| Returns summary: unworn, original packaging (both defined as in the Returns and exchanges policy), 30 days from delivery; one free size exchange per ring order with a prepaid label, new size shipped free; no resizing; customer pays return shipping on refunds, except a cancellation under the law; refund to the original payment method within 5 business days after the return arrives | D-44, D-53, D-54, D-57 |
+| Legacy orders keep the terms they were sold under; support by email or the contact page | D-06, D-53 |
 | Contact email shawns@parkdalebrass.com | Owner-supplied (owner-inputs D-03) |
 
 ## Placeholders used
@@ -247,8 +249,8 @@ Each point from this file's former "For the lawyer" list, with the matching item
     - The block reads "[legal name], operating as Parkdale Brass", "[premises street address]" (a street address: a P.O. box isn't premises), "[business phone]", the owner's email and the contact page. The same details go in the order confirmation (point 11).
 
     *Source:* [O. Reg. 17/05 s. 32 items 1, 2](https://www.ontario.ca/laws/regulation/050017) (verified); [Business Names Act s. 2(1), (6)](https://www.ontario.ca/laws/statute/90b17) (verified).
-14. **Consumer Protection Act, 2023 (R2).** *Point:* is it in force? *Applied:* no. Its e-Laws page says "THIS ACT IS NOT YET IN FORCE. It comes into force on a day to be named by proclamation", and the 2002 Act's page says it "is repealed on a day to be named by proclamation (See: 2023, c. 23, Sched. 1, s. 110)". The policy is written to the 2002 Act and O. Reg. 17/05. Re-check both pages on launch day: once the 2023 Act is proclaimed, points 1, 2 and 11 need redoing. *Source:* [CPA 2023](https://www.ontario.ca/laws/statute/23c23) (verified); [CPA 2002](https://www.ontario.ca/laws/statute/02c30) (verified).
-15. **One set of facts across the policies.** *Point:* the footer's "Shipping & Returns" link opens this page, so it repeats the return terms. No term may have two meanings, since ambiguity is read for the consumer (CPA s. 11). *Applied:* the returns summary now carries D-57: the refund clock starts when the return arrives, the new size ships free, the replacement ships free, and there's no return-shipping charge on a cancellation under the law. Legacy-order support is by email (D-06). As read on 2026-11-27, the Returns and exchanges draft and the Terms still say "30 days after the latest delivery date we gave you", "after it reaches us and we've checked it", and keep the `[Delivery date: …]`, `[Replace or refund: …]`, `[Packaging photos: …]` and `[Replacement shipping: …]` brackets. Each must use this file's wording, or both must move together to whichever is more protective. Until then, the Terms rule that "the one that's better for you applies" governs any conflict. *Source:* [CPA 2002 s. 11](https://www.ontario.ca/laws/statute/02c30) (verified).
+14. **Consumer Protection Act, 2023 (R2).** *Point:* is it in force? *Applied:* no. Its e-Laws page says "THIS ACT IS NOT YET IN FORCE. It comes into force on a day to be named by proclamation of the Lieutenant Governor.", and the 2002 Act's page says it "is repealed on a day to be named by proclamation of the Lieutenant Governor. (See: 2023, c. 23, Sched. 1, s. 110)". The policy is written to the 2002 Act and O. Reg. 17/05. Re-check both pages on launch day: once the 2023 Act is proclaimed, points 1, 2 and 11 need redoing. *Source:* [CPA 2023](https://www.ontario.ca/laws/statute/23c23) (verified); [CPA 2002](https://www.ontario.ca/laws/statute/02c30) (verified).
+15. **One set of facts across the policies.** *Point:* the footer's "Shipping & Returns" link opens this page, so it repeats the return terms. No term may have two meanings, since ambiguity is read for the consumer (CPA s. 11). *Applied:* the returns summary now carries D-57: the refund clock starts when the return arrives, the new size ships free, the replacement ships free, and there's no return-shipping charge on a cancellation under the law. Legacy-order support is by email (D-06). Legacy-order support is by email or the contact page (D-06). *Cross-policy pass (2026-11-28):* the four policies were read together and brought into line; see [`README.md`](README.md) "Cross-policy fixes". Shipping now carries the same delivery-date fallback, cancellation notice, statutory return and card-reversal wording as Returns and Terms. Where any difference is left, the Terms rule that "the one that's better for you applies" governs. *Source:* [CPA 2002 s. 11](https://www.ontario.ca/laws/statute/02c30) (verified).
 16. **Unverified citations (R1).** *Point:* check every section number against the official text. *Applied:* done for every citation above, on e-Laws, Justice Laws, LégisQuébec and the Competition Bureau site. Three sources didn't load in this session: www.canada.ca (CRA and the Cineplex statement), help.shopify.com and ised-isde.canada.ca (the Harmonization Template). Nothing in the policy depends on them, and they're marked "not verified" above. Corrected from the earlier drafts: late delivery is CPA s. 26, not s. 23 (s. 23 is the one-year cancellation for a missing copy, which O. Reg. 17/05 s. 18 switches off); the 15-day refund is O. Reg. 17/05 s. 79(1); the return rule is s. 81 (s. 80 covers direct, time-share, personal-development, loan-brokering and credit-repair agreements). *Source:* as listed in each point (verified).
 17. **Business days.** *Point:* "business day" needs one meaning (CPA s. 11), and the owner listed no holidays. *Applied:* Monday to Friday, except Ontario's nine public holidays, as listed in the Employment Standards Act, 2000 s. 1(1) ("public holiday"). That's the narrowest standard Ontario list, so the counts are as short as "business days" can reasonably mean. There's no order cut-off time: none was set, and a cut-off would be a restriction that O. Reg. 17/05 s. 32 item 14 requires to be disclosed. *Source:* [Employment Standards Act, 2000 s. 1(1)](https://www.ontario.ca/laws/statute/00e41) (verified); [CPA 2002 s. 11](https://www.ontario.ca/laws/statute/02c30) (verified); [O. Reg. 17/05 s. 32 item 14](https://www.ontario.ca/laws/regulation/050017) (verified).
 18. **Business choices that stay with the owner (R11).** *Point:* changing or cancelling before shipping, parcels that come back, and delay notices. *Applied:*
