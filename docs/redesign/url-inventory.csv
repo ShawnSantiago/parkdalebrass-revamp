@@ -1,168 +1,280 @@
-type,url,category,proposed_first_action,note,clicks_16m,impressions_16m,backlinks,final_action,destination,approved_by,date
-core,/,core,Keep; replace content at launch,Homepage and listing routes stay,,,,,,,
-core,/blogs/news,core,Keep; replace content at launch,Homepage and listing routes stay,,,,,,,
-core,/collections/all,core,Keep; replace content at launch,Homepage and listing routes stay,,,,,,,
-product,/products/parkdale-brass-mug,brand-merch,"Owner decision: keep as brand merch outside jewelry nav, or unpublish",Parkdale Brass Mug,,,,,,,
-product,/products/toddler-short-sleeve-tee,brand-merch,"Owner decision: keep as brand merch outside jewelry nav, or unpublish",Toddler Short Sleeve Tee,,,,,,,
-product,/products/men-s-slides-gold,brand-merch,"Owner decision: keep as brand merch outside jewelry nav, or unpublish",Men’s slides (Gold),,,,,,,
-product,/products/men-s-slides,brand-merch,"Owner decision: keep as brand merch outside jewelry nav, or unpublish",Men’s slides,,,,,,,
-product,/products/dad-hat-1,brand-merch,"Owner decision: keep as brand merch outside jewelry nav, or unpublish",Dad hat,,,,,,,
-product,/products/the-bellwoods-one-hitter,legacy-smoking,Archive at launch (CSV first); 301 to the same-name jewelry piece after the A-03 check (D-39),The Bellwoods One-Hitter,,,,,/products/the-bellwoods-pendant,Owner (D-39),2026-11-27
-product,/products/6-5-long-bristle-scrubbing-pipe-cleaners-3-cleaners,legacy-smoking,Retirement decision after traffic/backlink/support audit; no blanket redirect to home,"6.5"" Long Bristle Scrubbing Pipe Cleaners - 3 Cleaners",,,,,,,
-product,/products/short-sleeve-unisex-t-shirt-5,brand-merch,"Owner decision: keep as brand merch outside jewelry nav, or unpublish",Short-Sleeve Unisex T-Shirt,,,,,,,
-product,/products/short-sleeve-unisex-t-shirt-4,brand-merch,"Owner decision: keep as brand merch outside jewelry nav, or unpublish",Short-Sleeve Unisex T-Shirt,,,,,,,
-product,/products/brockton-mk2-special-edition,legacy-smoking,Archive at launch (CSV first); 301 to the same-name jewelry piece after the A-03 check (D-39),The Brockton Mk2 Special Edition,,,,,/products/the-brockton-signet,Owner (D-39),2026-11-27
-product,/products/brass-pipe-screens,legacy-smoking,Retirement decision after traffic/backlink/support audit; no blanket redirect to home,Brass Pipe Screens,,,,,,,
-product,/products/brockton-mk2,legacy-smoking,Archive at launch (CSV first); 301 to the same-name jewelry piece after the A-03 check (D-39),The Brockton Mk2,,,,,/products/the-brockton-signet,Owner (D-39),2026-11-27
-collection,/collections/accessories,legacy/internal,Retire or keep unlinked; decide with traffic data,Accessories (1 products),,,,,,,
-collection,/collections/apparel,brand-merch,Owner decision (see apparel products),Apparel (6 products),,,,,,,
-collection,/collections/cleaning,empty,Unpublish candidate (0 products); confirm no traffic,Cleaning (0 products),,,,,,,
-collection,/collections/coming-soon,legacy/internal,Retire or keep unlinked; decide with traffic data,Coming Soon (2 products),,,,,,,
-collection,/collections/containers,empty,Unpublish candidate (0 products); confirm no traffic,Containers (0 products),,,,,,,
-collection,/collections/etsy,legacy/internal,Retire or keep unlinked; decide with traffic data,Etsy (1 products),,,,,,,
-collection,/collections/featured-products,legacy/internal,Retire or keep unlinked; decide with traffic data,Featured Products (2 products),,,,,,,
-collection,/collections/grinders,empty,Unpublish candidate (0 products); confirm no traffic,Grinders (0 products),,,,,,,
-collection,/collections/lighters-and-matches,empty,Unpublish candidate (0 products); confirm no traffic,Lighters and Matches (0 products),,,,,,,
-collection,/collections/metal-smoking-pipes,legacy/internal,Retire or keep unlinked; decide with traffic data,Metal Smoking Pipes (4 products),,,,,,,
-collection,/collections/pipe-accessories,legacy/internal,Retire or keep unlinked; decide with traffic data,Pipe Accessories (2 products),,,,,,,
-collection,/collections/shop,legacy/internal,Retire or keep unlinked; decide with traffic data,Shop (9 products),,,,,,,
-collection,/collections/trays,empty,Unpublish candidate (0 products); confirm no traffic,Trays (0 products),,,,,,,
-collection,/collections/vaporizers,empty,Unpublish candidate (0 products); confirm no traffic,Vaporizers (0 products),,,,,,,
-page,/pages/contact-us,legal/support,Keep (support),,,,,,,,
-page,/pages/ccpa-opt-out,legal/support,Keep (legal),,,,,,,,
-page,/pages/reviews,legacy/duplicate,Empty page; unpublish candidate,Admin 2026-11-27: suffix judgeme_all_reviews (no such template in Craft or the repo); empty body,,,,Unpublished (G-11); legacy redirect to / deleted (G-20),None (404),Owner (chat 2026-11-27),2026-11-27
-page,/pages/fathers-day-24,legacy/duplicate,Legacy promo; retire candidate,Admin 2026-11-27: published; suffix instant-LeMnKzmAHEXo1htp (shared with page-2); empty body (G-21),,,,,,,
-page,/pages/page-2,legacy/duplicate,Duplicate of fathers-day-24; retire candidate,Admin 2026-11-27: suffix instant-LeMnKzmAHEXo1htp; empty body,,,,Unpublished (G-10),None (404),Owner (chat 2026-11-27),2026-11-27
-article,/blogs/news/an-introduction-to-the-brockton,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/is-brass-safe-to-smoke-out-of,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry. Contains health/safety claims: review or retire regardless,,,,,,,,
-article,/blogs/news/5-essential-smoking-accessories-everyone-needs,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/a-review-of-the-brockton-by-alyssa-yeoman,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/how-to-clean-a-metal-smoking-pipe,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/stretch-your-cannabis-stash-in-lockdown,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/best-smoke-shops-in-toronto,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/how-to-smoke-a-pipe,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/lockdown-cannabis-strains-for-2020,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/jacqui-childs-cannabis-journey,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/redesigning-home-grow-grass-and-grain-co,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/powerful-people-and-smoking-pipes,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/how-to-use-hemp-wick,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/an-introduction-to-the-brockton-mk2,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/how-cannabis-makes-your-life-happier,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/the-best-cannabis-strains-for-anxiety,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry. Contains health/safety claims: review or retire regardless,,,,,,,,
-article,/blogs/news/canada-and-the-cannabis-stigma,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/a-beginners-guide-to-hash,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/does-coughing-get-you-higher,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/choosing-the-best-cannabis-strains-for-pain,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry. Contains health/safety claims: review or retire regardless,,,,,,,,
-article,/blogs/news/does-legalization-affect-youth-cannabis-use,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/why-cannabis-gives-you-munchies,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/the-best-cannabis-strains-for-autumn,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/what-you-need-to-know-about-coffee-and-cannabis,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/how-to-manage-your-weed-tolerance,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/do-genetics-influence-your-cannabis-response,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/history-of-cannabis-persecutions-in-canada,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/the-origins-of-the-metal-smoking-pipe,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/the-pros-and-cons-of-metal-smoking-pipes,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/how-to-choose-the-best-rolling-tray,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/a-beginners-guide-to-pipes,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/the-brockton-versus-the-proto-pipe,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/celebrating-craft-cannabis-with-lowell-farms-origin-collection,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/the-brockton-versus-the-journey-pipe,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/why-metal-pipes-are-better-than-glass-pipes,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/4-reasons-to-love-clippers-lighters,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/how-to-clean-a-weed-pipe,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/what-is-grasscity,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/5-tips-to-find-the-perfect-pot-pipe,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/why-you-should-try-king-palm,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/10-classic-smoking-pipe-types,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/the-pot-leaf-in-history,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/how-to-clean-a-metal-one-hitter,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/does-smoking-more-get-you-higher,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/recreational-cannabis-and-canna-provisions,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/how-to-choose-the-best-pipe-tobacco,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/cannabis-myths-does-thc-indicate-the-strength-of-a-cannabis-strain,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/whats-to-come-for-canadian-cannabis,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/why-you-should-try-metal-weed-pipes,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/what-are-the-differences-between-cbda-cbg,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/five-cannabis-cookbooks-to-try-this-fall,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/3-benefits-of-a-smoking-pipe-with-a-lid,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/room-to-grow-in-the-canadian-cannabis-industry,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/4-easy-holiday-gifts-for-the-stoner-in-your-life,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/the-bright-history-of-brass,brand,Keep; update for jewelry chapter,,,,,,,,
-article,/blogs/news/what-made-cannabis-essential-in-2020,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/cannabis-in-film-history,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/4-reasons-to-keep-cbd-legal,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/cannabis-helps-prevent-covid-19-infections,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry. Contains health/safety claims: review or retire regardless,,,,,,,,
-article,/blogs/news/cannabis-and-your-pet,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry. Contains health/safety claims: review or retire regardless,,,,,,,,
-article,/blogs/news/how-to-pick-the-best-pipe-for-you,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/the-parkdale-brass-story,brand,Keep; update for jewelry chapter,,,,,,,,
-article,/blogs/news/how-to-roll-a-joint,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/how-to-roll-a-blunt,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/the-ancient-history-of-hemp,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/cannabis-and-sustainability,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/smoking-legends-who-invented-the-proto-pipe,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/how-to-clean-a-santa-cruz-shredder,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/what-are-the-parts-of-a-pipe,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/how-to-use-pipe-screens,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/slow-smoking-with-brass-pipes,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/indulge-in-cannabis-vodka-this-summer,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/3-benefits-of-cbd-skincare,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/will-cannabis-lounges-come-to-canada,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/national-cannabis-festivals-in-2022,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/does-weed-have-calories,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/marijuana-and-vitamin-c,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/what-is-weed-aesthetic,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/how-long-does-weed-stay-good,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/pipe-vs-bong-for-smoking-weed,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/how-to-inhale-weed,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/can-you-donate-plasma-if-you-smoke-weed,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/how-to-recover-from-edibles,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/best-things-to-do-when-high,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/how-to-roll-a-rose-blunt,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/all-you-need-to-know-about-taking-a-tolerance-break-from-weed,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/the-science-behind-why-weed-makes-you-hungry,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/when-to-stop-smoking-weed-while-pregnant,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry. Contains health/safety claims: review or retire regardless,,,,,,,,
-article,/blogs/news/how-to-smoke-shatter,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/5-ways-to-get-higher-from-weed,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/is-marijuana-a-depressant-how-it-impacts-the-brain,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/how-to-dose-cannabis-properly-in-all-forms,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/edibles-vs-smoking,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/let-s-talk-about-kief-and-how-awesome-it-is,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/cbd-vs-thc-is-one-better-for-you-than-the-other,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/how-to-come-down-from-a-high,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/how-long-does-cannabis-stay-good,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/cannabis-and-sex-does-weed-make-you-horny,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/why-is-a-proto-pipe-so-expensive-a-deep-dive-into-the-cannabis-accessories-industry,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/the-rise-and-fall-of-the-proto-pipe-a-cannabis-legend,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/slow-smoking-on-the-go-with-the-bellwoods,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/fathers-day-24,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,Admin 2026-11-27: suffix instant-1DKpbqr14n7lJI3A; empty body,,,,Hidden (G-12); no redirect (D-16),None (404),Owner (chat 2026-11-27),2026-11-27
-article,/blogs/news/revive-your-smoking-ritual,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,,,,,,,
-article,/blogs/news/brass-jewelry,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: is-brass-good / mens) pending Search Console,is-brass-good / mens,,,,,,,
-article,/blogs/news/does-brass-tarnish,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: tarnish) pending Search Console,tarnish,,,,,,,
-article,/blogs/news/does-brass-turn-your-skin-green,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: green-skin) pending Search Console,green-skin,,,,,,,
-article,/blogs/news/does-brass-turn-green,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: green-skin) pending Search Console,green-skin,,,,,,,
-article,/blogs/news/does-brass-jewelry-tarnish,jewelry,"Keep URL; accuracy review; consolidation candidate (cluster: tarnish) pending Search Console. Says ""generally hypoallergenic""; fix",tarnish,,,,,,,
-article,/blogs/news/brass-necklace,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: standalone) pending Search Console,standalone,,,,,,,
-article,/blogs/news/how-to-clean-brass-jewelry,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: cleaning-care) pending Search Console,cleaning-care,,,,,,,
-article,/blogs/news/brass-jewelry-tarnish,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: tarnish) pending Search Console,tarnish,,,,,,,
-article,/blogs/news/is-brass-good-for-jewelry,jewelry,"Keep URL; accuracy review; consolidation candidate (cluster: is-brass-good / mens) pending Search Console. Says brass is ""generally hypoallergenic"" (contradicts other articles); fix",is-brass-good / mens,,,,,,,
-article,/blogs/news/is-brass-jewelry-good,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: is-brass-good / mens) pending Search Console,is-brass-good / mens,,,,,,,
-article,/blogs/news/does-brass-jewelry-turn-green,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: green-skin) pending Search Console,green-skin,,,,,,,
-article,/blogs/news/why-your-brass-jewelry-needs-polishing,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: cleaning-care) pending Search Console,cleaning-care,,,,,,,
-article,/blogs/news/does-brass-jewelry-turn-skin-green,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: green-skin) pending Search Console,green-skin,,,,,,,
-article,/blogs/news/brass-mens-jewelry,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: is-brass-good / mens) pending Search Console,is-brass-good / mens,,,,,,,
-article,/blogs/news/why-cleaning-brass-jewelry-matters,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: cleaning-care) pending Search Console,cleaning-care,,,,,,,
-article,/blogs/news/what-is-brass-made-of,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: material) pending Search Console,material,,,,,,,
-article,/blogs/news/is-brass-jewelry-waterproof,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: standalone) pending Search Console,standalone,,,,,,,
-article,/blogs/news/why-cleaning-your-brass-jewelry-is-essential,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: cleaning-care) pending Search Console,cleaning-care,,,,,,,
-article,/blogs/news/brass-vs-gold-jewelry-choosing-right-metal,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: comparisons) pending Search Console,comparisons,,,,,,,
-article,/blogs/news/will-brass-jewelry-tarnish,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: tarnish) pending Search Console,tarnish,,,,,,,
-article,/blogs/news/importance-right-brass-cleaner,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: cleaning-care) pending Search Console,cleaning-care,,,,,,,
-article,/blogs/news/is-brass-good-metal-for-mens-jewelry,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: is-brass-good / mens) pending Search Console,is-brass-good / mens,,,,,,,
-article,/blogs/news/brass-tarnish-jewelry-changes-color,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: tarnish) pending Search Console,tarnish,,,,,,,
-article,/blogs/news/gold-plated-brass-jewelry,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: comparisons) pending Search Console,comparisons,,,,,,,
-article,/blogs/news/mens-brass-jewelry-durability,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: is-brass-good / mens) pending Search Console,is-brass-good / mens,,,,,,,
-article,/blogs/news/brass-jewelry-box-collection,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: standalone) pending Search Console,standalone,,,,,,,
-article,/blogs/news/importance-cleaning-brass-jewelry,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: cleaning-care) pending Search Console,cleaning-care,,,,,,,
-article,/blogs/news/brass-vs-bronze-jewelry-guide,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: comparisons) pending Search Console,comparisons,,,,,,,
-article,/blogs/news/why-choose-brass-cz-jewelry,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: comparisons) pending Search Console,comparisons,,,,,,,
-article,/blogs/news/what-is-brass-jewelry-metal,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: material) pending Search Console,material,,,,,,,
+type,url,category,proposed_first_action,note,clicks_16m,impressions_16m,backlinks,final_action,destination,approved_by,date,gsc_clicks_3m,gsc_impressions_3m,shopify_sessions,shopify_orders
+core,/,core,Keep; replace content at launch,Homepage and listing routes stay,266,3790,,keep-update,,"agent (D-28), pending owner",2026-11-27,64,566,25163,41
+core,/blogs/news,core,Keep; replace content at launch,Homepage and listing routes stay,1,132,,keep,,"agent (D-28), pending owner",2026-11-27,0,26,563,1
+core,/collections/all,core,Keep; replace content at launch,Homepage and listing routes stay,1,251,,keep-update,,"agent (D-28), pending owner",2026-11-27,0,47,178,1
+product,/products/parkdale-brass-mug,brand-merch,"Owner decision: keep as brand merch outside jewelry nav, or unpublish",Parkdale Brass Mug,1,31,,owner-decision,,,,1,3,47,0
+product,/products/toddler-short-sleeve-tee,brand-merch,"Owner decision: keep as brand merch outside jewelry nav, or unpublish",Toddler Short Sleeve Tee,0,0,,owner-decision,,,,0,0,108,0
+product,/products/men-s-slides-gold,brand-merch,"Owner decision: keep as brand merch outside jewelry nav, or unpublish",Men’s slides (Gold),0,0,,owner-decision,,,,0,0,186,0
+product,/products/men-s-slides,brand-merch,"Owner decision: keep as brand merch outside jewelry nav, or unpublish",Men’s slides,0,0,,owner-decision,,,,0,0,174,0
+product,/products/dad-hat-1,brand-merch,"Owner decision: keep as brand merch outside jewelry nav, or unpublish",Dad hat,0,6,,owner-decision,,,,0,0,92,0
+product,/products/the-bellwoods-one-hitter,legacy-smoking,Archive at launch (CSV first); 301 to the same-name jewelry piece after the A-03 check (D-39),The Bellwoods One-Hitter,3,22,,consolidate-301,/products/the-bellwoods-pendant,Owner (D-39),2026-11-27,2,18,391,2
+product,/products/6-5-long-bristle-scrubbing-pipe-cleaners-3-cleaners,legacy-smoking,Retirement decision after traffic/backlink/support audit; no blanket redirect to home,"6.5"" Long Bristle Scrubbing Pipe Cleaners - 3 Cleaners",0,83,,retire-404,,,,0,0,79,0
+product,/products/short-sleeve-unisex-t-shirt-5,brand-merch,"Owner decision: keep as brand merch outside jewelry nav, or unpublish",Short-Sleeve Unisex T-Shirt,0,5,,owner-decision,,,,0,0,110,0
+product,/products/short-sleeve-unisex-t-shirt-4,brand-merch,"Owner decision: keep as brand merch outside jewelry nav, or unpublish",Short-Sleeve Unisex T-Shirt,0,4,,owner-decision,,,,0,0,369,0
+product,/products/brockton-mk2-special-edition,legacy-smoking,Archive at launch (CSV first); 301 to the same-name jewelry piece after the A-03 check (D-39),The Brockton Mk2 Special Edition,0,0,,consolidate-301,/products/the-brockton-signet,Owner (D-39),2026-11-27,0,0,175,2
+product,/products/brass-pipe-screens,legacy-smoking,Retirement decision after traffic/backlink/support audit; no blanket redirect to home,Brass Pipe Screens,1,111,,retire-404,,,,0,9,189,0
+product,/products/brockton-mk2,legacy-smoking,Archive at launch (CSV first); 301 to the same-name jewelry piece after the A-03 check (D-39),The Brockton Mk2,61,595,,consolidate-301,/products/the-brockton-signet,Owner (D-39),2026-11-27,19,70,2883,31
+collection,/collections/accessories,legacy/internal,Retire or keep unlinked; decide with traffic data,Accessories (1 products),0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,39,0
+collection,/collections/apparel,brand-merch,Owner decision (see apparel products),Apparel (6 products),109,35900,,owner-decision,,,,0,24,156,1
+collection,/collections/cleaning,empty,Unpublish candidate (0 products); confirm no traffic,Cleaning (0 products),0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,42,1
+collection,/collections/coming-soon,legacy/internal,Retire or keep unlinked; decide with traffic data,Coming Soon (2 products),0,5,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,4,46,0
+collection,/collections/containers,empty,Unpublish candidate (0 products); confirm no traffic,Containers (0 products),0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,13,0
+collection,/collections/etsy,legacy/internal,Retire or keep unlinked; decide with traffic data,Etsy (1 products),0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,7,0
+collection,/collections/featured-products,legacy/internal,Retire or keep unlinked; decide with traffic data,Featured Products (2 products),0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,31,0
+collection,/collections/grinders,empty,Unpublish candidate (0 products); confirm no traffic,Grinders (0 products),0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,26,0
+collection,/collections/lighters-and-matches,empty,Unpublish candidate (0 products); confirm no traffic,Lighters and Matches (0 products),0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,8,0
+collection,/collections/metal-smoking-pipes,legacy/internal,Retire or keep unlinked; decide with traffic data,Metal Smoking Pipes (4 products),45,3328,,retire-404,,"agent (D-28), pending owner",2026-11-27,4,103,3466,14
+collection,/collections/pipe-accessories,legacy/internal,Retire or keep unlinked; decide with traffic data,Pipe Accessories (2 products),0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,33,0
+collection,/collections/shop,legacy/internal,Retire or keep unlinked; decide with traffic data,Shop (9 products),2,327,,owner-decision,,,,0,45,43,0
+collection,/collections/trays,empty,Unpublish candidate (0 products); confirm no traffic,Trays (0 products),0,12,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,6,27,0
+collection,/collections/vaporizers,empty,Unpublish candidate (0 products); confirm no traffic,Vaporizers (0 products),0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,7,0
+page,/pages/contact-us,legal/support,Keep (support),,1,233,,keep,,"agent (D-28), pending owner",2026-11-27,0,50,389,0
+page,/pages/ccpa-opt-out,legal/support,Keep (legal),,0,68,,keep,,"agent (D-28), pending owner",2026-11-27,0,10,33,0
+page,/pages/reviews,legacy/duplicate,Empty page; unpublish candidate,Admin 2026-11-27: suffix judgeme_all_reviews (no such template in Craft or the repo); empty body,0,0,,retire-404 (done: Unpublished (G-11); legacy redirect to / deleted (G-20)),None (404),Owner (chat 2026-11-27),2026-11-27,0,0,36,0
+page,/pages/fathers-day-24,legacy/duplicate,Legacy promo; retire candidate,Admin 2026-11-27: published; suffix instant-LeMnKzmAHEXo1htp (shared with page-2); empty body (G-21),0,0,,retire-404,,owner (G-21),2026-11-27,0,0,96,0
+page,/pages/page-2,legacy/duplicate,Duplicate of fathers-day-24; retire candidate,Admin 2026-11-27: suffix instant-LeMnKzmAHEXo1htp; empty body,0,0,,retire-404 (done: Unpublished (G-10)),None (404),Owner (chat 2026-11-27),2026-11-27,0,0,6,0
+article,/blogs/news/an-introduction-to-the-brockton,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,46,0
+article,/blogs/news/is-brass-safe-to-smoke-out-of,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry. Contains health/safety claims: review or retire regardless,,74,11425,,retire-404,,,,7,907,4211,1
+article,/blogs/news/5-essential-smoking-accessories-everyone-needs,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,45,0
+article,/blogs/news/a-review-of-the-brockton-by-alyssa-yeoman,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,1,306,,retire-404,,,,0,22,56,0
+article,/blogs/news/how-to-clean-a-metal-smoking-pipe,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,1352,42464,,retire-404,,,,193,5658,19728,3
+article,/blogs/news/stretch-your-cannabis-stash-in-lockdown,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,151,,retire-404,,,,0,0,48,0
+article,/blogs/news/best-smoke-shops-in-toronto,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,86,0
+article,/blogs/news/how-to-smoke-a-pipe,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,48,,retire-404,,,,0,37,187,0
+article,/blogs/news/lockdown-cannabis-strains-for-2020,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,1,356,,retire-404,,,,0,12,45,0
+article,/blogs/news/jacqui-childs-cannabis-journey,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,40,2865,,retire-404,,,,3,147,131,0
+article,/blogs/news/redesigning-home-grow-grass-and-grain-co,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,2,,retire-404,,,,0,2,37,0
+article,/blogs/news/powerful-people-and-smoking-pipes,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,30,5582,,retire-404,,,,2,620,3012,0
+article,/blogs/news/how-to-use-hemp-wick,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,917,,retire-404,,,,0,47,180,0
+article,/blogs/news/an-introduction-to-the-brockton-mk2,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,1,,retire-404,,,,0,1,37,0
+article,/blogs/news/how-cannabis-makes-your-life-happier,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,1,96,,retire-404,,,,0,50,14,0
+article,/blogs/news/the-best-cannabis-strains-for-anxiety,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry. Contains health/safety claims: review or retire regardless,,0,609,,retire-404,,,,0,273,56,0
+article,/blogs/news/canada-and-the-cannabis-stigma,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,16,0
+article,/blogs/news/a-beginners-guide-to-hash,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,1293,,retire-404,,,,0,843,519,0
+article,/blogs/news/does-coughing-get-you-higher,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,346,94700,,retire-404,,,,2,2191,74725,1
+article,/blogs/news/choosing-the-best-cannabis-strains-for-pain,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry. Contains health/safety claims: review or retire regardless,,0,120,,retire-404,,,,0,14,287,0
+article,/blogs/news/does-legalization-affect-youth-cannabis-use,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,22,,retire-404,,,,0,1,9,0
+article,/blogs/news/why-cannabis-gives-you-munchies,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,234,,retire-404,,,,0,104,6,0
+article,/blogs/news/the-best-cannabis-strains-for-autumn,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,121,,retire-404,,,,0,54,52,0
+article,/blogs/news/what-you-need-to-know-about-coffee-and-cannabis,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,44,,retire-404,,,,0,6,15,0
+article,/blogs/news/how-to-manage-your-weed-tolerance,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,63,,retire-404,,,,0,2,69,0
+article,/blogs/news/do-genetics-influence-your-cannabis-response,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,208,0
+article,/blogs/news/history-of-cannabis-persecutions-in-canada,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,8,0
+article,/blogs/news/the-origins-of-the-metal-smoking-pipe,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,35,3517,,retire-404,,,,9,411,400,0
+article,/blogs/news/the-pros-and-cons-of-metal-smoking-pipes,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,34,6919,,retire-404,,,,6,609,2073,1
+article,/blogs/news/how-to-choose-the-best-rolling-tray,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,62,0
+article,/blogs/news/a-beginners-guide-to-pipes,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,28,,retire-404,,,,0,4,33,0
+article,/blogs/news/the-brockton-versus-the-proto-pipe,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,76,1991,,retire-404,,,,14,191,2043,10
+article,/blogs/news/celebrating-craft-cannabis-with-lowell-farms-origin-collection,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,33,0
+article,/blogs/news/the-brockton-versus-the-journey-pipe,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,31,863,,retire-404,,,,6,105,671,1
+article,/blogs/news/why-metal-pipes-are-better-than-glass-pipes,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,4,1288,,retire-404,,,,0,80,552,1
+article,/blogs/news/4-reasons-to-love-clippers-lighters,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,12,2312,,retire-404,,,,1,226,1466,0
+article,/blogs/news/how-to-clean-a-weed-pipe,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,2,2410,,retire-404,,,,0,85,1459,0
+article,/blogs/news/what-is-grasscity,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,218,0
+article,/blogs/news/5-tips-to-find-the-perfect-pot-pipe,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,34,0
+article,/blogs/news/why-you-should-try-king-palm,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,4,4239,,retire-404,,,,0,301,571,0
+article,/blogs/news/10-classic-smoking-pipe-types,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,3295,0
+article,/blogs/news/the-pot-leaf-in-history,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,86,0
+article,/blogs/news/how-to-clean-a-metal-one-hitter,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,1,2381,,retire-404,,,,0,224,1476,0
+article,/blogs/news/does-smoking-more-get-you-higher,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,326,35291,,retire-404,,,,27,4091,11500,0
+article,/blogs/news/recreational-cannabis-and-canna-provisions,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,21,0
+article,/blogs/news/how-to-choose-the-best-pipe-tobacco,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,5,4406,,retire-404,,,,0,799,1968,0
+article,/blogs/news/cannabis-myths-does-thc-indicate-the-strength-of-a-cannabis-strain,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,82,,retire-404,,,,0,7,182,0
+article,/blogs/news/whats-to-come-for-canadian-cannabis,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,2,,retire-404,,,,0,0,5,0
+article,/blogs/news/why-you-should-try-metal-weed-pipes,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,7,1030,,retire-404,,,,0,194,1314,9
+article,/blogs/news/what-are-the-differences-between-cbda-cbg,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,13,3544,,retire-404,,,,1,719,477,0
+article,/blogs/news/five-cannabis-cookbooks-to-try-this-fall,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,1,149,,retire-404,,,,1,38,25,0
+article,/blogs/news/3-benefits-of-a-smoking-pipe-with-a-lid,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,78,4391,,retire-404,,,,10,456,2310,3
+article,/blogs/news/room-to-grow-in-the-canadian-cannabis-industry,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,9,0
+article,/blogs/news/4-easy-holiday-gifts-for-the-stoner-in-your-life,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,19,0
+article,/blogs/news/the-bright-history-of-brass,brand,Keep; update for jewelry chapter,,4,2240,,keep-update,,"agent (D-28), pending owner",2026-11-27,1,393,525,0
+article,/blogs/news/what-made-cannabis-essential-in-2020,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,25,,retire-404,,,,0,2,7,0
+article,/blogs/news/cannabis-in-film-history,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,138,0
+article,/blogs/news/4-reasons-to-keep-cbd-legal,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,3,,retire-404,,,,0,0,14,0
+article,/blogs/news/cannabis-helps-prevent-covid-19-infections,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry. Contains health/safety claims: review or retire regardless,,0,0,,retire-404,,,,0,0,15,0
+article,/blogs/news/cannabis-and-your-pet,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry. Contains health/safety claims: review or retire regardless,,0,8,,retire-404,,,,0,1,12,0
+article,/blogs/news/how-to-pick-the-best-pipe-for-you,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,559,,retire-404,,,,0,130,155,0
+article,/blogs/news/the-parkdale-brass-story,brand,Keep; update for jewelry chapter,,0,0,,owner-decision,/pages/our-story,,,0,0,24,0
+article,/blogs/news/how-to-roll-a-joint,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,646,,retire-404,,,,0,153,75,0
+article,/blogs/news/how-to-roll-a-blunt,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,2337,,retire-404,,,,0,305,234,0
+article,/blogs/news/the-ancient-history-of-hemp,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,1859,0
+article,/blogs/news/cannabis-and-sustainability,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,40,0
+article,/blogs/news/smoking-legends-who-invented-the-proto-pipe,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,20,4576,,retire-404,,,,4,375,678,2
+article,/blogs/news/how-to-clean-a-santa-cruz-shredder,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,293,10673,,retire-404,,,,33,1830,6609,0
+article,/blogs/news/what-are-the-parts-of-a-pipe,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,19,3626,,retire-404,,,,1,243,947,0
+article,/blogs/news/how-to-use-pipe-screens,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,54,11919,,retire-404,,,,7,1482,4056,0
+article,/blogs/news/slow-smoking-with-brass-pipes,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,124,16781,,retire-404,,,,18,2674,2169,2
+article,/blogs/news/indulge-in-cannabis-vodka-this-summer,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,880,,retire-404,,,,0,132,447,0
+article,/blogs/news/3-benefits-of-cbd-skincare,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,42,0
+article,/blogs/news/will-cannabis-lounges-come-to-canada,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,52,,retire-404,,,,0,22,308,0
+article,/blogs/news/national-cannabis-festivals-in-2022,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,234,0
+article,/blogs/news/does-weed-have-calories,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,5,14729,,retire-404,,,,0,571,6543,0
+article,/blogs/news/marijuana-and-vitamin-c,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,48,18292,,retire-404,,,,7,1048,19612,0
+article,/blogs/news/what-is-weed-aesthetic,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,581,0
+article,/blogs/news/how-long-does-weed-stay-good,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,69,11529,,retire-404,,,,0,1229,4901,1
+article,/blogs/news/pipe-vs-bong-for-smoking-weed,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,4,1904,,retire-404,,,,0,83,26715,1
+article,/blogs/news/how-to-inhale-weed,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,853,,retire-404,,,,0,192,1349,0
+article,/blogs/news/can-you-donate-plasma-if-you-smoke-weed,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,2403,,retire-404,,,,0,228,30687,0
+article,/blogs/news/how-to-recover-from-edibles,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,2,2324,,retire-404,,,,0,288,6341,0
+article,/blogs/news/best-things-to-do-when-high,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,272,,retire-404,,,,0,0,45,0
+article,/blogs/news/how-to-roll-a-rose-blunt,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,3,3684,,retire-404,,,,0,158,488,0
+article,/blogs/news/all-you-need-to-know-about-taking-a-tolerance-break-from-weed,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,9,3106,,retire-404,,,,1,426,7124,0
+article,/blogs/news/the-science-behind-why-weed-makes-you-hungry,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,3,3740,,retire-404,,,,1,531,6005,0
+article,/blogs/news/when-to-stop-smoking-weed-while-pregnant,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry. Contains health/safety claims: review or retire regardless,,9,2357,,retire-404,,,,0,357,11732,0
+article,/blogs/news/how-to-smoke-shatter,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,30,8608,,retire-404,,,,0,259,9797,0
+article,/blogs/news/5-ways-to-get-higher-from-weed,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,21,3514,,retire-404,,,,1,833,13178,0
+article,/blogs/news/is-marijuana-a-depressant-how-it-impacts-the-brain,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,134,0
+article,/blogs/news/how-to-dose-cannabis-properly-in-all-forms,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,59,0
+article,/blogs/news/edibles-vs-smoking,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,853,,retire-404,,,,0,61,1758,0
+article,/blogs/news/let-s-talk-about-kief-and-how-awesome-it-is,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,245,0
+article,/blogs/news/cbd-vs-thc-is-one-better-for-you-than-the-other,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,12790,,retire-404,,,,0,1057,257,0
+article,/blogs/news/how-to-come-down-from-a-high,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,58,0
+article,/blogs/news/how-long-does-cannabis-stay-good,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,13,0
+article,/blogs/news/cannabis-and-sex-does-weed-make-you-horny,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,13,6897,,retire-404,,,,3,628,1033,0
+article,/blogs/news/why-is-a-proto-pipe-so-expensive-a-deep-dive-into-the-cannabis-accessories-industry,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,49,3142,,retire-404,,,,3,108,306,0
+article,/blogs/news/the-rise-and-fall-of-the-proto-pipe-a-cannabis-legend,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,6,1652,,retire-404,,,,0,36,204,0
+article,/blogs/news/slow-smoking-on-the-go-with-the-bellwoods,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,18,0
+article,/blogs/news/fathers-day-24,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,Admin 2026-11-27: suffix instant-1DKpbqr14n7lJI3A; empty body,0,0,,retire-404 (done: Hidden (G-12); no redirect (D-16)),None (404),Owner (chat 2026-11-27),2026-11-27,0,0,21,0
+article,/blogs/news/revive-your-smoking-ritual,legacy-smoking,Owner decision: keep as unlinked archive or retire (404); never redirect to jewelry,,0,0,,retire-404,,,,0,0,12,0
+article,/blogs/news/brass-jewelry,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: is-brass-good / mens) pending Search Console,is-brass-good / mens,21,2549,,keep-update,,"agent (D-28), pending owner",2026-11-27,2,489,59,0
+article,/blogs/news/does-brass-tarnish,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: tarnish) pending Search Console,tarnish,137,121081,,keep-update,,"agent (D-28), pending owner",2026-11-27,24,12846,272,0
+article,/blogs/news/does-brass-turn-your-skin-green,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: green-skin) pending Search Console,green-skin,166,96681,,keep-update,,"agent (D-28), pending owner",2026-11-27,22,10663,400,0
+article,/blogs/news/does-brass-turn-green,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: green-skin) pending Search Console,green-skin,217,82798,,keep-update,,"agent (D-28), pending owner",2026-11-27,30,7709,483,0
+article,/blogs/news/does-brass-jewelry-tarnish,jewelry,"Keep URL; accuracy review; consolidation candidate (cluster: tarnish) pending Search Console. Says ""generally hypoallergenic""; fix",tarnish,166,86578,,owner-decision,/blogs/news/does-brass-tarnish,,,5,4300,433,0
+article,/blogs/news/brass-necklace,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: standalone) pending Search Console,standalone,2,1158,,keep-update,,"agent (D-28), pending owner",2026-11-27,0,50,16,0
+article,/blogs/news/how-to-clean-brass-jewelry,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: cleaning-care) pending Search Console,cleaning-care,9,13008,,keep-update,,"agent (D-28), pending owner",2026-11-27,2,845,51,0
+article,/blogs/news/brass-jewelry-tarnish,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: tarnish) pending Search Console,tarnish,0,57,,consolidate-301,/blogs/news/does-brass-tarnish,,,0,0,15,0
+article,/blogs/news/is-brass-good-for-jewelry,jewelry,"Keep URL; accuracy review; consolidation candidate (cluster: is-brass-good / mens) pending Search Console. Says brass is ""generally hypoallergenic"" (contradicts other articles); fix",is-brass-good / mens,10,18378,,keep-update,,"agent (D-28), pending owner",2026-11-27,1,2952,104,0
+article,/blogs/news/is-brass-jewelry-good,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: is-brass-good / mens) pending Search Console,is-brass-good / mens,10,4672,,consolidate-301,/blogs/news/is-brass-good-for-jewelry,,,2,417,54,0
+article,/blogs/news/does-brass-jewelry-turn-green,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: green-skin) pending Search Console,green-skin,188,103850,,owner-decision,/blogs/news/does-brass-turn-green,,,24,6781,336,0
+article,/blogs/news/why-your-brass-jewelry-needs-polishing,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: cleaning-care) pending Search Console,cleaning-care,0,0,,consolidate-301,/blogs/news/how-to-clean-brass-jewelry,,,0,0,15,0
+article,/blogs/news/does-brass-jewelry-turn-skin-green,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: green-skin) pending Search Console,green-skin,7,12858,,consolidate-301,/blogs/news/does-brass-turn-your-skin-green,,,0,861,156,0
+article,/blogs/news/brass-mens-jewelry,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: is-brass-good / mens) pending Search Console,is-brass-good / mens,14,1966,,consolidate-301,/blogs/news/brass-jewelry,,,3,167,34,0
+article,/blogs/news/why-cleaning-brass-jewelry-matters,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: cleaning-care) pending Search Console,cleaning-care,0,1048,,consolidate-301,/blogs/news/how-to-clean-brass-jewelry,,,0,6,28,0
+article,/blogs/news/what-is-brass-made-of,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: material) pending Search Console,material,69,57076,,keep-update,,"agent (D-28), pending owner",2026-11-27,6,4238,183,0
+article,/blogs/news/is-brass-jewelry-waterproof,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: standalone) pending Search Console,standalone,405,82609,,keep-update,,"agent (D-28), pending owner",2026-11-27,50,11055,673,0
+article,/blogs/news/why-cleaning-your-brass-jewelry-is-essential,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: cleaning-care) pending Search Console,cleaning-care,0,265,,consolidate-301,/blogs/news/how-to-clean-brass-jewelry,,,0,0,28,0
+article,/blogs/news/brass-vs-gold-jewelry-choosing-right-metal,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: comparisons) pending Search Console,comparisons,65,28687,,keep-update,,"agent (D-28), pending owner",2026-11-27,10,2555,190,0
+article,/blogs/news/will-brass-jewelry-tarnish,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: tarnish) pending Search Console,tarnish,11,9961,,consolidate-301,/blogs/news/does-brass-tarnish,,,0,568,40,0
+article,/blogs/news/importance-right-brass-cleaner,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: cleaning-care) pending Search Console,cleaning-care,0,18,,consolidate-301,/blogs/news/how-to-clean-brass-jewelry,,,0,1,11,0
+article,/blogs/news/is-brass-good-metal-for-mens-jewelry,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: is-brass-good / mens) pending Search Console,is-brass-good / mens,15,8162,,owner-decision,/blogs/news/is-brass-good-for-jewelry,,,1,535,82,0
+article,/blogs/news/brass-tarnish-jewelry-changes-color,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: tarnish) pending Search Console,tarnish,9,2572,,consolidate-301,/blogs/news/does-brass-tarnish,,,0,0,77,0
+article,/blogs/news/gold-plated-brass-jewelry,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: comparisons) pending Search Console,comparisons,153,49142,,keep-update,,"agent (D-28), pending owner",2026-11-27,18,4703,404,0
+article,/blogs/news/mens-brass-jewelry-durability,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: is-brass-good / mens) pending Search Console,is-brass-good / mens,36,15706,,keep-update,,"agent (D-28), pending owner",2026-11-27,6,2103,103,0
+article,/blogs/news/brass-jewelry-box-collection,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: standalone) pending Search Console,standalone,0,0,,keep-update,,"agent (D-28), pending owner",2026-11-27,0,0,18,0
+article,/blogs/news/importance-cleaning-brass-jewelry,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: cleaning-care) pending Search Console,cleaning-care,2,2299,,consolidate-301,/blogs/news/how-to-clean-brass-jewelry,,,0,150,30,0
+article,/blogs/news/brass-vs-bronze-jewelry-guide,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: comparisons) pending Search Console,comparisons,182,22961,,keep-update,,"agent (D-28), pending owner",2026-11-27,27,2537,266,0
+article,/blogs/news/why-choose-brass-cz-jewelry,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: comparisons) pending Search Console,comparisons,13,4229,,keep-update,,"agent (D-28), pending owner",2026-11-27,5,1088,46,0
+article,/blogs/news/what-is-brass-jewelry-metal,jewelry,Keep URL; accuracy review; consolidation candidate (cluster: material) pending Search Console,material,32,21812,,owner-decision,/blogs/news/what-is-brass-made-of,,,1,3226,211,0
+other,(not set),core,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep,,"agent (D-28), pending owner",2026-11-27,0,0,1448,0
+system,/checkouts/* and /<shop-id>/orders|checkouts/* (system),core,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep,,"agent (D-28), pending owner",2026-11-27,0,0,425,9
+core,/cart,core,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep,,"agent (D-28), pending owner",2026-11-27,0,0,104,2
+policy,/policies/refund-policy,legal/support,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,10,,keep-update,,"agent (D-28), pending owner",2026-11-27,0,10,82,0
+product,/products/aerospaced-by-higher-standards-4-piece-grinder-2-5,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,,,0,0,80,1
+policy,/policies/terms-of-service,legal/support,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,43,,keep-update,,"agent (D-28), pending owner",2026-11-27,0,27,67,0
+core,/404,core,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep,,"agent (D-28), pending owner",2026-11-27,0,0,65,0
+account,/account/login,core,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep,,"agent (D-28), pending owner",2026-11-27,0,0,65,0
+policy,/policies/privacy-policy,legal/support,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep-update,,"agent (D-28), pending owner",2026-11-27,0,0,65,0
+policy,/policies/shipping-policy,legal/support,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep-update,,"agent (D-28), pending owner",2026-11-27,0,0,62,0
+product,/products/higher-standards-iso-pure-16-oz,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,40,0
+product,/products/santa-cruz-shredder-2-piece-grinder-2,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,,,0,0,36,0
+core,/collections,core,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",8,309,,keep,,"agent (D-28), pending owner",2026-11-27,1,67,30,0
+product,/products/eyce-silicone-cleaner,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,29,0
+product,/products/marley-natural-black-walnut-rolling-tray,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,29,1
+product,/products/vibes-2-piece-grinder,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,27,0
+product,/products/evak-glass-container,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,23,1
+product,/products/magic-flight-launch-box-cleaning-brush,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,16,0
+product,/products/zippo-1941-replica,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,15,0
+product,/products/higher-standards-dot-wipes-box-of-30,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,14,0
+core,/search,core,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep,,"agent (D-28), pending owner",2026-11-27,0,0,12,0
+product,/products/higher-standards-large-match-bottle,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,10,0
+product,/products/organic-hemp-wicks,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,10,0
+product,/products/short-sleeve-unisex-t-shirt-7,brand-merch,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,10,0
+page,/pages/the-brockton-in-action,legacy/internal,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,,,0,0,8,0
+product,/products/revelry-apron,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,8,0
+account,/account/register,core,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep,,"agent (D-28), pending owner",2026-11-27,0,0,6,0
+product,/products/dad-hat,brand-merch,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,owner-decision,,,,0,0,6,0
+product,/products/short-sleeve-unisex-t-shirt-1,brand-merch,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,6,0
+product,/products/short-sleeve-unisex-t-shirt-3,brand-merch,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,6,0
+account,/account,core,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep,,"agent (D-28), pending owner",2026-11-27,0,0,5,1
+page,/pages/sitemap,legacy/internal,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,,,0,0,5,0
+core,/password,core,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep,,"agent (D-28), pending owner",2026-11-27,0,0,5,0
+product,/products/short-sleeve-unisex-t-shirt,brand-merch,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,5,0
+product,/products/short-sleeve-unisex-t-shirt-6,brand-merch,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,5,0
+product,/products/short-sleeve-unisex-t-shirt-8,brand-merch,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,5,0
+other,/about,core,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,consolidate-301,/pages/our-story,"agent (D-28), pending owner",2026-11-27,0,0,4,0
+core,/blogs,core,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,consolidate-301,/blogs/news/tagged/journal,"agent (D-28), pending owner",2026-11-27,0,0,4,0
+page,/pages/smokes-from-the-bottom,legacy/internal,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,,,0,0,4,0
+product,/products/boveda-60-gram-62-relative-humidity,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,4,0
+product,/products/short-sleeve-unisex-t-shirt-9,brand-merch,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,4,0
+product,/products/unisex-t-shirt,brand-merch,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,4,0
+other,/category,probe,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,3,0
+other,/characters,probe,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,3,0
+other,/guide,probe,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,3,0
+other,/news,probe,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,3,0
+page,/pages/store-locator,legacy/internal,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,,,0,0,3,0
+product,/products/short-sleeve-unisex-t-shirt-2,brand-merch,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,3,0
+other,/world,probe,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,3,0
+other,/about-us,core,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,consolidate-301,/pages/our-story,"agent (D-28), pending owner",2026-11-27,0,0,2,0
+account,/account/invalid_token,core,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep,,"agent (D-28), pending owner",2026-11-27,0,0,2,0
+blog-tag,/blogs/news/tagged/cannabis,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep-unlinked-archive,,"agent (D-28), pending owner",2026-11-27,0,0,2,0
+blog-tag,/blogs/news/tagged/pipe-care,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep-unlinked-archive,,"agent (D-28), pending owner",2026-11-27,0,0,2,0
+blog-tag,/blogs/news/tagged/strains,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep-unlinked-archive,,"agent (D-28), pending owner",2026-11-27,0,0,2,0
+other,/challenge,probe,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,2,0
+collection,/collections/vendors,core,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep,,"agent (D-28), pending owner",2026-11-27,0,0,2,0
+other,/lore,probe,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,2,0
+page,/pages/follow-us-on-instagram-parkdale_brass,legacy/internal,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,,,0,0,2,0
+page,/pages/our-story,brand,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep-update,,"agent (D-28), pending owner",2026-11-27,0,0,2,0
+page,/pages/protective-magnetic-lid,legacy/internal,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,,,0,0,2,0
+article,/blogs/news/brass-jewelry-for-men-ultimate-guide-style-care-timeless-appeal,jewelry,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,consolidate-301,/blogs/news/brass-jewelry,"agent (D-28), pending owner",2026-11-27,0,0,1,0
+article,/blogs/news/placeholder-url-internal,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,1,0
+blog-tag,/blogs/news/tagged/brockton,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep-unlinked-archive,,"agent (D-28), pending owner",2026-11-27,0,0,1,0
+blog-tag,/blogs/news/tagged/canada,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep-unlinked-archive,,"agent (D-28), pending owner",2026-11-27,0,0,1,0
+blog-tag,/blogs/news/tagged/cannabis-accessories,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep-unlinked-archive,,"agent (D-28), pending owner",2026-11-27,0,0,1,0
+blog-tag,/blogs/news/tagged/community,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep-unlinked-archive,,"agent (D-28), pending owner",2026-11-27,0,0,1,0
+blog-tag,/blogs/news/tagged/guest-post,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep-unlinked-archive,,"agent (D-28), pending owner",2026-11-27,0,0,1,0
+blog-tag,/blogs/news/tagged/journal,jewelry,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep,,"agent (D-28), pending owner",2026-11-27,0,0,1,0
+blog-tag,/blogs/news/tagged/pipes,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep-unlinked-archive,,"agent (D-28), pending owner",2026-11-27,0,0,1,0
+blog-tag,/blogs/news/tagged/review,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,keep-unlinked-archive,,"agent (D-28), pending owner",2026-11-27,0,0,1,0
+article,/blogs/news/ultimate-guide-mens-brass-jewelry-style-care-comeback,jewelry,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,consolidate-301,/blogs/news/brass-jewelry,"agent (D-28), pending owner",2026-11-27,0,0,1,0
+article,/blogs/news/zg9lcy1icm,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,1,0
+other,/faq,probe,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,1,0
+other,/our-story,core,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,consolidate-301,/pages/our-story,"agent (D-28), pending owner",2026-11-27,0,0,1,0
+core,/pages,core,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,1,0
+page,/pages/contests,legacy/internal,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,,,0,0,1,0
+page,/pages/page,legacy/internal,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,1,0
+page,/pages/parkdale,legacy/internal,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,,,0,0,1,0
+page,/pages/sca-affiliate-empty-page,legacy/internal,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,,,0,0,1,0
+other,/store,probe,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,0,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,1,0
+article,/blogs/news/brass-vs-bronze-jewelry,jewelry,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,1,,consolidate-301,/blogs/news/brass-vs-bronze-jewelry-guide,"agent (D-28), pending owner",2026-11-27,0,1,0,0
+article,/blogs/news/does-brass-jewelry-turn-your-skin-green,jewelry,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,10,,consolidate-301,/blogs/news/does-brass-turn-your-skin-green,"agent (D-28), pending owner",2026-11-27,0,1,0,0
+article,/blogs/news/does-brass-turn-your-jewelry-green,jewelry,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,1,,consolidate-301,/blogs/news/does-brass-turn-green,"agent (D-28), pending owner",2026-11-27,0,1,0,0
+article,/blogs/news/does-brass-turned-green,jewelry,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,1,,consolidate-301,/blogs/news/does-brass-turn-green,"agent (D-28), pending owner",2026-11-27,0,1,0,0
+article,/blogs/news/does-green-stain-from-brass-harmful,jewelry,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,1,,consolidate-301,/blogs/news/does-brass-turn-your-skin-green,"agent (D-28), pending owner",2026-11-27,0,1,0,0
+article,/blogs/news/how-to-clean-a-metal-smoking-pipe-beginner-s-guide,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,1,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,1,0,0
+article,/blogs/news/how-to-clean-a-metal-smoking-pipe-beginner-s-guide-parkdale-brass,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,1,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,1,0,0
+article,/blogs/news/how-to-smoking-pipe,legacy-smoking,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,1,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,1,0,0
+article,/blogs/news/what-exactly-is-gold-plated-brass-jewelry,jewelry,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,7,,consolidate-301,/blogs/news/gold-plated-brass-jewelry,"agent (D-28), pending owner",2026-11-27,0,1,0,0
+article,/blogs/news/what-is-jewely-metal,jewelry,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,1,,consolidate-301,/blogs/news/what-is-brass-made-of,"agent (D-28), pending owner",2026-11-27,0,1,0,0
+article,/blogs/news/why-does-brass-jewelry-turn-green-the-science-explained,jewelry,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,1,,consolidate-301,/blogs/news/does-brass-turn-green,"agent (D-28), pending owner",2026-11-27,0,1,0,0
+article,/blogs/news/why-does-brass-turn-green,jewelry,,"Added 2026-11-28: landing path in the traffic data, not in the original inventory",0,1,,consolidate-301,/blogs/news/does-brass-turn-green,"agent (D-28), pending owner",2026-11-27,0,1,0,0
+product,/products/the-brockton,legacy-smoking,,Added 2026-11-28: existing redirect /products/the-brockton -> /products/brockton-mk2 (redirects.csv),0,0,,consolidate-301,/products/the-brockton-signet,"agent (D-28), pending owner",2026-11-27,0,0,0,0
+product,/products/brockton,legacy-smoking,,Added 2026-11-28: existing redirect /products/brockton -> /products/brockton-mk2 (redirects.csv),0,0,,consolidate-301,/products/the-brockton-signet,"agent (D-28), pending owner",2026-11-27,0,0,0,0
+product,/collections/shop/products/the-brockton,legacy-smoking,,Added 2026-11-28: existing redirect /collections/shop/products/the-brockton -> /collections/shop/products/brockton-mk2 (redirects.csv),0,0,,consolidate-301,/products/the-brockton-signet,"agent (D-28), pending owner",2026-11-27,0,0,0,0
+product,/products/copy-of-the-brockton-mk2-special-edition,legacy-smoking,,Added 2026-11-28: existing redirect /products/copy-of-the-brockton-mk2-special-edition -> /products/brockton-mk2-special-edition (redirects.csv),0,0,,consolidate-301,/products/the-brockton-signet,"agent (D-28), pending owner",2026-11-27,0,0,0,0
+product,/collections/grinders/products/santa-cruz-shredder-2-piece-grinder-2,legacy-smoking,,Added 2026-11-28: existing redirect /collections/grinders/products/santa-cruz-shredder-2-piece-grinder-2 -> / (redirects.csv),0,0,,retire-404,,,,0,0,0,0
+product,/products/dark-fire-cigar-spills,legacy-smoking,,Added 2026-11-28: existing redirect /products/dark-fire-cigar-spills -> / (redirects.csv),0,0,,retire-404,,,,0,0,0,0
+product,/collections/coming-soon/products/dark-fire-cigar-spills,legacy-smoking,,Added 2026-11-28: existing redirect /collections/coming-soon/products/dark-fire-cigar-spills -> / (redirects.csv),0,0,,retire-404,,,,0,0,0,0
+page,/pages/stocklist,legacy/internal,,Added 2026-11-28: existing redirect /pages/stocklist -> / (redirects.csv),0,0,,retire-404,,,,0,0,0,0
+page,/en-us/pages/stocklist,legacy/internal,,Added 2026-11-28: existing redirect /en-us/pages/stocklist -> / (redirects.csv),0,0,,retire-404,,,,0,0,0,0
+article,/blogs/news/blog-post,legacy-smoking,,Added 2026-11-28: existing redirect /blogs/news/blog-post -> /blogs/news/fathers-day-24 (redirects.csv),0,0,,retire-404,,,,0,0,0,0
+article,/blogs/mens-jewelry-durability,jewelry,,Added 2026-11-28: path in the 16-month Search Console export or live checks,0,2,,consolidate-301,/blogs/news/mens-brass-jewelry-durability,"agent (D-28), pending owner",2026-11-27,0,0,0,0
+article,/blogs/jewelry-stories/does-brass-jewelry-tarnish,jewelry,,Added 2026-11-28: path in the 16-month Search Console export or live checks,0,1,,consolidate-301,/blogs/news/does-brass-tarnish,,,0,0,0,0
+cdn-file,/cdn/shop/articles/* (article images),legacy-smoking,,Added 2026-11-28: CDN image files in the 16-month Search Console Pages export (not storefront pages),0,46,,keep,,"agent (D-28), pending owner",2026-11-27,0,0,0,0
+article,/blogs/news/the-straight-answer-will-brass-jewelry-tarnish,jewelry,,Added 2026-11-28: dead article handle found only in the 16-month Search Console Pages export,0,7,,consolidate-301,/blogs/news/does-brass-tarnish,,,0,0,0,0
+article,/blogs/news/what-is-gold-plated-brass-jewelry,jewelry,,Added 2026-11-28: dead article handle found only in the 16-month Search Console Pages export,0,7,,consolidate-301,/blogs/news/gold-plated-brass-jewelry,"agent (D-28), pending owner",2026-11-27,0,0,0,0
+article,/blogs/news/what-is-brass-of-made-of,jewelry,,Added 2026-11-28: dead article handle found only in the 16-month Search Console Pages export,0,2,,consolidate-301,/blogs/news/what-is-brass-made-of,"agent (D-28), pending owner",2026-11-27,0,0,0,0
+article,/blogs/news/does-brass-green,jewelry,,Added 2026-11-28: dead article handle found only in the 16-month Search Console Pages export,0,1,,consolidate-301,/blogs/news/does-brass-turn-green,"agent (D-28), pending owner",2026-11-27,0,0,0,0
+article,/blogs/news/does-brass-turn-skin-green,jewelry,,Added 2026-11-28: dead article handle found only in the 16-month Search Console Pages export,0,1,,consolidate-301,/blogs/news/does-brass-turn-your-skin-green,"agent (D-28), pending owner",2026-11-27,0,0,0,0
+article,/blogs/news/understanding-the-metal,jewelry,,Added 2026-11-28: dead article handle found only in the 16-month Search Console Pages export,0,1,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,0,0
+article,/blogs/news/is-brass-jewelry-safe,jewelry,,Added 2026-11-28: dead article handle found only in the 16-month Search Console Pages export,0,8,,retire-404,,"agent (D-28), pending owner",2026-11-27,0,0,0,0
