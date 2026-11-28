@@ -135,14 +135,15 @@ The existing `main-menu` and `footer` menus are **not edited**. They stay as the
 
 ### URL inventory
 
-The full public inventory (167 URLs, each classified with a proposed first action) is in [`url-inventory.csv`](url-inventory.csv). Fill in its Search Console columns, then the final action, destination and approver per row. The table below covers the key rows.
+The full public inventory (279 URLs since 2026-11-28: the 167 originals plus 112 from the traffic data) is in [`url-inventory.csv`](url-inventory.csv), with its Search Console and Shopify numbers, final action, destination and approver per row; the owner decided the open rows on 2026-11-28 (D-69, [`search-traffic.md`](search-traffic.md) §6). The table below covers the key rows.
 
 | URL | Action | Destination / note | Approval |
 | --- | --- | --- | --- |
 | `/` | Replace content at launch | n/a | Required |
 | `/collections/all` | Keep (Shopify default) | Legacy items leave it once unpublished. Menus link to `/collections/jewelry`. | Required |
 | `/blogs/news` | Keep | Journal | n/a |
-| `/blogs/news/what-is-brass-jewelry-metal` | Keep and update | Accuracy review; link to Why Brass and the collection | Required |
+| `/blogs/news/what-is-brass-jewelry-metal` | Merge and 301 (amended 2026-11-28, OD-12, D-69) | Merge its content into `/blogs/news/what-is-brass-made-of` at the E-07 rewrite (launch step 7), hide it (never delete), then 301 to that article. 16-month clicks: 69 for what-is-brass-made-of against 32. | Approved (owner, D-69) |
+| `/blogs/news/what-is-brass-made-of` | Keep and update | The material canonical: accuracy review; link to Why Brass and the collection | Approved (owner, D-69) |
 | `/blogs/news/gold-plated-brass-jewelry` | Keep and update | Clearly separate plating from actual product finishes | Required |
 | `/products/brockton-mk2` | Decide after traffic, backlink and support audit | Options: keep unpublished (404), or 301 only to a genuinely relevant page (e.g. a legacy support page). **Not to the homepage.** | Required |
 | `/products/the-bellwoods-one-hitter` | Same as above | Same as above | Required |
